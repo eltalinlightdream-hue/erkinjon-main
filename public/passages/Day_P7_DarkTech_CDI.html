@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IELTS CDI - The Dark Side of the Technological Boom</title>
+<style>
+:root{--bg-color:#f4f5ef;--text-color:#1a1a2e;--passage-bg:#fff;--questions-bg:#f9fafb;--border-color:#d1d5db;--highlight-color:#2563eb;--header-bg:#fff;--button-hover:#e5e7eb;--progress-complete:#16a34a;--timer-text:#1a1a2e;--footer-bg:#fff;--cdi-font-size:16px;--cdi-line-height:1.5;--part-bar-bg:rgb(241,242,236);--part-bar-text:#374151;--select-bg:#fff;--input-bg:#fff;--modal-bg:#fff;--badge-bg:#eff6ff;--badge-border:#2563eb;--badge-answered:#dcfce7;--pill-bg:#f3f4f6;--pill-border:#d1d5db;--pill-checked:#dbeafe;--pill-checked-border:#2563eb;}
+.dark{--bg-color:#0f172a;--text-color:#e2e8f0;--passage-bg:#1e293b;--questions-bg:#1a2744;--border-color:#334155;--highlight-color:#60a5fa;--header-bg:#1e293b;--button-hover:#334155;--progress-complete:#22c55e;--timer-text:#e2e8f0;--footer-bg:#1e293b;--part-bar-bg:#1f2b47;--part-bar-text:#cbd5e1;--select-bg:#1e293b;--input-bg:#1e293b;--modal-bg:#1e293b;--badge-bg:#1e3a5f;--badge-border:#60a5fa;--badge-answered:#14532d;--pill-bg:#1e293b;--pill-border:#475569;--pill-checked:#1e3a5f;--pill-checked-border:#60a5fa;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,serif;background:var(--bg-color);color:var(--text-color);transition:background .3s,color .3s;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+#hdr{position:sticky;top:0;z-index:100;background:var(--header-bg);border-bottom:2px solid var(--border-color);padding:8px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+#logo{font-family:"Arial Black",sans-serif;font-size:28px;color:#cc0000;font-weight:900;flex-shrink:0;}
+#hc{flex:1;display:flex;justify-content:center;}
+.tg-btn{background:#2563eb;color:#fff;border:none;border-radius:999px;padding:6px 18px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;}
+.tg-btn:hover{background:#1d4ed8;}
+#hrr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+#timerEl{font-family:"Courier New",monospace;font-size:20px;font-weight:700;color:var(--timer-text);min-width:65px;}
+.hb{background:var(--button-hover);border:1px solid var(--border-color);color:var(--text-color);border-radius:6px;padding:5px 10px;font-size:13px;cursor:pointer;}
+.hb:hover{background:var(--highlight-color);color:#fff;}
+#dpanel{position:fixed;top:60px;right:0;width:240px;background:var(--header-bg);border-left:2px solid var(--border-color);border-bottom:2px solid var(--border-color);z-index:99;padding:14px;display:none;border-radius:0 0 0 10px;}
+#dpanel.open{display:block;}
+#dpanel label{font-size:13px;font-weight:700;display:block;margin-bottom:4px;margin-top:10px;}
+#dpanel input[type=range]{width:100%;}
+.tbs{display:flex;gap:8px;margin-top:10px;}
+.tb{flex:1;padding:7px;border:1px solid var(--border-color);border-radius:6px;cursor:pointer;font-size:13px;}
+#tl{background:#f9fafb;color:#111;}#tk{background:#1e293b;color:#e2e8f0;}
+#pbar{background:var(--part-bar-bg);color:var(--part-bar-text);padding:8px 16px;font-size:13px;font-weight:700;border-bottom:1px solid var(--border-color);display:flex;align-items:center;gap:10px;}
+#main{display:flex;height:calc(100vh - 148px);overflow:hidden;}
+#panP{flex:1;overflow-y:auto;padding:24px 28px 80px;background:var(--passage-bg);}
+#resz{width:8px;background:var(--border-color);cursor:col-resize;display:flex;align-items:center;justify-content:center;font-size:16px;color:#888;user-select:none;flex-shrink:0;}
+#resz:hover{background:var(--highlight-color);color:#fff;}
+#panQ{flex:1;overflow-y:auto;padding:24px 28px 80px;background:var(--questions-bg);}
+.pp{margin-bottom:1em;}
+.qblock{margin-bottom:18px;padding:14px;border:1px solid var(--border-color);border-radius:8px;background:var(--passage-bg);}
+.qbadge{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;border:2px solid var(--badge-border);background:var(--badge-bg);border-radius:4px;font-weight:700;font-size:11px;color:var(--highlight-color);margin-right:8px;flex-shrink:0;padding:0 3px;}
+.qbadge.answered{background:var(--badge-answered);}
+.qtext{font-size:14px;margin-bottom:8px;display:flex;align-items:flex-start;gap:4px;line-height:1.4;}
+.pill{display:flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--pill-border);border-radius:999px;background:var(--pill-bg);margin-bottom:6px;cursor:pointer;font-size:13px;}
+.pill input{margin:0;}
+.pill:has(input:checked){background:var(--pill-checked);border-color:var(--pill-checked-border);}
+.tinput{background:var(--input-bg);color:var(--text-color);border:1px solid var(--border-color);border-radius:4px;padding:3px 8px;font-size:14px;width:200px;}
+.tinput:focus{outline:2px solid var(--highlight-color);}
+.sel{background:var(--select-bg);color:var(--text-color);border:1px solid var(--border-color);border-radius:4px;padding:4px 8px;font-size:13px;cursor:pointer;max-width:100%;}
+.secHdr{background:var(--part-bar-bg);color:var(--part-bar-text);padding:8px 12px;border-radius:6px;font-weight:700;font-size:13px;margin-bottom:12px;margin-top:16px;border-left:4px solid var(--highlight-color);}
+.fback{font-size:12px;margin-top:4px;font-weight:700;}
+.fback.correct{color:#16a34a;}.fback.wrong{color:#dc2626;}
+.hl{border-radius:2px;padding:0 2px;}
+.hl-green{background:#bbf7d0;}.hl-yellow{background:#fef08a;}.hl-blue{background:#bfdbfe;}.hl-pink{background:#fbcfe8;}
+#cpick{position:fixed;z-index:200;background:#fff;border:1px solid #ccc;border-radius:8px;padding:6px 10px;display:none;gap:8px;align-items:center;box-shadow:0 4px 16px rgba(0,0,0,.15);}
+#cpick button{width:22px;height:22px;border:2px solid #ccc;border-radius:4px;cursor:pointer;}
+#rhl{font-size:12px;padding:2px 8px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;}
+#foot{position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);border-top:2px solid var(--border-color);padding:8px 16px;z-index:100;}
+#pdots{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}
+.dot{width:22px;height:22px;border-radius:3px;border:1px solid var(--border-color);background:var(--pill-bg);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.dot.done{background:var(--progress-complete);color:#fff;border-color:var(--progress-complete);}
+#fbtns{display:flex;justify-content:flex-end;gap:8px;}
+.fbtn{padding:6px 16px;border-radius:6px;border:none;font-size:13px;font-weight:700;cursor:pointer;}
+#rbtn{background:#f3f4f6;color:#374151;border:1px solid #d1d5db;}#sbtn{background:#2563eb;color:#fff;}
+#mover{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none;align-items:center;justify-content:center;}
+.dark #mover{background:rgba(0,0,0,.7);}
+#mover.open{display:flex;}
+#modal{background:var(--modal-bg);border-radius:12px;padding:28px;max-width:560px;width:95%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.25);}
+#modal h2{font-size:22px;margin-bottom:6px;}
+.mscore{font-size:36px;font-weight:900;color:var(--highlight-color);margin-bottom:16px;}
+.mrow{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--border-color);font-size:13px;flex-wrap:wrap;}
+.mrow .qid{min-width:30px;font-weight:700;color:var(--highlight-color);}
+.verd{font-weight:700;}.verd.ok{color:#16a34a;}.verd.no{color:#dc2626;}
+#mclose{margin-top:16px;padding:8px 24px;border:none;border-radius:6px;background:#2563eb;color:#fff;font-weight:700;cursor:pointer;font-size:14px;}
+@media(max-width:900px){#main{flex-direction:column;height:auto;}#resz{display:none;}#panP,#panQ{flex:none;width:100%;height:auto;overflow-y:visible;max-height:none;}}
+</style>
+</head>
+<body>
+<div id="hdr">
+  <div id="logo">IELTS&#8482;</div>
+  <div id="hc"><a class="tg-btn" href="https://t.me/augustus_flores" target="_blank">&#9992; Abduraimov Erkinjon</a></div>
+  <div id="hrr">
+    <span id="timerEl">20:00</span>
+    <button class="hb" id="btnPlay">&#9654;</button>
+    <button class="hb" id="btnPause">&#9208;</button>
+    <button class="hb" id="btnReset">&#8634;</button>
+    <button class="hb" id="btnFS">&#x26F6;</button>
+    <button class="hb" id="btnNight">&#127769;</button>
+    <button class="hb" id="btnDisp">&#9776;</button>
+  </div>
+</div>
+<div id="dpanel">
+  <label>Text Size</label><input type="range" id="fsize" min="14" max="22" value="16">
+  <label>Line Spacing</label><input type="range" id="lspace" min="140" max="190" value="150">
+  <div class="tbs"><button class="tb" id="tl">&#9728; Light</button><button class="tb" id="tk">&#127769; Dark</button></div>
+</div>
+<div id="pbar"><span>Part 1</span><span>&#8212;</span><span>Read the text and answer questions 1-14.</span></div>
+<div id="main">
+  <div id="panP"><h2 style="font-size:18px;font-weight:700;margin-bottom:16px;">The Dark Side of the Technological Boom</h2><p class="pp">What are the effects on the individual of working in modern technological workplaces? Most of us are too busy struggling to keep pace with ongoing innovations to question the implications of our new electronic authority figures. According to a number of psychologists, however, the need to stay on top of the information flow exacts a profound toll on us as individuals.</p>
+<p class="pp">Mass exposure to technological innovations in the workplace has come too recently for psychologists to reach a consensus on its societal implications. Many agree, however, that one of the first signs of the struggle to adapt to the electronic office is often "technostress", a cognitive shift that results from an over-identification with information systems. Psychologist Craig Brod says people become accustomed to the patterns set by electronic tools - accelerated time and yes/no logic - and internalise these patterns. When they leave the office or go home, Brod says, they need complete isolation to recover from the effects of the technology.</p>
+<p class="pp">Brod warns that over-reliance on electronic tools could also have serious repercussions on our ability to think creatively and develop new ideas. Because we don't create in a vacuum, he points out, we need to avoid the temptation to replace informal gatherings for bouncing ideas off colleagues with electronic networking.</p>
+<p class="pp">Philosopher Daniel Dennett points out that modern technology eliminates the possibility of unavoidable ignorance. As the opportunity to amass information grows larger, the obligation to make accurate predictions - the right decisions - becomes more onerous. Instead of consoling ourselves that we're doing as good a job as we can, we are tormented by the knowledge that the world of information is limitless.</p>
+<p class="pp">For executives near the top of the office pyramid, the benefits of the electronic revolution may outweigh the disadvantages. But in Workplace 2000, authors Joseph Boyett and Henry Conn describe a future in which millions of people now charged with analysing information and making routine decisions will be replaced by less skilled workers using "intelligent" software. They predict that a cult of performance excellence will engulf most businesses.</p>
+<p class="pp">The millions of people on the bottom levels of electronic hierarchies are increasingly likely to spend their days in an isolated no-man's land, subservient to intelligent information systems. Because computers measure quantity over quality, such systems tend to reward employees who work faster more than those who work better. Service people on the telephone or at a cash register curtly terminate attempts at idle conversation because their performance is being electronically monitored.</p>
+<p class="pp">"I think people are going to feel an increased fragmentation of self. They won't be able to hold the pieces together," human resources consultant Philip Nicholson says. He likens the psychic numbing of electronic information overload to symptoms of post-traumatic stress syndrome (a mental disorder following a horrific event).</p>
+<p class="pp">If we are to survive the challenges of information-driven offices, says Nicholson, we need to provide psychological support systems. As no one has yet measured the social cost of the workplace revolution, some psychologists are mobilising efforts to pool information as it is derived.</p>
+<p class="pp">In addition, Brod suggests that we re-examine our value systems and make greater allowances for privacy in order to circumvent potential revolts against technology. "We need to coevolve with technology," he says. "These are wonderful tools, but if we exploit them without imposing appropriate values on their use, they become alienating and dangerous."</p></div>
+  <div id="resz">&#8596;</div>
+  <div id="panQ"></div>
+</div>
+<div id="foot">
+  <div id="pdots"></div>
+  <div id="fbtns"><button class="fbtn" id="rbtn">Reset Answers</button><button class="fbtn" id="sbtn">Submit Answers</button></div>
+</div>
+<div id="cpick">
+  <button style="background:#bbf7d0" data-color="hl-green"></button>
+  <button style="background:#fef08a" data-color="hl-yellow"></button>
+  <button style="background:#bfdbfe" data-color="hl-blue"></button>
+  <button style="background:#fbcfe8" data-color="hl-pink"></button>
+  <button id="rhl">Remove</button>
+</div>
+<div id="mover"><div id="modal"><h2>Results</h2><div class="mscore" id="msc"></div><div id="mrows"></div><button id="mclose">Close</button></div></div>
+<script>
+const Q=[{"id": "q1", "type": "select", "text": "The speed of technological changes...", "label": "Q1", "options": ["A - requires more detailed study by psychologists", "B - means people have no time to challenge the significance of new technology", "C - may reduce inventiveness and innovation", "D - suggests computers will take over the workplace", "E - results from increased electronic supervision"], "answer": "B - means people have no time to challenge the significance of new technology"}, {"id": "q2", "type": "select", "text": "A dependency on technology and computers...", "label": "Q2", "options": ["A - requires more detailed study by psychologists", "B - means people have no time to challenge the significance of new technology", "C - may reduce inventiveness and innovation", "D - suggests computers will take over the workplace", "E - results from increased electronic supervision"], "answer": "C - may reduce inventiveness and innovation"}, {"id": "q3", "type": "select", "text": "A deterioration in personal service...", "label": "Q3", "options": ["A - requires more detailed study by psychologists", "B - means people have no time to challenge the significance of new technology", "C - may reduce inventiveness and innovation", "D - suggests computers will take over the workplace", "E - results from increased electronic supervision"], "answer": "E - results from increased electronic supervision"}, {"id": "q4", "type": "select", "text": "Technology has placed greater expectations on workers not to make mistakes.", "label": "Q4", "options": ["A - Craig Brod", "B - Daniel Dennett", "C - Joseph Boyett and Henry Conn", "D - Philip Nicholson"], "answer": "B - Daniel Dennett"}, {"id": "q5", "type": "select", "text": "People will need time away from technology to reduce frustrations.", "label": "Q5", "options": ["A - Craig Brod", "B - Daniel Dennett", "C - Joseph Boyett and Henry Conn", "D - Philip Nicholson"], "answer": "A - Craig Brod"}, {"id": "q6", "type": "select", "text": "Interacting with others at work contributes to creative thinking.", "label": "Q6", "options": ["A - Craig Brod", "B - Daniel Dennett", "C - Joseph Boyett and Henry Conn", "D - Philip Nicholson"], "answer": "A - Craig Brod"}, {"id": "q7", "type": "select", "text": "The psychological effect of working with technology is similar to anxiety felt after a major ordeal.", "label": "Q7", "options": ["A - Craig Brod", "B - Daniel Dennett", "C - Joseph Boyett and Henry Conn", "D - Philip Nicholson"], "answer": "D - Philip Nicholson"}, {"id": "q8", "type": "select", "text": "Technology will ultimately increase unemployment for more highly qualified personnel.", "label": "Q8", "options": ["A - Craig Brod", "B - Daniel Dennett", "C - Joseph Boyett and Henry Conn", "D - Philip Nicholson"], "answer": "C - Joseph Boyett and Henry Conn"}, {"id": "q9", "type": "select", "text": "More counselling is required to help people cope with demands of the modern workplace.", "label": "Q9", "options": ["A - Craig Brod", "B - Daniel Dennett", "C - Joseph Boyett and Henry Conn", "D - Philip Nicholson"], "answer": "D - Philip Nicholson"}, {"id": "q10", "type": "radio", "text": "Our knowledge of the effects of technology on workers is still limited.", "label": "Q10", "options": ["TRUE", "FALSE", "NOT GIVEN"], "answer": "TRUE"}, {"id": "q11", "type": "radio", "text": "An early indicator of technological anxiety is a tendency to adopt machine-like thinking.", "label": "Q11", "options": ["TRUE", "FALSE", "NOT GIVEN"], "answer": "TRUE"}, {"id": "q12", "type": "radio", "text": "We have now started to doubt our ability to perform well at work.", "label": "Q12", "options": ["TRUE", "FALSE", "NOT GIVEN"], "answer": "TRUE"}, {"id": "q13", "type": "radio", "text": "Top level managers may be more negatively affected by changes in the electronic workplace than junior workers.", "label": "Q13", "options": ["TRUE", "FALSE", "NOT GIVEN"], "answer": "NOT GIVEN"}, {"id": "q14", "type": "radio", "text": "Employees who learn to use new technology quickly will get promoted.", "label": "Q14", "options": ["TRUE", "FALSE", "NOT GIVEN"], "answer": "NOT GIVEN"}];
+const S=[{"header": "Questions 1-3: Complete each sentence with the correct ending (A-E)", "range": [0, 2]}, {"header": "Questions 4-9: Match each statement with the correct person (A-D)", "range": [3, 8]}, {"header": "Questions 10-14: TRUE / FALSE / NOT GIVEN", "range": [9, 13]}];
+let A={},done=false,tI=null,tS=1200;
+const tEl=document.getElementById('timerEl');
+function fT(s){const m=Math.floor(s/60),r=s%60;return String(m).padStart(2,'0')+':'+String(r).padStart(2,'0');}
+function uT(){tEl.textContent=fT(tS);}
+document.getElementById('btnPlay').onclick=()=>{if(tI)return;tI=setInterval(()=>{if(tS>0){tS--;uT();}else{clearInterval(tI);tI=null;}},1000);};
+document.getElementById('btnPause').onclick=()=>{clearInterval(tI);tI=null;};
+document.getElementById('btnReset').onclick=()=>{clearInterval(tI);tI=null;tS=1200;uT();};
+document.getElementById('btnNight').onclick=()=>{document.body.classList.toggle('dark');document.getElementById('btnNight').textContent=document.body.classList.contains('dark')?'\u2600':'\ud83c\udf19';};
+document.getElementById('btnFS').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();};
+document.getElementById('btnDisp').onclick=()=>document.getElementById('dpanel').classList.toggle('open');
+document.getElementById('fsize').oninput=e=>document.documentElement.style.setProperty('--cdi-font-size',e.target.value+'px');
+document.getElementById('lspace').oninput=e=>document.documentElement.style.setProperty('--cdi-line-height',(e.target.value/100).toFixed(2));
+document.getElementById('tl').onclick=()=>document.body.classList.remove('dark');
+document.getElementById('tk').onclick=()=>document.body.classList.add('dark');
+function rQ(){
+  const qp=document.getElementById('panQ');qp.innerHTML='';
+  S.forEach(sec=>{
+    const sh=document.createElement('div');sh.className='secHdr';sh.textContent=sec.header;qp.appendChild(sh);
+    for(let i=sec.range[0];i<=sec.range[1];i++){
+      const q=Q[i];const bl=document.createElement('div');bl.className='qblock';bl.id='qbl'+i;
+      const qt=document.createElement('div');qt.className='qtext';
+      const bg=document.createElement('span');bg.className='qbadge';bg.id='qbg'+i;bg.textContent=q.label;
+      qt.appendChild(bg);const sp=document.createElement('span');sp.textContent=q.text;qt.appendChild(sp);bl.appendChild(qt);
+      if(q.type==='radio'){q.options.forEach(opt=>{const l=document.createElement('label');l.className='pill';const inp=document.createElement('input');inp.type='radio';inp.name='q'+i;inp.value=opt;if(A[i]===opt)inp.checked=true;inp.onchange=()=>{A[i]=opt;mAns(i);};l.appendChild(inp);l.appendChild(document.createTextNode(' '+opt));bl.appendChild(l);});}
+      else if(q.type==='select'){const s=document.createElement('select');s.className='sel';const df=document.createElement('option');df.value='';df.textContent='-- Select --';s.appendChild(df);q.options.forEach(opt=>{const o=document.createElement('option');o.value=opt;o.textContent=opt;if(A[i]===opt)o.selected=true;s.appendChild(o);});s.onchange=()=>{if(s.value){A[i]=s.value;mAns(i);}};bl.appendChild(s);}
+      else if(q.type==='text'){const inp=document.createElement('input');inp.type='text';inp.className='tinput';inp.placeholder='Your answer...';if(A[i])inp.value=A[i];inp.oninput=()=>{A[i]=inp.value.trim();if(inp.value.trim())mAns(i);else uAns(i);};bl.appendChild(inp);}
+      const fb=document.createElement('div');fb.className='fback';fb.id='fb'+i;bl.appendChild(fb);
+      qp.appendChild(bl);if(A[i])mAns(i);
+    }
+  });
+}
+function mAns(i){const b=document.getElementById('qbg'+i);if(b)b.classList.add('answered');rDots();}
+function uAns(i){const b=document.getElementById('qbg'+i);if(b)b.classList.remove('answered');rDots();}
+function rDots(){const d=document.getElementById('pdots');d.innerHTML='';Q.forEach((q,i)=>{const dot=document.createElement('div');dot.className='dot'+(A[i]?' done':'');dot.textContent=i+1;dot.onclick=()=>{const el=document.getElementById('qbl'+i);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});};d.appendChild(dot);});}
+document.getElementById('sbtn').onclick=()=>{
+  if(done){showM();return;}done=true;let sc=0;
+  Q.forEach((q,i)=>{const ua=(A[i]||'').trim().toLowerCase();const ca=q.answer.trim().toLowerCase();const ok=ua===ca;if(ok)sc++;const fb=document.getElementById('fb'+i);if(fb){fb.className='fback '+(ok?'correct':'wrong');fb.textContent=ok?'\u2713 Correct':'\u2718 Correct answer: '+q.answer;}const bl=document.getElementById('qbl'+i);if(bl)bl.querySelectorAll('input,select').forEach(el=>el.disabled=true);});
+  showM(sc,Q.length);
+};
+function showM(sc,tot){const ov=document.getElementById('mover');if(sc!==undefined){document.getElementById('msc').textContent=sc+' / '+tot;const rw=document.getElementById('mrows');rw.innerHTML='';Q.forEach((q,i)=>{const ua=(A[i]||'').trim().toLowerCase();const ca=q.answer.trim().toLowerCase();const ok=ua===ca;const row=document.createElement('div');row.className='mrow';row.innerHTML='<span class="qid">Q'+(i+1)+'</span><span style="flex:1;word-break:break-word">'+(A[i]||'(blank)')+'</span><span class="verd '+(ok?'ok':'no')+'">'+(ok?'\u2714 Correct':'\u2718 '+q.answer)+'</span>';rw.appendChild(row);});}ov.classList.add('open');}
+document.getElementById('mclose').onclick=()=>document.getElementById('mover').classList.remove('open');
+document.getElementById('rbtn').onclick=()=>{A={};done=false;rQ();rDots();};
+const resz=document.getElementById('resz');let iRz=false;
+resz.addEventListener('mousedown',e=>{iRz=true;e.preventDefault();});
+document.addEventListener('mousemove',e=>{if(!iRz)return;const m=document.getElementById('main');const r=m.getBoundingClientRect();const pct=Math.max(20,Math.min(80,((e.clientX-r.left)/(r.width-8))*100));document.getElementById('panP').style.cssText='flex:none;width:'+pct+'%';document.getElementById('panQ').style.flex='1';});
+document.addEventListener('mouseup',()=>{iRz=false;});
+const cpick=document.getElementById('cpick');let sR=null,sH=null;
+document.addEventListener('mouseup',e=>{if(cpick.contains(e.target))return;const sel=window.getSelection();if(sel&&sel.rangeCount>0&&!sel.isCollapsed){const range=sel.getRangeAt(0);const pa=document.getElementById('panP');const qa=document.getElementById('panQ');if(pa.contains(range.commonAncestorContainer)||qa.contains(range.commonAncestorContainer)){sR=range;sH=null;const r=range.getBoundingClientRect();cpick.style.cssText='display:flex;left:'+(r.left+scrollX)+'px;top:'+(r.top+scrollY-44)+'px';document.getElementById('rhl').style.display='none';return;}}if(e.target.classList.contains('hl')){sH=e.target;sR=null;const r=e.target.getBoundingClientRect();cpick.style.cssText='display:flex;left:'+r.left+'px;top:'+(r.top+scrollY-44)+'px';document.getElementById('rhl').style.display='inline-block';return;}cpick.style.display='none';});
+cpick.querySelectorAll('button[data-color]').forEach(btn=>{btn.onclick=()=>{if(sR){try{const s=document.createElement('span');s.className='hl '+btn.dataset.color;sR.surroundContents(s);}catch(e){}window.getSelection().removeAllRanges();}else if(sH){sH.className='hl '+btn.dataset.color;}cpick.style.display='none';};});
+document.getElementById('rhl').onclick=()=>{if(sH){const p=sH.parentNode;while(sH.firstChild)p.insertBefore(sH.firstChild,sH);p.removeChild(sH);}cpick.style.display='none';};
+rQ();rDots();
+</script>
+<script src="/passages/test-progress-bridge.js"></script>
+</body>
+</html>

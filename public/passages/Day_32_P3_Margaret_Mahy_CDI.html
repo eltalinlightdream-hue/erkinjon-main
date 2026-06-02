@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>Margaret Mahy – Computer-based IELTS</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+:root{--bg-color:#fff;--text-color:#000;--passage-bg:#fff;--questions-bg:#fff;--border-color:#d5d5d5;--highlight-color:#fef08a;--header-bg:#fff;--header-text:#000;--button-hover:#e4e4e4;--progress-complete:#21aa74;--timer-text:#000;--footer-bg:#fff;--cdi-font-size:16px;--cdi-line-height:1.5;}
+body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--highlight-color:#6b5c10;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--progress-complete:#81c995;}
+*{margin:0;padding:0;box-sizing:border-box;transition:background-color .3s,color .3s;}
+html,body{height:100%;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);overflow:hidden;display:flex;flex-direction:column;font-size:16px;}
+header{height:56px;min-height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);position:relative;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:50;}
+.cdi-left-brand{display:flex;align-items:center;gap:12px;min-width:220px;}
+.ielts-logo{font-size:40px;font-weight:900;letter-spacing:-2px;color:#e31837;line-height:1;font-family:Arial Black,Arial,sans-serif;}
+.ielts-logo::after{content:'™';font-size:9px;vertical-align:top;color:#e31837;}
+.test-taker{font-size:15px;font-weight:700;color:var(--header-text);}
+.cdi-center-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.social-link.telegram{background:#0088cc;color:#fff;border-radius:22px;padding:6px 18px;font-size:15px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;}
+.social-link.telegram:hover{background:#007bb5;}
+.header-controls{margin-left:auto;display:flex;align-items:center;gap:14px;}
+.timer-container{color:var(--timer-text);font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.hbtn{background:transparent;border:0;color:var(--header-text);width:34px;height:34px;padding:0;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px;}
+.hbtn:hover{background:var(--button-hover);}
+.display-panel{position:fixed;top:56px;right:0;width:min(300px,100vw);background:var(--questions-bg);border-left:1px solid var(--border-color);box-shadow:-4px 0 16px rgba(0,0,0,.15);padding:16px;z-index:2000;display:none;color:var(--text-color);}
+.display-panel.open{display:block;}
+.display-panel h3{font-size:13px;text-transform:uppercase;margin-bottom:14px;}
+.display-panel label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px;}
+.display-panel input[type=range]{width:100%;accent-color:#2a6c96;}
+.theme-row{display:flex;gap:8px;margin-top:12px;}
+.theme-row button{border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);border-radius:6px;padding:6px 10px;cursor:pointer;}
+.cdi-part-header{margin:14px 14px 0;padding:10px 18px;background:rgb(241,242,236);border:1px solid var(--border-color);flex-shrink:0;}
+body.night-mode .cdi-part-header{background:#1f2b47;border-color:#3a3f4b;}
+.cdi-part-header p{margin:0;font-size:15px;line-height:1.4;color:var(--text-color);}
+main{display:flex;flex:1;min-height:0;margin-top:14px;overflow:hidden;}
+.passage-container,.questions-container{height:100%;overflow-y:auto;padding:22px 26px 70px;background:var(--passage-bg);color:var(--text-color);min-width:200px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.questions-container{background:var(--questions-bg);}
+.passage-title{font-size:18px;font-weight:700;margin:0 0 16px;text-align:center;}
+.passage-text p{margin:0 0 14px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.sec-title{font-size:16px;font-weight:700;margin:0 0 10px;color:var(--text-color);}
+.instructions{font-size:15px;margin:0 0 14px;color:var(--text-color);}
+.question{margin:0 0 22px;}
+.q-title{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.q-num{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:15px;font-weight:700;flex-shrink:0;}
+.question.answered .q-num{background:rgba(33,170,116,0.12);}
+.q-text{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.mcq-options{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
+.mcq-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);cursor:pointer;font-size:var(--cdi-font-size);color:var(--text-color);}
+.mcq-option input{transform:scale(1.1);flex-shrink:0;}
+.select-input{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:32px;padding:3px 8px;font-family:Arial,sans-serif;min-width:240px;}
+.summary-box{border:1px solid var(--border-color);border-radius:6px;padding:14px 18px;margin-bottom:16px;background:var(--questions-bg);}
+.summary-box p{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);margin-bottom:8px;}
+.cdi-resizer{width:16px;flex:0 0 16px;background:transparent;cursor:col-resize;position:relative;display:flex;align-items:center;justify-content:center;z-index:5;}
+.cdi-resizer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-color);transform:translateX(-50%);}
+.cdi-resizer-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border:1.6px solid #535353;background:#f9f9f9;color:#535353;display:flex;align-items:center;justify-content:center;font-size:15px;pointer-events:none;}
+body.night-mode .cdi-resizer-handle{background:#1f2b47;color:#b0b3b8;border-color:#3a3f4b;}
+.cdi-resizer:hover::before,.cdi-resizer.dragging::before{background:#2a6c96;}
+.cdi-resizer:hover .cdi-resizer-handle,.cdi-resizer.dragging .cdi-resizer-handle{color:#2a6c96;border-color:#2a6c96;}
+footer{height:60px;background:var(--footer-bg);border-top:1px solid var(--border-color);padding:0;display:flex;align-items:stretch;flex-shrink:0;}
+.progress-container{display:flex;align-items:stretch;overflow-x:auto;flex:1;padding:0 14px;}
+.progress-item{width:38px;height:100%;background:transparent;color:var(--text-color);display:inline-flex;align-items:center;justify-content:center;font-size:14px;position:relative;cursor:pointer;}
+.progress-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#d7d7d7;}
+.progress-item.completed{color:#2a6c96;}.progress-item.completed::before{background:#21aa74;}
+.action-buttons{display:flex;align-items:stretch;}
+.btn-secondary,.btn-primary{height:100%;border-radius:0;padding:0 24px;background:#efefef;color:#535353;border:0;border-left:1px solid var(--border-color);font-size:15px;cursor:pointer;}
+.btn-secondary:hover,.btn-primary:hover{background:#e4e4e4;}
+.feedback-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:3000;display:none;justify-content:center;align-items:center;}
+.feedback-container{background:var(--passage-bg);width:90%;max-width:880px;height:88%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.3);display:flex;flex-direction:column;}
+.feedback-header{padding:18px 20px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;}
+.feedback-title{font-size:20px;font-weight:700;color:var(--text-color);display:flex;align-items:center;gap:10px;}
+.score-display{font-size:22px;font-weight:700;margin-left:8px;}
+#close-feedback{font-size:22px;background:none;border:none;color:var(--text-color);cursor:pointer;}
+.feedback-body{padding:18px;overflow-y:auto;}
+.feedback-item{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border-color);}
+.feedback-question{font-weight:700;margin-bottom:5px;font-size:15px;color:var(--text-color);}
+.feedback-answer{font-size:14px;padding:7px 11px;border-radius:4px;}
+.feedback-answer.correct{background:rgba(40,167,69,.1);color:#155724;}
+.feedback-answer.incorrect{background:rgba(220,53,69,.1);color:#721c24;}
+body.night-mode .feedback-answer.correct{color:#81c995;background:rgba(40,167,69,.15);}
+body.night-mode .feedback-answer.incorrect{color:#f5a0a8;background:rgba(220,53,69,.15);}
+.highlight{background-color:var(--highlight-color);cursor:pointer;}
+.highlight-tooltip{position:fixed;background:#333;color:#fff;padding:5px 10px;border-radius:4px;font-size:13px;z-index:9999;display:flex;gap:4px;}
+.inline-correct{color:#28a745;font-weight:700;margin-left:8px;font-size:14px;}
+.inline-wrong{color:#dc3545;font-weight:600;margin-left:8px;font-size:13px;}
+.test-locked input,.test-locked select{pointer-events:none;opacity:.85;}
+.test-locked .mcq-option{cursor:default;}
+@media(max-width:900px){.test-taker{display:none;}.cdi-center-brand{position:static;transform:none;margin-left:6px;}.cdi-resizer{display:none!important;}main{flex-direction:column;}.passage-container,.questions-container{width:100%!important;flex:none!important;height:50%!important;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="cdi-left-brand"><span class="ielts-logo">IELTS</span><span class="test-taker">Test taker ID</span></div>
+  <div class="cdi-center-brand"><a class="social-link telegram" href="https://t.me/augustus_flores" target="_blank"><i class="fab fa-telegram-plane"></i><span>Abduraimov Erkinjon</span></a></div>
+  <div class="header-controls">
+    <div class="timer-container"><i class="fas fa-clock"></i><span id="timer">20:00</span></div>
+    <button class="hbtn" id="start-timer"><i class="fas fa-play"></i></button>
+    <button class="hbtn" id="pause-timer"><i class="fas fa-pause"></i></button>
+    <button class="hbtn" id="reset-timer"><i class="fas fa-redo"></i></button>
+    <button class="hbtn" id="fullscreen-toggle"><i class="fas fa-expand"></i></button>
+    <button class="hbtn" id="night-mode-toggle"><i class="fas fa-moon"></i></button>
+    <button class="hbtn" id="display-menu-toggle"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+<div class="display-panel" id="display-panel">
+  <h3>Display options</h3>
+  <label>Text size</label><input id="font-size-range" type="range" min="14" max="22" value="16"/>
+  <label>Line spacing</label><input id="line-height-range" type="range" min="140" max="190" value="150"/>
+  <div class="theme-row"><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
+</div>
+<div class="cdi-part-header"><p><strong>Part 3</strong></p><p>Read the text and answer questions 27–40.</p></div>
+<main>
+  <div class="passage-container" id="passage-container">
+    <div class="passage-title">The New Zealand writer Margaret Mahy</div>
+    <div class="passage-text" id="passage-text">
+      <p>In a career spanning some fifty years, Margaret Mahy has come to occupy a unique place in New Zealand writing with innovative fiction and original characterisation. In our solidly realist tradition, the linguistic fireworks of Mahy's children's fiction and the explorations of human behaviour at the heart of her supernatural teenage fiction stand gloriously alone. Mahy's clearest heir, I have always thought, is Elizabeth Knox – and maybe the true inheritance there is sheer singularity. Just as there is no one else like Knox in New Zealand writing, Mahy, too, has ventured into imaginative territory unknown to other local writers. So it was with great pleasure that I visited Mahy recently at her Governor's Bay home to talk about her new book. As with all journalists, she is generous to a fault with her time and attention; and, as always – despite her careful consideration of questions and thoughtful answers – I'm reminded she isn't truly comfortable making herself or her life the heart of any conversation.</p>
+      <p>Certainly, any consideration of the style of Mahy's novels and picture books throws up some irresistible theories. As a writer committed to supporting herself through her art, she has seldom had the time for formal research. Rather, it has been a matter of going out and finding inspiration from her immediate environment: the writing on the side of a bus; a spelling mistake in a note to herself; the similarity between a cat and a fur hat. But despite these sometimes mundane origins, the settings for her stories are delightfully varied, as these books celebrate the dramatic plot twists and unpredictability of adventures on the high seas or in Antarctica, and also in quite unassuming places like the library or even down the back of a chair at home. Mahy has a lifelong affection for characters who are agents of upheaval and disturbance. Her junior and picture books are peppered with pirates, robbers and lions, though they appear alongside librarians, mothers and children, working against comfortable stereotype. Her fictions often have at their heart a young adult burdened with special powers, such as the ability to cast spells in order to transform their world in supernatural and fantastical ways. Another common feature is that, while the conclusions of her tales are usually predictable, they leave the reader feeling absolutely complete, the moral questions resulting from our hero's powers having been resolved.</p>
+      <p>Many of these themes can be found in her new novel, <em>The Magician of Hoad</em>. The book was begun more than 15 years ago and envisioned as an 'entire' fantasy – one set in a fully imagined world with detailed history and complex tribal inter-relationships, a classical hero quest at its heart. The story ballooned at one point to 800 pages and has been through at least two substantial rewrites. Now half its original size, it is a fascinating read – an adventure, a romance, and a gold mine of Mahy literary preoccupations.</p>
+      <p>The other splendid Mahy publication this year is a re-issue of <em>Bubble Trouble</em> in a now fully illustrated edition. This tongue-twister tale first appeared in 1991, was included in <em>100 New Zealand Poems</em> (1993) and has been recited by Mahy at countless private and public functions. Perhaps more than any other work, <em>Bubble Trouble</em> is the Mahy that New Zealand children and their parents know so well, the rollicking story of a clown who serves up a joyous torrent of word play and unexpected rhyme.</p>
+      <p>Those connections are four or five deep now. I read <em>The Lion in the Meadow</em> in the School Journal in the late 1960s; my stepdaughter listened to <em>The Boy Who Was Followed Home</em> over and over in the 1970s; my own children sat very still mouthing <em>The Great White Man-Eating Shark</em> in the 80s and 90s; now in the 21st century, my grandchildren have heard <em>Down the Dragon's Tongue</em>, <em>A Summery Saturday Morning</em> and <em>Dashing D</em> many times.</p>
+      <p>Of course, readers are important to any working writer, but Mahy's espousal of the act of reading goes beyond that: a book is not properly finished, she has often said, until it has been read, because a reader brings something important to the book. So, doubtless out of need to build a market – she's not ignorant of her popularity – but also out of genuine care for that other dynamic part of the author-reader relationship, Mahy has, until recently, kept up a punishing schedule of public appearances.</p>
+      <p>Private conversation with Mahy has always been a wild ride – marvellous, in the true sense of the word, the product of a hungry head and an infinite capacity to be astonished. She races away at one stage to consult an encyclopaedia for L M Montgomery's date of death, and speculates about the 'real' Montgomery, creator of the ever-popular <em>Anne of Green Gables</em>. Although I'd come to talk about her new book, I couldn't help but be captivated by her infectious curiosity.</p>
+      <p>A few years ago, the writer David Hill told a funny story. Though his writing was, he often conceded, very different from Mahy's, he had been affected by her peculiarly alert way of looking at the world, particularly the mad, slippery life of language. Once, Hill said, in a motel room, a sign on a door caught his eye: 'This door is alarmed.' Mahy would like that, thought Hill. She would enjoy the comedy just below the surface of the formal warning; she would leap immediately to the possibilities for story and language play: 'Yes, and this window is concerned, this light fitting is irritated.' His story was a wonderful comment on Mahy's vision.</p>
+    </div>
+  </div>
+  <div class="cdi-resizer" id="cdi-resizer"><div class="cdi-resizer-handle">↔</div></div>
+  <div class="questions-container" id="questions-container">
+
+    <div class="sec-title">Questions 27–31</div>
+    <div class="instructions">Do the following statements agree with the <strong>views</strong> of the writer? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.</div>
+
+    <div class="question" id="q27"><div class="q-title"><div class="q-num">27</div><div class="q-text">Mahy and Knox have sometimes criticised each other's work.</div></div>
+      <div class="mcq-options"><label class="mcq-option"><input type="radio" name="q27" value="YES"/> YES</label><label class="mcq-option"><input type="radio" name="q27" value="NO"/> NO</label><label class="mcq-option"><input type="radio" name="q27" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+    <div class="question" id="q28"><div class="q-title"><div class="q-num">28</div><div class="q-text">Mahy explores the traditional themes of New Zealand literature.</div></div>
+      <div class="mcq-options"><label class="mcq-option"><input type="radio" name="q28" value="YES"/> YES</label><label class="mcq-option"><input type="radio" name="q28" value="NO"/> NO</label><label class="mcq-option"><input type="radio" name="q28" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+    <div class="question" id="q29"><div class="q-title"><div class="q-num">29</div><div class="q-text">Mahy's children's books have been more popular than her teenage books.</div></div>
+      <div class="mcq-options"><label class="mcq-option"><input type="radio" name="q29" value="YES"/> YES</label><label class="mcq-option"><input type="radio" name="q29" value="NO"/> NO</label><label class="mcq-option"><input type="radio" name="q29" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+    <div class="question" id="q30"><div class="q-title"><div class="q-num">30</div><div class="q-text">Mahy is welcoming to interviewers.</div></div>
+      <div class="mcq-options"><label class="mcq-option"><input type="radio" name="q30" value="YES"/> YES</label><label class="mcq-option"><input type="radio" name="q30" value="NO"/> NO</label><label class="mcq-option"><input type="radio" name="q30" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+    <div class="question" id="q31"><div class="q-title"><div class="q-num">31</div><div class="q-text">Mahy is at ease speaking about her experiences.</div></div>
+      <div class="mcq-options"><label class="mcq-option"><input type="radio" name="q31" value="YES"/> YES</label><label class="mcq-option"><input type="radio" name="q31" value="NO"/> NO</label><label class="mcq-option"><input type="radio" name="q31" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+
+    <div class="sec-title">Questions 32–35</div>
+    <div class="instructions">Complete the summary using the list of words and phrases A–I below. Write the correct letter.</div>
+    <div class="summary-box">
+      <p style="font-weight:700;margin-bottom:6px;">Word list</p>
+      <p>A – disruptive and unpredictable &nbsp; B – everyday &nbsp; C – loveable<br/>D – controversial &nbsp; E – exotic and ordinary &nbsp; F – isolated<br/>G – unconfident &nbsp; H – unsurprising but satisfying &nbsp; I – magical</p>
+    </div>
+    <div class="summary-box">
+      <p style="font-weight:700;margin-bottom:8px;">Theories about Mahy's style</p>
+      <p>Mahy's determination to earn a living from writing has encouraged her to find the ideas for her work in <strong>32</strong>
+        <select class="select-input" name="q32"><option value="">Select A–I</option><option value="A">A – disruptive and unpredictable</option><option value="B">B – everyday</option><option value="C">C – loveable</option><option value="D">D – controversial</option><option value="E">E – exotic and ordinary</option><option value="F">F – isolated</option><option value="G">G – unconfident</option><option value="H">H – unsurprising but satisfying</option><option value="I">I – magical</option></select>
+        places. The stories themselves are set in locations that are <strong>33</strong>
+        <select class="select-input" name="q33"><option value="">Select A–I</option><option value="A">A – disruptive and unpredictable</option><option value="B">B – everyday</option><option value="C">C – loveable</option><option value="D">D – controversial</option><option value="E">E – exotic and ordinary</option><option value="F">F – isolated</option><option value="G">G – unconfident</option><option value="H">H – unsurprising but satisfying</option><option value="I">I – magical</option></select>.
+        In terms of characterisation, almost all of her books feature unruly people, and very often an adolescent who possesses <strong>34</strong>
+        <select class="select-input" name="q34"><option value="">Select A–I</option><option value="A">A – disruptive and unpredictable</option><option value="B">B – everyday</option><option value="C">C – loveable</option><option value="D">D – controversial</option><option value="E">E – exotic and ordinary</option><option value="F">F – isolated</option><option value="G">G – unconfident</option><option value="H">H – unsurprising but satisfying</option><option value="I">I – magical</option></select>
+        abilities. Finally, the endings of the stories tend to be <strong>35</strong>
+        <select class="select-input" name="q35"><option value="">Select A–I</option><option value="A">A – disruptive and unpredictable</option><option value="B">B – everyday</option><option value="C">C – loveable</option><option value="D">D – controversial</option><option value="E">E – exotic and ordinary</option><option value="F">F – isolated</option><option value="G">G – unconfident</option><option value="H">H – unsurprising but satisfying</option><option value="I">I – magical</option></select>.</p>
+    </div>
+
+    <div class="sec-title">Questions 36–40</div>
+    <div class="instructions">Choose the correct letter, A, B, C or D.</div>
+
+    <div class="question" id="q36">
+      <div class="q-title"><div class="q-num">36</div><div class="q-text">What does the writer say about <em>The Magician of Hoad</em>?</div></div>
+      <div class="mcq-options">
+        <label class="mcq-option"><input type="radio" name="q36" value="A"/> A &nbsp; It is partly based on true history.</label>
+        <label class="mcq-option"><input type="radio" name="q36" value="B"/> B &nbsp; It was restructured in the writing process.</label>
+        <label class="mcq-option"><input type="radio" name="q36" value="C"/> C &nbsp; It is quite different from conventional stories.</label>
+        <label class="mcq-option"><input type="radio" name="q36" value="D"/> D &nbsp; It does not reflect the usual themes of Mahy's work.</label>
+      </div>
+    </div>
+    <div class="question" id="q37">
+      <div class="q-title"><div class="q-num">37</div><div class="q-text">According to the writer, <em>Bubble Trouble</em></div></div>
+      <div class="mcq-options">
+        <label class="mcq-option"><input type="radio" name="q37" value="A"/> A &nbsp; was first illustrated in 1991.</label>
+        <label class="mcq-option"><input type="radio" name="q37" value="B"/> B &nbsp; is written in plain language.</label>
+        <label class="mcq-option"><input type="radio" name="q37" value="C"/> C &nbsp; is an old favourite for many families.</label>
+        <label class="mcq-option"><input type="radio" name="q37" value="D"/> D &nbsp; has not been read aloud by Mahy before.</label>
+      </div>
+    </div>
+    <div class="question" id="q38">
+      <div class="q-title"><div class="q-num">38</div><div class="q-text">The writer's purpose in the fifth paragraph is to</div></div>
+      <div class="mcq-options">
+        <label class="mcq-option"><input type="radio" name="q38" value="A"/> A &nbsp; show how Mahy's style has changed through generations.</label>
+        <label class="mcq-option"><input type="radio" name="q38" value="B"/> B &nbsp; criticise Mahy's children's stories for being repetitive.</label>
+        <label class="mcq-option"><input type="radio" name="q38" value="C"/> C &nbsp; describe how new media have changed entertainment.</label>
+        <label class="mcq-option"><input type="radio" name="q38" value="D"/> D &nbsp; illustrate Mahy's popularity with generations of children.</label>
+      </div>
+    </div>
+    <div class="question" id="q39">
+      <div class="q-title"><div class="q-num">39</div><div class="q-text">According to the sixth paragraph, which of the following is true?</div></div>
+      <div class="mcq-options">
+        <label class="mcq-option"><input type="radio" name="q39" value="A"/> A &nbsp; Readers sometimes do not finish Mahy's books.</label>
+        <label class="mcq-option"><input type="radio" name="q39" value="B"/> B &nbsp; Mahy actively encourages feedback from readers.</label>
+        <label class="mcq-option"><input type="radio" name="q39" value="C"/> C &nbsp; Readers are necessary in order to complete a book.</label>
+        <label class="mcq-option"><input type="radio" name="q39" value="D"/> D &nbsp; Mahy does not realise how important she is to some readers.</label>
+      </div>
+    </div>
+    <div class="question" id="q40">
+      <div class="q-title"><div class="q-num">40</div><div class="q-text">What is the writer doing in the final paragraph?</div></div>
+      <div class="mcq-options">
+        <label class="mcq-option"><input type="radio" name="q40" value="A"/> A &nbsp; illustrating Mahy's view of the world</label>
+        <label class="mcq-option"><input type="radio" name="q40" value="B"/> B &nbsp; comparing Mahy with another writer</label>
+        <label class="mcq-option"><input type="radio" name="q40" value="C"/> C &nbsp; correcting a misconception about Mahy</label>
+        <label class="mcq-option"><input type="radio" name="q40" value="D"/> D &nbsp; suggesting reasons for Mahy's approach</label>
+      </div>
+    </div>
+    <div style="height:28px"></div>
+  </div>
+</main>
+<footer>
+  <div class="progress-container" id="progress-container"></div>
+  <div class="action-buttons">
+    <button class="btn-secondary" id="reset-btn">Reset Answers</button>
+    <button class="btn-primary" id="submit-btn">Submit Answers</button>
+  </div>
+</footer>
+<div class="feedback-overlay" id="feedback-overlay">
+  <div class="feedback-container">
+    <div class="feedback-header">
+      <div class="feedback-title"><i class="fas fa-chart-bar"></i> Results <span class="score-display" id="score-display">0/14</span></div>
+      <button id="close-feedback"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="feedback-body" id="feedback-body"></div>
+  </div>
+</div>
+<script>
+const CA={q27:'NOT GIVEN',q28:'NO',q29:'NOT GIVEN',q30:'YES',q31:'NO',q32:'B',q33:'E',q34:'I',q35:'H',q36:'B',q37:'C',q38:'D',q39:'C',q40:'A'};
+const TOTAL=14;
+function norm(s){return(s||'').toString().trim().toLowerCase().replace(/\s+/g,' ');}
+function ok(qid,v){return norm(v)===norm(CA[qid]);}
+function getR(n){const ch=Array.from(document.getElementsByName(n)).find(e=>e.checked);return ch?ch.value:'';}
+function getSel(n){const e=document.querySelector(`select[name="${n}"]`);return e?e.value:'';}
+let submitted=false;
+function lockAll(){submitted=true;document.body.classList.add('test-locked');document.querySelectorAll('input,select').forEach(e=>e.disabled=true);document.getElementById('reset-btn').disabled=true;document.getElementById('reset-btn').style.opacity='.4';}
+function showInline(){
+  document.querySelectorAll('.inline-correct,.inline-wrong').forEach(e=>e.remove());
+  ['q27','q28','q29','q30','q31'].forEach(qid=>{
+    const qEl=document.getElementById(qid);if(!qEl)return;
+    const sp=document.createElement('span');const good=ok(qid,getR(qid));
+    sp.className=good?'inline-correct':'inline-wrong';sp.textContent=good?'✓':'Correct: '+CA[qid];
+    sp.style.display='block';sp.style.marginTop='6px';qEl.appendChild(sp);
+  });
+  ['q32','q33','q34','q35'].forEach(qid=>{
+    const el=document.querySelector(`select[name="${qid}"]`);if(!el)return;
+    const sp=document.createElement('span');const good=ok(qid,getSel(qid));
+    sp.className=good?'inline-correct':'inline-wrong';sp.textContent=good?'✓':'Correct: '+CA[qid];
+    el.parentNode.insertBefore(sp,el.nextSibling);
+  });
+  ['q36','q37','q38','q39','q40'].forEach(qid=>{
+    const qEl=document.getElementById(qid);if(!qEl)return;
+    const sp=document.createElement('span');const good=ok(qid,getR(qid));
+    sp.className=good?'inline-correct':'inline-wrong';sp.textContent=good?'✓':'Correct: '+CA[qid];
+    sp.style.display='block';sp.style.marginTop='6px';qEl.appendChild(sp);
+  });
+}
+document.getElementById('submit-btn').addEventListener('click',function(){
+  if(submitted){document.getElementById('feedback-overlay').style.display='flex';return;}
+  let score=0,html='';
+  const yng=[{qid:'q27',label:'Q27'},{qid:'q28',label:'Q28'},{qid:'q29',label:'Q29'},{qid:'q30',label:'Q30'},{qid:'q31',label:'Q31'}];
+  const selQs=[{qid:'q32',label:'Q32'},{qid:'q33',label:'Q33'},{qid:'q34',label:'Q34'},{qid:'q35',label:'Q35'}];
+  const mcqQs=[{qid:'q36',label:'Q36'},{qid:'q37',label:'Q37'},{qid:'q38',label:'Q38'},{qid:'q39',label:'Q39'},{qid:'q40',label:'Q40'}];
+  yng.forEach(({qid,label})=>{const user=getR(qid);const good=ok(qid,user);if(good)score++;html+=`<div class="feedback-item"><div class="feedback-question">${label}</div><div class="feedback-answer ${good?'correct':'incorrect'}">Your answer: ${user||'(none)'}<br/>${good?'✔ Correct':'✘ Incorrect – Correct: <strong>'+CA[qid]+'</strong>'}</div></div>`;});
+  selQs.forEach(({qid,label})=>{const user=getSel(qid);const good=ok(qid,user);if(good)score++;html+=`<div class="feedback-item"><div class="feedback-question">${label}</div><div class="feedback-answer ${good?'correct':'incorrect'}">Your answer: ${user||'(none)'}<br/>${good?'✔ Correct':'✘ Incorrect – Correct: <strong>'+CA[qid]+'</strong>'}</div></div>`;});
+  mcqQs.forEach(({qid,label})=>{const user=getR(qid);const good=ok(qid,user);if(good)score++;html+=`<div class="feedback-item"><div class="feedback-question">${label}</div><div class="feedback-answer ${good?'correct':'incorrect'}">Your answer: ${user||'(none)'}<br/>${good?'✔ Correct':'✘ Incorrect – Correct: <strong>'+CA[qid]+'</strong>'}</div></div>`;});
+  document.getElementById('feedback-body').innerHTML=html;document.getElementById('score-display').textContent=score+'/'+TOTAL;document.getElementById('feedback-overlay').style.display='flex';lockAll();showInline();
+});
+document.getElementById('close-feedback').addEventListener('click',()=>document.getElementById('feedback-overlay').style.display='none');
+document.getElementById('reset-btn').addEventListener('click',()=>{if(submitted)return;document.querySelectorAll('select').forEach(e=>e.value='');document.querySelectorAll('input[type=radio]').forEach(e=>e.checked=false);updateProg();});
+const qnums=[27,28,29,30,31,32,33,34,35,36,37,38,39,40];
+function initProg(){const pc=document.getElementById('progress-container');pc.innerHTML='';qnums.forEach(n=>{const d=document.createElement('div');d.className='progress-item';d.textContent=n;d.dataset.qid='q'+n;d.addEventListener('click',()=>{const el=document.getElementById('q'+n);if(el)el.scrollIntoView({behavior:'smooth'});});pc.appendChild(d);});}
+function updateProg(){document.querySelectorAll('.progress-item').forEach(item=>{const qid=item.dataset.qid;let ans=false;const radios=document.querySelectorAll(`input[name="${qid}"][type=radio]`);if(radios.length)ans=Array.from(radios).some(r=>r.checked);const sel=document.querySelector(`select[name="${qid}"]`);if(!ans&&sel&&sel.value)ans=true;const qEl=document.getElementById(qid);item.classList.toggle('completed',ans);if(qEl)qEl.classList.toggle('answered',ans);});}
+document.addEventListener('change',updateProg);
+let ti=null,tr=1200;function updT(){const m=Math.floor(tr/60).toString().padStart(2,'0'),s=(tr%60).toString().padStart(2,'0');document.getElementById('timer').textContent=m+':'+s;}
+document.getElementById('start-timer').addEventListener('click',()=>{if(ti)return;ti=setInterval(()=>{if(tr>0){tr--;updT();}else{clearInterval(ti);ti=null;alert('Time is up!');}},1000);});
+document.getElementById('pause-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;});
+document.getElementById('reset-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;tr=1200;updT();});
+document.getElementById('night-mode-toggle').addEventListener('click',function(){document.body.classList.toggle('night-mode');const i=this.querySelector('i');i.classList.toggle('fa-moon');i.classList.toggle('fa-sun');});
+document.getElementById('fullscreen-toggle').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();});
+document.addEventListener('fullscreenchange',()=>{document.getElementById('fullscreen-toggle').innerHTML=document.fullscreenElement?'<i class="fas fa-compress"></i>':'<i class="fas fa-expand"></i>';});
+const dpanel=document.getElementById('display-panel'),dmenu=document.getElementById('display-menu-toggle');
+dmenu.addEventListener('click',e=>{e.stopPropagation();dpanel.classList.toggle('open');});
+document.addEventListener('click',e=>{if(dpanel.classList.contains('open')&&!dpanel.contains(e.target)&&!dmenu.contains(e.target))dpanel.classList.remove('open');});
+document.getElementById('font-size-range').addEventListener('input',function(){document.documentElement.style.setProperty('--cdi-font-size',this.value+'px');});
+document.getElementById('line-height-range').addEventListener('input',function(){document.documentElement.style.setProperty('--cdi-line-height',Number(this.value)/100);});
+document.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>{b.dataset.themeChoice==='dark'?document.body.classList.add('night-mode'):document.body.classList.remove('night-mode');}));
+const pc2=document.getElementById('passage-container'),qc=document.getElementById('questions-container'),rs=document.getElementById('cdi-resizer');
+pc2.style.flex='0 0 50%';qc.style.flex='1 1 auto';let drag=false;
+rs.addEventListener('mousedown',e=>{if(window.innerWidth<=900)return;drag=true;rs.classList.add('dragging');document.body.style.cursor='col-resize';document.body.style.userSelect='none';e.preventDefault();});
+window.addEventListener('mousemove',e=>{if(!drag)return;const main=rs.parentElement,rect=main.getBoundingClientRect(),total=rect.width-rs.offsetWidth;let left=e.clientX-rect.left;left=Math.min(Math.max(left,total*.22),total*.78);pc2.style.flex='0 0 '+left+'px';qc.style.flex='1 1 auto';});
+window.addEventListener('mouseup',()=>{drag=false;rs.classList.remove('dragging');document.body.style.cursor='';document.body.style.userSelect='';});
+let hlTip=null,selR=null;
+function colorPicker(x,y){if(hlTip)hlTip.remove();const colors=["lightgreen","yellow","lightskyblue","#ffb3b3"];const p=document.createElement('div');p.className='highlight-tooltip';p.style.cssText=`top:${y}px;left:${x}px;position:fixed;z-index:9999;display:flex;gap:4px;`;colors.forEach(c=>{const b=document.createElement('button');b.style.cssText=`background:${c};border:none;width:20px;height:20px;border-radius:50%;cursor:pointer;`;b.onclick=()=>{applyHL(c);p.remove();hlTip=null;};p.appendChild(b);});document.body.appendChild(p);hlTip=p;}
+function applyHL(color){if(!selR)return;try{const sp=document.createElement('span');sp.className='highlight';sp.style.backgroundColor=color;sp.appendChild(selR.extractContents());selR.insertNode(sp);selR=null;window.getSelection().removeAllRanges();sp.addEventListener('click',e=>{e.stopPropagation();if(hlTip){hlTip.remove();hlTip=null;}const t=document.createElement('div');t.className='highlight-tooltip';t.style.cssText=`top:${e.clientY}px;left:${e.clientX}px;position:fixed;z-index:9999;`;t.innerHTML='<button style="color:#fff;background:red;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;">Remove</button>';t.querySelector('button').onclick=()=>{const par=sp.parentNode;while(sp.firstChild)par.insertBefore(sp.firstChild,sp);par.removeChild(sp);par.normalize();t.remove();hlTip=null;};document.body.appendChild(t);hlTip=t;});}catch(e){selR=null;}}
+['passage-text','questions-container'].forEach(id=>{document.getElementById(id).addEventListener('mouseup',e=>{const sel=window.getSelection();if(!sel||!sel.toString().trim())return;if(!e.currentTarget.contains(sel.anchorNode))return;try{selR=sel.getRangeAt(0).cloneRange();const r=selR.getBoundingClientRect();colorPicker(r.left,r.top-44);}catch(err){selR=null;}});});
+document.addEventListener('mousedown',e=>{if(hlTip&&!hlTip.contains(e.target)){hlTip.remove();hlTip=null;window.getSelection().removeAllRanges();selR=null;}});
+document.addEventListener('DOMContentLoaded',()=>{updT();initProg();updateProg();});
+</script>
+<script src="/passages/test-progress-bridge.js"></script>
+</body>
+</html>
