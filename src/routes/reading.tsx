@@ -605,7 +605,7 @@ const PASSAGES: Passage[] = [
   htmlFile: "/passages/australias_airborne_dentists.html",
 },
 {
-  id: "p1-english-canal-system",
+  id: "p1-english-canal-system-2",
   title: "The English Canal System",
   passageNumber: 1,
   isPremium: false,
@@ -1116,7 +1116,7 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/reef_fish_2_CDI_standalone.html",
   },
   {
-    id: "p1-dolls",
+    id: "p1-dolls-2",
     title: "Dolls Through the Ages",
     passageNumber: 1,
     isPremium: false,
@@ -1141,7 +1141,7 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/Playing_with_science_2_CDI_standalone.html",
   },
   {
-    id: "p1-thomas-cole",
+    id: "p1-thomas-cole-2",
     title: "Thomas Cole: American Nature Painter",
     passageNumber: 1,
     isPremium: false,

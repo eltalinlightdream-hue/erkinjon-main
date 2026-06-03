@@ -3,7 +3,8 @@ import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Youtube, ExternalLink } from "lucide-react";
+import { Youtube, ExternalLink, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import {
   WRITING_TASKS,
@@ -903,8 +904,13 @@ const HTML_TASKS: HtmlTask[] = [
   },
 ];
 
+const TASK1_FILTERS = ["All", "Line Graph", "Bar Chart", "Table", "Pie Chart", "Map", "Diagram", "Graph", "Process"] as const;
+const TASK2_FILTERS = ["All", "Agree/Disagree", "Advantages/Disadvantages", "Discussion", "Problem/Solution", "Direct Question"] as const;
+
 function Writing() {
   const [tab, setTab] = useState<1 | 2>(1);
+  const [search, setSearch] = useState("");
+  const [typeFilter, setTypeFilter] = useState("All");
   const [progress, setProgress] = useState<Record<string, { status: WritingStatus }>>({});
 
   useEffect(() => {
@@ -918,8 +924,22 @@ function Writing() {
     };
   }, []);
 
-  const visibleTasks = WRITING_TASKS.filter((t) => t.task === tab);
-  const visibleHtml  = HTML_TASKS.filter((t) => t.task === tab);
+  const handleTabChange = (n: 1 | 2) => {
+    setTab(n);
+    setSearch("");
+    setTypeFilter("All");
+  };
+
+  const activeFilters = tab === 1 ? TASK1_FILTERS : TASK2_FILTERS;
+
+  const matchesSearch = (title: string) =>
+    !search.trim() || title.toLowerCase().includes(search.trim().toLowerCase());
+  const matchesType = (type: string) =>
+    typeFilter === "All" || type.toLowerCase().includes(typeFilter.toLowerCase());
+
+  const visibleHtml  = HTML_TASKS.filter((t) => t.task === tab && matchesSearch(t.title) && matchesType(t.type));
+  const visibleTasks = WRITING_TASKS.filter((t) => t.task === tab && matchesSearch(t.title) && matchesType(t.type));
+  const hasResults = visibleHtml.length > 0 || visibleTasks.length > 0;
 
   return (
     <SiteLayout>
@@ -945,11 +965,11 @@ function Writing() {
         </div>
 
         {/* Tab switcher */}
-        <div className="inline-flex rounded-xl bg-muted p-1 mb-8">
+        <div className="inline-flex rounded-xl bg-muted p-1 mb-6">
           {[1, 2].map((n) => (
             <button
               key={n}
-              onClick={() => setTab(n as 1 | 2)}
+              onClick={() => handleTabChange(n as 1 | 2)}
               className={cn(
                 "px-8 py-2 rounded-lg font-mono text-xs tracking-widest uppercase font-semibold transition-all duration-200",
                 tab === n
@@ -961,6 +981,38 @@ function Writing() {
             </button>
           ))}
         </div>
+
+        {/* Search + type filters */}
+        <div className="space-y-3 mb-8">
+          <div className="relative w-full max-w-sm">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search by title..."
+              className="pl-9 font-mono text-sm h-9 rounded-xl border-border"
+            />
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {activeFilters.map((f) => (
+              <Button
+                key={f}
+                variant={typeFilter === f ? "default" : "outline"}
+                size="sm"
+                className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
+                onClick={() => setTypeFilter(f)}
+              >
+                {f}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        {!hasResults && (
+          <p className="text-muted-foreground py-16 text-center font-mono text-sm tracking-wide">
+            No results found.
+          </p>
+        )}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
