@@ -904,6 +904,11 @@ const HTML_TASKS: HtmlTask[] = [
   },
 ];
 
+const TASK_TOTALS: Record<1 | 2, number> = {
+  1: [...HTML_TASKS, ...WRITING_TASKS].filter((t) => t.task === 1).length,
+  2: [...HTML_TASKS, ...WRITING_TASKS].filter((t) => t.task === 2).length,
+};
+
 const TASK1_FILTERS = ["All", "Line Graph", "Bar Chart", "Table", "Pie Chart", "Map", "Diagram", "Graph", "Process"] as const;
 const TASK2_FILTERS = ["All", "Agree/Disagree", "Advantages/Disadvantages", "Discussion", "Problem/Solution", "Direct Question"] as const;
 
@@ -978,6 +983,9 @@ function Writing() {
               )}
             >
               Task {n}
+              <span className="ml-1.5 font-mono text-[10px] font-normal opacity-55 tracking-normal normal-case">
+                ({TASK_TOTALS[n as 1 | 2]})
+              </span>
             </button>
           ))}
         </div>
