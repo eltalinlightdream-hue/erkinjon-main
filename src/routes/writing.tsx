@@ -176,7 +176,7 @@ const HTML_TASKS: HtmlTask[] = [
   type: "Bar Chart",
   title: "Noise Pollution Effects",
   description: "The chart shows the number of people effected by noise pollution.",
-  image: "/writing-images/task1_14.jpg",
+  image: "/writing-images/task_14.jpg",
   htmlFile: "/passages/task1_14.html",
 },
 {
