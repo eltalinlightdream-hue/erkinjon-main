@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Youtube, Play, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { getChannelPlaylists } from "@/lib/youtube.functions";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -22,14 +23,18 @@ type ActiveVideo = { id: string; title: string };
 
 function Videos() {
   const [active, setActive] = useState<ActiveVideo | null>(null);
-  const { data, isLoading, isError } = useQuery({
+  const fetchPlaylists = useServerFn(getChannelPlaylists);
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["youtube-playlists"],
-    queryFn: () => getChannelPlaylists(),
+    queryFn: () => fetchPlaylists(),
     staleTime: 10 * 60 * 1000,
     retry: 1,
   });
 
   const unavailable = isError || (data && !data.ok);
+  const errorDetail = isError
+    ? (error instanceof Error ? error.message : String(error))
+    : (!data?.ok ? data?.error : undefined);
 
   return (
     <SiteLayout>
@@ -65,7 +70,12 @@ function Videos() {
           <div className="rounded-2xl border border-border bg-card p-10 text-center">
             <AlertCircle className="w-10 h-10 mx-auto mb-4 text-muted-foreground" />
             <h2 className="text-xl font-semibold mb-2">Videos temporarily unavailable</h2>
-            <p className="text-muted-foreground mb-6">Visit the channel directly to watch all lessons.</p>
+            <p className="text-muted-foreground mb-4">Visit the channel directly to watch all lessons.</p>
+            {errorDetail && (
+              <p className="font-mono text-xs text-destructive bg-destructive/8 border border-destructive/20 rounded-lg px-4 py-3 mb-6 text-left break-all">
+                {errorDetail}
+              </p>
+            )}
             <a href={CHANNEL_URL} target="_blank" rel="noreferrer">
               <Button className="bg-[#FF0000] hover:bg-[#FF0000]/90 text-white"><Youtube className="w-4 h-4 mr-2" /> Open YouTube Channel</Button>
             </a>
