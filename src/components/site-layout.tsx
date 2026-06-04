@@ -111,7 +111,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                           <Link
                             key={n}
                             to="/reading"
-                            hash={`passage-${n}`}
+                            search={{ passage: n } as any}
                             className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-muted-foreground hover:bg-accent/30 hover:text-foreground"
                           >
                             Passage {n}
@@ -139,7 +139,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                           <Link
                             key={n}
                             to="/writing"
-                            hash={`task-${n}`}
+                            search={{ task: String(n) } as any}
                             className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-muted-foreground hover:bg-accent/30 hover:text-foreground"
                           >
                             Task {n}
@@ -276,7 +276,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
                 <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
                   {(["1", "2", "3"] as const).map((n) => (
-                    <Link key={n} to="/reading" hash={`passage-${n}`} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
+                    <Link key={n} to="/reading" search={{ passage: n } as any} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
                       Passage {n}
                     </Link>
                   ))}
@@ -288,7 +288,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
                 <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
                   {([1, 2] as const).map((n) => (
-                    <Link key={n} to="/writing" hash={`task-${n}`} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
+                    <Link key={n} to="/writing" search={{ task: String(n) } as any} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
                       Task {n}
                     </Link>
                   ))}
