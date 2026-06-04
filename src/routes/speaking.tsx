@@ -1,178 +1,98 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mic, RotateCcw } from "lucide-react";
-import { useState } from "react";
-import {
-  getTestProgressMeta,
-  ProgressStatus,
-  TEST_PROGRESS_OPTIONS,
-  useTestStatus,
-} from "@/hooks/use-test-status";
-import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
+import { Mic2, Lightbulb, FileText, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/speaking")({
-  head: () => ({ meta: [
-    { title: "IELTS Speaking вЂ” Part 1, 2 & 3 | Abduraimov Erkinjon" },
-    { name: "description", content: "IELTS Speaking practice for all three parts." },
-  ]}),
+  head: () => ({
+    meta: [
+      { title: "IELTS Speaking Practice | Abduraimov Erkinjon" },
+      { name: "description", content: "Speaking practice sections: Pronunciation, Topics Explained, and Written Samples." },
+    ],
+  }),
   component: Speaking,
 });
 
-type SpeakingTask = {
-  id: string;
-  part: "p1" | "p2" | "p3";
-  label: string;
+type SpeakingSection = {
+  to: string;
   title: string;
-  description: string;
+  icon: React.ElementType;
+  desc: string;
+  tint: string;
+  disabled?: boolean;
 };
 
-const TASKS: SpeakingTask[] = [
+const SECTIONS: SpeakingSection[] = [
   {
-    id: "speaking-part-1-familiar-topics",
-    part: "p1",
-    label: "Part 1",
-    title: "Familiar topics",
-    description: "Answer short questions about work, study, home, hobbies, and daily routines.",
+    to: "/speaking/pronunciation",
+    title: "Pronunciation",
+    icon: Mic2,
+    desc: "Learn American English pronunciation with Rachel's English lessons",
+    tint: "bg-secondary/15 text-secondary",
   },
   {
-    id: "speaking-part-2-cue-card",
-    part: "p2",
-    label: "Part 2",
-    title: "Cue card response",
-    description: "Prepare for one minute, then speak for up to two minutes with clear structure.",
+    to: "#",
+    title: "Topics Explained",
+    icon: Lightbulb,
+    desc: "Understand speaking topics and how to structure answers",
+    tint: "bg-gold/15 text-gold",
+    disabled: true,
   },
   {
-    id: "speaking-part-3-discussion",
-    part: "p3",
-    label: "Part 3",
-    title: "Extended discussion",
-    description: "Develop opinions, compare ideas, and explain reasons with natural follow-up answers.",
+    to: "#",
+    title: "Written Samples",
+    icon: FileText,
+    desc: "See example answers and model responses",
+    tint: "bg-sage/15 text-sage",
+    disabled: true,
   },
 ];
 
-const PART_FILTERS = [
-  { value: "all", label: "All parts" },
-  { value: "p1", label: "Part 1" },
-  { value: "p2", label: "Part 2" },
-  { value: "p3", label: "Part 3" },
-] as const;
+function SectionCard({ section }: { section: SpeakingSection }) {
+  const inner = (
+    <Card
+      className={cn(
+        "p-6 h-full flex flex-col transition-all duration-200",
+        section.disabled
+          ? "opacity-60 cursor-not-allowed"
+          : "hover:shadow-warm hover:-translate-y-1 cursor-pointer"
+      )}
+    >
+      <span className={`w-12 h-12 rounded-xl ${section.tint} flex items-center justify-center mb-4`}>
+        <section.icon className="w-5 h-5" />
+      </span>
+      <h2 className="font-serif text-xl font-semibold mb-1">{section.title}</h2>
+      <p className="text-sm text-muted-foreground mb-4 flex-1">{section.desc}</p>
+      {section.disabled ? (
+        <span className="text-sm font-mono text-muted-foreground/60 tracking-wide">Coming soon</span>
+      ) : (
+        <span className="text-sm font-medium text-secondary inline-flex items-center gap-1">
+          Start <ArrowRight className="w-4 h-4" />
+        </span>
+      )}
+    </Card>
+  );
+
+  if (section.disabled) return <div>{inner}</div>;
+  return <Link to={section.to as any}>{inner}</Link>;
+}
 
 function Speaking() {
-  const [partFilter, setPartFilter] = useState<(typeof PART_FILTERS)[number]["value"]>("all");
-  const [statusFilter, setStatusFilter] = useState<"all" | ProgressStatus>("all");
-  const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(TASKS.map((task) => task.id));
-
-  const visible = TASKS.filter((task) => {
-    const matchesPart = partFilter === "all" || task.part === partFilter;
-    const matchesStatus = statusFilter === "all" || statusFor(task.id) === statusFilter;
-    return matchesPart && matchesStatus;
-  });
-
   return (
     <SiteLayout>
-      <section className="container mx-auto px-4 py-12 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-10">IELTS Speaking</h1>
-
-        <div className="space-y-3 mb-8">
-          <div className="flex flex-wrap gap-2">
-            {PART_FILTERS.map((filter) => (
-              <Button
-                key={filter.value}
-                variant={partFilter === filter.value ? "default" : "outline"}
-                size="sm"
-                className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
-                onClick={() => setPartFilter(filter.value)}
-              >
-                {filter.label}
-              </Button>
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Button
-              variant={statusFilter === "all" ? "default" : "outline"}
-              size="sm"
-              className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
-              onClick={() => setStatusFilter("all")}
-            >
-              All statuses
-            </Button>
-            {TEST_PROGRESS_OPTIONS.map((option) => (
-              <Button
-                key={option.value}
-                variant={statusFilter === option.value ? "default" : "outline"}
-                size="sm"
-                className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
-                onClick={() => setStatusFilter(option.value)}
-              >
-                {option.label}
-              </Button>
-            ))}
-          </div>
+      <section className="container mx-auto px-4 py-12 max-w-5xl">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-3">IELTS Speaking</h1>
+          <p className="text-lg text-muted-foreground">
+            Pick a skill and start — every section is built around real IELTS question types.
+          </p>
         </div>
-
-        {visible.length === 0 ? (
-          <p className="text-muted-foreground py-12 text-center font-mono text-sm tracking-wide">No speaking tasks match this filter.</p>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {visible.map((task) => {
-              const status = statuses[task.id];
-              const progressStatus = statusFor(task.id);
-              const progressMeta = getTestProgressMeta(progressStatus);
-
-              return (
-                <Card
-                  key={task.id}
-                  className={cn("p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)]", progressMeta.cardClassName)}
-                >
-                  <div className="flex items-center justify-between gap-3 mb-3">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary" className="bg-accent text-foreground">
-                        {task.label}
-                      </Badge>
-                      <TestProgressBadge status={progressStatus} detail={status} />
-                    </div>
-                    {progressStatus !== "not_done" && (
-                      <Button
-                        size="icon"
-                        variant="ghost"
-                        className="h-8 w-8 text-muted-foreground"
-                        onClick={() => resetTest(task.id)}
-                        aria-label="Reset status"
-                      >
-                        <RotateCcw className="h-4 w-4" />
-                      </Button>
-                    )}
-                  </div>
-
-                  <h3 className="font-serif text-xl font-semibold mb-2 leading-snug">{task.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-5 flex-1">{task.description}</p>
-
-                  <div className="flex flex-col gap-2">
-                    <TestProgressSelect
-                      value={progressStatus}
-                      onChange={(next) => setTestStatus(task.id, next)}
-                    />
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="w-full"
-                      onClick={() => {
-                        if (progressStatus === "not_done") void setTestStatus(task.id, "not_completed");
-                      }}
-                    >
-                      <Mic className="w-4 h-4 mr-1" />
-                      Practice
-                    </Button>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        )}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SECTIONS.map((s) => (
+            <SectionCard key={s.title} section={s} />
+          ))}
+        </div>
       </section>
     </SiteLayout>
   );

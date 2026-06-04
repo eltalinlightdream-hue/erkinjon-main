@@ -37,7 +37,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   });
 
   const isActive = (p: string) => loc.pathname === p;
-  const practiceActive = PRACTICE_LINKS.some((l) => isActive(l.to)) || isActive("/practice");
+  const practiceActive = PRACTICE_LINKS.some((l) => isActive(l.to)) || isActive("/practice") || loc.pathname.startsWith("/speaking/");
 
   const navLink = (path: string, label: string, active: boolean) =>
     cn(
@@ -149,15 +149,35 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     </div>
                   </div>
 
-                  <Link
-                    to="/speaking"
-                    className={cn(
-                      "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
-                      isActive("/speaking") ? "bg-accent/60 text-foreground font-semibold" : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
-                    )}
-                  >
-                    Speaking
-                  </Link>
+                  <div className="relative group/speaking">
+                    <Link
+                      to="/speaking"
+                      className={cn(
+                        "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                        isActive("/speaking") ? "bg-accent/60 text-foreground font-semibold" : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                      )}
+                    >
+                      Speaking <ChevronRight className="w-3 h-3 opacity-50" />
+                    </Link>
+
+                    <div className="absolute left-full top-0 pl-1.5 opacity-0 invisible group-hover/speaking:opacity-100 group-hover/speaking:visible transition-all duration-150 z-50">
+                      <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[150px] overflow-hidden">
+                        <div className="h-[2px] w-full mb-1" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
+                        <Link
+                          to="/speaking/pronunciation"
+                          className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                        >
+                          Pronunciation
+                        </Link>
+                        <span className="block px-4 py-2 font-mono text-[11px] tracking-wide text-muted-foreground/40 cursor-not-allowed">
+                          Topics Explained
+                        </span>
+                        <span className="block px-4 py-2 font-mono text-[11px] tracking-wide text-muted-foreground/40 cursor-not-allowed">
+                          Written Samples
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -274,6 +294,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 <Link to="/speaking" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">
                   Speaking
                 </Link>
+
+                <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
+                  <Link to="/speaking/pronunciation" onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
+                    Pronunciation
+                  </Link>
+                </div>
               </div>
 
               <Link to="/videos" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/videos") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>
