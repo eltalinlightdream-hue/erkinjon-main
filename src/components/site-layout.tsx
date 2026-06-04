@@ -169,9 +169,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                         >
                           Pronunciation
                         </Link>
-                        <span className="block px-4 py-2 font-mono text-[11px] tracking-wide text-muted-foreground/40 cursor-not-allowed">
+                        <Link
+                          to="/speaking/topics-explained"
+                          className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                        >
                           Topics Explained
-                        </span>
+                        </Link>
                         <span className="block px-4 py-2 font-mono text-[11px] tracking-wide text-muted-foreground/40 cursor-not-allowed">
                           Written Samples
                         </span>
@@ -298,6 +301,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
                   <Link to="/speaking/pronunciation" onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
                     Pronunciation
+                  </Link>
+                  <Link to="/speaking/topics-explained" onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
+                    Topics Explained
                   </Link>
                 </div>
               </div>

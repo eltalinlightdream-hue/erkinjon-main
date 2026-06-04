@@ -25,6 +25,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
+import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
 import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
 import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
 import { Route as WritingTaskIdPracticeRouteImport } from './routes/writing.$taskId.practice'
@@ -109,6 +110,11 @@ const WritingTaskIdRoute = WritingTaskIdRouteImport.update({
   path: '/$taskId',
   getParentRoute: () => WritingRoute,
 } as any)
+const SpeakingTopicsExplainedRoute = SpeakingTopicsExplainedRouteImport.update({
+  id: '/speaking_/topics-explained',
+  path: '/speaking/topics-explained',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
   id: '/speaking_/pronunciation',
   path: '/speaking/pronunciation',
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
 }
@@ -164,6 +171,7 @@ export interface FileRoutesByTo {
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
 }
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   '/writing': typeof WritingRouteWithChildren
   '/articles_/$slug': typeof ArticlesSlugRoute
   '/speaking_/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking_/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
 }
@@ -209,6 +218,7 @@ export interface FileRouteTypes {
     | '/writing'
     | '/articles/$slug'
     | '/speaking/pronunciation'
+    | '/speaking/topics-explained'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
   fileRoutesByTo: FileRoutesByTo
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/writing'
     | '/articles/$slug'
     | '/speaking/pronunciation'
+    | '/speaking/topics-explained'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
   id:
@@ -251,6 +262,7 @@ export interface FileRouteTypes {
     | '/writing'
     | '/articles_/$slug'
     | '/speaking_/pronunciation'
+    | '/speaking_/topics-explained'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
   fileRoutesById: FileRoutesById
@@ -273,6 +285,7 @@ export interface RootRouteChildren {
   WritingRoute: typeof WritingRouteWithChildren
   ArticlesSlugRoute: typeof ArticlesSlugRoute
   SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
+  SpeakingTopicsExplainedRoute: typeof SpeakingTopicsExplainedRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -389,6 +402,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WritingTaskIdRouteImport
       parentRoute: typeof WritingRoute
     }
+    '/speaking_/topics-explained': {
+      id: '/speaking_/topics-explained'
+      path: '/speaking/topics-explained'
+      fullPath: '/speaking/topics-explained'
+      preLoaderRoute: typeof SpeakingTopicsExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/speaking_/pronunciation': {
       id: '/speaking_/pronunciation'
       path: '/speaking/pronunciation'
@@ -454,6 +474,7 @@ const rootRouteChildren: RootRouteChildren = {
   WritingRoute: WritingRouteWithChildren,
   ArticlesSlugRoute: ArticlesSlugRoute,
   SpeakingPronunciationRoute: SpeakingPronunciationRoute,
+  SpeakingTopicsExplainedRoute: SpeakingTopicsExplainedRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

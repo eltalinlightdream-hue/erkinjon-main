@@ -32,12 +32,11 @@ const SECTIONS: SpeakingSection[] = [
     tint: "bg-secondary/15 text-secondary",
   },
   {
-    to: "#",
+    to: "/speaking/topics-explained",
     title: "Topics Explained",
     icon: Lightbulb,
-    desc: "Understand speaking topics and how to structure answers",
+    desc: "Master IELTS speaking topics with Keith O'Hare's explanations",
     tint: "bg-gold/15 text-gold",
-    disabled: true,
   },
   {
     to: "#",
