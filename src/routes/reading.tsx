@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -1265,10 +1265,22 @@ const FILTERS = [
 ] as const;
 
 function Reading() {
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]["v"]>("all");
+  const location = useLocation();
+  const [filter, setFilter] = useState<(typeof FILTERS)[number]["v"]>(() => {
+    if (location.hash === "#passage-1") return "1";
+    if (location.hash === "#passage-2") return "2";
+    if (location.hash === "#passage-3") return "3";
+    return "all";
+  });
   const [statusFilter, setStatusFilter] = useState<"all" | ProgressStatus>("all");
   const [search, setSearch] = useState("");
   const [active, setActive] = useState<Passage | null>(null);
+
+  useEffect(() => {
+    if (location.hash === "#passage-1") setFilter("1");
+    else if (location.hash === "#passage-2") setFilter("2");
+    else if (location.hash === "#passage-3") setFilter("3");
+  }, [location.hash]);
 
   const { profile, deviceConflict, user } = useAuth();
   const isPremium = !!profile?.is_premium && !deviceConflict;

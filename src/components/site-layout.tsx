@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Menu, X, Youtube, Send, GraduationCap, LogOut, User as UserIcon, Crown, ChevronDown, Bell, MessageCircle } from "lucide-react";
+import { Menu, X, Youtube, Send, GraduationCap, LogOut, User as UserIcon, Crown, ChevronDown, ChevronRight, Bell, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
@@ -81,20 +81,76 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                 <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[160px] overflow-hidden">
                   <div className="h-[2px] w-full mb-1" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
-                  {PRACTICE_LINKS.map((l) => (
+                  <Link
+                    to="/listening"
+                    className={cn(
+                      "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                      isActive("/listening") ? "bg-accent/60 text-foreground font-semibold" : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                    )}
+                  >
+                    Listening
+                  </Link>
+                  <div className="relative group/reading">
                     <Link
-                      key={l.to}
-                      to={l.to}
+                      to="/reading"
                       className={cn(
-                        "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
-                        isActive(l.to)
-                          ? "bg-accent/60 text-foreground font-semibold"
-                          : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                        "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                        isActive("/reading") ? "bg-accent/60 text-foreground font-semibold" : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
                       )}
                     >
-                      {l.label}
+                      Reading <ChevronRight className="w-3 h-3 opacity-50" />
                     </Link>
-                  ))}
+                    <div className="absolute left-full top-0 pl-1.5 opacity-0 invisible group-hover/reading:opacity-100 group-hover/reading:visible transition-all duration-150 z-50">
+                      <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[130px] overflow-hidden">
+                        <div className="h-[2px] w-full mb-1" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
+                        {(["1", "2", "3"] as const).map((n) => (
+                          <Link
+                            key={n}
+                            to="/reading"
+                            hash={`passage-${n}`}
+                            className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                          >
+                            Passage {n}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="relative group/writing">
+                    <Link
+                      to="/writing"
+                      className={cn(
+                        "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                        isActive("/writing") ? "bg-accent/60 text-foreground font-semibold" : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                      )}
+                    >
+                      Writing <ChevronRight className="w-3 h-3 opacity-50" />
+                    </Link>
+                    <div className="absolute left-full top-0 pl-1.5 opacity-0 invisible group-hover/writing:opacity-100 group-hover/writing:visible transition-all duration-150 z-50">
+                      <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[120px] overflow-hidden">
+                        <div className="h-[2px] w-full mb-1" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
+                        {([1, 2] as const).map((n) => (
+                          <Link
+                            key={n}
+                            to="/writing"
+                            hash={`task-${n}`}
+                            className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                          >
+                            Task {n}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <Link
+                    to="/speaking"
+                    className={cn(
+                      "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                      isActive("/speaking") ? "bg-accent/60 text-foreground font-semibold" : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                    )}
+                  >
+                    Speaking
+                  </Link>
                 </div>
               </div>
             </div>
@@ -167,9 +223,24 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <Link to="/" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Home</Link>
               <Link to="/practice" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", practiceActive ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Practice</Link>
               <div className="pl-5 flex flex-col border-l-2 border-accent ml-3">
-                {PRACTICE_LINKS.map((l) => (
-                  <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">{l.label}</Link>
-                ))}
+                <Link to="/listening" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Listening</Link>
+                <Link to="/reading" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Reading</Link>
+                <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
+                  {(["1", "2", "3"] as const).map((n) => (
+                    <Link key={n} to="/reading" hash={`passage-${n}`} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
+                      Passage {n}
+                    </Link>
+                  ))}
+                </div>
+                <Link to="/writing" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Writing</Link>
+                <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
+                  {([1, 2] as const).map((n) => (
+                    <Link key={n} to="/writing" hash={`task-${n}`} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
+                      Task {n}
+                    </Link>
+                  ))}
+                </div>
+                <Link to="/speaking" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Speaking</Link>
               </div>
               <Link to="/videos" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/videos") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Video Lessons</Link>
               <Link to="/articles" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/articles") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Articles</Link>

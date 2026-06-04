@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -913,10 +913,18 @@ const TASK1_FILTERS = ["All", "Line Graph", "Bar Chart", "Table", "Pie Chart", "
 const TASK2_FILTERS = ["All", "Agree/Disagree", "Advantages/Disadvantages", "Discussion", "Problem/Solution", "Direct Question"] as const;
 
 function Writing() {
-  const [tab, setTab] = useState<1 | 2>(1);
+  const location = useLocation();
+  const [tab, setTab] = useState<1 | 2>(() =>
+    location.hash === "#task-2" ? 2 : 1
+  );
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
   const [progress, setProgress] = useState<Record<string, { status: WritingStatus }>>({});
+
+  useEffect(() => {
+    if (location.hash === "#task-2") setTab(2);
+    else if (location.hash === "#task-1") setTab(1);
+  }, [location.hash]);
 
   useEffect(() => {
     const refresh = () => setProgress(getAllWritingProgress());
