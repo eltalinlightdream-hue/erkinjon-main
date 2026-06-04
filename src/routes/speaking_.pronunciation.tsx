@@ -7,7 +7,7 @@ import { Play, X, Clock } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/speaking/pronunciation")({
+export const Route = createFileRoute("/speaking_/pronunciation")({
   head: () => ({
     meta: [
       { title: "Pronunciation Lessons — Rachel's English | Abduraimov Erkinjon" },

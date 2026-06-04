@@ -13,7 +13,6 @@ import { Route as WritingRouteImport } from './routes/writing'
 import { Route as VocabularyRouteImport } from './routes/vocabulary'
 import { Route as VideosRouteImport } from './routes/videos'
 import { Route as SpeakingRouteImport } from './routes/speaking'
-import { Route as SpeakingPronunciationRouteImport } from './routes/speaking.pronunciation'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ReadingRouteImport } from './routes/reading'
 import { Route as PremiumRouteImport } from './routes/premium'
@@ -26,6 +25,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
+import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
 import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
 import { Route as WritingTaskIdPracticeRouteImport } from './routes/writing.$taskId.practice'
 
@@ -43,11 +43,6 @@ const VideosRoute = VideosRouteImport.update({
   id: '/videos',
   path: '/videos',
   getParentRoute: () => rootRouteImport,
-} as any)
-const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
-  id: '/pronunciation',
-  path: '/pronunciation',
-  getParentRoute: () => SpeakingRoute,
 } as any)
 const SpeakingRoute = SpeakingRouteImport.update({
   id: '/speaking',
@@ -114,6 +109,11 @@ const WritingTaskIdRoute = WritingTaskIdRouteImport.update({
   path: '/$taskId',
   getParentRoute: () => WritingRoute,
 } as any)
+const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
+  id: '/speaking_/pronunciation',
+  path: '/speaking/pronunciation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
   id: '/articles_/$slug',
   path: '/articles/$slug',
@@ -137,12 +137,12 @@ export interface FileRoutesByFullPath {
   '/premium': typeof PremiumRoute
   '/reading': typeof ReadingRoute
   '/reset-password': typeof ResetPasswordRoute
-  '/speaking': typeof SpeakingRouteWithChildren
-  '/speaking/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking': typeof SpeakingRoute
   '/videos': typeof VideosRoute
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
+  '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
 }
@@ -158,12 +158,12 @@ export interface FileRoutesByTo {
   '/premium': typeof PremiumRoute
   '/reading': typeof ReadingRoute
   '/reset-password': typeof ResetPasswordRoute
-  '/speaking': typeof SpeakingRouteWithChildren
-  '/speaking/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking': typeof SpeakingRoute
   '/videos': typeof VideosRoute
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
+  '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
 }
@@ -180,12 +180,12 @@ export interface FileRoutesById {
   '/premium': typeof PremiumRoute
   '/reading': typeof ReadingRoute
   '/reset-password': typeof ResetPasswordRoute
-  '/speaking': typeof SpeakingRouteWithChildren
-  '/speaking/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking': typeof SpeakingRoute
   '/videos': typeof VideosRoute
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
   '/articles_/$slug': typeof ArticlesSlugRoute
+  '/speaking_/pronunciation': typeof SpeakingPronunciationRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
 }
@@ -204,11 +204,11 @@ export interface FileRouteTypes {
     | '/reading'
     | '/reset-password'
     | '/speaking'
-    | '/speaking/pronunciation'
     | '/videos'
     | '/vocabulary'
     | '/writing'
     | '/articles/$slug'
+    | '/speaking/pronunciation'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
   fileRoutesByTo: FileRoutesByTo
@@ -225,11 +225,11 @@ export interface FileRouteTypes {
     | '/reading'
     | '/reset-password'
     | '/speaking'
-    | '/speaking/pronunciation'
     | '/videos'
     | '/vocabulary'
     | '/writing'
     | '/articles/$slug'
+    | '/speaking/pronunciation'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
   id:
@@ -246,11 +246,11 @@ export interface FileRouteTypes {
     | '/reading'
     | '/reset-password'
     | '/speaking'
-    | '/speaking/pronunciation'
     | '/videos'
     | '/vocabulary'
     | '/writing'
     | '/articles_/$slug'
+    | '/speaking_/pronunciation'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
   fileRoutesById: FileRoutesById
@@ -267,11 +267,12 @@ export interface RootRouteChildren {
   PremiumRoute: typeof PremiumRoute
   ReadingRoute: typeof ReadingRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
-  SpeakingRoute: typeof SpeakingRouteWithChildren
+  SpeakingRoute: typeof SpeakingRoute
   VideosRoute: typeof VideosRoute
   VocabularyRoute: typeof VocabularyRoute
   WritingRoute: typeof WritingRouteWithChildren
   ArticlesSlugRoute: typeof ArticlesSlugRoute
+  SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -303,13 +304,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/speaking'
       preLoaderRoute: typeof SpeakingRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/speaking/pronunciation': {
-      id: '/speaking/pronunciation'
-      path: '/pronunciation'
-      fullPath: '/speaking/pronunciation'
-      preLoaderRoute: typeof SpeakingPronunciationRouteImport
-      parentRoute: typeof SpeakingRoute
     }
     '/reset-password': {
       id: '/reset-password'
@@ -395,6 +389,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WritingTaskIdRouteImport
       parentRoute: typeof WritingRoute
     }
+    '/speaking_/pronunciation': {
+      id: '/speaking_/pronunciation'
+      path: '/speaking/pronunciation'
+      fullPath: '/speaking/pronunciation'
+      preLoaderRoute: typeof SpeakingPronunciationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/articles_/$slug': {
       id: '/articles_/$slug'
       path: '/articles/$slug'
@@ -435,17 +436,6 @@ const WritingRouteChildren: WritingRouteChildren = {
 const WritingRouteWithChildren =
   WritingRoute._addFileChildren(WritingRouteChildren)
 
-interface SpeakingRouteChildren {
-  SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
-}
-
-const SpeakingRouteChildren: SpeakingRouteChildren = {
-  SpeakingPronunciationRoute: SpeakingPronunciationRoute,
-}
-
-const SpeakingRouteWithChildren =
-  SpeakingRoute._addFileChildren(SpeakingRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
@@ -458,11 +448,12 @@ const rootRouteChildren: RootRouteChildren = {
   PremiumRoute: PremiumRoute,
   ReadingRoute: ReadingRoute,
   ResetPasswordRoute: ResetPasswordRoute,
-  SpeakingRoute: SpeakingRouteWithChildren,
+  SpeakingRoute: SpeakingRoute,
   VideosRoute: VideosRoute,
   VocabularyRoute: VocabularyRoute,
   WritingRoute: WritingRouteWithChildren,
   ArticlesSlugRoute: ArticlesSlugRoute,
+  SpeakingPronunciationRoute: SpeakingPronunciationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
