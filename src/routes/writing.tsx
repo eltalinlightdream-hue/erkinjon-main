@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,14 +14,9 @@ import {
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/writing")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    task: (["1", "2"].includes(search.task as string)
-      ? (search.task as "1" | "2")
-      : undefined),
-  }),
   head: () => ({
     meta: [
-      { title: "IELTS Writing — Task 1 & Task 2 | Abduraimov Erkinjon" },
+      { title: "IELTS Writing - Task 1 & Task 2 | Abduraimov Erkinjon" },
       { name: "description", content: "IELTS Writing Task 1 and Task 2 practice." },
     ],
   }),
@@ -918,16 +913,17 @@ const TASK1_FILTERS = ["All", "Line Graph", "Bar Chart", "Table", "Pie Chart", "
 const TASK2_FILTERS = ["All", "Agree/Disagree", "Advantages/Disadvantages", "Discussion", "Problem/Solution", "Direct Question"] as const;
 
 function Writing() {
-  const { task } = Route.useSearch();
-  const [tab, setTab] = useState<1 | 2>(() => (task === "2" ? 2 : 1));
+  const location = useLocation();
+  const taskParam = new URLSearchParams(location.search).get("task");
+  const [tab, setTab] = useState<1 | 2>(() => (taskParam === "2" ? 2 : 1));
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
   const [progress, setProgress] = useState<Record<string, { status: WritingStatus }>>({});
 
   useEffect(() => {
-    if (task === "2") setTab(2);
-    else if (task === "1") setTab(1);
-  }, [task]);
+    if (taskParam === "2") setTab(2);
+    else if (taskParam === "1") setTab(1);
+  }, [taskParam]);
 
   useEffect(() => {
     const refresh = () => setProgress(getAllWritingProgress());
