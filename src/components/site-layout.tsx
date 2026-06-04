@@ -18,6 +18,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const { user, profile, signOut, deviceConflict } = useAuth();
   const loc = useLocation();
+
   const { data: due } = useQuery({
     queryKey: ["due-count", user?.id],
     queryFn: async () => {
@@ -34,6 +35,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     refetchInterval: 60_000,
     retry: false,
   });
+
   const isActive = (p: string) => loc.pathname === p;
   const practiceActive = PRACTICE_LINKS.some((l) => isActive(l.to)) || isActive("/practice");
 
@@ -59,10 +61,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-0.5">
-            <Link
-              to="/"
-              className={navLink("/", "Home", isActive("/"))}
-            >
+            <Link to="/" className={navLink("/", "Home", isActive("/"))}>
               Home
             </Link>
 
@@ -78,9 +77,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               >
                 Practice <ChevronDown className="w-3 h-3 opacity-60 transition-transform group-hover:rotate-180" />
               </Link>
+
               <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[160px] overflow-hidden">
-                  <div className="h-[2px] w-full mb-1" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
+                {/* overflow-visible so nested submenus can extend outside this panel */}
+                <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[160px]">
+                  <div className="h-[2px] w-full mb-1 rounded-t-xl overflow-hidden" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
+
                   <Link
                     to="/listening"
                     className={cn(
@@ -90,6 +92,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   >
                     Listening
                   </Link>
+
                   <div className="relative group/reading">
                     <Link
                       to="/reading"
@@ -100,6 +103,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     >
                       Reading <ChevronRight className="w-3 h-3 opacity-50" />
                     </Link>
+
                     <div className="absolute left-full top-0 pl-1.5 opacity-0 invisible group-hover/reading:opacity-100 group-hover/reading:visible transition-all duration-150 z-50">
                       <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[130px] overflow-hidden">
                         <div className="h-[2px] w-full mb-1" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
@@ -116,6 +120,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                       </div>
                     </div>
                   </div>
+
                   <div className="relative group/writing">
                     <Link
                       to="/writing"
@@ -126,6 +131,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     >
                       Writing <ChevronRight className="w-3 h-3 opacity-50" />
                     </Link>
+
                     <div className="absolute left-full top-0 pl-1.5 opacity-0 invisible group-hover/writing:opacity-100 group-hover/writing:visible transition-all duration-150 z-50">
                       <div className="bg-card border border-border rounded-xl shadow-[0_8px_32px_rgba(43,64,128,0.12)] py-1.5 min-w-[120px] overflow-hidden">
                         <div className="h-[2px] w-full mb-1" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
@@ -142,6 +148,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                       </div>
                     </div>
                   </div>
+
                   <Link
                     to="/speaking"
                     className={cn(
@@ -158,11 +165,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <Link to="/videos" className={navLink("/videos", "Video Lessons", isActive("/videos"))}>
               Video Lessons
             </Link>
+
             <Link to="/articles" className={navLink("/articles", "Articles", isActive("/articles"))}>
               Articles
             </Link>
+
             <Link to="/contact-about" className={navLink("/contact-about", "Contact & About", isActive("/contact-about"))}>
-              Contact &amp; About
+              Contact & About
             </Link>
           </nav>
 
@@ -179,6 +188,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 </span>
               </Link>
             )}
+
             {user ? (
               <>
                 {profile?.is_premium && (
@@ -186,11 +196,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     <Crown className="w-3 h-3" /> Premium
                   </span>
                 )}
+
                 <Link to="/account">
                   <Button variant="ghost" size="sm" className="font-mono text-xs tracking-wide h-8">
                     <UserIcon className="w-3.5 h-3.5 mr-1.5" /> Account
                   </Button>
                 </Link>
+
                 <Button variant="ghost" size="sm" className="h-8" onClick={() => signOut()}>
                   <LogOut className="w-3.5 h-3.5" />
                 </Button>
@@ -198,8 +210,11 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             ) : (
               <>
                 <Link to="/auth">
-                  <Button variant="ghost" size="sm" className="font-mono text-xs tracking-wide h-8">Sign In</Button>
+                  <Button variant="ghost" size="sm" className="font-mono text-xs tracking-wide h-8">
+                    Sign In
+                  </Button>
                 </Link>
+
                 <Link to="/premium">
                   <Button size="sm" className="bg-gradient-primary text-white shadow-soft hover:opacity-90 h-8 text-xs font-mono tracking-wide rounded-lg active:scale-95 transition-all">
                     Go Premium
@@ -214,17 +229,28 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </button>
         </div>
 
-        {/* Signature gradient line */}
         <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #EAC4D5 45%, #4A9B7A 100%)" }} />
 
         {open && (
           <div className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-md">
             <div className="container mx-auto px-4 py-4 flex flex-col gap-0.5">
-              <Link to="/" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Home</Link>
-              <Link to="/practice" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", practiceActive ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Practice</Link>
+              <Link to="/" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>
+                Home
+              </Link>
+
+              <Link to="/practice" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", practiceActive ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>
+                Practice
+              </Link>
+
               <div className="pl-5 flex flex-col border-l-2 border-accent ml-3">
-                <Link to="/listening" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Listening</Link>
-                <Link to="/reading" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Reading</Link>
+                <Link to="/listening" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">
+                  Listening
+                </Link>
+
+                <Link to="/reading" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">
+                  Reading
+                </Link>
+
                 <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
                   {(["1", "2", "3"] as const).map((n) => (
                     <Link key={n} to="/reading" hash={`passage-${n}`} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
@@ -232,7 +258,11 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     </Link>
                   ))}
                 </div>
-                <Link to="/writing" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Writing</Link>
+
+                <Link to="/writing" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">
+                  Writing
+                </Link>
+
                 <div className="pl-4 flex flex-col border-l border-accent/50 ml-1 mb-0.5">
                   {([1, 2] as const).map((n) => (
                     <Link key={n} to="/writing" hash={`task-${n}`} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-muted-foreground/70 hover:text-foreground tracking-wide">
@@ -240,27 +270,53 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     </Link>
                   ))}
                 </div>
-                <Link to="/speaking" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">Speaking</Link>
+
+                <Link to="/speaking" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-muted-foreground hover:text-foreground tracking-wide">
+                  Speaking
+                </Link>
               </div>
-              <Link to="/videos" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/videos") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Video Lessons</Link>
-              <Link to="/articles" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/articles") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Articles</Link>
-              <Link to="/vocabulary" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/vocabulary") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Vocabulary</Link>
-              <Link to="/contact-about" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/contact-about") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>Contact &amp; About</Link>
+
+              <Link to="/videos" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/videos") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>
+                Video Lessons
+              </Link>
+
+              <Link to="/articles" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/articles") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>
+                Articles
+              </Link>
+
+              <Link to="/vocabulary" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/vocabulary") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>
+                Vocabulary
+              </Link>
+
+              <Link to="/contact-about" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 rounded-md font-mono text-xs tracking-wide transition-colors", isActive("/contact-about") ? "text-primary bg-primary/8 font-semibold" : "hover:bg-muted/50")}>
+                Contact & About
+              </Link>
+
               <div className="pt-4 border-t border-border mt-2 flex flex-col gap-2">
                 {user ? (
                   <>
                     <Link to="/account" onClick={() => setOpen(false)}>
-                      <Button variant="outline" className="w-full font-mono text-xs tracking-wide">Account</Button>
+                      <Button variant="outline" className="w-full font-mono text-xs tracking-wide">
+                        Account
+                      </Button>
                     </Link>
-                    <Button variant="ghost" className="font-mono text-xs tracking-wide" onClick={() => { signOut(); setOpen(false); }}>Sign out</Button>
+
+                    <Button variant="ghost" className="font-mono text-xs tracking-wide" onClick={() => { signOut(); setOpen(false); }}>
+                      Sign out
+                    </Button>
                   </>
                 ) : (
                   <>
                     <Link to="/auth" onClick={() => setOpen(false)}>
-                      <Button variant="outline" className="w-full font-mono text-xs tracking-wide">Sign In</Button>
+                      <Button variant="outline" className="w-full font-mono text-xs tracking-wide">
+                        Sign In
+                      </Button>
                     </Link>
+
                     <Link to="/premium" onClick={() => setOpen(false)}>
-                      <Button className="w-full bg-gradient-primary text-white font-mono text-xs tracking-wide">Go Premium</Button>
+                      <Button className="w-full bg-gradient-primary text-white font-mono text-xs tracking-wide">
+                        Go Premium
+                      </Button>
                     </Link>
                   </>
                 )}
@@ -282,6 +338,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       <footer className="border-t border-border/60 bg-muted/30 mt-16">
         <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, transparent 0%, #F5D5CB 30%, #4A9B7A 70%, transparent 100%)" }} />
+
         <div className="container mx-auto px-4 py-14 grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-2.5 mb-4">
@@ -294,31 +351,60 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               Guided IELTS preparation from a Band 8.0 teacher in Fergana, Uzbekistan.
             </p>
           </div>
+
           <div>
-            <h4 className="font-mono font-semibold mb-4 text-[11px] tracking-widest uppercase text-muted-foreground/80">Explore</h4>
+            <h4 className="font-mono font-semibold mb-4 text-[11px] tracking-widest uppercase text-muted-foreground/80">
+              Explore
+            </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/practice" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">Practice</Link></li>
-              <li><Link to="/videos" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">Video Lessons</Link></li>
-              <li><Link to="/articles" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">Articles</Link></li>
-              <li><Link to="/vocabulary" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">Vocabulary Practice</Link></li>
-              <li><Link to="/premium" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">Premium</Link></li>
+              <li>
+                <Link to="/practice" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">
+                  Practice
+                </Link>
+              </li>
+              <li>
+                <Link to="/videos" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">
+                  Video Lessons
+                </Link>
+              </li>
+              <li>
+                <Link to="/articles" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">
+                  Articles
+                </Link>
+              </li>
+              <li>
+                <Link to="/vocabulary" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">
+                  Vocabulary Practice
+                </Link>
+              </li>
+              <li>
+                <Link to="/premium" className="text-muted-foreground hover:text-primary transition-colors underline decoration-border underline-offset-3">
+                  Premium
+                </Link>
+              </li>
             </ul>
           </div>
+
           <div>
-            <h4 className="font-mono font-semibold mb-4 text-[11px] tracking-widest uppercase text-muted-foreground/80">Connect</h4>
+            <h4 className="font-mono font-semibold mb-4 text-[11px] tracking-widest uppercase text-muted-foreground/80">
+              Connect
+            </h4>
             <div className="flex flex-col gap-3">
               <a href="https://www.youtube.com/@erkinjon_writes" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors group">
                 <Youtube className="w-4 h-4 text-[#FF0000] group-hover:scale-110 transition-transform" /> YouTube Channel
               </a>
+
               <a href="https://t.me/augustus_flores" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors group">
                 <Send className="w-4 h-4 text-[#229ED9] group-hover:scale-110 transition-transform" /> Telegram Channel
               </a>
+
               <a href="https://t.me/augustus_at" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors group">
                 <MessageCircle className="w-4 h-4 text-secondary group-hover:scale-110 transition-transform" /> Personal Telegram
               </a>
             </div>
           </div>
         </div>
+
         <div className="border-t border-border/40 py-5 text-center font-mono text-[11px] tracking-wider text-muted-foreground/60">
           © {new Date().getFullYear()} Abduraimov Erkinjon — Precision in Language — Made with care in Uzbekistan
         </div>
