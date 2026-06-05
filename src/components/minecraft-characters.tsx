@@ -1,6 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useMemo } from "react";
+import { useLocation } from "@tanstack/react-router";
 import {
   SteveWaving,
+  SteveMining,
+  SteveReading,
   Creeper,
   Enderman,
   Zombie,
@@ -8,14 +11,13 @@ import {
 } from "@/components/minecraft-decorations";
 
 // ═══════════════════════════════════════════════════════════════════
-// SVG CHARACTER COMPONENTS
+// EXTRA SVG CHARACTERS
 // ═══════════════════════════════════════════════════════════════════
 
-function SvgSkeleton({ size = 50 }: { size?: number }) {
+function SvgSkeleton({ size = 48 }: { size?: number }) {
   return (
     <svg width={size} height={size * 2} viewBox="0 0 48 96" style={{ imageRendering: "pixelated" }} aria-hidden>
       <rect x="9" y="0" width="30" height="21" fill="#F0F0F0" />
-      <rect x="12" y="0" width="24" height="3" fill="#E0E0E0" />
       <rect x="12" y="5" width="8" height="7" fill="#1A1A1A" />
       <rect x="28" y="5" width="8" height="7" fill="#1A1A1A" />
       <rect x="21" y="11" width="6" height="4" fill="#1A1A1A" />
@@ -23,469 +25,272 @@ function SvgSkeleton({ size = 50 }: { size?: number }) {
       <rect x="17" y="16" width="3" height="5" fill="#F0F0F0" />
       <rect x="25" y="16" width="3" height="5" fill="#F0F0F0" />
       <rect x="29" y="16" width="3" height="5" fill="#F0F0F0" />
-      <rect x="9" y="16" width="30" height="3" fill="#D8D8D8" />
       <rect x="20" y="24" width="8" height="21" fill="#D8D8D8" />
       <rect x="10" y="27" width="10" height="3" fill="#D0D0D0" />
       <rect x="28" y="27" width="10" height="3" fill="#D0D0D0" />
       <rect x="10" y="33" width="10" height="3" fill="#D0D0D0" />
       <rect x="28" y="33" width="10" height="3" fill="#D0D0D0" />
-      <rect x="10" y="39" width="10" height="3" fill="#C8C8C8" />
-      <rect x="28" y="39" width="10" height="3" fill="#C8C8C8" />
-      <rect x="4" y="24" width="6" height="21" fill="#D0D0D0" />
-      <rect x="0" y="16" width="3" height="36" fill="#A0722A" />
-      <rect x="3" y="18" width="1" height="32" fill="#E0C080" />
+      <rect x="4"  y="24" width="6" height="21" fill="#D0D0D0" />
       <rect x="38" y="24" width="6" height="21" fill="#D0D0D0" />
-      <rect x="44" y="27" width="4" height="15" fill="#D0D0D0" />
-      <rect x="14" y="45" width="20" height="6" fill="#C8C8C8" />
       <rect x="14" y="51" width="8" height="27" fill="#D0D0D0" />
-      <rect x="14" y="72" width="8" height="6" fill="#C0C0C0" />
       <rect x="26" y="51" width="8" height="27" fill="#D0D0D0" />
-      <rect x="26" y="72" width="8" height="6" fill="#C0C0C0" />
     </svg>
   );
 }
 
-function SvgGoat({ size = 55 }: { size?: number }) {
-  const s = size / 60;
+function SvgSlime({ size = 42 }: { size?: number }) {
   return (
-    <svg width={size} height={size * 0.8} viewBox="0 0 60 48" style={{ imageRendering: "pixelated" }} aria-hidden>
-      {/* Body */}
-      <rect x="10" y="16" width="36" height="20" fill="#E8E0D0" />
-      <rect x="10" y="16" width="36" height="2" fill="#F0E8D8" />
-      <rect x="10" y="16" width="2" height="20" fill="#F0E8D8" />
-      <rect x="44" y="16" width="2" height="20" fill="#C8C0B0" />
-      {/* Head */}
-      <rect x="36" y="8" width="20" height="16" fill="#E8E0D0" />
-      <rect x="36" y="8" width="20" height="2" fill="#F0E8D8" />
-      {/* Horns */}
-      <rect x="38" y="2" width="4" height="8" fill="#C8B898" />
-      <rect x="50" y="2" width="4" height="8" fill="#C8B898" />
-      <rect x="34" y="4" width="6" height="4" fill="#C8B898" />
-      <rect x="52" y="4" width="6" height="4" fill="#C8B898" />
-      {/* Eye */}
-      <rect x="50" y="11" width="4" height="4" fill="#1A1A1A" />
-      <rect x="51" y="12" width="2" height="2" fill="#FFFFFF" />
-      {/* Nose */}
-      <rect x="54" y="18" width="6" height="4" fill="#D0C8B8" />
-      {/* Beard */}
-      <rect x="56" y="22" width="4" height="6" fill="#D8D0C0" />
-      {/* Legs */}
-      <rect x="12" y="36" width="6" height="12" fill="#D8D0C0" />
-      <rect x="20" y="36" width="6" height="12" fill="#D0C8B8" />
-      <rect x="32" y="36" width="6" height="12" fill="#D8D0C0" />
-      <rect x="40" y="36" width="6" height="12" fill="#D0C8B8" />
-      {/* Hooves */}
-      <rect x="12" y="44" width="6" height="4" fill="#888070" />
-      <rect x="20" y="44" width="6" height="4" fill="#888070" />
-      <rect x="32" y="44" width="6" height="4" fill="#888070" />
-      <rect x="40" y="44" width="6" height="4" fill="#888070" />
-      {/* Tail */}
-      <rect x="8" y="16" width="4" height="6" fill="#F0E8D8" />
+    <svg width={size} height={size * 0.85} viewBox="0 0 42 36" style={{ imageRendering: "pixelated" }} aria-hidden>
+      <rect x="2" y="4" width="38" height="28" fill="#5BBF5B" />
+      <rect x="2" y="4" width="14" height="10" fill="#7AD67A" />
+      <rect x="9"  y="12" width="7" height="7" fill="#1A1A1A" />
+      <rect x="26" y="12" width="7" height="7" fill="#1A1A1A" />
+      <rect x="12" y="13" width="2" height="2" fill="#FFFFFF" />
+      <rect x="29" y="13" width="2" height="2" fill="#FFFFFF" />
+      <rect x="10" y="24" width="4" height="2" fill="#1A1A1A" />
+      <rect x="28" y="24" width="4" height="2" fill="#1A1A1A" />
+      <rect x="14" y="26" width="14" height="2" fill="#1A1A1A" />
+      <rect x="6"  y="32" width="10" height="4" fill="#4AAE4A" />
+      <rect x="26" y="32" width="10" height="4" fill="#4AAE4A" />
     </svg>
   );
 }
 
-function SvgSpider({ size = 55 }: { size?: number }) {
+function SvgVillager({ size = 48 }: { size?: number }) {
   return (
-    <svg width={size * 1.8} height={size * 0.55} viewBox="0 0 90 27" style={{ imageRendering: "pixelated" }} aria-hidden>
-      {/* Abdomen */}
-      <rect x="46" y="7" width="20" height="13" fill="#2A1010" />
-      <rect x="46" y="7" width="20" height="2" fill="#3A2020" />
-      {/* Cephalothorax */}
-      <rect x="28" y="5" width="18" height="15" fill="#3A1A1A" />
-      <rect x="28" y="5" width="18" height="2" fill="#4A2A2A" />
-      {/* Eyes */}
-      <rect x="30" y="7" width="4" height="4" fill="#C0392B" />
-      <rect x="36" y="7" width="4" height="4" fill="#C0392B" />
-      <rect x="31" y="8" width="2" height="2" fill="#FF6666" />
-      <rect x="37" y="8" width="2" height="2" fill="#FF6666" />
-      {/* Fangs */}
-      <rect x="32" y="19" width="3" height="5" fill="#CCCCCC" />
-      <rect x="37" y="19" width="3" height="5" fill="#CCCCCC" />
-      {/* Left legs (4 pairs, alternating groups) */}
-      <g className="mc-legs-a">
-        <rect x="4"  y="1"  width="24" height="3" fill="#2A1A1A" />
-        <rect x="6"  y="15" width="22" height="3" fill="#2A1A1A" />
-      </g>
-      <g className="mc-legs-b">
-        <rect x="8"  y="8"  width="20" height="3" fill="#2A1A1A" />
-        <rect x="10" y="20" width="18" height="3" fill="#2A1A1A" />
-      </g>
-      {/* Right legs (4 pairs, alternating groups) */}
-      <g className="mc-legs-a">
-        <rect x="62" y="1"  width="24" height="3" fill="#2A1A1A" />
-        <rect x="62" y="15" width="22" height="3" fill="#2A1A1A" />
-      </g>
-      <g className="mc-legs-b">
-        <rect x="62" y="8"  width="20" height="3" fill="#2A1A1A" />
-        <rect x="62" y="20" width="18" height="3" fill="#2A1A1A" />
-      </g>
+    <svg width={size} height={size * 2} viewBox="0 0 48 96" style={{ imageRendering: "pixelated" }} aria-hidden>
+      <rect x="10" y="0"  width="28" height="24" fill="#C8A878" />
+      <rect x="14" y="7"  width="5"  height="5"  fill="#1A1A1A" />
+      <rect x="29" y="7"  width="5"  height="5"  fill="#1A1A1A" />
+      <rect x="18" y="12" width="12" height="8"  fill="#B09068" />
+      <rect x="6"  y="24" width="36" height="33" fill="#7B5030" />
+      <rect x="14" y="24" width="20" height="33" fill="#8B6040" />
+      <rect x="0"  y="27" width="6"  height="18" fill="#7B5030" />
+      <rect x="42" y="27" width="6"  height="18" fill="#7B5030" />
+      <rect x="10" y="57" width="12" height="21" fill="#5D3A1A" />
+      <rect x="26" y="57" width="12" height="21" fill="#5D3A1A" />
+    </svg>
+  );
+}
+
+function SvgWitch({ size = 48 }: { size?: number }) {
+  return (
+    <svg width={size} height={size * 2} viewBox="0 0 48 96" style={{ imageRendering: "pixelated" }} aria-hidden>
+      <rect x="16" y="0"  width="16" height="12" fill="#1A1A1A" />
+      <rect x="6"  y="12" width="36" height="6"  fill="#1A1A1A" />
+      <rect x="16" y="10" width="16" height="3"  fill="#9B59B6" />
+      <rect x="12" y="18" width="24" height="21" fill="#C0C870" />
+      <rect x="15" y="21" width="5"  height="5"  fill="#1A1A1A" />
+      <rect x="28" y="21" width="5"  height="5"  fill="#1A1A1A" />
+      <rect x="20" y="27" width="9"  height="6"  fill="#A0A850" />
+      <rect x="8"  y="39" width="32" height="27" fill="#2A1A3A" />
+      <rect x="0"  y="42" width="8"  height="18" fill="#2A1A3A" />
+      <rect x="40" y="42" width="8"  height="18" fill="#2A1A3A" />
+      <rect x="12" y="66" width="11" height="24" fill="#2A1A3A" />
+      <rect x="25" y="66" width="11" height="24" fill="#2A1A3A" />
+    </svg>
+  );
+}
+
+function SvgIronGolem({ size = 60 }: { size?: number }) {
+  return (
+    <svg width={size} height={size * 1.5} viewBox="0 0 64 96" style={{ imageRendering: "pixelated" }} aria-hidden>
+      <rect x="20" y="0"  width="24" height="24" fill="#9A9A9A" />
+      <rect x="23" y="6"  width="6"  height="5"  fill="#C0392B" />
+      <rect x="35" y="6"  width="6"  height="5"  fill="#C0392B" />
+      <rect x="28" y="12" width="8"  height="4"  fill="#888888" />
+      <rect x="22" y="14" width="3"  height="7"  fill="#5D8A3C" />
+      <rect x="39" y="14" width="3"  height="7"  fill="#5D8A3C" />
+      <rect x="12" y="24" width="40" height="30" fill="#929292" />
+      <rect x="0"  y="24" width="12" height="36" fill="#888888" />
+      <rect x="0"  y="58" width="12" height="8"  fill="#787878" />
+      <rect x="52" y="24" width="12" height="36" fill="#888888" />
+      <rect x="52" y="58" width="12" height="8"  fill="#787878" />
+      <rect x="15" y="54" width="14" height="30" fill="#8A8A8A" />
+      <rect x="35" y="54" width="14" height="30" fill="#8A8A8A" />
+    </svg>
+  );
+}
+
+function SvgBat({ size = 30 }: { size?: number }) {
+  return (
+    <svg width={size * 2} height={size} viewBox="0 0 60 30" style={{ imageRendering: "pixelated" }} aria-hidden>
+      <rect x="0"  y="8"  width="22" height="14" fill="#2A1A3A" />
+      <rect x="4"  y="5"  width="14" height="5"  fill="#2A1A3A" />
+      <rect x="24" y="5"  width="12" height="17" fill="#1A0A2A" />
+      <rect x="24" y="1"  width="4"  height="6"  fill="#1A0A2A" />
+      <rect x="32" y="1"  width="4"  height="6"  fill="#1A0A2A" />
+      <rect x="26" y="7"  width="3"  height="3"  fill="#C0392B" />
+      <rect x="31" y="7"  width="3"  height="3"  fill="#C0392B" />
+      <rect x="34" y="14" width="4"  height="8"  fill="#2A1A3A" />
+      <rect x="38" y="8"  width="22" height="14" fill="#2A1A3A" />
+      <rect x="42" y="5"  width="14" height="5"  fill="#2A1A3A" />
     </svg>
   );
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// CSS ANIMATIONS (injected once)
+// STATIC PLACEMENT CSS (injected once)
 // ═══════════════════════════════════════════════════════════════════
 
-const MC_CSS = `
+const MC_STATIC_CSS = `
 @keyframes mc-breathe {
   0%, 100% { transform: scaleY(1); }
   50%       { transform: scaleY(1.03); }
 }
-@keyframes mc-blink {
-  0%, 89%, 100% { opacity: 1; }
-  92%            { opacity: 0; }
+@keyframes mc-float-idle {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+@keyframes mc-bat-flap {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  50%       { transform: scaleX(0.7) scaleY(0.65); }
 }
 @keyframes mc-dragon-flap {
   0%, 100% { transform: scaleY(1); }
-  50%       { transform: scaleY(0.85); }
+  50%       { transform: scaleY(0.82); }
 }
-@keyframes mc-land-squash {
-  0%   { transform: scaleY(0.7); }
-  60%  { transform: scaleY(1.08); }
-  100% { transform: scaleY(1); }
-}
-@keyframes mc-legs-a {
-  0%, 100% { transform: rotate(-15deg); }
-  50%       { transform: rotate(15deg); }
-}
-@keyframes mc-legs-b {
-  0%, 100% { transform: rotate(15deg); }
-  50%       { transform: rotate(-15deg); }
-}
-@keyframes mc-enderman-teleport-out {
-  0%   { opacity: 1; transform: scaleY(1); }
-  100% { opacity: 0; transform: scaleY(0.05) scaleX(2); }
-}
-@keyframes mc-enderman-teleport-in {
-  0%   { opacity: 0; transform: scaleY(0.05) scaleX(2); }
-  100% { opacity: 1; transform: scaleY(1); }
-}
-.mc-breathe {
-  animation: mc-breathe 2s ease-in-out infinite;
-  transform-origin: bottom center;
-}
-.mc-blink {
-  animation: mc-blink 4s linear infinite;
-}
-.mc-dragon-wings {
-  animation: mc-dragon-flap 0.8s ease-in-out infinite;
-}
-.mc-land-squash {
-  animation: mc-land-squash 0.3s cubic-bezier(0.33,1,0.68,1) forwards;
-  transform-origin: bottom center;
-}
-.mc-legs-a {
-  animation: mc-legs-a 0.25s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-}
-.mc-legs-b {
-  animation: mc-legs-b 0.25s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-}
+.mc-static-breathe { animation: mc-breathe 2.2s ease-in-out infinite; transform-origin: bottom center; }
+.mc-static-float   { animation: mc-float-idle 3s ease-in-out infinite; }
+.mc-static-bat     { animation: mc-bat-flap 0.2s ease-in-out infinite; }
+.mc-static-dragon  { animation: mc-dragon-flap 0.9s ease-in-out infinite; }
 `;
 
+let cssInjected = false;
+function injectCss() {
+  if (cssInjected || typeof document === "undefined") return;
+  cssInjected = true;
+  if (document.getElementById("mc-static-css")) return;
+  const el = document.createElement("style");
+  el.id = "mc-static-css";
+  el.textContent = MC_STATIC_CSS;
+  document.head.appendChild(el);
+}
+
 // ═══════════════════════════════════════════════════════════════════
-// TYPES
+// CHARACTER REGISTRY
 // ═══════════════════════════════════════════════════════════════════
 
-type BehaviorType = "patrol" | "wander" | "fly" | "teleport" | "jump_patrol" | "crawl";
+type CharKey =
+  | "steve-wave" | "steve-mine" | "steve-read"
+  | "creeper" | "zombie" | "skeleton"
+  | "enderman" | "dragon"
+  | "slime" | "villager" | "witch" | "iron-golem" | "bat";
 
-interface SectionBounds {
-  top: number; bottom: number; left: number; right: number;
-}
-
-interface PatrolState {
-  kind: "patrol";
-  x: number; dir: 1 | -1;
-  pausing: boolean; pauseTimer: number;
-  t: number;
-}
-interface WanderState {
-  kind: "wander";
-  x: number; y: number;
-  targetX: number; targetY: number;
-  timer: number; t: number;
-  facingRight: boolean; isMoving: boolean;
-}
-interface FlyState {
-  kind: "fly";
-  t: number;
-}
-interface TeleportState {
-  kind: "teleport";
-  x: number; y: number;
-  phase: "idle" | "out" | "in";
-  phaseTimer: number;
-  pendingX: number; pendingY: number;
-}
-interface JumpPatrolState {
-  kind: "jump_patrol";
-  x: number; dir: 1 | -1;
-  pausing: boolean; pauseTimer: number;
-  t: number; jumpTimer: number;
-  isJumping: boolean; jumpProgress: number;
-  baseY: number;
-  landingSquash: boolean;
-}
-interface CrawlState {
-  kind: "crawl";
-  x: number; dir: 1 | -1; t: number;
+interface CharSpec {
+  key: CharKey;
+  animClass: string;
+  w: number;   // pixel width  (for flip calculation)
+  h: number;   // pixel height
 }
 
-type AnimState =
-  | PatrolState | WanderState | FlyState
-  | TeleportState | JumpPatrolState | CrawlState;
+const CHAR_SPECS: Record<CharKey, CharSpec> = {
+  "steve-wave":  { key: "steve-wave",  animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "steve-mine":  { key: "steve-mine",  animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "steve-read":  { key: "steve-read",  animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "creeper":     { key: "creeper",     animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "zombie":      { key: "zombie",      animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "skeleton":    { key: "skeleton",    animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "enderman":    { key: "enderman",    animClass: "mc-static-float",   w: 40,  h: 110 },
+  "dragon":      { key: "dragon",      animClass: "mc-static-dragon",  w: 200, h: 72  },
+  "slime":       { key: "slime",       animClass: "mc-static-float",   w: 42,  h: 36  },
+  "villager":    { key: "villager",    animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "witch":       { key: "witch",       animClass: "mc-static-breathe", w: 48,  h: 96  },
+  "iron-golem":  { key: "iron-golem",  animClass: "mc-static-breathe", w: 64,  h: 96  },
+  "bat":         { key: "bat",         animClass: "mc-static-bat",     w: 60,  h: 30  },
+};
 
-interface TickResult {
-  x: number; y: number;
-  flipX: 1 | -1;
-  scaleY: number;
+function renderChar(key: CharKey, size: number): React.ReactNode {
+  switch (key) {
+    case "steve-wave":  return <SteveWaving size={size} opacity={1} />;
+    case "steve-mine":  return <SteveMining size={size} opacity={1} />;
+    case "steve-read":  return <SteveReading size={size} opacity={1} />;
+    case "creeper":     return <Creeper size={size} opacity={1} />;
+    case "zombie":      return <Zombie size={size} opacity={1} />;
+    case "skeleton":    return <SvgSkeleton size={size} />;
+    case "enderman":    return <Enderman size={size * 0.55} opacity={1} />;
+    case "dragon":      return <EnderDragonSilhouette width={size * 2.8} height={size} opacity={1} />;
+    case "slime":       return <SvgSlime size={size} />;
+    case "villager":    return <SvgVillager size={size} />;
+    case "witch":       return <SvgWitch size={size} />;
+    case "iron-golem":  return <SvgIronGolem size={size} />;
+    case "bat":         return <SvgBat size={size} />;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// PAGE → CHARACTER MAPPING
+// ═══════════════════════════════════════════════════════════════════
+
+function charsForPath(pathname: string): CharKey[] {
+  if (pathname === "/")                           return ["dragon", "steve-wave", "creeper", "slime"];
+  if (pathname.startsWith("/practice"))           return ["steve-mine", "zombie", "skeleton", "creeper"];
+  if (pathname.startsWith("/writing"))            return ["steve-read", "witch", "villager", "creeper"];
+  if (pathname.startsWith("/reading"))            return ["steve-read", "skeleton", "witch", "slime"];
+  if (pathname.startsWith("/listening"))          return ["bat", "zombie", "creeper", "skeleton"];
+  if (pathname.startsWith("/speaking"))           return ["enderman", "bat", "witch", "villager"];
+  if (pathname.startsWith("/vocabulary"))         return ["iron-golem", "villager", "slime", "steve-read"];
+  if (pathname.startsWith("/videos"))             return ["bat", "steve-wave", "creeper", "slime"];
+  if (pathname.startsWith("/articles"))           return ["steve-read", "villager", "witch", "bat"];
+  if (pathname.startsWith("/premium"))            return ["dragon", "iron-golem", "steve-wave", "enderman"];
+  if (pathname.startsWith("/admin"))              return ["enderman", "skeleton", "witch", "zombie"];
+  if (pathname.startsWith("/account"))            return ["villager", "steve-wave", "slime"];
+  return ["steve-wave", "creeper", "slime"];
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// DETERMINISTIC POSITION GENERATOR
+// ═══════════════════════════════════════════════════════════════════
+
+function seededRand(seed: number): () => number {
+  let s = seed | 0;
+  return () => {
+    s = (Math.imul(1664525, s) + 1013904223) | 0;
+    return (s >>> 0) / 0xffffffff;
+  };
+}
+
+function hashStr(s: string): number {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(33, h) ^ s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+interface PlacedChar {
+  key: CharKey;
+  size: number;     // px
+  left: number;     // %
+  top: number;      // %
+  flipX: boolean;
   opacity: number;
-  teleportPhase?: "idle" | "out" | "in";
-  landingSquash?: boolean;
+  animDelay: string;
 }
 
-interface CharDef {
-  id: string;
-  section: number;
-  behavior: BehaviorType;
-  w: number; h: number;
-  opacity: number;
-  initX?: number;
-}
+// Spread characters across the page without overlapping the center content.
+// Strategy: place them in outer bands — left 12%, right 12%, bottom strip.
+function computePlacements(pathname: string): PlacedChar[] {
+  const keys = charsForPath(pathname);
+  const rand = seededRand(hashStr(pathname));
 
-// ═══════════════════════════════════════════════════════════════════
-// CHARACTER DEFINITIONS  (3 sections × 3 characters = 9 total)
-// ═══════════════════════════════════════════════════════════════════
+  // Slot zones: leftEdge, rightEdge, bottomLeft, bottomRight, topSide
+  const zones = [
+    { leftMin: 1,  leftMax: 10, topMin: 15, topMax: 75 },
+    { leftMin: 88, leftMax: 97, topMin: 15, topMax: 75 },
+    { leftMin: 2,  leftMax: 18, topMin: 70, topMax: 88 },
+    { leftMin: 80, leftMax: 96, topMin: 70, topMax: 88 },
+    { leftMin: 30, leftMax: 68, topMin: 80, topMax: 92 },
+  ];
 
-const CHAR_DEFS: CharDef[] = [
-  // Section 0: Ender Dragon (FLY) + Steve (PATROL) + Creeper (WANDER)
-  { id: "dragon",   section: 0, behavior: "fly",        w: 224, h: 80,  opacity: 0.55 },
-  { id: "steve",    section: 0, behavior: "patrol",     w: 50,  h: 100, opacity: 0.70, initX: 0.25 },
-  { id: "creeper1", section: 0, behavior: "wander",     w: 48,  h: 96,  opacity: 0.65 },
-
-  // Section 1: Zombie (WANDER) + Skeleton (PATROL) + Goat (JUMP_PATROL)
-  { id: "zombie",   section: 1, behavior: "wander",     w: 50,  h: 100, opacity: 0.65 },
-  { id: "skeleton", section: 1, behavior: "patrol",     w: 48,  h: 96,  opacity: 0.68, initX: 0.6 },
-  { id: "goat",     section: 1, behavior: "jump_patrol",w: 60,  h: 48,  opacity: 0.70, initX: 0.8 },
-
-  // Section 2: Spider (CRAWL) + Enderman (TELEPORT) + Creeper (WANDER)
-  { id: "spider",   section: 2, behavior: "crawl",      w: 99,  h: 30,  opacity: 0.70 },
-  { id: "enderman", section: 2, behavior: "teleport",   w: 44,  h: 110, opacity: 0.70 },
-  { id: "creeper2", section: 2, behavior: "wander",     w: 45,  h: 90,  opacity: 0.65 },
-];
-
-// ═══════════════════════════════════════════════════════════════════
-// STATE INIT
-// ═══════════════════════════════════════════════════════════════════
-
-const PAD = 20;
-
-function getBounds(section: number): SectionBounds {
-  const vh = window.innerHeight;
-  const vw = window.innerWidth;
-  const sh = vh / 3;
-  return { top: section * sh, bottom: (section + 1) * sh, left: 0, right: vw };
-}
-
-function initState(def: CharDef): AnimState {
-  const b = getBounds(def.section);
-  const usableW = b.right - b.left - PAD * 2 - def.w;
-  const usableH = b.bottom - b.top - PAD * 2 - def.h;
-  const cx = b.left + PAD + usableW * (def.initX ?? 0.5);
-  const cy = b.top + PAD + usableH * 0.5;
-
-  switch (def.behavior) {
-    case "patrol":
-      return { kind: "patrol", x: cx, dir: 1, pausing: false, pauseTimer: 0, t: Math.random() * 6 };
-    case "wander":
-      return {
-        kind: "wander", x: cx, y: cy, targetX: cx, targetY: cy,
-        timer: 0.5 + Math.random() * 2, t: Math.random() * 6,
-        facingRight: true, isMoving: false,
-      };
-    case "fly":
-      return { kind: "fly", t: Math.random() * Math.PI * 2 };
-    case "teleport": {
-      const rx = b.left + PAD + Math.random() * usableW;
-      const ry = b.top + PAD + Math.random() * usableH;
-      return { kind: "teleport", x: cx, y: cy, phase: "idle", phaseTimer: 2 + Math.random() * 1, pendingX: rx, pendingY: ry };
-    }
-    case "jump_patrol": {
-      const baseY = b.bottom - def.h - PAD;
-      return { kind: "jump_patrol", x: cx, dir: 1, pausing: false, pauseTimer: 0, t: Math.random() * 6, jumpTimer: 1.5 + Math.random(), isJumping: false, jumpProgress: 0, baseY, landingSquash: false };
-    }
-    case "crawl":
-      return { kind: "crawl", x: b.left + PAD, dir: 1, t: 0 };
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════
-// TICK FUNCTIONS
-// ═══════════════════════════════════════════════════════════════════
-
-function tickState(state: AnimState, dt: number, def: CharDef): TickResult {
-  const b = getBounds(def.section);
-  const left  = b.left  + PAD;
-  const right  = b.right  - PAD - def.w;
-  const top    = b.top    + PAD;
-  const bottom = b.bottom - PAD - def.h;
-
-  switch (state.kind) {
-    case "patrol": {
-      state.t += dt;
-      if (state.pausing) {
-        state.pauseTimer -= dt;
-        if (state.pauseTimer <= 0) state.pausing = false;
-        return { x: state.x, y: bottom, flipX: state.dir as 1 | -1, scaleY: 1, opacity: 1 };
-      }
-      const bobY = Math.sin(state.t * 8) * 3;
-      state.x += 60 * state.dir * dt;
-      if (state.x >= right) { state.x = right; state.pausing = true; state.pauseTimer = 0.5; state.dir = -1; }
-      if (state.x <= left)  { state.x = left;  state.pausing = true; state.pauseTimer = 0.5; state.dir =  1; }
-      return { x: state.x, y: bottom + bobY, flipX: state.dir as 1 | -1, scaleY: 1, opacity: 1 };
-    }
-
-    case "wander": {
-      state.t += dt;
-      state.timer -= dt;
-      const dx = state.targetX - state.x;
-      const dy = state.targetY - state.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist > 3) {
-        state.isMoving = true;
-        state.facingRight = dx > 0;
-        const spd = 40 * dt;
-        if (spd >= dist) { state.x = state.targetX; state.y = state.targetY; }
-        else { state.x += (dx / dist) * spd; state.y += (dy / dist) * spd; }
-      } else {
-        state.isMoving = false;
-      }
-      if (state.timer <= 0) {
-        state.targetX = left + Math.random() * Math.max(0, right - left);
-        state.targetY = top  + Math.random() * Math.max(0, bottom - top);
-        state.timer = 3;
-      }
-      const bob = state.isMoving ? Math.sin(state.t * 8) * 2 : 0;
-      return { x: state.x, y: state.y + bob, flipX: state.facingRight ? 1 : -1, scaleY: 1, opacity: 1 };
-    }
-
-    case "fly": {
-      state.t += dt;
-      const cx = (b.left + b.right) / 2 - def.w / 2;
-      const cy = (b.top + b.bottom) / 2 - def.h / 2;
-      const rx = (b.right - b.left) * 0.35;
-      const x = cx + Math.cos(state.t * 0.5) * rx;
-      const y = cy + Math.sin(state.t * 0.8) * 60;
-      const flipX = Math.cos(state.t * 0.5) >= 0 ? 1 : -1;
-      return { x, y, flipX: flipX as 1 | -1, scaleY: 1, opacity: 1 };
-    }
-
-    case "teleport": {
-      state.phaseTimer -= dt;
-      if (state.phaseTimer <= 0) {
-        if (state.phase === "idle") {
-          state.phase = "out";
-          state.phaseTimer = 0.15;
-        } else if (state.phase === "out") {
-          state.x = b.left + PAD + Math.random() * Math.max(0, right - left);
-          state.y = b.top  + PAD + Math.random() * Math.max(0, bottom - top);
-          state.phase = "in";
-          state.phaseTimer = 0.15;
-        } else {
-          state.phase = "idle";
-          state.phaseTimer = 2 + Math.random();
-        }
-      }
-      const opacity = state.phase === "out" ? 0 : 1;
-      return { x: state.x, y: state.y, flipX: 1, scaleY: 1, opacity, teleportPhase: state.phase };
-    }
-
-    case "jump_patrol": {
-      state.t += dt;
-      // Patrol X
-      if (state.pausing) {
-        state.pauseTimer -= dt;
-        if (state.pauseTimer <= 0) state.pausing = false;
-      } else {
-        state.x += 60 * state.dir * dt;
-        if (state.x >= right) { state.x = right; state.pausing = true; state.pauseTimer = 0.5; state.dir = -1; }
-        if (state.x <= left)  { state.x = left;  state.pausing = true; state.pauseTimer = 0.5; state.dir =  1; }
-      }
-      // Jump trigger
-      state.jumpTimer -= dt;
-      if (state.jumpTimer <= 0 && !state.isJumping) {
-        state.isJumping = true;
-        state.jumpProgress = 0;
-        state.jumpTimer = 2.5;
-        state.landingSquash = false;
-      }
-      // Jump arc
-      let yOff = 0;
-      let scaleY = 1;
-      let landingSquash = false;
-      if (state.isJumping) {
-        state.jumpProgress += dt / 0.65;
-        if (state.jumpProgress >= 1) {
-          state.isJumping = false;
-          state.jumpProgress = 0;
-          state.landingSquash = true;
-          landingSquash = true;
-        } else {
-          yOff = -Math.sin(state.jumpProgress * Math.PI) * 80;
-        }
-      } else if (state.landingSquash) {
-        state.landingSquash = false;
-      }
-      const bob = !state.isJumping ? Math.sin(state.t * 8) * 3 : 0;
-      return { x: state.x, y: state.baseY + yOff + bob, flipX: state.dir as 1 | -1, scaleY, opacity: 1, landingSquash };
-    }
-
-    case "crawl": {
-      state.t += dt;
-      const crawlY = b.bottom - def.h - 20;
-      state.x += 45 * state.dir * dt;
-      if (state.x >= right) { state.x = right; state.dir = -1; }
-      if (state.x <= left)  { state.x = left;  state.dir =  1; }
-      return { x: state.x, y: crawlY, flipX: state.dir as 1 | -1, scaleY: 1, opacity: 1 };
-    }
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════
-// CHARACTER RENDERER
-// ═══════════════════════════════════════════════════════════════════
-
-function renderCharContent(def: CharDef): React.ReactNode {
-  switch (def.id) {
-    case "dragon":
-      return (
-        <div className="mc-dragon-wings">
-          <EnderDragonSilhouette width={224} height={80} opacity={1} />
-        </div>
-      );
-    case "steve":
-      return <div className="mc-breathe"><SteveWaving size={50} opacity={1} /></div>;
-    case "creeper1":
-    case "creeper2":
-      return <div className="mc-breathe"><Creeper size={def.id === "creeper2" ? 45 : 48} opacity={1} /></div>;
-    case "zombie":
-      return <div className="mc-breathe"><Zombie size={50} opacity={1} /></div>;
-    case "skeleton":
-      return <div className="mc-breathe"><SvgSkeleton size={48} /></div>;
-    case "goat":
-      return <div className="mc-breathe"><SvgGoat size={55} /></div>;
-    case "spider":
-      return <SvgSpider size={55} />;
-    case "enderman":
-      return <div className="mc-breathe"><Enderman size={40} opacity={1} /></div>;
-    default:
-      return null;
-  }
+  return keys.map((key, i) => {
+    const zone = zones[i % zones.length];
+    const left = zone.leftMin + rand() * (zone.leftMax - zone.leftMin);
+    const top  = zone.topMin  + rand() * (zone.topMax  - zone.topMin);
+    const size = 40 + Math.floor(rand() * 20); // 40–60px
+    const flipX = left > 50; // face inward toward center
+    const opacity = 0.35 + rand() * 0.25; // 0.35–0.60
+    const animDelay = `-${(rand() * 3).toFixed(1)}s`;
+    return { key, size, left, top, flipX, opacity, animDelay };
+  });
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -493,106 +298,38 @@ function renderCharContent(def: CharDef): React.ReactNode {
 // ═══════════════════════════════════════════════════════════════════
 
 export function MinecraftCharacters() {
-  const cssInjected = useRef(false);
-  const outerRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const innerRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const statesRef = useRef<AnimState[]>([]);
-  const rafRef    = useRef<number>(0);
-  const lastTRef  = useRef<number>(0);
-  const initRef   = useRef(false);
-
-  useEffect(() => {
-    // Inject CSS once
-    if (!cssInjected.current) {
-      cssInjected.current = true;
-      if (!document.getElementById("mc-char-css")) {
-        const el = document.createElement("style");
-        el.id = "mc-char-css";
-        el.textContent = MC_CSS;
-        document.head.appendChild(el);
-      }
-    }
-
-    // Init per-character animation state
-    if (!initRef.current) {
-      initRef.current = true;
-      statesRef.current = CHAR_DEFS.map(initState);
-    }
-
-    // rAF animation loop — updates DOM directly, no React re-renders
-    function loop(ts: number) {
-      const dt = Math.min((ts - lastTRef.current) / 1000, 0.05);
-      lastTRef.current = ts;
-
-      CHAR_DEFS.forEach((def, i) => {
-        const outer = outerRefs.current[i];
-        const inner = innerRefs.current[i];
-        const state = statesRef.current[i];
-        if (!outer || !inner || !state) return;
-
-        const res = tickState(state, dt, def);
-
-        // Position: translate(x, y) — outer div
-        outer.style.transform = `translate(${res.x}px, ${res.y}px)`;
-        outer.style.opacity = String(def.opacity * res.opacity);
-
-        // Facing direction — inner div (flip around center using negative margin trick)
-        if (res.flipX === -1) {
-          inner.style.transform = `scaleX(-1)`;
-        } else {
-          inner.style.transform = `scaleX(1)`;
-        }
-
-        // Teleport: use CSS transition on opacity (set on outer)
-        if (def.behavior === "teleport") {
-          outer.style.transition = res.teleportPhase === "out" || res.teleportPhase === "in"
-            ? "opacity 0.12s ease, transform 0s"
-            : "opacity 0.12s ease";
-        }
-
-        // Goat landing squash: toggle class on inner
-        if (def.behavior === "jump_patrol") {
-          if (res.landingSquash) {
-            inner.classList.remove("mc-land-squash");
-            // Force reflow to restart animation
-            void inner.offsetWidth;
-            inner.classList.add("mc-land-squash");
-          }
-        }
-      });
-
-      rafRef.current = requestAnimationFrame(loop);
-    }
-
-    lastTRef.current = performance.now();
-    rafRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
+  injectCss();
+  const location = useLocation();
+  const placements = useMemo(() => computePlacements(location.pathname), [location.pathname]);
 
   return (
     <div
-      style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 30, overflow: "hidden" }}
+      style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 10, overflow: "hidden" }}
       aria-hidden
     >
-      {CHAR_DEFS.map((def, i) => (
-        <div
-          key={def.id}
-          ref={(el) => { outerRefs.current[i] = el; }}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            willChange: "transform, opacity",
-          }}
-        >
+      {placements.map((p, i) => {
+        const spec = CHAR_SPECS[p.key];
+        return (
           <div
-            ref={(el) => { innerRefs.current[i] = el; }}
-            style={{ transformOrigin: "center bottom" }}
+            key={`${location.pathname}-${i}`}
+            style={{
+              position: "absolute",
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              opacity: p.opacity,
+              transform: p.flipX ? "scaleX(-1)" : undefined,
+              transformOrigin: "center bottom",
+            }}
           >
-            {renderCharContent(def)}
+            <div
+              className={spec.animClass}
+              style={{ animationDelay: p.animDelay }}
+            >
+              {renderChar(p.key, p.size)}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
