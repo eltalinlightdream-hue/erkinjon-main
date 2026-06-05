@@ -67,7 +67,7 @@ function ArticleView() {
   const popupRef = useRef<HTMLDivElement>(null);
   const savedRange = useRef<Range | null>(null);
 
-  // Apply a highlight colour to the current selection
+  // Apply a highlight colour using the saved range
   const applyHighlight = useCallback((color: "yellow" | "green") => {
     const range = savedRange.current;
     if (!range || range.collapsed) return;
@@ -83,7 +83,7 @@ function ArticleView() {
       window.getSelection()?.removeAllRanges();
       savedRange.current = null;
     } catch {
-      // silently ignore edge cases (e.g. selection inside non-editable elements)
+      // silently ignore edge cases
     }
     setPopup(null);
   }, []);
