@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
-import { Youtube, Send, GraduationCap, MapPin, Award, PenLine, MessageCircle, ArrowRight } from "lucide-react";
+import { Youtube, Send, MapPin, Award, PenLine, MessageCircle, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/contact-about")({
   head: () => ({ meta: [
@@ -53,21 +53,7 @@ function ContactAbout() {
         </div>
 
         {/* About */}
-        <div className="grid md:grid-cols-[280px,1fr] gap-10 items-start mb-20">
-          <div
-            className="rounded-3xl aspect-[4/5] flex items-center justify-center shadow-warm border border-border overflow-hidden relative"
-            style={{ background: "linear-gradient(160deg, #F5D5CB 0%, #EDE9E2 45%, #d4e8df 100%)" }}
-          >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 25% 75%, rgba(74,155,122,0.2) 0%, transparent 55%), radial-gradient(circle at 75% 25%, rgba(43,64,128,0.15) 0%, transparent 55%)",
-              }}
-            />
-            <GraduationCap className="relative w-24 h-24 text-secondary opacity-60" />
-          </div>
-
+        <div className="max-w-2xl mx-auto mb-20">
           <div className="space-y-5">
             <div className="flex flex-wrap gap-3">
               <span className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-wide bg-accent px-3 py-1.5 rounded-full border border-border/60">
