@@ -56,6 +56,567 @@ export interface Article {
 }
 
 export const ARTICLES: Article[] = [
+  // ─── BEGINNER (A2) articles ──────────────────────────────────────
+  {
+    id: "b1",
+    slug: "london",
+    title: "London",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "London is the capital city of England and the United Kingdom. It is one of the most famous cities in the world. Millions of tourists visit every year.",
+    readingTime: 3,
+    content: `
+      <p><strong>London is the capital city of England and the United Kingdom. About nine million people live there. It is one of the largest cities in Europe.</strong></p>
+
+      <h2>A very old city</h2>
+      <p>London is a very old city. The Romans built it about 2,000 years ago. They called it Londinium. Over the centuries, London grew bigger and more important. Today it is one of the most famous cities in the world.</p>
+      <p>The city has a long and interesting history. There were great fires, wars, and dramatic changes. But London always survived and grew stronger.</p>
+
+      <h2>Famous places</h2>
+      <p>London has many famous tourist attractions. Buckingham Palace is the home of the British royal family. The Tower of London is a very old castle near the River Thames. Tourists can visit it and see the Crown Jewels there.</p>
+      <p>The Houses of Parliament and Big Ben are also very well known. Big Ben is actually the name of the large bell inside the clock tower. The London Eye is a giant Ferris wheel on the south bank of the Thames. From the top, you can see the whole city.</p>
+
+      <h2>The River Thames</h2>
+      <p>The River Thames flows through the centre of London. It is 346 kilometres long. In the past, the Thames was very important for trade. Ships brought goods from all over the world to London's docks.</p>
+      <p>Today, people walk along the river, take boat trips, and enjoy the views. Many famous bridges cross the Thames, including Tower Bridge. Tower Bridge is one of the most photographed bridges in the world.</p>
+
+      <h2>A multicultural city</h2>
+      <p>London is a very multicultural city. People from all over the world live and work there. You can hear hundreds of different languages on the streets. There are restaurants, shops, and festivals from many different cultures. This diversity makes London a very exciting place to visit and live.</p>
+    `,
+    vocabulary: [
+      { word: "capital", wordType: "noun", definition: "the most important city in a country, where the government is", example: "London is the capital of the United Kingdom." },
+      { word: "century", wordType: "noun", definition: "a period of one hundred years", example: "London has changed greatly over the centuries." },
+      { word: "attraction", wordType: "noun", definition: "an interesting place that many tourists visit", example: "Big Ben is one of London's most famous attractions." },
+      { word: "royal family", wordType: "noun phrase", definition: "the king or queen and their close family members", example: "The royal family lives in Buckingham Palace." },
+      { word: "castle", wordType: "noun", definition: "a large, strong building built in the past to protect people from attack", example: "The Tower of London is a very old castle." },
+      { word: "Crown Jewels", wordType: "noun phrase", definition: "the collection of precious crowns and objects belonging to the British royal family", example: "Tourists visit the Tower of London to see the Crown Jewels." },
+      { word: "parliament", wordType: "noun", definition: "the group of people who make laws in a country", example: "The Houses of Parliament are next to the River Thames." },
+      { word: "giant", wordType: "adjective", definition: "very large", example: "The London Eye is a giant Ferris wheel." },
+      { word: "flow", wordType: "verb", definition: "to move steadily, like water in a river", example: "The River Thames flows through the centre of London." },
+      { word: "trade", wordType: "noun", definition: "the buying and selling of goods between people or countries", example: "The Thames was important for trade in the past." },
+      { word: "goods", wordType: "noun", definition: "things that are made and sold", example: "Ships brought goods from all over the world." },
+      { word: "dock", wordType: "noun", definition: "a place at a river or sea where ships load and unload", example: "London's docks were very busy in the past." },
+      { word: "multicultural", wordType: "adjective", definition: "including many different cultures and nationalities", example: "London is a very multicultural city." },
+      { word: "diversity", wordType: "noun", definition: "the quality of including many different types of people or things", example: "The diversity of London makes it exciting." },
+      { word: "photographed", wordType: "adjective", definition: "taken pictures of many times", example: "Tower Bridge is one of the most photographed bridges in the world." },
+    ],
+    pronunciation: [
+      { word: "capital", ipa: "/KAP-ih-tul/", syllables: "cap-i-tal", tip: "Stress KAP. Three syllables." },
+      { word: "parliament", ipa: "/PAR-luh-munt/", syllables: "par-lia-ment", tip: "Stress PAR. The 'ia' is not pronounced separately." },
+      { word: "Thames", ipa: "/TEMZ/", syllables: "Thames", tip: "Silent 'h'. Say TEMZ, not THAYMZ." },
+      { word: "palace", ipa: "/PAL-us/", syllables: "pal-ace", tip: "Stress PAL. The 'ace' sounds like 'us'." },
+      { word: "multicultural", ipa: "/mul-tee-KUL-cher-ul/", syllables: "mul-ti-cul-tur-al", tip: "Stress KUL." },
+      { word: "diversity", ipa: "/dy-VUR-suh-tee/", syllables: "di-ver-si-ty", tip: "Stress VUR." },
+      { word: "attraction", ipa: "/uh-TRAK-shun/", syllables: "at-trac-tion", tip: "Stress TRAK." },
+    ],
+  },
+  {
+    id: "b2",
+    slug: "william-shakespeare",
+    title: "William Shakespeare",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1518081461904-9d8f136a8399?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "William Shakespeare is the most famous writer in the English language. He lived 400 years ago, but people all over the world still read and watch his plays today.",
+    readingTime: 3,
+    content: `
+      <p><strong>William Shakespeare was born in 1564 in a town called Stratford-upon-Avon in England. He is the most famous writer in the English language. People all over the world still enjoy his work today.</strong></p>
+
+      <h2>Early life</h2>
+      <p>Shakespeare grew up in Stratford-upon-Avon. His father was a glove maker and his mother came from a farming family. Shakespeare went to a local grammar school, where he learned Latin and studied great stories from ancient times.</p>
+      <p>When he was 18 years old, Shakespeare married Anne Hathaway. They had three children together. A few years later, Shakespeare moved to London to work in the theatre.</p>
+
+      <h2>His work in London</h2>
+      <p>In London, Shakespeare became a successful actor and playwright. He wrote plays for a theatre company called the Lord Chamberlain's Men. He helped to build a famous theatre called the Globe Theatre on the south bank of the River Thames.</p>
+      <p>Shakespeare wrote 37 plays and 154 sonnets. His most famous plays include Romeo and Juliet, Hamlet, Othello, and A Midsummer Night's Dream. His plays tell stories about love, jealousy, power, and death.</p>
+
+      <h2>The Globe Theatre</h2>
+      <p>The Globe Theatre was a round, open-air theatre. It could hold about 3,000 people. The poorest audience members, called groundlings, stood on the ground in front of the stage. Richer people sat in covered seats above.</p>
+      <p>The original Globe burnt down in 1613 during a performance. A replica of the Globe Theatre was built near the same location in 1997. Visitors can watch plays there today.</p>
+
+      <h2>Shakespeare's legacy</h2>
+      <p>Shakespeare died in 1616, but his influence on the English language has never stopped. He invented hundreds of words and phrases that we still use today, such as "bedroom," "lonely," and "break the ice." His plays have been translated into every major language and performed in every country in the world.</p>
+    `,
+    vocabulary: [
+      { word: "playwright", wordType: "noun", definition: "a person who writes plays for the theatre", example: "Shakespeare was the most famous playwright of his time." },
+      { word: "grammar school", wordType: "noun phrase", definition: "a type of school in England where students study academic subjects", example: "Shakespeare attended the local grammar school." },
+      { word: "theatre company", wordType: "noun phrase", definition: "a group of actors who work together to perform plays", example: "Shakespeare worked with a theatre company in London." },
+      { word: "sonnet", wordType: "noun", definition: "a poem with 14 lines, often about love", example: "Shakespeare wrote 154 sonnets during his life." },
+      { word: "jealousy", wordType: "noun", definition: "an unhappy feeling when you want what someone else has", example: "Othello is a story about jealousy and trust." },
+      { word: "groundlings", wordType: "noun", definition: "the poorest audience members who stood on the ground at the Globe Theatre", example: "The groundlings paid just one penny to watch a play." },
+      { word: "open-air", wordType: "adjective", definition: "outside, without a roof", example: "The Globe was an open-air theatre." },
+      { word: "replica", wordType: "noun", definition: "an exact copy of something", example: "A replica of the Globe Theatre was built in 1997." },
+      { word: "legacy", wordType: "noun", definition: "something important that someone leaves behind after they die", example: "Shakespeare's legacy continues to inspire writers today." },
+      { word: "influence", wordType: "noun", definition: "the effect one person or thing has on another", example: "Shakespeare's influence on English literature is enormous." },
+      { word: "translate", wordType: "verb", definition: "to change something written into a different language", example: "Shakespeare's plays have been translated into many languages." },
+      { word: "ancient", wordType: "adjective", definition: "belonging to a time very long ago", example: "Shakespeare studied ancient stories at school." },
+      { word: "successful", wordType: "adjective", definition: "achieving what you wanted to achieve; doing well", example: "Shakespeare became a successful writer in London." },
+      { word: "perform", wordType: "verb", definition: "to act in a play or give a show for an audience", example: "Actors performed Shakespeare's plays at the Globe." },
+      { word: "phrase", wordType: "noun", definition: "a group of words with a shared meaning", example: "'Break the ice' is a phrase invented by Shakespeare." },
+    ],
+    pronunciation: [
+      { word: "Shakespeare", ipa: "/SHAYK-speer/", syllables: "Shake-speare", tip: "Stress SHAYK. The 'ea' sounds like 'ee'." },
+      { word: "playwright", ipa: "/PLAY-ryt/", syllables: "play-wright", tip: "Stress PLAY. The 'w' in wright is silent." },
+      { word: "jealousy", ipa: "/JEL-uh-see/", syllables: "jeal-ous-y", tip: "Stress JEL. Three syllables." },
+      { word: "sonnet", ipa: "/SON-it/", syllables: "son-net", tip: "Stress SON." },
+      { word: "legacy", ipa: "/LEG-uh-see/", syllables: "leg-a-cy", tip: "Stress LEG. Three syllables." },
+      { word: "translate", ipa: "/tranz-LAYT/", syllables: "trans-late", tip: "Stress LAYT." },
+      { word: "replica", ipa: "/REP-li-kuh/", syllables: "rep-li-ca", tip: "Stress REP. Three syllables." },
+    ],
+  },
+  {
+    id: "b3",
+    slug: "new-york",
+    title: "New York",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "New York is the largest city in the United States. It is one of the most famous cities in the world. Millions of tourists visit every year to see its famous landmarks.",
+    readingTime: 3,
+    content: `
+      <p><strong>New York City is the largest city in the United States. About 8.3 million people live there. It is one of the most exciting and famous cities in the world.</strong></p>
+
+      <h2>The five boroughs</h2>
+      <p>New York City is made up of five areas called boroughs. They are Manhattan, Brooklyn, Queens, the Bronx, and Staten Island. Manhattan is the most famous. It is a long, narrow island. Most of the famous skyscrapers and tourist attractions are there.</p>
+      <p>Brooklyn is just across the East River from Manhattan. It is a very popular neighbourhood with many cafés, parks, and art galleries. The Brooklyn Bridge connects Brooklyn to Manhattan.</p>
+
+      <h2>Famous landmarks</h2>
+      <p>New York has many famous landmarks. The Statue of Liberty stands on a small island in New York Harbour. France gave it to the United States in 1886 as a symbol of friendship and freedom. It is made of copper and is about 93 metres tall.</p>
+      <p>The Empire State Building is one of the most famous skyscrapers in the world. It was built in 1931. For many years, it was the tallest building in the world. Visitors can go to the top and look out over the whole city.</p>
+      <p>Central Park is a huge green park in the middle of Manhattan. It is 4 kilometres long. People go there to walk, run, cycle, and relax. In winter, there is an outdoor ice-skating rink.</p>
+
+      <h2>A city of immigrants</h2>
+      <p>New York has always been a city of immigrants. In the 19th and 20th centuries, millions of people arrived from Europe, Asia, and Latin America. They came looking for a better life. Today, New York is one of the most diverse cities in the world. You can hear more than 800 languages spoken on its streets.</p>
+
+      <h2>Culture and entertainment</h2>
+      <p>New York is famous for its culture and entertainment. Broadway is a street in Manhattan where you can see world-class musicals and theatre shows. The city also has hundreds of museums, including the Metropolitan Museum of Art. New York never sleeps — there is always something happening, day and night.</p>
+    `,
+    vocabulary: [
+      { word: "borough", wordType: "noun", definition: "one of the five administrative areas that make up New York City", example: "Manhattan is the most famous borough of New York." },
+      { word: "skyscraper", wordType: "noun", definition: "a very tall building in a city", example: "New York is famous for its skyscrapers." },
+      { word: "landmark", wordType: "noun", definition: "a famous or easily recognised building or place", example: "The Statue of Liberty is one of New York's most famous landmarks." },
+      { word: "harbour", wordType: "noun", definition: "a sheltered area of water near land where ships can stop safely", example: "The Statue of Liberty stands in New York Harbour." },
+      { word: "symbol", wordType: "noun", definition: "a thing that represents or stands for something else", example: "The Statue of Liberty is a symbol of freedom." },
+      { word: "copper", wordType: "noun", definition: "a reddish-brown metal", example: "The Statue of Liberty is made of copper." },
+      { word: "immigrant", wordType: "noun", definition: "a person who comes to live permanently in a foreign country", example: "New York was built by immigrants from many countries." },
+      { word: "diverse", wordType: "adjective", definition: "including many different types of people or things", example: "New York is one of the most diverse cities in the world." },
+      { word: "neighbourhood", wordType: "noun", definition: "a district or area of a city", example: "Brooklyn is a popular neighbourhood with many cafés and parks." },
+      { word: "entertainment", wordType: "noun", definition: "activities that people enjoy in their free time", example: "New York offers world-class entertainment." },
+      { word: "musical", wordType: "noun", definition: "a play or film that includes songs and dancing", example: "You can see famous musicals on Broadway." },
+      { word: "rink", wordType: "noun", definition: "an area of ice or a hard surface for skating", example: "There is an ice-skating rink in Central Park in winter." },
+      { word: "connect", wordType: "verb", definition: "to link two places together", example: "The Brooklyn Bridge connects Brooklyn to Manhattan." },
+      { word: "century", wordType: "noun", definition: "a period of one hundred years", example: "In the 19th century, millions of immigrants arrived in New York." },
+      { word: "gallery", wordType: "noun", definition: "a room or building where art is shown", example: "Brooklyn has many interesting art galleries." },
+    ],
+    pronunciation: [
+      { word: "borough", ipa: "/BUR-oh/", syllables: "bor-ough", tip: "Stress BUR. The 'ough' is silent — say BUR-oh." },
+      { word: "skyscraper", ipa: "/SKY-skray-per/", syllables: "sky-scra-per", tip: "Stress SKY. Three syllables." },
+      { word: "harbour", ipa: "/HAR-ber/", syllables: "har-bour", tip: "Stress HAR." },
+      { word: "immigrant", ipa: "/IM-ih-grunt/", syllables: "im-mi-grant", tip: "Stress IM. Three syllables." },
+      { word: "diverse", ipa: "/dy-VURS/", syllables: "di-verse", tip: "Stress VURS." },
+      { word: "entertainment", ipa: "/en-ter-TAYN-munt/", syllables: "en-ter-tain-ment", tip: "Stress TAYN." },
+      { word: "museum", ipa: "/myoo-ZEE-um/", syllables: "mu-se-um", tip: "Stress ZEE. Three syllables." },
+    ],
+  },
+  {
+    id: "b4",
+    slug: "liverpool",
+    title: "Liverpool",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Liverpool is a city in the north-west of England. It is famous for football, music, and its important role in history. It was the home city of the Beatles.",
+    readingTime: 3,
+    content: `
+      <p><strong>Liverpool is a city in the north-west of England, on the River Mersey. About 500,000 people live there. It is one of the most famous cities in England.</strong></p>
+
+      <h2>A port city</h2>
+      <p>Liverpool grew as an important port city. Ships from all over the world arrived at its docks. In the 18th and 19th centuries, Liverpool was one of the busiest ports in the world. Trade with America, Africa, and Asia made the city wealthy.</p>
+      <p>Sadly, Liverpool was also connected to the slave trade. Ships carried enslaved Africans across the Atlantic Ocean. Today, Liverpool has a museum called the International Slavery Museum to remember this history.</p>
+
+      <h2>Football</h2>
+      <p>Liverpool is very famous for football. Liverpool Football Club was founded in 1892. It is one of the most successful clubs in English football history. The club has won six European Champions League titles and nineteen league titles. Liverpool's home stadium is called Anfield.</p>
+      <p>Everton is the other major football club in the city. The rivalry between Liverpool and Everton is called the Merseyside Derby. It is one of the most passionate local rivalries in English football.</p>
+
+      <h2>The Beatles</h2>
+      <p>Liverpool is the birthplace of the Beatles — one of the most famous bands in history. John Lennon, Paul McCartney, George Harrison, and Ringo Starr all grew up in Liverpool. The Beatles first became famous in the early 1960s.</p>
+      <p>Today, tourists come from all over the world to visit places connected to the Beatles. The Cavern Club is a famous music venue in the city centre where the Beatles performed many times. There is also a Beatles Museum called the Beatles Story.</p>
+
+      <h2>Culture and regeneration</h2>
+      <p>In 2008, Liverpool was the European Capital of Culture. This brought many visitors and new investments to the city. The Albert Dock is a beautiful waterfront area with museums, galleries, restaurants, and shops. Liverpool has changed greatly in recent years and is a very exciting city to visit today.</p>
+    `,
+    vocabulary: [
+      { word: "port", wordType: "noun", definition: "a town or city with a harbour where ships arrive and leave", example: "Liverpool was one of the busiest ports in the world." },
+      { word: "dock", wordType: "noun", definition: "an area at a port where ships load and unload goods", example: "Ships from all over the world arrived at Liverpool's docks." },
+      { word: "wealthy", wordType: "adjective", definition: "having a lot of money; rich", example: "Trade made the city of Liverpool very wealthy." },
+      { word: "enslaved", wordType: "adjective", definition: "forced to work as a slave, without freedom or rights", example: "The museum tells the story of enslaved Africans." },
+      { word: "rivalry", wordType: "noun", definition: "a competitive relationship between two people or groups", example: "The Merseyside Derby is a famous local rivalry." },
+      { word: "passionate", wordType: "adjective", definition: "showing very strong feelings or enthusiasm", example: "Liverpool fans are very passionate about their football club." },
+      { word: "birthplace", wordType: "noun", definition: "the place where someone was born", example: "Liverpool is the birthplace of the Beatles." },
+      { word: "venue", wordType: "noun", definition: "a place where an event takes place", example: "The Cavern Club is a famous music venue." },
+      { word: "regeneration", wordType: "noun", definition: "the process of improving an area that was in poor condition", example: "Liverpool went through major regeneration after 2008." },
+      { word: "investment", wordType: "noun", definition: "money spent on something to make a profit or improve it", example: "Being Capital of Culture brought new investment to the city." },
+      { word: "waterfront", wordType: "noun", definition: "an area of a town next to a river, lake, or sea", example: "The Albert Dock is a beautiful waterfront area." },
+      { word: "gallery", wordType: "noun", definition: "a room or building where art is shown", example: "The Albert Dock has several interesting art galleries." },
+      { word: "founded", wordType: "verb", definition: "started or established", example: "Liverpool Football Club was founded in 1892." },
+      { word: "slave trade", wordType: "noun phrase", definition: "the historical practice of buying and selling enslaved people", example: "The museum teaches visitors about the slave trade." },
+      { word: "stadium", wordType: "noun", definition: "a large building used for sports events", example: "Liverpool's stadium is called Anfield." },
+    ],
+    pronunciation: [
+      { word: "Liverpool", ipa: "/LIV-er-pool/", syllables: "Liv-er-pool", tip: "Stress LIV. Three syllables." },
+      { word: "Mersey", ipa: "/MUR-zee/", syllables: "Mer-sey", tip: "Stress MUR. The 'ey' sounds like 'zee'." },
+      { word: "rivalry", ipa: "/RY-vul-ree/", syllables: "ri-val-ry", tip: "Stress RY. Three syllables." },
+      { word: "passionate", ipa: "/PASH-uh-nut/", syllables: "pas-sion-ate", tip: "Stress PASH. Three syllables." },
+      { word: "regeneration", ipa: "/ri-jen-er-AY-shun/", syllables: "re-gen-er-a-tion", tip: "Stress AY." },
+      { word: "waterfront", ipa: "/WAW-ter-frunt/", syllables: "wa-ter-front", tip: "Stress WAW." },
+    ],
+  },
+  {
+    id: "b5",
+    slug: "taylor-swift",
+    title: "Taylor Swift",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Taylor Swift is one of the most successful musicians in the world. She started her career as a country music singer and became a global pop star. Read about her life and career.",
+    readingTime: 3,
+    content: `
+      <p><strong>Taylor Swift is one of the most successful musicians in the world. She has sold hundreds of millions of albums and has won dozens of awards. Her fans, called "Swifties," are some of the most loyal in the world.</strong></p>
+
+      <h2>Early life</h2>
+      <p>Taylor Alison Swift was born on 13 December 1989 in West Reading, Pennsylvania, USA. She grew up in a small town in Pennsylvania. From a young age, she loved music and performing. She started acting in local theatre shows when she was just ten years old.</p>
+      <p>When Taylor was 14, her family moved to Nashville, Tennessee, so she could pursue a music career. Nashville is the centre of country music in the USA. Taylor started writing her own songs and soon got a record deal.</p>
+
+      <h2>Early career</h2>
+      <p>Taylor Swift released her first album in 2006. She was just 16 years old. The album was a country music album. Songs like "Tim McGraw" and "Teardrops on My Guitar" became very popular. She quickly became one of the biggest stars in country music.</p>
+      <p>Her second album, Fearless, was released in 2008. It won the Grammy Award for Album of the Year — making Taylor the youngest artist to win this prize at that time.</p>
+
+      <h2>Pop superstar</h2>
+      <p>In 2012, Taylor moved from country music to pop music with her album Red. She became even more famous. Her albums 1989, Reputation, Lover, Folklore, Evermore, and Midnights all sold millions of copies around the world.</p>
+      <p>In 2023 and 2024, Taylor Swift's Eras Tour became one of the biggest concert tours in history. She performed in stadiums all over the world. In every city she visited, fans wore colourful outfits and swapped friendship bracelets.</p>
+
+      <h2>Taylor's influence</h2>
+      <p>Taylor Swift is not only famous for her music. She is also known for speaking out about important issues such as artists' rights and political participation. She uses her social media to connect with millions of fans around the world. Taylor Swift has shown that hard work, creativity, and kindness can lead to great success.</p>
+    `,
+    vocabulary: [
+      { word: "musician", wordType: "noun", definition: "a person who plays music or sings professionally", example: "Taylor Swift is one of the most successful musicians in the world." },
+      { word: "loyal", wordType: "adjective", definition: "always supporting someone or something", example: "Taylor Swift's fans are some of the most loyal in the world." },
+      { word: "pursue", wordType: "verb", definition: "to try to achieve something over a period of time", example: "Taylor moved to Nashville to pursue a music career." },
+      { word: "record deal", wordType: "noun phrase", definition: "a contract with a music company to record and sell music", example: "Taylor got a record deal when she was a teenager." },
+      { word: "release", wordType: "verb", definition: "to make something available to the public", example: "Taylor released her first album in 2006." },
+      { word: "Grammy Award", wordType: "noun phrase", definition: "one of the most prestigious prizes in the music industry", example: "Fearless won the Grammy Award for Album of the Year." },
+      { word: "stadium", wordType: "noun", definition: "a very large building where sports and concerts take place", example: "Taylor performed in stadiums all over the world." },
+      { word: "outfit", wordType: "noun", definition: "a set of clothes worn together", example: "Fans wore colourful outfits to the concert." },
+      { word: "swap", wordType: "verb", definition: "to exchange one thing for another", example: "Fans swapped friendship bracelets at the Eras Tour." },
+      { word: "speak out", wordType: "verb phrase", definition: "to express your opinion publicly, especially about something important", example: "Taylor Swift speaks out about artists' rights." },
+      { word: "participation", wordType: "noun", definition: "the act of joining in an activity", example: "Taylor encourages political participation among her fans." },
+      { word: "creativity", wordType: "noun", definition: "the ability to make new and imaginative things", example: "Taylor Swift's creativity is shown in her songwriting." },
+      { word: "superstar", wordType: "noun", definition: "a very famous and successful entertainer or sports person", example: "Taylor Swift became a pop superstar after her album 1989." },
+      { word: "tour", wordType: "noun", definition: "a series of performances in different places", example: "The Eras Tour was one of the biggest concert tours in history." },
+      { word: "career", wordType: "noun", definition: "the work someone does for most of their life", example: "Taylor started her music career in Nashville." },
+    ],
+    pronunciation: [
+      { word: "musician", ipa: "/myoo-ZISH-un/", syllables: "mu-si-cian", tip: "Stress ZISH. Three syllables." },
+      { word: "pursue", ipa: "/per-SYOO/", syllables: "pur-sue", tip: "Stress SYOO." },
+      { word: "release", ipa: "/ri-LEES/", syllables: "re-lease", tip: "Stress LEES." },
+      { word: "Grammy", ipa: "/GRAM-ee/", syllables: "Gram-my", tip: "Stress GRAM." },
+      { word: "creativity", ipa: "/kree-ay-TIV-uh-tee/", syllables: "cre-a-tiv-i-ty", tip: "Stress TIV. Five syllables." },
+      { word: "participation", ipa: "/par-tis-uh-PAY-shun/", syllables: "par-tic-i-pa-tion", tip: "Stress PAY." },
+      { word: "superstar", ipa: "/SOO-per-star/", syllables: "su-per-star", tip: "Stress SOO." },
+    ],
+  },
+  {
+    id: "b6",
+    slug: "the-suffragettes",
+    title: "The Suffragettes",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1591189863430-ab87e120f312?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "The suffragettes were brave women who fought for the right to vote in the early 20th century. Read about their campaign and why it was so important.",
+    readingTime: 3,
+    content: `
+      <p><strong>One hundred years ago, women in Britain could not vote in elections. A group of brave women called the suffragettes decided to fight for this right. Their campaign changed history.</strong></p>
+
+      <h2>What is the right to vote?</h2>
+      <p>In a democracy, people choose their government by voting in elections. In the 19th century in Britain, only men could vote. Women had no voice in politics. Many people thought this was unfair, but changing the law was very difficult.</p>
+
+      <h2>Who were the suffragettes?</h2>
+      <p>The suffragettes were members of a group called the Women's Social and Political Union (WSPU). Emmeline Pankhurst founded the WSPU in Manchester in 1903. Her daughters Christabel and Sylvia also became important leaders in the movement.</p>
+      <p>The suffragettes used direct action to protest. They chained themselves to railings, broke windows, set fire to post boxes, and went on hunger strikes when they were put in prison. Their motto was "Deeds, not Words."</p>
+
+      <h2>Emmeline Pankhurst</h2>
+      <p>Emmeline Pankhurst was one of the most important political figures of the 20th century. She was born in Manchester in 1858. She worked hard for women's rights all her life. She was arrested many times for her protest activities.</p>
+      <p>When she was in prison, Emmeline went on hunger strikes. The government was worried she would die in prison, which would make her a martyr. So they released her and then arrested her again after she recovered — this was known as the "Cat and Mouse Act."</p>
+
+      <h2>Victory</h2>
+      <p>During the First World War (1914–1918), women worked in factories, hospitals, and on farms. They showed that they could do important work. After the war, in 1918, British women over 30 were allowed to vote. Ten years later, in 1928, all women over 21 could vote — the same as men.</p>
+      <p>The suffragettes' campaign was a long and difficult struggle, but it succeeded. Today, the right to vote is seen as one of the most important rights in a democratic society.</p>
+    `,
+    vocabulary: [
+      { word: "vote", wordType: "verb", definition: "to choose someone or something in an election", example: "In 1928, all women over 21 could vote in Britain." },
+      { word: "election", wordType: "noun", definition: "when people choose their government by voting", example: "The government is chosen by the people in an election." },
+      { word: "democracy", wordType: "noun", definition: "a system where people choose their leaders by voting", example: "In a democracy, everyone has the right to vote." },
+      { word: "campaign", wordType: "noun", definition: "a series of actions taken to achieve a goal", example: "The suffragettes ran a long campaign for women's rights." },
+      { word: "direct action", wordType: "noun phrase", definition: "protests that directly disrupt normal activities to make a point", example: "The suffragettes used direct action to get attention." },
+      { word: "hunger strike", wordType: "noun phrase", definition: "refusing to eat as a form of protest", example: "Emmeline Pankhurst went on hunger strikes in prison." },
+      { word: "motto", wordType: "noun", definition: "a short sentence that describes someone's beliefs or aims", example: "The suffragettes' motto was 'Deeds, not Words.'." },
+      { word: "arrested", wordType: "adjective", definition: "taken by the police because of breaking the law", example: "Emmeline Pankhurst was arrested many times." },
+      { word: "martyr", wordType: "noun", definition: "a person who suffers or dies for a cause or belief", example: "The government did not want Pankhurst to become a martyr." },
+      { word: "struggle", wordType: "noun", definition: "a long, difficult effort to achieve something", example: "Winning the right to vote was a long struggle." },
+      { word: "protest", wordType: "verb", definition: "to show that you disagree with something by taking action", example: "The suffragettes protested outside Parliament." },
+      { word: "movement", wordType: "noun", definition: "a group of people who work together to achieve a social or political change", example: "The women's rights movement changed many laws." },
+      { word: "politics", wordType: "noun", definition: "the activities connected to governing a country", example: "Women had no voice in politics before 1918." },
+      { word: "figure", wordType: "noun", definition: "an important or famous person", example: "Emmeline Pankhurst was an important political figure." },
+      { word: "recover", wordType: "verb", definition: "to become healthy again after illness", example: "They released her from prison until she recovered." },
+    ],
+    pronunciation: [
+      { word: "suffragette", ipa: "/suf-ruh-JET/", syllables: "suf-fra-gette", tip: "Stress JET. Three syllables." },
+      { word: "democracy", ipa: "/dih-MOK-ruh-see/", syllables: "de-moc-ra-cy", tip: "Stress MOK. Four syllables." },
+      { word: "campaign", ipa: "/kam-PAYN/", syllables: "cam-paign", tip: "Stress PAYN. The 'gn' is silent." },
+      { word: "parliament", ipa: "/PAR-luh-munt/", syllables: "par-lia-ment", tip: "Stress PAR. The 'ia' is swallowed." },
+      { word: "martyr", ipa: "/MAR-ter/", syllables: "mar-tyr", tip: "Stress MAR. The 'yr' sounds like 'er'." },
+      { word: "protest", ipa: "/PROH-test/", syllables: "pro-test", tip: "Stress PRO when it is a noun, pro-TEST when it is a verb." },
+    ],
+  },
+  {
+    id: "b7",
+    slug: "route-66",
+    title: "Route 66",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Route 66 is one of the most famous roads in the world. It crosses the United States from Chicago to Los Angeles. Read about its history and why it is so special.",
+    readingTime: 3,
+    content: `
+      <p><strong>Route 66 is one of the most famous roads in the United States. It stretches from Chicago, Illinois, to Santa Monica, California — a distance of about 3,940 kilometres. People have called it "The Main Street of America" and "The Mother Road."</strong></p>
+
+      <h2>The history of Route 66</h2>
+      <p>Route 66 was officially opened on 11 November 1926. At that time, most roads in the USA were dirt tracks. Route 66 was one of the first highways to be fully paved. This made travel across the country much easier.</p>
+      <p>In the 1930s, thousands of families from the Dust Bowl states in the Midwest used Route 66 to travel west. They were looking for a better life in California. This sad but important period in American history was described in John Steinbeck's famous novel The Grapes of Wrath.</p>
+
+      <h2>The golden age of Route 66</h2>
+      <p>After the Second World War, Americans began to travel more by car. Route 66 became the road of adventure, freedom, and the American Dream. Families drove along it on holiday. Diners, motels, petrol stations, and souvenir shops appeared along the road.</p>
+      <p>By the 1950s and 60s, Route 66 was a symbol of American culture. Bobby Troup wrote a song called "Get Your Kicks on Route 66" in 1946, which became very famous. The road appeared in films, novels, and television programmes.</p>
+
+      <h2>Decline and revival</h2>
+      <p>In the 1970s and 80s, new motorways called Interstate Highways were built across the USA. These faster roads bypassed many of the towns on Route 66. Businesses closed and the road became quiet. In 1985, Route 66 was officially removed from the US highway system.</p>
+      <p>However, Route 66 never really died. People still drove along it as a tourist attraction. Today, it is one of the most popular road trips in the world. Tourists drive the full length of the road, stopping at diners, motels, and old roadside attractions along the way.</p>
+
+      <h2>What you can see</h2>
+      <p>Along Route 66, you can see amazing landscapes — from the flat plains of Illinois to the desert of New Mexico and Arizona, and finally the Pacific Ocean in California. You can visit old drive-in cinemas, neon signs, vintage cars, and famous diners. Route 66 is a living museum of American history and culture.</p>
+    `,
+    vocabulary: [
+      { word: "stretch", wordType: "verb", definition: "to extend over a long distance", example: "Route 66 stretches from Chicago to California." },
+      { word: "paved", wordType: "adjective", definition: "covered with a hard surface of tarmac or concrete", example: "Route 66 was one of the first fully paved roads in the USA." },
+      { word: "dirt track", wordType: "noun phrase", definition: "a rough road made of soil, not tarmac", example: "Before Route 66, most roads were dirt tracks." },
+      { word: "Midwest", wordType: "noun", definition: "the central region of the United States", example: "Many families from the Midwest drove Route 66 in the 1930s." },
+      { word: "diner", wordType: "noun", definition: "a small, informal American restaurant", example: "Many diners opened along Route 66 in the 1950s." },
+      { word: "motel", wordType: "noun", definition: "a roadside hotel for people travelling by car", example: "There are many motels along Route 66." },
+      { word: "souvenir", wordType: "noun", definition: "an object you buy to remember a place or event", example: "Tourists buy souvenirs from shops along Route 66." },
+      { word: "symbol", wordType: "noun", definition: "something that represents an idea or feeling", example: "Route 66 became a symbol of the American Dream." },
+      { word: "decline", wordType: "noun", definition: "the process of becoming smaller, worse, or less important", example: "The decline of Route 66 began when new motorways were built." },
+      { word: "revival", wordType: "noun", definition: "bringing something back to life or popularity after a period of decline", example: "Route 66 has had a revival as a tourist attraction." },
+      { word: "bypass", wordType: "verb", definition: "to go around a place, avoiding it", example: "New motorways bypassed many towns on Route 66." },
+      { word: "landscape", wordType: "noun", definition: "the natural scenery of an area", example: "Route 66 passes through many different landscapes." },
+      { word: "vintage", wordType: "adjective", definition: "from the past and high quality; old-fashioned in a good way", example: "You can see vintage cars along Route 66." },
+      { word: "adventure", wordType: "noun", definition: "an exciting and unusual experience", example: "Route 66 became the road of adventure and freedom." },
+      { word: "road trip", wordType: "noun phrase", definition: "a long journey made by car for pleasure", example: "Driving Route 66 is one of the most popular road trips in the world." },
+    ],
+    pronunciation: [
+      { word: "stretch", ipa: "/STRECH/", syllables: "stretch", tip: "One syllable. The 'tch' makes a single 'ch' sound." },
+      { word: "souvenir", ipa: "/soo-vuh-NEER/", syllables: "sou-ve-nir", tip: "Stress NEER. Three syllables." },
+      { word: "landscape", ipa: "/LAND-skayp/", syllables: "land-scape", tip: "Stress LAND." },
+      { word: "adventure", ipa: "/ud-VEN-cher/", syllables: "ad-ven-ture", tip: "Stress VEN." },
+      { word: "revival", ipa: "/ri-VY-vul/", syllables: "re-vi-val", tip: "Stress VY. Three syllables." },
+      { word: "decline", ipa: "/dih-KLYN/", syllables: "de-cline", tip: "Stress KLYN." },
+      { word: "vintage", ipa: "/VIN-tij/", syllables: "vin-tage", tip: "Stress VIN." },
+    ],
+  },
+  {
+    id: "b8",
+    slug: "marathons",
+    title: "Marathons",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "A marathon is a long-distance running race of 42.195 kilometres. Read about the history of the marathon and why millions of people around the world run them today.",
+    readingTime: 3,
+    content: `
+      <p><strong>A marathon is a long-distance running race. It is exactly 42.195 kilometres long. Millions of people run marathons every year all over the world. It is one of the most challenging sports a person can do.</strong></p>
+
+      <h2>The legend of Marathon</h2>
+      <p>The marathon has an interesting history. According to legend, in 490 BC a Greek soldier called Pheidippides ran from the town of Marathon to Athens to deliver news of a great victory. The Greek army had just defeated a much larger Persian army. Pheidippides ran about 40 kilometres without stopping. When he arrived in Athens, he said "We have won!" and then died from exhaustion.</p>
+      <p>This story inspired the modern marathon race. When the first modern Olympic Games were held in Athens in 1896, a marathon race was included. The race followed a similar route to the one Pheidippides ran.</p>
+
+      <h2>The modern marathon</h2>
+      <p>Today, marathon races take place in cities all over the world. The most famous marathons are in London, New York, Boston, Berlin, Tokyo, and Chicago. These six races are called the World Marathon Majors.</p>
+      <p>The London Marathon was first held in 1981. It is now one of the biggest marathons in the world, with about 50,000 runners every year. Many runners raise money for charity by running the race.</p>
+
+      <h2>Training for a marathon</h2>
+      <p>Running a marathon requires months of training. Most runners train for between 16 and 20 weeks. They gradually increase the distance they run each week. A good training plan includes long runs, shorter faster runs, and rest days.</p>
+      <p>Nutrition is also very important. Runners need to eat enough carbohydrates to give them energy. During the race, runners drink water and sports drinks to stay hydrated. Many runners also eat energy gels during long runs.</p>
+
+      <h2>Why do people run marathons?</h2>
+      <p>People run marathons for many different reasons. Some want to test their physical limits. Others want to raise money for charity. Many people run to improve their health and fitness. And some just love the experience of running through a city with thousands of other people cheering them on. Crossing the finish line of a marathon is one of the most satisfying experiences in sport.</p>
+    `,
+    vocabulary: [
+      { word: "long-distance", wordType: "adjective", definition: "covering or travelling a very long distance", example: "A marathon is a long-distance running race." },
+      { word: "legend", wordType: "noun", definition: "an old story that may or may not be true", example: "The marathon has an interesting legend behind it." },
+      { word: "soldier", wordType: "noun", definition: "a person who fights in an army", example: "Pheidippides was a Greek soldier." },
+      { word: "deliver", wordType: "verb", definition: "to take something to a person or place", example: "Pheidippides ran to Athens to deliver news of the victory." },
+      { word: "victory", wordType: "noun", definition: "winning a battle, game, or competition", example: "The Greek army won a great victory at Marathon." },
+      { word: "exhaustion", wordType: "noun", definition: "a state of extreme tiredness", example: "Pheidippides died from exhaustion after his run." },
+      { word: "charity", wordType: "noun", definition: "an organisation that helps people in need, or money given to help others", example: "Many London Marathon runners raise money for charity." },
+      { word: "training", wordType: "noun", definition: "physical exercise done regularly to become better at a sport", example: "Running a marathon requires months of training." },
+      { word: "gradually", wordType: "adverb", definition: "slowly and steadily over time", example: "Runners gradually increase the distance they run each week." },
+      { word: "nutrition", wordType: "noun", definition: "the food and drink you consume and how it affects your health", example: "Good nutrition is very important for marathon runners." },
+      { word: "carbohydrate", wordType: "noun", definition: "a food substance in bread, rice, and pasta that gives energy", example: "Runners eat carbohydrates to give them energy." },
+      { word: "hydrated", wordType: "adjective", definition: "having enough water in your body", example: "Runners must stay hydrated during a marathon." },
+      { word: "fitness", wordType: "noun", definition: "the condition of being physically healthy and strong", example: "Many people run marathons to improve their fitness." },
+      { word: "satisfying", wordType: "adjective", definition: "giving a feeling of pleasure and achievement", example: "Finishing a marathon is a very satisfying experience." },
+      { word: "limit", wordType: "noun", definition: "the point beyond which something cannot go further", example: "Marathon runners like to test their physical limits." },
+    ],
+    pronunciation: [
+      { word: "marathon", ipa: "/MAR-uh-thon/", syllables: "mar-a-thon", tip: "Stress MAR. Three syllables." },
+      { word: "exhaustion", ipa: "/ig-ZAWS-chun/", syllables: "ex-haus-tion", tip: "Stress ZAWS. The 'h' in 'ex' is not pronounced." },
+      { word: "gradually", ipa: "/GRAJ-oo-uh-lee/", syllables: "grad-u-al-ly", tip: "Stress GRAJ. Four syllables." },
+      { word: "nutrition", ipa: "/noo-TRISH-un/", syllables: "nu-tri-tion", tip: "Stress TRISH." },
+      { word: "carbohydrate", ipa: "/kar-boh-HY-drayt/", syllables: "car-bo-hy-drate", tip: "Stress HY. Four syllables." },
+      { word: "satisfying", ipa: "/SAT-is-fy-ing/", syllables: "sat-is-fy-ing", tip: "Stress SAT. Four syllables." },
+      { word: "charity", ipa: "/CHAR-uh-tee/", syllables: "char-i-ty", tip: "Stress CHAR. Three syllables." },
+    ],
+  },
+  {
+    id: "b9",
+    slug: "the-amazon-rainforest",
+    title: "The Amazon Rainforest",
+    category: "Reading",
+    topic: "Environment",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "The Amazon Rainforest is the largest rainforest on Earth. It covers most of the Amazon River basin in South America. Read about this amazing place and why it is so important.",
+    readingTime: 3,
+    content: `
+      <p><strong>The Amazon Rainforest is the largest tropical rainforest in the world. It covers about 5.5 million square kilometres. Most of it is in Brazil, but parts are also in Peru, Colombia, and several other South American countries.</strong></p>
+
+      <h2>The Amazon River</h2>
+      <p>The Amazon River is the largest river in the world by the volume of water it carries. It is 6,400 kilometres long. The river starts in the Andes mountains in Peru and flows east until it reaches the Atlantic Ocean in Brazil.</p>
+      <p>The Amazon carries about 20% of all the fresh water that flows into the world's oceans. During the rainy season, the river can be up to 48 kilometres wide in some places. Many towns and villages along the river can only be reached by boat.</p>
+
+      <h2>Wildlife</h2>
+      <p>The Amazon Rainforest is home to an incredible variety of wildlife. Scientists believe it contains about 10% of all the species on Earth. There are more than 40,000 plant species, 1,300 bird species, and 3,000 types of fish in the Amazon.</p>
+      <p>Some of the most famous Amazon animals include the jaguar, the giant river otter, the anaconda, the electric eel, and the pink river dolphin. Many of these animals are found nowhere else on Earth.</p>
+
+      <h2>Indigenous people</h2>
+      <p>About one million indigenous people live in the Amazon Rainforest. They belong to hundreds of different tribes and speak many different languages. These people have lived in the forest for thousands of years. They know the plants and animals of the forest very well and use them for food and medicine.</p>
+
+      <h2>Deforestation</h2>
+      <p>The Amazon Rainforest is in danger. Every year, large areas of forest are cut down or burned to make space for farms and roads. This is called deforestation. It destroys the habitat of thousands of species and releases large amounts of carbon dioxide into the atmosphere, making climate change worse.</p>
+      <p>Many scientists and environmentalists are working to protect the Amazon. They say that saving the Amazon Rainforest is essential for the health of the whole planet.</p>
+    `,
+    vocabulary: [
+      { word: "tropical", wordType: "adjective", definition: "relating to the hot, wet regions near the Equator", example: "The Amazon is the world's largest tropical rainforest." },
+      { word: "volume", wordType: "noun", definition: "the amount of space something takes up, or the quantity of liquid", example: "The Amazon River carries an enormous volume of water." },
+      { word: "species", wordType: "noun", definition: "a group of animals or plants that are the same type", example: "The Amazon is home to millions of species." },
+      { word: "incredible", wordType: "adjective", definition: "extremely good or remarkable; hard to believe", example: "The variety of wildlife in the Amazon is incredible." },
+      { word: "jaguar", wordType: "noun", definition: "a large wild cat found in Central and South America", example: "The jaguar is one of the Amazon's most famous animals." },
+      { word: "indigenous", wordType: "adjective", definition: "originally from a place; native", example: "About one million indigenous people live in the Amazon." },
+      { word: "tribe", wordType: "noun", definition: "a group of people who live together and share the same culture", example: "There are hundreds of tribes in the Amazon." },
+      { word: "deforestation", wordType: "noun", definition: "the cutting down of large areas of forest", example: "Deforestation is destroying the Amazon Rainforest." },
+      { word: "habitat", wordType: "noun", definition: "the natural environment where an animal or plant lives", example: "Deforestation destroys the habitat of many animals." },
+      { word: "atmosphere", wordType: "noun", definition: "the layer of gases surrounding the Earth", example: "Burning forests releases carbon dioxide into the atmosphere." },
+      { word: "climate change", wordType: "noun phrase", definition: "long-term changes in global temperatures and weather patterns", example: "Deforestation makes climate change worse." },
+      { word: "environmentalist", wordType: "noun", definition: "a person who works to protect the natural environment", example: "Environmentalists are fighting to save the Amazon." },
+      { word: "essential", wordType: "adjective", definition: "absolutely necessary; very important", example: "Saving the Amazon is essential for the planet's health." },
+      { word: "anaconda", wordType: "noun", definition: "a very large snake found in South America", example: "The anaconda is one of the largest snakes in the world." },
+      { word: "fresh water", wordType: "noun phrase", definition: "water from rivers and lakes that is not salty", example: "The Amazon carries 20% of the world's fresh water flow." },
+    ],
+    pronunciation: [
+      { word: "Amazon", ipa: "/AM-uh-zon/", syllables: "Am-a-zon", tip: "Stress AM. Three syllables." },
+      { word: "tropical", ipa: "/TROP-uh-kul/", syllables: "trop-i-cal", tip: "Stress TROP. Three syllables." },
+      { word: "indigenous", ipa: "/in-DIJ-uh-nus/", syllables: "in-dig-e-nous", tip: "Stress DIJ. Four syllables." },
+      { word: "deforestation", ipa: "/dee-for-es-TAY-shun/", syllables: "de-for-es-ta-tion", tip: "Stress TAY. Five syllables." },
+      { word: "atmosphere", ipa: "/AT-mus-feer/", syllables: "at-mos-phere", tip: "Stress AT. Three syllables." },
+      { word: "species", ipa: "/SPEE-sheez/", syllables: "spe-cies", tip: "Stress SPEE. The 'ies' sounds like 'sheez'." },
+      { word: "essential", ipa: "/ih-SEN-shul/", syllables: "es-sen-tial", tip: "Stress SEN." },
+    ],
+  },
+  {
+    id: "b10",
+    slug: "the-olympic-games",
+    title: "The Olympic Games",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1569517282132-25d22f4573e6?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "The Olympic Games are the world's greatest sports competition. Athletes from almost every country come together every four years to compete. Read about the history and traditions of the Olympics.",
+    readingTime: 3,
+    content: `
+      <p><strong>The Olympic Games are the most important international sports competition in the world. Athletes from almost 200 countries compete in dozens of different sports. The Games take place every four years.</strong></p>
+
+      <h2>The ancient Olympics</h2>
+      <p>The Olympic Games started in ancient Greece about 2,700 years ago. They were held in a place called Olympia, in the south of Greece. Athletes from different Greek city-states came to compete in running, wrestling, discus throwing, and other sports. The Games were held to honour the god Zeus.</p>
+      <p>The ancient Olympics continued for almost 1,200 years. They ended in AD 393 when the Roman Emperor Theodosius banned pagan festivals.</p>
+
+      <h2>The modern Olympics</h2>
+      <p>The modern Olympic Games were created by a French man called Baron Pierre de Coubertin. He believed that sport could bring peace between nations. The first modern Olympics were held in Athens, Greece, in 1896. Fourteen nations and about 241 athletes took part.</p>
+      <p>Today, the Olympic Games are held in a different city every four years. Famous host cities include London, Paris, Tokyo, Beijing, and Sydney. The Olympic flag has five rings of different colours — blue, yellow, black, green, and red. These represent the five continents of the world.</p>
+
+      <h2>Summer and Winter Olympics</h2>
+      <p>There are two types of Olympic Games — the Summer Olympics and the Winter Olympics. The Summer Olympics include sports like athletics, swimming, gymnastics, cycling, football, and tennis. The Winter Olympics include sports like skiing, ice skating, ice hockey, and snowboarding.</p>
+      <p>The Summer and Winter Olympics both happen every four years, but they are two years apart from each other. For example, if the Summer Olympics are in 2024, the Winter Olympics are in 2026.</p>
+
+      <h2>Olympic traditions</h2>
+      <p>The Olympic Games have many famous traditions. The Olympic flame is lit in Olympia, Greece, and carried by a relay of runners to the host city. The opening ceremony is a huge show with music, dancing, and a parade of athletes from every country. At the end, the athletes march into the stadium under their national flag.</p>
+      <p>Winners receive gold, silver, or bronze medals. The national anthem of the winner's country is played during the medal ceremony. The Olympics remind us that sport can unite people from all over the world.</p>
+    `,
+    vocabulary: [
+      { word: "compete", wordType: "verb", definition: "to take part in a contest or race to try to win", example: "Athletes from 200 countries compete in the Olympics." },
+      { word: "ancient", wordType: "adjective", definition: "belonging to a very long time ago", example: "The ancient Olympics started in Greece 2,700 years ago." },
+      { word: "wrestler", wordType: "noun", definition: "a person who competes in wrestling", example: "Ancient Greek athletes included wrestlers and runners." },
+      { word: "honour", wordType: "verb", definition: "to show great respect for someone or something", example: "The Games were held to honour the god Zeus." },
+      { word: "ban", wordType: "verb", definition: "to officially say something is not allowed", example: "The Roman Emperor banned the ancient Olympics in AD 393." },
+      { word: "pagan", wordType: "adjective", definition: "relating to ancient religions that had many gods", example: "The Olympics were a pagan festival in ancient times." },
+      { word: "nation", wordType: "noun", definition: "a country and its people", example: "The modern Olympics bring together athletes from many nations." },
+      { word: "continent", wordType: "noun", definition: "one of the seven very large areas of land on Earth", example: "The five Olympic rings represent the five continents." },
+      { word: "ceremony", wordType: "noun", definition: "a formal public event to celebrate or mark something important", example: "The opening ceremony is one of the most watched events on television." },
+      { word: "relay", wordType: "noun", definition: "a race or process where each person takes a turn", example: "The Olympic flame is carried by a relay of runners." },
+      { word: "medal", wordType: "noun", definition: "a metal disc given to the winner of a competition", example: "Olympic winners receive gold, silver, or bronze medals." },
+      { word: "anthem", wordType: "noun", definition: "the official song of a country", example: "The national anthem is played during the medal ceremony." },
+      { word: "unite", wordType: "verb", definition: "to bring people together as one", example: "The Olympics unite people from all over the world." },
+      { word: "gymnastics", wordType: "noun", definition: "a sport involving acrobatic movements and balance exercises", example: "Gymnastics is a popular Summer Olympics sport." },
+      { word: "parade", wordType: "noun", definition: "a procession of people walking together in a public celebration", example: "Athletes march in the Olympic parade at the opening ceremony." },
+    ],
+    pronunciation: [
+      { word: "Olympic", ipa: "/oh-LIM-pik/", syllables: "O-lym-pic", tip: "Stress LIM. Three syllables." },
+      { word: "ancient", ipa: "/AYN-shunt/", syllables: "an-cient", tip: "Stress AYN. Two syllables — the 'cie' makes a 'sh' sound." },
+      { word: "athletics", ipa: "/ath-LET-iks/", syllables: "ath-let-ics", tip: "Stress LET. Three syllables. Don't say ATH-uh-let-iks." },
+      { word: "ceremony", ipa: "/SER-uh-moh-nee/", syllables: "cer-e-mo-ny", tip: "Stress SER. Four syllables." },
+      { word: "gymnastics", ipa: "/jim-NAS-tiks/", syllables: "gym-nas-tics", tip: "Stress NAS. The 'g' is silent." },
+      { word: "continent", ipa: "/KON-tuh-nent/", syllables: "con-ti-nent", tip: "Stress KON. Three syllables." },
+      { word: "anthem", ipa: "/AN-thum/", syllables: "an-them", tip: "Stress AN. The 'th' makes a soft sound." },
+    ],
+  },
+  // ─── EXISTING articles (Advanced) ─────────────────────────────────
   {
   id: "a16",
   slug: "how-fast-food-ruins-traditional-food-culture",

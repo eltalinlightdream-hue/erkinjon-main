@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useRef, useCallback } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Menu, X, Youtube, Send, LogOut, User as UserIcon, Crown, ChevronDown, ChevronRight, Bell, MessageCircle } from "lucide-react";
@@ -19,6 +19,31 @@ const PRACTICE_LINKS = [
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [practiceOpen, setPracticeOpen] = useState(false);
+  const [readingOpen, setReadingOpen] = useState(false);
+  const [writingOpen, setWritingOpen] = useState(false);
+  const [speakingOpen, setSpeakingOpen] = useState(false);
+  const practiceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const readingTimer  = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const writingTimer  = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const speakingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const makeHover = useCallback(
+    (
+      setter: (v: boolean) => void,
+      timerRef: React.MutableRefObject<ReturnType<typeof setTimeout> | null>
+    ) => ({
+      onMouseEnter: () => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+        setter(true);
+      },
+      onMouseLeave: () => {
+        timerRef.current = setTimeout(() => setter(false), 120);
+      },
+    }),
+    []
+  );
+
   const { user, profile, signOut, deviceConflict } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const loc = useLocation();
@@ -69,7 +94,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <nav className="hidden lg:flex items-center gap-0.5">
             <Link to="/" className={navLink("/", "Home", isActive("/"))}>Home</Link>
 
-            <div className="relative group">
+            {/* Practice dropdown — state-driven for reliable nested flyouts */}
+            <div className="relative" {...makeHover(setPracticeOpen, practiceTimer)}>
               <Link
                 to="/practice"
                 className={cn(
@@ -79,83 +105,124 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     : "text-[#9A9A9A] hover:text-[#F5F5F5] hover:bg-[#3A3A3A]"
                 )}
               >
-                Practice <ChevronDown className="w-3 h-3 opacity-60 transition-transform group-hover:rotate-180" />
+                Practice <ChevronDown className={cn("w-3 h-3 opacity-60 transition-transform", practiceOpen && "rotate-180")} />
               </Link>
-              <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                <div className="bg-[#2D2D2D] border-2 border-[#5A5A5A] shadow-[4px_4px_0px_rgba(0,0,0,0.6)] py-1.5 min-w-[160px] overflow-hidden">
-                  <div className="h-[3px] w-full mb-1 bg-[#5D8A3C]" />
-                  <Link
-                    to="/listening"
-                    className={cn(
-                      "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
-                      isActive("/listening") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
-                    )}
-                  >
-                    🎧 Listening
-                  </Link>
-                  <div className="relative group/reading">
+              {practiceOpen && (
+                <div className="absolute left-0 top-full pt-1 z-50">
+                  <div className="bg-[#2D2D2D] border-2 border-[#5A5A5A] shadow-[4px_4px_0px_rgba(0,0,0,0.6)] py-1.5 min-w-[160px] overflow-visible">
+                    <div className="h-[3px] w-full mb-1 bg-[#5D8A3C]" />
+
+                    {/* Listening */}
                     <Link
-                      to="/reading"
+                      to="/listening"
                       className={cn(
-                        "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
-                        isActive("/reading") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                        "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                        isActive("/listening") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
                       )}
                     >
-                      📖 Reading <ChevronRight className="w-3 h-3 opacity-50" />
+                      🎧 Listening
                     </Link>
-                    <div className="absolute left-full top-0 pl-1.5 opacity-0 invisible group-hover/reading:opacity-100 group-hover/reading:visible transition-all duration-150 z-50">
-                      <div className="bg-[#2D2D2D] border-2 border-[#5A5A5A] shadow-[4px_4px_0px_rgba(0,0,0,0.6)] py-1.5 min-w-[130px] overflow-hidden">
-                        <div className="h-[3px] w-full mb-1 bg-[#5D8A3C]" />
-                        {(["1", "2", "3"] as const).map((n) => (
-                          <Link
-                            key={n}
-                            to="/reading"
-                            search={{ passage: n } as any}
-                            className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
-                          >
-                            Passage {n}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative group/writing">
-                    <Link
-                      to="/writing"
-                      className={cn(
-                        "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
-                        isActive("/writing") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+
+                    {/* Reading flyout */}
+                    <div className="relative" {...makeHover(setReadingOpen, readingTimer)}>
+                      <Link
+                        to="/reading"
+                        className={cn(
+                          "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                          isActive("/reading") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                        )}
+                      >
+                        📖 Reading <ChevronRight className="w-3 h-3 opacity-50" />
+                      </Link>
+                      {readingOpen && (
+                        <div className="absolute left-full top-0 z-50">
+                          <div className="bg-[#2D2D2D] border-2 border-[#5A5A5A] shadow-[4px_4px_0px_rgba(0,0,0,0.6)] py-1.5 min-w-[130px]">
+                            <div className="h-[3px] w-full mb-1 bg-[#5D8A3C]" />
+                            {(["1", "2", "3"] as const).map((n) => (
+                              <Link
+                                key={n}
+                                to="/reading"
+                                search={{ passage: n } as any}
+                                className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                              >
+                                Passage {n}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       )}
-                    >
-                      ✏️ Writing <ChevronRight className="w-3 h-3 opacity-50" />
-                    </Link>
-                    <div className="absolute left-full top-0 pl-1.5 opacity-0 invisible group-hover/writing:opacity-100 group-hover/writing:visible transition-all duration-150 z-50">
-                      <div className="bg-[#2D2D2D] border-2 border-[#5A5A5A] shadow-[4px_4px_0px_rgba(0,0,0,0.6)] py-1.5 min-w-[120px] overflow-hidden">
-                        <div className="h-[3px] w-full mb-1 bg-[#5D8A3C]" />
-                        {([1, 2] as const).map((n) => (
-                          <Link
-                            key={n}
-                            to="/writing"
-                            search={{ task: String(n) } as any}
-                            className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
-                          >
-                            Task {n}
-                          </Link>
-                        ))}
-                      </div>
+                    </div>
+
+                    {/* Writing flyout */}
+                    <div className="relative" {...makeHover(setWritingOpen, writingTimer)}>
+                      <Link
+                        to="/writing"
+                        className={cn(
+                          "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                          isActive("/writing") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                        )}
+                      >
+                        ✏️ Writing <ChevronRight className="w-3 h-3 opacity-50" />
+                      </Link>
+                      {writingOpen && (
+                        <div className="absolute left-full top-0 z-50">
+                          <div className="bg-[#2D2D2D] border-2 border-[#5A5A5A] shadow-[4px_4px_0px_rgba(0,0,0,0.6)] py-1.5 min-w-[120px]">
+                            <div className="h-[3px] w-full mb-1 bg-[#5D8A3C]" />
+                            {([1, 2] as const).map((n) => (
+                              <Link
+                                key={n}
+                                to="/writing"
+                                search={{ task: String(n) } as any}
+                                className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                              >
+                                Task {n}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Speaking flyout */}
+                    <div className="relative" {...makeHover(setSpeakingOpen, speakingTimer)}>
+                      <Link
+                        to="/speaking"
+                        className={cn(
+                          "flex items-center justify-between px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                          isActive("/speaking") || loc.pathname.startsWith("/speaking/") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                        )}
+                      >
+                        🎤 Speaking <ChevronRight className="w-3 h-3 opacity-50" />
+                      </Link>
+                      {speakingOpen && (
+                        <div className="absolute left-full top-0 z-50">
+                          <div className="bg-[#2D2D2D] border-2 border-[#5A5A5A] shadow-[4px_4px_0px_rgba(0,0,0,0.6)] py-1.5 min-w-[170px]">
+                            <div className="h-[3px] w-full mb-1 bg-[#5D8A3C]" />
+                            <Link
+                              to="/speaking/pronunciation"
+                              className={cn(
+                                "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                                isActive("/speaking/pronunciation") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                              )}
+                            >
+                              🗣 Pronunciation
+                            </Link>
+                            <Link
+                              to="/speaking/topics-explained"
+                              className={cn(
+                                "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
+                                isActive("/speaking/topics-explained") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                              )}
+                            >
+                              💬 Topics Explained
+                            </Link>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                  <Link
-                    to="/speaking"
-                    className={cn(
-                      "block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors",
-                      isActive("/speaking") ? "bg-[#3D6B21]/40 text-[#7DBD50] font-semibold" : "text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
-                    )}
-                  >
-                    🎤 Speaking
-                  </Link>
                 </div>
-              </div>
+              )}
             </div>
 
             <Link to="/videos" className={navLink("/videos", "Video Lessons", isActive("/videos"))}>Video Lessons</Link>
@@ -270,6 +337,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   ))}
                 </div>
                 <Link to="/speaking" onClick={() => setOpen(false)} className="py-2 font-mono text-xs text-[#9A9A9A] hover:text-[#F5F5F5] tracking-wide">🎤 Speaking</Link>
+                <div className="pl-4 flex flex-col border-l border-[#5D8A3C]/20 ml-1 mb-0.5">
+                  <Link to="/speaking/pronunciation" onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-[#6A6A6A] hover:text-[#F5F5F5] tracking-wide">🗣 Pronunciation</Link>
+                  <Link to="/speaking/topics-explained" onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-[#6A6A6A] hover:text-[#F5F5F5] tracking-wide">💬 Topics Explained</Link>
+                </div>
               </div>
               <Link to="/videos" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 font-mono text-xs tracking-wide transition-colors", isActive("/videos") ? "text-[#7DBD50] bg-[#3D6B21]/20 border-l-2 border-[#5D8A3C]" : "text-[#9A9A9A] hover:bg-[#3A3A3A] hover:text-[#F5F5F5]")}>Video Lessons</Link>
               <Link to="/articles" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 font-mono text-xs tracking-wide transition-colors", isActive("/articles") ? "text-[#7DBD50] bg-[#3D6B21]/20 border-l-2 border-[#5D8A3C]" : "text-[#9A9A9A] hover:bg-[#3A3A3A] hover:text-[#F5F5F5]")}>Articles</Link>

@@ -283,17 +283,27 @@ function Pronunciation() {
             >
               <X className="w-4 h-4" />
             </button>
-            <div className="aspect-video w-full rounded-xl overflow-hidden shadow-2xl">
+            <div className="aspect-video w-full rounded-xl overflow-hidden shadow-2xl bg-black">
               <iframe
                 key={playing.youtubeId}
-                src={`https://www.youtube.com/embed/${playing.youtubeId}?autoplay=1&rel=0`}
+                src={`https://www.youtube-nocookie.com/embed/${playing.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
                 title={playing.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="w-full h-full"
               />
             </div>
-            <p className="mt-3 text-white/80 text-sm font-mono text-center truncate">{playing.title}</p>
+            <div className="mt-3 flex items-center justify-between gap-3">
+              <p className="text-white/80 text-sm font-mono truncate flex-1">{playing.title}</p>
+              <a
+                href={`https://www.youtube.com/watch?v=${playing.youtubeId}`}
+                target="_blank"
+                rel="noreferrer"
+                className="shrink-0 text-xs font-mono text-white/60 hover:text-white underline underline-offset-2 transition-colors"
+              >
+                Open on YouTube ↗
+              </a>
+            </div>
           </div>
         </div>
       )}
