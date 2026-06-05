@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { WRITING_SAMPLES, WRITING_ESSAYS } from "@/lib/writing-samples-data";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,9 @@ import { cn } from "@/lib/utils";
 import { SteveMining, McItem } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/writing")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    task: (search.task as string | undefined) ?? undefined,
+  }),
   head: () => ({
     meta: [
       { title: "IELTS Writing - Task 1 & Task 2 | Abduraimov Erkinjon" },
@@ -922,8 +925,7 @@ const TASK2_FILTERS = ["All", "Agree/Disagree", "Advantages/Disadvantages", "Dis
 type TabType = 1 | 2 | "t1-samples" | "t2-samples";
 
 function Writing() {
-  const location = useLocation();
-  const taskParam = new URLSearchParams(location.search).get("task");
+  const { task: taskParam } = Route.useSearch();
   const [tab, setTab] = useState<TabType>(() => {
     if (taskParam === "t1-samples") return "t1-samples";
     if (taskParam === "t2-samples") return "t2-samples";

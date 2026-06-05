@@ -383,6 +383,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     question: "The diagram below illustrates the process of producing soft cheese.",
     wordCount: 237,
     content: `<p>The report gives information about how soft cheese is produced. In general, there are 5 main stages of the process: combining necessary ingredients (salt, water and milk), cooling, fermentation, evaporation, and lastly cooling again ( but in a relatively larger container and for more period). Notably, the process requires a set of special tools like mixer, heat, and filter, while the cheese slowly turns to solid during stages, all of which occur in storage tanks. The first stage is when water and milk are added together to be blended with a mixer. Then this mixture is left to be cooled down at 5 degrees Celsius for two hours before going to another process, where salt is added to the substance, and it is fermented for 6 hours while mixing and applying heat at 37 degrees temperature. Meanwhile, during fermentation there is steam gathered in the tank, which only is released while liquid is evaporating. During this stage, heat is applied again, but at higher temperature( 100* C) for 8 hours, By that time, it has already started to thicken. The last stage of making soft cheese is quite complicated, where before going to be cooled, waste water is disposed of. Cooling process takes place in a larger tank at 5 degrees Celsius for another 8 hours; at the same time, waster water is over released, and the product is finally ready and has enough thickness for consumption.</p>`,
+    coverImage: "/writing-samples/report-16.png",
     vocabulary: [],
   },
   {
@@ -394,6 +395,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 276,
     content: `<p>The report outlines data regarding proportions of male and female teachers in different types of institutions - Nursery/pre preschool, primary school, secondary school, colleges, private training institutes, and lastly universities - in the UK in the year 2010 in the bar graph. Overall, female teachers were more commonplace in nursery, pre schools and primary schools than male teachers, as the age was an important factor, showing a higher percentage of female teachers for younger students, However, a higher percentage of older students were taught by male teachers, such as the ones in the university. There was, interestingly, a little disparity between the proportions of male and female teachers in institutions like secondary school and private training institutes, whereas the proportion of both genders was identical in colleges.</p>
 <p>Turning to details, at the youngest level of education - nursery/pre school, nearly 95% of teachers were females, while a mere 5% of male teachers worked there. A quite similar gap can be observed in primary schools, with an increase in the proportion of male teachers ( 8% males vs 92% females). However, the difference between men and women shrunk significantly in secondary schools (47% and 53%), and there was no difference at all in colleges. Regarding to the remaining educational settings, namely private training institutions and universities, there were more men as teachers than women. In the former educational setting, 55 % of teachers consisted males, and 10 points lower were females, while in the latter these figures accounted for a hefty 70% males and 30 % females - by far the largest percentage of men as teachers in one institution as opposed to other settings. 274 words.</p>`,
+    coverImage: "/writing-samples/report-17.png",
     vocabulary: [
       { word: "Proportions", definition: "the percentage or part of a whole" },
       { word: "Institutions", definition: "organized places of learning, like schools or universities" },
@@ -417,6 +419,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     content: `<p>The report compares the percentage terms of hours of telecommuting among men and women in the table, while the bar graph shows the main reasons to prefer this type of work setting in 2019. Generally speaking, out of three reasons mentioned, the most popular one was saving money for both genders, where there was only 3% disparity between men and women.</p>
 <p>In contrast, this gap further rose when it came to easier childcare, with more women reporting it as a motive than men. The majority of men worked for over 30 hours, while women worked remotely mostly under 10 hours. Regarding results of why people chose the remote work, the most reported response was to save money among both sexes, with males accounting for a high of 43% and women 3 points lower, at 40%. Productiveness was another popular reason, where the percentage of males still exceeded that of women(25% vs 10%). However, the gap among results widened significantly, when easier childcare was in the question. This time nearly 28% of women reported it as a reason to work remotely, making it noticeably higher than that of men, which constituted a meager 5%.</p>
 <p>As for the number of hours worked, 74% of all women spend under 10 hours working from home, while only 3% of men opted to do the same. working for 10 to 30 hours is the category where the difference is not as huge, yet the proportion of women was higher than men ( 16% of men vs 22% of women).However, 81% of men worked remotely, whereas mere 6% of women did the same — it is evident that in 2019 telecommuting was highly opted among men than females as the main mean of work.</p>`,
+    coverImage: "/writing-samples/report-18.png",
     vocabulary: [
       { word: "g., office, home, factory) disparity between", definition: "a noticeable difference or inequality between two things motive – a reason or purpose for doing something worked remotely – performed one’s job from outside the main office main motive – the most significant or dominant reason behind an action the mo" },
     ],
@@ -430,6 +433,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 279,
     content: `<p>🆕 The report outlines percentage terms of the internet usage of adults in group ranging from 16-24, 25-44, 45-54, 55-64, and lastly 65+ between 2003 and 2006 in the bar graph. Generally speaking, the figures for adults of all generations increasingly rose, reflecting a universal expansion in internet adoption, where the youngest group representing the largest percentage of internet users over the period in the question. Older demographics, on the other hand, accessed the internet less frequently compared to other age brackets. Starting with the youngest internet users, their proportions accounted for the all-time-high results throughout the time frame, the result of which in the first years was stable at 80%. It then surged to 100%, marking the chart-peak proportion in 2005 before declining to 90% the next year. Similarly, the internet use of adults at the age of 25-44 and 45-54 experienced a sustained growth from 2003 to 2006. The former commenced at 45% and ended the period at 80%, while the initial point of latter was higher at 60% and hit 80% in 2006, converging with that of the former, and both came a close second in terms of the percent of the internet users. Another increase over these years was observed in the demographic group aged 55-64 years, which rather fluctuated over the first years( 2003-2005) at around 30% and then significantly jumped to 50% — a group with the third most user percentage.</p>
 <p>In comparison, the eldest group( adults over 65 years) lagged far behind in terms of the internet usage, with registering the least marked result. It plateaued between 2003 to 2005 and barely exceeded one-fifth of the total internet user proportions in 2006.</p>`,
+    coverImage: "/writing-samples/report-19.png",
     vocabulary: [
       { word: "Reflecting a universal expansion in internet adoption", definition: "showing a widespread increase in internet use" },
       { word: "Representing the largest percentage of internet users", definition: "having the highest share among all groups" },
@@ -452,6 +456,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 292,
     content: `<p>The report gives information about the volume of temporary migrant workers in countries: Australia, New Zealand, United Kingdom, and United States in the years 2003 and 2006, and the number of such workers per 1 000 people in 2006 in the table. As can be seen, there was a universal growth in the number of migrant workers on short-term contracts across all countries, where by far the largest rise was seen in United Kingdom. It was United states that hosted the most significant number of migrant workers, whereas New Zealand, albeit being least migrant-friendly country, reported the highest ratio of workers per 1000 inhabitants. In 2003, there were more migrants working temporarily in United States (577000) than in any other countries, the result of which was still the highest in 2006, at 678 000. United Kingdom was the second country with the most numbers of such workers, rising from 137 000 in 2003 to 266 000 in 2006, while the third country was Australia, which was home to 152 000 workers in 2003 and up to 219 000 the next year, The one that closed the list was New Zealand, where number of workers accounted for 65 000 and followed the suit like other countries, hitting a meager 87 000.</p>
 <p>Reporting how many workers there were per 1 000 people in 2006, it is surprising that the most marked result belonged to New Zealand (21.1), even though it displayed the lowest result of migrant workers. 10.4 points lower was Australia, and the figure for United Kingdom was at 4.4 migrants working temporarily per 1000 in 2006. Only 2.3 migrants accounted for per thousand people in United States — the fewest count of migrant employees despite showing a reverse trend in the total.</p>`,
+    coverImage: "/writing-samples/report-20.png",
     vocabulary: [
       { word: "short-term contracts", definition: "work agreements lasting a limited period. universal growth – increase happening in all categories or places. by far the largest rise – the biggest increase among all. hosted the most significant number – had the highest quantity or total. migrant-fri" },
     ],
@@ -464,6 +469,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     question: "Provide an overview of the information by identifying and describing the key details, and include comparisons where appropriate.",
     wordCount: 241,
     content: `<p>The report outlines information about the volume of 4 sport attendees - badminton, basketball, tennis and rugby - in a certain area from 1985 to 2005 in the line graph. Units are measured in single figures. In general, the interest rate of those who revelled in rugby revised downwards over the period in the question, albeit initially securing the clinching top spot, whilst the reverse was true for that of tennis. Notably, there was a sustained trajectory in the number of badminton and basketball players throughout that time frame. In 1985, the most involved type of sport was rugby, starting at 250 attendees, the result of which then dipped radically to 200 in 1995. Meantime, the number of tennis players in that region rose significantly to the same number in 1995, up from 150 in 1985, and it leapfrogged to a high of 225 in 2005, whereas the trend for rugby slashed, hitting a trough of 50 thereafter - the most minimal number of players reported. Conversely, the ratio of those engaging in basketball and badminton fluctuated over the period, with a 50-attendee gap. The former accounted for an initial of 60 and negligibly leaned towards 50 in 2005, converging with that of rugby in that year, while the latter remained flat at 100 over a course of 20 years . The interest rate of those who relished rugby — creative phrasing showing engagement or enthusiasm in a sport. 238 words.</p>`,
+    coverImage: "/writing-samples/report-21.png",
     vocabulary: [
       { word: "” clinching top spot", definition: "idiomatic and dynamic phrase meaning “ranked first.” rose significantly to the same number — precise structure for describing comparison and growth. up from 150 in 1985 — common academic phrasing for numerical contrast. albeit initially securing the " },
     ],
@@ -478,6 +484,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     content: `<p>The report outlines data regarding men's and women's time allocation on household activities in the bar chart- cooking and washing, shopping, repair,clothes washing and ironing- and leisure activities in the table - TV, radio,video watching, reading, and doing sports - in the UK in the year of 2008. Units are measured in minutes per day. As can be seen, the most routinely relished activity was watching or listening to radio, tv and videos for both sexes,whereas men took the lead in sports, a past time in which a minority of UK citizens engaged as a whole. As for household activities. women emerged almost as the main doers, with cooking and washing the minutes spent being the most marked, albeit men doing repair job more than women.</p>
 <p>Reporting the figures concerning leisure activities, apart from the index of Tv, radio and video, the time spent on the two was accountable for less than 20 minutes by both genders, while on the former both women and men devoted more around 2 hours weekly, with respective figures of 137 and 118. The figure for reading was sustained at 18 minutes in men, and a point higher in women. The one closing the list was the amount of involvement in sports, with men marking 15 minutes, four minutes higher than women. Household activities tend to be done significantly by women, they devoted nearly 80 minutes on cooking and washing compared to men, who did so only at 30 minutes, The time spent on shopping came as a close second, with women putting at about 40 minutes per week and men 25 minutes. The gap was highly pronounced in doing clothes washing and ironing: women allocated 30 minutes and men a meager 10 minutes.</p>
 <p>In comparison, the only area men dominated was repairing, accounting for nearly 20 minutes (still lower than figures women exhibited in other activities). the result of women made up 20 minutes therein.</p>`,
+    coverImage: "/writing-samples/report-22.png",
     vocabulary: [
       { word: "Time allocation on household and leisure activities", definition: "Compact and academic phrasing for describing categories" },
       { word: "The most routinely relished activity was…", definition: "Vivid but formal; shows variation beyond “most popular.” Men took the lead in… → Strong comparative expression for dominance" },
@@ -500,7 +507,24 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 203,
     content: `<p>Interestingly, the figure for air commuting, albeit being public transit, was also less marked compared to other modes of travel. Plus, the total figure for traveled distance rose at a moderate rate over the years in the question, with that of bus, rail, and air marking the same trajectory. The exceptions in this regard were motorbikes and bicycle.</p>
 <p>Focusing on by far the most popular means of transport, most people chose bus, with its figure accounting for 40 in 1990 and 45 in 2000. The distance ratio on rail came as the second with the upward trend over the years, rising from 30 to 35. The distance milage was much less pronounced for other transport means, where that of air exhibited a growth from a meager 2 to 5 from 1990 to 2000 contrary to what the result of motorbike and bicycle showed - the decline in public preference during the period. The former halved drastically from 7 to 3, while the latter mirrored the movement down to 2, up from 6. In total, distance covered by all transportation means constituted a remarkable 100 in 1990, the figure for which then rose to a high of 110 in 2000 in the UK. (</p>`,
-    vocabulary: [],
+    coverImage: "/writing-samples/report-23.png",
+    vocabulary: [
+      { word: "Outlines", definition: "gives a general description or summary of something." },
+      { word: "Proportions", definition: "the percentage or part of a whole." },
+      { word: "Institutions", definition: "organized places of learning, like schools or universities." },
+      { word: "Commonplace", definition: "happening often; very common." },
+      { word: "Disparity", definition: "a noticeable difference between two or more things." },
+      { word: "Identical", definition: "exactly the same or equal." },
+      { word: "Turning to details", definition: "a linking phrase used to introduce specific information." },
+      { word: "A mere", definition: "used to emphasize how small a number or amount is." },
+      { word: "Gap", definition: "a difference between two figures or groups." },
+      { word: "Shrunk significantly", definition: "became much smaller or less noticeable." },
+      { word: "No difference at all", definition: "completely equal in amount or number." },
+      { word: "Namely", definition: "used to introduce specific examples or items." },
+      { word: "Consisted of", definition: "was made up of; formed by." },
+      { word: "Accounted for", definition: "represented or made up a certain percentage." },
+      { word: "By far the largest", definition: "used to emphasize the most extreme or highest value in comparison." }
+    ],
   },
   {
     id: "t1-24",
@@ -511,6 +535,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 253,
     content: `<p>The report focuses on data regarding the percentage terms of those working in diverse occupations over a decade (2003-2013) in the bar chart. Provided types of occupations are business, medical, hotel industry, education training,self employed, building as well as those who were unemployed. In general, the front runner type of profession was owning a business over the period, where the figures for self-employed and unemployed adults stood almost at identical proportions. In stark contrast, the involvement in medical jobs emerged as the last runner therein. Interestingly, with the exception of business and medical, the proportions of all brackets revised downwards.</p>
 <p>Reporting the most pronounced percentage terms in the chart, it is evident that the index of business hosted a clinching top result with 45% in 2003, which then dipped moderately to 35% in 2013. Despite commencing at around 10%, the amount of those engaged in self employment and those who were not employed at all soared significantly, matching the proportions of the former category at approximately 45%. The trajectory for education training, hotel industry, and building was also upwards and hovered around from 10% to 20%, with building exhibiting higher percentages ( from 10% to 25% from 2003 to 2013). Those employed in education training and hotel industry constituted nearly 20% of total workforce in 2013, up from 8% and a meager 5% in 2003 respectively. Employees working in medicine showed a relatively remarkable decline from 2003 to 2013; initially marking 20% it halved to a trough of 10% at a radical rate.</p>`,
+    coverImage: "/writing-samples/report-24.png",
     vocabulary: [
       { word: "Over a decade", definition: "a period of ten years" },
       { word: "Front runner type of profession", definition: "the occupation with the highest or leading percentage" },
@@ -533,6 +558,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 334,
     content: `<p>The report informs about changes in the percentage terms of those from 23-65 employed in 6 occupations with unemployment rate in Ashby, a town in The UK and in general terms in this country in the year 2008 in two pie charts. Types of the occupations in the regard are construction, shop, professional, technical, personal services and office work. In general, in Ashby the labor force mostly involved those working in personal services, while the popularity of professional and technical work were relatively less marked. In general terms in The UK, it was rather different that office work was more prevalent, surpassing the figure for personal services, with the same trend occurring with the professional work. Interestingly, The proportions of unemployed people were also noticeable compared to that of types of jobs as a whole, albeit at smaller proportions. In 2008 in Ashby, by far the most pronounced share of people were involved in personal services, with a high of 21%, closely followed by the result of office work, remaining anchored at 18%. Afterwards, the figures for shop and construction work were also moderate, at 16% and 14% respectively. Professional and technical, in contrast, were the sectors with the smallest proportions, with the respective figures of 8% and 9%. As for unemployment rate, it fell to 14% of the total shares - a sizeable share compared to previous categories.</p>
 <p>Focusing on the percentages of the same sectors in The UK as a whole, office-dominated sector prevailed more, at staggering 19%. By 2 points down, personal and technical categories remained a close second, whilst those worked in construction amounted to 16% - a higher proportion than that of in Ashby. The share of people involved in shop related occupations halved slightly to 13% in The UK. Professional workers constituted to 14% of the total shares therein. Interestingly, Ashby used to host more unemployed citizens than The UK as a whole in percentage terms, the result of which in The UK marked a low of 10%.</p>`,
+    coverImage: "/writing-samples/report-25.png",
     vocabulary: [
       { word: "By far the most pronounced share", definition: "clearly the largest or most dominant portion" },
       { word: "Remained anchored at … %", definition: "stayed fixed or stable at a specific percentage" },
@@ -557,6 +583,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
 <p>Focusing on the number of plain houses in three areas, they were more prevalent in Tasmania, 88 in 2001 and 89 in 2007, compared to that of The Northern Territory ( 65 in 2001 and 63 in 2007 - the lowest ratio of such house capacity in this regard), and Victoria ( 79 in 2001 and 76 in 2007). It is clear that there was a little downward trend in the volume of houses in these areas, but Tasmania.</p>
 <p>In comparison, semi-detached houses were the second most preferred house types, albeit at the considerably lower amount. In Victoria, there was only 11 such houses in 2001, the result of which then rose by a single point after 6 years. As for The Northern Territory, this ratio was slightly marked, with 13 in 2001 and a high of 15 in 2007, while Tasmania used to house a meager 3 and 4 semi-detached houses in 2001 and 2007 respectively.</p>
 <p>Moving on, the number of flats averaged around 10 in all areas, with that of Tasmania recording 7 and 6 in the given years, whilst it accounted for 9 and 10 in Victorian areas. The figure for Northern Territory exhibited a rather upward trend, rising from 8 in 2001 up to 11 in 2007 - the area with the most flats in the table. Aforementioned regions also accommodated other types of houses, with Victoria amounting to 1 and 2, Tasmania 2 and 1 from 2001 and 2007. The number of such undefined houses, however, was more pronounced in the Northern Territory, which amounted to 14 and 11, with a moderate growth over the years.</p>`,
+    coverImage: "/writing-samples/report-26.png",
     vocabulary: [
       { word: "Units are in percentage terms", definition: "data are expressed as proportions or percentages" },
       { word: "Led the chart", definition: "ranked first or had the highest figure" },
@@ -578,6 +605,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     question: "The maps show the changes in the functional area of a museum in 1988 and after the decoration in 2008.",
     wordCount: 287,
     content: `<p>The report focuses on the changes took place in the layout of a museum floor plan over a 10-year period ( 1998 - 2008) in two images. Generally speaking, the layout had undergone some rather radical relocation in its layout, with the emergence of new amenities, which made the museum floor more modernized and user-friendly. Of a particular note, by far the most noticeable alteration was the order of facilities, with permanent exhibition room being placed only to one side, whereas other facilities on the other side. In 1998, the access to the floor used to be from the southernmost side of the plan, with exit being the same door. Tickets, additionally, were sold at the entrance, and to the left of which there was a shop, with temporary exhibition room located in the other side of the entrance, on the west-southern corner. Garden used to stay in the middle, while cafe' was based on top of it. On both top corners, permanent exhibition rooms used to occupy. Lastly, a bathroom and coatroom were situated on the right-bottom corner. Upon completion of changes in 2008, all permanent exhibition rooms were supplanted to the right-hand side of the plan, where the access remained intact, with tickets selling area being inside still. The garden made way for fountains in the middle, with an open area for cafe', which was , in fact, on the top of them along with a bathroom. Left-hand side of the plan encompassed facilities like restaurant on the top, temporary exhibition room in the center, and down that there were relocated shops and coatroom. With these transformations, the museum plan appeared rather ordered and much of efficient use for museum visitors. 283 words -978535 -1574800</p>`,
+    coverImage: "/writing-samples/report-27.png",
     vocabulary: [
       { word: "Underwent radical relocation", definition: "experienced major movement or shifting of elements" },
       { word: "Emergence of new amenities", definition: "appearance or addition of new facilities or services" },
@@ -599,7 +627,24 @@ export const WRITING_SAMPLES: WritingSample[] = [
     question: "The charts below show the use of water for agriculture products in Australia in 2004 and values of these products to the Australian economy in the same year.",
     wordCount: 240,
     content: `<p>The report focuses on the information about the water consumption of 7 sectors in agriculture in percentage terms in Australia in the year 2004, with the income shares from these sectors in two pie charts. Generally speaking, livestock appeared to be the most demanding sector for water, while water used for rice and vegetable cultivation encompassed the smallest proportions. Additionally, the most noticeable revenue stream was fruit-cultivation, with making up almost the half of the economy, where sources like sugar, rice, vegetable, and livestock sectors contributed to smaller percentages. In 2004, by the largest figure for water usage was recorded by that for livestock, with staggering 36%, followed by that of diary, down to 19%. The indexes of cotton, fruit and sugar made up relatively less proportions, with the respective figures of 15%, 11% and 10%. The remaining 10% was split even among sectors like rice and vegetable, which meant in Australia these types of products were not favored in agriculture department. Reporting figures regarding income rates from these goods, it appears most of the people made a living in fruit sector, which accounted for overwhelming 44%, with the result of dairy constituting almost the half of the result, at 24%. 13% income from total revenue came from cotton products, while 7% and 6% were from sugar and livestock respectively. Sectors with the lowest income percentage points were responsible for rice( a mere 1%) and sugar ( up to 5%).</p>`,
-    vocabulary: [],
+    coverImage: "/writing-samples/report-28.png",
+    vocabulary: [
+      { word: "telecommuting", definition: "working remotely, usually from home, using the internet" },
+      { word: "work setting", definition: "a particular type or environment of work (e.g., office, home, factory)" },
+      { word: "disparity between", definition: "a noticeable difference or inequality between two things" },
+      { word: "motive", definition: "a reason or purpose for doing something" },
+      { word: "worked remotely", definition: "performed one’s job from outside the main office" },
+      { word: "main motive", definition: "the most significant or dominant reason behind an action" },
+      { word: "the most reported response", definition: "the answer given by the greatest number of people in a survey" },
+      { word: "accounting for", definition: "making up or representing a specific part or proportion" },
+      { word: "productiveness", definition: "the level of efficiency or effectiveness in producing results" },
+      { word: "widened significantly", definition: "became much larger or greater in difference" },
+      { word: "a meager 5%", definition: "an extremely small or insufficient amount" },
+      { word: "opted to do something", definition: "chose or decided to take a particular action" },
+      { word: "the difference is not as huge", definition: "the gap between two figures or groups is smaller" },
+      { word: "the proportion of", definition: "the percentage or part of a total number" },
+      { word: "highly opted among", definition: "very commonly chosen or preferred by a particular group" }
+    ],
   },
   {
     id: "t1-29",
@@ -610,7 +655,24 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 253,
     content: `<p>The report outlines the data on the volume of UK steel demand ( in million tones) dis aggregated into total demand, UK production and import categories, along with the size of the workforce employed ( in thousands of people) in this industry from 1970 to 2000 in two line graphs. Overall, imports of steel increased moderately over the years, while both manufacture and demand experienced substantial declines, yet all the three converged in the same point in the end, whereas the significant amount of people exhibited a dramatic contraction in this industry.</p>
 <p>Focusing on the total steel demand, it showed a pronounced downward trend, the result of which initiated form 200 millions tones in 1970 and plummeted to 100 millions tones in 2000, the domestic production ratio closely mirrored this downward trend, which from a high of 200 millions tones went down to 100 million tones. In stark contrast, there was a disparity in import levels - it surged radically from almost 0 to the same 100 million tones, indicating the convergence of local production, demand and import volumes at roughly the same level by 2000 - a structurally balanced market state. Moving on workforce in steel industry from 1970 to 2000, it commenced at a high of 50 thousand, which fell by two-thirds by the end of the period. Till 1980, there was a steady dive to 40 thousand, which further dipped markedly in 2000, accounting for 20 thousand workers, which aligned with the reduced demand and production within the steel sector.</p>`,
-    vocabulary: [],
+    coverImage: "/writing-samples/report-29.png",
+    vocabulary: [
+      { word: "Increasingly rose", definition: "continued to grow or go up steadily over time." },
+      { word: "Reflecting a universal expansion in internet adoption", definition: "showing a widespread increase in internet use." },
+      { word: "Representing the largest percentage of internet users", definition: "having the highest share among all groups." },
+      { word: "Used the internet less frequently", definition: "accessed or engaged with the internet less often." },
+      { word: "Accounted for the all-time-high results", definition: "made up the highest figures ever recorded." },
+      { word: "Surged to 100%", definition: "rapidly increased to the maximum level." },
+      { word: "Marking the chart peak proportion", definition: "reaching the topmost percentage shown in the graph." },
+      { word: "Experienced a sustained growth", definition: "showed a steady and continuous increase." },
+      { word: "Ended the period at...", definition: "finished the time frame with a specific percentage." },
+      { word: "Converging with that of the former", definition: "becoming equal or similar to the earlier group’s result." },
+      { word: "Fluctuated over the first years", definition: "varied up and down during the early part of the period." },
+      { word: "Significantly jumped to 50%", definition: "sharply increased to half of the total proportion." },
+      { word: "Lagged far behind in terms of...", definition: "was much lower or slower compared with others." },
+      { word: "Registering the least marked result", definition: "recording the smallest or least noticeable figure." },
+      { word: "Barely exceeded one-fifth of the total", definition: "only just went over 20% of all cases." }
+    ],
   },
   {
     id: "t1-30",
@@ -620,7 +682,24 @@ export const WRITING_SAMPLES: WritingSample[] = [
     question: "The diagram below shows how drinking is made using solar power.",
     wordCount: 190,
     content: `<p>The report gives information about the extraction of drinking water via the use of solar power as it is shown in the diagram. In general, the water processing is rather sophisticated, comprising several stages: firstly, energy is provided through solar panels, which is followed by extracting underground water, and finally storing this water. The process is fully automated with the use of several equipment and tools and is completely energy-self-sufficient. It all begins with the solar panels which are placed to capture solar lights and channel energy obtained to the converter, a device that helps to turn solar energy to the one that can be later used to generate electricity. The device is often based near an underground well so as to provide electricity travelling to a pump - it is laid under water. Then water journeys to the water tank, which is positioned on the surface several heights above the ground fixed to the wooden platform. Inside of the tank, there is a special tube, once filled with enough water, that directs water either to the tap to access water easily or the mobile container to store drinking water.</p>`,
-    vocabulary: [],
+    coverImage: "/writing-samples/report-30.png",
+    vocabulary: [
+      { word: "temporary migrant workers", definition: "people who move to another country for short-term employment." },
+      { word: "short-term contracts", definition: "work agreements lasting a limited period." },
+      { word: "universal growth", definition: "increase happening in all categories or places." },
+      { word: "by far the largest rise", definition: "the biggest increase among all." },
+      { word: "hosted the most significant number", definition: "had the highest quantity or total." },
+      { word: "migrant-friendly country", definition: "a nation open to or supportive of foreign workers." },
+      { word: "ratio of workers per 1,000 inhabitants", definition: "number of workers compared to the total population." },
+      { word: "accounted for", definition: "represented or made up a specific amount." },
+      { word: "followed the suit", definition: "behaved in the same way as others." },
+      { word: "hit a meager (number)", definition: "reached a small or low figure." },
+      { word: "marked result", definition: "clear or noticeable outcome." },
+      { word: "displayed the lowest result", definition: "showed the smallest figure." },
+      { word: "points lower", definition: "used to compare numerical differences." },
+      { word: "reverse trend", definition: "opposite direction or pattern in data." },
+      { word: "the fewest count", definition: "the smallest recorded number." }
+    ],
   },
   {
     id: "t1-31",
@@ -632,6 +711,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     content: `<p>The report confers data regarding 4 main reasons for air pollution - Transport, Industry, Total air pollutants, and lastly households - in the UK between 1990 and 2005 in the line graph. Units are measured in million tones. In general, the volume of pollution generated by all categories revised downwards, but transport during the period in the question, where the level of trends for households was the only category which showed the most subdued decline compared to that of Industry and total air pollutants - the leading cause of air pollution in the country.</p>
 <p>In contrast, Households seemed to have the least influence on the air among the three.</p>
 <p>Focusing on the primary triggers of the polluted air, the all-time high results were responsible for the figure for total air pollutants, starting at around 7 million tones in 1990 and going down slightly to 4 million tones in 1999. This was even down to only 3 million tones in 2005 after a stability for 3 years from 1999. Another common factor was Industry, which contributed to nearly 6 million tones of pollutants in 1990, the result of which declined significantly to just 3 million tones in 1996, and then there was a slowly declining trajectory towards a meager 2 millions till 2005. Other air pollutants, yet with insignificant impact, were transport and households. The result of former was mainly sustained at around 1 million tones during the whole period. The latter, once stood at an identical figure as the former category from 1990 to 1993, went down to a trough of a half million tones next interval and hovered around till 2002 before it had edged down to nearly nothing in 2005.</p>`,
+    coverImage: "/writing-samples/report-31.png",
     vocabulary: [
       { word: "the most subdued decline", definition: "the smallest or least noticeable decrease. leading cause of air pollution – the primary source responsible for pollution. least influence on the air – minimal impact on air quality. focusing on the primary triggers – concentrating on the main causes." },
     ],
@@ -645,6 +725,7 @@ export const WRITING_SAMPLES: WritingSample[] = [
     wordCount: 337,
     content: `<p>0 353060 The report outlines data regarding changes in the share of internet users shopping online in Australia in 6 age groups in the years 2007 and 2009 in the bar graph.Age groups mentioned in the report were 15-25, 26-35, 36-45, 46-55, 56-65 and lastly those over 65 years old. As can be seen,all age groups experienced an increase in online shopping participation, where the most substantial shifts in online shopping habits were observed in the proportion of 36-45 and above 65 age brackets during the period in the question, while there were also noticeable, yet not as much as pronounced, changes in the shares of other age groups. People who engaged in shopping online the most was those around 36-45 years old, whereas the reverse was true for the eldest users.</p>
 <p>Focusing on the youngest age brackets, around 20% of users at their 15-25 years shopped online in 2007; this was 2 points lower than the share in 2009. In 2007, 30% of online shoppers in the age profile of 26-35 purchased items online, leading the chart, the share of which then rose slightly by 2 points in 2009. Middle aged internet users in 2007 showed rather moderate involvement in online purchasing, where the share of 36-45 year-old users accounted for 25%, whilst this age profile was the most common people who bought items online in 2009. However, a bit older people at 46-55 years old formed relatively lower proportions in both 2007 and 2009, increasing from nearly 20% to 28% respectively. Online shopping habits were not quite favoured by senior citizens, although the figure for these age groups exhibited an increase from 2007 to 2009. In the latter year,around 18% of 56-65 aged users involved in online purchases, and this was nearly 5 points up from the former year. One of the most marked shifts in the proportion of those who did online purchases happened to the eldest age group (over 65 years old): a 5%-result in 2007 surged up to 12 % in 2009.</p>`,
+    coverImage: "/writing-samples/report-32.png",
     vocabulary: [
       { word: "the most substantial shifts", definition: "the biggest or most significant changes. observed in the proportion of… — noticed in the percentage of a group. the reverse was true for… — the opposite pattern appeared in another group" },
       { word: "Focusing on the… age brackets", definition: "when we look specifically at a particular age group. accounted for 25% — made up or represented 25%. rose slightly — increased a little. leading the chart — having the highest position in the graph. relatively lower proportions — smaller percentages " },
@@ -658,7 +739,23 @@ export const WRITING_SAMPLES: WritingSample[] = [
     question: "The graph shows information about the percentage of people visiting GYM once a month or more between 1984 to 2003.",
     wordCount: 327,
     content: `<p>The report provides information about changes in the share of 4 age groups who visited gym once a month or more from 1984 to 2003 in the line graph. Age groups mentioned are 18-25, 26-45, 46-65, and lastly over 65 year-old brackets. Generally speaking, the attendance ratio to the gym rose, albeit at varying degrees, across all age groups, except for those aged 46-65 - the age profile with the least involvement in gym activities over the period. It was the youngest age profile, however, which showed relatively higher percentages of gym goers. It is evident that visiting gym was quite popular among young individuals. For instance, starting at 15% in 1984, the figure for 18-25 year-old people surged at an unprecedented rate up to nearly 70% in 2003: it accounted for the all-time high share of gym visitors in the chart. As for another young age profile (26-45), after going up from 30% - the highest share of gym goers in 1984- to 40% in 1989, There was a marginal decline to 35% in 1994. This, however, quickly managed to recover and experienced a significant rise to 50% in the end: this age group came a close second in terms of gym engagement in that year. Moving on the results of senior attendees, around 25% 46-65 years old elderly visited gym in 1984, which edged up to nearly 30% in 1989. From this point on, attending the gym started to go down for this age profile at a noticeable level till 2003, recording only 15% of gym goers. The eldest age group (above 65) recorded the lowest participation figures from the period 1984 to 1999: despite this, participation among this cohort fluctuated: it rose from 5% to a peak of 15% in 1994, before declining back to 10% in 1999. By 2003, The amount of elderly gym attendees at above 65 years old had revised upwards and exceeded that of previous age group, up to 20%.</p>`,
-    vocabulary: [],
+    coverImage: "/writing-samples/report-33.png",
+    vocabulary: [
+      { word: "revised downwards", definition: "formal, statistical expression for “declined.”" },
+      { word: "clinching top spot", definition: "idiomatic and dynamic phrase meaning “ranked first.”" },
+      { word: "rose significantly to the same number", definition: "precise structure for describing comparison and growth." },
+      { word: "up from 150 in 1985", definition: "common academic phrasing for numerical contrast." },
+      { word: "albeit initially securing the clinching top spot", definition: "refined concessive structure for contrast." },
+      { word: "the reverse was true for...", definition: "elegant phrase to highlight opposite trends." },
+      { word: "sustained trajectory", definition: "advanced phrase for describing steady change." },
+      { word: "throughout that time frame", definition: "formal phrase meaning “during that period.”" },
+      { word: "dipped radically", definition: "vivid way to express sharp decline." },
+      { word: "leapfrogged to a high of...", definition: "strong visual verb meaning “surpassed quickly.”" },
+      { word: "hitting a trough of...", definition: "idiomatic way to indicate the lowest point." },
+      { word: "fluctuated over the period", definition: "standard and academic phrase for irregular change." },
+      { word: "negligibly leaned towards", definition: "sophisticated wording for a slight movement or change." },
+      { word: "remained flat at...", definition: "concise phrase to indicate stability or no change." }
+    ],
   },
   {
     id: "t1-34",
@@ -671,7 +768,24 @@ export const WRITING_SAMPLES: WritingSample[] = [
 <p>In contrast, The proportion of young individuals declined, yet somehow that of young males showed the opposite.</p>
 <p>Focusing on the figures regarding total population changes, it significantly surged over the period. In 1991, only 36.1 million people were living in the UK, which then rose by 10 points in 1961, to 46.1 million. Plus,the same change number had occurred in 2011 - there were total 56.1 million UK citizens. Regarding the shares of 15 year-old age profile, only 1.86 % comprised the total population, the result of which moderately declined to 1.48% in 1961 and even more to 1.28% in 2011. As for male figures of this age category, despite an overall downward trend, this gender group showed an increase from 1911 to 2011 ( 334.200 vs 354.400). Meantime, the figure dipped slightly for young female population of the country, starting at 335.700 in 1911 to 333.700 in 2011. The most pronounced decline happened from 1911 to 1961, by 1 800 as it was for 15 year-old males. As for people aged 75,they tend to account for lesser proportions of the total, the percentage of this age category formed 0.23% in 1911, and it edged up to 0.55% in 1961. 0.70% was the result of this category in 2011.</p>
 <p>Firstly, there were more marked elderly women in any year compared to men, accounting for 47.400 in 1911 and 210.100 in 2011, while the index of men was at 34.100 in 1911, rising all the way up to 181.300. As can be seen, these both sex categories exhibited rises over the whole period.</p>`,
-    vocabulary: [],
+    coverImage: "/writing-samples/report-34.png",
+    vocabulary: [
+      { word: "The report outlines data regarding…", definition: "A precise, formal way to open any Task 1 introduction." },
+      { word: "Time allocation on household and leisure activities", definition: "Compact and academic phrasing for describing categories." },
+      { word: "The most routinely relished activity was…", definition: "Vivid but formal; shows variation beyond “most popular.”" },
+      { word: "Men took the lead in…", definition: "Strong comparative expression for dominance." },
+      { word: "Women emerged as the main household doers…", definition: "High-level structure (“emerged as”) for emphasis." },
+      { word: "Albeit men engaging in repair work more than women", definition: "Sophisticated contrast connector (“albeit”)." },
+      { word: "With the exception of…", definition: "Excellent for highlighting exceptions in data trends." },
+      { word: "The figure for… was sustained at…", definition: "More academic alternative to “remained at.”" },
+      { word: "The only area men dominated was…", definition: "Compact evaluative comparison phrase." },
+      { word: "The gap was highly pronounced between…", definition: "Advanced adjective (“pronounced”) for clear contrasts." },
+      { word: "Came as a close second", definition: "Natural, idiomatic expression for ranking." },
+      { word: "Devoted nearly X minutes on…", definition: "Formal and precise; replace “spent” for lexical range." },
+      { word: "Accounted for less than X minutes per day", definition: "Strong quantitative phrasing for proportion/time." },
+      { word: "A meager amount of time was allocated to…", definition: "Elegant way to describe very small values." },
+      { word: "Household activities tended to be done significantly more by…", definition: "Complex structure combining trend and comparison." }
+    ],
   },
 ];
 
@@ -722,7 +836,23 @@ export const WRITING_ESSAYS: WritingEssay[] = [
     content: `<p>It is believed to be a better decision to have a company of friends who share similar perspectives, while there are those who advocate that those friends who can oppose to one's decision are actually a wise choice, as they can tell the downsides of the person and show the right way. Therefore, I support the latter view. I do admit the importance behind the idea of connecting with like-minded friends. This is because it can be interesting to spend time with such people, as people with completely two different areas of interest are hard to get along with, not to mention that there would be less topics to cover in casual gatherings. However, with those whose hobbies and perspectives align with their friends it may be beneficial, while they spend time together thinking about aiming to the same goal and can discuss topics they comply with. People who excel in sports and have no interest in politics can find it difficult to get along with those whose situation is vice versa, for instance. The logic above may seem reasonable to some, yet I assume that friends who can challenge us can benefit in all sorts of ways.</p>
 <p>Firstly, they can shift their friends' opinions and expose them to alternative ways of doing or thinking about the same thing. People with diverse backgrounds and those who can vote against our ideas can enrich our beliefs, and broaden our horizons. Plus, they are able to show us our biases and the opinions we usually take for granted. Another reason to surround ourselves with people who can say no to our ideas is the opportunity to see the world from different angles. For example, most things we imagine oftentimes become the reality,even though there is much more to experience. With such a circle of friends, one is exposed to different worldviews, since two individuals ever share the same internal worlds. This can result in learning invaluable lessons from our friends and apply them to our future decisions.</p>
 <p>In summary, it is plausible that hanging out with friends with opinions in accordance to ours can create a pleasing company, but it is far from being advantageous to us. I believe that disagreeing friends, however, can drive us to think out of the box and experience life in different views.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "focuses on the information about...", definition: "Used to describe what the chart or report is about." },
+      { word: "diverse means of transport", definition: "A formal alternative to “different types of transport.”" },
+      { word: "as a whole", definition: "Means “in general” or “overall.” Great for overviews." },
+      { word: "favored public transit", definition: "Formal way of saying “preferred to use public transport.”" },
+      { word: "the opposite was true for...", definition: "Excellent for contrast statements in Task 1." },
+      { word: "albeit being public transit", definition: "High-level linking phrase meaning “although it is.”" },
+      { word: "less marked compared to...", definition: "Academic alternative to “smaller than” or “not as noticeable as.”" },
+      { word: "rose at a moderate rate", definition: "Neutral and natural way to describe steady growth." },
+      { word: "marking the same trajectory", definition: "Advanced phrase for “showing a similar trend.”" },
+      { word: "the exception in this regard was...", definition: "Polished way to introduce contrast or outliers." },
+      { word: "by far the most popular means of transport", definition: "Excellent intensifier for comparisons." },
+      { word: "came as the second with an upward trend", definition: "Useful chunk for describing rank and movement." },
+      { word: "was much less pronounced for...", definition: "Sophisticated way to describe weaker figures." },
+      { word: "a meager 2 to 5", definition: "Adds tone and nuance to small quantities (use “meager” instead of “small”)." },
+      { word: "constituted a remarkable 100", definition: "Strong academic phrasing for describing proportions or totals" }
+    ],
   },
   {
     id: "t2-3",
@@ -770,7 +900,35 @@ export const WRITING_ESSAYS: WritingEssay[] = [
     wordCount: 449,
     content: `<p>Hard work and determination are shown to be main drivers of successful life by some individuals, whereas there are also advocates bringing other factors to the table as causes of such life like personal financial condition and appearance. Although the former mentioned traits are of importance to certain professions, they are the real cases to achievements in one's life, and personally I side with this view.</p>
 <p>On the one hand, appearance and money can be of importance in certain scenarios of life, especially for those jobs that prioritize these aspects of a person over others. These professions promise a short cut ways to be famous and enjoy lucrative income opportunities, whereas production and entertainment industries tend to be ones seeking for those with exceptionally gorgeous appearance, as it plays a key role in these jobs,relying heavily on visual impression and influencing audience perception. Moreover. money can do the trick in professions like Formula 1, a type of sport is relished worldwide,but only with a huge fortune can get permission to be a F1 drives, as even a single driving license costs millions of dollars, not counting special high-cost training is required before that. This does not mean, however, all areas of life involve aforementioned personal qualities. With the consistent work and enough time any person is able to achieve intended purposes in life. By working on one skill or an area of skill and subject for a long term, a person can become an expert in those fields, despite many and many trials and errors. If examined, a huge number of the most successful people on the Earth do not come from a big money or good looking appearance, but have they managed to secure their position over many years studying hard and submerging themselves in their area of speciality. Mark Zuckerburg, CEO of Facebook and Meta, or Jeck ma, a cofounder of Alibaba, are evident examples in this regard, who are accomplished billionaires and professionals in their business areas. Plus, being dedicated and resilient throughout the process to attain something greater in life is vital. This is mainly because most people just give up their goals as they start to confront challenges in their paths, and in such miserable and hopeless stages of work and life Single-mindedness to reach one's objectives despite obstacle is an intrinsic quality that defines the true path required to walk towards success. In conclusion. professions that value personal look and money are usually the ones in media and entertainment, a high promising areas, yet success is not always about only these specific individual qualities, while all walks of life require a person to be determined and hard working in spite of challenges ahead.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "Percentage terms", definition: "words or phrases used to describe proportions or ratios in data." },
+      { word: "Over a decade", definition: "a period of ten years." },
+      { word: "Front runner type of profession", definition: "the occupation with the highest or leading percentage." },
+      { word: "Stood almost at identical proportions", definition: "had nearly the same numerical values." },
+      { word: "In stark contrast", definition: "showing a clear and strong difference between two figures or trends." },
+      { word: "The last runner", definition: "the category with the lowest value or position." },
+      { word: "Revised downwards", definition: "decreased or dropped in value or percentage." },
+      { word: "Most pronounced percentage terms", definition: "the most noticeable or dominant figures in the data." },
+      { word: "Clinching top result", definition: "achieving the highest figure or leading position." },
+      { word: "Dipped moderately", definition: "declined slightly but not sharply." },
+      { word: "Soared significantly", definition: "increased dramatically or to a large extent." },
+      { word: "Hovered around", definition: "remained close to a certain figure with little change." },
+      { word: "Exhibiting higher percentages", definition: "showing larger proportions compared to others." },
+      { word: "Constituted nearly [X]% of total workforce", definition: "made up almost [X]% of the entire group of employees." },
+      { word: "A meager [X]%", definition: "an extremely small or low percentage." },
+      { word: "Remarkable decline", definition: "a noticeable or substantial decrease." },
+      { word: "Halved to a trough of [X]%", definition: "reduced by half, reaching its lowest point of [X]%." },
+      { word: "At a radical rate", definition: "at a very fast or extreme pace." },
+      { word: "The report focuses on data regarding…", definition: "introduces the subject and scope of the data." },
+      { word: "In general, the front runner…", definition: "starts a general overview highlighting the leading category." },
+      { word: "In stark contrast, the involvement in… emerged as…", definition: "introduces an opposing trend or category." },
+      { word: "Interestingly, with the exception of…", definition: "highlights an exception or special case in the data." },
+      { word: "It is evident that…", definition: "expresses a clear conclusion drawn from the data." },
+      { word: "Despite commencing at around [X]%, the amount of…", definition: "describes how a trend started before changing." },
+      { word: "The trajectory for… was upwards/downwards", definition: "explains the direction of change over time." },
+      { word: "Employees working in [field] showed a relatively remarkable…", definition: "reports a notable change or figure for a specific category." },
+      { word: "Dipped", definition: "fell or dropped slightly.Soared – rose sharply or dramatically.Hovered – stayed roughly at the same level or fluctuated slightly.Exhibited – showed or displayed a particular pattern.Constituted – made up or formed part of a total.Halved – decreased by 50%.Revised downwards – reduced or declined in value." }
+    ],
   },
   {
     id: "t2-6",
@@ -796,7 +954,27 @@ export const WRITING_ESSAYS: WritingEssay[] = [
     content: `<p>The pivotal role of social media in our lives makes it difficult to avoid using it, where it aims to provide connections and information. Although there are concerns over its potential downsides such as a problematic attachment , I would firmly assert that social media speaks to mainly advantageous side for the majority of users, mitigating obstacles regarding communication and opportunities for improved networking relationships. It is indisputable that one of the most pronounced negatives of social media is a trend what is known as FOMO - fear of missing out. This usually results in negative implications on mental health. When a user is not online on social media pages, it seems to them that they may miss an important event or news, and continuous need to be present on the internet occurs. It is harmful since continuum of this situation may exert a reduction in cognitive functioning, academic performance, focus, and physical well-being.</p>
 <p>Having said that, I reckon that social media offers significant benefits across various fronts, one of which has to do with fostering connections. With the help of social media apps and websites, thousands of people are able to stay in touch with loved ones and reconnect with old friends, yet this is not the end of it, where rather it also facilitates an opportunity to share media, photos and videos, and to build a new rapport based on mutual interests, expanding social circles. There are already various cases in which strangers have become life partners and close friends via social media pages, for instance. Another lofty benefits is the possibility to build networking relationship. Social media is not the only communication spot for individuals, but also a chance for professionals and business to look for potential customers or business partners. This means now with the help of it it is much straightforward to find new updates, breaking events and news, employees ( who excel in their careers), employers, organisations that can do the work at an international level, lessening problems like logistics and orders. Such opportunities are usually presented in Twitter and Facebook, where all experienced business people get together to exchange insights.</p>
 <p>In conclusion, despite a few potential drawbacks social media puts forward, the ability to stay connected with loved ones and conferring a growth area for business proves invaluable for many users. Thus, I suggest that with responsible use and a critical eye, we can maximize the output of social media while minimizing its negative impacts. (</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "Useful Chunks for IELTS ReportsIn general terms", definition: "broadly speaking; summarizing the main pattern or trend." },
+      { word: "By far the most pronounced share", definition: "clearly the largest or most dominant portion." },
+      { word: "Remained anchored at … %", definition: "stayed fixed or stable at a specific percentage." },
+      { word: "Closely followed by", definition: "immediately ranked after another category in size or proportion." },
+      { word: "In contrast, … were the sectors with the smallest proportions", definition: "introduces categories that had the lowest percentages." },
+      { word: "Surpassing the figure for …", definition: "exceeding or going above the percentage of another category." },
+      { word: "The respective figures of …", definition: "the individual data values corresponding to each category." },
+      { word: "A sizeable share compared to previous categories", definition: "a relatively large portion when compared with earlier groups." },
+      { word: "Remained a close second", definition: "stayed just behind the leading category in percentage or rank." },
+      { word: "Moderate, at … %", definition: "of average level or amount, recorded at a specific percentage." },
+      { word: "Interestingly, … were also noticeable compared to …", definition: "draws attention to an unexpected but visible difference." },
+      { word: "A higher proportion than that of …", definition: "a larger percentage compared with another category." },
+      { word: "Halved slightly to … %", definition: "decreased by nearly half to a certain percentage." },
+      { word: "Constituted … of the total shares", definition: "made up or formed a specific part of the overall percentage." },
+      { word: "The popularity of … was relatively marked", definition: "the interest in or proportion of something was noticeably high." },
+      { word: "It was rather different that … was more prevalent", definition: "shows a contrast where one category appeared more common." },
+      { word: "The same trend occurred with …", definition: "indicates that a similar pattern was observed in another category." },
+      { word: "Staggering … %", definition: "surprisingly or impressively high percentage." },
+      { word: "Marked a low of … %", definition: "reached its lowest recorded point at a given percentage." }
+    ],
   },
   {
     id: "t2-8",
@@ -876,7 +1054,23 @@ export const WRITING_ESSAYS: WritingEssay[] = [
 <p>Firstly, privacy and self-development of parents as mothers and fathers can be urged, having more time to get to know each other well before deciding having a child, travelling and focusing on their career growth and education. Once have faced an obstacle, such parents are ready to alleviate it with joined force, not blaming the other for this situation.</p>
 <p>Moreover, there is less probability to suffer for children in such families, as parents are well familiar with each other, and ready to deal with issues as a family. Later parenthood can result in more family-oriented couples, with stable moral support to each other. Notably, there are more figures regarding a divorce among young families - the worst outcome is the suffering a child has to do with. However, such risks are usually dealt with because of aforementioned reasons such as knowing each other well, preparation for parent life, and stable income to raise a child.</p>
 <p>In conclusion, financial and mental preparation are the main triggers for delayed choice of parenthood; the negative influence on the economy and a higher likeliness of a stable family are the outcomes of it. Hence, considering it is mostly advantageous, such actions from young couples should be inspired, with baring in mind the economic state of a country.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "Sorts of housing", definition: "types or categories of homes such as houses, flats, or semi-detached units." },
+      { word: "Units are in percentage terms", definition: "data are expressed as proportions or percentages." },
+      { word: "Led the chart", definition: "ranked first or had the highest figure." },
+      { word: "Most pronounced percentage points", definition: "the most noticeable or dominant values in the data." },
+      { word: "Emerged as the second most popular options", definition: "appeared as the next preferred category after the leading one." },
+      { word: "In contrast", definition: "showing an opposite or different trend." },
+      { word: "Lower proportions of people resided in them", definition: "fewer individuals lived in that housing type." },
+      { word: "More prevalent in Tasmania", definition: "more common or widespread in the Tasmanian region." },
+      { word: "The lowest ratio in this regard", definition: "the smallest comparative figure in the dataset." },
+      { word: "A little downward trend", definition: "a slight decrease over time." },
+      { word: "Second most preferred house types", definition: "the next most chosen housing category after the leading one." },
+      { word: "A meager [number]", definition: "an extremely small or low value." },
+      { word: "A rather upward trend", definition: "a moderate increase in numbers." },
+      { word: "Accounted for [X]%", definition: "represented or made up a specific proportion." },
+      { word: "Undefined houses", definition: "housing types not clearly categorized or specified in the data." }
+    ],
   },
   {
     id: "t2-12",
@@ -890,7 +1084,23 @@ export const WRITING_ESSAYS: WritingEssay[] = [
 <p>First of all, it is about convenience. As attending a live performance requires buying tickets at high prices, it also involves travelling to the place of performance along with the accommodation and food costs, all of which make it even challenging for most of the people to be able to attend, While these hardships are what stop people relishing, online platforms offer it for reduced prices with comforts like being able to watch them whenever people want, considering the fact that they may have work or studies. Plus. as above mentioned price is another common issue. While prices of tickets of well-known singers are exorbitant, platforms like Twitch or YouTube offer recorded versions for reasonable prices, and this can be a reason why many people now favor watching live performances at home, even if it means not in the exact time of the performance.</p>
 <p>Furthermore, online streamed events are accessible regardless of age and personal circumstances. Streaming live performances online allows disabled people or those with non-apparent illnesses to enjoy the event at the fullest;meanwhile, young people can also tune in and watch the event: in cases when there are no supervisors to escort them to the spot of the event.</p>
 <p>In conclusion, a wide range audience accessibility, low cost and lesser hustle to watch the live performance are the opportunities that make online broadcast performance desirable among viewers, while attending the real event has also benefits to offer.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "Focuses on the changes", definition: "describes or examines modifications over time." },
+      { word: "Underwent radical relocation", definition: "experienced major movement or shifting of elements." },
+      { word: "Emergence of new amenities", definition: "appearance or addition of new facilities or services." },
+      { word: "Modernized and user-friendly", definition: "updated and designed for easy use by visitors." },
+      { word: "Most noticeable alteration", definition: "the most visible or striking change." },
+      { word: "Order of facilities", definition: "the arrangement or sequence of rooms and features." },
+      { word: "Access to the floor", definition: "the entry point or way to enter the area." },
+      { word: "Located on the west-southern corner", definition: "positioned in the lower-left side of the layout." },
+      { word: "Used to stay in the middle", definition: "previously situated in the central area." },
+      { word: "Upon completion of changes", definition: "after all modifications were finished." },
+      { word: "Supplanted to the right-hand side", definition: "replaced and moved to the right section." },
+      { word: "Made way for fountains", definition: "was replaced or cleared to allow the addition of fountains." },
+      { word: "Encompassed facilities like", definition: "included or contained certain amenities." },
+      { word: "Relocated shops and coatroom", definition: "moved these areas to a different position." },
+      { word: "Efficient use for museum visitors", definition: "designed to improve convenience and functionality for guests." }
+    ],
   },
   {
     id: "t2-13",
@@ -901,7 +1111,23 @@ export const WRITING_ESSAYS: WritingEssay[] = [
     content: `<p>In fact, a university life of a student usually keeps them in a strict timetable, and most of full-time students are engaged in studies. There is, however, a view that the involvement of other activities like outdoor ones, volunteer work and sports might benefit them as well. Personally, I totally support this view, as focusing solely on academic achievement can harm than good as a whole. While I believe in the necessity of extracurricular activities, I also neglect that academic achievements can be of importance. During university years, for most of the students the main priority is to acquire as much as possible knowledge of the course they are doing, as this is going to be useful and vital in their future career, while being involved in other activities can come as a distraction, and shift their concentration. Nevertheless, extracurricular activities should be encouraged among full-time students for reasons, like these can help lessen the academic pressure. Constant involvement in academic studies might put burden on students, such as emotional and physical tolls, where these can have a negative impact on both mental and physical well-being of a student, who is due to further continue their studies for 4 or 5 years. Hence, it is common in American universities to offer such activities, sports clubs and volunteer work, to students, which is in order to unwind from consistent academic pressure. Another potential perk student may be provided with these leisure time activities is the enhanced chance to gain skills outside of the classroom, and the ones that these classrooms are in capability to confer. Students can practice multiple kinds of expertise, performing arts, being volunteers in public and social work, and doing diverse sports, and thus improving soft and hard skills beyond classrooms like leadership, resistance, communication skills, adaptability, problem solving and to name just a few- often difficult to teach.</p>
 <p>Furthermore, to prevent any extra challenges while being involved in extracurricular activities, students need to maintain a right balance between scholar and leisure activities. By this way, the downside above mentioned can be fed off.</p>
 <p>In conclusion, extracurricular activities are indeed vital tools for students to let their steam of and have an opportunity to grow skills, which otherwise are possible to obtain, and these are the reasons why I am of this opinion, although they may interrupt students' academic studies. However, I feel that it is also important to balance of them.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "water consumption", definition: "the amount of water used by sectors or individuals" },
+      { word: "in percentage terms", definition: "expressed as a percentage" },
+      { word: "income shares", definition: "the portion of total earnings each sector contributes" },
+      { word: "demanding sector", definition: "a field or industry that requires a large amount of resources" },
+      { word: "encompassed the smallest proportions", definition: "made up the least share or part" },
+      { word: "revenue stream", definition: "a source of income for a company or sector" },
+      { word: "made up almost the half of the economy", definition: "accounted for nearly 50% of total income" },
+      { word: "contributed to smaller percentages", definition: "added to a small part of the total" },
+      { word: "the largest figure for water usage", definition: "the highest proportion of water use" },
+      { word: "staggering 36%", definition: "surprisingly or impressively high percentage" },
+      { word: "relatively less proportions", definition: "smaller compared to others" },
+      { word: "split evenly among sectors", definition: "divided equally between categories" },
+      { word: "made a living in fruit sector", definition: "earned income from producing fruits" },
+      { word: "accounted for overwhelming 44%", definition: "represented a dominant portion of 44%" },
+      { word: "the lowest income percentage points", definition: "the smallest values in terms of revenue share" }
+    ],
   },
   {
     id: "t2-14",
@@ -937,7 +1163,23 @@ export const WRITING_ESSAYS: WritingEssay[] = [
     wordCount: 496,
     content: `<p>Generally, there are a number of measures to enhance the performance of workers, and there is a view that providing a four-week holiday can do the trick in this regard. However, I do admit the notion behind this, yet I oppose to this idea as it also entails some drawbacks, such as reducing overall productivity of the company and unequal impact across diverse sectors. One of the the most primary reasons of introducing four weeks of holidays is an intrinsic factor that lies behind it. Such extended holidays can help to boost overall work ethics and loyalty within the company. This is mainly due to the fact that employees may initiate feeling valued and more satisfied with their positions in their work settings, which might lead to increased work output and lower employee retention in the company in the long run - the most important considerations of the employers - while better work and life balance can be achieved, where employees can have a chance to spend more time with their family members. Perhaps, this is why many companies in developed countries gravitate towards such holiday-options, being aware of its irreplaceable benefits. I, however, assume that these prolonged holidays can show also adverse effects to mainly the company. While I admit that it is somehow a promising shift to boost performance, I also believe that it can reduce output of the company and put it in the financial strain. During extended annual leave of workers, say, if the company is in the agricultural sector, there might happen a greater loss of manpower. This can be observed when work-flow disruptions and slower operations exist because of longer staff absences. Results in such a scenario are vivid: lower output, higher labour costs and reduced profitability. Small enterprises usually struggle during peak seasons when there are several employees taking longer holidays, for instance. Further, longer holidays can turn out favorable to not all sectors of employment equally. While these increased holidays can benefit to government sectors such as education, politics and services- there employees are more likely to suffer from job-related stress and burnout-, they cannot do so to agriculture and economics. These areas oftentimes operate during at different timetables and are reckoned to be the cornerstone of the economy, where any delays in the performance can severely influence the country’s productivity and place it in a difficult condition. Plus, these delays can lead to increased customer dissatisfaction and lower quality of services. Therefore, most of the health-care and transport sectors, for example, deter prolonged absences of employees within workplaces,where extended leave cycles cause issues such as delayed surgeries of patients or crowded stations and passenger dissatisfaction due to the lack of drivers.</p>
 <p>To conclude, prolonged holidays do represent increased performance of workers in the company because of greater work and life balance and satisfaction of employees, yet it is undesirable for some factors,since it cannot be established in all work places evenly and may show reverse outcomes sometimes.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "disaggregated into categories", definition: "divided into separate parts or groups for analysis" },
+      { word: "the size of the workforce employed", definition: "the number of people working in a particular industry" },
+      { word: "experienced substantial declines", definition: "showed a significant decrease over time" },
+      { word: "converged at the same point", definition: "met or reached the same level after changes" },
+      { word: "exhibited a dramatic contraction", definition: "showed a sharp or sudden reduction" },
+      { word: "pronounced downward trend", definition: "a clear and noticeable decrease over a period" },
+      { word: "plummeted to", definition: "fell suddenly and steeply to a lower level" },
+      { word: "closely mirrored this trend", definition: "followed a similar pattern or direction" },
+      { word: "in stark contrast", definition: "used to highlight a major difference between two things" },
+      { word: "surged radically", definition: "increased suddenly and sharply" },
+      { word: "indicating the convergence of", definition: "showing that several things reached the same point" },
+      { word: "structurally balanced market state", definition: "a situation where production, imports, and demand are equal or stable" },
+      { word: "commenced at a high of", definition: "started from a large or high figure" },
+      { word: "fell by two-thirds", definition: "decreased to one-third of the original value" },
+      { word: "aligned with the reduced demand and production", definition: "matched or corresponded with the overall decrease in output and need" }
+    ],
   },
   {
     id: "t2-18",
@@ -950,7 +1192,23 @@ export const WRITING_ESSAYS: WritingEssay[] = [
 <p>Having said that, I also remain convinced that it is irrational to minimize the use of cars as it can be seen unjustifiable by some. This action can seem something like the limitation of freedom to people, while there are millions of car enthusiasts. As a result, there might arise some public dissatisfaction and protests against this rule, leading to more societal conflicts in the future.</p>
 <p>Moreover, there are also diverse types of professions which rely on cars like car service companies. The income of employees in these professions might be cut off due to this motion. Therefore, it is advisable that before legislating rules that deter car usage, we should also reckon adverse effects it might bring about, and perhaps finding the solution to these effects can be a wise step like conferring employment to those who can lose their jobs as a result of the legislation.</p>
 <p>In conclusion, because of how noticeable the influence of cars on the environment and one’s well-being is, we should impose measures to reduce car usage, of course. However, this cannot be done unless after effects of this legislation is ensured.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "rather sophisticated", definition: "complex and carefully designed" },
+      { word: "comprising several stages", definition: "consisting of multiple steps" },
+      { word: "fully automated", definition: "operating without human intervention" },
+      { word: "energy-self-sufficient", definition: "not dependent on external power sources" },
+      { word: "capture solar energy", definition: "collect energy from sunlight" },
+      { word: "channel energy to", definition: "direct power towards a device" },
+      { word: "energy converter", definition: "a device that transforms one form of energy into another" },
+      { word: "generate electricity", definition: "produce electrical power" },
+      { word: "underground well", definition: "a deep source of water below the surface" },
+      { word: "submerged pump", definition: "a pump placed under water" },
+      { word: "positioned on the surface", definition: "located above ground level" },
+      { word: "secured to a wooden platform", definition: "firmly fixed onto a support structure" },
+      { word: "once filled with sufficient water", definition: "after reaching an adequate level" },
+      { word: "directs water to", definition: "guides the flow of water towards" },
+      { word: "mobile storage container", definition: "a movable unit for storing water" }
+    ],
   },
   {
     id: "t2-19",
@@ -961,7 +1219,23 @@ export const WRITING_ESSAYS: WritingEssay[] = [
     content: `<p>Preservation priorities over different species have been a matter of the debate among individuals, with some arguing that it is vital to protect all species without exceptions due to moral value, while there are those who support the protection of certain, more important, species. Personally, I support the latter view for reasons: we have limited funding,and the former view is impractical. On the one side, it is somehow rational to assume that we are responsible to preserve all wild animals. This idea is put forward because we, as intelligent beings, possess duties over other species on the Earth. Plus, thanks to what 21st century is able to provided we have all opportunities such as technological and biological ones to take care of all species such as those which are losing their habitat due to human actions. Speaking of this, At present human environmental footprint is leaving most animals in vulnerable state: they lose their local habitats because of agriculture or manufacturing or become victims of hunting for their fur or bones. Once thought common, elephants now turn out to be on the edge of extinction, and they are great examples of human hunting results. That is why we do not sure know for now which animal can die out in the future,and for the long term sustainability of the animal kingdom we should preserve all species, considering we have moral and ethical values in front of these animals whether they are becoming extinct or not. With that being said, I remain in the view that it is impossible to safeguard all species on the Earth.</p>
 <p>First of all, we should consider that funding towards animal preservation projects is finite. Having already several issues of greater importance like global warming and pollution, we are not in the state to channel all the money on this regard. For it is more possible to determine the preservation of which animals is the priority for us, where some animals which are overabundant or can have lesser importance not only for us, but also for the environment should be overlooked in the list. For instance, it is irrational to put money on the preservation acts of invasive species or parasitic insects - these either damage ecosystems or humans. Further, the idea of preserving all species, taken in the logical sense, is almost unachievable. As aforementioned, even we have all possibilities to preserve all species, people cannot do so for all species at the same time. It is rather more feasible to set up targeted conservation plans, where focusing on particular endangered species - in this case these would be pandas, for instance - should be the first action, and then going down the list can do the trick. Logically, safeguarding all species, regardless of their conservation statues, is somewhat a impractical movement.</p>
 <p>In conclusion, although our opportunities in biology and technology can allow us to protect all wild animals taking into account of moral duties, it is still impossible to do so and a financially difficult task to accomplish,where I believe targeted animal preservation and skipping some animals of less ecological benefit would be reasonable.</p>`,
-    vocabulary: [],
+    vocabulary: [
+      { word: "revised downwards", definition: "adjusted to a lower level over time." },
+      { word: "the most subdued decline", definition: "the smallest or least noticeable decrease." },
+      { word: "leading cause of air pollution", definition: "the primary source responsible for pollution." },
+      { word: "least influence on the air", definition: "minimal impact on air quality." },
+      { word: "focusing on the primary triggers", definition: "concentrating on the main causes." },
+      { word: "all-time high", definition: "the highest level ever recorded." },
+      { word: "going down slightly", definition: "decreasing by a small amount." },
+      { word: "after a period of stability", definition: "following a time with no significant change." },
+      { word: "declined significantly", definition: "dropped sharply or noticeably." },
+      { word: "slowly declining trajectory", definition: "a gradual downward trend over time." },
+      { word: "a meagre X million tonnes", definition: "a very small amount (used for emphasis)." },
+      { word: "with insignificant impact", definition: "having minimal effect." },
+      { word: "mainly sustained at", definition: "largely maintained at the same level." },
+      { word: "went down to a trough", definition: "fell to the lowest point." },
+      { word: "edged down to nearly zero levels", definition: "decreased gradually to almost nothing." }
+    ],
   },
   {
     id: "t2-20",
