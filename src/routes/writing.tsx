@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
+import { WRITING_SAMPLES } from "@/lib/writing-samples-data";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -1134,6 +1135,45 @@ function Writing() {
           })}
 
         </div>
+
+        {/* ── Task 1 Sample Reports ── */}
+        <div className="mt-16 mb-4">
+          <h2 className="font-serif text-2xl font-semibold mb-2">📝 Task 1 — Sample Reports</h2>
+          <p className="text-muted-foreground text-sm">Read model answers from Erkinjon. Each report includes key vocabulary and collocations.</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {WRITING_SAMPLES.filter((s) => s.task === 1).map((sample) => (
+            <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
+              <div className="bento-card rounded-2xl overflow-hidden flex flex-col h-full hover:scale-[1.01] transition-transform">
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-3 flex-wrap">
+                    <span className="font-mono text-[10px] tracking-widest bg-secondary/20 text-secondary border border-secondary/30 px-2 py-0.5 rounded-full">
+                      Report {sample.reportNumber}
+                    </span>
+                    <span className="font-mono text-[10px] tracking-wide bg-accent text-foreground px-2 py-0.5 rounded-full">
+                      {sample.chartType}
+                    </span>
+                  </div>
+                  <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">
+                    {sample.question}
+                  </p>
+                  <p className="font-mono text-[10px] text-muted-foreground tracking-wider">
+                    {sample.wordCount} words
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* ── Task 2 Sample Essays (coming soon) ── */}
+        <div className="mt-16 mb-4">
+          <h2 className="font-serif text-2xl font-semibold mb-2">📝 Task 2 — Sample Essays</h2>
+        </div>
+        <div className="bento-card rounded-3xl p-12 text-center text-muted-foreground">
+          Coming soon — Task 2 sample essays will be added here.
+        </div>
+
       </section>
     </SiteLayout>
   );
