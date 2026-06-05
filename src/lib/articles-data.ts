@@ -56,560 +56,564 @@ export interface Article {
 }
 
 export const ARTICLES: Article[] = [
-  // ─── BEGINNER (A1/A2) articles ───────────────────────────────────
+  // ─── BEGINNER (A2) articles ──────────────────────────────────────
   {
     id: "b1",
-    slug: "my-daily-routine",
-    title: "My Daily Routine",
+    slug: "london",
+    title: "London",
     category: "Reading",
-    topic: "Society",
+    topic: "Culture",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Every day we follow a routine. Read about a typical day — from waking up in the morning to going to sleep at night.",
+    description: "London is the capital city of England and the United Kingdom. It is one of the most famous cities in the world. Millions of tourists visit every year.",
     readingTime: 3,
     content: `
-      <p><strong>Most people follow a routine every day. A routine helps us stay organised and use our time well.</strong></p>
+      <p><strong>London is the capital city of England and the United Kingdom. About nine million people live there. It is one of the largest cities in Europe.</strong></p>
 
-      <h2>In the morning</h2>
-      <p>My alarm clock rings at 7 o'clock. I get up, wash my face, and brush my teeth. Then I get dressed and go to the kitchen. I eat breakfast — usually bread, eggs, or porridge. Breakfast gives me energy for the day.</p>
-      <p>After breakfast, I pick up my bag and leave the house. I walk to the bus stop and take the bus to school or work. The journey takes about twenty minutes.</p>
+      <h2>A very old city</h2>
+      <p>London is a very old city. The Romans built it about 2,000 years ago. They called it Londinium. Over the centuries, London grew bigger and more important. Today it is one of the most famous cities in the world.</p>
+      <p>The city has a long and interesting history. There were great fires, wars, and dramatic changes. But London always survived and grew stronger.</p>
 
-      <h2>During the day</h2>
-      <p>I arrive at school at half past eight. I attend my classes and study different subjects. At noon, I have a lunch break. I eat lunch with my friends in the canteen.</p>
-      <p>In the afternoon, I continue my lessons. I also talk with classmates and do group activities.</p>
+      <h2>Famous places</h2>
+      <p>London has many famous tourist attractions. Buckingham Palace is the home of the British royal family. The Tower of London is a very old castle near the River Thames. Tourists can visit it and see the Crown Jewels there.</p>
+      <p>The Houses of Parliament and Big Ben are also very well known. Big Ben is actually the name of the large bell inside the clock tower. The London Eye is a giant Ferris wheel on the south bank of the Thames. From the top, you can see the whole city.</p>
 
-      <h2>In the evening</h2>
-      <p>I come home at around five o'clock. First, I have a snack and rest for a little while. Then I do my homework. I try to finish my homework before dinner.</p>
-      <p>We have dinner together as a family. After dinner, I read a book, watch a little television, or go for a short walk. I try to relax in the evening.</p>
+      <h2>The River Thames</h2>
+      <p>The River Thames flows through the centre of London. It is 346 kilometres long. In the past, the Thames was very important for trade. Ships brought goods from all over the world to London's docks.</p>
+      <p>Today, people walk along the river, take boat trips, and enjoy the views. Many famous bridges cross the Thames, including Tower Bridge. Tower Bridge is one of the most photographed bridges in the world.</p>
 
-      <h2>At night</h2>
-      <p>I get ready for bed at around ten o'clock. I wash my face again and brush my teeth. I set my alarm clock for the next morning and go to sleep. A good routine helps me feel healthy and happy.</p>
+      <h2>A multicultural city</h2>
+      <p>London is a very multicultural city. People from all over the world live and work there. You can hear hundreds of different languages on the streets. There are restaurants, shops, and festivals from many different cultures. This diversity makes London a very exciting place to visit and live.</p>
     `,
     vocabulary: [
-      { word: "routine", wordType: "noun", definition: "a set of regular activities done in the same order every day", example: "My morning routine starts at 7 o'clock." },
-      { word: "alarm clock", wordType: "noun phrase", definition: "a clock that makes a sound to wake you up at a set time", example: "I set my alarm clock for 7 a.m." },
-      { word: "get up", wordType: "verb phrase", definition: "to rise from bed in the morning", example: "I get up at seven every day." },
-      { word: "get dressed", wordType: "verb phrase", definition: "to put on your clothes", example: "I get dressed after breakfast." },
-      { word: "breakfast", wordType: "noun", definition: "the first meal of the day, eaten in the morning", example: "I always eat breakfast before school." },
-      { word: "energy", wordType: "noun", definition: "the power or strength to do things", example: "Breakfast gives me energy for the day." },
-      { word: "journey", wordType: "noun", definition: "the process of travelling from one place to another", example: "The journey to school takes twenty minutes." },
-      { word: "arrive", wordType: "verb", definition: "to reach a place after travelling", example: "I arrive at school at half past eight." },
-      { word: "attend", wordType: "verb", definition: "to go to a lesson, meeting, or event", example: "I attend four classes every day." },
-      { word: "lunch break", wordType: "noun phrase", definition: "a short rest in the middle of the day when you eat lunch", example: "We eat in the canteen during the lunch break." },
-      { word: "canteen", wordType: "noun", definition: "a place in a school or workplace where you can buy and eat food", example: "The school canteen sells hot meals every day." },
-      { word: "snack", wordType: "noun", definition: "a small amount of food eaten between meals", example: "I have a snack when I come home from school." },
-      { word: "homework", wordType: "noun", definition: "school work that students do at home", example: "I do my homework before dinner." },
-      { word: "relax", wordType: "verb", definition: "to rest and do something enjoyable after working", example: "I like to relax by reading a book in the evening." },
-      { word: "set an alarm", wordType: "verb phrase", definition: "to programme an alarm clock to ring at a certain time", example: "I set an alarm for seven o'clock every night." },
+      { word: "capital", wordType: "noun", definition: "the most important city in a country, where the government is", example: "London is the capital of the United Kingdom." },
+      { word: "century", wordType: "noun", definition: "a period of one hundred years", example: "London has changed greatly over the centuries." },
+      { word: "attraction", wordType: "noun", definition: "an interesting place that many tourists visit", example: "Big Ben is one of London's most famous attractions." },
+      { word: "royal family", wordType: "noun phrase", definition: "the king or queen and their close family members", example: "The royal family lives in Buckingham Palace." },
+      { word: "castle", wordType: "noun", definition: "a large, strong building built in the past to protect people from attack", example: "The Tower of London is a very old castle." },
+      { word: "Crown Jewels", wordType: "noun phrase", definition: "the collection of precious crowns and objects belonging to the British royal family", example: "Tourists visit the Tower of London to see the Crown Jewels." },
+      { word: "parliament", wordType: "noun", definition: "the group of people who make laws in a country", example: "The Houses of Parliament are next to the River Thames." },
+      { word: "giant", wordType: "adjective", definition: "very large", example: "The London Eye is a giant Ferris wheel." },
+      { word: "flow", wordType: "verb", definition: "to move steadily, like water in a river", example: "The River Thames flows through the centre of London." },
+      { word: "trade", wordType: "noun", definition: "the buying and selling of goods between people or countries", example: "The Thames was important for trade in the past." },
+      { word: "goods", wordType: "noun", definition: "things that are made and sold", example: "Ships brought goods from all over the world." },
+      { word: "dock", wordType: "noun", definition: "a place at a river or sea where ships load and unload", example: "London's docks were very busy in the past." },
+      { word: "multicultural", wordType: "adjective", definition: "including many different cultures and nationalities", example: "London is a very multicultural city." },
+      { word: "diversity", wordType: "noun", definition: "the quality of including many different types of people or things", example: "The diversity of London makes it exciting." },
+      { word: "photographed", wordType: "adjective", definition: "taken pictures of many times", example: "Tower Bridge is one of the most photographed bridges in the world." },
     ],
     pronunciation: [
-      { word: "routine", ipa: "/roo-TEEN/", syllables: "rou-tine", tip: "Stress TEEN. Don't say ROO-tyn." },
-      { word: "breakfast", ipa: "/BREK-fust/", syllables: "break-fast", tip: "Stress BREK. The 'a' in fast sounds like 'u'." },
-      { word: "energy", ipa: "/EN-er-jee/", syllables: "en-er-gy", tip: "Stress EN." },
-      { word: "arrive", ipa: "/uh-RYV/", syllables: "ar-rive", tip: "Stress RYVE. Don't say A-riv." },
-      { word: "attend", ipa: "/uh-TEND/", syllables: "at-tend", tip: "Stress TEND." },
-      { word: "canteen", ipa: "/kan-TEEN/", syllables: "can-teen", tip: "Stress TEEN." },
-      { word: "relax", ipa: "/ri-LAKS/", syllables: "re-lax", tip: "Stress LAKS." },
+      { word: "capital", ipa: "/KAP-ih-tul/", syllables: "cap-i-tal", tip: "Stress KAP. Three syllables." },
+      { word: "parliament", ipa: "/PAR-luh-munt/", syllables: "par-lia-ment", tip: "Stress PAR. The 'ia' is not pronounced separately." },
+      { word: "Thames", ipa: "/TEMZ/", syllables: "Thames", tip: "Silent 'h'. Say TEMZ, not THAYMZ." },
+      { word: "palace", ipa: "/PAL-us/", syllables: "pal-ace", tip: "Stress PAL. The 'ace' sounds like 'us'." },
+      { word: "multicultural", ipa: "/mul-tee-KUL-cher-ul/", syllables: "mul-ti-cul-tur-al", tip: "Stress KUL." },
+      { word: "diversity", ipa: "/dy-VUR-suh-tee/", syllables: "di-ver-si-ty", tip: "Stress VUR." },
+      { word: "attraction", ipa: "/uh-TRAK-shun/", syllables: "at-trac-tion", tip: "Stress TRAK." },
     ],
   },
   {
     id: "b2",
-    slug: "animals-around-the-world",
-    title: "Amazing Animals Around the World",
+    slug: "william-shakespeare",
+    title: "William Shakespeare",
     category: "Reading",
-    topic: "Science",
+    topic: "Culture",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1518081461904-9d8f136a8399?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Our world is full of amazing animals. Some are big, some are small. Some live in cold places and some live in hot places. Let's learn about some interesting animals.",
+    description: "William Shakespeare is the most famous writer in the English language. He lived 400 years ago, but people all over the world still read and watch his plays today.",
     readingTime: 3,
     content: `
-      <p><strong>There are millions of different animals on Earth. They live in oceans, forests, deserts, and cold mountains. Each animal is special in its own way.</strong></p>
+      <p><strong>William Shakespeare was born in 1564 in a town called Stratford-upon-Avon in England. He is the most famous writer in the English language. People all over the world still enjoy his work today.</strong></p>
 
-      <h2>Animals in the ocean</h2>
-      <p>The blue whale is the largest animal on Earth. It can be 30 metres long and weigh 180 tonnes. Blue whales eat tiny creatures called krill. They are mammals, so they breathe air, just like humans.</p>
-      <p>Dolphins are also ocean mammals. They are very intelligent. They communicate with each other using sounds and clicks. Dolphins often swim in groups called pods.</p>
+      <h2>Early life</h2>
+      <p>Shakespeare grew up in Stratford-upon-Avon. His father was a glove maker and his mother came from a farming family. Shakespeare went to a local grammar school, where he learned Latin and studied great stories from ancient times.</p>
+      <p>When he was 18 years old, Shakespeare married Anne Hathaway. They had three children together. A few years later, Shakespeare moved to London to work in the theatre.</p>
 
-      <h2>Animals in the jungle</h2>
-      <p>Tigers are the largest wild cats. They live in forests in Asia. Tigers are excellent hunters. They have orange and black stripes that help them hide in the tall grass.</p>
-      <p>Parrots are colourful birds that live in tropical forests. They can copy human speech, which makes them very popular as pets. Wild parrots live in large flocks.</p>
+      <h2>His work in London</h2>
+      <p>In London, Shakespeare became a successful actor and playwright. He wrote plays for a theatre company called the Lord Chamberlain's Men. He helped to build a famous theatre called the Globe Theatre on the south bank of the River Thames.</p>
+      <p>Shakespeare wrote 37 plays and 154 sonnets. His most famous plays include Romeo and Juliet, Hamlet, Othello, and A Midsummer Night's Dream. His plays tell stories about love, jealousy, power, and death.</p>
 
-      <h2>Animals in cold places</h2>
-      <p>Polar bears live in the Arctic, where the weather is extremely cold. Their white fur keeps them warm and helps them blend into the snow. Polar bears are very strong swimmers.</p>
-      <p>Penguins live in Antarctica. They cannot fly, but they are excellent swimmers. They use their wings like flippers to move quickly through the water.</p>
+      <h2>The Globe Theatre</h2>
+      <p>The Globe Theatre was a round, open-air theatre. It could hold about 3,000 people. The poorest audience members, called groundlings, stood on the ground in front of the stage. Richer people sat in covered seats above.</p>
+      <p>The original Globe burnt down in 1613 during a performance. A replica of the Globe Theatre was built near the same location in 1997. Visitors can watch plays there today.</p>
 
-      <h2>Why animals are important</h2>
-      <p>All animals play an important role in nature. They help plants grow by carrying pollen and seeds. They are part of the food chain. If one type of animal disappears, it can affect many others. Protecting animals means protecting our planet.</p>
+      <h2>Shakespeare's legacy</h2>
+      <p>Shakespeare died in 1616, but his influence on the English language has never stopped. He invented hundreds of words and phrases that we still use today, such as "bedroom," "lonely," and "break the ice." His plays have been translated into every major language and performed in every country in the world.</p>
     `,
     vocabulary: [
-      { word: "creature", wordType: "noun", definition: "any living animal or organism", example: "Krill are tiny creatures that blue whales eat." },
-      { word: "mammal", wordType: "noun", definition: "a warm-blooded animal that breathes air and feeds its young with milk", example: "Dolphins and whales are mammals, not fish." },
-      { word: "intelligent", wordType: "adjective", definition: "able to learn and understand things quickly", example: "Dolphins are very intelligent animals." },
-      { word: "communicate", wordType: "verb", definition: "to share information or feelings with others", example: "Dolphins communicate using sounds and clicks." },
-      { word: "hunter", wordType: "noun", definition: "an animal or person that chases and catches other animals for food", example: "Tigers are excellent hunters in the wild." },
-      { word: "stripe", wordType: "noun", definition: "a long, narrow band of colour different from the area around it", example: "Tigers have orange and black stripes." },
-      { word: "tropical", wordType: "adjective", definition: "relating to the hot, wet regions near the Equator", example: "Parrots live in tropical forests." },
-      { word: "flock", wordType: "noun", definition: "a group of birds that travel or feed together", example: "Wild parrots live in large flocks." },
-      { word: "Arctic", wordType: "noun", definition: "the very cold region around the North Pole", example: "Polar bears live in the Arctic." },
-      { word: "fur", wordType: "noun", definition: "the thick, soft hair that covers some animals", example: "The polar bear's white fur keeps it warm." },
-      { word: "blend in", wordType: "verb phrase", definition: "to look similar to the background so it is hard to notice you", example: "A polar bear's white fur helps it blend into the snow." },
-      { word: "flipper", wordType: "noun", definition: "a flat limb used by some animals for swimming", example: "Penguins use their wings like flippers." },
-      { word: "pollen", wordType: "noun", definition: "a fine powder made by flowers that helps plants reproduce", example: "Bees carry pollen from flower to flower." },
-      { word: "food chain", wordType: "noun phrase", definition: "the order in which animals eat plants and other animals in nature", example: "All animals are part of the food chain." },
-      { word: "protect", wordType: "verb", definition: "to keep someone or something safe from harm", example: "We must protect wild animals from extinction." },
+      { word: "playwright", wordType: "noun", definition: "a person who writes plays for the theatre", example: "Shakespeare was the most famous playwright of his time." },
+      { word: "grammar school", wordType: "noun phrase", definition: "a type of school in England where students study academic subjects", example: "Shakespeare attended the local grammar school." },
+      { word: "theatre company", wordType: "noun phrase", definition: "a group of actors who work together to perform plays", example: "Shakespeare worked with a theatre company in London." },
+      { word: "sonnet", wordType: "noun", definition: "a poem with 14 lines, often about love", example: "Shakespeare wrote 154 sonnets during his life." },
+      { word: "jealousy", wordType: "noun", definition: "an unhappy feeling when you want what someone else has", example: "Othello is a story about jealousy and trust." },
+      { word: "groundlings", wordType: "noun", definition: "the poorest audience members who stood on the ground at the Globe Theatre", example: "The groundlings paid just one penny to watch a play." },
+      { word: "open-air", wordType: "adjective", definition: "outside, without a roof", example: "The Globe was an open-air theatre." },
+      { word: "replica", wordType: "noun", definition: "an exact copy of something", example: "A replica of the Globe Theatre was built in 1997." },
+      { word: "legacy", wordType: "noun", definition: "something important that someone leaves behind after they die", example: "Shakespeare's legacy continues to inspire writers today." },
+      { word: "influence", wordType: "noun", definition: "the effect one person or thing has on another", example: "Shakespeare's influence on English literature is enormous." },
+      { word: "translate", wordType: "verb", definition: "to change something written into a different language", example: "Shakespeare's plays have been translated into many languages." },
+      { word: "ancient", wordType: "adjective", definition: "belonging to a time very long ago", example: "Shakespeare studied ancient stories at school." },
+      { word: "successful", wordType: "adjective", definition: "achieving what you wanted to achieve; doing well", example: "Shakespeare became a successful writer in London." },
+      { word: "perform", wordType: "verb", definition: "to act in a play or give a show for an audience", example: "Actors performed Shakespeare's plays at the Globe." },
+      { word: "phrase", wordType: "noun", definition: "a group of words with a shared meaning", example: "'Break the ice' is a phrase invented by Shakespeare." },
     ],
     pronunciation: [
-      { word: "creature", ipa: "/KREE-cher/", syllables: "crea-ture", tip: "Stress KREE. Ends in 'cher' not 'tyur'." },
-      { word: "mammal", ipa: "/MAM-ul/", syllables: "mam-mal", tip: "Stress MAM. Both syllables are short." },
-      { word: "intelligent", ipa: "/in-TEL-uh-jent/", syllables: "in-tel-li-gent", tip: "Stress TEL." },
-      { word: "communicate", ipa: "/kuh-MYOO-ni-kayt/", syllables: "com-mu-ni-cate", tip: "Stress MYOO." },
-      { word: "tropical", ipa: "/TROP-uh-kul/", syllables: "trop-i-cal", tip: "Stress TROP. Don't say troh-PEE-kul." },
-      { word: "Antarctica", ipa: "/ant-ARK-tuh-kuh/", syllables: "Ant-arc-ti-ca", tip: "Stress ARK. The 'c' is not silent — say ant-ARK-ti-kuh." },
+      { word: "Shakespeare", ipa: "/SHAYK-speer/", syllables: "Shake-speare", tip: "Stress SHAYK. The 'ea' sounds like 'ee'." },
+      { word: "playwright", ipa: "/PLAY-ryt/", syllables: "play-wright", tip: "Stress PLAY. The 'w' in wright is silent." },
+      { word: "jealousy", ipa: "/JEL-uh-see/", syllables: "jeal-ous-y", tip: "Stress JEL. Three syllables." },
+      { word: "sonnet", ipa: "/SON-it/", syllables: "son-net", tip: "Stress SON." },
+      { word: "legacy", ipa: "/LEG-uh-see/", syllables: "leg-a-cy", tip: "Stress LEG. Three syllables." },
+      { word: "translate", ipa: "/tranz-LAYT/", syllables: "trans-late", tip: "Stress LAYT." },
+      { word: "replica", ipa: "/REP-li-kuh/", syllables: "rep-li-ca", tip: "Stress REP. Three syllables." },
     ],
   },
   {
     id: "b3",
-    slug: "going-shopping",
-    title: "Going Shopping: At the Market and Supermarket",
+    slug: "new-york",
+    title: "New York",
     category: "Reading",
-    topic: "Society",
+    topic: "Culture",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Shopping is something we do every week. Learn useful words and phrases for buying food, clothes, and everyday items at the market and supermarket.",
+    description: "New York is the largest city in the United States. It is one of the most famous cities in the world. Millions of tourists visit every year to see its famous landmarks.",
     readingTime: 3,
     content: `
-      <p><strong>Shopping is an important part of everyday life. We go shopping to buy food, clothes, and many other things we need.</strong></p>
+      <p><strong>New York City is the largest city in the United States. About 8.3 million people live there. It is one of the most exciting and famous cities in the world.</strong></p>
 
-      <h2>At the supermarket</h2>
-      <p>A supermarket is a large shop that sells food and household items. When you enter, you take a trolley or a basket. You walk through the aisles and pick the products you need. Some people write a shopping list before they go to help them remember what to buy.</p>
-      <p>Fresh food is usually at the back of the supermarket. You can find fruit, vegetables, meat, and dairy products there. Processed food, snacks, and drinks are in other sections. It is a good idea to check the price before you put something in your trolley.</p>
+      <h2>The five boroughs</h2>
+      <p>New York City is made up of five areas called boroughs. They are Manhattan, Brooklyn, Queens, the Bronx, and Staten Island. Manhattan is the most famous. It is a long, narrow island. Most of the famous skyscrapers and tourist attractions are there.</p>
+      <p>Brooklyn is just across the East River from Manhattan. It is a very popular neighbourhood with many cafés, parks, and art galleries. The Brooklyn Bridge connects Brooklyn to Manhattan.</p>
 
-      <h2>At the market</h2>
-      <p>An outdoor market is a place where sellers set up stalls and sell their products directly to shoppers. Markets often sell fresh fruit and vegetables, fish, meat, clothes, and handmade goods.</p>
-      <p>Many people prefer markets because the food is fresh and the prices are sometimes lower than in supermarkets. You can also talk directly to the seller and ask questions about the products.</p>
+      <h2>Famous landmarks</h2>
+      <p>New York has many famous landmarks. The Statue of Liberty stands on a small island in New York Harbour. France gave it to the United States in 1886 as a symbol of friendship and freedom. It is made of copper and is about 93 metres tall.</p>
+      <p>The Empire State Building is one of the most famous skyscrapers in the world. It was built in 1931. For many years, it was the tallest building in the world. Visitors can go to the top and look out over the whole city.</p>
+      <p>Central Park is a huge green park in the middle of Manhattan. It is 4 kilometres long. People go there to walk, run, cycle, and relax. In winter, there is an outdoor ice-skating rink.</p>
 
-      <h2>Paying for your items</h2>
-      <p>After you have chosen your items, you go to the checkout. The cashier scans each item and tells you the total cost. You can pay by cash or by card. Some shops also accept contactless payments.</p>
-      <p>Always check your receipt after paying. A receipt shows all the items you bought and how much you paid. If something is wrong, you can speak to a member of staff.</p>
+      <h2>A city of immigrants</h2>
+      <p>New York has always been a city of immigrants. In the 19th and 20th centuries, millions of people arrived from Europe, Asia, and Latin America. They came looking for a better life. Today, New York is one of the most diverse cities in the world. You can hear more than 800 languages spoken on its streets.</p>
 
-      <h2>Useful tip</h2>
-      <p>Try to take your own bag when you go shopping. Using a reusable bag is better for the environment than using plastic bags every time.</p>
+      <h2>Culture and entertainment</h2>
+      <p>New York is famous for its culture and entertainment. Broadway is a street in Manhattan where you can see world-class musicals and theatre shows. The city also has hundreds of museums, including the Metropolitan Museum of Art. New York never sleeps — there is always something happening, day and night.</p>
     `,
     vocabulary: [
-      { word: "supermarket", wordType: "noun", definition: "a large shop that sells food and household items", example: "I go to the supermarket every Saturday morning." },
-      { word: "trolley", wordType: "noun", definition: "a metal basket on wheels used in supermarkets to carry shopping", example: "I put my items in the trolley as I walk through the aisles." },
-      { word: "basket", wordType: "noun", definition: "a small container with a handle used to carry a few items in a shop", example: "I only need a basket because I'm buying a few things." },
-      { word: "aisle", wordType: "noun", definition: "a long passage between the rows of shelves in a shop", example: "The cereals are in aisle four." },
-      { word: "shopping list", wordType: "noun phrase", definition: "a written list of things you need to buy", example: "I always make a shopping list before I go shopping." },
-      { word: "dairy products", wordType: "noun phrase", definition: "food made from milk, such as cheese, butter, and yoghurt", example: "Milk and cheese are common dairy products." },
-      { word: "processed food", wordType: "noun phrase", definition: "food that has been changed from its natural form using chemicals or machines", example: "Processed food often contains a lot of salt and sugar." },
-      { word: "stall", wordType: "noun", definition: "a small stand in a market where sellers display their products", example: "The market has many fruit and vegetable stalls." },
-      { word: "handmade", wordType: "adjective", definition: "made by a person using their hands, not by a machine", example: "She bought a handmade bag from the market." },
-      { word: "checkout", wordType: "noun", definition: "the place in a supermarket where you pay for your items", example: "There was a long queue at the checkout." },
-      { word: "cashier", wordType: "noun", definition: "a person who takes payments in a shop", example: "The cashier scanned each item quickly." },
-      { word: "receipt", wordType: "noun", definition: "a piece of paper that shows what you bought and how much you paid", example: "Keep your receipt in case you need to return an item." },
-      { word: "contactless payment", wordType: "noun phrase", definition: "a way to pay by holding your card or phone near a machine, without entering a PIN", example: "I paid by contactless payment at the supermarket." },
-      { word: "reusable bag", wordType: "noun phrase", definition: "a bag that can be used many times instead of being thrown away", example: "I always bring a reusable bag when I go shopping." },
-      { word: "member of staff", wordType: "noun phrase", definition: "a person who works at a shop or organisation", example: "If you need help, ask a member of staff." },
+      { word: "borough", wordType: "noun", definition: "one of the five administrative areas that make up New York City", example: "Manhattan is the most famous borough of New York." },
+      { word: "skyscraper", wordType: "noun", definition: "a very tall building in a city", example: "New York is famous for its skyscrapers." },
+      { word: "landmark", wordType: "noun", definition: "a famous or easily recognised building or place", example: "The Statue of Liberty is one of New York's most famous landmarks." },
+      { word: "harbour", wordType: "noun", definition: "a sheltered area of water near land where ships can stop safely", example: "The Statue of Liberty stands in New York Harbour." },
+      { word: "symbol", wordType: "noun", definition: "a thing that represents or stands for something else", example: "The Statue of Liberty is a symbol of freedom." },
+      { word: "copper", wordType: "noun", definition: "a reddish-brown metal", example: "The Statue of Liberty is made of copper." },
+      { word: "immigrant", wordType: "noun", definition: "a person who comes to live permanently in a foreign country", example: "New York was built by immigrants from many countries." },
+      { word: "diverse", wordType: "adjective", definition: "including many different types of people or things", example: "New York is one of the most diverse cities in the world." },
+      { word: "neighbourhood", wordType: "noun", definition: "a district or area of a city", example: "Brooklyn is a popular neighbourhood with many cafés and parks." },
+      { word: "entertainment", wordType: "noun", definition: "activities that people enjoy in their free time", example: "New York offers world-class entertainment." },
+      { word: "musical", wordType: "noun", definition: "a play or film that includes songs and dancing", example: "You can see famous musicals on Broadway." },
+      { word: "rink", wordType: "noun", definition: "an area of ice or a hard surface for skating", example: "There is an ice-skating rink in Central Park in winter." },
+      { word: "connect", wordType: "verb", definition: "to link two places together", example: "The Brooklyn Bridge connects Brooklyn to Manhattan." },
+      { word: "century", wordType: "noun", definition: "a period of one hundred years", example: "In the 19th century, millions of immigrants arrived in New York." },
+      { word: "gallery", wordType: "noun", definition: "a room or building where art is shown", example: "Brooklyn has many interesting art galleries." },
     ],
     pronunciation: [
-      { word: "supermarket", ipa: "/SOO-per-mar-kit/", syllables: "su-per-mar-ket", tip: "Stress SOO. Four syllables." },
-      { word: "aisle", ipa: "/YL/", syllables: "aisle", tip: "The 's' is silent — say it like 'I'll'." },
-      { word: "dairy", ipa: "/DAIR-ee/", syllables: "dai-ry", tip: "Stress DAIR. Rhymes with 'hairy'." },
-      { word: "cashier", ipa: "/ka-SHEER/", syllables: "ca-shier", tip: "Stress SHEER. Don't say CASH-eer." },
-      { word: "receipt", ipa: "/ri-SEET/", syllables: "re-ceipt", tip: "The 'p' is silent — say ri-SEET." },
-      { word: "contactless", ipa: "/KON-takt-lis/", syllables: "con-tact-less", tip: "Stress KON." },
+      { word: "borough", ipa: "/BUR-oh/", syllables: "bor-ough", tip: "Stress BUR. The 'ough' is silent — say BUR-oh." },
+      { word: "skyscraper", ipa: "/SKY-skray-per/", syllables: "sky-scra-per", tip: "Stress SKY. Three syllables." },
+      { word: "harbour", ipa: "/HAR-ber/", syllables: "har-bour", tip: "Stress HAR." },
+      { word: "immigrant", ipa: "/IM-ih-grunt/", syllables: "im-mi-grant", tip: "Stress IM. Three syllables." },
+      { word: "diverse", ipa: "/dy-VURS/", syllables: "di-verse", tip: "Stress VURS." },
+      { word: "entertainment", ipa: "/en-ter-TAYN-munt/", syllables: "en-ter-tain-ment", tip: "Stress TAYN." },
+      { word: "museum", ipa: "/myoo-ZEE-um/", syllables: "mu-se-um", tip: "Stress ZEE. Three syllables." },
     ],
   },
   {
     id: "b4",
-    slug: "the-four-seasons",
-    title: "The Four Seasons: Spring, Summer, Autumn, and Winter",
+    slug: "liverpool",
+    title: "Liverpool",
     category: "Reading",
-    topic: "Environment",
+    topic: "Culture",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Most countries have four seasons: spring, summer, autumn, and winter. Each season brings different weather, activities, and changes in nature.",
+    description: "Liverpool is a city in the north-west of England. It is famous for football, music, and its important role in history. It was the home city of the Beatles.",
     readingTime: 3,
     content: `
-      <p><strong>Most countries have four seasons in a year. Each season lasts about three months and brings different weather and different activities.</strong></p>
+      <p><strong>Liverpool is a city in the north-west of England, on the River Mersey. About 500,000 people live there. It is one of the most famous cities in England.</strong></p>
 
-      <h2>Spring</h2>
-      <p>Spring comes after winter. The weather becomes warmer and the days get longer. Trees grow new leaves and flowers begin to bloom. Many animals have babies in spring. People enjoy going outside again after the cold winter.</p>
-      <p>Spring is also a busy time for farmers. They plant seeds in the fields. It often rains in spring, which helps crops grow.</p>
+      <h2>A port city</h2>
+      <p>Liverpool grew as an important port city. Ships from all over the world arrived at its docks. In the 18th and 19th centuries, Liverpool was one of the busiest ports in the world. Trade with America, Africa, and Asia made the city wealthy.</p>
+      <p>Sadly, Liverpool was also connected to the slave trade. Ships carried enslaved Africans across the Atlantic Ocean. Today, Liverpool has a museum called the International Slavery Museum to remember this history.</p>
 
-      <h2>Summer</h2>
-      <p>Summer is the hottest season of the year. The sun shines for many hours every day. People wear light clothes and spend time outdoors. Children have school holidays in summer. Many families go on holiday to the beach or the mountains.</p>
-      <p>In some countries, summer can be very dry. Farmers need to water their crops carefully because there is not much rain.</p>
+      <h2>Football</h2>
+      <p>Liverpool is very famous for football. Liverpool Football Club was founded in 1892. It is one of the most successful clubs in English football history. The club has won six European Champions League titles and nineteen league titles. Liverpool's home stadium is called Anfield.</p>
+      <p>Everton is the other major football club in the city. The rivalry between Liverpool and Everton is called the Merseyside Derby. It is one of the most passionate local rivalries in English football.</p>
 
-      <h2>Autumn</h2>
-      <p>Autumn is the season between summer and winter. The temperature drops and the weather becomes cooler. Leaves on the trees change colour to orange, red, and yellow, and then fall to the ground. This is why autumn is sometimes called "fall" in American English.</p>
-      <p>Autumn is harvest time. Farmers collect the crops that have been growing all summer. Fruits such as apples and pumpkins are ready to pick in autumn.</p>
+      <h2>The Beatles</h2>
+      <p>Liverpool is the birthplace of the Beatles — one of the most famous bands in history. John Lennon, Paul McCartney, George Harrison, and Ringo Starr all grew up in Liverpool. The Beatles first became famous in the early 1960s.</p>
+      <p>Today, tourists come from all over the world to visit places connected to the Beatles. The Cavern Club is a famous music venue in the city centre where the Beatles performed many times. There is also a Beatles Museum called the Beatles Story.</p>
 
-      <h2>Winter</h2>
-      <p>Winter is the coldest season. The days are short and the nights are long. In some places, snow falls and rivers freeze. People wear thick coats, hats, and gloves to stay warm.</p>
-      <p>Many animals sleep through winter in a process called hibernation. Some birds fly to warmer countries called migration. Winter can be beautiful, especially when snow covers the trees and fields.</p>
+      <h2>Culture and regeneration</h2>
+      <p>In 2008, Liverpool was the European Capital of Culture. This brought many visitors and new investments to the city. The Albert Dock is a beautiful waterfront area with museums, galleries, restaurants, and shops. Liverpool has changed greatly in recent years and is a very exciting city to visit today.</p>
     `,
     vocabulary: [
-      { word: "season", wordType: "noun", definition: "one of the four periods of the year: spring, summer, autumn, or winter", example: "My favourite season is spring because of the flowers." },
-      { word: "bloom", wordType: "verb", definition: "to produce flowers; to open as a flower", example: "Cherry trees bloom beautifully in spring." },
-      { word: "crops", wordType: "noun", definition: "plants grown on a farm to be sold or eaten", example: "Farmers water their crops during dry weather." },
-      { word: "temperature", wordType: "noun", definition: "a measurement of how hot or cold something is", example: "The temperature drops in autumn." },
-      { word: "harvest", wordType: "noun", definition: "the time of year when farmers collect their crops", example: "Autumn is harvest time on most farms." },
-      { word: "freeze", wordType: "verb", definition: "to become solid because of very cold temperatures", example: "Some rivers freeze in winter." },
-      { word: "hibernation", wordType: "noun", definition: "a long, deep sleep that some animals have during winter", example: "Bears go into hibernation when winter comes." },
-      { word: "migration", wordType: "noun", definition: "the movement of animals from one place to another at a certain time of year", example: "Bird migration happens when cold weather arrives." },
-      { word: "outdoors", wordType: "adverb", definition: "outside, in the open air", example: "In summer, we spend more time outdoors." },
-      { word: "shade", wordType: "noun", definition: "an area that is protected from direct sunlight", example: "We sat in the shade to cool down in the hot summer." },
-      { word: "drought", wordType: "noun", definition: "a long period with little or no rain", example: "Crops can die during a summer drought." },
-      { word: "melt", wordType: "verb", definition: "to change from solid to liquid because of heat", example: "Snow melts in the spring sunshine." },
-      { word: "plant seeds", wordType: "verb phrase", definition: "to put seeds into the ground so they can grow", example: "Farmers plant seeds in spring." },
-      { word: "light clothes", wordType: "noun phrase", definition: "thin clothing suitable for warm weather", example: "I wear light clothes in summer." },
-      { word: "thick coat", wordType: "noun phrase", definition: "a heavy, warm jacket worn in cold weather", example: "You need a thick coat in winter." },
+      { word: "port", wordType: "noun", definition: "a town or city with a harbour where ships arrive and leave", example: "Liverpool was one of the busiest ports in the world." },
+      { word: "dock", wordType: "noun", definition: "an area at a port where ships load and unload goods", example: "Ships from all over the world arrived at Liverpool's docks." },
+      { word: "wealthy", wordType: "adjective", definition: "having a lot of money; rich", example: "Trade made the city of Liverpool very wealthy." },
+      { word: "enslaved", wordType: "adjective", definition: "forced to work as a slave, without freedom or rights", example: "The museum tells the story of enslaved Africans." },
+      { word: "rivalry", wordType: "noun", definition: "a competitive relationship between two people or groups", example: "The Merseyside Derby is a famous local rivalry." },
+      { word: "passionate", wordType: "adjective", definition: "showing very strong feelings or enthusiasm", example: "Liverpool fans are very passionate about their football club." },
+      { word: "birthplace", wordType: "noun", definition: "the place where someone was born", example: "Liverpool is the birthplace of the Beatles." },
+      { word: "venue", wordType: "noun", definition: "a place where an event takes place", example: "The Cavern Club is a famous music venue." },
+      { word: "regeneration", wordType: "noun", definition: "the process of improving an area that was in poor condition", example: "Liverpool went through major regeneration after 2008." },
+      { word: "investment", wordType: "noun", definition: "money spent on something to make a profit or improve it", example: "Being Capital of Culture brought new investment to the city." },
+      { word: "waterfront", wordType: "noun", definition: "an area of a town next to a river, lake, or sea", example: "The Albert Dock is a beautiful waterfront area." },
+      { word: "gallery", wordType: "noun", definition: "a room or building where art is shown", example: "The Albert Dock has several interesting art galleries." },
+      { word: "founded", wordType: "verb", definition: "started or established", example: "Liverpool Football Club was founded in 1892." },
+      { word: "slave trade", wordType: "noun phrase", definition: "the historical practice of buying and selling enslaved people", example: "The museum teaches visitors about the slave trade." },
+      { word: "stadium", wordType: "noun", definition: "a large building used for sports events", example: "Liverpool's stadium is called Anfield." },
     ],
     pronunciation: [
-      { word: "season", ipa: "/SEE-zun/", syllables: "sea-son", tip: "Stress SEE. Ends with 'zun' not 'zon'." },
-      { word: "bloom", ipa: "/BLOOM/", syllables: "bloom", tip: "One syllable. The 'oo' is long, like in 'moon'." },
-      { word: "temperature", ipa: "/TEM-pruh-cher/", syllables: "tem-per-a-ture", tip: "Stress TEM. Often said as three syllables: TEM-pruh-cher." },
-      { word: "harvest", ipa: "/HAR-vist/", syllables: "har-vest", tip: "Stress HAR." },
-      { word: "hibernation", ipa: "/hy-ber-NAY-shun/", syllables: "hi-ber-na-tion", tip: "Stress NAY." },
-      { word: "migration", ipa: "/my-GRAY-shun/", syllables: "mi-gra-tion", tip: "Stress GRAY." },
-      { word: "drought", ipa: "/DROWT/", syllables: "drought", tip: "Rhymes with 'out'. The 'gh' is silent." },
+      { word: "Liverpool", ipa: "/LIV-er-pool/", syllables: "Liv-er-pool", tip: "Stress LIV. Three syllables." },
+      { word: "Mersey", ipa: "/MUR-zee/", syllables: "Mer-sey", tip: "Stress MUR. The 'ey' sounds like 'zee'." },
+      { word: "rivalry", ipa: "/RY-vul-ree/", syllables: "ri-val-ry", tip: "Stress RY. Three syllables." },
+      { word: "passionate", ipa: "/PASH-uh-nut/", syllables: "pas-sion-ate", tip: "Stress PASH. Three syllables." },
+      { word: "regeneration", ipa: "/ri-jen-er-AY-shun/", syllables: "re-gen-er-a-tion", tip: "Stress AY." },
+      { word: "waterfront", ipa: "/WAW-ter-frunt/", syllables: "wa-ter-front", tip: "Stress WAW." },
     ],
   },
   {
     id: "b5",
-    slug: "my-family",
-    title: "My Family",
+    slug: "taylor-swift",
+    title: "Taylor Swift",
     category: "Reading",
-    topic: "Society",
+    topic: "Culture",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1511895426328-dc8714191011?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Family is very important in most cultures. Learn about different family members, family activities, and what makes a happy family.",
+    description: "Taylor Swift is one of the most successful musicians in the world. She started her career as a country music singer and became a global pop star. Read about her life and career.",
     readingTime: 3,
     content: `
-      <p><strong>Family is one of the most important things in life. A family is a group of people who love and support each other.</strong></p>
+      <p><strong>Taylor Swift is one of the most successful musicians in the world. She has sold hundreds of millions of albums and has won dozens of awards. Her fans, called "Swifties," are some of the most loyal in the world.</strong></p>
 
-      <h2>Family members</h2>
-      <p>A typical family has parents and children. The mother and father are the parents. Sons and daughters are their children. Grandparents are the parents of the mother or father. Aunts and uncles are the brothers and sisters of a parent. Cousins are the children of aunts and uncles.</p>
-      <p>Some families are small — maybe just a parent and one child. Other families are large, with many children, grandparents, and other relatives all living together or nearby.</p>
+      <h2>Early life</h2>
+      <p>Taylor Alison Swift was born on 13 December 1989 in West Reading, Pennsylvania, USA. She grew up in a small town in Pennsylvania. From a young age, she loved music and performing. She started acting in local theatre shows when she was just ten years old.</p>
+      <p>When Taylor was 14, her family moved to Nashville, Tennessee, so she could pursue a music career. Nashville is the centre of country music in the USA. Taylor started writing her own songs and soon got a record deal.</p>
 
-      <h2>What families do together</h2>
-      <p>Families spend time together in many ways. They have meals together, especially dinner in the evening. Many families celebrate birthdays with cake and presents. They also celebrate important holidays together.</p>
-      <p>Going on trips and holidays together is another popular family activity. Families might visit the seaside, go camping, or travel to another city. These shared experiences create happy memories.</p>
+      <h2>Early career</h2>
+      <p>Taylor Swift released her first album in 2006. She was just 16 years old. The album was a country music album. Songs like "Tim McGraw" and "Teardrops on My Guitar" became very popular. She quickly became one of the biggest stars in country music.</p>
+      <p>Her second album, Fearless, was released in 2008. It won the Grammy Award for Album of the Year — making Taylor the youngest artist to win this prize at that time.</p>
 
-      <h2>Helping each other</h2>
-      <p>In a healthy family, everyone helps each other. Older children often help younger brothers and sisters with homework. Parents work hard to provide food, clothes, and education for their children. Grandparents often help look after young grandchildren.</p>
-      <p>Families support each other during difficult times too. When someone is sick or has a problem, the family is there to help and give comfort.</p>
+      <h2>Pop superstar</h2>
+      <p>In 2012, Taylor moved from country music to pop music with her album Red. She became even more famous. Her albums 1989, Reputation, Lover, Folklore, Evermore, and Midnights all sold millions of copies around the world.</p>
+      <p>In 2023 and 2024, Taylor Swift's Eras Tour became one of the biggest concert tours in history. She performed in stadiums all over the world. In every city she visited, fans wore colourful outfits and swapped friendship bracelets.</p>
 
-      <h2>Changing families</h2>
-      <p>Today, families can look different from what they did in the past. Some children live with one parent. Some families adopt children. The most important thing is not the size or shape of the family, but the love and care that its members show to each other.</p>
+      <h2>Taylor's influence</h2>
+      <p>Taylor Swift is not only famous for her music. She is also known for speaking out about important issues such as artists' rights and political participation. She uses her social media to connect with millions of fans around the world. Taylor Swift has shown that hard work, creativity, and kindness can lead to great success.</p>
     `,
     vocabulary: [
-      { word: "support", wordType: "verb", definition: "to help and encourage someone, especially during difficult times", example: "Families support each other during difficult times." },
-      { word: "relative", wordType: "noun", definition: "a person who is part of your family", example: "All my relatives came to our family celebration." },
-      { word: "grandparent", wordType: "noun", definition: "the parent of your mother or father", example: "My grandparents tell me stories about the past." },
-      { word: "cousin", wordType: "noun", definition: "the child of your aunt or uncle", example: "I play football with my cousins at the weekend." },
-      { word: "celebrate", wordType: "verb", definition: "to do something enjoyable to mark a special occasion", example: "We celebrate birthdays with cake and presents." },
-      { word: "holiday", wordType: "noun", definition: "a period of time away from work or school, often spent travelling", example: "Our family goes on holiday every summer." },
-      { word: "seaside", wordType: "noun", definition: "an area next to the sea, often visited for holidays", example: "We went to the seaside and played on the beach." },
-      { word: "shared experience", wordType: "noun phrase", definition: "something that a group of people do or go through together", example: "Family holidays are shared experiences that create memories." },
-      { word: "memory", wordType: "noun", definition: "something from the past that you remember", example: "We have many happy memories from family trips." },
-      { word: "provide", wordType: "verb", definition: "to give someone what they need", example: "Parents provide food and shelter for their children." },
-      { word: "look after", wordType: "verb phrase", definition: "to take care of someone or something", example: "Grandparents often look after young grandchildren." },
-      { word: "comfort", wordType: "noun", definition: "a feeling of relief from pain or worry", example: "When I was sad, my family gave me comfort." },
-      { word: "adopt", wordType: "verb", definition: "to legally take another person's child as your own", example: "Some families adopt children who need a home." },
-      { word: "care", wordType: "noun", definition: "attention and kindness given to someone", example: "Good parents show care and love to their children." },
-      { word: "typical", wordType: "adjective", definition: "showing the usual features of a particular group or situation", example: "A typical family has parents and children." },
+      { word: "musician", wordType: "noun", definition: "a person who plays music or sings professionally", example: "Taylor Swift is one of the most successful musicians in the world." },
+      { word: "loyal", wordType: "adjective", definition: "always supporting someone or something", example: "Taylor Swift's fans are some of the most loyal in the world." },
+      { word: "pursue", wordType: "verb", definition: "to try to achieve something over a period of time", example: "Taylor moved to Nashville to pursue a music career." },
+      { word: "record deal", wordType: "noun phrase", definition: "a contract with a music company to record and sell music", example: "Taylor got a record deal when she was a teenager." },
+      { word: "release", wordType: "verb", definition: "to make something available to the public", example: "Taylor released her first album in 2006." },
+      { word: "Grammy Award", wordType: "noun phrase", definition: "one of the most prestigious prizes in the music industry", example: "Fearless won the Grammy Award for Album of the Year." },
+      { word: "stadium", wordType: "noun", definition: "a very large building where sports and concerts take place", example: "Taylor performed in stadiums all over the world." },
+      { word: "outfit", wordType: "noun", definition: "a set of clothes worn together", example: "Fans wore colourful outfits to the concert." },
+      { word: "swap", wordType: "verb", definition: "to exchange one thing for another", example: "Fans swapped friendship bracelets at the Eras Tour." },
+      { word: "speak out", wordType: "verb phrase", definition: "to express your opinion publicly, especially about something important", example: "Taylor Swift speaks out about artists' rights." },
+      { word: "participation", wordType: "noun", definition: "the act of joining in an activity", example: "Taylor encourages political participation among her fans." },
+      { word: "creativity", wordType: "noun", definition: "the ability to make new and imaginative things", example: "Taylor Swift's creativity is shown in her songwriting." },
+      { word: "superstar", wordType: "noun", definition: "a very famous and successful entertainer or sports person", example: "Taylor Swift became a pop superstar after her album 1989." },
+      { word: "tour", wordType: "noun", definition: "a series of performances in different places", example: "The Eras Tour was one of the biggest concert tours in history." },
+      { word: "career", wordType: "noun", definition: "the work someone does for most of their life", example: "Taylor started her music career in Nashville." },
     ],
     pronunciation: [
-      { word: "relative", ipa: "/REL-uh-tiv/", syllables: "rel-a-tive", tip: "Stress REL. Three syllables." },
-      { word: "grandparent", ipa: "/GRAND-pair-unt/", syllables: "grand-par-ent", tip: "Stress GRAND." },
-      { word: "celebrate", ipa: "/SEL-uh-brayt/", syllables: "cel-e-brate", tip: "Stress SEL. Three syllables." },
-      { word: "memory", ipa: "/MEM-uh-ree/", syllables: "mem-o-ry", tip: "Stress MEM. Three syllables." },
-      { word: "provide", ipa: "/pruh-VYD/", syllables: "pro-vide", tip: "Stress VYDE." },
-      { word: "adopt", ipa: "/uh-DOPT/", syllables: "a-dopt", tip: "Stress DOPT." },
+      { word: "musician", ipa: "/myoo-ZISH-un/", syllables: "mu-si-cian", tip: "Stress ZISH. Three syllables." },
+      { word: "pursue", ipa: "/per-SYOO/", syllables: "pur-sue", tip: "Stress SYOO." },
+      { word: "release", ipa: "/ri-LEES/", syllables: "re-lease", tip: "Stress LEES." },
+      { word: "Grammy", ipa: "/GRAM-ee/", syllables: "Gram-my", tip: "Stress GRAM." },
+      { word: "creativity", ipa: "/kree-ay-TIV-uh-tee/", syllables: "cre-a-tiv-i-ty", tip: "Stress TIV. Five syllables." },
+      { word: "participation", ipa: "/par-tis-uh-PAY-shun/", syllables: "par-tic-i-pa-tion", tip: "Stress PAY." },
+      { word: "superstar", ipa: "/SOO-per-star/", syllables: "su-per-star", tip: "Stress SOO." },
     ],
   },
   {
     id: "b6",
-    slug: "eating-healthy-food",
-    title: "Eating Healthy Food",
+    slug: "the-suffragettes",
+    title: "The Suffragettes",
     category: "Reading",
-    topic: "Health",
+    topic: "Society",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1591189863430-ab87e120f312?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Eating well is important for your health. Learn about different food groups, what to eat and what to avoid, and how to build a balanced diet.",
+    description: "The suffragettes were brave women who fought for the right to vote in the early 20th century. Read about their campaign and why it was so important.",
     readingTime: 3,
     content: `
-      <p><strong>What we eat every day affects our health. Healthy food gives our body the energy and nutrients it needs to work well.</strong></p>
+      <p><strong>One hundred years ago, women in Britain could not vote in elections. A group of brave women called the suffragettes decided to fight for this right. Their campaign changed history.</strong></p>
 
-      <h2>Food groups</h2>
-      <p>There are five main food groups. Fruits and vegetables give us vitamins and minerals. Bread, rice, and pasta give us energy. Meat, fish, and eggs give us protein. Dairy products like milk and cheese give us calcium for strong bones. Fats and oils should be eaten in small amounts.</p>
-      <p>A balanced diet means eating foods from all five groups every day. No single food has all the nutrients your body needs.</p>
+      <h2>What is the right to vote?</h2>
+      <p>In a democracy, people choose their government by voting in elections. In the 19th century in Britain, only men could vote. Women had no voice in politics. Many people thought this was unfair, but changing the law was very difficult.</p>
 
-      <h2>Eating fruit and vegetables</h2>
-      <p>Most health experts say we should eat at least five portions of fruit and vegetables every day. They are low in calories and full of important vitamins. Fresh, frozen, and tinned vegetables are all good choices.</p>
-      <p>Dark green vegetables like spinach and broccoli are especially good for you. Colourful fruits like berries, oranges, and mangoes contain many useful vitamins.</p>
+      <h2>Who were the suffragettes?</h2>
+      <p>The suffragettes were members of a group called the Women's Social and Political Union (WSPU). Emmeline Pankhurst founded the WSPU in Manchester in 1903. Her daughters Christabel and Sylvia also became important leaders in the movement.</p>
+      <p>The suffragettes used direct action to protest. They chained themselves to railings, broke windows, set fire to post boxes, and went on hunger strikes when they were put in prison. Their motto was "Deeds, not Words."</p>
 
-      <h2>Foods to limit</h2>
-      <p>Some foods are fine to eat sometimes, but not every day. Sugary foods like sweets, chocolate, and fizzy drinks have a lot of calories but very few nutrients. Salty snacks like crisps and processed meats are also unhealthy if eaten in large amounts.</p>
-      <p>It is best to cook at home using fresh ingredients when possible. Home cooking allows you to control how much salt, sugar, and oil goes into your food.</p>
+      <h2>Emmeline Pankhurst</h2>
+      <p>Emmeline Pankhurst was one of the most important political figures of the 20th century. She was born in Manchester in 1858. She worked hard for women's rights all her life. She was arrested many times for her protest activities.</p>
+      <p>When she was in prison, Emmeline went on hunger strikes. The government was worried she would die in prison, which would make her a martyr. So they released her and then arrested her again after she recovered — this was known as the "Cat and Mouse Act."</p>
 
-      <h2>Drinking water</h2>
-      <p>Water is essential for good health. Our bodies are made up of about 60% water. We should drink about eight glasses of water every day. Water helps our organs work properly, keeps our skin healthy, and helps us think clearly. Avoid sugary drinks and drink more water instead.</p>
+      <h2>Victory</h2>
+      <p>During the First World War (1914–1918), women worked in factories, hospitals, and on farms. They showed that they could do important work. After the war, in 1918, British women over 30 were allowed to vote. Ten years later, in 1928, all women over 21 could vote — the same as men.</p>
+      <p>The suffragettes' campaign was a long and difficult struggle, but it succeeded. Today, the right to vote is seen as one of the most important rights in a democratic society.</p>
     `,
     vocabulary: [
-      { word: "nutrient", wordType: "noun", definition: "a substance in food that the body needs to grow and stay healthy", example: "Fruits and vegetables contain many important nutrients." },
-      { word: "balanced diet", wordType: "noun phrase", definition: "a diet that includes the right amounts of all food groups", example: "A balanced diet keeps your body healthy and strong." },
-      { word: "protein", wordType: "noun", definition: "a nutrient found in meat, fish, and eggs that helps the body grow and repair itself", example: "Eggs and meat are good sources of protein." },
-      { word: "calcium", wordType: "noun", definition: "a mineral found in dairy products that helps build strong bones and teeth", example: "Milk is a good source of calcium." },
-      { word: "vitamin", wordType: "noun", definition: "a natural substance found in food that the body needs to stay healthy", example: "Oranges are rich in vitamin C." },
-      { word: "calorie", wordType: "noun", definition: "a unit used to measure the energy that food provides", example: "Vegetables are low in calories." },
-      { word: "portion", wordType: "noun", definition: "a specific amount or serving of food", example: "Try to eat five portions of fruit and vegetables a day." },
-      { word: "tinned", wordType: "adjective", definition: "food that has been stored in a sealed metal can", example: "Tinned tomatoes are a useful ingredient to keep at home." },
-      { word: "limit", wordType: "verb", definition: "to keep something within a controlled amount", example: "You should limit how much sugar you eat." },
-      { word: "fizzy drink", wordType: "noun phrase", definition: "a cold drink that contains bubbles of carbon dioxide", example: "Fizzy drinks contain a lot of sugar." },
-      { word: "ingredient", wordType: "noun", definition: "one of the items that is used to make a food or dish", example: "Fresh ingredients make home cooking healthier." },
-      { word: "essential", wordType: "adjective", definition: "absolutely necessary; very important", example: "Water is essential for good health." },
-      { word: "organ", wordType: "noun", definition: "a part of the body that has a specific function, such as the heart or liver", example: "Water helps our organs work properly." },
-      { word: "frozen", wordType: "adjective", definition: "food that has been stored at very low temperatures to keep it fresh", example: "Frozen vegetables are just as healthy as fresh ones." },
-      { word: "mineral", wordType: "noun", definition: "a natural substance found in food that the body needs in small amounts", example: "Iron is a mineral found in red meat and leafy vegetables." },
+      { word: "vote", wordType: "verb", definition: "to choose someone or something in an election", example: "In 1928, all women over 21 could vote in Britain." },
+      { word: "election", wordType: "noun", definition: "when people choose their government by voting", example: "The government is chosen by the people in an election." },
+      { word: "democracy", wordType: "noun", definition: "a system where people choose their leaders by voting", example: "In a democracy, everyone has the right to vote." },
+      { word: "campaign", wordType: "noun", definition: "a series of actions taken to achieve a goal", example: "The suffragettes ran a long campaign for women's rights." },
+      { word: "direct action", wordType: "noun phrase", definition: "protests that directly disrupt normal activities to make a point", example: "The suffragettes used direct action to get attention." },
+      { word: "hunger strike", wordType: "noun phrase", definition: "refusing to eat as a form of protest", example: "Emmeline Pankhurst went on hunger strikes in prison." },
+      { word: "motto", wordType: "noun", definition: "a short sentence that describes someone's beliefs or aims", example: "The suffragettes' motto was 'Deeds, not Words.'." },
+      { word: "arrested", wordType: "adjective", definition: "taken by the police because of breaking the law", example: "Emmeline Pankhurst was arrested many times." },
+      { word: "martyr", wordType: "noun", definition: "a person who suffers or dies for a cause or belief", example: "The government did not want Pankhurst to become a martyr." },
+      { word: "struggle", wordType: "noun", definition: "a long, difficult effort to achieve something", example: "Winning the right to vote was a long struggle." },
+      { word: "protest", wordType: "verb", definition: "to show that you disagree with something by taking action", example: "The suffragettes protested outside Parliament." },
+      { word: "movement", wordType: "noun", definition: "a group of people who work together to achieve a social or political change", example: "The women's rights movement changed many laws." },
+      { word: "politics", wordType: "noun", definition: "the activities connected to governing a country", example: "Women had no voice in politics before 1918." },
+      { word: "figure", wordType: "noun", definition: "an important or famous person", example: "Emmeline Pankhurst was an important political figure." },
+      { word: "recover", wordType: "verb", definition: "to become healthy again after illness", example: "They released her from prison until she recovered." },
     ],
     pronunciation: [
-      { word: "nutrient", ipa: "/NYOO-tree-unt/", syllables: "nu-tri-ent", tip: "Stress NYOO. Three syllables." },
-      { word: "protein", ipa: "/PROH-teen/", syllables: "pro-tein", tip: "Stress PROH. Two syllables." },
-      { word: "calcium", ipa: "/KAL-see-um/", syllables: "cal-ci-um", tip: "Stress KAL. Three syllables." },
-      { word: "vitamin", ipa: "/VY-tuh-min/", syllables: "vi-ta-min", tip: "Stress VY. In American English: VY-tuh-min." },
-      { word: "calorie", ipa: "/KAL-uh-ree/", syllables: "cal-o-rie", tip: "Stress KAL. Three syllables." },
-      { word: "essential", ipa: "/uh-SEN-shul/", syllables: "es-sen-tial", tip: "Stress SEN. Ends in 'shul'." },
+      { word: "suffragette", ipa: "/suf-ruh-JET/", syllables: "suf-fra-gette", tip: "Stress JET. Three syllables." },
+      { word: "democracy", ipa: "/dih-MOK-ruh-see/", syllables: "de-moc-ra-cy", tip: "Stress MOK. Four syllables." },
+      { word: "campaign", ipa: "/kam-PAYN/", syllables: "cam-paign", tip: "Stress PAYN. The 'gn' is silent." },
+      { word: "parliament", ipa: "/PAR-luh-munt/", syllables: "par-lia-ment", tip: "Stress PAR. The 'ia' is swallowed." },
+      { word: "martyr", ipa: "/MAR-ter/", syllables: "mar-tyr", tip: "Stress MAR. The 'yr' sounds like 'er'." },
+      { word: "protest", ipa: "/PROH-test/", syllables: "pro-test", tip: "Stress PRO when it is a noun, pro-TEST when it is a verb." },
     ],
   },
   {
     id: "b7",
-    slug: "going-to-school",
-    title: "Going to School",
+    slug: "route-66",
+    title: "Route 66",
     category: "Reading",
-    topic: "Education",
+    topic: "Culture",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "School is where children learn and grow. Read about a typical school day, subjects, teachers, and why education is so important.",
+    description: "Route 66 is one of the most famous roads in the world. It crosses the United States from Chicago to Los Angeles. Read about its history and why it is so special.",
     readingTime: 3,
     content: `
-      <p><strong>School is an important part of every child's life. At school, children learn new subjects, make friends, and prepare for the future.</strong></p>
+      <p><strong>Route 66 is one of the most famous roads in the United States. It stretches from Chicago, Illinois, to Santa Monica, California — a distance of about 3,940 kilometres. People have called it "The Main Street of America" and "The Mother Road."</strong></p>
 
-      <h2>A school day</h2>
-      <p>A typical school day starts at around eight or nine in the morning. Students arrive at school and go to their classroom. The teacher takes the register to check who is present. Then lessons begin.</p>
-      <p>Most schools have a timetable that shows which lessons happen each day. There are usually five or six lessons a day, each lasting forty-five or sixty minutes. Between lessons, students have short breaks.</p>
+      <h2>The history of Route 66</h2>
+      <p>Route 66 was officially opened on 11 November 1926. At that time, most roads in the USA were dirt tracks. Route 66 was one of the first highways to be fully paved. This made travel across the country much easier.</p>
+      <p>In the 1930s, thousands of families from the Dust Bowl states in the Midwest used Route 66 to travel west. They were looking for a better life in California. This sad but important period in American history was described in John Steinbeck's famous novel The Grapes of Wrath.</p>
 
-      <h2>School subjects</h2>
-      <p>At school, students study many different subjects. Mathematics teaches students to count, calculate, and solve problems. Science helps students understand the natural world. English classes develop reading, writing, and communication skills. History teaches about the past. Geography helps students understand the world and different countries.</p>
-      <p>Many schools also teach art, music, and physical education. These subjects help students develop creativity and stay physically active.</p>
+      <h2>The golden age of Route 66</h2>
+      <p>After the Second World War, Americans began to travel more by car. Route 66 became the road of adventure, freedom, and the American Dream. Families drove along it on holiday. Diners, motels, petrol stations, and souvenir shops appeared along the road.</p>
+      <p>By the 1950s and 60s, Route 66 was a symbol of American culture. Bobby Troup wrote a song called "Get Your Kicks on Route 66" in 1946, which became very famous. The road appeared in films, novels, and television programmes.</p>
 
-      <h2>Teachers and classrooms</h2>
-      <p>Teachers guide students and help them understand new ideas. A good teacher explains things clearly, answers questions patiently, and encourages students to do their best. Students should respect their teachers and listen carefully during lessons.</p>
-      <p>A classroom usually has desks, chairs, a board at the front, and bookshelves. Many classrooms now also have computers or interactive whiteboards.</p>
+      <h2>Decline and revival</h2>
+      <p>In the 1970s and 80s, new motorways called Interstate Highways were built across the USA. These faster roads bypassed many of the towns on Route 66. Businesses closed and the road became quiet. In 1985, Route 66 was officially removed from the US highway system.</p>
+      <p>However, Route 66 never really died. People still drove along it as a tourist attraction. Today, it is one of the most popular road trips in the world. Tourists drive the full length of the road, stopping at diners, motels, and old roadside attractions along the way.</p>
 
-      <h2>Why education matters</h2>
-      <p>Education gives people the knowledge and skills they need for adult life. People who study hard at school have more opportunities later in life. They can find better jobs, earn more money, and make better decisions. Education also teaches people to think for themselves and understand the world around them.</p>
+      <h2>What you can see</h2>
+      <p>Along Route 66, you can see amazing landscapes — from the flat plains of Illinois to the desert of New Mexico and Arizona, and finally the Pacific Ocean in California. You can visit old drive-in cinemas, neon signs, vintage cars, and famous diners. Route 66 is a living museum of American history and culture.</p>
     `,
     vocabulary: [
-      { word: "register", wordType: "noun", definition: "an official list of students in a class; also the act of marking attendance", example: "The teacher takes the register at the start of each lesson." },
-      { word: "timetable", wordType: "noun", definition: "a schedule showing when lessons take place", example: "Our timetable shows six lessons every day." },
-      { word: "subject", wordType: "noun", definition: "an area of study taught in school, such as maths or history", example: "My favourite subject is science." },
-      { word: "calculate", wordType: "verb", definition: "to find an answer using numbers and mathematics", example: "Students learn to calculate in maths lessons." },
-      { word: "communication", wordType: "noun", definition: "the act of sharing information or ideas with others", example: "Good communication skills are important in everyday life." },
-      { word: "creativity", wordType: "noun", definition: "the ability to make new and original things", example: "Art and music lessons encourage creativity." },
-      { word: "physically active", wordType: "adjective phrase", definition: "regularly doing exercise and movement", example: "Physical education helps students stay physically active." },
-      { word: "guide", wordType: "verb", definition: "to help someone learn or find the right way", example: "Teachers guide students through difficult topics." },
-      { word: "patiently", wordType: "adverb", definition: "in a calm way, without getting angry or frustrated", example: "A good teacher explains things patiently." },
-      { word: "encourage", wordType: "verb", definition: "to give someone the confidence to do something", example: "My teacher encourages me to read more books." },
-      { word: "interactive whiteboard", wordType: "noun phrase", definition: "a large digital screen used by teachers in a classroom", example: "Our teacher uses an interactive whiteboard to show videos." },
-      { word: "opportunity", wordType: "noun", definition: "a chance to do something good or useful", example: "Education gives people more opportunities in life." },
-      { word: "earn", wordType: "verb", definition: "to receive money for working", example: "Educated people often earn higher salaries." },
-      { word: "decision", wordType: "noun", definition: "a choice made after thinking about options", example: "Education helps people make better decisions." },
-      { word: "knowledge", wordType: "noun", definition: "information and understanding that a person has about something", example: "School gives children knowledge about the world." },
+      { word: "stretch", wordType: "verb", definition: "to extend over a long distance", example: "Route 66 stretches from Chicago to California." },
+      { word: "paved", wordType: "adjective", definition: "covered with a hard surface of tarmac or concrete", example: "Route 66 was one of the first fully paved roads in the USA." },
+      { word: "dirt track", wordType: "noun phrase", definition: "a rough road made of soil, not tarmac", example: "Before Route 66, most roads were dirt tracks." },
+      { word: "Midwest", wordType: "noun", definition: "the central region of the United States", example: "Many families from the Midwest drove Route 66 in the 1930s." },
+      { word: "diner", wordType: "noun", definition: "a small, informal American restaurant", example: "Many diners opened along Route 66 in the 1950s." },
+      { word: "motel", wordType: "noun", definition: "a roadside hotel for people travelling by car", example: "There are many motels along Route 66." },
+      { word: "souvenir", wordType: "noun", definition: "an object you buy to remember a place or event", example: "Tourists buy souvenirs from shops along Route 66." },
+      { word: "symbol", wordType: "noun", definition: "something that represents an idea or feeling", example: "Route 66 became a symbol of the American Dream." },
+      { word: "decline", wordType: "noun", definition: "the process of becoming smaller, worse, or less important", example: "The decline of Route 66 began when new motorways were built." },
+      { word: "revival", wordType: "noun", definition: "bringing something back to life or popularity after a period of decline", example: "Route 66 has had a revival as a tourist attraction." },
+      { word: "bypass", wordType: "verb", definition: "to go around a place, avoiding it", example: "New motorways bypassed many towns on Route 66." },
+      { word: "landscape", wordType: "noun", definition: "the natural scenery of an area", example: "Route 66 passes through many different landscapes." },
+      { word: "vintage", wordType: "adjective", definition: "from the past and high quality; old-fashioned in a good way", example: "You can see vintage cars along Route 66." },
+      { word: "adventure", wordType: "noun", definition: "an exciting and unusual experience", example: "Route 66 became the road of adventure and freedom." },
+      { word: "road trip", wordType: "noun phrase", definition: "a long journey made by car for pleasure", example: "Driving Route 66 is one of the most popular road trips in the world." },
     ],
     pronunciation: [
-      { word: "register", ipa: "/REJ-uh-ster/", syllables: "reg-is-ter", tip: "Stress REJ. Three syllables." },
-      { word: "timetable", ipa: "/TYM-tay-bul/", syllables: "time-ta-ble", tip: "Stress TIME. Three syllables." },
-      { word: "calculate", ipa: "/KAL-kyuh-layt/", syllables: "cal-cu-late", tip: "Stress KAL." },
-      { word: "creativity", ipa: "/kree-ay-TIV-uh-tee/", syllables: "cre-a-tiv-i-ty", tip: "Stress TIV." },
-      { word: "encourage", ipa: "/en-KUR-ij/", syllables: "en-cour-age", tip: "Stress KUR." },
-      { word: "opportunity", ipa: "/op-er-TYOO-nuh-tee/", syllables: "op-por-tu-ni-ty", tip: "Stress TYOO." },
-      { word: "knowledge", ipa: "/NOL-ij/", syllables: "know-ledge", tip: "The 'k' is silent — say NOL-ij." },
+      { word: "stretch", ipa: "/STRECH/", syllables: "stretch", tip: "One syllable. The 'tch' makes a single 'ch' sound." },
+      { word: "souvenir", ipa: "/soo-vuh-NEER/", syllables: "sou-ve-nir", tip: "Stress NEER. Three syllables." },
+      { word: "landscape", ipa: "/LAND-skayp/", syllables: "land-scape", tip: "Stress LAND." },
+      { word: "adventure", ipa: "/ud-VEN-cher/", syllables: "ad-ven-ture", tip: "Stress VEN." },
+      { word: "revival", ipa: "/ri-VY-vul/", syllables: "re-vi-val", tip: "Stress VY. Three syllables." },
+      { word: "decline", ipa: "/dih-KLYN/", syllables: "de-cline", tip: "Stress KLYN." },
+      { word: "vintage", ipa: "/VIN-tij/", syllables: "vin-tage", tip: "Stress VIN." },
     ],
   },
   {
     id: "b8",
-    slug: "sports-and-exercise",
-    title: "Sports and Exercise: Why Moving Matters",
+    slug: "marathons",
+    title: "Marathons",
     category: "Reading",
     topic: "Health",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Exercise is important for our body and mind. Learn about popular sports, the benefits of staying active, and simple ways to get more exercise every day.",
+    description: "A marathon is a long-distance running race of 42.195 kilometres. Read about the history of the marathon and why millions of people around the world run them today.",
     readingTime: 3,
     content: `
-      <p><strong>Exercise is one of the best things you can do for your health. Moving your body regularly keeps you strong, healthy, and happy.</strong></p>
+      <p><strong>A marathon is a long-distance running race. It is exactly 42.195 kilometres long. Millions of people run marathons every year all over the world. It is one of the most challenging sports a person can do.</strong></p>
 
-      <h2>Popular sports</h2>
-      <p>Football is the most popular sport in the world. Millions of people play or watch football. Players kick a ball and try to score goals. A football match has two teams of eleven players each.</p>
-      <p>Basketball is also very popular, especially in the United States. Players throw a ball through a hoop to score points. Swimming is another excellent sport. It exercises almost every muscle in the body and is easy on the joints.</p>
-      <p>Running and cycling are popular because they are simple and cheap. You do not need much equipment to go for a run or a bike ride.</p>
+      <h2>The legend of Marathon</h2>
+      <p>The marathon has an interesting history. According to legend, in 490 BC a Greek soldier called Pheidippides ran from the town of Marathon to Athens to deliver news of a great victory. The Greek army had just defeated a much larger Persian army. Pheidippides ran about 40 kilometres without stopping. When he arrived in Athens, he said "We have won!" and then died from exhaustion.</p>
+      <p>This story inspired the modern marathon race. When the first modern Olympic Games were held in Athens in 1896, a marathon race was included. The race followed a similar route to the one Pheidippides ran.</p>
 
-      <h2>Benefits of exercise</h2>
-      <p>Regular exercise has many benefits for your body. It strengthens your heart and lungs. It builds muscle and keeps your bones strong. It helps you stay at a healthy weight. People who exercise regularly also sleep better at night.</p>
-      <p>Exercise is also good for your mental health. When you exercise, your brain releases chemicals called endorphins, which make you feel happy and reduce stress. Sport can also teach teamwork and build confidence.</p>
+      <h2>The modern marathon</h2>
+      <p>Today, marathon races take place in cities all over the world. The most famous marathons are in London, New York, Boston, Berlin, Tokyo, and Chicago. These six races are called the World Marathon Majors.</p>
+      <p>The London Marathon was first held in 1981. It is now one of the biggest marathons in the world, with about 50,000 runners every year. Many runners raise money for charity by running the race.</p>
 
-      <h2>How much exercise do you need?</h2>
-      <p>Health experts recommend at least 30 minutes of moderate exercise five days a week. Moderate exercise means you feel a little warm and breathe a little faster, but you can still talk. Examples include brisk walking, cycling, or dancing.</p>
+      <h2>Training for a marathon</h2>
+      <p>Running a marathon requires months of training. Most runners train for between 16 and 20 weeks. They gradually increase the distance they run each week. A good training plan includes long runs, shorter faster runs, and rest days.</p>
+      <p>Nutrition is also very important. Runners need to eat enough carbohydrates to give them energy. During the race, runners drink water and sports drinks to stay hydrated. Many runners also eat energy gels during long runs.</p>
 
-      <h2>Simple ways to be more active</h2>
-      <p>You do not need to join a gym to exercise. Walk or cycle to school or work instead of taking a bus. Use the stairs instead of the lift. Go for a walk after dinner. Play a sport with friends at the weekend. Small changes can make a big difference to your health.</p>
+      <h2>Why do people run marathons?</h2>
+      <p>People run marathons for many different reasons. Some want to test their physical limits. Others want to raise money for charity. Many people run to improve their health and fitness. And some just love the experience of running through a city with thousands of other people cheering them on. Crossing the finish line of a marathon is one of the most satisfying experiences in sport.</p>
     `,
     vocabulary: [
-      { word: "exercise", wordType: "noun", definition: "physical activity done to keep the body fit and healthy", example: "Regular exercise keeps your heart and lungs strong." },
-      { word: "score", wordType: "verb", definition: "to get a point in a sport or game", example: "The team scored three goals in the match." },
-      { word: "hoop", wordType: "noun", definition: "a large ring used in basketball through which players throw the ball", example: "The player threw the ball through the hoop to score." },
-      { word: "muscle", wordType: "noun", definition: "a part of the body that allows movement; muscles can be made stronger by exercise", example: "Swimming exercises almost every muscle in the body." },
-      { word: "joint", wordType: "noun", definition: "the part of the body where two bones meet, such as the knee or hip", example: "Swimming is easy on your joints." },
-      { word: "equipment", wordType: "noun", definition: "the objects and tools needed for a particular activity", example: "You need very little equipment to go running." },
-      { word: "strengthen", wordType: "verb", definition: "to make something stronger", example: "Exercise strengthens your heart and lungs." },
-      { word: "mental health", wordType: "noun phrase", definition: "a person's emotional and psychological well-being", example: "Exercise is very good for your mental health." },
-      { word: "endorphin", wordType: "noun", definition: "a chemical released by the brain during exercise that reduces pain and makes you feel happy", example: "Exercise releases endorphins that improve your mood." },
-      { word: "stress", wordType: "noun", definition: "feelings of worry and tension, usually caused by difficult situations", example: "Exercise helps reduce stress." },
-      { word: "teamwork", wordType: "noun", definition: "working together with others to achieve a shared goal", example: "Team sports teach the value of teamwork." },
-      { word: "confidence", wordType: "noun", definition: "belief in your own abilities", example: "Playing sport can help build confidence." },
-      { word: "moderate", wordType: "adjective", definition: "not too much and not too little; at a medium level", example: "Thirty minutes of moderate exercise a day is recommended." },
-      { word: "brisk", wordType: "adjective", definition: "quick and energetic", example: "A brisk walk in the morning wakes you up." },
-      { word: "active", wordType: "adjective", definition: "doing a lot of physical movement or exercise", example: "It is important to stay active as you get older." },
+      { word: "long-distance", wordType: "adjective", definition: "covering or travelling a very long distance", example: "A marathon is a long-distance running race." },
+      { word: "legend", wordType: "noun", definition: "an old story that may or may not be true", example: "The marathon has an interesting legend behind it." },
+      { word: "soldier", wordType: "noun", definition: "a person who fights in an army", example: "Pheidippides was a Greek soldier." },
+      { word: "deliver", wordType: "verb", definition: "to take something to a person or place", example: "Pheidippides ran to Athens to deliver news of the victory." },
+      { word: "victory", wordType: "noun", definition: "winning a battle, game, or competition", example: "The Greek army won a great victory at Marathon." },
+      { word: "exhaustion", wordType: "noun", definition: "a state of extreme tiredness", example: "Pheidippides died from exhaustion after his run." },
+      { word: "charity", wordType: "noun", definition: "an organisation that helps people in need, or money given to help others", example: "Many London Marathon runners raise money for charity." },
+      { word: "training", wordType: "noun", definition: "physical exercise done regularly to become better at a sport", example: "Running a marathon requires months of training." },
+      { word: "gradually", wordType: "adverb", definition: "slowly and steadily over time", example: "Runners gradually increase the distance they run each week." },
+      { word: "nutrition", wordType: "noun", definition: "the food and drink you consume and how it affects your health", example: "Good nutrition is very important for marathon runners." },
+      { word: "carbohydrate", wordType: "noun", definition: "a food substance in bread, rice, and pasta that gives energy", example: "Runners eat carbohydrates to give them energy." },
+      { word: "hydrated", wordType: "adjective", definition: "having enough water in your body", example: "Runners must stay hydrated during a marathon." },
+      { word: "fitness", wordType: "noun", definition: "the condition of being physically healthy and strong", example: "Many people run marathons to improve their fitness." },
+      { word: "satisfying", wordType: "adjective", definition: "giving a feeling of pleasure and achievement", example: "Finishing a marathon is a very satisfying experience." },
+      { word: "limit", wordType: "noun", definition: "the point beyond which something cannot go further", example: "Marathon runners like to test their physical limits." },
     ],
     pronunciation: [
-      { word: "exercise", ipa: "/EK-ser-syz/", syllables: "ex-er-cise", tip: "Stress EK. Three syllables." },
-      { word: "muscle", ipa: "/MUS-ul/", syllables: "mus-cle", tip: "The 'c' is silent — say MUS-ul." },
-      { word: "equipment", ipa: "/ih-KWIP-munt/", syllables: "e-quip-ment", tip: "Stress KWIP." },
-      { word: "strengthen", ipa: "/STRENG-thun/", syllables: "strength-en", tip: "Stress STRENG. The 'g' is nearly silent." },
-      { word: "endorphin", ipa: "/en-DOR-fin/", syllables: "en-dor-phin", tip: "Stress DOR. The 'ph' sounds like 'f'." },
-      { word: "moderate", ipa: "/MOD-er-it/", syllables: "mod-er-ate", tip: "Stress MOD. As an adjective, the last syllable is weak." },
-      { word: "confidence", ipa: "/KON-fuh-dens/", syllables: "con-fi-dence", tip: "Stress KON." },
+      { word: "marathon", ipa: "/MAR-uh-thon/", syllables: "mar-a-thon", tip: "Stress MAR. Three syllables." },
+      { word: "exhaustion", ipa: "/ig-ZAWS-chun/", syllables: "ex-haus-tion", tip: "Stress ZAWS. The 'h' in 'ex' is not pronounced." },
+      { word: "gradually", ipa: "/GRAJ-oo-uh-lee/", syllables: "grad-u-al-ly", tip: "Stress GRAJ. Four syllables." },
+      { word: "nutrition", ipa: "/noo-TRISH-un/", syllables: "nu-tri-tion", tip: "Stress TRISH." },
+      { word: "carbohydrate", ipa: "/kar-boh-HY-drayt/", syllables: "car-bo-hy-drate", tip: "Stress HY. Four syllables." },
+      { word: "satisfying", ipa: "/SAT-is-fy-ing/", syllables: "sat-is-fy-ing", tip: "Stress SAT. Four syllables." },
+      { word: "charity", ipa: "/CHAR-uh-tee/", syllables: "char-i-ty", tip: "Stress CHAR. Three syllables." },
     ],
   },
   {
     id: "b9",
-    slug: "technology-in-daily-life",
-    title: "Technology in Daily Life",
+    slug: "the-amazon-rainforest",
+    title: "The Amazon Rainforest",
     category: "Reading",
-    topic: "Technology",
+    topic: "Environment",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Technology is everywhere today. Phones, computers, and the internet change the way we live, work, and communicate. Learn about the benefits and risks of technology.",
+    description: "The Amazon Rainforest is the largest rainforest on Earth. It covers most of the Amazon River basin in South America. Read about this amazing place and why it is so important.",
     readingTime: 3,
     content: `
-      <p><strong>Technology is a big part of modern life. Almost everyone uses a smartphone, a computer, or the internet every day.</strong></p>
+      <p><strong>The Amazon Rainforest is the largest tropical rainforest in the world. It covers about 5.5 million square kilometres. Most of it is in Brazil, but parts are also in Peru, Colombia, and several other South American countries.</strong></p>
 
-      <h2>Smartphones</h2>
-      <p>A smartphone is a mobile phone that can connect to the internet. People use smartphones to make calls, send messages, take photos, watch videos, and use apps. Smartphones help us stay connected with friends and family, even when they are far away.</p>
-      <p>Today, most people keep their smartphone close to them all day. Young people often use smartphones for entertainment, social media, and homework research.</p>
+      <h2>The Amazon River</h2>
+      <p>The Amazon River is the largest river in the world by the volume of water it carries. It is 6,400 kilometres long. The river starts in the Andes mountains in Peru and flows east until it reaches the Atlantic Ocean in Brazil.</p>
+      <p>The Amazon carries about 20% of all the fresh water that flows into the world's oceans. During the rainy season, the river can be up to 48 kilometres wide in some places. Many towns and villages along the river can only be reached by boat.</p>
 
-      <h2>Computers and the internet</h2>
-      <p>Computers are used at school, at work, and at home. People use computers to write documents, create presentations, and send emails. The internet gives us access to a huge amount of information. We can search for answers to questions, read news, watch videos, and shop online.</p>
-      <p>The internet also makes it possible to work or study from home. Many teachers now share lessons and homework through online platforms.</p>
+      <h2>Wildlife</h2>
+      <p>The Amazon Rainforest is home to an incredible variety of wildlife. Scientists believe it contains about 10% of all the species on Earth. There are more than 40,000 plant species, 1,300 bird species, and 3,000 types of fish in the Amazon.</p>
+      <p>Some of the most famous Amazon animals include the jaguar, the giant river otter, the anaconda, the electric eel, and the pink river dolphin. Many of these animals are found nowhere else on Earth.</p>
 
-      <h2>Benefits of technology</h2>
-      <p>Technology makes many tasks faster and easier. We can communicate instantly with people on the other side of the world. We can find information in seconds. We can buy things online without leaving our home. Technology also helps doctors, scientists, and engineers do their work more effectively.</p>
+      <h2>Indigenous people</h2>
+      <p>About one million indigenous people live in the Amazon Rainforest. They belong to hundreds of different tribes and speak many different languages. These people have lived in the forest for thousands of years. They know the plants and animals of the forest very well and use them for food and medicine.</p>
 
-      <h2>Risks of too much technology</h2>
-      <p>However, technology also has risks. Spending too much time on screens can hurt your eyes and make you feel tired. Social media can cause anxiety if people compare themselves to others. It is also important to be careful about sharing personal information online.</p>
-      <p>A good balance is important. Using technology wisely means turning it off sometimes and spending time outdoors, reading physical books, or talking with people face to face.</p>
+      <h2>Deforestation</h2>
+      <p>The Amazon Rainforest is in danger. Every year, large areas of forest are cut down or burned to make space for farms and roads. This is called deforestation. It destroys the habitat of thousands of species and releases large amounts of carbon dioxide into the atmosphere, making climate change worse.</p>
+      <p>Many scientists and environmentalists are working to protect the Amazon. They say that saving the Amazon Rainforest is essential for the health of the whole planet.</p>
     `,
     vocabulary: [
-      { word: "smartphone", wordType: "noun", definition: "a mobile phone with internet access and many features", example: "I use my smartphone to check the news every morning." },
-      { word: "app", wordType: "noun", definition: "a software programme designed to run on a mobile device", example: "There are apps for learning languages, fitness, and cooking." },
-      { word: "connected", wordType: "adjective", definition: "linked to others, especially through the internet or communication", example: "Smartphones help us stay connected with friends." },
-      { word: "social media", wordType: "noun phrase", definition: "websites and apps that allow people to share content and communicate", example: "Many young people use social media every day." },
-      { word: "document", wordType: "noun", definition: "a written or digital file containing text or information", example: "I saved the document on my computer." },
-      { word: "presentation", wordType: "noun", definition: "a talk or display of information, often using slides or visuals", example: "I made a presentation about climate change for my class." },
-      { word: "access", wordType: "noun", definition: "the ability to enter, use, or obtain something", example: "The internet gives us access to information." },
-      { word: "platform", wordType: "noun", definition: "an online system or app used for a specific purpose", example: "Teachers share lessons through online platforms." },
-      { word: "instantly", wordType: "adverb", definition: "immediately, without any delay", example: "We can communicate instantly with people around the world." },
-      { word: "effectively", wordType: "adverb", definition: "in a way that produces good results", example: "Technology helps doctors work more effectively." },
-      { word: "screen", wordType: "noun", definition: "the flat surface of a device such as a phone, computer, or television", example: "Spending too long looking at a screen can hurt your eyes." },
-      { word: "anxiety", wordType: "noun", definition: "a feeling of worry and fear about what might happen", example: "Social media can cause anxiety in some young people." },
-      { word: "compare", wordType: "verb", definition: "to look at two or more things to see how they are similar or different", example: "Some people feel sad when they compare their life to others online." },
-      { word: "personal information", wordType: "noun phrase", definition: "details about yourself such as your name, address, or passwords", example: "Be careful not to share personal information online." },
-      { word: "balance", wordType: "noun", definition: "having the right amount of different things so that nothing is too much or too little", example: "A good balance between screen time and outdoor activities is important." },
+      { word: "tropical", wordType: "adjective", definition: "relating to the hot, wet regions near the Equator", example: "The Amazon is the world's largest tropical rainforest." },
+      { word: "volume", wordType: "noun", definition: "the amount of space something takes up, or the quantity of liquid", example: "The Amazon River carries an enormous volume of water." },
+      { word: "species", wordType: "noun", definition: "a group of animals or plants that are the same type", example: "The Amazon is home to millions of species." },
+      { word: "incredible", wordType: "adjective", definition: "extremely good or remarkable; hard to believe", example: "The variety of wildlife in the Amazon is incredible." },
+      { word: "jaguar", wordType: "noun", definition: "a large wild cat found in Central and South America", example: "The jaguar is one of the Amazon's most famous animals." },
+      { word: "indigenous", wordType: "adjective", definition: "originally from a place; native", example: "About one million indigenous people live in the Amazon." },
+      { word: "tribe", wordType: "noun", definition: "a group of people who live together and share the same culture", example: "There are hundreds of tribes in the Amazon." },
+      { word: "deforestation", wordType: "noun", definition: "the cutting down of large areas of forest", example: "Deforestation is destroying the Amazon Rainforest." },
+      { word: "habitat", wordType: "noun", definition: "the natural environment where an animal or plant lives", example: "Deforestation destroys the habitat of many animals." },
+      { word: "atmosphere", wordType: "noun", definition: "the layer of gases surrounding the Earth", example: "Burning forests releases carbon dioxide into the atmosphere." },
+      { word: "climate change", wordType: "noun phrase", definition: "long-term changes in global temperatures and weather patterns", example: "Deforestation makes climate change worse." },
+      { word: "environmentalist", wordType: "noun", definition: "a person who works to protect the natural environment", example: "Environmentalists are fighting to save the Amazon." },
+      { word: "essential", wordType: "adjective", definition: "absolutely necessary; very important", example: "Saving the Amazon is essential for the planet's health." },
+      { word: "anaconda", wordType: "noun", definition: "a very large snake found in South America", example: "The anaconda is one of the largest snakes in the world." },
+      { word: "fresh water", wordType: "noun phrase", definition: "water from rivers and lakes that is not salty", example: "The Amazon carries 20% of the world's fresh water flow." },
     ],
     pronunciation: [
-      { word: "smartphone", ipa: "/SMART-fohn/", syllables: "smart-phone", tip: "Stress SMART." },
-      { word: "internet", ipa: "/IN-ter-net/", syllables: "in-ter-net", tip: "Stress IN. Three syllables." },
-      { word: "presentation", ipa: "/prez-en-TAY-shun/", syllables: "pres-en-ta-tion", tip: "Stress TAY." },
-      { word: "instantly", ipa: "/IN-stunt-lee/", syllables: "in-stant-ly", tip: "Stress IN." },
-      { word: "anxiety", ipa: "/ang-ZY-uh-tee/", syllables: "anx-i-e-ty", tip: "Stress ZY. Four syllables." },
-      { word: "effectively", ipa: "/ih-FEK-tiv-lee/", syllables: "ef-fec-tive-ly", tip: "Stress FEK." },
+      { word: "Amazon", ipa: "/AM-uh-zon/", syllables: "Am-a-zon", tip: "Stress AM. Three syllables." },
+      { word: "tropical", ipa: "/TROP-uh-kul/", syllables: "trop-i-cal", tip: "Stress TROP. Three syllables." },
+      { word: "indigenous", ipa: "/in-DIJ-uh-nus/", syllables: "in-dig-e-nous", tip: "Stress DIJ. Four syllables." },
+      { word: "deforestation", ipa: "/dee-for-es-TAY-shun/", syllables: "de-for-es-ta-tion", tip: "Stress TAY. Five syllables." },
+      { word: "atmosphere", ipa: "/AT-mus-feer/", syllables: "at-mos-phere", tip: "Stress AT. Three syllables." },
+      { word: "species", ipa: "/SPEE-sheez/", syllables: "spe-cies", tip: "Stress SPEE. The 'ies' sounds like 'sheez'." },
+      { word: "essential", ipa: "/ih-SEN-shul/", syllables: "es-sen-tial", tip: "Stress SEN." },
     ],
   },
   {
     id: "b10",
-    slug: "city-life-and-country-life",
-    title: "City Life and Country Life",
+    slug: "the-olympic-games",
+    title: "The Olympic Games",
     category: "Reading",
-    topic: "Society",
+    topic: "Health",
     difficulty: "Beginner",
-    coverImage: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1569517282132-25d22f4573e6?auto=format&fit=crop&w=1600&q=80",
     date: "2025-06-01",
-    description: "Some people love living in cities. Others prefer the quiet of the countryside. What are the good and bad things about each? Read and decide which is better for you.",
+    description: "The Olympic Games are the world's greatest sports competition. Athletes from almost every country come together every four years to compete. Read about the history and traditions of the Olympics.",
     readingTime: 3,
     content: `
-      <p><strong>Many people must choose between living in a city or in the countryside. Both have advantages and disadvantages. The best choice depends on your lifestyle and preferences.</strong></p>
+      <p><strong>The Olympic Games are the most important international sports competition in the world. Athletes from almost 200 countries compete in dozens of different sports. The Games take place every four years.</strong></p>
 
-      <h2>Life in the city</h2>
-      <p>Cities are large, busy places with many people. They have shops, restaurants, cinemas, hospitals, universities, and many other facilities. Most jobs are in cities, so people move there to find work. Public transport — such as buses, trams, and underground trains — makes it easy to travel around.</p>
-      <p>However, city life also has problems. Cities can be noisy, crowded, and polluted. Housing is expensive. Traffic can be very heavy. Some people feel lonely because they do not know their neighbours.</p>
+      <h2>The ancient Olympics</h2>
+      <p>The Olympic Games started in ancient Greece about 2,700 years ago. They were held in a place called Olympia, in the south of Greece. Athletes from different Greek city-states came to compete in running, wrestling, discus throwing, and other sports. The Games were held to honour the god Zeus.</p>
+      <p>The ancient Olympics continued for almost 1,200 years. They ended in AD 393 when the Roman Emperor Theodosius banned pagan festivals.</p>
 
-      <h2>Life in the countryside</h2>
-      <p>The countryside is quieter and more peaceful than the city. There is less traffic and cleaner air. People often know their neighbours and feel part of a community. Children can play outside safely.</p>
-      <p>Nature is all around you in the countryside. You can see fields, forests, rivers, and wildlife. Many people find that living near nature is good for their mental health.</p>
+      <h2>The modern Olympics</h2>
+      <p>The modern Olympic Games were created by a French man called Baron Pierre de Coubertin. He believed that sport could bring peace between nations. The first modern Olympics were held in Athens, Greece, in 1896. Fourteen nations and about 241 athletes took part.</p>
+      <p>Today, the Olympic Games are held in a different city every four years. Famous host cities include London, Paris, Tokyo, Beijing, and Sydney. The Olympic flag has five rings of different colours — blue, yellow, black, green, and red. These represent the five continents of the world.</p>
 
-      <h2>Disadvantages of the countryside</h2>
-      <p>However, the countryside also has disadvantages. There are fewer job opportunities. Shops, hospitals, and schools may be far away. Public transport is usually limited, so people need a car. Young people sometimes feel bored because there is less entertainment available.</p>
+      <h2>Summer and Winter Olympics</h2>
+      <p>There are two types of Olympic Games — the Summer Olympics and the Winter Olympics. The Summer Olympics include sports like athletics, swimming, gymnastics, cycling, football, and tennis. The Winter Olympics include sports like skiing, ice skating, ice hockey, and snowboarding.</p>
+      <p>The Summer and Winter Olympics both happen every four years, but they are two years apart from each other. For example, if the Summer Olympics are in 2024, the Winter Olympics are in 2026.</p>
 
-      <h2>Which is better?</h2>
-      <p>There is no single right answer. Some people love the excitement and opportunities of the city. Others prefer the peace and natural beauty of the countryside. Many people choose to live in small towns that are between the two extremes — not as busy as a big city, but not as isolated as a remote village.</p>
+      <h2>Olympic traditions</h2>
+      <p>The Olympic Games have many famous traditions. The Olympic flame is lit in Olympia, Greece, and carried by a relay of runners to the host city. The opening ceremony is a huge show with music, dancing, and a parade of athletes from every country. At the end, the athletes march into the stadium under their national flag.</p>
+      <p>Winners receive gold, silver, or bronze medals. The national anthem of the winner's country is played during the medal ceremony. The Olympics remind us that sport can unite people from all over the world.</p>
     `,
     vocabulary: [
-      { word: "advantage", wordType: "noun", definition: "something that helps you or makes a situation better", example: "One advantage of city life is having many job opportunities." },
-      { word: "disadvantage", wordType: "noun", definition: "something that makes a situation more difficult or less good", example: "A disadvantage of the city is noise and pollution." },
-      { word: "preference", wordType: "noun", definition: "liking one thing more than another", example: "Your preference for city or country life depends on your lifestyle." },
-      { word: "facility", wordType: "noun", definition: "a building, service, or piece of equipment available for a particular purpose", example: "Cities have many facilities such as hospitals and universities." },
-      { word: "public transport", wordType: "noun phrase", definition: "buses, trains, trams and other vehicles available for everyone to use", example: "Public transport in the city is fast and frequent." },
-      { word: "polluted", wordType: "adjective", definition: "containing harmful substances that damage the environment", example: "City air can be polluted from traffic and factories." },
-      { word: "crowded", wordType: "adjective", definition: "having too many people or things in a small space", example: "The city centre is very crowded on weekends." },
-      { word: "community", wordType: "noun", definition: "a group of people who live in the same area or share the same interests", example: "In the countryside, people often feel part of a close community." },
-      { word: "wildlife", wordType: "noun", definition: "wild animals and plants that live in natural environments", example: "The countryside is full of wildlife." },
-      { word: "opportunity", wordType: "noun", definition: "a chance to do something useful or enjoyable", example: "There are fewer job opportunities in rural areas." },
-      { word: "limited", wordType: "adjective", definition: "small in number or amount; not having much of something", example: "Public transport in the countryside is very limited." },
-      { word: "entertainment", wordType: "noun", definition: "activities that people enjoy in their free time", example: "Cities offer more entertainment, such as cinemas and concerts." },
-      { word: "isolated", wordType: "adjective", definition: "far from other people, places, or services; lonely", example: "Small villages can feel isolated in winter." },
-      { word: "remote", wordType: "adjective", definition: "far away from towns and cities", example: "Some remote villages have no internet connection." },
-      { word: "extreme", wordType: "noun", definition: "something at the very end of a range or scale", example: "A small town is between the two extremes of a city and a village." },
+      { word: "compete", wordType: "verb", definition: "to take part in a contest or race to try to win", example: "Athletes from 200 countries compete in the Olympics." },
+      { word: "ancient", wordType: "adjective", definition: "belonging to a very long time ago", example: "The ancient Olympics started in Greece 2,700 years ago." },
+      { word: "wrestler", wordType: "noun", definition: "a person who competes in wrestling", example: "Ancient Greek athletes included wrestlers and runners." },
+      { word: "honour", wordType: "verb", definition: "to show great respect for someone or something", example: "The Games were held to honour the god Zeus." },
+      { word: "ban", wordType: "verb", definition: "to officially say something is not allowed", example: "The Roman Emperor banned the ancient Olympics in AD 393." },
+      { word: "pagan", wordType: "adjective", definition: "relating to ancient religions that had many gods", example: "The Olympics were a pagan festival in ancient times." },
+      { word: "nation", wordType: "noun", definition: "a country and its people", example: "The modern Olympics bring together athletes from many nations." },
+      { word: "continent", wordType: "noun", definition: "one of the seven very large areas of land on Earth", example: "The five Olympic rings represent the five continents." },
+      { word: "ceremony", wordType: "noun", definition: "a formal public event to celebrate or mark something important", example: "The opening ceremony is one of the most watched events on television." },
+      { word: "relay", wordType: "noun", definition: "a race or process where each person takes a turn", example: "The Olympic flame is carried by a relay of runners." },
+      { word: "medal", wordType: "noun", definition: "a metal disc given to the winner of a competition", example: "Olympic winners receive gold, silver, or bronze medals." },
+      { word: "anthem", wordType: "noun", definition: "the official song of a country", example: "The national anthem is played during the medal ceremony." },
+      { word: "unite", wordType: "verb", definition: "to bring people together as one", example: "The Olympics unite people from all over the world." },
+      { word: "gymnastics", wordType: "noun", definition: "a sport involving acrobatic movements and balance exercises", example: "Gymnastics is a popular Summer Olympics sport." },
+      { word: "parade", wordType: "noun", definition: "a procession of people walking together in a public celebration", example: "Athletes march in the Olympic parade at the opening ceremony." },
     ],
     pronunciation: [
-      { word: "advantage", ipa: "/ud-VAN-tij/", syllables: "ad-van-tage", tip: "Stress VAN." },
-      { word: "disadvantage", ipa: "/dis-ud-VAN-tij/", syllables: "dis-ad-van-tage", tip: "Stress VAN." },
-      { word: "preference", ipa: "/PREF-er-ents/", syllables: "pref-er-ence", tip: "Stress PREF. Three syllables." },
-      { word: "facility", ipa: "/fuh-SIL-uh-tee/", syllables: "fa-cil-i-ty", tip: "Stress SIL." },
-      { word: "community", ipa: "/kuh-MYOO-nuh-tee/", syllables: "com-mu-ni-ty", tip: "Stress MYOO." },
-      { word: "opportunity", ipa: "/op-er-TYOO-nuh-tee/", syllables: "op-por-tu-ni-ty", tip: "Stress TYOO." },
-      { word: "entertainment", ipa: "/en-ter-TAYN-munt/", syllables: "en-ter-tain-ment", tip: "Stress TAYN." },
+      { word: "Olympic", ipa: "/oh-LIM-pik/", syllables: "O-lym-pic", tip: "Stress LIM. Three syllables." },
+      { word: "ancient", ipa: "/AYN-shunt/", syllables: "an-cient", tip: "Stress AYN. Two syllables — the 'cie' makes a 'sh' sound." },
+      { word: "athletics", ipa: "/ath-LET-iks/", syllables: "ath-let-ics", tip: "Stress LET. Three syllables. Don't say ATH-uh-let-iks." },
+      { word: "ceremony", ipa: "/SER-uh-moh-nee/", syllables: "cer-e-mo-ny", tip: "Stress SER. Four syllables." },
+      { word: "gymnastics", ipa: "/jim-NAS-tiks/", syllables: "gym-nas-tics", tip: "Stress NAS. The 'g' is silent." },
+      { word: "continent", ipa: "/KON-tuh-nent/", syllables: "con-ti-nent", tip: "Stress KON. Three syllables." },
+      { word: "anthem", ipa: "/AN-thum/", syllables: "an-them", tip: "Stress AN. The 'th' makes a soft sound." },
     ],
   },
   // ─── EXISTING articles (Advanced) ─────────────────────────────────
