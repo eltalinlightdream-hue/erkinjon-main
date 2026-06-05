@@ -1,14 +1,13 @@
 import { ReactNode, useState, useRef, useCallback } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Menu, X, Youtube, Send, LogOut, User as UserIcon, Crown, ChevronDown, ChevronRight, Bell, MessageCircle } from "lucide-react";
+import { Menu, X, Youtube, Send, LogOut, User as UserIcon, Crown, ChevronDown, ChevronRight, BookOpen, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { McItem, GrassBlock } from "@/components/minecraft-decorations";
-import { MinecraftCharacters } from "@/components/minecraft-characters";
 
 const PRACTICE_LINKS = [
   { to: "/listening" as const, label: "Listening" },
@@ -260,16 +259,19 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 {theme === "dark" ? "🌙" : "☀️"}
               </span>
             </button>
-            {user && due && due.count > 0 && (
+            {user && (
               <Link
                 to="/vocabulary"
-                className="relative inline-flex items-center p-2 hover:bg-[#3A3A3A] transition-colors"
-                aria-label="Vocabulary due"
+                className="relative inline-flex items-center gap-1.5 px-2.5 py-1.5 hover:bg-[#3A3A3A] transition-colors font-mono text-xs font-semibold text-[#5D8A3C]"
+                aria-label="Vocabulary"
               >
-                <Bell className="w-4 h-4 text-[#5D8A3C]" />
-                <span className="absolute -top-0.5 -right-0.5 bg-[#C0392B] text-white text-[10px] font-mono font-bold min-w-[16px] h-4 px-1 flex items-center justify-center">
-                  {due.count}
-                </span>
+                <BookOpen className="w-4 h-4" />
+                <span>Vocabulary</span>
+                {due && due.count > 0 && (
+                  <span className="bg-[#C0392B] text-white text-[10px] font-mono font-bold min-w-[16px] h-4 px-1 flex items-center justify-center">
+                    {due.count}
+                  </span>
+                )}
               </Link>
             )}
             {user ? (
@@ -388,7 +390,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       )}
 
-      <MinecraftCharacters />
       <main className="flex-1">{children}</main>
 
       {/* ─── FOOTER ─────────────────────────────────────────────── */}

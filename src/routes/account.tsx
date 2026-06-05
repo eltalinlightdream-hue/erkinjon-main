@@ -115,6 +115,7 @@ function Account() {
   const [results, setResults] = useState<TestResult[]>([]);
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [vocabCount, setVocabCount] = useState(0);
+  const [articlesRead, setArticlesRead] = useState(0);
   const [statsLoading, setStatsLoading] = useState(true);
 
   useEffect(() => {
@@ -134,6 +135,11 @@ function Account() {
   async function loadStats() {
     setStatsLoading(true);
     try {
+      // Read articles count from localStorage (client-side tracking)
+      try {
+        const read = new Set(JSON.parse(localStorage.getItem("erkinjon_read_articles") ?? "[]"));
+        setArticlesRead(read.size);
+      } catch { /* ignore */ }
       const [resR, vocR, lbR] = await Promise.all([
         supabase.from("test_results").select("*").eq("user_id", user!.id).order("completed_at", { ascending: false }),
         supabase.from("vocabulary_words").select("id", { count: "exact" }).eq("user_id", user!.id),
@@ -359,6 +365,7 @@ function Account() {
                 <StatCard icon={<Trophy className="w-5 h-5 text-gold" />} label="Avg Band" value={String(avgBand)} />
                 <StatCard icon={<Flame className="w-5 h-5 text-orange-500" />} label="Day streak" value={`${streak} day${streak !== 1 ? "s" : ""}`} />
                 <StatCard icon={<BookOpen className="w-5 h-5 text-secondary" />} label="Vocab words" value={String(vocabCount)} />
+                <StatCard icon={<BookOpen className="w-5 h-5 text-blue-500" />} label="Articles read" value={String(articlesRead)} />
               </div>
 
               {/* Activity heatmap */}
