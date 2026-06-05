@@ -11,6 +11,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/hooks/use-auth";
+import { ThemeProvider } from "@/hooks/use-theme";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -129,9 +130,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        {/* Apply saved theme before first paint to prevent flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.add(t==='light'?'light':'dark');}catch(e){}})();`,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -147,10 +154,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Outlet />
-        <Toaster richColors position="top-center" />
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <Outlet />
+          <Toaster richColors position="top-center" />
+        </AuthProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

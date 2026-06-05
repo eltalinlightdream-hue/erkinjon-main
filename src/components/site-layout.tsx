@@ -4,9 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Menu, X, Youtube, Send, LogOut, User as UserIcon, Crown, ChevronDown, ChevronRight, Bell, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
+import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { McItem, GrassBlock } from "@/components/minecraft-decorations";
+import { MinecraftCharacters } from "@/components/minecraft-characters";
 
 const PRACTICE_LINKS = [
   { to: "/listening" as const, label: "Listening" },
@@ -18,6 +20,7 @@ const PRACTICE_LINKS = [
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const { user, profile, signOut, deviceConflict } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const loc = useLocation();
   const { data: due } = useQuery({
     queryKey: ["due-count", user?.id],
@@ -162,6 +165,34 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
           {/* Desktop auth */}
           <div className="hidden lg:flex items-center gap-1.5">
+            {/* Dark/Light mode toggle */}
+            <button
+              onClick={toggleTheme}
+              title="Toggle Dark/Light Mode"
+              aria-label="Toggle Dark/Light Mode"
+              style={{
+                width: 40,
+                height: 40,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: theme === "dark"
+                  ? "2px solid #6AAFE6"
+                  : "2px solid #5D8A3C",
+                background: theme === "dark" ? "#1A1A2E" : "#E8F5E8",
+                boxShadow: theme === "dark"
+                  ? "3px 3px 0px #0A0A1A, inset 0 0 8px rgba(106,175,230,0.2)"
+                  : "3px 3px 0px #B0D0B0, inset 0 0 8px rgba(93,138,60,0.2)",
+                cursor: "pointer",
+                flexShrink: 0,
+                imageRendering: "pixelated",
+                transition: "all 0.3s ease",
+              }}
+            >
+              <span style={{ fontSize: 18, lineHeight: 1 }}>
+                {theme === "dark" ? "🌙" : "☀️"}
+              </span>
+            </button>
             {user && due && due.count > 0 && (
               <Link
                 to="/vocabulary"
@@ -244,7 +275,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <Link to="/articles" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 font-mono text-xs tracking-wide transition-colors", isActive("/articles") ? "text-[#7DBD50] bg-[#3D6B21]/20 border-l-2 border-[#5D8A3C]" : "text-[#9A9A9A] hover:bg-[#3A3A3A] hover:text-[#F5F5F5]")}>Articles</Link>
               <Link to="/vocabulary" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 font-mono text-xs tracking-wide transition-colors", isActive("/vocabulary") ? "text-[#7DBD50] bg-[#3D6B21]/20 border-l-2 border-[#5D8A3C]" : "text-[#9A9A9A] hover:bg-[#3A3A3A] hover:text-[#F5F5F5]")}>Vocabulary</Link>
               <Link to="/contact-about" onClick={() => setOpen(false)} className={cn("py-2.5 px-3 font-mono text-xs tracking-wide transition-colors", isActive("/contact-about") ? "text-[#7DBD50] bg-[#3D6B21]/20 border-l-2 border-[#5D8A3C]" : "text-[#9A9A9A] hover:bg-[#3A3A3A] hover:text-[#F5F5F5]")}>Contact &amp; About</Link>
-              <div className="pt-4 border-t-2 border-[#5A5A5A] mt-2 flex flex-col gap-2">
+              <div className="pt-3 border-t-2 border-[#5A5A5A] mt-2">
+                <button
+                  onClick={toggleTheme}
+                  className="w-full flex items-center gap-3 py-2.5 px-3 font-mono text-xs tracking-wide transition-colors"
+                  style={{ color: theme === "dark" ? "#6AAFE6" : "#5D8A3C" }}
+                >
+                  <span style={{ fontSize: 16 }}>{theme === "dark" ? "🌙" : "☀️"}</span>
+                  {theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                </button>
+              </div>
+              <div className="pt-2 border-t-2 border-[#5A5A5A] flex flex-col gap-2">
                 {user ? (
                   <>
                     <Link to="/account" onClick={() => setOpen(false)}>
@@ -276,6 +317,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       )}
 
+      <MinecraftCharacters />
       <main className="flex-1">{children}</main>
 
       {/* ─── FOOTER ─────────────────────────────────────────────── */}
