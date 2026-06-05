@@ -147,9 +147,10 @@ function WritingSampleView() {
         {/* Back link */}
         <Link
           to="/writing"
+          search={{ task: "t1-samples" } as any}
           className="font-mono text-[11px] tracking-widest text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 mb-8 uppercase transition-colors"
         >
-          <ArrowLeft className="w-3.5 h-3.5" /> All writing tasks
+          <ArrowLeft className="w-3.5 h-3.5" /> Task 1 Samples
         </Link>
 
         {/* Header */}
@@ -171,6 +172,17 @@ function WritingSampleView() {
             <p className="font-mono text-[11px] tracking-widest text-muted-foreground uppercase mb-2">Question</p>
             <p className="text-base leading-relaxed text-foreground/90">{sample.question}</p>
           </div>
+
+          {/* Chart image */}
+          {sample.coverImage && (
+            <div className="mt-5 rounded-2xl overflow-hidden border border-border">
+              <img
+                src={sample.coverImage}
+                alt={`Chart for Report ${sample.reportNumber}`}
+                className="w-full object-contain bg-white"
+              />
+            </div>
+          )}
         </div>
 
         {/* Hint */}
