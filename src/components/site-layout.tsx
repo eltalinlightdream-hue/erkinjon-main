@@ -177,6 +177,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                                 Task {n}
                               </Link>
                             ))}
+                            <div className="h-px bg-[#5A5A5A] mx-2 my-1" />
+                            {(["t1-samples", "t2-samples"] as const).map((key) => (
+                              <Link
+                                key={key}
+                                to="/writing"
+                                search={{ task: key } as any}
+                                className="block px-4 py-2 font-mono text-[11px] tracking-wide transition-colors text-[#9A9A9A] hover:bg-[#3D6B21]/20 hover:text-[#F5F5F5]"
+                              >
+                                {key === "t1-samples" ? "Task 1 Samples" : "Task 2 Samples"}
+                              </Link>
+                            ))}
                           </div>
                         </div>
                       )}
@@ -335,6 +346,11 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   {([1, 2] as const).map((n) => (
                     <Link key={n} to="/writing" search={{ task: String(n) } as any} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-[#6A6A6A] hover:text-[#F5F5F5] tracking-wide">
                       Task {n}
+                    </Link>
+                  ))}
+                  {(["t1-samples", "t2-samples"] as const).map((key) => (
+                    <Link key={key} to="/writing" search={{ task: key } as any} onClick={() => setOpen(false)} className="py-1.5 font-mono text-[11px] text-[#6A6A6A] hover:text-[#F5F5F5] tracking-wide">
+                      {key === "t1-samples" ? "Task 1 Samples" : "Task 2 Samples"}
                     </Link>
                   ))}
                 </div>

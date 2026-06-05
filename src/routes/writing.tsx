@@ -924,13 +924,19 @@ type TabType = 1 | 2 | "t1-samples" | "t2-samples";
 function Writing() {
   const location = useLocation();
   const taskParam = new URLSearchParams(location.search).get("task");
-  const [tab, setTab] = useState<TabType>(() => (taskParam === "2" ? 2 : 1));
+  const [tab, setTab] = useState<TabType>(() => {
+    if (taskParam === "t1-samples") return "t1-samples";
+    if (taskParam === "t2-samples") return "t2-samples";
+    return taskParam === "2" ? 2 : 1;
+  });
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
   const [progress, setProgress] = useState<Record<string, { status: WritingStatus }>>({});
 
   useEffect(() => {
-    if (taskParam === "2") setTab(2);
+    if (taskParam === "t1-samples") setTab("t1-samples");
+    else if (taskParam === "t2-samples") setTab("t2-samples");
+    else if (taskParam === "2") setTab(2);
     else if (taskParam === "1") setTab(1);
   }, [taskParam]);
 
