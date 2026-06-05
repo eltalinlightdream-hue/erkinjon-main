@@ -38,7 +38,7 @@ function WritingSampleView() {
 
   const applyHighlight = useCallback((color: "yellow" | "green") => {
     const range = savedRange.current;
-    if (!range) return;
+    if (!range || range.collapsed) return;
     try {
       const span = document.createElement("span");
       span.dataset.highlight = color;
@@ -49,6 +49,7 @@ function WritingSampleView() {
       span.appendChild(range.extractContents());
       range.insertNode(span);
       window.getSelection()?.removeAllRanges();
+      savedRange.current = null;
     } catch {
       // silently ignore edge cases
     }

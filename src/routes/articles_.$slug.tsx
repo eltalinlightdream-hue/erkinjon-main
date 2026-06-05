@@ -65,13 +65,12 @@ function ArticleView() {
   const [finished, setFinished] = useState(() => getReadSlugs().has(slug));
   const contentRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
+  const savedRange = useRef<Range | null>(null);
 
   // Apply a highlight colour to the current selection
   const applyHighlight = useCallback((color: "yellow" | "green") => {
-    const sel = window.getSelection();
-    if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
-    const range = sel.getRangeAt(0);
-    if (!contentRef.current?.contains(range.commonAncestorContainer)) return;
+    const range = savedRange.current;
+    if (!range || range.collapsed) return;
     try {
       const span = document.createElement("span");
       span.dataset.highlight = color;
@@ -81,7 +80,8 @@ function ArticleView() {
           : "bg-emerald-200 dark:bg-emerald-500/35 rounded-sm px-0.5 cursor-pointer";
       span.appendChild(range.extractContents());
       range.insertNode(span);
-      sel.removeAllRanges();
+      window.getSelection()?.removeAllRanges();
+      savedRange.current = null;
     } catch {
       // silently ignore edge cases (e.g. selection inside non-editable elements)
     }
@@ -134,6 +134,7 @@ function ArticleView() {
           return;
         }
 
+        savedRange.current = range.cloneRange();
         const rect = range.getBoundingClientRect();
         setPopup({
           x: rect.left + rect.width / 2,
