@@ -1,5 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
+
+const READ_KEY = "erkinjon_read_articles";
+function getReadSlugs(): Set<string> {
+  try { return new Set(JSON.parse(localStorage.getItem(READ_KEY) ?? "[]")); } catch { return new Set(); }
+}
+function markSlugRead(slug: string) {
+  const s = getReadSlugs(); s.add(slug);
+  localStorage.setItem(READ_KEY, JSON.stringify([...s]));
+}
 import { SiteLayout } from "@/components/site-layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,6 +20,7 @@ import {
   Volume2,
   X as XIcon,
   Eraser,
+  CheckCircle2,
 } from "lucide-react";
 import { findArticle, ARTICLES, DIFFICULTY_STYLES } from "@/lib/articles-data";
 import { SaveVocabModal } from "@/components/save-vocab-modal";
@@ -52,6 +62,7 @@ function ArticleView() {
   }>(null);
   const [tab, setTab] = useState<TabKey>("article");
   const [popup, setPopup] = useState<HighlightPopup | null>(null);
+  const [finished, setFinished] = useState(() => getReadSlugs().has(slug));
   const contentRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
 
@@ -68,10 +79,11 @@ function ArticleView() {
         color === "yellow"
           ? "bg-yellow-200 dark:bg-yellow-500/35 rounded-sm px-0.5 cursor-pointer"
           : "bg-emerald-200 dark:bg-emerald-500/35 rounded-sm px-0.5 cursor-pointer";
-      range.surroundContents(span);
+      span.appendChild(range.extractContents());
+      range.insertNode(span);
       sel.removeAllRanges();
     } catch {
-      toast.error("Try selecting a smaller range of text.");
+      // silently ignore edge cases (e.g. selection inside non-editable elements)
     }
     setPopup(null);
   }, []);
@@ -339,6 +351,28 @@ function ArticleView() {
               )}
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
+
+            {/* Mark as Finished */}
+            <div className="mt-10 pt-8 border-t border-border flex items-center justify-center">
+              <button
+                onClick={() => {
+                  if (!finished) {
+                    markSlugRead(slug);
+                    setFinished(true);
+                    toast.success("Article marked as finished!");
+                  }
+                }}
+                className={cn(
+                  "inline-flex items-center gap-2 px-6 py-3 rounded-full font-mono text-sm font-semibold transition-all",
+                  finished
+                    ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 cursor-default"
+                    : "bg-secondary text-white hover:bg-secondary/90 active:scale-95 cursor-pointer"
+                )}
+              >
+                <CheckCircle2 className="w-4 h-4" />
+                {finished ? "Finished ✓" : "Mark as Finished"}
+              </button>
+            </div>
           </>
         )}
 
