@@ -15,7 +15,7 @@ import {
   useTestStatus,
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
-import { SteveWaving, McItem } from "@/components/minecraft-decorations";
+import { Sheep, McItem } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/listening")({
   head: () => ({
@@ -498,7 +498,7 @@ function Listening() {
       <section className="container mx-auto px-4 py-12 max-w-6xl relative">
         {/* Minecraft decorations */}
         <div className="absolute top-4 right-4 pointer-events-none select-none hidden lg:flex flex-col items-end gap-3">
-          <SteveWaving size={64} opacity={0.7} className="mc-bob" />
+          <Sheep size={56} opacity={0.65} />
           <McItem item="torch" size={24} opacity={0.15} className="mc-flicker" />
         </div>
         <div className="absolute top-6 right-24 pointer-events-none opacity-[0.06] hidden xl:block">

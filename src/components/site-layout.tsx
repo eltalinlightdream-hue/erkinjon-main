@@ -390,10 +390,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       )}
 
+      {/* Scroll fade overlays */}
+      <div className="fixed top-0 left-0 right-0 h-20 pointer-events-none z-30" style={{ background: "linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%)" }} />
+      <div className="fixed bottom-0 left-0 right-0 h-20 pointer-events-none z-30" style={{ background: "linear-gradient(to top, hsl(var(--background)) 0%, transparent 100%)" }} />
+
       <main className="flex-1">{children}</main>
 
       {/* ─── FOOTER ─────────────────────────────────────────────── */}
-      <footer className="border-t-4 border-[#5D8A3C] bg-[#1A1A1A] mt-16 relative overflow-hidden">
+      <footer className="border-t-4 border-[#5D8A3C] bg-card mt-16 relative overflow-hidden">
         <div className="h-2 w-full bg-[#5D8A3C]" />
         <div className="h-1 w-full bg-[#3D6B21]" />
 
@@ -410,12 +414,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <span className="w-8 h-8 bg-[#5D8A3C] flex items-center justify-center border border-[#3D6B21] shadow-[2px_2px_0px_#1A3A10]">
                 <GrassBlock size={20} />
               </span>
-              <span className="font-serif text-[0.6rem] font-semibold text-[#F5F5F5] leading-snug">
+              <span className="font-serif text-[0.6rem] font-semibold text-foreground leading-snug">
                 Abduraimov<br />
                 <span className="text-[#7DBD50]">Erkinjon</span>
               </span>
             </div>
-            <p className="text-sm text-[#9A9A9A] leading-relaxed font-sans">
+            <p className="text-sm text-muted-foreground leading-relaxed font-sans">
               Guided IELTS preparation from a Band 8.0 teacher in Fergana, Uzbekistan.
             </p>
             <div className="flex gap-1.5 mt-4">
@@ -432,10 +436,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div>
             <h4 className="font-serif text-[0.55rem] mb-4 text-[#7DBD50] tracking-widest uppercase">⛏ Explore</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/practice" className="text-[#9A9A9A] hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Practice</Link></li>
-              <li><Link to="/videos" className="text-[#9A9A9A] hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Video Lessons</Link></li>
-              <li><Link to="/articles" className="text-[#9A9A9A] hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Articles</Link></li>
-              <li><Link to="/vocabulary" className="text-[#9A9A9A] hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Vocabulary Practice</Link></li>
+              <li><Link to="/practice" className="text-muted-foreground hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Practice</Link></li>
+              <li><Link to="/videos" className="text-muted-foreground hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Video Lessons</Link></li>
+              <li><Link to="/articles" className="text-muted-foreground hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Articles</Link></li>
+              <li><Link to="/vocabulary" className="text-muted-foreground hover:text-[#7DBD50] transition-colors font-mono text-xs">▸ Vocabulary Practice</Link></li>
               <li><Link to="/premium" className="text-[#FFD700] hover:text-[#FFE050] transition-colors font-mono text-xs">▸ Premium ★</Link></li>
             </ul>
           </div>
@@ -443,20 +447,20 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div>
             <h4 className="font-serif text-[0.55rem] mb-4 text-[#7DBD50] tracking-widest uppercase">📡 Connect</h4>
             <div className="flex flex-col gap-3">
-              <a href="https://www.youtube.com/@erkinjon_writes" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-[#9A9A9A] hover:text-[#F5F5F5] transition-colors font-mono text-xs">
+              <a href="https://www.youtube.com/@erkinjon_writes" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono text-xs">
                 <Youtube className="w-4 h-4 text-[#FF0000]" /> YouTube Channel
               </a>
-              <a href="https://t.me/augustus_flores" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-[#9A9A9A] hover:text-[#F5F5F5] transition-colors font-mono text-xs">
+              <a href="https://t.me/augustus_flores" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono text-xs">
                 <Send className="w-4 h-4 text-[#229ED9]" /> Telegram Channel
               </a>
-              <a href="https://t.me/augustus_at" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-[#9A9A9A] hover:text-[#F5F5F5] transition-colors font-mono text-xs">
+              <a href="https://t.me/augustus_at" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono text-xs">
                 <MessageCircle className="w-4 h-4 text-[#5D8A3C]" /> Personal Telegram
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t-2 border-[#3A3A3A] py-5 text-center font-mono text-[10px] tracking-wider text-[#5A5A5A]">
+        <div className="border-t border-border py-5 text-center font-mono text-[10px] tracking-wider text-muted-foreground">
           © {new Date().getFullYear()} Abduraimov Erkinjon — <span className="text-[#5D8A3C]">Mine for Knowledge</span> — Made with care in Uzbekistan
         </div>
       </footer>
