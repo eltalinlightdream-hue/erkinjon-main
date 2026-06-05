@@ -56,6 +56,563 @@ export interface Article {
 }
 
 export const ARTICLES: Article[] = [
+  // ─── BEGINNER (A1/A2) articles ───────────────────────────────────
+  {
+    id: "b1",
+    slug: "my-daily-routine",
+    title: "My Daily Routine",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Every day we follow a routine. Read about a typical day — from waking up in the morning to going to sleep at night.",
+    readingTime: 3,
+    content: `
+      <p><strong>Most people follow a routine every day. A routine helps us stay organised and use our time well.</strong></p>
+
+      <h2>In the morning</h2>
+      <p>My alarm clock rings at 7 o'clock. I get up, wash my face, and brush my teeth. Then I get dressed and go to the kitchen. I eat breakfast — usually bread, eggs, or porridge. Breakfast gives me energy for the day.</p>
+      <p>After breakfast, I pick up my bag and leave the house. I walk to the bus stop and take the bus to school or work. The journey takes about twenty minutes.</p>
+
+      <h2>During the day</h2>
+      <p>I arrive at school at half past eight. I attend my classes and study different subjects. At noon, I have a lunch break. I eat lunch with my friends in the canteen.</p>
+      <p>In the afternoon, I continue my lessons. I also talk with classmates and do group activities.</p>
+
+      <h2>In the evening</h2>
+      <p>I come home at around five o'clock. First, I have a snack and rest for a little while. Then I do my homework. I try to finish my homework before dinner.</p>
+      <p>We have dinner together as a family. After dinner, I read a book, watch a little television, or go for a short walk. I try to relax in the evening.</p>
+
+      <h2>At night</h2>
+      <p>I get ready for bed at around ten o'clock. I wash my face again and brush my teeth. I set my alarm clock for the next morning and go to sleep. A good routine helps me feel healthy and happy.</p>
+    `,
+    vocabulary: [
+      { word: "routine", wordType: "noun", definition: "a set of regular activities done in the same order every day", example: "My morning routine starts at 7 o'clock." },
+      { word: "alarm clock", wordType: "noun phrase", definition: "a clock that makes a sound to wake you up at a set time", example: "I set my alarm clock for 7 a.m." },
+      { word: "get up", wordType: "verb phrase", definition: "to rise from bed in the morning", example: "I get up at seven every day." },
+      { word: "get dressed", wordType: "verb phrase", definition: "to put on your clothes", example: "I get dressed after breakfast." },
+      { word: "breakfast", wordType: "noun", definition: "the first meal of the day, eaten in the morning", example: "I always eat breakfast before school." },
+      { word: "energy", wordType: "noun", definition: "the power or strength to do things", example: "Breakfast gives me energy for the day." },
+      { word: "journey", wordType: "noun", definition: "the process of travelling from one place to another", example: "The journey to school takes twenty minutes." },
+      { word: "arrive", wordType: "verb", definition: "to reach a place after travelling", example: "I arrive at school at half past eight." },
+      { word: "attend", wordType: "verb", definition: "to go to a lesson, meeting, or event", example: "I attend four classes every day." },
+      { word: "lunch break", wordType: "noun phrase", definition: "a short rest in the middle of the day when you eat lunch", example: "We eat in the canteen during the lunch break." },
+      { word: "canteen", wordType: "noun", definition: "a place in a school or workplace where you can buy and eat food", example: "The school canteen sells hot meals every day." },
+      { word: "snack", wordType: "noun", definition: "a small amount of food eaten between meals", example: "I have a snack when I come home from school." },
+      { word: "homework", wordType: "noun", definition: "school work that students do at home", example: "I do my homework before dinner." },
+      { word: "relax", wordType: "verb", definition: "to rest and do something enjoyable after working", example: "I like to relax by reading a book in the evening." },
+      { word: "set an alarm", wordType: "verb phrase", definition: "to programme an alarm clock to ring at a certain time", example: "I set an alarm for seven o'clock every night." },
+    ],
+    pronunciation: [
+      { word: "routine", ipa: "/roo-TEEN/", syllables: "rou-tine", tip: "Stress TEEN. Don't say ROO-tyn." },
+      { word: "breakfast", ipa: "/BREK-fust/", syllables: "break-fast", tip: "Stress BREK. The 'a' in fast sounds like 'u'." },
+      { word: "energy", ipa: "/EN-er-jee/", syllables: "en-er-gy", tip: "Stress EN." },
+      { word: "arrive", ipa: "/uh-RYV/", syllables: "ar-rive", tip: "Stress RYVE. Don't say A-riv." },
+      { word: "attend", ipa: "/uh-TEND/", syllables: "at-tend", tip: "Stress TEND." },
+      { word: "canteen", ipa: "/kan-TEEN/", syllables: "can-teen", tip: "Stress TEEN." },
+      { word: "relax", ipa: "/ri-LAKS/", syllables: "re-lax", tip: "Stress LAKS." },
+    ],
+  },
+  {
+    id: "b2",
+    slug: "animals-around-the-world",
+    title: "Amazing Animals Around the World",
+    category: "Reading",
+    topic: "Science",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Our world is full of amazing animals. Some are big, some are small. Some live in cold places and some live in hot places. Let's learn about some interesting animals.",
+    readingTime: 3,
+    content: `
+      <p><strong>There are millions of different animals on Earth. They live in oceans, forests, deserts, and cold mountains. Each animal is special in its own way.</strong></p>
+
+      <h2>Animals in the ocean</h2>
+      <p>The blue whale is the largest animal on Earth. It can be 30 metres long and weigh 180 tonnes. Blue whales eat tiny creatures called krill. They are mammals, so they breathe air, just like humans.</p>
+      <p>Dolphins are also ocean mammals. They are very intelligent. They communicate with each other using sounds and clicks. Dolphins often swim in groups called pods.</p>
+
+      <h2>Animals in the jungle</h2>
+      <p>Tigers are the largest wild cats. They live in forests in Asia. Tigers are excellent hunters. They have orange and black stripes that help them hide in the tall grass.</p>
+      <p>Parrots are colourful birds that live in tropical forests. They can copy human speech, which makes them very popular as pets. Wild parrots live in large flocks.</p>
+
+      <h2>Animals in cold places</h2>
+      <p>Polar bears live in the Arctic, where the weather is extremely cold. Their white fur keeps them warm and helps them blend into the snow. Polar bears are very strong swimmers.</p>
+      <p>Penguins live in Antarctica. They cannot fly, but they are excellent swimmers. They use their wings like flippers to move quickly through the water.</p>
+
+      <h2>Why animals are important</h2>
+      <p>All animals play an important role in nature. They help plants grow by carrying pollen and seeds. They are part of the food chain. If one type of animal disappears, it can affect many others. Protecting animals means protecting our planet.</p>
+    `,
+    vocabulary: [
+      { word: "creature", wordType: "noun", definition: "any living animal or organism", example: "Krill are tiny creatures that blue whales eat." },
+      { word: "mammal", wordType: "noun", definition: "a warm-blooded animal that breathes air and feeds its young with milk", example: "Dolphins and whales are mammals, not fish." },
+      { word: "intelligent", wordType: "adjective", definition: "able to learn and understand things quickly", example: "Dolphins are very intelligent animals." },
+      { word: "communicate", wordType: "verb", definition: "to share information or feelings with others", example: "Dolphins communicate using sounds and clicks." },
+      { word: "hunter", wordType: "noun", definition: "an animal or person that chases and catches other animals for food", example: "Tigers are excellent hunters in the wild." },
+      { word: "stripe", wordType: "noun", definition: "a long, narrow band of colour different from the area around it", example: "Tigers have orange and black stripes." },
+      { word: "tropical", wordType: "adjective", definition: "relating to the hot, wet regions near the Equator", example: "Parrots live in tropical forests." },
+      { word: "flock", wordType: "noun", definition: "a group of birds that travel or feed together", example: "Wild parrots live in large flocks." },
+      { word: "Arctic", wordType: "noun", definition: "the very cold region around the North Pole", example: "Polar bears live in the Arctic." },
+      { word: "fur", wordType: "noun", definition: "the thick, soft hair that covers some animals", example: "The polar bear's white fur keeps it warm." },
+      { word: "blend in", wordType: "verb phrase", definition: "to look similar to the background so it is hard to notice you", example: "A polar bear's white fur helps it blend into the snow." },
+      { word: "flipper", wordType: "noun", definition: "a flat limb used by some animals for swimming", example: "Penguins use their wings like flippers." },
+      { word: "pollen", wordType: "noun", definition: "a fine powder made by flowers that helps plants reproduce", example: "Bees carry pollen from flower to flower." },
+      { word: "food chain", wordType: "noun phrase", definition: "the order in which animals eat plants and other animals in nature", example: "All animals are part of the food chain." },
+      { word: "protect", wordType: "verb", definition: "to keep someone or something safe from harm", example: "We must protect wild animals from extinction." },
+    ],
+    pronunciation: [
+      { word: "creature", ipa: "/KREE-cher/", syllables: "crea-ture", tip: "Stress KREE. Ends in 'cher' not 'tyur'." },
+      { word: "mammal", ipa: "/MAM-ul/", syllables: "mam-mal", tip: "Stress MAM. Both syllables are short." },
+      { word: "intelligent", ipa: "/in-TEL-uh-jent/", syllables: "in-tel-li-gent", tip: "Stress TEL." },
+      { word: "communicate", ipa: "/kuh-MYOO-ni-kayt/", syllables: "com-mu-ni-cate", tip: "Stress MYOO." },
+      { word: "tropical", ipa: "/TROP-uh-kul/", syllables: "trop-i-cal", tip: "Stress TROP. Don't say troh-PEE-kul." },
+      { word: "Antarctica", ipa: "/ant-ARK-tuh-kuh/", syllables: "Ant-arc-ti-ca", tip: "Stress ARK. The 'c' is not silent — say ant-ARK-ti-kuh." },
+    ],
+  },
+  {
+    id: "b3",
+    slug: "going-shopping",
+    title: "Going Shopping: At the Market and Supermarket",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Shopping is something we do every week. Learn useful words and phrases for buying food, clothes, and everyday items at the market and supermarket.",
+    readingTime: 3,
+    content: `
+      <p><strong>Shopping is an important part of everyday life. We go shopping to buy food, clothes, and many other things we need.</strong></p>
+
+      <h2>At the supermarket</h2>
+      <p>A supermarket is a large shop that sells food and household items. When you enter, you take a trolley or a basket. You walk through the aisles and pick the products you need. Some people write a shopping list before they go to help them remember what to buy.</p>
+      <p>Fresh food is usually at the back of the supermarket. You can find fruit, vegetables, meat, and dairy products there. Processed food, snacks, and drinks are in other sections. It is a good idea to check the price before you put something in your trolley.</p>
+
+      <h2>At the market</h2>
+      <p>An outdoor market is a place where sellers set up stalls and sell their products directly to shoppers. Markets often sell fresh fruit and vegetables, fish, meat, clothes, and handmade goods.</p>
+      <p>Many people prefer markets because the food is fresh and the prices are sometimes lower than in supermarkets. You can also talk directly to the seller and ask questions about the products.</p>
+
+      <h2>Paying for your items</h2>
+      <p>After you have chosen your items, you go to the checkout. The cashier scans each item and tells you the total cost. You can pay by cash or by card. Some shops also accept contactless payments.</p>
+      <p>Always check your receipt after paying. A receipt shows all the items you bought and how much you paid. If something is wrong, you can speak to a member of staff.</p>
+
+      <h2>Useful tip</h2>
+      <p>Try to take your own bag when you go shopping. Using a reusable bag is better for the environment than using plastic bags every time.</p>
+    `,
+    vocabulary: [
+      { word: "supermarket", wordType: "noun", definition: "a large shop that sells food and household items", example: "I go to the supermarket every Saturday morning." },
+      { word: "trolley", wordType: "noun", definition: "a metal basket on wheels used in supermarkets to carry shopping", example: "I put my items in the trolley as I walk through the aisles." },
+      { word: "basket", wordType: "noun", definition: "a small container with a handle used to carry a few items in a shop", example: "I only need a basket because I'm buying a few things." },
+      { word: "aisle", wordType: "noun", definition: "a long passage between the rows of shelves in a shop", example: "The cereals are in aisle four." },
+      { word: "shopping list", wordType: "noun phrase", definition: "a written list of things you need to buy", example: "I always make a shopping list before I go shopping." },
+      { word: "dairy products", wordType: "noun phrase", definition: "food made from milk, such as cheese, butter, and yoghurt", example: "Milk and cheese are common dairy products." },
+      { word: "processed food", wordType: "noun phrase", definition: "food that has been changed from its natural form using chemicals or machines", example: "Processed food often contains a lot of salt and sugar." },
+      { word: "stall", wordType: "noun", definition: "a small stand in a market where sellers display their products", example: "The market has many fruit and vegetable stalls." },
+      { word: "handmade", wordType: "adjective", definition: "made by a person using their hands, not by a machine", example: "She bought a handmade bag from the market." },
+      { word: "checkout", wordType: "noun", definition: "the place in a supermarket where you pay for your items", example: "There was a long queue at the checkout." },
+      { word: "cashier", wordType: "noun", definition: "a person who takes payments in a shop", example: "The cashier scanned each item quickly." },
+      { word: "receipt", wordType: "noun", definition: "a piece of paper that shows what you bought and how much you paid", example: "Keep your receipt in case you need to return an item." },
+      { word: "contactless payment", wordType: "noun phrase", definition: "a way to pay by holding your card or phone near a machine, without entering a PIN", example: "I paid by contactless payment at the supermarket." },
+      { word: "reusable bag", wordType: "noun phrase", definition: "a bag that can be used many times instead of being thrown away", example: "I always bring a reusable bag when I go shopping." },
+      { word: "member of staff", wordType: "noun phrase", definition: "a person who works at a shop or organisation", example: "If you need help, ask a member of staff." },
+    ],
+    pronunciation: [
+      { word: "supermarket", ipa: "/SOO-per-mar-kit/", syllables: "su-per-mar-ket", tip: "Stress SOO. Four syllables." },
+      { word: "aisle", ipa: "/YL/", syllables: "aisle", tip: "The 's' is silent — say it like 'I'll'." },
+      { word: "dairy", ipa: "/DAIR-ee/", syllables: "dai-ry", tip: "Stress DAIR. Rhymes with 'hairy'." },
+      { word: "cashier", ipa: "/ka-SHEER/", syllables: "ca-shier", tip: "Stress SHEER. Don't say CASH-eer." },
+      { word: "receipt", ipa: "/ri-SEET/", syllables: "re-ceipt", tip: "The 'p' is silent — say ri-SEET." },
+      { word: "contactless", ipa: "/KON-takt-lis/", syllables: "con-tact-less", tip: "Stress KON." },
+    ],
+  },
+  {
+    id: "b4",
+    slug: "the-four-seasons",
+    title: "The Four Seasons: Spring, Summer, Autumn, and Winter",
+    category: "Reading",
+    topic: "Environment",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Most countries have four seasons: spring, summer, autumn, and winter. Each season brings different weather, activities, and changes in nature.",
+    readingTime: 3,
+    content: `
+      <p><strong>Most countries have four seasons in a year. Each season lasts about three months and brings different weather and different activities.</strong></p>
+
+      <h2>Spring</h2>
+      <p>Spring comes after winter. The weather becomes warmer and the days get longer. Trees grow new leaves and flowers begin to bloom. Many animals have babies in spring. People enjoy going outside again after the cold winter.</p>
+      <p>Spring is also a busy time for farmers. They plant seeds in the fields. It often rains in spring, which helps crops grow.</p>
+
+      <h2>Summer</h2>
+      <p>Summer is the hottest season of the year. The sun shines for many hours every day. People wear light clothes and spend time outdoors. Children have school holidays in summer. Many families go on holiday to the beach or the mountains.</p>
+      <p>In some countries, summer can be very dry. Farmers need to water their crops carefully because there is not much rain.</p>
+
+      <h2>Autumn</h2>
+      <p>Autumn is the season between summer and winter. The temperature drops and the weather becomes cooler. Leaves on the trees change colour to orange, red, and yellow, and then fall to the ground. This is why autumn is sometimes called "fall" in American English.</p>
+      <p>Autumn is harvest time. Farmers collect the crops that have been growing all summer. Fruits such as apples and pumpkins are ready to pick in autumn.</p>
+
+      <h2>Winter</h2>
+      <p>Winter is the coldest season. The days are short and the nights are long. In some places, snow falls and rivers freeze. People wear thick coats, hats, and gloves to stay warm.</p>
+      <p>Many animals sleep through winter in a process called hibernation. Some birds fly to warmer countries called migration. Winter can be beautiful, especially when snow covers the trees and fields.</p>
+    `,
+    vocabulary: [
+      { word: "season", wordType: "noun", definition: "one of the four periods of the year: spring, summer, autumn, or winter", example: "My favourite season is spring because of the flowers." },
+      { word: "bloom", wordType: "verb", definition: "to produce flowers; to open as a flower", example: "Cherry trees bloom beautifully in spring." },
+      { word: "crops", wordType: "noun", definition: "plants grown on a farm to be sold or eaten", example: "Farmers water their crops during dry weather." },
+      { word: "temperature", wordType: "noun", definition: "a measurement of how hot or cold something is", example: "The temperature drops in autumn." },
+      { word: "harvest", wordType: "noun", definition: "the time of year when farmers collect their crops", example: "Autumn is harvest time on most farms." },
+      { word: "freeze", wordType: "verb", definition: "to become solid because of very cold temperatures", example: "Some rivers freeze in winter." },
+      { word: "hibernation", wordType: "noun", definition: "a long, deep sleep that some animals have during winter", example: "Bears go into hibernation when winter comes." },
+      { word: "migration", wordType: "noun", definition: "the movement of animals from one place to another at a certain time of year", example: "Bird migration happens when cold weather arrives." },
+      { word: "outdoors", wordType: "adverb", definition: "outside, in the open air", example: "In summer, we spend more time outdoors." },
+      { word: "shade", wordType: "noun", definition: "an area that is protected from direct sunlight", example: "We sat in the shade to cool down in the hot summer." },
+      { word: "drought", wordType: "noun", definition: "a long period with little or no rain", example: "Crops can die during a summer drought." },
+      { word: "melt", wordType: "verb", definition: "to change from solid to liquid because of heat", example: "Snow melts in the spring sunshine." },
+      { word: "plant seeds", wordType: "verb phrase", definition: "to put seeds into the ground so they can grow", example: "Farmers plant seeds in spring." },
+      { word: "light clothes", wordType: "noun phrase", definition: "thin clothing suitable for warm weather", example: "I wear light clothes in summer." },
+      { word: "thick coat", wordType: "noun phrase", definition: "a heavy, warm jacket worn in cold weather", example: "You need a thick coat in winter." },
+    ],
+    pronunciation: [
+      { word: "season", ipa: "/SEE-zun/", syllables: "sea-son", tip: "Stress SEE. Ends with 'zun' not 'zon'." },
+      { word: "bloom", ipa: "/BLOOM/", syllables: "bloom", tip: "One syllable. The 'oo' is long, like in 'moon'." },
+      { word: "temperature", ipa: "/TEM-pruh-cher/", syllables: "tem-per-a-ture", tip: "Stress TEM. Often said as three syllables: TEM-pruh-cher." },
+      { word: "harvest", ipa: "/HAR-vist/", syllables: "har-vest", tip: "Stress HAR." },
+      { word: "hibernation", ipa: "/hy-ber-NAY-shun/", syllables: "hi-ber-na-tion", tip: "Stress NAY." },
+      { word: "migration", ipa: "/my-GRAY-shun/", syllables: "mi-gra-tion", tip: "Stress GRAY." },
+      { word: "drought", ipa: "/DROWT/", syllables: "drought", tip: "Rhymes with 'out'. The 'gh' is silent." },
+    ],
+  },
+  {
+    id: "b5",
+    slug: "my-family",
+    title: "My Family",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1511895426328-dc8714191011?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Family is very important in most cultures. Learn about different family members, family activities, and what makes a happy family.",
+    readingTime: 3,
+    content: `
+      <p><strong>Family is one of the most important things in life. A family is a group of people who love and support each other.</strong></p>
+
+      <h2>Family members</h2>
+      <p>A typical family has parents and children. The mother and father are the parents. Sons and daughters are their children. Grandparents are the parents of the mother or father. Aunts and uncles are the brothers and sisters of a parent. Cousins are the children of aunts and uncles.</p>
+      <p>Some families are small — maybe just a parent and one child. Other families are large, with many children, grandparents, and other relatives all living together or nearby.</p>
+
+      <h2>What families do together</h2>
+      <p>Families spend time together in many ways. They have meals together, especially dinner in the evening. Many families celebrate birthdays with cake and presents. They also celebrate important holidays together.</p>
+      <p>Going on trips and holidays together is another popular family activity. Families might visit the seaside, go camping, or travel to another city. These shared experiences create happy memories.</p>
+
+      <h2>Helping each other</h2>
+      <p>In a healthy family, everyone helps each other. Older children often help younger brothers and sisters with homework. Parents work hard to provide food, clothes, and education for their children. Grandparents often help look after young grandchildren.</p>
+      <p>Families support each other during difficult times too. When someone is sick or has a problem, the family is there to help and give comfort.</p>
+
+      <h2>Changing families</h2>
+      <p>Today, families can look different from what they did in the past. Some children live with one parent. Some families adopt children. The most important thing is not the size or shape of the family, but the love and care that its members show to each other.</p>
+    `,
+    vocabulary: [
+      { word: "support", wordType: "verb", definition: "to help and encourage someone, especially during difficult times", example: "Families support each other during difficult times." },
+      { word: "relative", wordType: "noun", definition: "a person who is part of your family", example: "All my relatives came to our family celebration." },
+      { word: "grandparent", wordType: "noun", definition: "the parent of your mother or father", example: "My grandparents tell me stories about the past." },
+      { word: "cousin", wordType: "noun", definition: "the child of your aunt or uncle", example: "I play football with my cousins at the weekend." },
+      { word: "celebrate", wordType: "verb", definition: "to do something enjoyable to mark a special occasion", example: "We celebrate birthdays with cake and presents." },
+      { word: "holiday", wordType: "noun", definition: "a period of time away from work or school, often spent travelling", example: "Our family goes on holiday every summer." },
+      { word: "seaside", wordType: "noun", definition: "an area next to the sea, often visited for holidays", example: "We went to the seaside and played on the beach." },
+      { word: "shared experience", wordType: "noun phrase", definition: "something that a group of people do or go through together", example: "Family holidays are shared experiences that create memories." },
+      { word: "memory", wordType: "noun", definition: "something from the past that you remember", example: "We have many happy memories from family trips." },
+      { word: "provide", wordType: "verb", definition: "to give someone what they need", example: "Parents provide food and shelter for their children." },
+      { word: "look after", wordType: "verb phrase", definition: "to take care of someone or something", example: "Grandparents often look after young grandchildren." },
+      { word: "comfort", wordType: "noun", definition: "a feeling of relief from pain or worry", example: "When I was sad, my family gave me comfort." },
+      { word: "adopt", wordType: "verb", definition: "to legally take another person's child as your own", example: "Some families adopt children who need a home." },
+      { word: "care", wordType: "noun", definition: "attention and kindness given to someone", example: "Good parents show care and love to their children." },
+      { word: "typical", wordType: "adjective", definition: "showing the usual features of a particular group or situation", example: "A typical family has parents and children." },
+    ],
+    pronunciation: [
+      { word: "relative", ipa: "/REL-uh-tiv/", syllables: "rel-a-tive", tip: "Stress REL. Three syllables." },
+      { word: "grandparent", ipa: "/GRAND-pair-unt/", syllables: "grand-par-ent", tip: "Stress GRAND." },
+      { word: "celebrate", ipa: "/SEL-uh-brayt/", syllables: "cel-e-brate", tip: "Stress SEL. Three syllables." },
+      { word: "memory", ipa: "/MEM-uh-ree/", syllables: "mem-o-ry", tip: "Stress MEM. Three syllables." },
+      { word: "provide", ipa: "/pruh-VYD/", syllables: "pro-vide", tip: "Stress VYDE." },
+      { word: "adopt", ipa: "/uh-DOPT/", syllables: "a-dopt", tip: "Stress DOPT." },
+    ],
+  },
+  {
+    id: "b6",
+    slug: "eating-healthy-food",
+    title: "Eating Healthy Food",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Eating well is important for your health. Learn about different food groups, what to eat and what to avoid, and how to build a balanced diet.",
+    readingTime: 3,
+    content: `
+      <p><strong>What we eat every day affects our health. Healthy food gives our body the energy and nutrients it needs to work well.</strong></p>
+
+      <h2>Food groups</h2>
+      <p>There are five main food groups. Fruits and vegetables give us vitamins and minerals. Bread, rice, and pasta give us energy. Meat, fish, and eggs give us protein. Dairy products like milk and cheese give us calcium for strong bones. Fats and oils should be eaten in small amounts.</p>
+      <p>A balanced diet means eating foods from all five groups every day. No single food has all the nutrients your body needs.</p>
+
+      <h2>Eating fruit and vegetables</h2>
+      <p>Most health experts say we should eat at least five portions of fruit and vegetables every day. They are low in calories and full of important vitamins. Fresh, frozen, and tinned vegetables are all good choices.</p>
+      <p>Dark green vegetables like spinach and broccoli are especially good for you. Colourful fruits like berries, oranges, and mangoes contain many useful vitamins.</p>
+
+      <h2>Foods to limit</h2>
+      <p>Some foods are fine to eat sometimes, but not every day. Sugary foods like sweets, chocolate, and fizzy drinks have a lot of calories but very few nutrients. Salty snacks like crisps and processed meats are also unhealthy if eaten in large amounts.</p>
+      <p>It is best to cook at home using fresh ingredients when possible. Home cooking allows you to control how much salt, sugar, and oil goes into your food.</p>
+
+      <h2>Drinking water</h2>
+      <p>Water is essential for good health. Our bodies are made up of about 60% water. We should drink about eight glasses of water every day. Water helps our organs work properly, keeps our skin healthy, and helps us think clearly. Avoid sugary drinks and drink more water instead.</p>
+    `,
+    vocabulary: [
+      { word: "nutrient", wordType: "noun", definition: "a substance in food that the body needs to grow and stay healthy", example: "Fruits and vegetables contain many important nutrients." },
+      { word: "balanced diet", wordType: "noun phrase", definition: "a diet that includes the right amounts of all food groups", example: "A balanced diet keeps your body healthy and strong." },
+      { word: "protein", wordType: "noun", definition: "a nutrient found in meat, fish, and eggs that helps the body grow and repair itself", example: "Eggs and meat are good sources of protein." },
+      { word: "calcium", wordType: "noun", definition: "a mineral found in dairy products that helps build strong bones and teeth", example: "Milk is a good source of calcium." },
+      { word: "vitamin", wordType: "noun", definition: "a natural substance found in food that the body needs to stay healthy", example: "Oranges are rich in vitamin C." },
+      { word: "calorie", wordType: "noun", definition: "a unit used to measure the energy that food provides", example: "Vegetables are low in calories." },
+      { word: "portion", wordType: "noun", definition: "a specific amount or serving of food", example: "Try to eat five portions of fruit and vegetables a day." },
+      { word: "tinned", wordType: "adjective", definition: "food that has been stored in a sealed metal can", example: "Tinned tomatoes are a useful ingredient to keep at home." },
+      { word: "limit", wordType: "verb", definition: "to keep something within a controlled amount", example: "You should limit how much sugar you eat." },
+      { word: "fizzy drink", wordType: "noun phrase", definition: "a cold drink that contains bubbles of carbon dioxide", example: "Fizzy drinks contain a lot of sugar." },
+      { word: "ingredient", wordType: "noun", definition: "one of the items that is used to make a food or dish", example: "Fresh ingredients make home cooking healthier." },
+      { word: "essential", wordType: "adjective", definition: "absolutely necessary; very important", example: "Water is essential for good health." },
+      { word: "organ", wordType: "noun", definition: "a part of the body that has a specific function, such as the heart or liver", example: "Water helps our organs work properly." },
+      { word: "frozen", wordType: "adjective", definition: "food that has been stored at very low temperatures to keep it fresh", example: "Frozen vegetables are just as healthy as fresh ones." },
+      { word: "mineral", wordType: "noun", definition: "a natural substance found in food that the body needs in small amounts", example: "Iron is a mineral found in red meat and leafy vegetables." },
+    ],
+    pronunciation: [
+      { word: "nutrient", ipa: "/NYOO-tree-unt/", syllables: "nu-tri-ent", tip: "Stress NYOO. Three syllables." },
+      { word: "protein", ipa: "/PROH-teen/", syllables: "pro-tein", tip: "Stress PROH. Two syllables." },
+      { word: "calcium", ipa: "/KAL-see-um/", syllables: "cal-ci-um", tip: "Stress KAL. Three syllables." },
+      { word: "vitamin", ipa: "/VY-tuh-min/", syllables: "vi-ta-min", tip: "Stress VY. In American English: VY-tuh-min." },
+      { word: "calorie", ipa: "/KAL-uh-ree/", syllables: "cal-o-rie", tip: "Stress KAL. Three syllables." },
+      { word: "essential", ipa: "/uh-SEN-shul/", syllables: "es-sen-tial", tip: "Stress SEN. Ends in 'shul'." },
+    ],
+  },
+  {
+    id: "b7",
+    slug: "going-to-school",
+    title: "Going to School",
+    category: "Reading",
+    topic: "Education",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "School is where children learn and grow. Read about a typical school day, subjects, teachers, and why education is so important.",
+    readingTime: 3,
+    content: `
+      <p><strong>School is an important part of every child's life. At school, children learn new subjects, make friends, and prepare for the future.</strong></p>
+
+      <h2>A school day</h2>
+      <p>A typical school day starts at around eight or nine in the morning. Students arrive at school and go to their classroom. The teacher takes the register to check who is present. Then lessons begin.</p>
+      <p>Most schools have a timetable that shows which lessons happen each day. There are usually five or six lessons a day, each lasting forty-five or sixty minutes. Between lessons, students have short breaks.</p>
+
+      <h2>School subjects</h2>
+      <p>At school, students study many different subjects. Mathematics teaches students to count, calculate, and solve problems. Science helps students understand the natural world. English classes develop reading, writing, and communication skills. History teaches about the past. Geography helps students understand the world and different countries.</p>
+      <p>Many schools also teach art, music, and physical education. These subjects help students develop creativity and stay physically active.</p>
+
+      <h2>Teachers and classrooms</h2>
+      <p>Teachers guide students and help them understand new ideas. A good teacher explains things clearly, answers questions patiently, and encourages students to do their best. Students should respect their teachers and listen carefully during lessons.</p>
+      <p>A classroom usually has desks, chairs, a board at the front, and bookshelves. Many classrooms now also have computers or interactive whiteboards.</p>
+
+      <h2>Why education matters</h2>
+      <p>Education gives people the knowledge and skills they need for adult life. People who study hard at school have more opportunities later in life. They can find better jobs, earn more money, and make better decisions. Education also teaches people to think for themselves and understand the world around them.</p>
+    `,
+    vocabulary: [
+      { word: "register", wordType: "noun", definition: "an official list of students in a class; also the act of marking attendance", example: "The teacher takes the register at the start of each lesson." },
+      { word: "timetable", wordType: "noun", definition: "a schedule showing when lessons take place", example: "Our timetable shows six lessons every day." },
+      { word: "subject", wordType: "noun", definition: "an area of study taught in school, such as maths or history", example: "My favourite subject is science." },
+      { word: "calculate", wordType: "verb", definition: "to find an answer using numbers and mathematics", example: "Students learn to calculate in maths lessons." },
+      { word: "communication", wordType: "noun", definition: "the act of sharing information or ideas with others", example: "Good communication skills are important in everyday life." },
+      { word: "creativity", wordType: "noun", definition: "the ability to make new and original things", example: "Art and music lessons encourage creativity." },
+      { word: "physically active", wordType: "adjective phrase", definition: "regularly doing exercise and movement", example: "Physical education helps students stay physically active." },
+      { word: "guide", wordType: "verb", definition: "to help someone learn or find the right way", example: "Teachers guide students through difficult topics." },
+      { word: "patiently", wordType: "adverb", definition: "in a calm way, without getting angry or frustrated", example: "A good teacher explains things patiently." },
+      { word: "encourage", wordType: "verb", definition: "to give someone the confidence to do something", example: "My teacher encourages me to read more books." },
+      { word: "interactive whiteboard", wordType: "noun phrase", definition: "a large digital screen used by teachers in a classroom", example: "Our teacher uses an interactive whiteboard to show videos." },
+      { word: "opportunity", wordType: "noun", definition: "a chance to do something good or useful", example: "Education gives people more opportunities in life." },
+      { word: "earn", wordType: "verb", definition: "to receive money for working", example: "Educated people often earn higher salaries." },
+      { word: "decision", wordType: "noun", definition: "a choice made after thinking about options", example: "Education helps people make better decisions." },
+      { word: "knowledge", wordType: "noun", definition: "information and understanding that a person has about something", example: "School gives children knowledge about the world." },
+    ],
+    pronunciation: [
+      { word: "register", ipa: "/REJ-uh-ster/", syllables: "reg-is-ter", tip: "Stress REJ. Three syllables." },
+      { word: "timetable", ipa: "/TYM-tay-bul/", syllables: "time-ta-ble", tip: "Stress TIME. Three syllables." },
+      { word: "calculate", ipa: "/KAL-kyuh-layt/", syllables: "cal-cu-late", tip: "Stress KAL." },
+      { word: "creativity", ipa: "/kree-ay-TIV-uh-tee/", syllables: "cre-a-tiv-i-ty", tip: "Stress TIV." },
+      { word: "encourage", ipa: "/en-KUR-ij/", syllables: "en-cour-age", tip: "Stress KUR." },
+      { word: "opportunity", ipa: "/op-er-TYOO-nuh-tee/", syllables: "op-por-tu-ni-ty", tip: "Stress TYOO." },
+      { word: "knowledge", ipa: "/NOL-ij/", syllables: "know-ledge", tip: "The 'k' is silent — say NOL-ij." },
+    ],
+  },
+  {
+    id: "b8",
+    slug: "sports-and-exercise",
+    title: "Sports and Exercise: Why Moving Matters",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Exercise is important for our body and mind. Learn about popular sports, the benefits of staying active, and simple ways to get more exercise every day.",
+    readingTime: 3,
+    content: `
+      <p><strong>Exercise is one of the best things you can do for your health. Moving your body regularly keeps you strong, healthy, and happy.</strong></p>
+
+      <h2>Popular sports</h2>
+      <p>Football is the most popular sport in the world. Millions of people play or watch football. Players kick a ball and try to score goals. A football match has two teams of eleven players each.</p>
+      <p>Basketball is also very popular, especially in the United States. Players throw a ball through a hoop to score points. Swimming is another excellent sport. It exercises almost every muscle in the body and is easy on the joints.</p>
+      <p>Running and cycling are popular because they are simple and cheap. You do not need much equipment to go for a run or a bike ride.</p>
+
+      <h2>Benefits of exercise</h2>
+      <p>Regular exercise has many benefits for your body. It strengthens your heart and lungs. It builds muscle and keeps your bones strong. It helps you stay at a healthy weight. People who exercise regularly also sleep better at night.</p>
+      <p>Exercise is also good for your mental health. When you exercise, your brain releases chemicals called endorphins, which make you feel happy and reduce stress. Sport can also teach teamwork and build confidence.</p>
+
+      <h2>How much exercise do you need?</h2>
+      <p>Health experts recommend at least 30 minutes of moderate exercise five days a week. Moderate exercise means you feel a little warm and breathe a little faster, but you can still talk. Examples include brisk walking, cycling, or dancing.</p>
+
+      <h2>Simple ways to be more active</h2>
+      <p>You do not need to join a gym to exercise. Walk or cycle to school or work instead of taking a bus. Use the stairs instead of the lift. Go for a walk after dinner. Play a sport with friends at the weekend. Small changes can make a big difference to your health.</p>
+    `,
+    vocabulary: [
+      { word: "exercise", wordType: "noun", definition: "physical activity done to keep the body fit and healthy", example: "Regular exercise keeps your heart and lungs strong." },
+      { word: "score", wordType: "verb", definition: "to get a point in a sport or game", example: "The team scored three goals in the match." },
+      { word: "hoop", wordType: "noun", definition: "a large ring used in basketball through which players throw the ball", example: "The player threw the ball through the hoop to score." },
+      { word: "muscle", wordType: "noun", definition: "a part of the body that allows movement; muscles can be made stronger by exercise", example: "Swimming exercises almost every muscle in the body." },
+      { word: "joint", wordType: "noun", definition: "the part of the body where two bones meet, such as the knee or hip", example: "Swimming is easy on your joints." },
+      { word: "equipment", wordType: "noun", definition: "the objects and tools needed for a particular activity", example: "You need very little equipment to go running." },
+      { word: "strengthen", wordType: "verb", definition: "to make something stronger", example: "Exercise strengthens your heart and lungs." },
+      { word: "mental health", wordType: "noun phrase", definition: "a person's emotional and psychological well-being", example: "Exercise is very good for your mental health." },
+      { word: "endorphin", wordType: "noun", definition: "a chemical released by the brain during exercise that reduces pain and makes you feel happy", example: "Exercise releases endorphins that improve your mood." },
+      { word: "stress", wordType: "noun", definition: "feelings of worry and tension, usually caused by difficult situations", example: "Exercise helps reduce stress." },
+      { word: "teamwork", wordType: "noun", definition: "working together with others to achieve a shared goal", example: "Team sports teach the value of teamwork." },
+      { word: "confidence", wordType: "noun", definition: "belief in your own abilities", example: "Playing sport can help build confidence." },
+      { word: "moderate", wordType: "adjective", definition: "not too much and not too little; at a medium level", example: "Thirty minutes of moderate exercise a day is recommended." },
+      { word: "brisk", wordType: "adjective", definition: "quick and energetic", example: "A brisk walk in the morning wakes you up." },
+      { word: "active", wordType: "adjective", definition: "doing a lot of physical movement or exercise", example: "It is important to stay active as you get older." },
+    ],
+    pronunciation: [
+      { word: "exercise", ipa: "/EK-ser-syz/", syllables: "ex-er-cise", tip: "Stress EK. Three syllables." },
+      { word: "muscle", ipa: "/MUS-ul/", syllables: "mus-cle", tip: "The 'c' is silent — say MUS-ul." },
+      { word: "equipment", ipa: "/ih-KWIP-munt/", syllables: "e-quip-ment", tip: "Stress KWIP." },
+      { word: "strengthen", ipa: "/STRENG-thun/", syllables: "strength-en", tip: "Stress STRENG. The 'g' is nearly silent." },
+      { word: "endorphin", ipa: "/en-DOR-fin/", syllables: "en-dor-phin", tip: "Stress DOR. The 'ph' sounds like 'f'." },
+      { word: "moderate", ipa: "/MOD-er-it/", syllables: "mod-er-ate", tip: "Stress MOD. As an adjective, the last syllable is weak." },
+      { word: "confidence", ipa: "/KON-fuh-dens/", syllables: "con-fi-dence", tip: "Stress KON." },
+    ],
+  },
+  {
+    id: "b9",
+    slug: "technology-in-daily-life",
+    title: "Technology in Daily Life",
+    category: "Reading",
+    topic: "Technology",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Technology is everywhere today. Phones, computers, and the internet change the way we live, work, and communicate. Learn about the benefits and risks of technology.",
+    readingTime: 3,
+    content: `
+      <p><strong>Technology is a big part of modern life. Almost everyone uses a smartphone, a computer, or the internet every day.</strong></p>
+
+      <h2>Smartphones</h2>
+      <p>A smartphone is a mobile phone that can connect to the internet. People use smartphones to make calls, send messages, take photos, watch videos, and use apps. Smartphones help us stay connected with friends and family, even when they are far away.</p>
+      <p>Today, most people keep their smartphone close to them all day. Young people often use smartphones for entertainment, social media, and homework research.</p>
+
+      <h2>Computers and the internet</h2>
+      <p>Computers are used at school, at work, and at home. People use computers to write documents, create presentations, and send emails. The internet gives us access to a huge amount of information. We can search for answers to questions, read news, watch videos, and shop online.</p>
+      <p>The internet also makes it possible to work or study from home. Many teachers now share lessons and homework through online platforms.</p>
+
+      <h2>Benefits of technology</h2>
+      <p>Technology makes many tasks faster and easier. We can communicate instantly with people on the other side of the world. We can find information in seconds. We can buy things online without leaving our home. Technology also helps doctors, scientists, and engineers do their work more effectively.</p>
+
+      <h2>Risks of too much technology</h2>
+      <p>However, technology also has risks. Spending too much time on screens can hurt your eyes and make you feel tired. Social media can cause anxiety if people compare themselves to others. It is also important to be careful about sharing personal information online.</p>
+      <p>A good balance is important. Using technology wisely means turning it off sometimes and spending time outdoors, reading physical books, or talking with people face to face.</p>
+    `,
+    vocabulary: [
+      { word: "smartphone", wordType: "noun", definition: "a mobile phone with internet access and many features", example: "I use my smartphone to check the news every morning." },
+      { word: "app", wordType: "noun", definition: "a software programme designed to run on a mobile device", example: "There are apps for learning languages, fitness, and cooking." },
+      { word: "connected", wordType: "adjective", definition: "linked to others, especially through the internet or communication", example: "Smartphones help us stay connected with friends." },
+      { word: "social media", wordType: "noun phrase", definition: "websites and apps that allow people to share content and communicate", example: "Many young people use social media every day." },
+      { word: "document", wordType: "noun", definition: "a written or digital file containing text or information", example: "I saved the document on my computer." },
+      { word: "presentation", wordType: "noun", definition: "a talk or display of information, often using slides or visuals", example: "I made a presentation about climate change for my class." },
+      { word: "access", wordType: "noun", definition: "the ability to enter, use, or obtain something", example: "The internet gives us access to information." },
+      { word: "platform", wordType: "noun", definition: "an online system or app used for a specific purpose", example: "Teachers share lessons through online platforms." },
+      { word: "instantly", wordType: "adverb", definition: "immediately, without any delay", example: "We can communicate instantly with people around the world." },
+      { word: "effectively", wordType: "adverb", definition: "in a way that produces good results", example: "Technology helps doctors work more effectively." },
+      { word: "screen", wordType: "noun", definition: "the flat surface of a device such as a phone, computer, or television", example: "Spending too long looking at a screen can hurt your eyes." },
+      { word: "anxiety", wordType: "noun", definition: "a feeling of worry and fear about what might happen", example: "Social media can cause anxiety in some young people." },
+      { word: "compare", wordType: "verb", definition: "to look at two or more things to see how they are similar or different", example: "Some people feel sad when they compare their life to others online." },
+      { word: "personal information", wordType: "noun phrase", definition: "details about yourself such as your name, address, or passwords", example: "Be careful not to share personal information online." },
+      { word: "balance", wordType: "noun", definition: "having the right amount of different things so that nothing is too much or too little", example: "A good balance between screen time and outdoor activities is important." },
+    ],
+    pronunciation: [
+      { word: "smartphone", ipa: "/SMART-fohn/", syllables: "smart-phone", tip: "Stress SMART." },
+      { word: "internet", ipa: "/IN-ter-net/", syllables: "in-ter-net", tip: "Stress IN. Three syllables." },
+      { word: "presentation", ipa: "/prez-en-TAY-shun/", syllables: "pres-en-ta-tion", tip: "Stress TAY." },
+      { word: "instantly", ipa: "/IN-stunt-lee/", syllables: "in-stant-ly", tip: "Stress IN." },
+      { word: "anxiety", ipa: "/ang-ZY-uh-tee/", syllables: "anx-i-e-ty", tip: "Stress ZY. Four syllables." },
+      { word: "effectively", ipa: "/ih-FEK-tiv-lee/", syllables: "ef-fec-tive-ly", tip: "Stress FEK." },
+    ],
+  },
+  {
+    id: "b10",
+    slug: "city-life-and-country-life",
+    title: "City Life and Country Life",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Beginner",
+    coverImage: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
+    date: "2025-06-01",
+    description: "Some people love living in cities. Others prefer the quiet of the countryside. What are the good and bad things about each? Read and decide which is better for you.",
+    readingTime: 3,
+    content: `
+      <p><strong>Many people must choose between living in a city or in the countryside. Both have advantages and disadvantages. The best choice depends on your lifestyle and preferences.</strong></p>
+
+      <h2>Life in the city</h2>
+      <p>Cities are large, busy places with many people. They have shops, restaurants, cinemas, hospitals, universities, and many other facilities. Most jobs are in cities, so people move there to find work. Public transport — such as buses, trams, and underground trains — makes it easy to travel around.</p>
+      <p>However, city life also has problems. Cities can be noisy, crowded, and polluted. Housing is expensive. Traffic can be very heavy. Some people feel lonely because they do not know their neighbours.</p>
+
+      <h2>Life in the countryside</h2>
+      <p>The countryside is quieter and more peaceful than the city. There is less traffic and cleaner air. People often know their neighbours and feel part of a community. Children can play outside safely.</p>
+      <p>Nature is all around you in the countryside. You can see fields, forests, rivers, and wildlife. Many people find that living near nature is good for their mental health.</p>
+
+      <h2>Disadvantages of the countryside</h2>
+      <p>However, the countryside also has disadvantages. There are fewer job opportunities. Shops, hospitals, and schools may be far away. Public transport is usually limited, so people need a car. Young people sometimes feel bored because there is less entertainment available.</p>
+
+      <h2>Which is better?</h2>
+      <p>There is no single right answer. Some people love the excitement and opportunities of the city. Others prefer the peace and natural beauty of the countryside. Many people choose to live in small towns that are between the two extremes — not as busy as a big city, but not as isolated as a remote village.</p>
+    `,
+    vocabulary: [
+      { word: "advantage", wordType: "noun", definition: "something that helps you or makes a situation better", example: "One advantage of city life is having many job opportunities." },
+      { word: "disadvantage", wordType: "noun", definition: "something that makes a situation more difficult or less good", example: "A disadvantage of the city is noise and pollution." },
+      { word: "preference", wordType: "noun", definition: "liking one thing more than another", example: "Your preference for city or country life depends on your lifestyle." },
+      { word: "facility", wordType: "noun", definition: "a building, service, or piece of equipment available for a particular purpose", example: "Cities have many facilities such as hospitals and universities." },
+      { word: "public transport", wordType: "noun phrase", definition: "buses, trains, trams and other vehicles available for everyone to use", example: "Public transport in the city is fast and frequent." },
+      { word: "polluted", wordType: "adjective", definition: "containing harmful substances that damage the environment", example: "City air can be polluted from traffic and factories." },
+      { word: "crowded", wordType: "adjective", definition: "having too many people or things in a small space", example: "The city centre is very crowded on weekends." },
+      { word: "community", wordType: "noun", definition: "a group of people who live in the same area or share the same interests", example: "In the countryside, people often feel part of a close community." },
+      { word: "wildlife", wordType: "noun", definition: "wild animals and plants that live in natural environments", example: "The countryside is full of wildlife." },
+      { word: "opportunity", wordType: "noun", definition: "a chance to do something useful or enjoyable", example: "There are fewer job opportunities in rural areas." },
+      { word: "limited", wordType: "adjective", definition: "small in number or amount; not having much of something", example: "Public transport in the countryside is very limited." },
+      { word: "entertainment", wordType: "noun", definition: "activities that people enjoy in their free time", example: "Cities offer more entertainment, such as cinemas and concerts." },
+      { word: "isolated", wordType: "adjective", definition: "far from other people, places, or services; lonely", example: "Small villages can feel isolated in winter." },
+      { word: "remote", wordType: "adjective", definition: "far away from towns and cities", example: "Some remote villages have no internet connection." },
+      { word: "extreme", wordType: "noun", definition: "something at the very end of a range or scale", example: "A small town is between the two extremes of a city and a village." },
+    ],
+    pronunciation: [
+      { word: "advantage", ipa: "/ud-VAN-tij/", syllables: "ad-van-tage", tip: "Stress VAN." },
+      { word: "disadvantage", ipa: "/dis-ud-VAN-tij/", syllables: "dis-ad-van-tage", tip: "Stress VAN." },
+      { word: "preference", ipa: "/PREF-er-ents/", syllables: "pref-er-ence", tip: "Stress PREF. Three syllables." },
+      { word: "facility", ipa: "/fuh-SIL-uh-tee/", syllables: "fa-cil-i-ty", tip: "Stress SIL." },
+      { word: "community", ipa: "/kuh-MYOO-nuh-tee/", syllables: "com-mu-ni-ty", tip: "Stress MYOO." },
+      { word: "opportunity", ipa: "/op-er-TYOO-nuh-tee/", syllables: "op-por-tu-ni-ty", tip: "Stress TYOO." },
+      { word: "entertainment", ipa: "/en-ter-TAYN-munt/", syllables: "en-ter-tain-ment", tip: "Stress TAYN." },
+    ],
+  },
+  // ─── EXISTING articles (Advanced) ─────────────────────────────────
   {
   id: "a16",
   slug: "how-fast-food-ruins-traditional-food-culture",

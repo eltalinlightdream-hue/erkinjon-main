@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,8 +8,9 @@ import {
   ArrowLeft,
   BookmarkPlus as BPIcon,
   Highlighter,
-  Eraser,
   Volume2,
+  X as XIcon,
+  Eraser,
 } from "lucide-react";
 import { findArticle, ARTICLES, DIFFICULTY_STYLES } from "@/lib/articles-data";
 import { SaveVocabModal } from "@/components/save-vocab-modal";
@@ -34,6 +35,13 @@ export const Route = createFileRoute("/articles_/$slug")({
 
 type TabKey = "article" | "vocabulary" | "pronunciation";
 
+interface HighlightPopup {
+  x: number;
+  y: number;
+  text: string;
+  onHighlight: boolean; // true = cursor is on an existing highlight
+}
+
 function ArticleView() {
   const { slug } = Route.useParams();
   const article = findArticle(slug);
@@ -43,61 +51,105 @@ function ArticleView() {
     example: string;
   }>(null);
   const [tab, setTab] = useState<TabKey>("article");
+  const [popup, setPopup] = useState<HighlightPopup | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
 
-  const applyHighlight = (color: "yellow" | "blue") => {
+  // Apply a highlight colour to the current selection
+  const applyHighlight = useCallback((color: "yellow" | "green") => {
     const sel = window.getSelection();
-
-    if (!sel || sel.rangeCount === 0 || sel.isCollapsed) {
-      toast.message("Select some text first.");
-      return;
-    }
-
+    if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
     const range = sel.getRangeAt(0);
-
-    if (!contentRef.current?.contains(range.commonAncestorContainer)) {
-      toast.message("Select text inside the article.");
-      return;
-    }
-
+    if (!contentRef.current?.contains(range.commonAncestorContainer)) return;
     try {
       const span = document.createElement("span");
       span.dataset.highlight = color;
       span.className =
         color === "yellow"
-          ? "bg-yellow-200 dark:bg-yellow-500/30 rounded px-0.5"
-          : "bg-sky-200 dark:bg-sky-500/30 rounded px-0.5";
-
+          ? "bg-yellow-200 dark:bg-yellow-500/35 rounded-sm px-0.5 cursor-pointer"
+          : "bg-emerald-200 dark:bg-emerald-500/35 rounded-sm px-0.5 cursor-pointer";
       range.surroundContents(span);
       sel.removeAllRanges();
     } catch {
       toast.error("Try selecting a smaller range of text.");
     }
-  };
+    setPopup(null);
+  }, []);
 
+  // Remove highlight span that wraps the cursor
+  const removeHighlightUnderCursor = useCallback((target: HTMLElement) => {
+    const hl = target.closest("[data-highlight]") as HTMLElement | null;
+    if (!hl) return;
+    const parent = hl.parentNode;
+    if (!parent) return;
+    while (hl.firstChild) parent.insertBefore(hl.firstChild, hl);
+    parent.removeChild(hl);
+    setPopup(null);
+  }, []);
+
+  // Show popup on mouseup / touchend inside article body
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
 
-    const handler = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement)?.closest("[data-highlight]") as HTMLElement | null;
-      if (!target) return;
+    const handleUp = (e: MouseEvent | TouchEvent) => {
+      // Small delay so the selection is fully set
+      setTimeout(() => {
+        const sel = window.getSelection();
+        const isOnHighlight =
+          (e.target as HTMLElement)?.closest?.("[data-highlight]") !== null;
 
-      e.preventDefault();
+        if (isOnHighlight && (!sel || sel.isCollapsed)) {
+          // Clicked on existing highlight → show remove popup
+          const rect = (e.target as HTMLElement).getBoundingClientRect();
+          setPopup({
+            x: rect.left + rect.width / 2,
+            y: rect.top - 8,
+            text: "",
+            onHighlight: true,
+          });
+          return;
+        }
 
-      const parent = target.parentNode;
-      if (!parent) return;
+        if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
+          setPopup(null);
+          return;
+        }
 
-      while (target.firstChild) {
-        parent.insertBefore(target.firstChild, target);
-      }
+        const range = sel.getRangeAt(0);
+        if (!el.contains(range.commonAncestorContainer)) {
+          setPopup(null);
+          return;
+        }
 
-      parent.removeChild(target);
+        const rect = range.getBoundingClientRect();
+        setPopup({
+          x: rect.left + rect.width / 2,
+          y: rect.top - 8,
+          text: sel.toString().trim(),
+          onHighlight: false,
+        });
+      }, 10);
     };
 
-    el.addEventListener("contextmenu", handler);
-    return () => el.removeEventListener("contextmenu", handler);
+    el.addEventListener("mouseup", handleUp);
+    el.addEventListener("touchend", handleUp);
+    return () => {
+      el.removeEventListener("mouseup", handleUp);
+      el.removeEventListener("touchend", handleUp);
+    };
   }, [tab]);
+
+  // Hide popup when clicking outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
+        setPopup(null);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   if (!article) {
     return (
@@ -198,39 +250,78 @@ function ArticleView() {
         {/* ── Article tab ── */}
         {tab === "article" && (
           <>
-            {/* Floating highlight toolbar — desktop */}
-            <div className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1.5 bg-card/95 backdrop-blur-sm border border-border rounded-2xl p-2 shadow-warm">
-              <Button
-                size="icon"
-                variant="ghost"
-                title="Yellow highlight"
-                onClick={() => applyHighlight("yellow")}
-                className="rounded-xl h-9 w-9 hover:bg-yellow-50"
+            {/* Inline selection popup — appears above selected text */}
+            {popup && (
+              <div
+                ref={popupRef}
+                className="fixed z-[9999] flex items-center gap-1 bg-[#1E1E1E] dark:bg-[#2A2A2A] border border-white/10 rounded-xl shadow-2xl px-2 py-1.5"
+                style={{
+                  left: popup.x,
+                  top: popup.y,
+                  transform: "translate(-50%, -100%)",
+                }}
               >
-                <Highlighter className="w-4 h-4 text-yellow-600" />
-              </Button>
-              <div className="h-px bg-border mx-1" />
-              <Button
-                size="icon"
-                variant="ghost"
-                title="Blue highlight"
-                onClick={() => applyHighlight("blue")}
-                className="rounded-xl h-9 w-9 hover:bg-sky-50"
-              >
-                <Highlighter className="w-4 h-4 text-sky-600" />
-              </Button>
-            </div>
+                {/* Arrow */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0"
+                  style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid #1E1E1E" }} />
 
-            {/* Mobile highlight bar */}
-            <div className="md:hidden mb-6 flex items-center gap-2 p-3 bg-muted/50 rounded-xl border border-border/50">
-              <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">Highlight:</span>
-              <Button size="sm" variant="outline" onClick={() => applyHighlight("yellow")} className="font-mono text-[10px] tracking-wide h-7">
-                <Highlighter className="w-3.5 h-3.5 mr-1 text-yellow-600" /> Yellow
-              </Button>
-              <Button size="sm" variant="outline" onClick={() => applyHighlight("blue")} className="font-mono text-[10px] tracking-wide h-7">
-                <Highlighter className="w-3.5 h-3.5 mr-1 text-sky-600" /> Blue
-              </Button>
-            </div>
+                {!popup.onHighlight && (
+                  <>
+                    {/* Yellow highlight */}
+                    <button
+                      className="flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-mono text-yellow-300 hover:bg-yellow-500/20 transition-colors"
+                      title="Highlight yellow"
+                      onMouseDown={(e) => { e.preventDefault(); applyHighlight("yellow"); }}
+                    >
+                      <Highlighter className="w-3.5 h-3.5" /> Yellow
+                    </button>
+                    <div className="w-px h-4 bg-white/15" />
+                    {/* Green highlight */}
+                    <button
+                      className="flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-mono text-emerald-300 hover:bg-emerald-500/20 transition-colors"
+                      title="Highlight green"
+                      onMouseDown={(e) => { e.preventDefault(); applyHighlight("green"); }}
+                    >
+                      <Highlighter className="w-3.5 h-3.5" /> Green
+                    </button>
+                    <div className="w-px h-4 bg-white/15" />
+                    {/* Save to vocabulary */}
+                    <button
+                      className="flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-mono text-sky-300 hover:bg-sky-500/20 transition-colors"
+                      title="Save to vocabulary"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        if (popup.text) {
+                          setSaveOpen({ word: popup.text, definition: "", example: "" });
+                          setPopup(null);
+                          window.getSelection()?.removeAllRanges();
+                        }
+                      }}
+                    >
+                      <BPIcon className="w-3.5 h-3.5" /> Save word
+                    </button>
+                  </>
+                )}
+
+                {popup.onHighlight && (
+                  <button
+                    className="flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-mono text-red-300 hover:bg-red-500/20 transition-colors"
+                    title="Remove highlight"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      removeHighlightUnderCursor(e.target as HTMLElement);
+                    }}
+                  >
+                    <XIcon className="w-3.5 h-3.5" /> Remove
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* Hint */}
+            <p className="mb-6 font-mono text-[10px] text-muted-foreground/60 tracking-wider inline-flex items-center gap-1.5">
+              <Eraser className="w-3 h-3" /> Select text to highlight, save a word, or click a highlight to remove it.
+            </p>
 
             {/* Article body */}
             <div
@@ -248,10 +339,6 @@ function ArticleView() {
               )}
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
-
-            <p className="mt-10 font-mono text-[10px] text-muted-foreground/60 tracking-wider inline-flex items-center gap-1.5 border-t border-border/40 pt-4 w-full">
-              <Eraser className="w-3 h-3" /> Right-click a highlight to clear it.
-            </p>
           </>
         )}
 
