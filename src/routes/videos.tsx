@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Youtube, Play, AlertCircle } from "lucide-react";
+import { SteveWaving, McItem } from "@/components/minecraft-decorations";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -38,7 +39,11 @@ function Videos() {
 
   return (
     <SiteLayout>
-      <section className="container mx-auto px-4 py-12 max-w-6xl">
+      <section className="container mx-auto px-4 py-12 max-w-6xl relative">
+        <div className="absolute top-4 right-4 pointer-events-none select-none hidden lg:flex flex-col items-end gap-2">
+          <SteveWaving size={60} opacity={0.65} className="mc-bob" />
+          <McItem item="chest" size={22} opacity={0.12} />
+        </div>
         <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-3">Video Lessons</h1>

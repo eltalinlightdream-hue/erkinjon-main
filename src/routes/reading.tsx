@@ -17,6 +17,7 @@ import {
   useTestStatus,
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
+import { SteveReading, McItem } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/reading")({
   head: () => ({
@@ -1344,9 +1345,17 @@ function Reading() {
 
   return (
     <SiteLayout>
-      <section className="container mx-auto px-4 py-12 max-w-6xl">
+      <section className="container mx-auto px-4 py-12 max-w-6xl relative">
+        {/* Minecraft decorations */}
+        <div className="absolute top-4 right-4 pointer-events-none select-none hidden lg:flex flex-col items-end gap-3">
+          <SteveReading size={64} opacity={0.7} className="mc-bob" />
+          <McItem item="book" size={22} opacity={0.15} />
+        </div>
+        <div className="absolute top-8 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
+          <McItem item="crafting-table" size={32} opacity={1} />
+        </div>
         <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-3">IELTS Reading Practice</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-3 text-[#6AAFE6]">📖 IELTS Reading Practice</h1>
           <p className="text-muted-foreground mb-1">Filter by passage type and open any passage in a clean reader view.</p>
           <p className="font-mono text-[11px] text-muted-foreground/70 tracking-wide italic">
             ⏱ Recommended time: Passage 1 &amp; 2 — 20 min &nbsp;|&nbsp; Passage 3 — 22 min

@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Clock, Search, Sparkles } from "lucide-react";
+import { SteveReading, McItem } from "@/components/minecraft-decorations";
 import {
   ARTICLES,
   ArticleTopic,
@@ -66,9 +67,13 @@ function Articles() {
 
   return (
     <SiteLayout>
-      <section className="container mx-auto px-4 py-12 max-w-6xl">
+      <section className="container mx-auto px-4 py-12 max-w-6xl relative">
+        <div className="absolute top-4 right-4 pointer-events-none select-none hidden lg:flex flex-col items-end gap-2">
+          <SteveReading size={60} opacity={0.65} className="mc-bob" />
+          <McItem item="book" size={20} opacity={0.12} />
+        </div>
         <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-3">Articles</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-3 text-[#C09040]">📰 Articles</h1>
           <p className="text-lg text-muted-foreground">
             Reading practice by topic and difficulty — each with key vocabulary and pronunciation tips.
           </p>

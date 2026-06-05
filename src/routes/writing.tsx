@@ -12,6 +12,7 @@ import {
   type WritingStatus,
 } from "@/lib/writing-data";
 import { cn } from "@/lib/utils";
+import { SteveMining, McItem } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/writing")({
   head: () => ({
@@ -24,9 +25,9 @@ export const Route = createFileRoute("/writing")({
 });
 
 const STATUS_META: Record<WritingStatus, { label: string; className: string }> = {
-  not_started: { label: "Not started", className: "bg-muted text-muted-foreground border-border" },
-  in_progress:  { label: "In Progress", className: "bg-amber-100 text-amber-900 border-amber-300" },
-  completed:    { label: "Completed",   className: "bg-emerald-100 text-emerald-900 border-emerald-300" },
+  not_started: { label: "Not started", className: "bg-[#3A3A3A] text-[#9A9A9A] border-[#5A5A5A]" },
+  in_progress:  { label: "In Progress", className: "bg-[#FFD700]/15 text-[#FFD700] border-[#C09A00]" },
+  completed:    { label: "Completed",   className: "bg-[#5D8A3C]/20 text-[#7DBD50] border-[#3D6B21]" },
 };
 
 // ── HTML-based practice tasks (open in new tab, no routing needed) ──────────
@@ -955,14 +956,23 @@ function Writing() {
 
   return (
     <SiteLayout>
-      <section className="container mx-auto px-4 py-12 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8">IELTS Writing</h1>
+      <section className="container mx-auto px-4 py-12 max-w-6xl relative">
+        {/* Minecraft decorations */}
+        <div className="absolute top-4 right-4 pointer-events-none select-none hidden lg:flex flex-col items-end gap-3">
+          <SteveMining size={64} opacity={0.7} className="mc-bob" />
+          <McItem item="crafting-table" size={26} opacity={0.15} />
+        </div>
+        <div className="absolute top-10 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
+          <McItem item="sword" size={32} opacity={1} />
+        </div>
+        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-[#FFD700]">✏️ IELTS Writing</h1>
 
         {/* Video banner */}
-        <div className="relative overflow-hidden rounded-3xl px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border border-border/50"
-          style={{ background: "linear-gradient(135deg, #F5D5CB 0%, #EDE9E2 60%, #d4e8df 100%)" }}>
-          <div className="absolute top-0 right-0 w-48 h-full opacity-15"
-            style={{ background: "radial-gradient(circle at 80% 50%, #4A9B7A 0%, transparent 70%)" }} />
+        <div className="relative overflow-hidden px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border-2 border-[#5D8A3C]"
+          style={{ background: "linear-gradient(135deg, #1A3A10 0%, #2D2D2D 60%, #1A1A2E 100%)", boxShadow: "4px 4px 0px rgba(0,0,0,0.5)" }}>
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#5D8A3C]" />
+          <div className="absolute top-0 right-0 w-48 h-full opacity-10"
+            style={{ background: "radial-gradient(circle at 80% 50%, #5D8A3C 0%, transparent 70%)" }} />
           <div className="relative">
             <p className="font-serif text-lg font-semibold mb-0.5">Want to watch Writing lessons?</p>
             <p className="text-sm text-muted-foreground">

@@ -2331,7 +2331,7 @@ export function findArticle(slug: string): Article | undefined {
 }
 
 export const DIFFICULTY_STYLES: Record<ArticleDifficulty, string> = {
-  Beginner: "bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800",
-  Intermediate: "bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-800",
-  Advanced: "bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-300 dark:border-red-800",
+  Beginner:     "bg-[#3D6B21]/20 text-[#7DBD50] border-[#5D8A3C] font-mono text-[9px]",
+  Intermediate: "bg-[#1A5C8A]/20 text-[#6AAFE6] border-[#2A5CA0] font-mono text-[9px]",
+  Advanced:     "bg-[#6B4C2A]/20 text-[#C09040] border-[#8B6343] font-mono text-[9px]",
 };

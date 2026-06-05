@@ -15,6 +15,7 @@ import {
   useTestStatus,
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
+import { SteveWaving, McItem } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/listening")({
   head: () => ({
@@ -494,9 +495,17 @@ function Listening() {
 
   return (
     <SiteLayout>
-      <section className="container mx-auto px-4 py-12 max-w-6xl">
+      <section className="container mx-auto px-4 py-12 max-w-6xl relative">
+        {/* Minecraft decorations */}
+        <div className="absolute top-4 right-4 pointer-events-none select-none hidden lg:flex flex-col items-end gap-3">
+          <SteveWaving size={64} opacity={0.7} className="mc-bob" />
+          <McItem item="torch" size={24} opacity={0.15} className="mc-flicker" />
+        </div>
+        <div className="absolute top-6 right-24 pointer-events-none opacity-[0.06] hidden xl:block">
+          <McItem item="pickaxe" size={32} opacity={1} />
+        </div>
         <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-3">IELTS Listening</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-3 text-[#7DBD50]">🎧 IELTS Listening</h1>
           <p className="text-muted-foreground mb-1">
             Full listening tests with built-in audio player, timer, and answer checker.
           </p>
