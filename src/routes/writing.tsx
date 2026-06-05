@@ -911,13 +911,20 @@ const TASK_TOTALS: Record<1 | 2, number> = {
   2: [...HTML_TASKS, ...WRITING_TASKS].filter((t) => t.task === 2).length,
 };
 
+const SAMPLE_TOTALS = {
+  "t1-samples": WRITING_SAMPLES.filter((s) => s.task === 1).length,
+  "t2-samples": WRITING_SAMPLES.filter((s) => s.task === 2).length,
+};
+
 const TASK1_FILTERS = ["All", "Line Graph", "Bar Chart", "Table", "Pie Chart", "Map", "Diagram", "Graph", "Process"] as const;
 const TASK2_FILTERS = ["All", "Agree/Disagree", "Advantages/Disadvantages", "Discussion", "Problem/Solution", "Direct Question"] as const;
+
+type TabType = 1 | 2 | "t1-samples" | "t2-samples";
 
 function Writing() {
   const location = useLocation();
   const taskParam = new URLSearchParams(location.search).get("task");
-  const [tab, setTab] = useState<1 | 2>(() => (taskParam === "2" ? 2 : 1));
+  const [tab, setTab] = useState<TabType>(() => (taskParam === "2" ? 2 : 1));
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
   const [progress, setProgress] = useState<Record<string, { status: WritingStatus }>>({});
@@ -938,12 +945,13 @@ function Writing() {
     };
   }, []);
 
-  const handleTabChange = (n: 1 | 2) => {
+  const handleTabChange = (n: TabType) => {
     setTab(n);
     setSearch("");
     setTypeFilter("All");
   };
 
+  const isPracticeTab = tab === 1 || tab === 2;
   const activeFilters = tab === 1 ? TASK1_FILTERS : TASK2_FILTERS;
 
   const matchesSearch = (title: string) =>
@@ -951,9 +959,13 @@ function Writing() {
   const matchesType = (type: string) =>
     typeFilter === "All" || type.toLowerCase().includes(typeFilter.toLowerCase());
 
-  const visibleHtml  = HTML_TASKS.filter((t) => t.task === tab && matchesSearch(t.title) && matchesType(t.type));
-  const visibleTasks = WRITING_TASKS.filter((t) => t.task === tab && matchesSearch(t.title) && matchesType(t.type));
+  const practiceTask = (tab === 1 || tab === 2) ? tab : 1;
+  const visibleHtml  = HTML_TASKS.filter((t) => t.task === practiceTask && matchesSearch(t.title) && matchesType(t.type));
+  const visibleTasks = WRITING_TASKS.filter((t) => t.task === practiceTask && matchesSearch(t.title) && matchesType(t.type));
   const hasResults = visibleHtml.length > 0 || visibleTasks.length > 0;
+
+  const sampleTask = tab === "t1-samples" ? 1 : 2;
+  const visibleSamples = WRITING_SAMPLES.filter((s) => s.task === sampleTask);
 
   return (
     <SiteLayout>
@@ -988,13 +1000,13 @@ function Writing() {
         </div>
 
         {/* Tab switcher */}
-        <div className="inline-flex rounded-xl bg-muted p-1 mb-6">
-          {[1, 2].map((n) => (
+        <div className="flex flex-wrap gap-1 rounded-xl bg-muted p-1 mb-6 w-fit">
+          {([1, 2] as const).map((n) => (
             <button
               key={n}
-              onClick={() => handleTabChange(n as 1 | 2)}
+              onClick={() => handleTabChange(n)}
               className={cn(
-                "px-8 py-2 rounded-lg font-mono text-xs tracking-widest uppercase font-semibold transition-all duration-200",
+                "px-5 py-2 rounded-lg font-mono text-xs tracking-widest uppercase font-semibold transition-all duration-200",
                 tab === n
                   ? "bg-background shadow-soft text-foreground"
                   : "text-muted-foreground hover:text-foreground",
@@ -1002,177 +1014,160 @@ function Writing() {
             >
               Task {n}
               <span className="ml-1.5 font-mono text-[10px] font-normal opacity-55 tracking-normal normal-case">
-                ({TASK_TOTALS[n as 1 | 2]})
+                ({TASK_TOTALS[n]})
+              </span>
+            </button>
+          ))}
+          {(["t1-samples", "t2-samples"] as const).map((key) => (
+            <button
+              key={key}
+              onClick={() => handleTabChange(key)}
+              className={cn(
+                "px-5 py-2 rounded-lg font-mono text-xs tracking-widest uppercase font-semibold transition-all duration-200",
+                tab === key
+                  ? "bg-background shadow-soft text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {key === "t1-samples" ? "Task 1 Samples" : "Task 2 Samples"}
+              <span className="ml-1.5 font-mono text-[10px] font-normal opacity-55 tracking-normal normal-case">
+                ({SAMPLE_TOTALS[key]})
               </span>
             </button>
           ))}
         </div>
 
-        {/* Search + type filters */}
-        <div className="space-y-3 mb-8">
-          <div className="relative w-full max-w-sm">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search by title..."
-              className="pl-9 font-mono text-sm h-9 rounded-xl border-border"
-            />
+        {/* Search + type filters — only for practice tabs */}
+        {isPracticeTab && (
+          <div className="space-y-3 mb-8">
+            <div className="relative w-full max-w-sm">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search by title..."
+                className="pl-9 font-mono text-sm h-9 rounded-xl border-border"
+              />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {activeFilters.map((f) => (
+                <Button
+                  key={f}
+                  variant={typeFilter === f ? "default" : "outline"}
+                  size="sm"
+                  className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
+                  onClick={() => setTypeFilter(f)}
+                >
+                  {f}
+                </Button>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {activeFilters.map((f) => (
-              <Button
-                key={f}
-                variant={typeFilter === f ? "default" : "outline"}
-                size="sm"
-                className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
-                onClick={() => setTypeFilter(f)}
-              >
-                {f}
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        {!hasResults && (
-          <p className="text-muted-foreground py-16 text-center font-mono text-sm tracking-wide">
-            No results found.
-          </p>
         )}
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-          {/* ── HTML practice tasks (open in new tab) ── */}
-          {visibleHtml.map((task) => (
-            <button
-              key={task.id}
-              onClick={() => window.open(task.htmlFile, "_blank")}
-              className="block text-left"
-            >
-              <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-                <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
-                  {task.image ? (
-                    <img
-                      src={task.image}
-                      alt={task.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="text-4xl font-bold text-muted-foreground">
-                      Task {task.task}
-                    </div>
-                  )}
-                  <span className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full border bg-muted text-muted-foreground border-border">
-                    Not started
-                  </span>
-                  <span className="absolute top-3 right-3 bg-black/50 text-white rounded-full p-1">
-                    <ExternalLink className="w-3 h-3" />
-                  </span>
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">
-                    {task.type}
-                  </Badge>
-                  <h3 className="font-serif text-lg font-semibold leading-snug mb-2">
-                    {task.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
-                  <p className="text-xs text-muted-foreground mt-3 inline-flex items-center gap-1">
-                    <ExternalLink className="w-3 h-3" /> Opens full practice simulator
-                  </p>
-                </div>
-              </Card>
-            </button>
-          ))}
-
-          {/* ── Lovable route-based tasks ── */}
-          {visibleTasks.map((task) => {
-            const status = progress[task.id]?.status ?? "not_started";
-            const meta = STATUS_META[status];
-            return (
-              <Link
-                key={task.id}
-                to="/writing/$taskId"
-                params={{ taskId: task.id }}
-                className="block"
-              >
-                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
-                  <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
-                    {task.image ? (
-                      <img
-                        src={task.image}
-                        alt={task.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="text-4xl font-bold text-muted-foreground">
-                        Task {task.task}
-                      </div>
-                    )}
-                    <span
-                      className={cn(
-                        "absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full border",
-                        meta.className,
+        {/* Practice tasks grid */}
+        {isPracticeTab && (
+          <>
+            {!hasResults && (
+              <p className="text-muted-foreground py-16 text-center font-mono text-sm tracking-wide">
+                No results found.
+              </p>
+            )}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {visibleHtml.map((task) => (
+                <button
+                  key={task.id}
+                  onClick={() => window.open(task.htmlFile, "_blank")}
+                  className="block text-left"
+                >
+                  <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                    <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                      {task.image ? (
+                        <img src={task.image} alt={task.title} className="w-full h-full object-cover" loading="lazy" />
+                      ) : (
+                        <div className="text-4xl font-bold text-muted-foreground">Task {task.task}</div>
                       )}
-                    >
-                      {meta.label}
-                    </span>
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">
-                      {task.type}
-                    </Badge>
-                    <h3 className="font-serif text-lg font-semibold leading-snug mb-2">
-                      {task.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
-                  </div>
-                </Card>
-              </Link>
-            );
-          })}
+                      <span className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full border bg-muted text-muted-foreground border-border">
+                        Not started
+                      </span>
+                      <span className="absolute top-3 right-3 bg-black/50 text-white rounded-full p-1">
+                        <ExternalLink className="w-3 h-3" />
+                      </span>
+                    </div>
+                    <div className="p-5 flex flex-col flex-1">
+                      <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">{task.type}</Badge>
+                      <h3 className="font-serif text-lg font-semibold leading-snug mb-2">{task.title}</h3>
+                      <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
+                      <p className="text-xs text-muted-foreground mt-3 inline-flex items-center gap-1">
+                        <ExternalLink className="w-3 h-3" /> Opens full practice simulator
+                      </p>
+                    </div>
+                  </Card>
+                </button>
+              ))}
+              {visibleTasks.map((task) => {
+                const status = progress[task.id]?.status ?? "not_started";
+                const meta = STATUS_META[status];
+                return (
+                  <Link key={task.id} to="/writing/$taskId" params={{ taskId: task.id }} className="block">
+                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                      <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                        {task.image ? (
+                          <img src={task.image} alt={task.title} className="w-full h-full object-cover" loading="lazy" />
+                        ) : (
+                          <div className="text-4xl font-bold text-muted-foreground">Task {task.task}</div>
+                        )}
+                        <span className={cn("absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full border", meta.className)}>
+                          {meta.label}
+                        </span>
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">{task.type}</Badge>
+                        <h3 className="font-serif text-lg font-semibold leading-snug mb-2">{task.title}</h3>
+                        <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
+                      </div>
+                    </Card>
+                  </Link>
+                );
+              })}
+            </div>
+          </>
+        )}
 
-        </div>
-
-        {/* ── Task 1 Sample Reports ── */}
-        <div className="mt-16 mb-4">
-          <h2 className="font-serif text-2xl font-semibold mb-2">📝 Task 1 — Sample Reports</h2>
-          <p className="text-muted-foreground text-sm">Read model answers from Erkinjon. Each report includes key vocabulary and collocations.</p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {WRITING_SAMPLES.filter((s) => s.task === 1).map((sample) => (
-            <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
-              <div className="bento-card rounded-2xl overflow-hidden flex flex-col h-full hover:scale-[1.01] transition-transform">
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 mb-3 flex-wrap">
-                    <span className="font-mono text-[10px] tracking-widest bg-secondary/20 text-secondary border border-secondary/30 px-2 py-0.5 rounded-full">
-                      Report {sample.reportNumber}
-                    </span>
-                    <span className="font-mono text-[10px] tracking-wide bg-accent text-foreground px-2 py-0.5 rounded-full">
-                      {sample.chartType}
-                    </span>
-                  </div>
-                  <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">
-                    {sample.question}
-                  </p>
-                  <p className="font-mono text-[10px] text-muted-foreground tracking-wider">
-                    {sample.wordCount} words
-                  </p>
-                </div>
+        {/* Samples tabs */}
+        {(tab === "t1-samples" || tab === "t2-samples") && (
+          <>
+            {tab === "t2-samples" ? (
+              <div className="bento-card rounded-3xl p-12 text-center text-muted-foreground">
+                Coming soon — Task 2 sample essays will be added here.
               </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* ── Task 2 Sample Essays (coming soon) ── */}
-        <div className="mt-16 mb-4">
-          <h2 className="font-serif text-2xl font-semibold mb-2">📝 Task 2 — Sample Essays</h2>
-        </div>
-        <div className="bento-card rounded-3xl p-12 text-center text-muted-foreground">
-          Coming soon — Task 2 sample essays will be added here.
-        </div>
+            ) : (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {visibleSamples.map((sample) => (
+                  <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
+                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                      <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                        {sample.coverImage ? (
+                          <img src={sample.coverImage} alt={`Report ${sample.reportNumber}`} className="w-full h-full object-cover" loading="lazy" />
+                        ) : (
+                          <div className="text-4xl font-bold text-muted-foreground">R{sample.reportNumber}</div>
+                        )}
+                        <span className="absolute top-3 left-3 font-mono text-[10px] tracking-widest bg-secondary/80 text-secondary-foreground px-2 py-0.5 rounded-full">
+                          Report {sample.reportNumber}
+                        </span>
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">{sample.chartType}</Badge>
+                        <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">{sample.question}</p>
+                        <p className="font-mono text-[10px] text-muted-foreground tracking-wider">{sample.wordCount} words</p>
+                      </div>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </>
+        )}
 
       </section>
     </SiteLayout>

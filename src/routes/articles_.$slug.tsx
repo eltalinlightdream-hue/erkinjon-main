@@ -65,7 +65,6 @@ function ArticleView() {
   const [finished, setFinished] = useState(() => getReadSlugs().has(slug));
   const contentRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
-  // Saved range so the selection is not lost when the popup button is clicked
   const savedRange = useRef<Range | null>(null);
 
   // Apply a highlight colour using the saved range
@@ -135,9 +134,7 @@ function ArticleView() {
           return;
         }
 
-        // Save a clone of the range so it survives the button click
         savedRange.current = range.cloneRange();
-
         const rect = range.getBoundingClientRect();
         setPopup({
           x: rect.left + rect.width / 2,
