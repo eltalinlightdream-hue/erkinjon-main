@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
-import { WRITING_SAMPLES } from "@/lib/writing-samples-data";
+import { WRITING_SAMPLES, WRITING_ESSAYS } from "@/lib/writing-samples-data";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -913,7 +913,7 @@ const TASK_TOTALS: Record<1 | 2, number> = {
 
 const SAMPLE_TOTALS = {
   "t1-samples": WRITING_SAMPLES.filter((s) => s.task === 1).length,
-  "t2-samples": WRITING_SAMPLES.filter((s) => s.task === 2).length,
+  "t2-samples": WRITING_ESSAYS.length,
 };
 
 const TASK1_FILTERS = ["All", "Line Graph", "Bar Chart", "Table", "Pie Chart", "Map", "Diagram", "Graph", "Process"] as const;
@@ -1141,38 +1141,52 @@ function Writing() {
         )}
 
         {/* Samples tabs */}
-        {(tab === "t1-samples" || tab === "t2-samples") && (
-          <>
-            {tab === "t2-samples" ? (
-              <div className="bento-card rounded-3xl p-12 text-center text-muted-foreground">
-                Coming soon — Task 2 sample essays will be added here.
-              </div>
-            ) : (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {visibleSamples.map((sample) => (
-                  <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
-                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
-                      <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
-                        {sample.coverImage ? (
-                          <img src={sample.coverImage} alt={`Report ${sample.reportNumber}`} className="w-full h-full object-cover" loading="lazy" />
-                        ) : (
-                          <div className="text-4xl font-bold text-muted-foreground">R{sample.reportNumber}</div>
-                        )}
-                        <span className="absolute top-3 left-3 font-mono text-[10px] tracking-widest bg-secondary/80 text-secondary-foreground px-2 py-0.5 rounded-full">
-                          Report {sample.reportNumber}
-                        </span>
-                      </div>
-                      <div className="p-5 flex flex-col flex-1">
-                        <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">{sample.chartType}</Badge>
-                        <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">{sample.question}</p>
-                        <p className="font-mono text-[10px] text-muted-foreground tracking-wider">{sample.wordCount} words</p>
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </>
+        {tab === "t1-samples" && (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {visibleSamples.map((sample) => (
+              <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
+                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                  <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                    {sample.coverImage ? (
+                      <img src={sample.coverImage} alt={`Report ${sample.reportNumber}`} className="w-full h-full object-cover" loading="lazy" />
+                    ) : (
+                      <div className="text-4xl font-bold text-muted-foreground">R{sample.reportNumber}</div>
+                    )}
+                    <span className="absolute top-3 left-3 font-mono text-[10px] tracking-widest bg-secondary/80 text-secondary-foreground px-2 py-0.5 rounded-full">
+                      Report {sample.reportNumber}
+                    </span>
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">{sample.chartType}</Badge>
+                    <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">{sample.question}</p>
+                    <p className="font-mono text-[10px] text-muted-foreground tracking-wider">{sample.wordCount} words</p>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {tab === "t2-samples" && (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {WRITING_ESSAYS.map((essay) => (
+              <Link key={essay.id} to="/writing/essay/$id" params={{ id: essay.id }}>
+                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                  <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                    <div className="text-4xl font-bold text-muted-foreground">T{essay.testNumber}</div>
+                    <span className="absolute top-3 left-3 font-mono text-[10px] tracking-widest bg-secondary/80 text-secondary-foreground px-2 py-0.5 rounded-full">
+                      Test {essay.testNumber}
+                    </span>
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <Badge variant="secondary" className="self-start mb-2 bg-accent text-foreground">Essay</Badge>
+                    <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">{essay.question}</p>
+                    <p className="font-mono text-[10px] text-muted-foreground tracking-wider">{essay.wordCount} words</p>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
         )}
 
       </section>
