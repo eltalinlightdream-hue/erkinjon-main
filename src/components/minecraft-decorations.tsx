@@ -637,9 +637,67 @@ export function EnderDragonSilhouette({ width = 300, height = 120, opacity = 0.0
   );
 }
 
+export function SkeletonHorse({ size = 48, opacity = 1, className = "" }: { size?: number; opacity?: number; className?: string }) {
+  const w = size;
+  const h = size * 0.75;
+  return (
+    <svg
+      width={w}
+      height={h}
+      viewBox="0 0 64 48"
+      style={{ opacity, imageRendering: "pixelated" }}
+      className={className}
+      aria-hidden
+    >
+      {/* Body */}
+      <rect x="14" y="14" width="36" height="20" fill="#D8D8D0" />
+      {/* Rib bones on body */}
+      <rect x="18" y="17" width="2" height="14" fill="#B8B8B0" />
+      <rect x="24" y="17" width="2" height="14" fill="#B8B8B0" />
+      <rect x="30" y="17" width="2" height="14" fill="#B8B8B0" />
+      <rect x="36" y="17" width="2" height="14" fill="#B8B8B0" />
+      <rect x="42" y="17" width="2" height="14" fill="#B8B8B0" />
+      {/* Spine top */}
+      <rect x="14" y="14" width="36" height="2" fill="#C0C0B8" />
+      {/* Neck */}
+      <rect x="48" y="6" width="8" height="14" fill="#D8D8D0" />
+      {/* Head */}
+      <rect x="52" y="2" width="12" height="10" fill="#D8D8D0" />
+      {/* Snout */}
+      <rect x="60" y="7" width="4" height="5" fill="#C8C8C0" />
+      <rect x="61" y="8" width="2" height="2" fill="#888880" />
+      {/* Eye sockets */}
+      <rect x="54" y="3" width="3" height="3" fill="#1A1A1A" />
+      <rect x="59" y="3" width="3" height="3" fill="#1A1A1A" />
+      {/* Mane */}
+      <rect x="48" y="4" width="4" height="8" fill="#EBEBEB" />
+      <rect x="50" y="2" width="4" height="8" fill="#D0D0C8" />
+      {/* Tail */}
+      <rect x="12" y="14" width="3" height="12" fill="#D8D8D0" />
+      <rect x="10" y="18" width="3" height="10" fill="#EBEBEB" />
+      {/* Front legs */}
+      <rect x="40" y="34" width="5" height="12" fill="#C8C8C0" />
+      <rect x="48" y="34" width="5" height="12" fill="#C8C8C0" />
+      {/* Back legs */}
+      <rect x="16" y="34" width="5" height="12" fill="#C8C8C0" />
+      <rect x="24" y="34" width="5" height="12" fill="#C8C8C0" />
+      {/* Hooves */}
+      <rect x="40" y="44" width="5" height="4" fill="#555550" />
+      <rect x="48" y="44" width="5" height="4" fill="#555550" />
+      <rect x="16" y="44" width="5" height="4" fill="#555550" />
+      <rect x="24" y="44" width="5" height="4" fill="#555550" />
+      {/* Bone joints on legs */}
+      <rect x="40" y="34" width="5" height="2" fill="#E8E8E0" />
+      <rect x="48" y="34" width="5" height="2" fill="#E8E8E0" />
+      <rect x="16" y="34" width="5" height="2" fill="#E8E8E0" />
+      <rect x="24" y="34" width="5" height="2" fill="#E8E8E0" />
+    </svg>
+  );
+}
+
 /* ─── WRAPPER COMPONENTS ──────────────────────────────────────── */
 
-type CharacterType = "steve-waving" | "steve-mining" | "steve-reading" | "creeper" | "enderman" | "zombie" | "pig" | "sheep";
+type CharacterType = "steve-waving" | "steve-mining" | "steve-reading" | "creeper" | "enderman" | "zombie" | "pig" | "sheep" | "skeleton-horse";
 type ItemType = "pickaxe" | "torch" | "book" | "crafting-table" | "chest" | "compass" | "sword" | "grass-block";
 
 interface McCharacterProps {
@@ -667,6 +725,7 @@ export function McCharacter({ character, size = 80, opacity = 1, className = "" 
     case "zombie":         return <Zombie {...props} />;
     case "pig":            return <Pig {...props} />;
     case "sheep":          return <Sheep {...props} />;
+    case "skeleton-horse": return <SkeletonHorse {...props} />;
   }
 }
 

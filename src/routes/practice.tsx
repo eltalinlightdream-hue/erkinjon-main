@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Headphones, BookOpen, PenLine, Mic, ArrowRight } from "lucide-react";
-import { Creeper, McItem, Zombie, SteveMining } from "@/components/minecraft-decorations";
+import { SteveReading, McItem, Pig } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/practice")({
   head: () => ({ meta: [
@@ -63,14 +63,14 @@ function Practice() {
     <SiteLayout>
       <section className="container mx-auto px-4 py-16 max-w-5xl relative">
 
-        {/* Creeper mascot — top-left corner */}
+        {/* Pig mascot — top-left corner */}
         <div className="absolute -top-2 left-0 pointer-events-none select-none z-10 hidden md:block">
-          <Creeper size={56} opacity={0.8} />
+          <Pig size={52} opacity={0.7} />
         </div>
 
-        {/* Steve mining — top right */}
-        <div className="absolute top-0 right-0 pointer-events-none select-none z-10 hidden lg:block mc-bob">
-          <SteveMining size={72} opacity={0.7} />
+        {/* Steve reading — top right */}
+        <div className="absolute top-0 right-0 pointer-events-none select-none z-10 hidden lg:block">
+          <SteveReading size={64} opacity={0.65} />
         </div>
 
         {/* Compass for navigation */}
@@ -79,10 +79,6 @@ function Practice() {
         </div>
 
         <div className="relative text-center mb-16">
-          {/* Zombie decoration — beginner theme */}
-          <div className="absolute -top-4 -right-4 pointer-events-none hidden md:block">
-            <Zombie size={48} opacity={0.2} />
-          </div>
 
           <h1 className="relative text-xl md:text-2xl font-bold mb-3 text-[#F5F5F5]">
             ⛏ Practice

@@ -4,11 +4,10 @@ import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper } from "lucide-react";
 import {
-  SteveWaving,
+  SkeletonHorse,
   EnderDragonSilhouette,
   McItem,
   GrassBlock,
-  Creeper,
 } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/")({
@@ -70,14 +69,9 @@ function Index() {
           <EnderDragonSilhouette width={600} height={240} opacity={0.07} />
         </div>
 
-        {/* Steve waving — top right */}
-        <div className="absolute top-6 right-4 md:right-12 pointer-events-none select-none z-10 mc-bob hidden sm:block">
-          <SteveWaving size={80} opacity={0.9} />
-        </div>
-
-        {/* Creeper — top left (small mascot) */}
+        {/* Skeleton Horse — top left mascot */}
         <div className="absolute top-8 left-4 md:left-10 pointer-events-none select-none z-10 hidden md:block">
-          <Creeper size={40} opacity={0.7} />
+          <SkeletonHorse size={56} opacity={0.75} />
         </div>
 
         {/* Scattered item decorations */}

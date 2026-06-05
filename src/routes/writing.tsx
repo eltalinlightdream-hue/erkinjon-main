@@ -959,7 +959,7 @@ function Writing() {
       <section className="container mx-auto px-4 py-12 max-w-6xl relative">
         {/* Minecraft decorations */}
         <div className="absolute top-4 right-4 pointer-events-none select-none hidden lg:flex flex-col items-end gap-3">
-          <SteveMining size={64} opacity={0.7} className="mc-bob" />
+          <SteveMining size={64} opacity={0.65} />
           <McItem item="crafting-table" size={26} opacity={0.15} />
         </div>
         <div className="absolute top-10 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
