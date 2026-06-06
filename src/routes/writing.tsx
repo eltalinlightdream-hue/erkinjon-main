@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useAuth } from "@/hooks/use-auth";
 import { WRITING_SAMPLES, WRITING_ESSAYS } from "@/lib/writing-samples-data";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
@@ -926,6 +927,8 @@ type TabType = 1 | 2 | "t1-samples" | "t2-samples";
 
 function Writing() {
   const { task: taskParam } = Route.useSearch();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [tab, setTab] = useState<TabType>(() => {
     if (taskParam === "t1-samples") return "t1-samples";
     if (taskParam === "t2-samples") return "t2-samples";
@@ -1085,7 +1088,7 @@ function Writing() {
               {visibleHtml.map((task) => (
                 <button
                   key={task.id}
-                  onClick={() => window.open(task.htmlFile, "_blank")}
+                  onClick={() => { if (!user) { void navigate({ to: "/auth" }); return; } window.open(task.htmlFile, "_blank"); }}
                   className="block text-left"
                 >
                   <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">

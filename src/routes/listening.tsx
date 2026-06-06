@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -466,6 +466,7 @@ function Listening() {
   const [statusFilter, setStatusFilter] = useState<"all" | ProgressStatus>("all");
   const { profile, deviceConflict, user } = useAuth();
   const isPremium = !!profile?.is_premium && !deviceConflict;
+  const navigate = useNavigate();
 
   const testIds = TESTS.map((t) => t.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(testIds);
@@ -487,6 +488,10 @@ function Listening() {
   });
 
   function openTest(test: ListeningTest) {
+    if (!user) {
+      void navigate({ to: "/auth" });
+      return;
+    }
     if (statusFor(test.id) === "not_done") {
       void setTestStatus(test.id, "not_completed");
     }
