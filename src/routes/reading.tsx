@@ -1256,6 +1256,60 @@ const PASSAGES: Passage[] = [
       "The traditional kampung houses of Malaysia do not need air-conditioning.",
     htmlFile: "/passages/Ideal_CDI_standalone.html",
   },
+  {
+    id: "p3-what-is-social-history",
+    title: "What is Social History?",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "An exploration of social history as an academic discipline and how it differs from traditional historical approaches.",
+    htmlFile: "/passages/what_is_social_history.html",
+  },
+  {
+    id: "p3-why-good-food-tastes-good",
+    title: "Why Good Food Tastes Good",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "The science behind taste perception and why certain foods are so enjoyable to eat.",
+    htmlFile: "/passages/why_good_food_tastes_good.html",
+  },
+  {
+    id: "p2-the-power-of-music",
+    title: "The Power of Music",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "How music affects the brain, health, and physical performance, explored through scientific research.",
+    htmlFile: "/passages/the_power_of_music.html",
+  },
+  {
+    id: "p2-lean-production",
+    title: "Lean Production",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "The principles and history of lean manufacturing, from craft production to modern just-in-time methods.",
+    htmlFile: "/passages/lean_production.html",
+  },
+  {
+    id: "p3-saving-the-skink",
+    title: "Saving the Skink",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Conservation efforts to protect the endangered skink lizard and the challenges of preserving its natural habitat.",
+    htmlFile: "/passages/saving_the_skink.html",
+  },
+  {
+    id: "p3-how-does-watching-sport-influence-the-brain",
+    title: "How Does Watching Sport Influence the Brain?",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "The neuroscience of sport spectatorship — how mirror neurons and other brain systems respond when we watch athletes.",
+    htmlFile: "/passages/how_does_watching_sport_influence_the_brain.html",
+  },
 ];
 
 const FILTERS = [
