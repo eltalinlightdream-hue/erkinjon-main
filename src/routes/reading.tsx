@@ -1,4 +1,4 @@
-import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { createFileRoute, useLocation, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
@@ -1336,6 +1336,7 @@ function Reading() {
 
   const { profile, deviceConflict, user } = useAuth();
   const isPremium = !!profile?.is_premium && !deviceConflict;
+  const navigate = useNavigate();
 
   const passageIds = PASSAGES.map((p) => p.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(passageIds);
@@ -1384,6 +1385,11 @@ function Reading() {
   } as const;
 
   function handleOpen(p: Passage) {
+    if (!user) {
+      void navigate({ to: "/auth" });
+      return;
+    }
+
     if (statusFor(p.id) === "not_done") {
       void setTestStatus(p.id, "not_completed");
     }
