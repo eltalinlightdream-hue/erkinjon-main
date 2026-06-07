@@ -83,7 +83,7 @@ function AuthPage() {
 }
 
 function validatePassword(pw: string): string | null {
-  if (pw.length < 4 || pw.length > 6) return "Password must be 4–6 characters.";
+  if (pw.length < 1) return "Password is required.";
   return null;
 }
 
@@ -271,7 +271,7 @@ function SignUpForm({ onReady }: { onReady: () => Promise<void> }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="new-password"
-          minLength={4}
+          minLength={1}
           maxLength={6}
           required
         />
