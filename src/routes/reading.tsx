@@ -1310,6 +1310,141 @@ const PASSAGES: Passage[] = [
       "The neuroscience of sport spectatorship — how mirror neurons and other brain systems respond when we watch athletes.",
     htmlFile: "/passages/how_does_watching_sport_influence_the_brain.html",
   },
+  {
+    id: "p2-traffic-jams",
+    title: "Traffic Jams",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "An academic passage exploring the causes of traffic congestion and modern solutions including smart motorways and variable speed limits.",
+    htmlFile: "/passages/traffic_jams.html",
+  },
+  {
+    id: "p1-secret-of-long-life",
+    title: "The Secret of Long Life",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage examining the factors that contribute to longevity, from diet and exercise to genetics and social connections.",
+    htmlFile: "/passages/secret_of_long_life.html",
+  },
+  {
+    id: "p1-history-of-ice-cream",
+    title: "The History of Ice Cream",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage tracing the origins and global spread of ice cream from ancient iced desserts to modern industrial production.",
+    htmlFile: "/passages/history_of_ice_cream.html",
+  },
+  {
+    id: "p1-daylight-saving-time",
+    title: "Daylight Saving Time",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage examining the history, rationale and ongoing debate surrounding the twice-yearly clock change.",
+    htmlFile: "/passages/daylight_saving_time.html",
+  },
+  {
+    id: "p3-willpower",
+    title: "Willpower",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage exploring the science of self-control, willpower depletion, and how people can strengthen their resolve.",
+    htmlFile: "/passages/willpower.html",
+  },
+  {
+    id: "p1-listening-to-the-ocean",
+    title: "Listening to the Ocean",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage about how scientists use underwater sound to study whale behaviour, ocean temperatures and climate change.",
+    htmlFile: "/passages/listening_to_the_ocean.html",
+  },
+  {
+    id: "p1-prosopagnosia",
+    title: "Sorry – Who Are You? (Prosopagnosia)",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage about prosopagnosia, the condition that makes it impossible to recognise faces, and the research being done to understand it.",
+    htmlFile: "/passages/prosopagnosia.html",
+  },
+  {
+    id: "p2-unfair-advantage-in-sport",
+    title: "What is an Unfair Advantage in Sport?",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage examining how altitude, altitude tents, and high-tech swimsuits raise questions about fairness in elite athletics.",
+    htmlFile: "/passages/unfair_advantage_in_sport.html",
+  },
+  {
+    id: "p2-link-between-culture-and-thought",
+    title: "The Link Between Culture and Thought",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage about research showing that people from Eastern and Western cultures process information and reason in fundamentally different ways.",
+    htmlFile: "/passages/link_between_culture_and_thought.html",
+  },
+  {
+    id: "p2-importance-of-law",
+    title: "The Importance of Law",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage exploring how law governs every aspect of life, the growth in legislation, and the often misunderstood role of lawyers.",
+    htmlFile: "/passages/importance_of_law.html",
+  },
+  {
+    id: "p3-future-of-worlds-languages",
+    title: "The Future of the World's Languages",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage about efforts to document and preserve endangered languages before they disappear, and the paradox of globalisation.",
+    htmlFile: "/passages/future_of_worlds_languages.html",
+  },
+  {
+    id: "p1-answers-underground",
+    title: "Answers Underground",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage about carbon sequestration – capturing CO₂ from power plants and burying it underground to slow global warming.",
+    htmlFile: "/passages/answers_underground.html",
+  },
+  {
+    id: "p3-voynich-manuscript",
+    title: "The Voynich Manuscript",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage about the mysterious medieval manuscript that has defied codebreakers for centuries, from amateur dabblers to top cryptanalysts.",
+    htmlFile: "/passages/voynich_manuscript.html",
+  },
+  {
+    id: "p3-business-innovation-mercer",
+    title: "Business Innovation (Mercer)",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage examining operational, strategic and demand innovations through case studies of Wal-Mart, Southwest Airlines and Air Liquide.",
+    htmlFile: "/passages/business_innovation_mercer.html",
+  },
+  {
+    id: "p3-innovation-in-business-nz",
+    title: "Innovation in Business (New Zealand)",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage discussing how New Zealand businesses approach innovation, from Edison's laborious experimentation to Steve Jobs' visionary leadership.",
+    htmlFile: "/passages/innovation_in_business_nz.html",
+  },
 ];
 
 const FILTERS = [
