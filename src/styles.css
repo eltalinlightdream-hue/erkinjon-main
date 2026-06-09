@@ -56,167 +56,183 @@
 :root {
   --radius: 0px;
 
-  /* ── Minecraft Dark Theme ─────────────────────────────────── */
-  --background: #1A1A1A;
-  --foreground: #F5F5F5;
+  /* ── Deep Navy Theme ──────────────────────────────────────────
+     Base: deep navy charcoal.  Single accent: sharp teal.
+     Premium tier keeps gold as its own deliberate, repeating token. */
+  --background: #0E1626;
+  --foreground: #F1F5F9;
 
-  --card: #2D2D2D;
-  --card-foreground: #F5F5F5;
-  --popover: #242424;
-  --popover-foreground: #F5F5F5;
+  --card: #16223A;
+  --card-foreground: #F1F5F9;
+  --popover: #111C30;
+  --popover-foreground: #F1F5F9;
 
-  /* Primary: Grass Green */
-  --primary: #5D8A3C;
-  --primary-foreground: #F5F5F5;
+  /* Primary: Teal (the one accent — CTAs, active links, highlights) */
+  --primary: #0D9488;
+  --primary-foreground: #FFFFFF;
 
-  /* Secondary: Sky Blue */
-  --secondary: #6AAFE6;
-  --secondary-foreground: #1A1A1A;
+  /* Secondary: muted slate-blue (functional, never the accent) */
+  --secondary: #38516E;
+  --secondary-foreground: #F1F5F9;
 
-  /* Muted: Dark Stone */
-  --muted: #3A3A3A;
-  --muted-foreground: #9A9A9A;
+  /* Muted: deep navy stone + readable secondary text */
+  --muted: #1E2C44;
+  --muted-foreground: #CBD5E1;
 
-  /* Accent: Dirt Brown */
-  --accent: #8B6343;
-  --accent-foreground: #F5F5F5;
+  /* Accent token kept subtle for component hovers (menus, etc.) */
+  --accent: #1E2C44;
+  --accent-foreground: #F1F5F9;
 
-  --destructive: #C0392B;
-  --destructive-foreground: #F5F5F5;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
 
-  --border: #5A5A5A;
-  --input: #333333;
-  --ring: #5D8A3C;
+  --border: #2A3A54;
+  --input: #13203A;
+  --ring: #14B8A6;
 
-  /* Minecraft custom palette */
-  --mc-grass:       #5D8A3C;
-  --mc-grass-dark:  #3D6B21;
-  --mc-dirt:        #8B6343;
-  --mc-dirt-dark:   #6B4C2A;
-  --mc-stone:       #8A8A8A;
-  --mc-stone-dark:  #5A5A5A;
-  --mc-sky:         #6AAFE6;
-  --mc-gold:        #FFD700;
-  --mc-obsidian:    #1A0A2E;
-  --mc-redstone:    #C0392B;
-  --mc-wood:        #A0722A;
-  --mc-sand:        #D4C066;
+  /* ── Brand palette ─────────────────────────────────────────────
+     --mc-grass* are repurposed as the teal accent so every existing
+     var(--mc-grass) reference (nav border, card hover, dividers,
+     badges) unifies on the one accent automatically. */
+  --mc-grass:       #0D9488;   /* teal-600  — accent base */
+  --mc-grass-dark:  #0F766E;   /* teal-700  — accent shadow/border */
+  --accent-teal:        #14B8A6;  /* teal-500 — bright highlight */
+  --accent-teal-bright: #2DD4BF;  /* teal-400 — text on dark navy */
+  --accent-teal-soft:   #5EEAD4;  /* teal-300 — brighter hover text */
+  --accent-teal-deep:   #062E2A;  /* deepest teal — hard shadow */
+
+  --mc-dirt:        #334155;   /* slate (was dirt brown) */
+  --mc-dirt-dark:   #1E293B;
+  --mc-stone:       #475569;
+  --mc-stone-dark:  #2A3A54;
+  --mc-sky:         #38BDF8;   /* sky kept only for sprite/category art */
+  --mc-gold:        #FFD700;   /* PREMIUM tier — deliberate 2nd token */
+  --mc-gold-dark:   #C09A00;
+  --mc-obsidian:    #0B1220;
+  --mc-redstone:    #DC2626;
+
+  /* Unified glow — repeats on card hover, CTA hover, hero, stats */
+  --glow-accent:      0 0 0 1px rgba(20,184,166,0.55), 0 0 18px rgba(20,184,166,0.30);
+  --glow-accent-soft: 0 0 14px rgba(20,184,166,0.22);
+  --glow-gold:        0 0 0 1px rgba(255,215,0,0.45), 0 0 16px rgba(255,215,0,0.28);
 
   /* Legacy color aliases (keeps existing utility classes working) */
   --gold:   #FFD700;
-  --sakura: #8B6343;
-  --matcha: #5D8A3C;
-  --washi:  #1A1A1A;
-  --ink:    #F5F5F5;
+  --sakura: #14B8A6;
+  --matcha: #0D9488;
+  --washi:  #0E1626;
+  --ink:    #F1F5F9;
 
   /* Gradient overrides */
-  --gradient-primary: linear-gradient(135deg, #3D6B21 0%, #5D8A3C 100%);
-  --gradient-sakura:  linear-gradient(135deg, #6B4C2A 0%, #8B6343 100%);
-  --gradient-warm:    linear-gradient(160deg, #1A1A1A 0%, #2D2D2D 100%);
+  --gradient-primary: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+  --gradient-sakura:  linear-gradient(135deg, #0F766E 0%, #0D9488 100%);
+  --gradient-warm:    linear-gradient(160deg, #0E1626 0%, #16223A 100%);
 
   /* Minecraft hard shadows */
   --shadow-soft: 4px 4px 0px rgba(0,0,0,0.6);
   --shadow-warm: 6px 6px 0px rgba(0,0,0,0.6);
   --shadow-card: 3px 3px 0px rgba(0,0,0,0.5);
 
-  --chart-1: #5D8A3C;
-  --chart-2: #6AAFE6;
+  --chart-1: #0D9488;
+  --chart-2: #14B8A6;
   --chart-3: #FFD700;
-  --chart-4: #8B6343;
-  --chart-5: #C0392B;
+  --chart-4: #38516E;
+  --chart-5: #DC2626;
 
-  --sidebar: #242424;
-  --sidebar-foreground: #F5F5F5;
-  --sidebar-primary: #5D8A3C;
-  --sidebar-primary-foreground: #F5F5F5;
-  --sidebar-accent: #8B6343;
-  --sidebar-accent-foreground: #F5F5F5;
-  --sidebar-border: #5A5A5A;
-  --sidebar-ring: #5D8A3C;
+  --sidebar: #111C30;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-primary: #0D9488;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1E2C44;
+  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar-border: #2A3A54;
+  --sidebar-ring: #14B8A6;
 }
 
 .dark {
-  --background: #1A1A1A;
-  --foreground: #F5F5F5;
-  --card: #2D2D2D;
-  --card-foreground: #F5F5F5;
-  --popover: #242424;
-  --popover-foreground: #F5F5F5;
-  --primary: #5D8A3C;
-  --primary-foreground: #F5F5F5;
-  --secondary: #6AAFE6;
-  --secondary-foreground: #1A1A1A;
-  --muted: #3A3A3A;
-  --muted-foreground: #9A9A9A;
-  --accent: #8B6343;
-  --accent-foreground: #F5F5F5;
-  --destructive: #C0392B;
-  --destructive-foreground: #F5F5F5;
-  --border: #5A5A5A;
-  --input: #333333;
-  --ring: #5D8A3C;
-  --sidebar: #242424;
-  --sidebar-foreground: #F5F5F5;
-  --sidebar-primary: #5D8A3C;
-  --sidebar-primary-foreground: #F5F5F5;
-  --sidebar-accent: #8B6343;
-  --sidebar-accent-foreground: #F5F5F5;
-  --sidebar-border: #5A5A5A;
-  --sidebar-ring: #5D8A3C;
+  --background: #0E1626;
+  --foreground: #F1F5F9;
+  --card: #16223A;
+  --card-foreground: #F1F5F9;
+  --popover: #111C30;
+  --popover-foreground: #F1F5F9;
+  --primary: #0D9488;
+  --primary-foreground: #FFFFFF;
+  --secondary: #38516E;
+  --secondary-foreground: #F1F5F9;
+  --muted: #1E2C44;
+  --muted-foreground: #CBD5E1;
+  --accent: #1E2C44;
+  --accent-foreground: #F1F5F9;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #2A3A54;
+  --input: #13203A;
+  --ring: #14B8A6;
+  --sidebar: #111C30;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-primary: #0D9488;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1E2C44;
+  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar-border: #2A3A54;
+  --sidebar-ring: #14B8A6;
 }
 
 /* ─── LIGHT MODE VARIABLES ────────────────────────────────────── */
 
 :root.light {
-  --background: #F5F5F5;
-  --foreground: #1A1A1A;
+  --background: #F1F5F9;
+  --foreground: #0E1626;
   --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
+  --card-foreground: #0E1626;
   --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
-  --primary: #5D8A3C;
-  --primary-foreground: #F5F5F5;
-  --secondary: #6AAFE6;
-  --secondary-foreground: #1A1A1A;
-  --muted: #EFEFEF;
-  --muted-foreground: #5A5A5A;
-  --accent: #8B6343;
-  --accent-foreground: #F5F5F5;
-  --destructive: #C0392B;
-  --destructive-foreground: #F5F5F5;
-  --border: #AAAAAA;
-  --input: #EFEFEF;
-  --ring: #5D8A3C;
-  --gradient-warm: linear-gradient(160deg, #F5F5F5 0%, #EFEFEF 100%);
-  --shadow-soft: 4px 4px 0px rgba(0,0,0,0.15);
-  --shadow-warm: 6px 6px 0px rgba(0,0,0,0.15);
-  --shadow-card: 3px 3px 0px rgba(0,0,0,0.1);
-  --sidebar: #F0F0F0;
-  --sidebar-foreground: #1A1A1A;
-  --sidebar-primary: #5D8A3C;
-  --sidebar-primary-foreground: #F5F5F5;
-  --sidebar-accent: #8B6343;
-  --sidebar-accent-foreground: #F5F5F5;
-  --sidebar-border: #CCCCCC;
-  --sidebar-ring: #5D8A3C;
+  --popover-foreground: #0E1626;
+  --primary: #0D9488;
+  --primary-foreground: #FFFFFF;
+  --secondary: #CBD5E1;
+  --secondary-foreground: #0E1626;
+  --muted: #E2E8F0;
+  --muted-foreground: #475569;
+  --accent: #E2E8F0;
+  --accent-foreground: #0E1626;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #CBD5E1;
+  --input: #E2E8F0;
+  --ring: #0D9488;
+  --gradient-warm: linear-gradient(160deg, #F1F5F9 0%, #E2E8F0 100%);
+  --shadow-soft: 4px 4px 0px rgba(15,23,42,0.15);
+  --shadow-warm: 6px 6px 0px rgba(15,23,42,0.15);
+  --shadow-card: 3px 3px 0px rgba(15,23,42,0.1);
+  --glow-accent:      0 0 0 1px rgba(13,148,136,0.5), 0 0 16px rgba(13,148,136,0.22);
+  --glow-accent-soft: 0 0 14px rgba(13,148,136,0.18);
+  --sidebar: #F8FAFC;
+  --sidebar-foreground: #0E1626;
+  --sidebar-primary: #0D9488;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E2E8F0;
+  --sidebar-accent-foreground: #0E1626;
+  --sidebar-border: #CBD5E1;
+  --sidebar-ring: #0D9488;
 
   /* Nav-specific tokens */
-  --nav-bg: #F0F0F0;
-  --nav-text: #4A4A4A;
-  --nav-text-hover: #1A1A1A;
-  --nav-hover-bg: #DCDCDC;
+  --nav-bg: #F8FAFC;
+  --nav-text: #475569;
+  --nav-text-hover: #0E1626;
+  --nav-hover-bg: #E2E8F0;
   --nav-dropdown-bg: #FFFFFF;
-  --nav-border: #CCCCCC;
+  --nav-border: #CBD5E1;
 }
 
 /* Dark mode nav tokens */
 :root, :root.dark {
-  --nav-bg: #242424;
-  --nav-text: #9A9A9A;
-  --nav-text-hover: #F5F5F5;
-  --nav-hover-bg: #3A3A3A;
-  --nav-dropdown-bg: #2D2D2D;
-  --nav-border: #5A5A5A;
+  --nav-bg: #111C30;
+  --nav-text: #CBD5E1;
+  --nav-text-hover: #F1F5F9;
+  --nav-hover-bg: #1E2C44;
+  --nav-dropdown-bg: #16223A;
+  --nav-border: #2A3A54;
 }
 
 /* ─── THEME TRANSITION ────────────────────────────────────────── */
@@ -249,12 +265,12 @@
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "kern" 1;
     /* Subtle pixel dot-grid background */
-    background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+    background-image: radial-gradient(circle, #1B2A44 1px, transparent 1px);
     background-size: 16px 16px;
   }
 
   :root.light body {
-    background-image: radial-gradient(circle, #C8C8C8 1px, transparent 1px);
+    background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
     background-size: 16px 16px;
   }
 
@@ -277,8 +293,8 @@
   }
 
   input:focus, textarea:focus, select:focus {
-    border-color: var(--mc-sky) !important;
-    box-shadow: 0 0 0 2px rgba(106,175,230,0.25) !important;
+    border-color: var(--accent-teal) !important;
+    box-shadow: 0 0 0 2px rgba(20,184,166,0.25) !important;
     outline: none !important;
   }
 
@@ -297,49 +313,49 @@
 
 :root.light .bento-card {
   background: #FFFFFF;
-  border-color: #BBBBBB;
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.12);
+  border-color: #CBD5E1;
+  box-shadow: 4px 4px 0px rgba(15,23,42,0.10);
   background-image:
-    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+    linear-gradient(rgba(15,23,42,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,23,42,0.02) 1px, transparent 1px);
 }
 
 :root.light .bento-card:hover {
-  box-shadow: 6px 6px 0px rgba(0,0,0,0.18);
-  border-color: var(--mc-grass);
+  box-shadow: 4px 4px 0px rgba(15,23,42,0.10), var(--glow-accent);
+  border-color: var(--accent-teal);
 }
 
 :root.light .mc-bg-pattern {
-  background-image: radial-gradient(circle, #C8C8C8 1px, transparent 1px);
+  background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
 }
 
 :root.light .mc-bg-stone {
   background-image:
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(15,23,42,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,23,42,0.03) 1px, transparent 1px);
 }
 
 :root.light input, :root.light textarea, :root.light select {
-  background-color: #EFEFEF !important;
-  border: 2px solid #AAAAAA !important;
-  color: #1A1A1A !important;
+  background-color: #E2E8F0 !important;
+  border: 2px solid #CBD5E1 !important;
+  color: #0E1626 !important;
 }
 
 :root.light input:focus, :root.light textarea:focus, :root.light select:focus {
-  border-color: var(--mc-sky) !important;
-  box-shadow: 0 0 0 2px rgba(106,175,230,0.3) !important;
+  border-color: var(--accent-teal) !important;
+  box-shadow: 0 0 0 2px rgba(13,148,136,0.3) !important;
 }
 
 :root.light .keyboard-frame {
-  background: #D8D8D8;
-  border-color: #B0B0B0;
-  box-shadow: 0 32px 64px rgba(0,0,0,0.15), 0 16px 0 0 #B0B0B0;
+  background: #D8DEE9;
+  border-color: #B0BAC8;
+  box-shadow: 0 32px 64px rgba(15,23,42,0.15), 0 16px 0 0 #B0BAC8;
 }
 
-:root.light .keycap-cream .keycap-top  { background: #C8C8C8; color: #1A1A1A; }
-:root.light .keycap-cream .keycap-skirt { background: #B0B0B0; }
-:root.light .keycap-grey .keycap-top   { background: #B8B8B8; color: #1A1A1A; }
-:root.light .keycap-grey .keycap-skirt  { background: #A0A0A0; }
+:root.light .keycap-cream .keycap-top  { background: #C8D2E0; color: #0E1626; }
+:root.light .keycap-cream .keycap-skirt { background: #B0BAC8; }
+:root.light .keycap-grey .keycap-top   { background: #B8C2D2; color: #0E1626; }
+:root.light .keycap-grey .keycap-skirt  { background: #A0AABA; }
 
 /* ─── ANIMATIONS ─────────────────────────────────────────────── */
 
@@ -397,7 +413,11 @@
   .text-sage            { color: var(--matcha); }
   .text-sakura          { color: var(--sakura); }
 
-  /* Minecraft grass-top border (replaces sakura-top-border) */
+  /* Unified accent glow (card hover, CTA hover, hero, stats) */
+  .glow-accent          { box-shadow: var(--glow-accent); }
+  .glow-accent-soft     { box-shadow: var(--glow-accent-soft); }
+
+  /* Teal grass-top border (replaces sakura-top-border) */
   .sakura-top-border {
     border-top: 4px solid var(--mc-grass);
   }
@@ -429,37 +449,37 @@
 
   /* Badge difficulty colors */
   .badge-beginner {
-    background-color: #3D6B21;
-    color: #F5F5F5;
-    border: 2px solid #5D8A3C;
+    background-color: #0F766E;
+    color: #F1F5F9;
+    border: 2px solid #14B8A6;
     padding: 2px 8px;
     font-family: 'Press Start 2P', monospace;
     font-size: 9px;
   }
 
   .badge-intermediate {
-    background-color: #1A5C8A;
-    color: #F5F5F5;
-    border: 2px solid #6AAFE6;
+    background-color: #1E3A5F;
+    color: #F1F5F9;
+    border: 2px solid #38BDF8;
     padding: 2px 8px;
     font-family: 'Press Start 2P', monospace;
     font-size: 9px;
   }
 
   .badge-advanced {
-    background-color: #6B4C2A;
-    color: #F5F5F5;
-    border: 2px solid #8B6343;
+    background-color: #7A5E00;
+    color: #F1F5F9;
+    border: 2px solid #FFD700;
     padding: 2px 8px;
     font-family: 'Press Start 2P', monospace;
     font-size: 9px;
   }
 }
 
-/* ─── MINECRAFT PIXEL-DOT BACKGROUND ─────────────────────────── */
+/* ─── PIXEL-DOT BACKGROUND ────────────────────────────────────── */
 
 .mc-bg-pattern {
-  background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+  background-image: radial-gradient(circle, #1B2A44 1px, transparent 1px);
   background-size: 16px 16px;
 }
 
@@ -470,38 +490,39 @@
   background-size: 8px 8px;
 }
 
-/* ─── GLASSMORPHISM NAV → MINECRAFT DARK NAV ─────────────────── */
+/* ─── NAV ─────────────────────────────────────────────────────── */
 
 .glass-nav {
-  background: #242424;
+  background: #111C30;
   border-bottom: 3px solid var(--mc-grass);
   box-shadow:
     0 4px 0px var(--mc-grass-dark),
     inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
-/* ─── BENTO CARDS → STONE BLOCK CARDS ────────────────────────── */
+/* ─── BENTO CARDS → NAVY BLOCK CARDS ─────────────────────────── */
 
 .bento-card {
-  background: #2D2D2D;
-  border: 2px solid #5A5A5A;
+  background: #16223A;
+  border: 2px solid #2A3A54;
   box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
   /* Subtle stone texture */
   background-image:
     linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size: 8px 8px;
-  transition: box-shadow 0.12s ease, transform 0.12s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
   position: relative;
 }
 
+/* Soft accent glow border + slight lift on hover */
 .bento-card:hover {
-  box-shadow: 6px 6px 0px rgba(0,0,0,0.6);
-  transform: translateY(-3px);
-  border-color: var(--mc-grass);
+  transform: translateY(-2px);
+  border-color: var(--accent-teal);
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.55), var(--glow-accent);
 }
 
-/* Small block decoration in top-right corner of cards */
+/* Small accent block decoration in top-right corner of cards */
 .bento-card::after {
   content: '';
   position: absolute;
@@ -530,11 +551,12 @@
   border-bottom-color: rgba(0,0,0,0.5) !important;
   border-right-color: rgba(0,0,0,0.4) !important;
   box-shadow: 4px 4px 0px rgba(0,0,0,0.6) !important;
-  transition: box-shadow 0.08s ease, transform 0.08s ease !important;
+  transition: box-shadow 0.12s ease, transform 0.12s ease !important;
 }
 
+/* Same accent glow language as cards on hover */
 .mc-btn:hover, .btn-mc:hover {
-  box-shadow: 6px 6px 0px rgba(0,0,0,0.6) !important;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.6), var(--glow-accent) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -579,7 +601,7 @@
   transform: rotateY(180deg);
 }
 
-/* ─── 3D KEYBOARD (updated Minecraft colors) ──────────────────── */
+/* ─── 3D KEYBOARD (legacy — kept for any remaining usage) ─────── */
 
 .keyboard-scene {
   perspective: 1200px;
@@ -587,14 +609,14 @@
 }
 
 .keyboard-frame {
-  background: #3A3A3A;
-  border: 3px solid #5A5A5A;
-  border-bottom-color: #2A2A2A;
-  border-right-color: #2A2A2A;
+  background: #1E2C44;
+  border: 3px solid #2A3A54;
+  border-bottom-color: #0B1220;
+  border-right-color: #0B1220;
   padding: 1.75rem 2rem 1.25rem;
   box-shadow:
     0 32px 64px rgba(0, 0, 0, 0.5),
-    0 16px 0 0 #1A1A1A,
+    0 16px 0 0 #0B1220,
     inset 0 2px 4px rgba(255, 255, 255, 0.08);
   transform: rotateX(25deg) rotateY(-10deg);
   transform-style: preserve-3d;
@@ -642,16 +664,16 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Minecraft keycap colour variants */
-.keycap-cream .keycap-top  { background: #4A4A4A; color: #F5F5F5; }
-.keycap-cream .keycap-skirt { background: #4A4A4A; }
+/* Keycap colour variants */
+.keycap-cream .keycap-top  { background: #33425E; color: #F1F5F9; }
+.keycap-cream .keycap-skirt { background: #33425E; }
 
-.keycap-grey .keycap-top  { background: #5A5A5A; color: #F5F5F5; }
-.keycap-grey .keycap-skirt { background: #5A5A5A; }
+.keycap-grey .keycap-top  { background: #2A3A54; color: #F1F5F9; }
+.keycap-grey .keycap-skirt { background: #2A3A54; }
 
-.keycap-dark .keycap-top  { background: #2D2D2D; color: #F5F5F5; }
-.keycap-dark .keycap-skirt { background: #2D2D2D; }
+.keycap-dark .keycap-top  { background: #16223A; color: #F1F5F9; }
+.keycap-dark .keycap-skirt { background: #16223A; }
 
-/* Grass Green — primary action key */
-.keycap-blue .keycap-top  { background: #5D8A3C; color: #F5F5F5; }
-.keycap-blue .keycap-skirt { background: #3D6B21; }
+/* Teal — primary action key */
+.keycap-blue .keycap-top  { background: #0D9488; color: #FFFFFF; }
+.keycap-blue .keycap-skirt { background: #0F766E; }

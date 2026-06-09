@@ -1550,7 +1550,7 @@ function Reading() {
           <McItem item="crafting-table" size={32} opacity={1} />
         </div>
         <div className="mb-10">
-          <h1 className="text-2xl md:text-3xl font-bold mb-3 text-[#6AAFE6]">📖 IELTS Reading Practice</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-3 text-[#2DD4BF]">📖 IELTS Reading Practice</h1>
           <p className="text-muted-foreground mb-1">Filter by passage type and open any passage in a clean reader view.</p>
           <p className="font-mono text-[11px] text-muted-foreground/70 tracking-wide italic">
             ⏱ Recommended time: Passage 1 &amp; 2 — 20 min &nbsp;|&nbsp; Passage 3 — 22 min
