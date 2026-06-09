@@ -1,10 +1,8 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useRef, useEffect } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
-import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper } from "lucide-react";
+import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper, Award, Layers, Zap } from "lucide-react";
 import {
-  SkeletonHorse,
   EnderDragonSilhouette,
   McItem,
   GrassBlock,
@@ -20,76 +18,138 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const FEATURES = [
-  { icon: BookOpen, title: "Free Materials", desc: "Tips, model answers and downloadable PDFs across all four IELTS skills." },
-  { icon: PenLine, title: "Online Practice", desc: "Real IELTS prompts, mini-quizzes, and a Part 2 topic randomizer." },
-  { icon: Newspaper, title: "Articles", desc: "Read helpful IELTS articles, study advice, and practical language-learning tips." },
-  { icon: Crown, title: "Premium Membership", desc: "Unlock model answers, premium PDFs, and exclusive video lessons." },
-  { icon: Youtube, title: "YouTube Lessons", desc: "Watch full playlists on Writing, Speaking, Reading, Listening and Grammar." },
-];
+/* ─── Minecraft night landscape — full-bleed hero background ───────
+   Original SVG illustration (no external assets / licensing).  A blocky
+   night scene: navy sky, pixel stars, a glowing square "moon" in the
+   accent teal, layered hills with teal grass caps.  The moon glow is
+   the same accent glow reused on the CTA + card hovers + stats. */
+function MinecraftNightScene() {
+  const cols = 30;
+  const colW = 960 / cols;
+
+  // Front hill: rolling, snapped to a 16px pixel grid
+  const front = Array.from({ length: cols }, (_, i) => {
+    const wave = Math.sin(i * 0.5) * 24 + Math.sin(i * 0.17) * 16;
+    return Math.round((332 + wave) / 16) * 16;
+  });
+  // Back hill: lower-frequency, sits higher and darker
+  const back = Array.from({ length: cols }, (_, i) => {
+    const wave = Math.sin(i * 0.32 + 1.2) * 30;
+    return Math.round((286 + wave) / 16) * 16;
+  });
+
+  const stars = [
+    [70, 60], [140, 110], [220, 48], [300, 90], [380, 40],
+    [470, 120], [540, 66], [620, 100], [690, 54], [770, 130],
+    [840, 70], [110, 170], [260, 150], [430, 175], [600, 158],
+    [760, 184], [900, 120], [40, 130], [500, 30], [820, 30],
+  ];
+
+  return (
+    <svg
+      viewBox="0 0 960 480"
+      preserveAspectRatio="xMidYMax slice"
+      className="absolute inset-0 w-full h-full"
+      shapeRendering="crispEdges"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="mc-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#0B1220" />
+          <stop offset="55%" stopColor="#0E1626" />
+          <stop offset="100%" stopColor="#122A3E" />
+        </linearGradient>
+        <filter id="mc-moon-glow" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="10" />
+        </filter>
+      </defs>
+
+      {/* Sky */}
+      <rect x="0" y="0" width="960" height="480" fill="url(#mc-sky)" />
+
+      {/* Faint teal horizon band */}
+      <rect x="0" y="250" width="960" height="60" fill="#14B8A6" opacity="0.05" />
+
+      {/* Stars (pixel squares) */}
+      {stars.map(([x, y], i) => (
+        <rect
+          key={i}
+          x={x}
+          y={y}
+          width={i % 4 === 0 ? 4 : 3}
+          height={i % 4 === 0 ? 4 : 3}
+          fill="#E2E8F0"
+          opacity={0.35 + (i % 3) * 0.2}
+        />
+      ))}
+
+      {/* Square Minecraft moon with accent glow */}
+      <rect x="780" y="64" width="56" height="56" fill="#14B8A6" opacity="0.45" filter="url(#mc-moon-glow)" />
+      <rect x="784" y="68" width="48" height="48" fill="#E8EEF5" />
+      <rect x="784" y="68" width="48" height="48" fill="none" stroke="#14B8A6" strokeWidth="2" opacity="0.5" />
+      <rect x="800" y="80" width="8" height="8" fill="#CBD5E1" opacity="0.6" />
+      <rect x="816" y="96" width="6" height="6" fill="#CBD5E1" opacity="0.5" />
+
+      {/* Faint dragon drifting across the sky */}
+      <g transform="translate(150 92)" opacity="0.10">
+        <EnderDragonSilhouette width={220} height={88} opacity={1} />
+      </g>
+
+      {/* Back hill range (darker) */}
+      {back.map((h, i) => (
+        <g key={`b${i}`}>
+          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#0C1A2C" />
+          <rect x={i * colW} y={h} width={colW + 1} height={10} fill="#0F766E" opacity="0.55" />
+        </g>
+      ))}
+
+      {/* Front hill range with teal grass caps */}
+      {front.map((h, i) => (
+        <g key={`f${i}`}>
+          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#0A1626" />
+          <rect x={i * colW} y={h} width={colW + 1} height={14} fill="#0D9488" />
+          <rect x={i * colW} y={h} width={colW + 1} height={3} fill="#14B8A6" opacity="0.85" />
+        </g>
+      ))}
+
+      {/* A couple of blocky pixel trees on the front ridge */}
+      {[210, 540, 720].map((tx, i) => {
+        const h = front[Math.round(tx / colW)] ?? 332;
+        return (
+          <g key={`t${i}`}>
+            <rect x={tx} y={h - 26} width={10} height={26} fill="#0F2A2E" />
+            <rect x={tx - 12} y={h - 50} width={34} height={26} fill="#0D9488" opacity="0.85" />
+            <rect x={tx - 12} y={h - 50} width={34} height={4} fill="#14B8A6" opacity="0.7" />
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
 
 function Index() {
-  const navigate = useNavigate();
-  const keyboardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = keyboardRef.current;
-    if (!el) return;
-    let timer: ReturnType<typeof setTimeout>;
-
-    const onMove = (e: MouseEvent) => {
-      const x = (window.innerWidth / 2 - e.clientX) / 45;
-      const y = (window.innerHeight / 2 - e.clientY) / 45;
-      el.style.animation = "none";
-      el.style.transform = `rotateX(${25 + y}deg) rotateY(${-10 + x}deg) translateZ(10px)`;
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        el.style.animation = "floating 6s ease-in-out infinite";
-        el.style.transform = "";
-      }, 1200);
-    };
-
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      clearTimeout(timer);
-    };
-  }, []);
-
-  const goTo = (path: string) => {
-    navigate({ to: path as Parameters<typeof navigate>[0]["to"] });
-  };
-
   return (
     <SiteLayout>
       {/* ─── HERO ─────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden flex flex-col items-center pb-8">
-        {/* Ender Dragon silhouette background */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0">
-          <EnderDragonSilhouette width={600} height={240} opacity={0.07} />
-        </div>
-
-        {/* Skeleton Horse — top left mascot */}
-        <div className="absolute top-8 left-4 md:left-10 pointer-events-none select-none z-10 hidden md:block">
-          <SkeletonHorse size={56} opacity={0.75} />
-        </div>
-
-        {/* Scattered item decorations */}
-        <div className="absolute bottom-32 left-8 pointer-events-none opacity-10 hidden lg:block">
-          <McItem item="pickaxe" size={36} opacity={1} />
-        </div>
-        <div className="absolute bottom-28 right-8 pointer-events-none opacity-10 hidden lg:block">
-          <McItem item="crafting-table" size={32} opacity={1} />
-        </div>
-        <div className="absolute top-32 right-36 pointer-events-none opacity-[0.06] hidden xl:block">
-          <McItem item="torch" size={28} opacity={1} />
+        {/* Minecraft night landscape background */}
+        <div className="absolute inset-0 pointer-events-none select-none z-0">
+          <MinecraftNightScene />
+          {/* Fade the scene into the page so text stays readable */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(14,22,38,0.55) 0%, rgba(14,22,38,0.35) 35%, rgba(14,22,38,0.85) 78%, var(--background) 100%)",
+            }}
+          />
         </div>
 
         {/* Hero text */}
         <div className="relative container mx-auto px-4 pt-20 md:pt-28 pb-10 max-w-3xl text-center z-10">
           {/* IELTS band badge */}
           <span
-            className="ink-bleed inline-flex items-center gap-2 px-4 py-1.5 bg-[#2D2D2D] border-2 border-[#5A5A5A] font-mono text-[10px] tracking-wider text-[#9A9A9A] mb-8 shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
+            className="ink-bleed inline-flex items-center gap-2 px-4 py-1.5 bg-[#16223A] border-2 border-[#2A3A54] font-mono text-[10px] tracking-wider text-[#CBD5E1] mb-8 shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
             style={{ animationDelay: "0.05s" }}
           >
             <GrassBlock size={12} opacity={1} />
@@ -97,15 +157,15 @@ function Index() {
           </span>
 
           <h1
-            className="ink-bleed text-2xl md:text-4xl font-bold mb-5 text-[#F5F5F5]"
+            className="ink-bleed text-2xl md:text-4xl font-bold mb-5 text-[#F1F5F9]"
             style={{ animationDelay: "0.25s" }}
           >
             Master IELTS with{" "}
-            <span className="text-[#7DBD50]">guided practice</span>
+            <span className="text-[#2DD4BF]">guided practice</span>
           </h1>
 
           <p
-            className="ink-bleed text-base md:text-lg text-[#9A9A9A] max-w-xl mx-auto mb-10 leading-relaxed font-sans"
+            className="ink-bleed text-base md:text-lg text-[#CBD5E1] max-w-xl mx-auto mb-10 leading-relaxed font-sans"
             style={{ animationDelay: "0.4s" }}
           >
             Friendly lessons, real exam strategies, and structured practice — built for Uzbek learners who want a real score jump.
@@ -115,19 +175,21 @@ function Index() {
             className="ink-bleed flex flex-col sm:flex-row gap-3 justify-center"
             style={{ animationDelay: "0.55s" }}
           >
+            {/* PRIMARY: Start Practicing Free — filled teal with accent glow */}
             <Link to="/reading">
               <Button
                 size="lg"
-                className="bg-[#5D8A3C] text-white border-2 border-[#3D6B21] shadow-[4px_4px_0px_#1A3A10] hover:bg-[#7DBD50] hover:shadow-[6px_6px_0px_#1A3A10] active:shadow-[2px_2px_0px_#1A3A10] active:translate-x-0.5 active:translate-y-0.5 h-12 px-8 transition-all duration-100 font-serif text-[10px] tracking-widest uppercase"
+                className="bg-[#0D9488] text-white border-2 border-[#0F766E] shadow-[4px_4px_0px_#062E2A] hover:bg-[#14B8A6] hover:shadow-[4px_4px_0px_#062E2A,0_0_18px_rgba(20,184,166,0.5)] active:shadow-[2px_2px_0px_#062E2A] active:translate-x-0.5 active:translate-y-0.5 h-12 px-8 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
               >
                 Start Practicing Free <ArrowRight className="ml-1.5 w-4 h-4" />
               </Button>
             </Link>
+            {/* SECONDARY: Get Premium Access — demoted to ghost/outline on the hero */}
             <Link to="/premium">
               <Button
                 size="lg"
                 variant="outline"
-                className="h-12 px-8 border-2 border-[#5A5A5A] bg-[#2D2D2D] text-[#F5F5F5] hover:bg-[#3A3A3A] hover:border-[#FFD700] shadow-[4px_4px_0px_rgba(0,0,0,0.5)] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.5)] active:shadow-[2px_2px_0px_rgba(0,0,0,0.5)] active:translate-x-0.5 active:translate-y-0.5 transition-all duration-100 font-serif text-[10px] tracking-widest uppercase"
+                className="h-12 px-8 border-2 border-[#2A3A54] bg-transparent text-[#CBD5E1] hover:bg-[#1E2C44] hover:text-[#F1F5F9] hover:border-[#14B8A6] shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
               >
                 Get Premium Access
               </Button>
@@ -135,86 +197,39 @@ function Index() {
           </div>
         </div>
 
-        {/* ── 3D KEYBOARD ── */}
-        <div className="keyboard-scene relative pb-16 md:pb-24 z-10">
-          <div
-            className="keyboard-frame animate-floating"
-            ref={keyboardRef}
-            id="keyboard-container"
-          >
-            {/* Key legend */}
-            <div className="flex justify-between items-center mb-4 px-1 opacity-50">
-              <div className="flex gap-2">
-                <div className="w-2 h-2 bg-[#C0392B]" />
-                <div className="w-2 h-2 bg-[#FFD700]" />
-                <div className="w-2 h-2 bg-[#5D8A3C]" />
-              </div>
-              <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#6A6A6A]">IELTS PAD</span>
-            </div>
-
-            <div className="grid grid-cols-4 gap-3 md:gap-[14px] w-[270px] md:w-[340px]">
-              {/* Row 1 — utility keys */}
-              <div className="keycap keycap-grey h-10 md:h-11">
-                <div className="keycap-top font-mono text-[10px]">Esc</div>
-                <div className="keycap-skirt" />
-              </div>
-              <div className="keycap keycap-grey h-10 md:h-11">
-                <div className="keycap-top font-mono text-[10px]">Tab</div>
-                <div className="keycap-skirt" />
-              </div>
-              <div className="keycap keycap-grey h-10 md:h-11">
-                <div className="keycap-top font-mono text-xs">/</div>
-                <div className="keycap-skirt" />
-              </div>
-              <div className="keycap keycap-grey h-10 md:h-11">
-                <div className="keycap-top font-mono text-xs">*</div>
-                <div className="keycap-skirt" />
-              </div>
-
-              {/* Row 2 — L R W S */}
-              <div className="keycap keycap-cream h-14 md:h-16" onClick={() => goTo("/listening")} title="Listening">
-                <div className="keycap-top font-mono text-2xl md:text-3xl font-bold text-[#7DBD50]">L</div>
-                <div className="keycap-skirt" />
-              </div>
-              <div className="keycap keycap-cream h-14 md:h-16" onClick={() => goTo("/reading")} title="Reading">
-                <div className="keycap-top font-mono text-2xl md:text-3xl font-bold text-[#6AAFE6]">R</div>
-                <div className="keycap-skirt" />
-              </div>
-              <div className="keycap keycap-cream h-14 md:h-16" onClick={() => goTo("/writing")} title="Writing">
-                <div className="keycap-top font-mono text-2xl md:text-3xl font-bold text-[#FFD700]">W</div>
-                <div className="keycap-skirt" />
-              </div>
-              <div className="keycap keycap-cream h-14 md:h-16" onClick={() => goTo("/speaking")} title="Speaking">
-                <div className="keycap-top font-mono text-2xl md:text-3xl font-bold text-[#C0392B]">S</div>
-                <div className="keycap-skirt" />
-              </div>
-
-              {/* Row 3 — V + Enter (wide) */}
-              <div className="keycap keycap-dark h-14 md:h-16" onClick={() => goTo("/vocabulary")} title="Vocabulary">
-                <div className="keycap-top font-mono text-2xl md:text-3xl font-bold text-[#8B6343]">V</div>
-                <div className="keycap-skirt" />
-              </div>
-              <div className="keycap keycap-blue col-span-3 h-14 md:h-16" onClick={() => goTo("/practice")} title="Start Practicing">
-                <div className="keycap-top font-mono text-[11px] tracking-widest text-[#F5F5F5]">
-                  ENTER ↵
+        {/* ── Animated stat strip (replaces the keyboard widget) ── */}
+        <div
+          className="ink-bleed relative z-10 w-full max-w-3xl px-4 pb-16 md:pb-24"
+          style={{ animationDelay: "0.7s" }}
+        >
+          <div className="grid grid-cols-3 gap-3 md:gap-5">
+            {[
+              { icon: Award, value: "8.0", label: "Teacher's IELTS Band", glow: false },
+              { icon: Layers, value: "4", label: "Core Skills Covered", glow: true },
+              { icon: Zap, value: "Free", label: "Start at Zero Cost", glow: false },
+            ].map((s, i) => (
+              <div
+                key={i}
+                className={`bento-card p-5 md:p-6 flex flex-col items-center text-center ${s.glow ? "glow-accent-soft" : ""}`}
+              >
+                <div className="w-10 h-10 mb-3 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mc-bob">
+                  <s.icon className="w-5 h-5" />
                 </div>
-                <div className="keycap-skirt" />
+                <div className="font-serif text-lg md:text-2xl text-[#2DD4BF] leading-none mb-2">
+                  {s.value}
+                </div>
+                <div className="font-mono text-[10px] md:text-[11px] tracking-wide text-[#CBD5E1] leading-snug">
+                  {s.label}
+                </div>
               </div>
-            </div>
-
-            {/* Keyboard footer text */}
-            <div className="flex justify-around mt-4 font-mono text-[9px] tracking-[0.22em] uppercase text-[#5A5A5A]">
-              <span>Precision</span>
-              <span>Language</span>
-              <span>Mastery</span>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Minecraft grass divider */}
-      <div className="w-full h-1 bg-[#5D8A3C]" />
-      <div className="w-full h-0.5 bg-[#3D6B21]" />
+      {/* Teal accent divider */}
+      <div className="w-full h-1 bg-[#0D9488]" />
+      <div className="w-full h-0.5 bg-[#0F766E]" />
 
       {/* ─── FEATURES BENTO GRID ──────────────────────────────────── */}
       <section className="container mx-auto px-4 py-20 max-w-6xl relative">
@@ -227,10 +242,10 @@ function Index() {
         </div>
 
         <div className="text-center max-w-xl mx-auto mb-14">
-          <h2 className="text-lg md:text-xl font-bold mb-3 text-[#F5F5F5]">
-            Everything you need to reach <span className="text-[#7DBD50]">Band 7+</span>
+          <h2 className="text-lg md:text-xl font-bold mb-3 text-[#F1F5F9]">
+            Everything you need to reach <span className="text-[#2DD4BF]">Band 7+</span>
           </h2>
-          <p className="text-[#9A9A9A] text-sm md:text-base leading-relaxed font-sans">
+          <p className="text-[#CBD5E1] text-sm md:text-base leading-relaxed font-sans">
             From free strategy guides to premium model answers, every resource is built for the real test.
           </p>
         </div>
@@ -240,16 +255,16 @@ function Index() {
           {/* Online Practice */}
           <div className="md:col-span-3 lg:col-span-4 bento-card p-8 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 bg-[#5D8A3C]/20 border-2 border-[#5D8A3C]/40 text-[#7DBD50] flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mb-6">
                 <PenLine className="w-5 h-5" />
               </div>
-              <h3 className="font-serif text-[0.7rem] text-[#7DBD50] mb-3 leading-relaxed">Online Practice</h3>
-              <p className="text-[#9A9A9A] text-sm leading-relaxed font-sans">
+              <h3 className="font-serif text-[0.7rem] text-[#2DD4BF] mb-3 leading-relaxed">Online Practice</h3>
+              <p className="text-[#CBD5E1] text-sm leading-relaxed font-sans">
                 Real IELTS prompts, mini-quizzes, and a Part 2 topic randomizer.
               </p>
             </div>
             <div className="mt-8 flex items-center gap-2">
-              <span className="font-mono text-[9px] tracking-widest uppercase px-2.5 py-1 bg-[#5D8A3C]/15 border border-[#5D8A3C]/30 text-[#7DBD50] animate-[subtlePulse_3s_ease-in-out_infinite]">
+              <span className="font-mono text-[9px] tracking-widest uppercase px-2.5 py-1 bg-[#0D9488]/15 border border-[#0D9488]/40 text-[#2DD4BF] animate-[subtlePulse_3s_ease-in-out_infinite]">
                 ● ACTIVE NOW
               </span>
               <McItem item="pickaxe" size={16} opacity={0.4} />
@@ -258,56 +273,56 @@ function Index() {
 
           {/* Free Materials — wide */}
           <div className="md:col-span-3 lg:col-span-8 bento-card p-8 flex flex-col justify-center overflow-hidden relative">
-            {/* Grass top accent */}
-            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#5D8A3C]" />
-            <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#3D6B21]" />
-            <div className="w-12 h-12 bg-[#6AAFE6]/20 border-2 border-[#6AAFE6]/40 text-[#6AAFE6] flex items-center justify-center mb-6">
+            {/* Teal top accent */}
+            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#0D9488]" />
+            <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#0F766E]" />
+            <div className="w-12 h-12 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mb-6">
               <BookOpen className="w-5 h-5" />
             </div>
-            <h3 className="font-serif text-[0.7rem] text-[#6AAFE6] mb-3 leading-relaxed">Free Materials</h3>
-            <p className="text-[#9A9A9A] text-sm leading-relaxed mb-6 font-sans">
+            <h3 className="font-serif text-[0.7rem] text-[#2DD4BF] mb-3 leading-relaxed">Free Materials</h3>
+            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-6 font-sans">
               Tips, model answers and downloadable PDFs across all four IELTS skills.
             </p>
             <Link
               to="/practice"
-              className="text-[#7DBD50] font-mono text-[11px] font-semibold tracking-wider inline-flex items-center gap-2 hover:text-[#9AEB6D] group"
+              className="text-[#2DD4BF] font-mono text-[11px] font-semibold tracking-wider inline-flex items-center gap-2 hover:text-[#5EEAD4] group"
             >
               ▸ Browse Library
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
 
-          {/* YouTube Lessons */}
+          {/* YouTube Lessons — keeps YouTube's brand red */}
           <div className="md:col-span-2 lg:col-span-4 bento-card p-8 group">
-            <div className="w-12 h-12 bg-[#C0392B]/20 border-2 border-[#C0392B]/40 text-[#C0392B] flex items-center justify-center mb-6">
+            <div className="w-12 h-12 bg-[#DC2626]/15 border-2 border-[#DC2626]/40 text-[#F87171] flex items-center justify-center mb-6">
               <Youtube className="w-5 h-5" />
             </div>
-            <h3 className="font-serif text-[0.7rem] text-[#F5F5F5] mb-3 leading-relaxed">YouTube Lessons</h3>
-            <p className="text-[#9A9A9A] text-sm leading-relaxed mb-5 font-sans">
+            <h3 className="font-serif text-[0.7rem] text-[#F1F5F9] mb-3 leading-relaxed">YouTube Lessons</h3>
+            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-5 font-sans">
               Watch full playlists on Writing, Speaking, Reading, Listening and Grammar.
             </p>
-            <div className="aspect-video bg-[#1A1A1A] overflow-hidden relative border-2 border-[#5A5A5A]">
+            <div className="aspect-video bg-[#0B1220] overflow-hidden relative border-2 border-[#2A3A54]">
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-12 h-12 bg-[#C0392B] flex items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,0.5)]">
+                <div className="w-12 h-12 bg-[#DC2626] flex items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,0.5)]">
                   <span className="text-white text-xl ml-0.5">▶</span>
                 </div>
               </div>
-              <div className="absolute inset-0 opacity-10 bg-[#C0392B]" />
+              <div className="absolute inset-0 opacity-10 bg-[#DC2626]" />
             </div>
           </div>
 
           {/* Articles */}
           <div className="md:col-span-2 lg:col-span-4 bento-card p-8">
-            <div className="w-12 h-12 bg-[#8B6343]/20 border-2 border-[#8B6343]/40 text-[#C09040] flex items-center justify-center mb-6">
+            <div className="w-12 h-12 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mb-6">
               <Newspaper className="w-5 h-5" />
             </div>
-            <h3 className="font-serif text-[0.7rem] text-[#F5F5F5] mb-3 leading-relaxed">Articles</h3>
-            <p className="text-[#9A9A9A] text-sm leading-relaxed mb-6 font-sans">
+            <h3 className="font-serif text-[0.7rem] text-[#F1F5F9] mb-3 leading-relaxed">Articles</h3>
+            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-6 font-sans">
               Read helpful IELTS articles, study advice, and practical language-learning tips.
             </p>
             <div className="space-y-2.5">
               {[3, 4, 2].map((w, i) => (
-                <div key={i} className="h-[3px] bg-[#8B6343]/50" style={{ width: `${w * 20}%` }} />
+                <div key={i} className="h-[3px] bg-[#0D9488]/45" style={{ width: `${w * 20}%` }} />
               ))}
             </div>
             <div className="mt-4 flex justify-end">
@@ -315,18 +330,19 @@ function Index() {
             </div>
           </div>
 
-          {/* Premium — dark Minecraft style */}
-          <div className="md:col-span-2 lg:col-span-4 bento-card p-8 bg-[#1A0A2E] border-[#4A0A6A]" style={{ boxShadow: "4px 4px 0px rgba(74,10,106,0.5)" }}>
-            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#9B59B6]" />
-            <div className="w-12 h-12 bg-[#9B59B6]/20 border-2 border-[#9B59B6]/40 flex items-center justify-center mb-6">
+          {/* Premium — navy card with the gold premium accent */}
+          <div className="md:col-span-2 lg:col-span-4 bento-card p-8 bg-[#141C30] border-[#3D3416] shadow-[4px_4px_0px_rgba(0,0,0,0.5)] relative">
+            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#FFD700]" />
+            <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#C09A00]" />
+            <div className="w-12 h-12 bg-[#FFD700]/15 border-2 border-[#FFD700]/40 flex items-center justify-center mb-6">
               <Crown className="w-5 h-5 text-[#FFD700]" />
             </div>
             <h3 className="font-serif text-[0.7rem] mb-3 text-[#FFD700] leading-relaxed">Premium Membership</h3>
-            <p className="text-[#9A9A9A] text-sm leading-relaxed mb-8 font-sans">
+            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-8 font-sans">
               Unlock model answers, premium PDFs, and exclusive video lessons.
             </p>
             <Link to="/premium">
-              <button className="w-full bg-[#FFD700] text-[#1A1A1A] font-serif text-[9px] font-semibold tracking-widest py-3 border-2 border-[#C09A00] shadow-[3px_3px_0px_#8A6A00] hover:bg-[#FFE050] active:shadow-[1px_1px_0px_#8A6A00] active:translate-x-0.5 active:translate-y-0.5 transition-all uppercase">
+              <button className="w-full bg-[#FFD700] text-[#0E1626] font-serif text-[9px] font-semibold tracking-widest py-3 border-2 border-[#C09A00] shadow-[3px_3px_0px_#8A6A00] hover:bg-[#FFE050] hover:shadow-[3px_3px_0px_#8A6A00,0_0_14px_rgba(255,215,0,0.45)] active:shadow-[1px_1px_0px_#8A6A00] active:translate-x-0.5 active:translate-y-0.5 transition-all uppercase">
                 ★ Upgrade Now
               </button>
             </Link>
