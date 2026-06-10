@@ -195,7 +195,7 @@ function FolderCard({ folder, onOpen, onReview }: { folder: any; onOpen: () => v
     <div className="bento-card rounded-2xl p-6 flex flex-col group">
       {/* Sakura top accent on hover */}
       <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-        style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
+        style={{ background: "linear-gradient(90deg, #FFD9A8 0%, #D97706 100%)" }} />
 
       <div className="flex items-center justify-between mb-4">
         <span className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center transition-transform group-hover:scale-105">
@@ -364,7 +364,7 @@ function FolderDetail({ folderId, onBack, onReview }: { folderId: string; onBack
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">{w.definition}</p>
-              {w.example && <p className="text-sm italic text-muted-foreground mt-1.5 border-l-2 pl-2.5" style={{ borderColor: "#F5D5CB" }}>"{w.example}"</p>}
+              {w.example && <p className="text-sm italic text-muted-foreground mt-1.5 border-l-2 pl-2.5" style={{ borderColor: "#FFD9A8" }}>"{w.example}"</p>}
               {w.next_review && (
                 <p className="font-mono text-[10px] text-muted-foreground/70 mt-3 tracking-wide">
                   Next review:{" "}
@@ -525,7 +525,7 @@ function Review({ folderId, onBack }: { folderId?: string; onBack: () => void })
               {/* Front — word */}
               <div
                 className="flashcard-face border border-border/60 shadow-[0_8px_32px_rgba(43,64,128,0.10)]"
-                style={{ background: "linear-gradient(160deg, #FFFFFF 0%, #F5F3F9 100%)" }}
+                style={{ background: "linear-gradient(160deg, #FFFFFF 0%, #FAF3E6 100%)" }}
               >
                 <p className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase mb-4">Tap to reveal</p>
                 <h2 className="font-serif text-5xl font-bold text-primary leading-tight">{current.word}</h2>

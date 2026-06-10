@@ -73,7 +73,7 @@ function ContactAbout() {
             <p className="text-muted-foreground leading-relaxed">
               My teaching philosophy is simple: real practice beats endless theory. Every lesson I make — free or premium — is built around the actual question types and band descriptors used by examiners. No shortcuts, no magic tricks, just structured work that pays off.
             </p>
-            <p className="text-muted-foreground leading-relaxed italic border-l-2 pl-4" style={{ borderColor: "#F5D5CB" }}>
+            <p className="text-muted-foreground leading-relaxed italic border-l-2 pl-4" style={{ borderColor: "#FFD9A8" }}>
               "If you can explain it simply, you understand it well enough to teach it."
             </p>
           </div>

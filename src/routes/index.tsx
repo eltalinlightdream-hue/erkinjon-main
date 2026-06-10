@@ -55,9 +55,9 @@ function MinecraftNightScene() {
     >
       <defs>
         <linearGradient id="mc-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0B1220" />
-          <stop offset="55%" stopColor="#0E1626" />
-          <stop offset="100%" stopColor="#122A3E" />
+          <stop offset="0%" stopColor="#160F08" />
+          <stop offset="55%" stopColor="#1F150C" />
+          <stop offset="100%" stopColor="#2E2014" />
         </linearGradient>
         <filter id="mc-moon-glow" x="-80%" y="-80%" width="260%" height="260%">
           <feGaussianBlur stdDeviation="10" />
@@ -68,7 +68,7 @@ function MinecraftNightScene() {
       <rect x="0" y="0" width="960" height="480" fill="url(#mc-sky)" />
 
       {/* Faint teal horizon band */}
-      <rect x="0" y="250" width="960" height="60" fill="#14B8A6" opacity="0.05" />
+      <rect x="0" y="250" width="960" height="60" fill="#F59E0B" opacity="0.05" />
 
       {/* Stars (pixel squares) */}
       {stars.map(([x, y], i) => (
@@ -78,17 +78,17 @@ function MinecraftNightScene() {
           y={y}
           width={i % 4 === 0 ? 4 : 3}
           height={i % 4 === 0 ? 4 : 3}
-          fill="#E2E8F0"
+          fill="#EFE3CC"
           opacity={0.35 + (i % 3) * 0.2}
         />
       ))}
 
       {/* Square Minecraft moon with accent glow */}
-      <rect x="780" y="64" width="56" height="56" fill="#14B8A6" opacity="0.45" filter="url(#mc-moon-glow)" />
-      <rect x="784" y="68" width="48" height="48" fill="#E8EEF5" />
-      <rect x="784" y="68" width="48" height="48" fill="none" stroke="#14B8A6" strokeWidth="2" opacity="0.5" />
-      <rect x="800" y="80" width="8" height="8" fill="#CBD5E1" opacity="0.6" />
-      <rect x="816" y="96" width="6" height="6" fill="#CBD5E1" opacity="0.5" />
+      <rect x="780" y="64" width="56" height="56" fill="#F59E0B" opacity="0.45" filter="url(#mc-moon-glow)" />
+      <rect x="784" y="68" width="48" height="48" fill="#F5EAD6" />
+      <rect x="784" y="68" width="48" height="48" fill="none" stroke="#F59E0B" strokeWidth="2" opacity="0.5" />
+      <rect x="800" y="80" width="8" height="8" fill="#E3D5BD" opacity="0.6" />
+      <rect x="816" y="96" width="6" height="6" fill="#E3D5BD" opacity="0.5" />
 
       {/* Faint dragon drifting across the sky */}
       <g transform="translate(150 92)" opacity="0.10">
@@ -98,17 +98,17 @@ function MinecraftNightScene() {
       {/* Back hill range (darker) */}
       {back.map((h, i) => (
         <g key={`b${i}`}>
-          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#0C1A2C" />
-          <rect x={i * colW} y={h} width={colW + 1} height={10} fill="#0F766E" opacity="0.55" />
+          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#24190C" />
+          <rect x={i * colW} y={h} width={colW + 1} height={10} fill="#B45309" opacity="0.55" />
         </g>
       ))}
 
       {/* Front hill range with teal grass caps */}
       {front.map((h, i) => (
         <g key={`f${i}`}>
-          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#0A1626" />
-          <rect x={i * colW} y={h} width={colW + 1} height={14} fill="#0D9488" />
-          <rect x={i * colW} y={h} width={colW + 1} height={3} fill="#14B8A6" opacity="0.85" />
+          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#1C130A" />
+          <rect x={i * colW} y={h} width={colW + 1} height={14} fill="#D97706" />
+          <rect x={i * colW} y={h} width={colW + 1} height={3} fill="#F59E0B" opacity="0.85" />
         </g>
       ))}
 
@@ -117,9 +117,9 @@ function MinecraftNightScene() {
         const h = front[Math.round(tx / colW)] ?? 332;
         return (
           <g key={`t${i}`}>
-            <rect x={tx} y={h - 26} width={10} height={26} fill="#0F2A2E" />
-            <rect x={tx - 12} y={h - 50} width={34} height={26} fill="#0D9488" opacity="0.85" />
-            <rect x={tx - 12} y={h - 50} width={34} height={4} fill="#14B8A6" opacity="0.7" />
+            <rect x={tx} y={h - 26} width={10} height={26} fill="#33230F" />
+            <rect x={tx - 12} y={h - 50} width={34} height={26} fill="#D97706" opacity="0.85" />
+            <rect x={tx - 12} y={h - 50} width={34} height={4} fill="#F59E0B" opacity="0.7" />
           </g>
         );
       })}
@@ -149,7 +149,7 @@ function Index() {
         <div className="relative container mx-auto px-4 pt-20 md:pt-28 pb-10 max-w-3xl text-center z-10">
           {/* IELTS band badge */}
           <span
-            className="ink-bleed inline-flex items-center gap-2 px-4 py-1.5 bg-[#16223A] border-2 border-[#2A3A54] font-mono text-[10px] tracking-wider text-[#CBD5E1] mb-8 shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
+            className="ink-bleed inline-flex items-center gap-2 px-4 py-1.5 bg-[#2B1E12] border-2 border-[#4D3823] font-mono text-[10px] tracking-wider text-[#E3D5BD] mb-8 shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
             style={{ animationDelay: "0.05s" }}
           >
             <GrassBlock size={12} opacity={1} />
@@ -157,15 +157,15 @@ function Index() {
           </span>
 
           <h1
-            className="ink-bleed text-2xl md:text-4xl font-bold mb-5 text-[#F1F5F9]"
+            className="ink-bleed text-2xl md:text-4xl font-bold mb-5 text-[#FAF3E6]"
             style={{ animationDelay: "0.25s" }}
           >
             Master IELTS with{" "}
-            <span className="text-[#2DD4BF]">guided practice</span>
+            <span className="text-[#FBBF24]">guided practice</span>
           </h1>
 
           <p
-            className="ink-bleed text-base md:text-lg text-[#CBD5E1] max-w-xl mx-auto mb-10 leading-relaxed font-sans"
+            className="ink-bleed text-base md:text-lg text-[#E3D5BD] max-w-xl mx-auto mb-10 leading-relaxed font-sans"
             style={{ animationDelay: "0.4s" }}
           >
             Friendly lessons, real exam strategies, and structured practice — built for Uzbek learners who want a real score jump.
@@ -179,7 +179,7 @@ function Index() {
             <Link to="/reading">
               <Button
                 size="lg"
-                className="bg-[#0D9488] text-white border-2 border-[#0F766E] shadow-[4px_4px_0px_#062E2A] hover:bg-[#14B8A6] hover:shadow-[4px_4px_0px_#062E2A,0_0_18px_rgba(20,184,166,0.5)] active:shadow-[2px_2px_0px_#062E2A] active:translate-x-0.5 active:translate-y-0.5 h-12 px-8 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
+                className="bg-[#D97706] text-white border-2 border-[#B45309] shadow-[4px_4px_0px_#451F06] hover:bg-[#F59E0B] hover:shadow-[4px_4px_0px_#451F06,0_0_18px_rgba(245,158,11,0.5)] active:shadow-[2px_2px_0px_#451F06] active:translate-x-0.5 active:translate-y-0.5 h-12 px-8 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
               >
                 Start Practicing Free <ArrowRight className="ml-1.5 w-4 h-4" />
               </Button>
@@ -189,7 +189,7 @@ function Index() {
               <Button
                 size="lg"
                 variant="outline"
-                className="h-12 px-8 border-2 border-[#2A3A54] bg-transparent text-[#CBD5E1] hover:bg-[#1E2C44] hover:text-[#F1F5F9] hover:border-[#14B8A6] shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
+                className="h-12 px-8 border-2 border-[#4D3823] bg-transparent text-[#E3D5BD] hover:bg-[#3A2A19] hover:text-[#FAF3E6] hover:border-[#F59E0B] shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
               >
                 Get Premium Access
               </Button>
@@ -212,13 +212,13 @@ function Index() {
                 key={i}
                 className={`bento-card p-5 md:p-6 flex flex-col items-center text-center ${s.glow ? "glow-accent-soft" : ""}`}
               >
-                <div className="w-10 h-10 mb-3 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mc-bob">
+                <div className="w-10 h-10 mb-3 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mc-bob">
                   <s.icon className="w-5 h-5" />
                 </div>
-                <div className="font-serif text-lg md:text-2xl text-[#2DD4BF] leading-none mb-2">
+                <div className="font-serif text-lg md:text-2xl text-[#FBBF24] leading-none mb-2">
                   {s.value}
                 </div>
-                <div className="font-mono text-[10px] md:text-[11px] tracking-wide text-[#CBD5E1] leading-snug">
+                <div className="font-mono text-[10px] md:text-[11px] tracking-wide text-[#E3D5BD] leading-snug">
                   {s.label}
                 </div>
               </div>
@@ -228,8 +228,8 @@ function Index() {
       </section>
 
       {/* Teal accent divider */}
-      <div className="w-full h-1 bg-[#0D9488]" />
-      <div className="w-full h-0.5 bg-[#0F766E]" />
+      <div className="w-full h-1 bg-[#D97706]" />
+      <div className="w-full h-0.5 bg-[#B45309]" />
 
       {/* ─── FEATURES BENTO GRID ──────────────────────────────────── */}
       <section className="container mx-auto px-4 py-20 max-w-6xl relative">
@@ -242,10 +242,10 @@ function Index() {
         </div>
 
         <div className="text-center max-w-xl mx-auto mb-14">
-          <h2 className="text-lg md:text-xl font-bold mb-3 text-[#F1F5F9]">
-            Everything you need to reach <span className="text-[#2DD4BF]">Band 7+</span>
+          <h2 className="text-lg md:text-xl font-bold mb-3 text-[#FAF3E6]">
+            Everything you need to reach <span className="text-[#FBBF24]">Band 7+</span>
           </h2>
-          <p className="text-[#CBD5E1] text-sm md:text-base leading-relaxed font-sans">
+          <p className="text-[#E3D5BD] text-sm md:text-base leading-relaxed font-sans">
             From free strategy guides to premium model answers, every resource is built for the real test.
           </p>
         </div>
@@ -255,16 +255,16 @@ function Index() {
           {/* Online Practice */}
           <div className="md:col-span-3 lg:col-span-4 bento-card p-8 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mb-6">
                 <PenLine className="w-5 h-5" />
               </div>
-              <h3 className="font-serif text-[0.7rem] text-[#2DD4BF] mb-3 leading-relaxed">Online Practice</h3>
-              <p className="text-[#CBD5E1] text-sm leading-relaxed font-sans">
+              <h3 className="font-serif text-[0.7rem] text-[#FBBF24] mb-3 leading-relaxed">Online Practice</h3>
+              <p className="text-[#E3D5BD] text-sm leading-relaxed font-sans">
                 Real IELTS prompts, mini-quizzes, and a Part 2 topic randomizer.
               </p>
             </div>
             <div className="mt-8 flex items-center gap-2">
-              <span className="font-mono text-[9px] tracking-widest uppercase px-2.5 py-1 bg-[#0D9488]/15 border border-[#0D9488]/40 text-[#2DD4BF] animate-[subtlePulse_3s_ease-in-out_infinite]">
+              <span className="font-mono text-[9px] tracking-widest uppercase px-2.5 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#FBBF24] animate-[subtlePulse_3s_ease-in-out_infinite]">
                 ● ACTIVE NOW
               </span>
               <McItem item="pickaxe" size={16} opacity={0.4} />
@@ -274,18 +274,18 @@ function Index() {
           {/* Free Materials — wide */}
           <div className="md:col-span-3 lg:col-span-8 bento-card p-8 flex flex-col justify-center overflow-hidden relative">
             {/* Teal top accent */}
-            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#0D9488]" />
-            <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#0F766E]" />
-            <div className="w-12 h-12 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mb-6">
+            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#D97706]" />
+            <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#B45309]" />
+            <div className="w-12 h-12 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mb-6">
               <BookOpen className="w-5 h-5" />
             </div>
-            <h3 className="font-serif text-[0.7rem] text-[#2DD4BF] mb-3 leading-relaxed">Free Materials</h3>
-            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-6 font-sans">
+            <h3 className="font-serif text-[0.7rem] text-[#FBBF24] mb-3 leading-relaxed">Free Materials</h3>
+            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-6 font-sans">
               Tips, model answers and downloadable PDFs across all four IELTS skills.
             </p>
             <Link
               to="/practice"
-              className="text-[#2DD4BF] font-mono text-[11px] font-semibold tracking-wider inline-flex items-center gap-2 hover:text-[#5EEAD4] group"
+              className="text-[#FBBF24] font-mono text-[11px] font-semibold tracking-wider inline-flex items-center gap-2 hover:text-[#FCD34D] group"
             >
               ▸ Browse Library
               <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -297,11 +297,11 @@ function Index() {
             <div className="w-12 h-12 bg-[#DC2626]/15 border-2 border-[#DC2626]/40 text-[#F87171] flex items-center justify-center mb-6">
               <Youtube className="w-5 h-5" />
             </div>
-            <h3 className="font-serif text-[0.7rem] text-[#F1F5F9] mb-3 leading-relaxed">YouTube Lessons</h3>
-            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-5 font-sans">
+            <h3 className="font-serif text-[0.7rem] text-[#FAF3E6] mb-3 leading-relaxed">YouTube Lessons</h3>
+            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-5 font-sans">
               Watch full playlists on Writing, Speaking, Reading, Listening and Grammar.
             </p>
-            <div className="aspect-video bg-[#0B1220] overflow-hidden relative border-2 border-[#2A3A54]">
+            <div className="aspect-video bg-[#160F08] overflow-hidden relative border-2 border-[#4D3823]">
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-12 h-12 bg-[#DC2626] flex items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,0.5)]">
                   <span className="text-white text-xl ml-0.5">▶</span>
@@ -313,16 +313,16 @@ function Index() {
 
           {/* Articles */}
           <div className="md:col-span-2 lg:col-span-4 bento-card p-8">
-            <div className="w-12 h-12 bg-[#0D9488]/15 border-2 border-[#0D9488]/40 text-[#2DD4BF] flex items-center justify-center mb-6">
+            <div className="w-12 h-12 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mb-6">
               <Newspaper className="w-5 h-5" />
             </div>
-            <h3 className="font-serif text-[0.7rem] text-[#F1F5F9] mb-3 leading-relaxed">Articles</h3>
-            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-6 font-sans">
+            <h3 className="font-serif text-[0.7rem] text-[#FAF3E6] mb-3 leading-relaxed">Articles</h3>
+            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-6 font-sans">
               Read helpful IELTS articles, study advice, and practical language-learning tips.
             </p>
             <div className="space-y-2.5">
               {[3, 4, 2].map((w, i) => (
-                <div key={i} className="h-[3px] bg-[#0D9488]/45" style={{ width: `${w * 20}%` }} />
+                <div key={i} className="h-[3px] bg-[#D97706]/45" style={{ width: `${w * 20}%` }} />
               ))}
             </div>
             <div className="mt-4 flex justify-end">
@@ -331,18 +331,18 @@ function Index() {
           </div>
 
           {/* Premium — navy card with the gold premium accent */}
-          <div className="md:col-span-2 lg:col-span-4 bento-card p-8 bg-[#141C30] border-[#3D3416] shadow-[4px_4px_0px_rgba(0,0,0,0.5)] relative">
+          <div className="md:col-span-2 lg:col-span-4 bento-card p-8 bg-[#281C10] border-[#3D3416] shadow-[4px_4px_0px_rgba(0,0,0,0.5)] relative">
             <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#FFD700]" />
             <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#C09A00]" />
             <div className="w-12 h-12 bg-[#FFD700]/15 border-2 border-[#FFD700]/40 flex items-center justify-center mb-6">
               <Crown className="w-5 h-5 text-[#FFD700]" />
             </div>
             <h3 className="font-serif text-[0.7rem] mb-3 text-[#FFD700] leading-relaxed">Premium Membership</h3>
-            <p className="text-[#CBD5E1] text-sm leading-relaxed mb-8 font-sans">
+            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-8 font-sans">
               Unlock model answers, premium PDFs, and exclusive video lessons.
             </p>
             <Link to="/premium">
-              <button className="w-full bg-[#FFD700] text-[#0E1626] font-serif text-[9px] font-semibold tracking-widest py-3 border-2 border-[#C09A00] shadow-[3px_3px_0px_#8A6A00] hover:bg-[#FFE050] hover:shadow-[3px_3px_0px_#8A6A00,0_0_14px_rgba(255,215,0,0.45)] active:shadow-[1px_1px_0px_#8A6A00] active:translate-x-0.5 active:translate-y-0.5 transition-all uppercase">
+              <button className="w-full bg-[#FFD700] text-[#1F150C] font-serif text-[9px] font-semibold tracking-widest py-3 border-2 border-[#C09A00] shadow-[3px_3px_0px_#8A6A00] hover:bg-[#FFE050] hover:shadow-[3px_3px_0px_#8A6A00,0_0_14px_rgba(255,215,0,0.45)] active:shadow-[1px_1px_0px_#8A6A00] active:translate-x-0.5 active:translate-y-0.5 transition-all uppercase">
                 ★ Upgrade Now
               </button>
             </Link>

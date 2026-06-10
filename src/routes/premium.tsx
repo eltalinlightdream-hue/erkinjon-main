@@ -84,7 +84,7 @@ function Premium() {
 
           {/* Features card */}
           <div className="bento-card rounded-3xl overflow-hidden">
-            <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #C07850 0%, #F5D5CB 50%, #4A9B7A 100%)" }} />
+            <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #C07850 0%, #FFD9A8 50%, #D97706 100%)" }} />
             <div className="p-8">
               <h2 className="font-serif text-2xl font-semibold mb-1">What you get</h2>
               <p className="text-sm text-muted-foreground mb-6">Everything below, unlocked instantly.</p>

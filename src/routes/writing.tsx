@@ -30,9 +30,9 @@ export const Route = createFileRoute("/writing")({
 });
 
 const STATUS_META: Record<WritingStatus, { label: string; className: string }> = {
-  not_started: { label: "Not started", className: "bg-[#1E2C44] text-[#CBD5E1] border-[#2A3A54]" },
+  not_started: { label: "Not started", className: "bg-[#3A2A19] text-[#E3D5BD] border-[#4D3823]" },
   in_progress:  { label: "In Progress", className: "bg-[#FFD700]/15 text-[#FFD700] border-[#C09A00]" },
-  completed:    { label: "Completed",   className: "bg-[#0D9488]/20 text-[#2DD4BF] border-[#0F766E]" },
+  completed:    { label: "Completed",   className: "bg-[#D97706]/20 text-[#FBBF24] border-[#B45309]" },
 };
 
 // ── HTML-based practice tasks (open in new tab, no routing needed) ──────────
@@ -992,11 +992,11 @@ function Writing() {
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-[#FFD700]">✏️ IELTS Writing</h1>
 
         {/* Video banner */}
-        <div className="relative overflow-hidden px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border-2 border-[#0D9488]"
-          style={{ background: "linear-gradient(135deg, #062E2A 0%, #16223A 60%, #0B1A2E 100%)", boxShadow: "4px 4px 0px rgba(0,0,0,0.5)" }}>
-          <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#0D9488]" />
+        <div className="relative overflow-hidden px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border-2 border-[#D97706]"
+          style={{ background: "linear-gradient(135deg, #451F06 0%, #2B1E12 60%, #20160C 100%)", boxShadow: "4px 4px 0px rgba(0,0,0,0.5)" }}>
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D97706]" />
           <div className="absolute top-0 right-0 w-48 h-full opacity-10"
-            style={{ background: "radial-gradient(circle at 80% 50%, #0D9488 0%, transparent 70%)" }} />
+            style={{ background: "radial-gradient(circle at 80% 50%, #D97706 0%, transparent 70%)" }} />
           <div className="relative">
             <p className="font-serif text-lg font-semibold mb-0.5">Want to watch Writing lessons?</p>
             <p className="text-sm text-muted-foreground">

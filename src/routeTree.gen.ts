@@ -25,6 +25,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
+import { Route as SpeakingWrittenSamplesRouteImport } from './routes/speaking_.written-samples'
 import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
 import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
 import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
@@ -112,6 +113,11 @@ const WritingTaskIdRoute = WritingTaskIdRouteImport.update({
   path: '/$taskId',
   getParentRoute: () => WritingRoute,
 } as any)
+const SpeakingWrittenSamplesRoute = SpeakingWrittenSamplesRouteImport.update({
+  id: '/speaking_/written-samples',
+  path: '/speaking/written-samples',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpeakingTopicsExplainedRoute = SpeakingTopicsExplainedRouteImport.update({
   id: '/speaking_/topics-explained',
   path: '/speaking/topics-explained',
@@ -162,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/articles/$slug': typeof ArticlesSlugRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
+  '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
   '/writing/essay/$id': typeof WritingEssayIdRoute
@@ -186,6 +193,7 @@ export interface FileRoutesByTo {
   '/articles/$slug': typeof ArticlesSlugRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
+  '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
   '/writing/essay/$id': typeof WritingEssayIdRoute
@@ -211,6 +219,7 @@ export interface FileRoutesById {
   '/articles_/$slug': typeof ArticlesSlugRoute
   '/speaking_/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking_/topics-explained': typeof SpeakingTopicsExplainedRoute
+  '/speaking_/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
   '/writing_/essay/$id': typeof WritingEssayIdRoute
@@ -237,6 +246,7 @@ export interface FileRouteTypes {
     | '/articles/$slug'
     | '/speaking/pronunciation'
     | '/speaking/topics-explained'
+    | '/speaking/written-samples'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
     | '/writing/essay/$id'
@@ -261,6 +271,7 @@ export interface FileRouteTypes {
     | '/articles/$slug'
     | '/speaking/pronunciation'
     | '/speaking/topics-explained'
+    | '/speaking/written-samples'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
     | '/writing/essay/$id'
@@ -285,6 +296,7 @@ export interface FileRouteTypes {
     | '/articles_/$slug'
     | '/speaking_/pronunciation'
     | '/speaking_/topics-explained'
+    | '/speaking_/written-samples'
     | '/writing/$taskId'
     | '/writing/$taskId/practice'
     | '/writing_/essay/$id'
@@ -310,6 +322,7 @@ export interface RootRouteChildren {
   ArticlesSlugRoute: typeof ArticlesSlugRoute
   SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
   SpeakingTopicsExplainedRoute: typeof SpeakingTopicsExplainedRoute
+  SpeakingWrittenSamplesRoute: typeof SpeakingWrittenSamplesRoute
   WritingEssayIdRoute: typeof WritingEssayIdRoute
   WritingSampleIdRoute: typeof WritingSampleIdRoute
 }
@@ -428,6 +441,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WritingTaskIdRouteImport
       parentRoute: typeof WritingRoute
     }
+    '/speaking_/written-samples': {
+      id: '/speaking_/written-samples'
+      path: '/speaking/written-samples'
+      fullPath: '/speaking/written-samples'
+      preLoaderRoute: typeof SpeakingWrittenSamplesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/speaking_/topics-explained': {
       id: '/speaking_/topics-explained'
       path: '/speaking/topics-explained'
@@ -515,6 +535,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArticlesSlugRoute: ArticlesSlugRoute,
   SpeakingPronunciationRoute: SpeakingPronunciationRoute,
   SpeakingTopicsExplainedRoute: SpeakingTopicsExplainedRoute,
+  SpeakingWrittenSamplesRoute: SpeakingWrittenSamplesRoute,
   WritingEssayIdRoute: WritingEssayIdRoute,
   WritingSampleIdRoute: WritingSampleIdRoute,
 }

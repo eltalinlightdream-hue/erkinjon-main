@@ -17,9 +17,9 @@ const SECTIONS = [
     title: "Listening",
     icon: Headphones,
     desc: "Practice with full IELTS listening tests",
-    color: "#2DD4BF",
-    borderColor: "#0D9488",
-    bgColor: "#0D948815",
+    color: "#FBBF24",
+    borderColor: "#D97706",
+    bgColor: "#D9770615",
     label: "Section 1–4",
     item: "torch" as const,
   },
@@ -80,16 +80,16 @@ function Practice() {
 
         <div className="relative text-center mb-16">
 
-          <h1 className="relative text-xl md:text-2xl font-bold mb-3 text-[#F1F5F9]">
+          <h1 className="relative text-xl md:text-2xl font-bold mb-3 text-[#FAF3E6]">
             ⛏ Practice
           </h1>
-          <p className="relative text-base text-[#CBD5E1] font-sans">
+          <p className="relative text-base text-[#E3D5BD] font-sans">
             Pick a skill and start — every section is built around real IELTS question types.
           </p>
 
           {/* Block row */}
           <div className="flex justify-center gap-2 mt-4">
-            {["#0D9488","#6AAFE6","#FFD700","#C0392B"].map((c, i) => (
+            {["#D97706","#6AAFE6","#FFD700","#C0392B"].map((c, i) => (
               <div
                 key={i}
                 className="w-4 h-4 border border-black/40"
@@ -139,7 +139,7 @@ function Practice() {
                 >
                   {s.title}
                 </h2>
-                <p className="text-sm text-[#CBD5E1] mb-4 flex-1 leading-relaxed font-sans">{s.desc}</p>
+                <p className="text-sm text-[#E3D5BD] mb-4 flex-1 leading-relaxed font-sans">{s.desc}</p>
 
                 {/* Label badge */}
                 <div className="mb-6">

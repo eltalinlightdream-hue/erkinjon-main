@@ -2892,7 +2892,7 @@ export function findArticle(slug: string): Article | undefined {
 }
 
 export const DIFFICULTY_STYLES: Record<ArticleDifficulty, string> = {
-  Beginner:     "bg-[#0F766E]/20 text-[#2DD4BF] border-[#0D9488] font-mono text-[9px]",
+  Beginner:     "bg-[#B45309]/20 text-[#FBBF24] border-[#D97706] font-mono text-[9px]",
   Intermediate: "bg-[#1A5C8A]/20 text-[#6AAFE6] border-[#2A5CA0] font-mono text-[9px]",
   Advanced:     "bg-[#6B4C2A]/20 text-[#C09040] border-[#8B6343] font-mono text-[9px]",
 };

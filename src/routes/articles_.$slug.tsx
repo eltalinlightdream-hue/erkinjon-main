@@ -9,6 +9,53 @@ function markSlugRead(slug: string) {
   const s = getReadSlugs(); s.add(slug);
   localStorage.setItem(READ_KEY, JSON.stringify([...s]));
 }
+
+const HL_KEY = "erkinjon_article_highlights";
+function getSavedArticleHtml(slug: string): string | null {
+  try {
+    const all = JSON.parse(localStorage.getItem(HL_KEY) ?? "{}");
+    return typeof all[slug] === "string" ? all[slug] : null;
+  } catch { return null; }
+}
+function saveArticleHtml(slug: string, html: string) {
+  try {
+    const all = JSON.parse(localStorage.getItem(HL_KEY) ?? "{}");
+    all[slug] = html;
+    localStorage.setItem(HL_KEY, JSON.stringify(all));
+  } catch { /* storage full / unavailable */ }
+}
+
+const HL_CLASSES: Record<"yellow" | "green", string> = {
+  yellow: "bg-yellow-200 dark:bg-yellow-500/35 rounded-sm px-0.5 cursor-pointer",
+  green: "bg-emerald-200 dark:bg-emerald-500/35 rounded-sm px-0.5 cursor-pointer",
+};
+
+/** Wrap every text node intersecting the range in a highlight span.
+ *  Unlike extractContents(), this never throws on selections that
+ *  cross paragraph or element boundaries. */
+function highlightRange(root: HTMLElement, range: Range, color: "yellow" | "green") {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const textNodes: Text[] = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode as Text;
+    if (range.intersectsNode(node) && node.data.trim().length > 0) {
+      textNodes.push(node);
+    }
+  }
+  for (const node of textNodes) {
+    const start = node === range.startContainer ? range.startOffset : 0;
+    const end = node === range.endContainer ? range.endOffset : node.length;
+    if (start >= end) continue;
+    let target = node;
+    if (start > 0) target = target.splitText(start);
+    if (end - start < target.length) target.splitText(end - start);
+    const span = document.createElement("span");
+    span.dataset.highlight = color;
+    span.className = HL_CLASSES[color];
+    target.parentNode?.replaceChild(span, target);
+    span.appendChild(target);
+  }
+}
 import { SiteLayout } from "@/components/site-layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -67,26 +114,26 @@ function ArticleView() {
   const popupRef = useRef<HTMLDivElement>(null);
   const savedRange = useRef<Range | null>(null);
 
+  // Persist current article HTML (with highlight spans) for this slug
+  const persistHighlights = useCallback(() => {
+    if (contentRef.current) saveArticleHtml(slug, contentRef.current.innerHTML);
+  }, [slug]);
+
   // Apply a highlight colour using the saved range
   const applyHighlight = useCallback((color: "yellow" | "green") => {
     const range = savedRange.current;
-    if (!range || range.collapsed) return;
+    const root = contentRef.current;
+    if (!range || range.collapsed || !root) return;
     try {
-      const span = document.createElement("span");
-      span.dataset.highlight = color;
-      span.className =
-        color === "yellow"
-          ? "bg-yellow-200 dark:bg-yellow-500/35 rounded-sm px-0.5 cursor-pointer"
-          : "bg-emerald-200 dark:bg-emerald-500/35 rounded-sm px-0.5 cursor-pointer";
-      span.appendChild(range.extractContents());
-      range.insertNode(span);
-      window.getSelection()?.removeAllRanges();
-      savedRange.current = null;
+      highlightRange(root, range, color);
     } catch {
       // silently ignore edge cases
     }
+    window.getSelection()?.removeAllRanges();
+    savedRange.current = null;
+    persistHighlights();
     setPopup(null);
-  }, []);
+  }, [persistHighlights]);
 
   // Remove highlight span that wraps the cursor
   const removeHighlightUnderCursor = useCallback((target: HTMLElement) => {
@@ -96,8 +143,26 @@ function ArticleView() {
     if (!parent) return;
     while (hl.firstChild) parent.insertBefore(hl.firstChild, hl);
     parent.removeChild(hl);
+    (parent as HTMLElement).normalize?.();
+    persistHighlights();
     setPopup(null);
-  }, []);
+  }, [persistHighlights]);
+
+  // Restore saved highlights when the article body mounts / tab returns
+  useEffect(() => {
+    if (tab !== "article") return;
+    const el = contentRef.current;
+    if (!el) return;
+    const saved = getSavedArticleHtml(slug);
+    if (saved && saved !== el.innerHTML) {
+      // Only restore if it's the same article text (author may have edited it)
+      const tmp = document.createElement("div");
+      tmp.innerHTML = saved;
+      if (tmp.textContent?.trim() === el.textContent?.trim()) {
+        el.innerHTML = saved;
+      }
+    }
+  }, [slug, tab]);
 
   // Show popup on mouseup / touchend inside article body
   useEffect(() => {
@@ -254,7 +319,7 @@ function ArticleView() {
           ))}
         </div>
         {/* Signature gradient line */}
-        <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #EAC4D5 45%, #4A9B7A 100%)" }} />
+        <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #FFD9A8 0%, #F7B96E 45%, #D97706 100%)" }} />
       </div>
 
       {/* ─── Content ────────────────────────────────────── */}
@@ -392,7 +457,7 @@ function ArticleView() {
                 >
                   {/* Sakura top accent */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ background: "linear-gradient(90deg, #F5D5CB 0%, #4A9B7A 100%)" }} />
+                    style={{ background: "linear-gradient(90deg, #FFD9A8 0%, #D97706 100%)" }} />
 
                   <div className="flex items-start justify-between mb-3 gap-2">
                     <h3 className="font-serif text-2xl font-semibold leading-tight">{v.word}</h3>
@@ -406,7 +471,7 @@ function ArticleView() {
                   <p className="text-sm leading-relaxed mb-3">{v.definition}</p>
 
                   {v.example && (
-                    <p className="text-sm italic text-muted-foreground mb-5 border-l-2 pl-3" style={{ borderColor: "#F5D5CB" }}>
+                    <p className="text-sm italic text-muted-foreground mb-5 border-l-2 pl-3" style={{ borderColor: "#FFD9A8" }}>
                       "{v.example}"
                     </p>
                   )}

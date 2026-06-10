@@ -56,183 +56,183 @@
 :root {
   --radius: 0px;
 
-  /* ── Deep Navy Theme ──────────────────────────────────────────
-     Base: deep navy charcoal.  Single accent: sharp teal.
+  /* ── Warm Sunset Theme ────────────────────────────────────────
+     Base: deep warm brown (dusk earth).  Single accent: sunset amber.
      Premium tier keeps gold as its own deliberate, repeating token. */
-  --background: #0E1626;
-  --foreground: #F1F5F9;
+  --background: #1F150C;
+  --foreground: #FAF3E6;
 
-  --card: #16223A;
-  --card-foreground: #F1F5F9;
-  --popover: #111C30;
-  --popover-foreground: #F1F5F9;
+  --card: #2B1E12;
+  --card-foreground: #FAF3E6;
+  --popover: #251A0F;
+  --popover-foreground: #FAF3E6;
 
-  /* Primary: Teal (the one accent — CTAs, active links, highlights) */
-  --primary: #0D9488;
+  /* Primary: Sunset amber (the one accent — CTAs, active links, highlights) */
+  --primary: #D97706;
   --primary-foreground: #FFFFFF;
 
-  /* Secondary: muted slate-blue (functional, never the accent) */
-  --secondary: #38516E;
-  --secondary-foreground: #F1F5F9;
+  /* Secondary: warm clay brown (functional, never the accent) */
+  --secondary: #7A5530;
+  --secondary-foreground: #FAF3E6;
 
-  /* Muted: deep navy stone + readable secondary text */
-  --muted: #1E2C44;
-  --muted-foreground: #CBD5E1;
+  /* Muted: warm earth + readable secondary text */
+  --muted: #3A2A19;
+  --muted-foreground: #E3D5BD;
 
   /* Accent token kept subtle for component hovers (menus, etc.) */
-  --accent: #1E2C44;
-  --accent-foreground: #F1F5F9;
+  --accent: #3A2A19;
+  --accent-foreground: #FAF3E6;
 
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
 
-  --border: #2A3A54;
-  --input: #13203A;
-  --ring: #14B8A6;
+  --border: #4D3823;
+  --input: #2E2113;
+  --ring: #F59E0B;
 
   /* ── Brand palette ─────────────────────────────────────────────
-     --mc-grass* are repurposed as the teal accent so every existing
+     --mc-grass* carry the amber accent so every existing
      var(--mc-grass) reference (nav border, card hover, dividers,
      badges) unifies on the one accent automatically. */
-  --mc-grass:       #0D9488;   /* teal-600  — accent base */
-  --mc-grass-dark:  #0F766E;   /* teal-700  — accent shadow/border */
-  --accent-teal:        #14B8A6;  /* teal-500 — bright highlight */
-  --accent-teal-bright: #2DD4BF;  /* teal-400 — text on dark navy */
-  --accent-teal-soft:   #5EEAD4;  /* teal-300 — brighter hover text */
-  --accent-teal-deep:   #062E2A;  /* deepest teal — hard shadow */
+  --mc-grass:       #D97706;   /* amber-600 — accent base */
+  --mc-grass-dark:  #B45309;   /* amber-700 — accent shadow/border */
+  --accent-teal:        #F59E0B;  /* amber-500 — bright highlight */
+  --accent-teal-bright: #FBBF24;  /* amber-400 — text on dark brown */
+  --accent-teal-soft:   #FCD34D;  /* amber-300 — brighter hover text */
+  --accent-teal-deep:   #451F06;  /* deepest amber-brown — hard shadow */
 
-  --mc-dirt:        #334155;   /* slate (was dirt brown) */
-  --mc-dirt-dark:   #1E293B;
-  --mc-stone:       #475569;
-  --mc-stone-dark:  #2A3A54;
+  --mc-dirt:        #52391F;   /* dirt brown */
+  --mc-dirt-dark:   #3B2917;
+  --mc-stone:       #6E5439;
+  --mc-stone-dark:  #4D3823;
   --mc-sky:         #38BDF8;   /* sky kept only for sprite/category art */
   --mc-gold:        #FFD700;   /* PREMIUM tier — deliberate 2nd token */
   --mc-gold-dark:   #C09A00;
-  --mc-obsidian:    #0B1220;
+  --mc-obsidian:    #160F08;
   --mc-redstone:    #DC2626;
 
   /* Unified glow — repeats on card hover, CTA hover, hero, stats */
-  --glow-accent:      0 0 0 1px rgba(20,184,166,0.55), 0 0 18px rgba(20,184,166,0.30);
-  --glow-accent-soft: 0 0 14px rgba(20,184,166,0.22);
+  --glow-accent:      0 0 0 1px rgba(245,158,11,0.55), 0 0 18px rgba(245,158,11,0.30);
+  --glow-accent-soft: 0 0 14px rgba(245,158,11,0.22);
   --glow-gold:        0 0 0 1px rgba(255,215,0,0.45), 0 0 16px rgba(255,215,0,0.28);
 
   /* Legacy color aliases (keeps existing utility classes working) */
   --gold:   #FFD700;
-  --sakura: #14B8A6;
-  --matcha: #0D9488;
-  --washi:  #0E1626;
-  --ink:    #F1F5F9;
+  --sakura: #F59E0B;
+  --matcha: #D97706;
+  --washi:  #1F150C;
+  --ink:    #FAF3E6;
 
   /* Gradient overrides */
-  --gradient-primary: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
-  --gradient-sakura:  linear-gradient(135deg, #0F766E 0%, #0D9488 100%);
-  --gradient-warm:    linear-gradient(160deg, #0E1626 0%, #16223A 100%);
+  --gradient-primary: linear-gradient(135deg, #B45309 0%, #F59E0B 100%);
+  --gradient-sakura:  linear-gradient(135deg, #B45309 0%, #D97706 100%);
+  --gradient-warm:    linear-gradient(160deg, #1F150C 0%, #2B1E12 100%);
 
   /* Minecraft hard shadows */
   --shadow-soft: 4px 4px 0px rgba(0,0,0,0.6);
   --shadow-warm: 6px 6px 0px rgba(0,0,0,0.6);
   --shadow-card: 3px 3px 0px rgba(0,0,0,0.5);
 
-  --chart-1: #0D9488;
-  --chart-2: #14B8A6;
+  --chart-1: #D97706;
+  --chart-2: #F59E0B;
   --chart-3: #FFD700;
-  --chart-4: #38516E;
+  --chart-4: #7A5530;
   --chart-5: #DC2626;
 
-  --sidebar: #111C30;
-  --sidebar-foreground: #F1F5F9;
-  --sidebar-primary: #0D9488;
+  --sidebar: #251A0F;
+  --sidebar-foreground: #FAF3E6;
+  --sidebar-primary: #D97706;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #1E2C44;
-  --sidebar-accent-foreground: #F1F5F9;
-  --sidebar-border: #2A3A54;
-  --sidebar-ring: #14B8A6;
+  --sidebar-accent: #3A2A19;
+  --sidebar-accent-foreground: #FAF3E6;
+  --sidebar-border: #4D3823;
+  --sidebar-ring: #F59E0B;
 }
 
 .dark {
-  --background: #0E1626;
-  --foreground: #F1F5F9;
-  --card: #16223A;
-  --card-foreground: #F1F5F9;
-  --popover: #111C30;
-  --popover-foreground: #F1F5F9;
-  --primary: #0D9488;
+  --background: #1F150C;
+  --foreground: #FAF3E6;
+  --card: #2B1E12;
+  --card-foreground: #FAF3E6;
+  --popover: #251A0F;
+  --popover-foreground: #FAF3E6;
+  --primary: #D97706;
   --primary-foreground: #FFFFFF;
-  --secondary: #38516E;
-  --secondary-foreground: #F1F5F9;
-  --muted: #1E2C44;
-  --muted-foreground: #CBD5E1;
-  --accent: #1E2C44;
-  --accent-foreground: #F1F5F9;
+  --secondary: #7A5530;
+  --secondary-foreground: #FAF3E6;
+  --muted: #3A2A19;
+  --muted-foreground: #E3D5BD;
+  --accent: #3A2A19;
+  --accent-foreground: #FAF3E6;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: #2A3A54;
-  --input: #13203A;
-  --ring: #14B8A6;
-  --sidebar: #111C30;
-  --sidebar-foreground: #F1F5F9;
-  --sidebar-primary: #0D9488;
+  --border: #4D3823;
+  --input: #2E2113;
+  --ring: #F59E0B;
+  --sidebar: #251A0F;
+  --sidebar-foreground: #FAF3E6;
+  --sidebar-primary: #D97706;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #1E2C44;
-  --sidebar-accent-foreground: #F1F5F9;
-  --sidebar-border: #2A3A54;
-  --sidebar-ring: #14B8A6;
+  --sidebar-accent: #3A2A19;
+  --sidebar-accent-foreground: #FAF3E6;
+  --sidebar-border: #4D3823;
+  --sidebar-ring: #F59E0B;
 }
 
 /* ─── LIGHT MODE VARIABLES ────────────────────────────────────── */
 
 :root.light {
-  --background: #F1F5F9;
-  --foreground: #0E1626;
+  --background: #FAF3E6;
+  --foreground: #1F150C;
   --card: #FFFFFF;
-  --card-foreground: #0E1626;
+  --card-foreground: #1F150C;
   --popover: #FFFFFF;
-  --popover-foreground: #0E1626;
-  --primary: #0D9488;
+  --popover-foreground: #1F150C;
+  --primary: #D97706;
   --primary-foreground: #FFFFFF;
-  --secondary: #CBD5E1;
-  --secondary-foreground: #0E1626;
-  --muted: #E2E8F0;
-  --muted-foreground: #475569;
-  --accent: #E2E8F0;
-  --accent-foreground: #0E1626;
+  --secondary: #E3D5BD;
+  --secondary-foreground: #1F150C;
+  --muted: #EFE3CC;
+  --muted-foreground: #6E5439;
+  --accent: #EFE3CC;
+  --accent-foreground: #1F150C;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: #CBD5E1;
-  --input: #E2E8F0;
-  --ring: #0D9488;
-  --gradient-warm: linear-gradient(160deg, #F1F5F9 0%, #E2E8F0 100%);
-  --shadow-soft: 4px 4px 0px rgba(15,23,42,0.15);
-  --shadow-warm: 6px 6px 0px rgba(15,23,42,0.15);
-  --shadow-card: 3px 3px 0px rgba(15,23,42,0.1);
-  --glow-accent:      0 0 0 1px rgba(13,148,136,0.5), 0 0 16px rgba(13,148,136,0.22);
-  --glow-accent-soft: 0 0 14px rgba(13,148,136,0.18);
-  --sidebar: #F8FAFC;
-  --sidebar-foreground: #0E1626;
-  --sidebar-primary: #0D9488;
+  --border: #E3D5BD;
+  --input: #EFE3CC;
+  --ring: #D97706;
+  --gradient-warm: linear-gradient(160deg, #FAF3E6 0%, #EFE3CC 100%);
+  --shadow-soft: 4px 4px 0px rgba(59,41,23,0.15);
+  --shadow-warm: 6px 6px 0px rgba(59,41,23,0.15);
+  --shadow-card: 3px 3px 0px rgba(59,41,23,0.1);
+  --glow-accent:      0 0 0 1px rgba(217,119,6,0.5), 0 0 16px rgba(217,119,6,0.22);
+  --glow-accent-soft: 0 0 14px rgba(217,119,6,0.18);
+  --sidebar: #FBF6EA;
+  --sidebar-foreground: #1F150C;
+  --sidebar-primary: #D97706;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #E2E8F0;
-  --sidebar-accent-foreground: #0E1626;
-  --sidebar-border: #CBD5E1;
-  --sidebar-ring: #0D9488;
+  --sidebar-accent: #EFE3CC;
+  --sidebar-accent-foreground: #1F150C;
+  --sidebar-border: #E3D5BD;
+  --sidebar-ring: #D97706;
 
   /* Nav-specific tokens */
-  --nav-bg: #F8FAFC;
-  --nav-text: #475569;
-  --nav-text-hover: #0E1626;
-  --nav-hover-bg: #E2E8F0;
+  --nav-bg: #FBF6EA;
+  --nav-text: #6E5439;
+  --nav-text-hover: #1F150C;
+  --nav-hover-bg: #EFE3CC;
   --nav-dropdown-bg: #FFFFFF;
-  --nav-border: #CBD5E1;
+  --nav-border: #E3D5BD;
 }
 
 /* Dark mode nav tokens */
 :root, :root.dark {
-  --nav-bg: #111C30;
-  --nav-text: #CBD5E1;
-  --nav-text-hover: #F1F5F9;
-  --nav-hover-bg: #1E2C44;
-  --nav-dropdown-bg: #16223A;
-  --nav-border: #2A3A54;
+  --nav-bg: #251A0F;
+  --nav-text: #E3D5BD;
+  --nav-text-hover: #FAF3E6;
+  --nav-hover-bg: #3A2A19;
+  --nav-dropdown-bg: #2B1E12;
+  --nav-border: #4D3823;
 }
 
 /* ─── THEME TRANSITION ────────────────────────────────────────── */
@@ -264,14 +264,22 @@
     font-family: 'Manrope', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "kern" 1;
-    /* Subtle pixel dot-grid background */
-    background-image: radial-gradient(circle, #1B2A44 1px, transparent 1px);
-    background-size: 16px 16px;
+    /* Warm sunset plains backdrop, dimmed so content stays readable */
+    background-image:
+      linear-gradient(rgba(31, 21, 12, 0.86), rgba(31, 21, 12, 0.93)),
+      url('/backgrounds/sunset-plains.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 
   :root.light body {
-    background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
-    background-size: 16px 16px;
+    background-image:
+      linear-gradient(rgba(250, 243, 230, 0.88), rgba(250, 243, 230, 0.94)),
+      url('/backgrounds/sunset-plains.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4 {
@@ -294,7 +302,7 @@
 
   input:focus, textarea:focus, select:focus {
     border-color: var(--accent-teal) !important;
-    box-shadow: 0 0 0 2px rgba(20,184,166,0.25) !important;
+    box-shadow: 0 0 0 2px rgba(245,158,11,0.25) !important;
     outline: none !important;
   }
 
@@ -313,48 +321,48 @@
 
 :root.light .bento-card {
   background: #FFFFFF;
-  border-color: #CBD5E1;
-  box-shadow: 4px 4px 0px rgba(15,23,42,0.10);
+  border-color: #E3D5BD;
+  box-shadow: 4px 4px 0px rgba(59,41,23,0.10);
   background-image:
-    linear-gradient(rgba(15,23,42,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15,23,42,0.02) 1px, transparent 1px);
+    linear-gradient(rgba(59,41,23,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,41,23,0.02) 1px, transparent 1px);
 }
 
 :root.light .bento-card:hover {
-  box-shadow: 4px 4px 0px rgba(15,23,42,0.10), var(--glow-accent);
+  box-shadow: 4px 4px 0px rgba(59,41,23,0.10), var(--glow-accent);
   border-color: var(--accent-teal);
 }
 
 :root.light .mc-bg-pattern {
-  background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
+  background-image: radial-gradient(circle, #E3D5BD 1px, transparent 1px);
 }
 
 :root.light .mc-bg-stone {
   background-image:
-    linear-gradient(rgba(15,23,42,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15,23,42,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(59,41,23,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,41,23,0.03) 1px, transparent 1px);
 }
 
 :root.light input, :root.light textarea, :root.light select {
-  background-color: #E2E8F0 !important;
-  border: 2px solid #CBD5E1 !important;
-  color: #0E1626 !important;
+  background-color: #EFE3CC !important;
+  border: 2px solid #E3D5BD !important;
+  color: #1F150C !important;
 }
 
 :root.light input:focus, :root.light textarea:focus, :root.light select:focus {
   border-color: var(--accent-teal) !important;
-  box-shadow: 0 0 0 2px rgba(13,148,136,0.3) !important;
+  box-shadow: 0 0 0 2px rgba(217,119,6,0.3) !important;
 }
 
 :root.light .keyboard-frame {
   background: #D8DEE9;
   border-color: #B0BAC8;
-  box-shadow: 0 32px 64px rgba(15,23,42,0.15), 0 16px 0 0 #B0BAC8;
+  box-shadow: 0 32px 64px rgba(59,41,23,0.15), 0 16px 0 0 #B0BAC8;
 }
 
-:root.light .keycap-cream .keycap-top  { background: #C8D2E0; color: #0E1626; }
+:root.light .keycap-cream .keycap-top  { background: #C8D2E0; color: #1F150C; }
 :root.light .keycap-cream .keycap-skirt { background: #B0BAC8; }
-:root.light .keycap-grey .keycap-top   { background: #B8C2D2; color: #0E1626; }
+:root.light .keycap-grey .keycap-top   { background: #B8C2D2; color: #1F150C; }
 :root.light .keycap-grey .keycap-skirt  { background: #A0AABA; }
 
 /* ─── ANIMATIONS ─────────────────────────────────────────────── */
@@ -449,9 +457,9 @@
 
   /* Badge difficulty colors */
   .badge-beginner {
-    background-color: #0F766E;
-    color: #F1F5F9;
-    border: 2px solid #14B8A6;
+    background-color: #B45309;
+    color: #FAF3E6;
+    border: 2px solid #F59E0B;
     padding: 2px 8px;
     font-family: 'Press Start 2P', monospace;
     font-size: 9px;
@@ -459,7 +467,7 @@
 
   .badge-intermediate {
     background-color: #1E3A5F;
-    color: #F1F5F9;
+    color: #FAF3E6;
     border: 2px solid #38BDF8;
     padding: 2px 8px;
     font-family: 'Press Start 2P', monospace;
@@ -468,7 +476,7 @@
 
   .badge-advanced {
     background-color: #7A5E00;
-    color: #F1F5F9;
+    color: #FAF3E6;
     border: 2px solid #FFD700;
     padding: 2px 8px;
     font-family: 'Press Start 2P', monospace;
@@ -479,7 +487,7 @@
 /* ─── PIXEL-DOT BACKGROUND ────────────────────────────────────── */
 
 .mc-bg-pattern {
-  background-image: radial-gradient(circle, #1B2A44 1px, transparent 1px);
+  background-image: radial-gradient(circle, #332416 1px, transparent 1px);
   background-size: 16px 16px;
 }
 
@@ -493,7 +501,7 @@
 /* ─── NAV ─────────────────────────────────────────────────────── */
 
 .glass-nav {
-  background: #111C30;
+  background: #251A0F;
   border-bottom: 3px solid var(--mc-grass);
   box-shadow:
     0 4px 0px var(--mc-grass-dark),
@@ -503,8 +511,8 @@
 /* ─── BENTO CARDS → NAVY BLOCK CARDS ─────────────────────────── */
 
 .bento-card {
-  background: #16223A;
-  border: 2px solid #2A3A54;
+  background: #2B1E12;
+  border: 2px solid #4D3823;
   box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
   /* Subtle stone texture */
   background-image:
@@ -609,14 +617,14 @@
 }
 
 .keyboard-frame {
-  background: #1E2C44;
-  border: 3px solid #2A3A54;
-  border-bottom-color: #0B1220;
-  border-right-color: #0B1220;
+  background: #3A2A19;
+  border: 3px solid #4D3823;
+  border-bottom-color: #160F08;
+  border-right-color: #160F08;
   padding: 1.75rem 2rem 1.25rem;
   box-shadow:
     0 32px 64px rgba(0, 0, 0, 0.5),
-    0 16px 0 0 #0B1220,
+    0 16px 0 0 #160F08,
     inset 0 2px 4px rgba(255, 255, 255, 0.08);
   transform: rotateX(25deg) rotateY(-10deg);
   transform-style: preserve-3d;
@@ -665,15 +673,15 @@
 }
 
 /* Keycap colour variants */
-.keycap-cream .keycap-top  { background: #33425E; color: #F1F5F9; }
-.keycap-cream .keycap-skirt { background: #33425E; }
+.keycap-cream .keycap-top  { background: #5C4326; color: #FAF3E6; }
+.keycap-cream .keycap-skirt { background: #5C4326; }
 
-.keycap-grey .keycap-top  { background: #2A3A54; color: #F1F5F9; }
-.keycap-grey .keycap-skirt { background: #2A3A54; }
+.keycap-grey .keycap-top  { background: #4D3823; color: #FAF3E6; }
+.keycap-grey .keycap-skirt { background: #4D3823; }
 
-.keycap-dark .keycap-top  { background: #16223A; color: #F1F5F9; }
-.keycap-dark .keycap-skirt { background: #16223A; }
+.keycap-dark .keycap-top  { background: #2B1E12; color: #FAF3E6; }
+.keycap-dark .keycap-skirt { background: #2B1E12; }
 
 /* Teal — primary action key */
-.keycap-blue .keycap-top  { background: #0D9488; color: #FFFFFF; }
-.keycap-blue .keycap-skirt { background: #0F766E; }
+.keycap-blue .keycap-top  { background: #D97706; color: #FFFFFF; }
+.keycap-blue .keycap-skirt { background: #B45309; }

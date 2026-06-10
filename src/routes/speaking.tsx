@@ -39,12 +39,11 @@ const SECTIONS: SpeakingSection[] = [
     tint: "bg-gold/15 text-gold",
   },
   {
-    to: "#",
+    to: "/speaking/written-samples",
     title: "Written Samples",
     icon: FileText,
-    desc: "See example answers and model responses",
+    desc: "Model answers for Part 1, 2 & 3 with the key language explained",
     tint: "bg-sage/15 text-sage",
-    disabled: true,
   },
 ];
 
