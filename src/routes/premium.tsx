@@ -67,9 +67,9 @@ function Premium() {
       {/* Hero */}
       <div className="relative overflow-hidden border-b border-border/40 bg-gradient-warm">
         <div className="absolute top-0 right-0 w-[500px] h-[300px] rounded-full opacity-20 blur-[100px] pointer-events-none"
-          style={{ background: "radial-gradient(circle, #C07850 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, var(--terracotta) 0%, transparent 70%)" }} />
         <div className="container mx-auto px-4 py-16 max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C07850]/10 border border-[#C07850]/25 font-mono text-[11px] tracking-widest text-[#C07850] mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--terracotta)]/10 border border-[var(--terracotta)]/25 font-mono text-[11px] tracking-widest text-[var(--terracotta)] mb-6">
             <Crown className="w-3.5 h-3.5" /> Premium Access
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-3">Go from Band 6 to Band 7+</h1>
@@ -84,7 +84,7 @@ function Premium() {
 
           {/* Features card */}
           <div className="bento-card rounded-3xl overflow-hidden">
-            <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #C07850 0%, #FFD9A8 50%, #D97706 100%)" }} />
+            <div className="h-[3px]" style={{ background: "linear-gradient(90deg, var(--terracotta) 0%, var(--ochre) 50%, var(--terracotta-deep) 100%)" }} />
             <div className="p-8">
               <h2 className="font-serif text-2xl font-semibold mb-1">What you get</h2>
               <p className="text-sm text-muted-foreground mb-6">Everything below, unlocked instantly.</p>

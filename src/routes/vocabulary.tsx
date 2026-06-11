@@ -97,7 +97,7 @@ function Folders({ onOpen, onReview }: { onOpen: (id: string) => void; onReview:
         <div className="flex gap-3 flex-wrap items-center">
           {/* Streak chip */}
           <div className="bento-card rounded-xl px-4 py-2.5 inline-flex items-center gap-2">
-            <Flame className="w-4 h-4 text-[#C07850]" />
+            <Flame className="w-4 h-4 text-[var(--terracotta)]" />
             <span className="font-mono text-xs tracking-wide">
               <strong className="font-semibold">{streak?.streak ?? 0}</strong> day streak
             </span>
@@ -195,7 +195,7 @@ function FolderCard({ folder, onOpen, onReview }: { folder: any; onOpen: () => v
     <div className="bento-card rounded-2xl p-6 flex flex-col group">
       {/* Sakura top accent on hover */}
       <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-        style={{ background: "linear-gradient(90deg, #FFD9A8 0%, #D97706 100%)" }} />
+        style={{ background: "linear-gradient(90deg, var(--terracotta-soft) 0%, var(--terracotta) 100%)" }} />
 
       <div className="flex items-center justify-between mb-4">
         <span className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center transition-transform group-hover:scale-105">
@@ -219,7 +219,7 @@ function FolderCard({ folder, onOpen, onReview }: { folder: any; onOpen: () => v
       <div className="font-mono text-[11px] text-muted-foreground mb-5 flex flex-wrap gap-2 items-center tracking-wide">
         <span>{folder.count ?? 0} words</span>
         {(folder.due ?? 0) > 0 && (
-          <span className="bg-[#C07850]/10 text-[#C07850] border border-[#C07850]/20 px-2 py-0.5 rounded-full text-[10px] tracking-wider font-semibold">
+          <span className="bg-[var(--terracotta)]/10 text-[var(--terracotta)] border border-[var(--terracotta)]/20 px-2 py-0.5 rounded-full text-[10px] tracking-wider font-semibold">
             {folder.due} due today
           </span>
         )}
@@ -309,7 +309,7 @@ function FolderDetail({ folderId, onBack, onReview }: { folderId: string; onBack
           <p className="font-mono text-xs text-muted-foreground tracking-wider mt-0.5">
             {words?.length ?? 0} words
             {(folder?.due ?? 0) > 0 && (
-              <span className="ml-2 text-[#C07850] font-semibold">{folder!.due} due today</span>
+              <span className="ml-2 text-[var(--terracotta)] font-semibold">{folder!.due} due today</span>
             )}
           </p>
         </div>
@@ -364,12 +364,12 @@ function FolderDetail({ folderId, onBack, onReview }: { folderId: string; onBack
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">{w.definition}</p>
-              {w.example && <p className="text-sm italic text-muted-foreground mt-1.5 border-l-2 pl-2.5" style={{ borderColor: "#FFD9A8" }}>"{w.example}"</p>}
+              {w.example && <p className="text-sm italic text-muted-foreground mt-1.5 border-l-2 pl-2.5" style={{ borderColor: "var(--terracotta-soft)" }}>"{w.example}"</p>}
               {w.next_review && (
                 <p className="font-mono text-[10px] text-muted-foreground/70 mt-3 tracking-wide">
                   Next review:{" "}
                   {new Date(w.next_review) <= new Date()
-                    ? <span className="text-[#C07850] font-semibold">Due now</span>
+                    ? <span className="text-[var(--terracotta)] font-semibold">Due now</span>
                     : new Date(w.next_review).toLocaleDateString()
                   }
                 </p>
@@ -525,7 +525,7 @@ function Review({ folderId, onBack }: { folderId?: string; onBack: () => void })
               {/* Front — word */}
               <div
                 className="flashcard-face border border-border/60 shadow-[0_8px_32px_rgba(43,64,128,0.10)]"
-                style={{ background: "linear-gradient(160deg, #FFFFFF 0%, #FAF3E6 100%)" }}
+                style={{ background: "linear-gradient(160deg, var(--card) 0%, var(--paper-deep) 100%)" }}
               >
                 <p className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase mb-4">Tap to reveal</p>
                 <h2 className="font-serif text-5xl font-bold text-primary leading-tight">{current.word}</h2>

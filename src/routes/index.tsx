@@ -1,353 +1,374 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
-import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper, Award, Layers, Zap } from "lucide-react";
-import {
-  EnderDragonSilhouette,
-  McItem,
-  GrassBlock,
-} from "@/components/minecraft-decorations";
+import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
-      { name: "description", content: "Free IELTS materials, online practice, video lessons and premium guidance from a Band 8.0 teacher in Uzbekistan." },
+      {
+        name: "description",
+        content:
+          "Free IELTS materials, online practice, video lessons and premium guidance from a Band 8.0 teacher in Uzbekistan.",
+      },
     ],
   }),
   component: Index,
 });
 
-/* ─── Minecraft night landscape — full-bleed hero background ───────
-   Original SVG illustration (no external assets / licensing).  A blocky
-   night scene: navy sky, pixel stars, a glowing square "moon" in the
-   accent teal, layered hills with teal grass caps.  The moon glow is
-   the same accent glow reused on the CTA + card hovers + stats. */
-function MinecraftNightScene() {
-  const cols = 30;
-  const colW = 960 / cols;
-
-  // Front hill: rolling, snapped to a 16px pixel grid
-  const front = Array.from({ length: cols }, (_, i) => {
-    const wave = Math.sin(i * 0.5) * 24 + Math.sin(i * 0.17) * 16;
-    return Math.round((332 + wave) / 16) * 16;
-  });
-  // Back hill: lower-frequency, sits higher and darker
-  const back = Array.from({ length: cols }, (_, i) => {
-    const wave = Math.sin(i * 0.32 + 1.2) * 30;
-    return Math.round((286 + wave) / 16) * 16;
-  });
-
-  const stars = [
-    [70, 60], [140, 110], [220, 48], [300, 90], [380, 40],
-    [470, 120], [540, 66], [620, 100], [690, 54], [770, 130],
-    [840, 70], [110, 170], [260, 150], [430, 175], [600, 158],
-    [760, 184], [900, 120], [40, 130], [500, 30], [820, 30],
-  ];
+/* ─── Study-desk illustration — hero side panel ─────────────────
+   Original thin-line SVG in the atelier style: an arched window with
+   a cypress beyond, an open notebook, a fountain pen and an espresso
+   cup on a desk. Strokes use theme variables so it adapts to both
+   the ivory and espresso modes. */
+function StudyDeskScene() {
+  const ink = {
+    stroke: "var(--ink-soft)",
+    strokeWidth: 1.6,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    fill: "none",
+  };
+  const terra = { ...ink, stroke: "var(--terracotta)" };
+  const olive = { ...ink, stroke: "var(--olive)" };
 
   return (
-    <svg
-      viewBox="0 0 960 480"
-      preserveAspectRatio="xMidYMax slice"
-      className="absolute inset-0 w-full h-full"
-      shapeRendering="crispEdges"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id="mc-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#160F08" />
-          <stop offset="55%" stopColor="#1F150C" />
-          <stop offset="100%" stopColor="#2E2014" />
-        </linearGradient>
-        <filter id="mc-moon-glow" x="-80%" y="-80%" width="260%" height="260%">
-          <feGaussianBlur stdDeviation="10" />
-        </filter>
-      </defs>
+    <svg viewBox="0 0 420 380" className="w-full h-auto" aria-hidden="true">
+      {/* Arched window */}
+      <path d="M270 40 a55 55 0 0 1 110 0 v120 h-110 z" {...ink} />
+      <path d="M325 -2 v162 M270 95 h110" {...ink} />
+      {/* Sun through the window */}
+      <circle cx="350" cy="62" r="14" {...terra} />
+      {/* Cypress beyond the window */}
+      <path d="M296 152 C300 120 302 96 296 76 C290 96 292 120 296 152 z" {...olive} />
+      {/* Horizon line in window */}
+      <path d="M272 132 h106" {...olive} opacity="0.6" />
 
-      {/* Sky */}
-      <rect x="0" y="0" width="960" height="480" fill="url(#mc-sky)" />
+      {/* Desk line */}
+      <path d="M16 312 h388" {...ink} />
+      <path d="M48 312 v36 M372 312 v36" {...ink} opacity="0.5" />
 
-      {/* Faint teal horizon band */}
-      <rect x="0" y="250" width="960" height="60" fill="#F59E0B" opacity="0.05" />
+      {/* Open notebook */}
+      <path d="M60 236 C92 222 130 222 150 234 L150 302 C130 290 92 290 60 304 z" {...ink} />
+      <path d="M150 234 C170 222 208 222 240 236 L240 304 C208 290 170 290 150 302 z" {...ink} />
+      <path d="M150 234 v68" {...ink} opacity="0.5" />
+      {/* Writing lines */}
+      <path
+        d="M78 248 c18 -6 38 -7 56 -3 M78 262 c18 -6 38 -7 56 -3 M78 276 c14 -5 28 -6 40 -4"
+        {...terra}
+        opacity="0.8"
+      />
+      <path d="M166 245 c18 -4 38 -3 58 3 M166 259 c18 -4 38 -3 58 3" {...ink} opacity="0.45" />
 
-      {/* Stars (pixel squares) */}
-      {stars.map(([x, y], i) => (
-        <rect
-          key={i}
-          x={x}
-          y={y}
-          width={i % 4 === 0 ? 4 : 3}
-          height={i % 4 === 0 ? 4 : 3}
-          fill="#EFE3CC"
-          opacity={0.35 + (i % 3) * 0.2}
-        />
-      ))}
+      {/* Fountain pen resting on the right page */}
+      <path d="M212 286 L262 246 l8 8 L222 296 l-12 2 z" {...terra} />
+      <path d="M258 250 l6 6" {...ink} opacity="0.6" />
 
-      {/* Square Minecraft moon with accent glow */}
-      <rect x="780" y="64" width="56" height="56" fill="#F59E0B" opacity="0.45" filter="url(#mc-moon-glow)" />
-      <rect x="784" y="68" width="48" height="48" fill="#F5EAD6" />
-      <rect x="784" y="68" width="48" height="48" fill="none" stroke="#F59E0B" strokeWidth="2" opacity="0.5" />
-      <rect x="800" y="80" width="8" height="8" fill="#E3D5BD" opacity="0.6" />
-      <rect x="816" y="96" width="6" height="6" fill="#E3D5BD" opacity="0.5" />
+      {/* Espresso cup */}
+      <path d="M306 270 h52 v12 a26 22 0 0 1 -52 0 z" {...ink} />
+      <path d="M358 274 h8 a10 10 0 0 1 0 20 h-9" {...ink} />
+      <path d="M296 312 h74" {...ink} opacity="0" />
+      <path d="M320 258 c0 -7 7 -7 7 -14 M338 258 c0 -7 7 -7 7 -14" {...ink} opacity="0.45" />
 
-      {/* Faint dragon drifting across the sky */}
-      <g transform="translate(150 92)" opacity="0.10">
-        <EnderDragonSilhouette width={220} height={88} opacity={1} />
-      </g>
+      {/* Small stack of books, left */}
+      <rect x="20" y="282" width="74" height="13" rx="3" {...olive} />
+      <rect x="28" y="268" width="60" height="13" rx="3" {...ink} />
+      <rect x="24" y="254" width="66" height="13" rx="3" {...terra} />
 
-      {/* Back hill range (darker) */}
-      {back.map((h, i) => (
-        <g key={`b${i}`}>
-          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#24190C" />
-          <rect x={i * colW} y={h} width={colW + 1} height={10} fill="#B45309" opacity="0.55" />
-        </g>
-      ))}
-
-      {/* Front hill range with teal grass caps */}
-      {front.map((h, i) => (
-        <g key={`f${i}`}>
-          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#1C130A" />
-          <rect x={i * colW} y={h} width={colW + 1} height={14} fill="#D97706" />
-          <rect x={i * colW} y={h} width={colW + 1} height={3} fill="#F59E0B" opacity="0.85" />
-        </g>
-      ))}
-
-      {/* A couple of blocky pixel trees on the front ridge */}
-      {[210, 540, 720].map((tx, i) => {
-        const h = front[Math.round(tx / colW)] ?? 332;
-        return (
-          <g key={`t${i}`}>
-            <rect x={tx} y={h - 26} width={10} height={26} fill="#33230F" />
-            <rect x={tx - 12} y={h - 50} width={34} height={26} fill="#D97706" opacity="0.85" />
-            <rect x={tx - 12} y={h - 50} width={34} height={4} fill="#F59E0B" opacity="0.7" />
-          </g>
-        );
-      })}
+      {/* Swallows */}
+      <path d="M60 80 C68 71 77 71 83 77 C89 71 98 71 106 80" {...ink} opacity="0.5" />
+      <path d="M130 50 C136 43 143 43 148 48 C153 43 160 43 166 50" {...ink} opacity="0.4" />
     </svg>
   );
 }
+
+/* Decorative section divider: ── ❦ ── */
+function OrnamentDivider() {
+  return (
+    <div className="ornament-rule max-w-md mx-auto px-4" aria-hidden="true">
+      <span className="font-serif text-xl leading-none select-none">❦</span>
+    </div>
+  );
+}
+
+const FEATURES = [
+  {
+    n: "01",
+    title: "Online Practice",
+    body: "Real IELTS prompts, timed mini-quizzes and a Part 2 topic randomizer — practise all four skills the way they appear on the actual exam.",
+    to: "/practice" as const,
+    cta: "Begin a practice session",
+    icon: PenLine,
+    tag: "All four skills",
+  },
+  {
+    n: "02",
+    title: "Free Materials",
+    body: "Tips, model answers and downloadable PDFs across Listening, Reading, Writing and Speaking. A growing library, free from the first page.",
+    to: "/practice" as const,
+    cta: "Browse the library",
+    icon: BookOpen,
+    tag: "Always free",
+  },
+  {
+    n: "03",
+    title: "Video Lessons",
+    body: "Full playlists on Writing, Speaking, Reading, Listening and Grammar — recorded with the same patience as a private lesson.",
+    to: "/videos" as const,
+    cta: "Watch the lessons",
+    icon: Youtube,
+    tag: "On YouTube",
+  },
+  {
+    n: "04",
+    title: "Articles",
+    body: "Essays on study habits, common mistakes and practical language learning — short readings to keep your English moving between sessions.",
+    to: "/articles" as const,
+    cta: "Read the latest",
+    icon: Newspaper,
+    tag: "Study notes",
+  },
+  {
+    n: "05",
+    title: "Premium Membership",
+    body: "Model answers, premium PDFs and exclusive video lessons — the full atelier, opened. For students who want every advantage on exam day.",
+    to: "/premium" as const,
+    cta: "Unlock Premium",
+    icon: Crown,
+    tag: "Full access",
+    premium: true,
+  },
+];
 
 function Index() {
   return (
     <SiteLayout>
       {/* ─── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden flex flex-col items-center pb-8">
-        {/* Minecraft night landscape background */}
-        <div className="absolute inset-0 pointer-events-none select-none z-0">
-          <MinecraftNightScene />
-          {/* Fade the scene into the page so text stays readable */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(14,22,38,0.55) 0%, rgba(14,22,38,0.35) 35%, rgba(14,22,38,0.85) 78%, var(--background) 100%)",
-            }}
-          />
+      <section className="relative overflow-hidden">
+        {/* Soft warm washes behind the hero */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full bg-[var(--terracotta)]/[0.07] blur-3xl" />
+          <div className="absolute top-1/2 -left-40 w-[420px] h-[420px] rounded-full bg-[var(--olive)]/[0.08] blur-3xl" />
         </div>
 
-        {/* Hero text */}
-        <div className="relative container mx-auto px-4 pt-20 md:pt-28 pb-10 max-w-3xl text-center z-10">
-          {/* IELTS band badge */}
-          <span
-            className="ink-bleed inline-flex items-center gap-2 px-4 py-1.5 bg-[#2B1E12] border-2 border-[#4D3823] font-mono text-[10px] tracking-wider text-[#E3D5BD] mb-8 shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
-            style={{ animationDelay: "0.05s" }}
-          >
-            <GrassBlock size={12} opacity={1} />
-            Taught by an IELTS Band 8.0 teacher from Uzbekistan
-          </span>
-
-          <h1
-            className="ink-bleed text-2xl md:text-4xl font-bold mb-5 text-[#FAF3E6]"
-            style={{ animationDelay: "0.25s" }}
-          >
-            Master IELTS with{" "}
-            <span className="text-[#FBBF24]">guided practice</span>
-          </h1>
-
-          <p
-            className="ink-bleed text-base md:text-lg text-[#E3D5BD] max-w-xl mx-auto mb-10 leading-relaxed font-sans"
-            style={{ animationDelay: "0.4s" }}
-          >
-            Friendly lessons, real exam strategies, and structured practice — built for Uzbek learners who want a real score jump.
-          </p>
-
-          <div
-            className="ink-bleed flex flex-col sm:flex-row gap-3 justify-center"
-            style={{ animationDelay: "0.55s" }}
-          >
-            {/* PRIMARY: Start Practicing Free — filled teal with accent glow */}
-            <Link to="/reading">
-              <Button
-                size="lg"
-                className="bg-[#D97706] text-white border-2 border-[#B45309] shadow-[4px_4px_0px_#451F06] hover:bg-[#F59E0B] hover:shadow-[4px_4px_0px_#451F06,0_0_18px_rgba(245,158,11,0.5)] active:shadow-[2px_2px_0px_#451F06] active:translate-x-0.5 active:translate-y-0.5 h-12 px-8 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
+        <div className="relative container mx-auto px-4 pt-16 md:pt-24 pb-16 md:pb-24">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left: editorial headline */}
+            <div className="lg:col-span-7 max-w-2xl">
+              <p
+                className="ink-bleed eyebrow text-primary mb-6"
+                style={{ animationDelay: "0.05s" }}
               >
-                Start Practicing Free <ArrowRight className="ml-1.5 w-4 h-4" />
-              </Button>
-            </Link>
-            {/* SECONDARY: Get Premium Access — demoted to ghost/outline on the hero */}
-            <Link to="/premium">
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-12 px-8 border-2 border-[#4D3823] bg-transparent text-[#E3D5BD] hover:bg-[#3A2A19] hover:text-[#FAF3E6] hover:border-[#F59E0B] shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all duration-150 font-serif text-[10px] tracking-widest uppercase"
-              >
-                Get Premium Access
-              </Button>
-            </Link>
-          </div>
-        </div>
+                Scuola d'inglese · IELTS preparation
+              </p>
 
-        {/* ── Animated stat strip (replaces the keyboard widget) ── */}
-        <div
-          className="ink-bleed relative z-10 w-full max-w-3xl px-4 pb-16 md:pb-24"
-          style={{ animationDelay: "0.7s" }}
-        >
-          <div className="grid grid-cols-3 gap-3 md:gap-5">
-            {[
-              { icon: Award, value: "8.0", label: "Teacher's IELTS Band", glow: false },
-              { icon: Layers, value: "4", label: "Core Skills Covered", glow: true },
-              { icon: Zap, value: "Free", label: "Start at Zero Cost", glow: false },
-            ].map((s, i) => (
+              <h1
+                className="ink-bleed font-serif text-4xl md:text-6xl text-foreground mb-6"
+                style={{ animationDelay: "0.2s" }}
+              >
+                Master IELTS with <em className="text-primary">guided practice</em>
+              </h1>
+
+              <p
+                className="ink-bleed text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-9"
+                style={{ animationDelay: "0.35s" }}
+              >
+                Friendly lessons, real exam strategies and structured practice — built for Uzbek
+                learners who want a real score jump, taught with the patience of a small studio
+                school.
+              </p>
+
               <div
-                key={i}
-                className={`bento-card p-5 md:p-6 flex flex-col items-center text-center ${s.glow ? "glow-accent-soft" : ""}`}
+                className="ink-bleed flex flex-col sm:flex-row gap-3"
+                style={{ animationDelay: "0.5s" }}
               >
-                <div className="w-10 h-10 mb-3 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mc-bob">
-                  <s.icon className="w-5 h-5" />
-                </div>
-                <div className="font-serif text-lg md:text-2xl text-[#FBBF24] leading-none mb-2">
-                  {s.value}
-                </div>
-                <div className="font-mono text-[10px] md:text-[11px] tracking-wide text-[#E3D5BD] leading-snug">
-                  {s.label}
+                <Link to="/reading">
+                  <Button size="lg" className="px-8 text-sm">
+                    Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link to="/premium">
+                  <Button size="lg" variant="outline" className="px-8 text-sm">
+                    Get Premium Access
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Inline editorial stats with serif numerals */}
+              <div
+                className="ink-bleed mt-12 flex items-center gap-6 md:gap-10"
+                style={{ animationDelay: "0.65s" }}
+              >
+                {[
+                  { value: "8.0", label: "Teacher's IELTS band" },
+                  { value: "4", label: "Core skills covered" },
+                  { value: "Free", label: "To start, always" },
+                ].map((s, i) => (
+                  <div key={i} className="flex items-center gap-6 md:gap-10">
+                    {i > 0 && <div className="w-px h-10 bg-border" aria-hidden="true" />}
+                    <div>
+                      <div className="font-serif text-2xl md:text-3xl text-foreground leading-none mb-1.5">
+                        {s.value}
+                      </div>
+                      <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                        {s.label}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: illustration panel with overlapping quote card */}
+            <div className="lg:col-span-5 relative ink-bleed" style={{ animationDelay: "0.45s" }}>
+              <div className="relative rounded-3xl bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)] border border-border shadow-soft p-8 md:p-10">
+                <StudyDeskScene />
+
+                {/* Band 8.0 seal */}
+                <div className="absolute -top-5 -right-4 md:-right-6 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center shadow-warm rotate-6 select-none">
+                  <span className="text-[9px] uppercase tracking-[0.18em] opacity-90">Band</span>
+                  <span className="font-serif text-2xl leading-none">8.0</span>
+                  <span className="text-[9px] uppercase tracking-[0.18em] opacity-90 mt-0.5">
+                    Teacher
+                  </span>
                 </div>
               </div>
-            ))}
+
+              {/* Overlapping pull-quote card */}
+              <figure className="relative md:absolute md:-bottom-8 md:-left-8 mt-4 md:mt-0 max-w-[280px] bg-card border border-border rounded-2xl shadow-soft p-5">
+                <blockquote className="font-serif italic text-[15px] text-foreground leading-snug">
+                  “A band score is built sentence by sentence — we simply begin.”
+                </blockquote>
+                <figcaption className="mt-3 text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                  Erkinjon · your teacher
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Teal accent divider */}
-      <div className="w-full h-1 bg-[#D97706]" />
-      <div className="w-full h-0.5 bg-[#B45309]" />
+      <OrnamentDivider />
 
-      {/* ─── FEATURES BENTO GRID ──────────────────────────────────── */}
-      <section className="container mx-auto px-4 py-20 max-w-6xl relative">
-        {/* Section scattered items */}
-        <div className="absolute top-12 right-4 opacity-[0.06] pointer-events-none hidden xl:block">
-          <McItem item="compass" size={40} opacity={1} />
-        </div>
-        <div className="absolute bottom-12 left-4 opacity-[0.06] pointer-events-none hidden xl:block">
-          <McItem item="sword" size={36} opacity={1} />
-        </div>
-
-        <div className="text-center max-w-xl mx-auto mb-14">
-          <h2 className="text-lg md:text-xl font-bold mb-3 text-[#FAF3E6]">
-            Everything you need to reach <span className="text-[#FBBF24]">Band 7+</span>
+      {/* ─── FEATURES — numbered editorial rows ───────────────────── */}
+      <section className="container mx-auto px-4 py-20 max-w-5xl">
+        <div className="text-center max-w-xl mx-auto mb-16">
+          <p className="eyebrow text-secondary mb-4">The curriculum</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+            Everything you need to reach <em className="text-primary">Band 7+</em>
           </h2>
-          <p className="text-[#E3D5BD] text-sm md:text-base leading-relaxed font-sans">
-            From free strategy guides to premium model answers, every resource is built for the real test.
+          <p className="text-muted-foreground leading-relaxed">
+            From free strategy guides to premium model answers, every resource is built for the real
+            test.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-5">
-
-          {/* Online Practice */}
-          <div className="md:col-span-3 lg:col-span-4 bento-card p-8 flex flex-col justify-between">
-            <div>
-              <div className="w-12 h-12 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mb-6">
-                <PenLine className="w-5 h-5" />
-              </div>
-              <h3 className="font-serif text-[0.7rem] text-[#FBBF24] mb-3 leading-relaxed">Online Practice</h3>
-              <p className="text-[#E3D5BD] text-sm leading-relaxed font-sans">
-                Real IELTS prompts, mini-quizzes, and a Part 2 topic randomizer.
-              </p>
-            </div>
-            <div className="mt-8 flex items-center gap-2">
-              <span className="font-mono text-[9px] tracking-widest uppercase px-2.5 py-1 bg-[#D97706]/15 border border-[#D97706]/40 text-[#FBBF24] animate-[subtlePulse_3s_ease-in-out_infinite]">
-                ● ACTIVE NOW
-              </span>
-              <McItem item="pickaxe" size={16} opacity={0.4} />
-            </div>
-          </div>
-
-          {/* Free Materials — wide */}
-          <div className="md:col-span-3 lg:col-span-8 bento-card p-8 flex flex-col justify-center overflow-hidden relative">
-            {/* Teal top accent */}
-            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#D97706]" />
-            <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#B45309]" />
-            <div className="w-12 h-12 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mb-6">
-              <BookOpen className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif text-[0.7rem] text-[#FBBF24] mb-3 leading-relaxed">Free Materials</h3>
-            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-6 font-sans">
-              Tips, model answers and downloadable PDFs across all four IELTS skills.
-            </p>
-            <Link
-              to="/practice"
-              className="text-[#FBBF24] font-mono text-[11px] font-semibold tracking-wider inline-flex items-center gap-2 hover:text-[#FCD34D] group"
+        <div className="flex flex-col">
+          {FEATURES.map((f, i) => (
+            <article
+              key={f.n}
+              className={`group grid md:grid-cols-12 gap-6 md:gap-10 items-center py-10 md:py-12 ${
+                i > 0 ? "border-t border-border" : ""
+              }`}
             >
-              ▸ Browse Library
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-          </div>
+              {/* Serif numeral */}
+              <div className={`md:col-span-2 ${i % 2 === 1 ? "md:order-3 md:text-right" : ""}`}>
+                <span
+                  className={`font-serif text-5xl md:text-6xl leading-none transition-colors duration-300 ${
+                    f.premium
+                      ? "text-[var(--ochre)]/50 group-hover:text-[var(--ochre)]"
+                      : "text-primary/30 group-hover:text-primary"
+                  }`}
+                >
+                  {f.n}
+                </span>
+              </div>
 
-          {/* YouTube Lessons — keeps YouTube's brand red */}
-          <div className="md:col-span-2 lg:col-span-4 bento-card p-8 group">
-            <div className="w-12 h-12 bg-[#DC2626]/15 border-2 border-[#DC2626]/40 text-[#F87171] flex items-center justify-center mb-6">
-              <Youtube className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif text-[0.7rem] text-[#FAF3E6] mb-3 leading-relaxed">YouTube Lessons</h3>
-            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-5 font-sans">
-              Watch full playlists on Writing, Speaking, Reading, Listening and Grammar.
-            </p>
-            <div className="aspect-video bg-[#160F08] overflow-hidden relative border-2 border-[#4D3823]">
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-12 h-12 bg-[#DC2626] flex items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,0.5)]">
-                  <span className="text-white text-xl ml-0.5">▶</span>
+              {/* Text */}
+              <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-2" : ""}`}>
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="font-serif text-xl md:text-2xl text-foreground">{f.title}</h3>
+                  <span
+                    className={`hidden sm:inline-block text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full ${
+                      f.premium
+                        ? "bg-[var(--ochre-wash)] text-[var(--ochre-deep)]"
+                        : "bg-[var(--olive-wash)] text-[var(--olive-deep)]"
+                    }`}
+                  >
+                    {f.tag}
+                  </span>
+                </div>
+                <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-4 max-w-lg">
+                  {f.body}
+                </p>
+                <Link
+                  to={f.to}
+                  className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
+                    f.premium
+                      ? "text-[var(--ochre)] hover:text-[var(--ochre-deep)]"
+                      : "text-primary hover:text-[var(--terracotta-deep)]"
+                  }`}
+                >
+                  {f.cta}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+
+              {/* Icon medallion */}
+              <div
+                className={`hidden md:flex md:col-span-3 justify-center ${
+                  i % 2 === 1 ? "md:order-1" : ""
+                }`}
+              >
+                <div
+                  className={`w-24 h-24 rounded-2xl flex items-center justify-center border transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft ${
+                    f.premium
+                      ? "bg-[var(--ochre-wash)] border-[var(--ochre)]/25 text-[var(--ochre)]"
+                      : "bg-[var(--terracotta-wash)] border-primary/20 text-primary"
+                  }`}
+                >
+                  <f.icon className="w-9 h-9" strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="absolute inset-0 opacity-10 bg-[#DC2626]" />
-            </div>
-          </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-          {/* Articles */}
-          <div className="md:col-span-2 lg:col-span-4 bento-card p-8">
-            <div className="w-12 h-12 bg-[#D97706]/15 border-2 border-[#D97706]/40 text-[#FBBF24] flex items-center justify-center mb-6">
-              <Newspaper className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif text-[0.7rem] text-[#FAF3E6] mb-3 leading-relaxed">Articles</h3>
-            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-6 font-sans">
-              Read helpful IELTS articles, study advice, and practical language-learning tips.
-            </p>
-            <div className="space-y-2.5">
-              {[3, 4, 2].map((w, i) => (
-                <div key={i} className="h-[3px] bg-[#D97706]/45" style={{ width: `${w * 20}%` }} />
-              ))}
-            </div>
-            <div className="mt-4 flex justify-end">
-              <McItem item="book" size={20} opacity={0.3} />
-            </div>
-          </div>
+      {/* ─── PULL QUOTE ────────────────────────────────────────────── */}
+      <section className="container mx-auto px-4 pb-20 max-w-3xl text-center">
+        <OrnamentDivider />
+        <blockquote className="font-serif italic text-2xl md:text-3xl text-foreground leading-snug mt-12 mb-6">
+          “Language is learned in small, faithful sittings — not in a panic the week before the
+          exam.”
+        </blockquote>
+        <p className="eyebrow text-muted-foreground">From the teaching notes</p>
+      </section>
 
-          {/* Premium — navy card with the gold premium accent */}
-          <div className="md:col-span-2 lg:col-span-4 bento-card p-8 bg-[#281C10] border-[#3D3416] shadow-[4px_4px_0px_rgba(0,0,0,0.5)] relative">
-            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#FFD700]" />
-            <div className="absolute top-[4px] left-0 right-0 h-[2px] bg-[#C09A00]" />
-            <div className="w-12 h-12 bg-[#FFD700]/15 border-2 border-[#FFD700]/40 flex items-center justify-center mb-6">
-              <Crown className="w-5 h-5 text-[#FFD700]" />
-            </div>
-            <h3 className="font-serif text-[0.7rem] mb-3 text-[#FFD700] leading-relaxed">Premium Membership</h3>
-            <p className="text-[#E3D5BD] text-sm leading-relaxed mb-8 font-sans">
-              Unlock model answers, premium PDFs, and exclusive video lessons.
-            </p>
+      {/* ─── CLOSING CTA ───────────────────────────────────────────── */}
+      <section className="container mx-auto px-4 pb-24 max-w-5xl">
+        <div className="rounded-3xl bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)] border border-border shadow-soft px-8 py-14 md:px-16 text-center">
+          <p className="eyebrow text-primary mb-4">Si comincia</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+            Ready when you are.
+          </h2>
+          <p className="text-muted-foreground max-w-md mx-auto leading-relaxed mb-8">
+            Open a practice passage now — no account needed — or join Premium for the complete study
+            programme.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link to="/reading">
+              <Button size="lg" className="px-8 text-sm">
+                Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
+              </Button>
+            </Link>
             <Link to="/premium">
-              <button className="w-full bg-[#FFD700] text-[#1F150C] font-serif text-[9px] font-semibold tracking-widest py-3 border-2 border-[#C09A00] shadow-[3px_3px_0px_#8A6A00] hover:bg-[#FFE050] hover:shadow-[3px_3px_0px_#8A6A00,0_0_14px_rgba(255,215,0,0.45)] active:shadow-[1px_1px_0px_#8A6A00] active:translate-x-0.5 active:translate-y-0.5 transition-all uppercase">
-                ★ Upgrade Now
-              </button>
+              <Button size="lg" variant="outline" className="px-8 text-sm">
+                Get Premium Access
+              </Button>
             </Link>
           </div>
-
         </div>
       </section>
     </SiteLayout>
