@@ -274,9 +274,11 @@
   }
 
   :root.light body {
+    /* Light mode uses a clay-toned (#B8946A) duotone of the illustration so the
+       hills, trees and house keep contrast against the cream background */
     background-image:
-      linear-gradient(rgba(250, 243, 230, 0.88), rgba(250, 243, 230, 0.94)),
-      url('/backgrounds/sunset-plains.png');
+      linear-gradient(rgba(250, 243, 230, 0.35), rgba(250, 243, 230, 0.35)),
+      url('/backgrounds/sunset-plains-light.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
