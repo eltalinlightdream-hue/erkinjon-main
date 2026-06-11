@@ -319,7 +319,7 @@ function ArticleView() {
           ))}
         </div>
         {/* Signature gradient line */}
-        <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #FFD9A8 0%, #F7B96E 45%, #D97706 100%)" }} />
+        <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, var(--terracotta-soft) 0%, var(--ochre) 45%, var(--terracotta) 100%)" }} />
       </div>
 
       {/* ─── Content ────────────────────────────────────── */}
@@ -457,7 +457,7 @@ function ArticleView() {
                 >
                   {/* Sakura top accent */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ background: "linear-gradient(90deg, #FFD9A8 0%, #D97706 100%)" }} />
+                    style={{ background: "linear-gradient(90deg, var(--terracotta-soft) 0%, var(--terracotta) 100%)" }} />
 
                   <div className="flex items-start justify-between mb-3 gap-2">
                     <h3 className="font-serif text-2xl font-semibold leading-tight">{v.word}</h3>
@@ -471,7 +471,7 @@ function ArticleView() {
                   <p className="text-sm leading-relaxed mb-3">{v.definition}</p>
 
                   {v.example && (
-                    <p className="text-sm italic text-muted-foreground mb-5 border-l-2 pl-3" style={{ borderColor: "#FFD9A8" }}>
+                    <p className="text-sm italic text-muted-foreground mb-5 border-l-2 pl-3" style={{ borderColor: "var(--terracotta-soft)" }}>
                       "{v.example}"
                     </p>
                   )}

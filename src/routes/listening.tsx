@@ -510,7 +510,7 @@ function Listening() {
           <McItem item="pickaxe" size={32} opacity={1} />
         </div>
         <div className="mb-10">
-          <h1 className="text-2xl md:text-3xl font-bold mb-3 text-[#FBBF24]">🎧 IELTS Listening</h1>
+          <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Listening</h1>
           <p className="text-muted-foreground mb-1">
             Full listening tests with built-in audio player, timer, and answer checker.
           </p>

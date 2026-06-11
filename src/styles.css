@@ -5,14 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Minecraft: zero border-radius everywhere */
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-4xl: 0px;
+  /* Atelier: soft rounded corners (12–16px scale) */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.75rem;
+  --radius-4xl: 2rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -47,192 +47,211 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Minecraft font stack */
-  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Press Start 2P', 'Courier New', monospace;
+  /* Atelier font stack: editorial serif + clean sans */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Fraunces', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 }
 
+/* ── Italian study atelier — giorno (light, default) ─────────────
+   Warm ivory paper, terracotta accent, olive tags, charcoal ink. */
 :root {
-  --radius: 0px;
+  --radius: 0.875rem;
 
-  /* ── Warm Sunset Theme ────────────────────────────────────────
-     Base: deep warm brown (dusk earth).  Single accent: sunset amber.
-     Premium tier keeps gold as its own deliberate, repeating token. */
-  --background: #1F150C;
-  --foreground: #FAF3E6;
+  --background: #FAF6F0;
+  --foreground: #2B2522;
 
-  --card: #2B1E12;
-  --card-foreground: #FAF3E6;
-  --popover: #251A0F;
-  --popover-foreground: #FAF3E6;
+  --card: #FFFCF7;
+  --card-foreground: #2B2522;
+  --popover: #FFFCF7;
+  --popover-foreground: #2B2522;
 
-  /* Primary: Sunset amber (the one accent — CTAs, active links, highlights) */
-  --primary: #D97706;
-  --primary-foreground: #FFFFFF;
+  /* Primary: terracotta — CTAs, active links, highlights */
+  --primary: #C8553D;
+  --primary-foreground: #FFF9F4;
 
-  /* Secondary: warm clay brown (functional, never the accent) */
-  --secondary: #7A5530;
-  --secondary-foreground: #FAF3E6;
+  /* Secondary: deep olive — tags, badges, supporting accents */
+  --secondary: #5C6B47;
+  --secondary-foreground: #F7F8F2;
 
-  /* Muted: warm earth + readable secondary text */
-  --muted: #3A2A19;
-  --muted-foreground: #E3D5BD;
+  --muted: #F2ECE1;
+  --muted-foreground: #6F6357;
 
-  /* Accent token kept subtle for component hovers (menus, etc.) */
-  --accent: #3A2A19;
-  --accent-foreground: #FAF3E6;
+  --accent: #F3EDE2;
+  --accent-foreground: #2B2522;
 
-  --destructive: #DC2626;
-  --destructive-foreground: #FFFFFF;
+  --destructive: #B3402E;
+  --destructive-foreground: #FFF9F4;
 
-  --border: #4D3823;
-  --input: #2E2113;
-  --ring: #F59E0B;
+  --border: #E7DECF;
+  --input: #F6F1E8;
+  --ring: #C8553D;
 
-  /* ── Brand palette ─────────────────────────────────────────────
-     --mc-grass* carry the amber accent so every existing
-     var(--mc-grass) reference (nav border, card hover, dividers,
-     badges) unifies on the one accent automatically. */
-  --mc-grass:       #D97706;   /* amber-600 — accent base */
-  --mc-grass-dark:  #B45309;   /* amber-700 — accent shadow/border */
-  --accent-teal:        #F59E0B;  /* amber-500 — bright highlight */
-  --accent-teal-bright: #FBBF24;  /* amber-400 — text on dark brown */
-  --accent-teal-soft:   #FCD34D;  /* amber-300 — brighter hover text */
-  --accent-teal-deep:   #451F06;  /* deepest amber-brown — hard shadow */
+  /* ── Brand palette ──────────────────────────────────────────────
+     Legacy variable names are kept so existing references across the
+     site resolve to the new atelier palette automatically. */
+  --terracotta:       #C8553D;
+  --terracotta-deep:  #A8462F;
+  --terracotta-soft:  #E8C9BE;
+  --terracotta-wash:  #F7E9E3;
+  --olive:            #5C6B47;
+  --olive-deep:       #49563A;
+  --olive-wash:       #ECEFE2;
+  --ochre:            #A8742C;   /* premium tier accent */
+  --ochre-deep:       #8A5E20;
+  --ochre-wash:       #F5EBD8;
+  --ink:              #2B2522;
+  --ink-soft:         #6F6357;
+  --paper:            #FAF6F0;
+  --paper-deep:       #F2ECE1;
 
-  --mc-dirt:        #52391F;   /* dirt brown */
-  --mc-dirt-dark:   #3B2917;
-  --mc-stone:       #6E5439;
-  --mc-stone-dark:  #4D3823;
-  --mc-sky:         #38BDF8;   /* sky kept only for sprite/category art */
-  --mc-gold:        #FFD700;   /* PREMIUM tier — deliberate 2nd token */
-  --mc-gold-dark:   #C09A00;
-  --mc-obsidian:    #160F08;
-  --mc-redstone:    #DC2626;
+  --mc-grass:       var(--terracotta);
+  --mc-grass-dark:  var(--terracotta-deep);
+  --accent-teal:        var(--terracotta);
+  --accent-teal-bright: #B14A33;
+  --accent-teal-soft:   #D97257;
+  --accent-teal-deep:   #8F3A26;
 
-  /* Unified glow — repeats on card hover, CTA hover, hero, stats */
-  --glow-accent:      0 0 0 1px rgba(245,158,11,0.55), 0 0 18px rgba(245,158,11,0.30);
-  --glow-accent-soft: 0 0 14px rgba(245,158,11,0.22);
-  --glow-gold:        0 0 0 1px rgba(255,215,0,0.45), 0 0 16px rgba(255,215,0,0.28);
+  --mc-dirt:        #B49A7C;
+  --mc-dirt-dark:   #8F7A60;
+  --mc-stone:       #C9BCA7;
+  --mc-stone-dark:  #A89A82;
+  --mc-sky:         #7E9AAB;
+  --mc-gold:        var(--ochre);
+  --mc-gold-dark:   var(--ochre-deep);
+  --mc-obsidian:    #211A14;
+  --mc-redstone:    #B3402E;
 
-  /* Legacy color aliases (keeps existing utility classes working) */
-  --gold:   #FFD700;
-  --sakura: #F59E0B;
-  --matcha: #D97706;
-  --washi:  #1F150C;
-  --ink:    #FAF3E6;
+  /* Soft halos for hover states */
+  --glow-accent:      0 0 0 1px rgba(200, 85, 61, 0.25), 0 8px 24px rgba(200, 85, 61, 0.12);
+  --glow-accent-soft: 0 6px 20px rgba(200, 85, 61, 0.10);
+  --glow-gold:        0 0 0 1px rgba(168, 116, 44, 0.30), 0 8px 24px rgba(168, 116, 44, 0.14);
 
-  /* Gradient overrides */
-  --gradient-primary: linear-gradient(135deg, #B45309 0%, #F59E0B 100%);
-  --gradient-sakura:  linear-gradient(135deg, #B45309 0%, #D97706 100%);
-  --gradient-warm:    linear-gradient(160deg, #1F150C 0%, #2B1E12 100%);
+  /* Legacy color aliases */
+  --gold:   #A8742C;
+  --sakura: #C8553D;
+  --matcha: #5C6B47;
+  --washi:  #FAF6F0;
 
-  /* Minecraft hard shadows */
-  --shadow-soft: 4px 4px 0px rgba(0,0,0,0.6);
-  --shadow-warm: 6px 6px 0px rgba(0,0,0,0.6);
-  --shadow-card: 3px 3px 0px rgba(0,0,0,0.5);
+  --gradient-primary: linear-gradient(135deg, #A8462F 0%, #C8553D 100%);
+  --gradient-sakura:  linear-gradient(135deg, #C8553D 0%, #D97257 100%);
+  --gradient-warm:    linear-gradient(160deg, #FAF6F0 0%, #F2ECE1 100%);
 
-  --chart-1: #D97706;
-  --chart-2: #F59E0B;
-  --chart-3: #FFD700;
-  --chart-4: #7A5530;
-  --chart-5: #DC2626;
+  /* Soft layered shadows */
+  --shadow-soft: 0 1px 2px rgba(43, 37, 34, 0.05), 0 8px 24px rgba(43, 37, 34, 0.07);
+  --shadow-warm: 0 2px 4px rgba(43, 37, 34, 0.05), 0 16px 40px rgba(43, 37, 34, 0.10);
+  --shadow-card: 0 1px 2px rgba(43, 37, 34, 0.04), 0 4px 14px rgba(43, 37, 34, 0.06);
 
-  --sidebar: #251A0F;
-  --sidebar-foreground: #FAF3E6;
-  --sidebar-primary: #D97706;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #3A2A19;
-  --sidebar-accent-foreground: #FAF3E6;
-  --sidebar-border: #4D3823;
-  --sidebar-ring: #F59E0B;
+  --chart-1: #C8553D;
+  --chart-2: #5C6B47;
+  --chart-3: #A8742C;
+  --chart-4: #8F7A60;
+  --chart-5: #B3402E;
+
+  --sidebar: #F6F1E8;
+  --sidebar-foreground: #2B2522;
+  --sidebar-primary: #C8553D;
+  --sidebar-primary-foreground: #FFF9F4;
+  --sidebar-accent: #F2ECE1;
+  --sidebar-accent-foreground: #2B2522;
+  --sidebar-border: #E7DECF;
+  --sidebar-ring: #C8553D;
+
+  /* Nav tokens */
+  --nav-bg: rgba(250, 246, 240, 0.9);
+  --nav-text: #6F6357;
+  --nav-text-hover: #2B2522;
+  --nav-hover-bg: #F2ECE1;
+  --nav-dropdown-bg: #FFFCF7;
+  --nav-border: #E7DECF;
 }
 
+/* ── Italian study atelier — sera (dark espresso, optional) ────── */
 .dark {
-  --background: #1F150C;
-  --foreground: #FAF3E6;
-  --card: #2B1E12;
-  --card-foreground: #FAF3E6;
-  --popover: #251A0F;
-  --popover-foreground: #FAF3E6;
-  --primary: #D97706;
-  --primary-foreground: #FFFFFF;
-  --secondary: #7A5530;
-  --secondary-foreground: #FAF3E6;
-  --muted: #3A2A19;
-  --muted-foreground: #E3D5BD;
-  --accent: #3A2A19;
-  --accent-foreground: #FAF3E6;
-  --destructive: #DC2626;
-  --destructive-foreground: #FFFFFF;
-  --border: #4D3823;
-  --input: #2E2113;
-  --ring: #F59E0B;
-  --sidebar: #251A0F;
-  --sidebar-foreground: #FAF3E6;
-  --sidebar-primary: #D97706;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #3A2A19;
-  --sidebar-accent-foreground: #FAF3E6;
-  --sidebar-border: #4D3823;
-  --sidebar-ring: #F59E0B;
-}
+  --background: #211A14;
+  --foreground: #F3ECE1;
 
-/* ─── LIGHT MODE VARIABLES ────────────────────────────────────── */
+  --card: #2A221B;
+  --card-foreground: #F3ECE1;
+  --popover: #2E261E;
+  --popover-foreground: #F3ECE1;
 
-:root.light {
-  --background: #FAF3E6;
-  --foreground: #1F150C;
-  --card: #FFFFFF;
-  --card-foreground: #1F150C;
-  --popover: #FFFFFF;
-  --popover-foreground: #1F150C;
-  --primary: #D97706;
-  --primary-foreground: #FFFFFF;
-  --secondary: #E3D5BD;
-  --secondary-foreground: #1F150C;
-  --muted: #EFE3CC;
-  --muted-foreground: #6E5439;
-  --accent: #EFE3CC;
-  --accent-foreground: #1F150C;
-  --destructive: #DC2626;
-  --destructive-foreground: #FFFFFF;
-  --border: #E3D5BD;
-  --input: #EFE3CC;
-  --ring: #D97706;
-  --gradient-warm: linear-gradient(160deg, #FAF3E6 0%, #EFE3CC 100%);
-  --shadow-soft: 4px 4px 0px rgba(59,41,23,0.15);
-  --shadow-warm: 6px 6px 0px rgba(59,41,23,0.15);
-  --shadow-card: 3px 3px 0px rgba(59,41,23,0.1);
-  --glow-accent:      0 0 0 1px rgba(217,119,6,0.5), 0 0 16px rgba(217,119,6,0.22);
-  --glow-accent-soft: 0 0 14px rgba(217,119,6,0.18);
-  --sidebar: #FBF6EA;
-  --sidebar-foreground: #1F150C;
-  --sidebar-primary: #D97706;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #EFE3CC;
-  --sidebar-accent-foreground: #1F150C;
-  --sidebar-border: #E3D5BD;
-  --sidebar-ring: #D97706;
+  --primary: #D8694E;
+  --primary-foreground: #FFF6EF;
 
-  /* Nav-specific tokens */
-  --nav-bg: #FBF6EA;
-  --nav-text: #6E5439;
-  --nav-text-hover: #1F150C;
-  --nav-hover-bg: #EFE3CC;
-  --nav-dropdown-bg: #FFFFFF;
-  --nav-border: #E3D5BD;
-}
+  --secondary: #6B7A54;
+  --secondary-foreground: #F4F6EC;
 
-/* Dark mode nav tokens */
-:root, :root.dark {
-  --nav-bg: #251A0F;
-  --nav-text: #E3D5BD;
-  --nav-text-hover: #FAF3E6;
-  --nav-hover-bg: #3A2A19;
-  --nav-dropdown-bg: #2B1E12;
-  --nav-border: #4D3823;
+  --muted: #322923;
+  --muted-foreground: #C7BAA8;
+
+  --accent: #342B23;
+  --accent-foreground: #F3ECE1;
+
+  --destructive: #D04C36;
+  --destructive-foreground: #FFF6EF;
+
+  --border: #3E342A;
+  --input: #2E261E;
+  --ring: #D8694E;
+
+  --terracotta:       #D8694E;
+  --terracotta-deep:  #B14A33;
+  --terracotta-soft:  #7A4233;
+  --terracotta-wash:  #3B2B24;
+  --olive:            #93A172;
+  --olive-deep:       #6B7A54;
+  --olive-wash:       #2E3023;
+  --ochre:            #D2A24C;
+  --ochre-deep:       #A8742C;
+  --ochre-wash:       #3A3020;
+  --ink:              #F3ECE1;
+  --ink-soft:         #C7BAA8;
+  --paper:            #211A14;
+  --paper-deep:       #2A221B;
+
+  --mc-grass:       var(--terracotta);
+  --mc-grass-dark:  var(--terracotta-deep);
+  --accent-teal:        var(--terracotta);
+  --accent-teal-bright: #E0826B;
+  --accent-teal-soft:   #EBA28F;
+  --accent-teal-deep:   #8F3A26;
+
+  --mc-gold:        var(--ochre);
+  --mc-gold-dark:   var(--ochre-deep);
+
+  --glow-accent:      0 0 0 1px rgba(216, 105, 78, 0.35), 0 8px 24px rgba(216, 105, 78, 0.18);
+  --glow-accent-soft: 0 6px 20px rgba(216, 105, 78, 0.14);
+  --glow-gold:        0 0 0 1px rgba(210, 162, 76, 0.35), 0 8px 24px rgba(210, 162, 76, 0.18);
+
+  --gold:   #D2A24C;
+  --sakura: #D8694E;
+  --matcha: #93A172;
+  --washi:  #211A14;
+
+  --gradient-primary: linear-gradient(135deg, #B14A33 0%, #D8694E 100%);
+  --gradient-sakura:  linear-gradient(135deg, #D8694E 0%, #EBA28F 100%);
+  --gradient-warm:    linear-gradient(160deg, #211A14 0%, #2A221B 100%);
+
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.30);
+  --shadow-warm: 0 2px 4px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.20), 0 4px 14px rgba(0, 0, 0, 0.25);
+
+  --sidebar: #2A221B;
+  --sidebar-foreground: #F3ECE1;
+  --sidebar-primary: #D8694E;
+  --sidebar-primary-foreground: #FFF6EF;
+  --sidebar-accent: #342B23;
+  --sidebar-accent-foreground: #F3ECE1;
+  --sidebar-border: #3E342A;
+  --sidebar-ring: #D8694E;
+
+  --nav-bg: rgba(33, 26, 20, 0.9);
+  --nav-text: #C7BAA8;
+  --nav-text-hover: #F3ECE1;
+  --nav-hover-bg: #342B23;
+  --nav-dropdown-bg: #2E261E;
+  --nav-border: #3E342A;
 }
 
 /* ─── THEME TRANSITION ────────────────────────────────────────── */
@@ -250,45 +269,44 @@
   transition: opacity 0.3s ease !important;
 }
 
-/* ─── BASE RESETS ─────────────────────────────────────────────── */
+/* ─── BASE ────────────────────────────────────────────────────── */
 
 @layer base {
   * {
     border-color: var(--color-border);
-    border-radius: 0 !important;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "kern" 1;
-    /* Warm sunset plains backdrop, dimmed so content stays readable */
-    background-image:
-      linear-gradient(rgba(31, 21, 12, 0.86), rgba(31, 21, 12, 0.93)),
-      url('/backgrounds/sunset-plains.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    position: relative;
   }
 
-  :root.light body {
-    /* Light mode uses a clay-toned (#B8946A) duotone of the illustration so the
-       hills, trees and house keep contrast against the cream background */
-    background-image:
-      linear-gradient(rgba(250, 243, 230, 0.35), rgba(250, 243, 230, 0.35)),
-      url('/backgrounds/sunset-plains-light.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  /* Subtle paper-grain texture over the whole page */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Press Start 2P', 'Courier New', monospace;
-    letter-spacing: 0.02em;
-    line-height: 1.7;
-    text-rendering: optimizeSpeed;
+    font-family: 'Fraunces', 'Georgia', serif;
+    font-weight: 550;
+    letter-spacing: -0.015em;
+    line-height: 1.18;
+    text-rendering: optimizeLegibility;
   }
 
   :focus-visible {
@@ -298,13 +316,14 @@
 
   input, textarea, select {
     background-color: var(--input) !important;
-    border: 2px solid var(--border) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0.75rem !important;
     color: var(--foreground) !important;
   }
 
   input:focus, textarea:focus, select:focus {
-    border-color: var(--accent-teal) !important;
-    box-shadow: 0 0 0 2px rgba(245,158,11,0.25) !important;
+    border-color: var(--terracotta) !important;
+    box-shadow: 0 0 0 3px rgba(200, 85, 61, 0.15) !important;
     outline: none !important;
   }
 
@@ -313,66 +332,12 @@
   }
 }
 
-/* ─── LIGHT MODE STRUCTURAL OVERRIDES ────────────────────────── */
-
-:root.light .glass-nav {
-  background: var(--nav-bg);
-  border-bottom: 3px solid var(--mc-grass);
-  box-shadow: 0 4px 0px var(--mc-grass-dark), inset 0 1px 0 rgba(255,255,255,0.8);
-}
-
-:root.light .bento-card {
-  background: #FFFFFF;
-  border-color: #E3D5BD;
-  box-shadow: 4px 4px 0px rgba(59,41,23,0.10);
-  background-image:
-    linear-gradient(rgba(59,41,23,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,41,23,0.02) 1px, transparent 1px);
-}
-
-:root.light .bento-card:hover {
-  box-shadow: 4px 4px 0px rgba(59,41,23,0.10), var(--glow-accent);
-  border-color: var(--accent-teal);
-}
-
-:root.light .mc-bg-pattern {
-  background-image: radial-gradient(circle, #E3D5BD 1px, transparent 1px);
-}
-
-:root.light .mc-bg-stone {
-  background-image:
-    linear-gradient(rgba(59,41,23,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,41,23,0.03) 1px, transparent 1px);
-}
-
-:root.light input, :root.light textarea, :root.light select {
-  background-color: #EFE3CC !important;
-  border: 2px solid #E3D5BD !important;
-  color: #1F150C !important;
-}
-
-:root.light input:focus, :root.light textarea:focus, :root.light select:focus {
-  border-color: var(--accent-teal) !important;
-  box-shadow: 0 0 0 2px rgba(217,119,6,0.3) !important;
-}
-
-:root.light .keyboard-frame {
-  background: #D8DEE9;
-  border-color: #B0BAC8;
-  box-shadow: 0 32px 64px rgba(59,41,23,0.15), 0 16px 0 0 #B0BAC8;
-}
-
-:root.light .keycap-cream .keycap-top  { background: #C8D2E0; color: #1F150C; }
-:root.light .keycap-cream .keycap-skirt { background: #B0BAC8; }
-:root.light .keycap-grey .keycap-top   { background: #B8C2D2; color: #1F150C; }
-:root.light .keycap-grey .keycap-skirt  { background: #A0AABA; }
-
 /* ─── ANIMATIONS ─────────────────────────────────────────────── */
 
 @keyframes inkBleed {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -381,8 +346,8 @@
 }
 
 @keyframes floating {
-  0%, 100% { transform: rotateX(25deg) rotateY(-10deg) translateY(0px); }
-  50%       { transform: rotateX(23deg) rotateY(-8deg)  translateY(-18px); }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
 }
 
 @keyframes subtlePulse {
@@ -392,18 +357,12 @@
 
 @keyframes mcBob {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-4px); }
-}
-
-@keyframes creeperBlink {
-  0%, 90%, 100% { opacity: 1; }
-  95%            { opacity: 0; }
+  50%       { transform: translateY(-5px); }
 }
 
 @keyframes torchFlicker {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  25%       { opacity: 0.85; transform: scale(0.97); }
-  75%       { opacity: 0.9; transform: scale(1.02); }
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.82; }
 }
 
 /* ─── UTILITY CLASSES ─────────────────────────────────────────── */
@@ -423,159 +382,166 @@
   .text-sage            { color: var(--matcha); }
   .text-sakura          { color: var(--sakura); }
 
-  /* Unified accent glow (card hover, CTA hover, hero, stats) */
   .glow-accent          { box-shadow: var(--glow-accent); }
   .glow-accent-soft     { box-shadow: var(--glow-accent-soft); }
 
-  /* Teal grass-top border (replaces sakura-top-border) */
+  /* Thin terracotta rule along a section's top edge */
   .sakura-top-border {
-    border-top: 4px solid var(--mc-grass);
+    border-top: 1px solid var(--terracotta);
   }
 
   .mc-grass-border {
-    border-top: 4px solid var(--mc-grass);
-    border-left: 4px solid var(--mc-grass-dark);
+    border-top: 2px solid var(--terracotta);
+  }
+
+  /* Uppercase eyebrow label with generous tracking */
+  .eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Centered ornament rule: ── ❖ ── */
+  .ornament-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--terracotta);
+  }
+  .ornament-rule::before,
+  .ornament-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
   }
 
   /* Ink bleed reveal */
   .ink-bleed {
-    animation: inkBleed 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: inkBleed 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
-  /* Minecraft character bob */
+  /* Gentle vertical float (kept name for existing pages) */
   .mc-bob {
-    animation: mcBob 2s ease-in-out infinite;
+    animation: mcBob 3s ease-in-out infinite;
   }
 
-  /* Torch flicker */
   .mc-flicker {
-    animation: torchFlicker 1.5s ease-in-out infinite;
+    animation: torchFlicker 2.2s ease-in-out infinite;
   }
 
-  /* Keyboard floating */
   .animate-floating {
-    animation: floating 6s ease-in-out infinite;
+    animation: floating 7s ease-in-out infinite;
   }
 
-  /* Badge difficulty colors */
+  /* Difficulty badges — soft atelier pills */
   .badge-beginner {
-    background-color: #B45309;
-    color: #FAF3E6;
-    border: 2px solid #F59E0B;
-    padding: 2px 8px;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 9px;
+    background-color: var(--olive-wash);
+    color: var(--olive-deep);
+    border: 1px solid color-mix(in srgb, var(--olive) 40%, transparent);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .badge-intermediate {
-    background-color: #1E3A5F;
-    color: #FAF3E6;
-    border: 2px solid #38BDF8;
-    padding: 2px 8px;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 9px;
+    background-color: var(--terracotta-wash);
+    color: var(--terracotta-deep);
+    border: 1px solid color-mix(in srgb, var(--terracotta) 40%, transparent);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .badge-advanced {
-    background-color: #7A5E00;
-    color: #FAF3E6;
-    border: 2px solid #FFD700;
-    padding: 2px 8px;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 9px;
+    background-color: var(--ochre-wash);
+    color: var(--ochre-deep);
+    border: 1px solid color-mix(in srgb, var(--ochre) 40%, transparent);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 }
 
-/* ─── PIXEL-DOT BACKGROUND ────────────────────────────────────── */
+/* ─── BACKGROUND PATTERNS (kept names, atelier styling) ───────── */
 
 .mc-bg-pattern {
-  background-image: radial-gradient(circle, #332416 1px, transparent 1px);
-  background-size: 16px 16px;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 .mc-bg-stone {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 8px 8px;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px);
+  background-size: 100% 28px;
+  background-position: 0 14px;
+  opacity: 1;
 }
 
 /* ─── NAV ─────────────────────────────────────────────────────── */
 
 .glass-nav {
-  background: #251A0F;
-  border-bottom: 3px solid var(--mc-grass);
-  box-shadow:
-    0 4px 0px var(--mc-grass-dark),
-    inset 0 1px 0 rgba(255,255,255,0.05);
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--nav-border);
 }
 
-/* ─── BENTO CARDS → NAVY BLOCK CARDS ─────────────────────────── */
+/* ─── CARDS (kept .bento-card name; atelier paper cards) ──────── */
 
 .bento-card {
-  background: #2B1E12;
-  border: 2px solid #4D3823;
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
-  /* Subtle stone texture */
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 8px 8px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 1rem);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
   position: relative;
 }
 
-/* Soft accent glow border + slight lift on hover */
 .bento-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-teal);
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.55), var(--glow-accent);
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--terracotta) 35%, var(--border));
+  box-shadow: var(--shadow-soft), var(--glow-accent-soft);
 }
 
-/* Small accent block decoration in top-right corner of cards */
-.bento-card::after {
-  content: '';
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 12px;
-  height: 12px;
-  background: var(--mc-grass);
-  box-shadow:
-    inset -2px -2px 0 var(--mc-grass-dark),
-    inset 2px 2px 0 rgba(255,255,255,0.2);
-  opacity: 0.6;
-}
-
-/* ─── MINECRAFT 3D BUTTON EFFECT ─────────────────────────────── */
+/* ─── BUTTON HELPERS (kept names; soft atelier buttons) ───────── */
 
 .mc-btn,
 .btn-mc {
-  font-family: 'Press Start 2P', monospace !important;
-  font-size: 10px !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase !important;
-  border: 2px solid rgba(255,255,255,0.15) !important;
-  border-top-color: rgba(255,255,255,0.3) !important;
-  border-left-color: rgba(255,255,255,0.25) !important;
-  border-bottom-color: rgba(0,0,0,0.5) !important;
-  border-right-color: rgba(0,0,0,0.4) !important;
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.6) !important;
-  transition: box-shadow 0.12s ease, transform 0.12s ease !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  border-radius: 9999px !important;
+  border: 1px solid transparent !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Same accent glow language as cards on hover */
 .mc-btn:hover, .btn-mc:hover {
-  box-shadow: 6px 6px 0px rgba(0,0,0,0.6), var(--glow-accent) !important;
+  box-shadow: var(--shadow-soft), var(--glow-accent-soft) !important;
   transform: translateY(-1px) !important;
 }
 
 .mc-btn:active, .btn-mc:active {
-  box-shadow: 2px 2px 0px rgba(0,0,0,0.6) !important;
-  transform: translateY(2px) !important;
+  box-shadow: var(--shadow-card) !important;
+  transform: translateY(0px) !important;
 }
 
-/* ─── FLASHCARD 3D FLIP (updated colors) ─────────────────────── */
+/* ─── FLASHCARD 3D FLIP ───────────────────────────────────────── */
 
 .flashcard-scene {
   perspective: 1000px;
@@ -601,8 +567,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 3px solid var(--mc-stone-dark);
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
   padding: 2.5rem;
   text-align: center;
 }
@@ -610,80 +578,3 @@
 .flashcard-back {
   transform: rotateY(180deg);
 }
-
-/* ─── 3D KEYBOARD (legacy — kept for any remaining usage) ─────── */
-
-.keyboard-scene {
-  perspective: 1200px;
-  perspective-origin: 50% 30%;
-}
-
-.keyboard-frame {
-  background: #3A2A19;
-  border: 3px solid #4D3823;
-  border-bottom-color: #160F08;
-  border-right-color: #160F08;
-  padding: 1.75rem 2rem 1.25rem;
-  box-shadow:
-    0 32px 64px rgba(0, 0, 0, 0.5),
-    0 16px 0 0 #160F08,
-    inset 0 2px 4px rgba(255, 255, 255, 0.08);
-  transform: rotateX(25deg) rotateY(-10deg);
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.keycap {
-  position: relative;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.08s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.keycap-top {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.375rem;
-  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.15);
-  width: 100%;
-  height: 100%;
-}
-
-.keycap-skirt {
-  position: absolute;
-  inset: 0;
-  transform: translateZ(-10px);
-  filter: brightness(0.6);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.keycap:hover { transform: translateZ(5px); }
-
-.keycap:active,
-.keycap.pressing {
-  transform: translateZ(-6px) translateY(4px);
-}
-
-.keycap:active .keycap-skirt,
-.keycap.pressing .keycap-skirt {
-  transform: translateZ(-3px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-/* Keycap colour variants */
-.keycap-cream .keycap-top  { background: #5C4326; color: #FAF3E6; }
-.keycap-cream .keycap-skirt { background: #5C4326; }
-
-.keycap-grey .keycap-top  { background: #4D3823; color: #FAF3E6; }
-.keycap-grey .keycap-skirt { background: #4D3823; }
-
-.keycap-dark .keycap-top  { background: #2B1E12; color: #FAF3E6; }
-.keycap-dark .keycap-skirt { background: #2B1E12; }
-
-/* Teal — primary action key */
-.keycap-blue .keycap-top  { background: #D97706; color: #FFFFFF; }
-.keycap-blue .keycap-skirt { background: #B45309; }
