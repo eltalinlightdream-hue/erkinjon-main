@@ -2,11 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper, Award, Layers, Zap } from "lucide-react";
-import {
-  EnderDragonSilhouette,
-  McItem,
-  GrassBlock,
-} from "@/components/minecraft-decorations";
+import { McItem, GrassBlock } from "@/components/minecraft-decorations";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,129 +14,29 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-/* ─── Minecraft night landscape — full-bleed hero background ───────
-   Original SVG illustration (no external assets / licensing).  A blocky
-   night scene: navy sky, pixel stars, a glowing square "moon" in the
-   accent teal, layered hills with teal grass caps.  The moon glow is
-   the same accent glow reused on the CTA + card hovers + stats. */
-function MinecraftNightScene() {
-  const cols = 30;
-  const colW = 960 / cols;
-
-  // Front hill: rolling, snapped to a 16px pixel grid
-  const front = Array.from({ length: cols }, (_, i) => {
-    const wave = Math.sin(i * 0.5) * 24 + Math.sin(i * 0.17) * 16;
-    return Math.round((332 + wave) / 16) * 16;
-  });
-  // Back hill: lower-frequency, sits higher and darker
-  const back = Array.from({ length: cols }, (_, i) => {
-    const wave = Math.sin(i * 0.32 + 1.2) * 30;
-    return Math.round((286 + wave) / 16) * 16;
-  });
-
-  const stars = [
-    [70, 60], [140, 110], [220, 48], [300, 90], [380, 40],
-    [470, 120], [540, 66], [620, 100], [690, 54], [770, 130],
-    [840, 70], [110, 170], [260, 150], [430, 175], [600, 158],
-    [760, 184], [900, 120], [40, 130], [500, 30], [820, 30],
-  ];
-
-  return (
-    <svg
-      viewBox="0 0 960 480"
-      preserveAspectRatio="xMidYMax slice"
-      className="absolute inset-0 w-full h-full"
-      shapeRendering="crispEdges"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id="mc-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#160F08" />
-          <stop offset="55%" stopColor="#1F150C" />
-          <stop offset="100%" stopColor="#2E2014" />
-        </linearGradient>
-        <filter id="mc-moon-glow" x="-80%" y="-80%" width="260%" height="260%">
-          <feGaussianBlur stdDeviation="10" />
-        </filter>
-      </defs>
-
-      {/* Sky */}
-      <rect x="0" y="0" width="960" height="480" fill="url(#mc-sky)" />
-
-      {/* Faint teal horizon band */}
-      <rect x="0" y="250" width="960" height="60" fill="#F59E0B" opacity="0.05" />
-
-      {/* Stars (pixel squares) */}
-      {stars.map(([x, y], i) => (
-        <rect
-          key={i}
-          x={x}
-          y={y}
-          width={i % 4 === 0 ? 4 : 3}
-          height={i % 4 === 0 ? 4 : 3}
-          fill="#EFE3CC"
-          opacity={0.35 + (i % 3) * 0.2}
-        />
-      ))}
-
-      {/* Square Minecraft moon with accent glow */}
-      <rect x="780" y="64" width="56" height="56" fill="#F59E0B" opacity="0.45" filter="url(#mc-moon-glow)" />
-      <rect x="784" y="68" width="48" height="48" fill="#F5EAD6" />
-      <rect x="784" y="68" width="48" height="48" fill="none" stroke="#F59E0B" strokeWidth="2" opacity="0.5" />
-      <rect x="800" y="80" width="8" height="8" fill="#E3D5BD" opacity="0.6" />
-      <rect x="816" y="96" width="6" height="6" fill="#E3D5BD" opacity="0.5" />
-
-      {/* Faint dragon drifting across the sky */}
-      <g transform="translate(150 92)" opacity="0.10">
-        <EnderDragonSilhouette width={220} height={88} opacity={1} />
-      </g>
-
-      {/* Back hill range (darker) */}
-      {back.map((h, i) => (
-        <g key={`b${i}`}>
-          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#24190C" />
-          <rect x={i * colW} y={h} width={colW + 1} height={10} fill="#B45309" opacity="0.55" />
-        </g>
-      ))}
-
-      {/* Front hill range with teal grass caps */}
-      {front.map((h, i) => (
-        <g key={`f${i}`}>
-          <rect x={i * colW} y={h} width={colW + 1} height={480 - h} fill="#1C130A" />
-          <rect x={i * colW} y={h} width={colW + 1} height={14} fill="#D97706" />
-          <rect x={i * colW} y={h} width={colW + 1} height={3} fill="#F59E0B" opacity="0.85" />
-        </g>
-      ))}
-
-      {/* A couple of blocky pixel trees on the front ridge */}
-      {[210, 540, 720].map((tx, i) => {
-        const h = front[Math.round(tx / colW)] ?? 332;
-        return (
-          <g key={`t${i}`}>
-            <rect x={tx} y={h - 26} width={10} height={26} fill="#33230F" />
-            <rect x={tx - 12} y={h - 50} width={34} height={26} fill="#D97706" opacity="0.85" />
-            <rect x={tx - 12} y={h - 50} width={34} height={4} fill="#F59E0B" opacity="0.7" />
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
 function Index() {
   return (
     <SiteLayout>
       {/* ─── HERO ─────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden flex flex-col items-center pb-8">
-        {/* Minecraft night landscape background */}
+        {/* Sunset plains — full-bleed hero photo.  hero-sunset.jpg is the
+            real photograph; if it isn't in the repo yet the illustrated
+            sunset-plains.png renders as the fallback layer. */}
         <div className="absolute inset-0 pointer-events-none select-none z-0">
-          <MinecraftNightScene />
-          {/* Fade the scene into the page so text stays readable */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('/backgrounds/hero-sunset.jpg'), url('/backgrounds/sunset-plains.png')",
+            }}
+          />
+          {/* Warm dusk scrim — sampled from the photo's brown/sienna shadows
+              so the bright sky stays visible but text remains readable */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(14,22,38,0.55) 0%, rgba(14,22,38,0.35) 35%, rgba(14,22,38,0.85) 78%, var(--background) 100%)",
+                "linear-gradient(180deg, rgba(31,21,12,0.60) 0%, rgba(46,26,14,0.38) 38%, rgba(31,21,12,0.80) 76%, var(--background) 100%)",
             }}
           />
         </div>
@@ -157,7 +53,7 @@ function Index() {
           </span>
 
           <h1
-            className="ink-bleed text-2xl md:text-4xl font-bold mb-5 text-[#FAF3E6]"
+            className="ink-bleed text-2xl md:text-4xl font-bold mb-5 text-[#FAF3E6] [text-shadow:3px_3px_0_rgba(22,15,8,0.75)]"
             style={{ animationDelay: "0.25s" }}
           >
             Master IELTS with{" "}
@@ -165,7 +61,7 @@ function Index() {
           </h1>
 
           <p
-            className="ink-bleed text-base md:text-lg text-[#E3D5BD] max-w-xl mx-auto mb-10 leading-relaxed font-sans"
+            className="ink-bleed text-base md:text-lg text-[#E3D5BD] max-w-xl mx-auto mb-10 leading-relaxed font-sans [text-shadow:0_1px_8px_rgba(22,15,8,0.9)]"
             style={{ animationDelay: "0.4s" }}
           >
             Friendly lessons, real exam strategies, and structured practice — built for Uzbek learners who want a real score jump.

@@ -264,9 +264,12 @@
     font-family: 'Manrope', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "kern" 1;
-    /* Warm sunset plains backdrop, dimmed so content stays readable */
+    /* Warm sunset plains backdrop, dimmed so content stays readable.
+       hero-sunset.jpg is the real photo; the illustrated PNG below it
+       renders as the fallback until the photo is added to the repo. */
     background-image:
       linear-gradient(rgba(31, 21, 12, 0.86), rgba(31, 21, 12, 0.93)),
+      url('/backgrounds/hero-sunset.jpg'),
       url('/backgrounds/sunset-plains.png');
     background-size: cover;
     background-position: center;
