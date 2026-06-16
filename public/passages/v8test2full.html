@@ -175,7 +175,7 @@ window.CDI = {
   parts: [{"label": 'Part 1 — Questions 1–10', "sub": 'Fearnley Sports Centre — Lifeguard Application Form. Complete the form. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.'}, {"label": 'Part 2 — Questions 11–20', "sub": 'Becoming a Millionaire'}, {"label": 'Part 3 — Questions 21–30', "sub": 'Feedback on Second Year of Performance Arts Course'}, {"label": 'Part 4 — Questions 31–40', "sub": 'Sea Lion Tracking Study. Complete the notes. Write ONE WORD ONLY for each answer.'}],
   ANS: {"q1": "Elsinore", "q2": "077896245", "q3": "waiter", "q4": "baseball", "q5": "October", "q6": "beach", "q7": "diving", "q8": "Saturday", "q9": "six", "q10": "radio", "q11": "A", "q12": "A", "q13": "C", "q14": "B", "q15": "C", "q16": "A", "q17": "B", "q18": "C", "q19": "A", "q20": "E", "q21": "B", "q22": "A", "q23": "A", "q24": "B", "q25": "C", "q26": "B", "q27": "E", "q28": "C", "q29": "A", "q30": "F", "q31": "sharks", "q32": "cost", "q33": "catch", "q34": "ocean", "q35": "helicopter", "q36": "rocks", "q37": "paint", "q38": "diagram", "q39": "zoos", "q40": "public"},
   ALT: {"q9": ["6"], "q8": ["Saturdays"], "q17": ["C"], "q18": ["B"], "q19": ["E"], "q20": ["A"], "q34": ["the ocean", "sea", "underwater"], "q36": ["rock"]},
-  YT: {"list": "PLueG1jEXp5DgGn7Eps_OD4oTS82GNdc8L", "index": 1},
+  YT: {"video": "NqU8xq11V9A"},
   totalParts: 4
 };
 </script>
@@ -312,7 +312,7 @@ window.cdiInit=function(n){
   var holder=document.getElementById('caud-'+n); if(!holder)return;
   function make(){
     var pl=new YT.Player('caud-'+n,{height:'1',width:'1',
-      playerVars:{listType:'playlist',list:D.YT.list,index:D.YT.index,playsinline:1,rel:0,modestbranding:1,fs:0},
+      videoId:D.YT.video,playerVars:{playsinline:1,rel:0,modestbranding:1,fs:0},
       events:{'onReady':function(){updBar(n);},
         'onStateChange':function(e){var b=document.getElementById('cpp-'+n);if(b)b.textContent=(e.data===1)?'\u23f8':'\u25b6';}}});
     players[n]={type:'yt',player:pl,timer:null};

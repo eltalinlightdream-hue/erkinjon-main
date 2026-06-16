@@ -175,7 +175,7 @@ window.CDI = {
   parts: [{"label": 'Part 1 — Questions 1–10', "sub": 'AA Property Rentals. Complete the form. Write ONE WORD AND/OR A NUMBER for each answer.'}, {"label": 'Part 2 — Questions 11–20', "sub": 'Storm Clean-up'}, {"label": 'Part 3 — Questions 21–30', "sub": 'Possible Course Change'}, {"label": 'Part 4 — Questions 31–40', "sub": 'Perfume Ornaments'}],
   ANS: {"q1": "354 Forest", "q2": "07817983602", "q3": "dentist", "q4": "unfurnished", "q5": "doubles", "q6": "November 1", "q7": "balcony", "q8": "garden", "q9": "station", "q10": "kitchen", "q11": "A", "q12": "C", "q13": "C", "q14": "A", "q15": "B", "q16": "B", "q17": "D", "q18": "F", "q19": "A", "q20": "C", "q21": "Economic History", "q22": "last September", "q23": "Politics", "q24": "Philosophy", "q25": "difficult", "q26": "discussion group", "q27": "not enough tutorials", "q28": "visiting student services", "q29": "17 February", "q30": "senior advisor", "q31": "C", "q32": "A", "q33": "A", "q34": "C", "q35": "A", "q36": "B", "q37": "A", "q38": "B", "q39": "C", "q40": "A"},
   ALT: {"q1": ["354 Forest Road"], "q6": ["1 November", "November 1st", "1st November"], "q29": ["February 17", "17th February"], "q30": ["senior adviser"]},
-  YT: {"list": "PLueG1jEXp5DgGn7Eps_OD4oTS82GNdc8L", "index": 3},
+  YT: {"video": "b964C_vuhI4"},
   totalParts: 4
 };
 </script>
@@ -312,7 +312,7 @@ window.cdiInit=function(n){
   var holder=document.getElementById('caud-'+n); if(!holder)return;
   function make(){
     var pl=new YT.Player('caud-'+n,{height:'1',width:'1',
-      playerVars:{listType:'playlist',list:D.YT.list,index:D.YT.index,playsinline:1,rel:0,modestbranding:1,fs:0},
+      videoId:D.YT.video,playerVars:{playsinline:1,rel:0,modestbranding:1,fs:0},
       events:{'onReady':function(){updBar(n);},
         'onStateChange':function(e){var b=document.getElementById('cpp-'+n);if(b)b.textContent=(e.data===1)?'\u23f8':'\u25b6';}}});
     players[n]={type:'yt',player:pl,timer:null};

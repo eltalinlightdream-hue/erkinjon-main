@@ -175,7 +175,7 @@ window.CDI = {
   parts: [{"label": 'Part 1 — Questions 1–10', "sub": 'Shipping of personal belongings. Complete the notes. Write ONE WORD AND/OR A NUMBER for each answer.'}, {"label": 'Part 2 — Questions 11–20', "sub": 'Cooking tours and classes / Culinary School'}, {"label": 'Part 3 — Questions 21–30', "sub": 'Bitublocks'}, {"label": 'Part 4 — Questions 31–40', "sub": 'The archaeological site of Trimera'}],
   ANS: {"q1": "Bicycle", "q2": "40", "q3": "Liquids", "q4": "Plastic", "q5": "Saturdays", "q6": "Storage", "q7": "Sweden", "q8": "575", "q9": "Driver", "q10": "Passport", "q11": "C", "q12": "H", "q13": "F", "q14": "G", "q15": "E", "q16": "A", "q17": "H", "q18": "F", "q19": "D", "q20": "B", "q21": "B", "q22": "B", "q23": "C", "q24": "A", "q25": "C", "q26": "A", "q27": "B", "q28": "D", "q29": "A", "q30": "E", "q31": "pottery", "q32": "castle", "q33": "survey", "q34": "market", "q35": "silver coins", "q36": "textile", "q37": "water", "q38": "bridge", "q39": "lions", "q40": "emperor"},
   ALT: {"q5": ["Saturday"], "q27": ["D"], "q28": ["B"], "q29": ["E"], "q30": ["A"], "q35": ["coins"]},
-  YT: {"list": "PLueG1jEXp5DgGn7Eps_OD4oTS82GNdc8L", "index": 5},
+  YT: {"video": "ujobKiKxC3c"},
   totalParts: 4
 };
 </script>
@@ -312,7 +312,7 @@ window.cdiInit=function(n){
   var holder=document.getElementById('caud-'+n); if(!holder)return;
   function make(){
     var pl=new YT.Player('caud-'+n,{height:'1',width:'1',
-      playerVars:{listType:'playlist',list:D.YT.list,index:D.YT.index,playsinline:1,rel:0,modestbranding:1,fs:0},
+      videoId:D.YT.video,playerVars:{playsinline:1,rel:0,modestbranding:1,fs:0},
       events:{'onReady':function(){updBar(n);},
         'onStateChange':function(e){var b=document.getElementById('cpp-'+n);if(b)b.textContent=(e.data===1)?'\u23f8':'\u25b6';}}});
     players[n]={type:'yt',player:pl,timer:null};
