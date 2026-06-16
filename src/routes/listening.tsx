@@ -120,6 +120,56 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "v8-test-2",
+    title: "Vol 8 Test 2 — Lifeguard & Performance Arts",
+    section: 0,
+    description:
+      "Full 40-question test: Fearnley lifeguard application, becoming a millionaire, performance arts course feedback, and a sea lion tracking study.",
+    questions: 40,
+    htmlFile: "/passages/v8test2full.html",
+    isPremium: false,
+  },
+  {
+    id: "v8-test-3",
+    title: "Vol 8 Test 3 — Beach Travel & Renewable Energy",
+    section: 0,
+    description:
+      "Full 40-question test: Beach Heads travel booking, the City Cycle bike scheme, renewable energy products, and absence from work.",
+    questions: 40,
+    htmlFile: "/passages/v8test3full.html",
+    isPremium: false,
+  },
+  {
+    id: "v8-test-4",
+    title: "Vol 8 Test 4 — Property Rentals & Perfume",
+    section: 0,
+    description:
+      "Full 40-question test: AA property rentals, storm clean-up advice, a possible course change, and perfume ornaments.",
+    questions: 40,
+    htmlFile: "/passages/v8test4full.html",
+    isPremium: false,
+  },
+  {
+    id: "v8-test-5",
+    title: "Vol 8 Test 5 — Arizona & City Bookshop",
+    section: 0,
+    description:
+      "Full 40-question test: Arizona travel advice, the City Bookshop map, an academic essays discussion, and inventing a universal language.",
+    questions: 40,
+    htmlFile: "/passages/v8test5full.html",
+    isPremium: false,
+  },
+  {
+    id: "v8-test-6",
+    title: "Vol 8 Test 6 — Shipping & Trimera",
+    section: 0,
+    description:
+      "Full 40-question test: shipping personal belongings, cooking tours and a culinary school plan, Bitublocks, and the Trimera archaeological site.",
+    questions: 40,
+    htmlFile: "/passages/v8test6full.html",
+    isPremium: false,
+  },
+  {
     id: "s4-dormancy",
     title: "Dormancy",
     section: 4,
