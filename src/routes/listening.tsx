@@ -120,6 +120,16 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "v8-test-1",
+    title: "Vol 8 Test 1 — Travel Agency & Bookshop",
+    section: 0,
+    description:
+      "Full 40-question test: International Student Travel Agency form, the Bibliostack bookshop map, the Just-in-Time supply system, and dyscalculia.",
+    questions: 40,
+    htmlFile: "/passages/v8test1full.html",
+    isPremium: false,
+  },
+  {
     id: "v8-test-2",
     title: "Vol 8 Test 2 — Lifeguard & Performance Arts",
     section: 0,
