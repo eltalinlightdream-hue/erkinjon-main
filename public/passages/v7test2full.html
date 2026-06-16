@@ -265,6 +265,47 @@ body.cdi-fullscreen ._b0780b .cdi-audio-wrap{}
 </div>
 
 </div>
+</div></section>
+</main>
+<footer class="navbar">
+<div class="_971fd9"><div class="_3deac0" id="cdi-nav"></div></div>
+<div class="_9f4035">
+<button class="_dfc484" id="cdi-check" type="button" title="Check answers"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.485 1.929a.75.75 0 0 1 .086 1.058l-7 8.5a.75.75 0 0 1-1.116.058l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.92 2.92 6.49-7.89a.75.75 0 0 1 1.06-.086z"/></svg></button>
+<button class="_df9fc0" id="cdi-prev" type="button" title="Previous"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M11 1L4 8l7 7z"/></svg></button>
+<button class="_67ef64" id="cdi-next" type="button" title="Next"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 1l7 7-7 7z"/></svg></button>
+</div>
+</footer>
+</div>
+
+<!-- Settings panel -->
+<div class="_f94aba" id="_f94aba">
+<div class="_684569">Options</div>
+<div class="_117f4b"><label>Text size</label><input type="range" id="cdi-font" min="0.85" max="1.5" step="0.05" value="1"></div>
+<div class="_117f4b"><label>Line spacing</label><input type="range" id="cdi-line" min="1" max="1.6" step="0.05" value="1"></div>
+<div class="_117f4b"><label>Colour theme</label><div class="_b39cf1">
+<button class="_fa3e74 _c92779 active" data-theme="light" title="Light"></button>
+<button class="_fa3e74 _43adb6" data-theme="sepia" title="Sepia"></button>
+<button class="_fa3e74 _a34de6" data-theme="dark" title="Dark"></button>
+</div></div>
+<div class="_117f4b"><label>Highlighting</label><button class="btn" id="cdi-clear-hl" style="width:100%">Remove all highlights</button></div>
+</div>
+
+<!-- Highlight popup -->
+<div class="_23e6e9" id="_23e6e9">
+<button class="_fc333a yellow" id="cdi-hl-yellow" title="Highlight yellow"></button>
+<button class="_e1820d" id="cdi-hl-remove" title="Remove highlight">✕</button>
+</div>
+
+<!-- Results modal -->
+<div class="_226388" id="cdi-result">
+<div class="_d44296" style="max-width:560px;text-align:left">
+<h2 style="text-align:center">Your Results</h2>
+<div id="cdi-score" style="text-align:center;font-size:1.1em;margin-bottom:16px"></div>
+<div style="max-height:50vh;overflow:auto"><table class="_afed86" id="cdi-result-tbl"><thead><tr><th>#</th><th>Your answer</th><th>Correct</th><th></th></tr></thead><tbody id="cdi-result-body"></tbody></table></div>
+<div class="_88d439" style="margin-top:18px"><button class="btn primary" id="cdi-close-result">Close</button></div>
+</div>
+</div>
+
 <script>
 window.CDI = {
   title: "Volume 7 — Test 2 | Full Listening Test (40 Questions)",
