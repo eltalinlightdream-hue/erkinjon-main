@@ -175,7 +175,7 @@ window.CDI = {
   parts: [{"label": 'Part 1 — Questions 1–10', "sub": 'Beach Heads Travel — Customer Request Sheet. Complete the notes. Write ONE WORD AND/OR A NUMBER for each answer.'}, {"label": 'Part 2 — Questions 11–20', "sub": 'City Cycle / Bicycle Centre'}, {"label": 'Part 3 — Questions 21–30', "sub": 'Products using renewable energy sources'}, {"label": 'Part 4 — Questions 31–40', "sub": 'Absence from work. Complete the notes. Write ONE WORD ONLY for each answer.'}],
   ANS: {"q1": "October 15", "q2": "hotel", "q3": "175", "q4": "sailing", "q5": "class", "q6": "golf", "q7": "fishing", "q8": "caravan", "q9": "massage", "q10": "menu", "q11": "H", "q12": "A", "q13": "G", "q14": "C", "q15": "D", "q16": "E", "q17": "F", "q18": "A", "q19": "H", "q20": "B", "q21": "weather", "q22": "electricity", "q23": "explode", "q24": "A", "q25": "E", "q26": "A", "q27": "B", "q28": "C", "q29": "A", "q30": "B", "q31": "gender", "q32": "attitude", "q33": "culture", "q34": "industry", "q35": "size", "q36": "efficient", "q37": "external", "q38": "larger", "q39": "benefits", "q40": "dismiss"},
   ALT: {"q1": ["15 October", "October 15th", "15th October"], "q3": ["$175", "175 dollars"], "q24": ["E"], "q25": ["A"]},
-  YT: {"list": "PLueG1jEXp5DgGn7Eps_OD4oTS82GNdc8L", "index": 2},
+  YT: {"video": "7Um0aTW189I"},
   totalParts: 4
 };
 </script>
@@ -312,7 +312,7 @@ window.cdiInit=function(n){
   var holder=document.getElementById('caud-'+n); if(!holder)return;
   function make(){
     var pl=new YT.Player('caud-'+n,{height:'1',width:'1',
-      playerVars:{listType:'playlist',list:D.YT.list,index:D.YT.index,playsinline:1,rel:0,modestbranding:1,fs:0},
+      videoId:D.YT.video,playerVars:{playsinline:1,rel:0,modestbranding:1,fs:0},
       events:{'onReady':function(){updBar(n);},
         'onStateChange':function(e){var b=document.getElementById('cpp-'+n);if(b)b.textContent=(e.data===1)?'\u23f8':'\u25b6';}}});
     players[n]={type:'yt',player:pl,timer:null};

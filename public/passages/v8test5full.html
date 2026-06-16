@@ -175,7 +175,7 @@ window.CDI = {
   parts: [{"label": 'Part 1 — Questions 1–10', "sub": 'Arizona – travel advice. Complete the notes. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.'}, {"label": 'Part 2 — Questions 11–20', "sub": 'City Bookshop'}, {"label": 'Part 3 — Questions 21–30', "sub": 'Academic essays'}, {"label": 'Part 4 — Questions 31–40', "sub": 'Inventing a Universal Language. Complete the notes. Write ONE WORD ONLY for each answer.'}],
   ANS: {"q1": "jacket", "q2": "desert", "q3": "space museum", "q4": "golf", "q5": "Fearnleigh", "q6": "1901", "q7": "fireworks", "q8": "9286352271", "q9": "helicopter", "q10": "sun cream", "q11": "I", "q12": "H", "q13": "D", "q14": "G", "q15": "E", "q16": "A", "q17": "E", "q18": "A", "q19": "B", "q20": "F", "q21": "B", "q22": "C", "q23": "A", "q24": "B", "q25": "A", "q26": "sub-topics", "q27": "reports", "q28": "examples", "q29": "ideas", "q30": "reading", "q31": "trade", "q32": "science", "q33": "numbers", "q34": "songs", "q35": "negative", "q36": "letter", "q37": "picture", "q38": "hospital", "q39": "emotions", "q40": "writers"},
   ALT: {"q2": ["trails", "the trails"], "q5": ["6073 Fearnleigh"], "q10": ["suncream"], "q26": ["subtopics", "sub topics"]},
-  YT: {"list": "PLueG1jEXp5DgGn7Eps_OD4oTS82GNdc8L", "index": 4},
+  YT: {"video": "PXLr0XXJPeQ"},
   totalParts: 4
 };
 </script>
@@ -312,7 +312,7 @@ window.cdiInit=function(n){
   var holder=document.getElementById('caud-'+n); if(!holder)return;
   function make(){
     var pl=new YT.Player('caud-'+n,{height:'1',width:'1',
-      playerVars:{listType:'playlist',list:D.YT.list,index:D.YT.index,playsinline:1,rel:0,modestbranding:1,fs:0},
+      videoId:D.YT.video,playerVars:{playsinline:1,rel:0,modestbranding:1,fs:0},
       events:{'onReady':function(){updBar(n);},
         'onStateChange':function(e){var b=document.getElementById('cpp-'+n);if(b)b.textContent=(e.data===1)?'\u23f8':'\u25b6';}}});
     players[n]={type:'yt',player:pl,timer:null};
