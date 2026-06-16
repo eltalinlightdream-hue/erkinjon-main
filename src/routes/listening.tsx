@@ -180,6 +180,66 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "v6-test-1",
+    title: "Vol 6 Test 1 — Sailing & Crisis Communication",
+    section: 0,
+    description:
+      "Full 40-question test: a sailing-course form, working for Johnson Jones, organising a debate, and crisis communication theory.",
+    questions: 40,
+    htmlFile: "/passages/v6test1full.html",
+    isPremium: false,
+  },
+  {
+    id: "v6-test-2",
+    title: "Vol 6 Test 2 — Drama Workshop & Jatropha",
+    section: 0,
+    description:
+      "Full 40-question test: a residential workshop booking, working at Parson's Fruit Farm, the Stone Point historical site, and jatropha biofuel.",
+    questions: 40,
+    htmlFile: "/passages/v6test2full.html",
+    isPremium: false,
+  },
+  {
+    id: "v6-test-3",
+    title: "Vol 6 Test 3 — Get Away Tours & Plastic Buildings",
+    section: 0,
+    description:
+      "Full 40-question test: Get Away cycling tours, sports information for parents, buildings made of plastic, and calotype photography.",
+    questions: 40,
+    htmlFile: "/passages/v6test3full.html",
+    isPremium: false,
+  },
+  {
+    id: "v6-test-4",
+    title: "Vol 6 Test 4 — Motorhomes & Soundscapes",
+    section: 0,
+    description:
+      "Full 40-question test: Coxhead motorhomes, Citadel theatre events, an assignment on multinational companies, and soundscapes.",
+    questions: 40,
+    htmlFile: "/passages/v6test4full.html",
+    isPremium: false,
+  },
+  {
+    id: "v6-test-5",
+    title: "Vol 6 Test 5 — Campsite & Urban Migration",
+    section: 0,
+    description:
+      "Full 40-question test: a campsite reservation, a talk to new hotel staff, a presentation on African art, and urban migration.",
+    questions: 40,
+    htmlFile: "/passages/v6test5full.html",
+    isPremium: false,
+  },
+  {
+    id: "v6-test-6",
+    title: "Vol 6 Test 6 — Residence Survey & Crocodiles",
+    section: 0,
+    description:
+      "Full 40-question test: a residence survey, the Elmsden Way cycle route, archaeological excavations, and a crocodile tracking study.",
+    questions: 40,
+    htmlFile: "/passages/v6test6full.html",
+    isPremium: false,
+  },
+  {
     id: "s4-dormancy",
     title: "Dormancy",
     section: 4,
