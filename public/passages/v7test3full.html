@@ -421,6 +421,7 @@ document.getElementById('cdi-clear-hl').onclick=function(){
 
 /* ---------- Audio (per part, manual URL) ---------- */
 var players={};var p_dragging={};
+function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'. The Google Drive file may be private or blocked for direct streaming. <a href="'+D.audioSrc+'" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Open the audio link directly</a> to check it.';}
 function fmt(t){t=Math.max(0,t||0);var m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+(s<10?'0':'')+s;}
 function extractYT(u){var m=u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);return m?m[1]:null;}
 function audioHTML(n){
@@ -428,7 +429,8 @@ function audioHTML(n){
   '<audio id="caud-'+n+'" src="'+D.audioSrc+'" preload="metadata" style="display:none"></audio>'+
   '<div class="cdi-player"><button class="cdi-pbtn" id="cpp-'+n+'">▶</button><button class="cdi-pbtn" data-back="'+n+'">−10</button><button class="cdi-pbtn" data-fwd="'+n+'">+10</button>'+
   '<div class="cdi-seekwrap"><input type="range" class="cdi-seek" id="cseek-'+n+'" min="0" max="100" step="0.1" value="0"><span class="cdi-time" id="ctime-'+n+'">0:00 / 0:00</span></div>'+
-  '<span>🔊</span><input type="range" class="cdi-vol" id="cvol-'+n+'" min="0" max="1" step="0.05" value="1"></div>';
+  '<span>🔊</span><input type="range" class="cdi-vol" id="cvol-'+n+'" min="0" max="1" step="0.05" value="1"></div>'+
+  '<div id="cauderr-'+n+'" style="display:none;color:var(--bad);font-size:13px;margin-top:8px;line-height:1.5"></div>';
 }
 function updBar(n){
   var p=players[n]; if(!p)return; var cur=0,dur=0;
@@ -439,7 +441,7 @@ function updBar(n){
 }
 function wire(n){
   var pp=document.getElementById('cpp-'+n);
-  if(pp)pp.onclick=function(){var p=players[n];if(!p)return;try{if(p.type==='yt'){var s=p.player.getPlayerState();if(s===1)p.player.pauseVideo();else p.player.playVideo();}else{if(p.el.paused)p.el.play();else p.el.pause();}}catch(e){}};
+  if(pp)pp.onclick=function(){var p=players[n];if(!p)return;try{if(p.type==='yt'){var s=p.player.getPlayerState();if(s===1)p.player.pauseVideo();else p.player.playVideo();}else{if(p.el.paused){var pr=p.el.play();if(pr&&pr.catch)pr.catch(function(err){audErr(n,err&&err.message);});}else p.el.pause();}}catch(e){}};
   var sb=document.querySelector('[data-back="'+n+'"]');
   if(sb)sb.onclick=function(){var p=players[n];if(!p)return;try{if(p.type==='yt')p.player.seekTo(Math.max(0,p.player.getCurrentTime()-10),true);else p.el.currentTime=Math.max(0,p.el.currentTime-10);}catch(e){}};
   var sf=document.querySelector('[data-fwd="'+n+'"]');
@@ -456,6 +458,7 @@ window.cdiInit=function(n){
   players[n]={type:'audio',el:a,timer:null};
   a.addEventListener('play',function(){var p=document.getElementById('cpp-'+n);if(p)p.textContent='⏸';});
   a.addEventListener('pause',function(){var p=document.getElementById('cpp-'+n);if(p)p.textContent='▶';});
+  a.addEventListener('error',function(){audErr(n);});
   wire(n);
 };
 window.cdiLoad=function(n){window.cdiInit(n);};
