@@ -320,7 +320,7 @@ window.CDI = {
   ],
   ANS: {"q1":"80","q2":"26 September","q3":"King","q4":"jazz","q5":"table","q6":"lemon","q7":"congratulations","q8":"5544120043268887","q9":"Sebastian","q10":"service","q11":"B","q12":"B","q13":"40","q14":"25","q15":"B","q16":"C","q17":"A","q18":"C","q19":"A","q20":"D","q21":"A","q22":"D","q23":"B","q24":"E","q25":"G","q26":"H","q27":"A","q28":"E","q29":"C","q30":"D","q31":"cargo","q32":"rock","q33":"inscriptions","q34":"cracks","q35":"metal","q36":"wood","q37":"handle","q38":"eclipse","q39":"calendar","q40":"clocks"},
   ALT: {"q2":["September 26","September 26th","26th September"],"q7":["Congratulations"],"q9":["SEBASTIAN"],"q19":["a","d"],"q20":["d","a"]},
-  audioSrc: "/api/audio-proxy?id=11mcWPZAySwdEq4J24kNbirZNTQ6F1XJv",
+  audioSrc: "/passages/audio/v7fulltest3.mp3",
   totalParts: 4
 };
 </script>
@@ -421,7 +421,7 @@ document.getElementById('cdi-clear-hl').onclick=function(){
 
 /* ---------- Audio (per part, manual URL) ---------- */
 var players={};var p_dragging={};
-function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'. The Google Drive file may be private or blocked for direct streaming. <a href="'+D.audioSrc+'" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Open the audio link directly</a> to check it.';}
+function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'.';}
 function fmt(t){t=Math.max(0,t||0);var m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+(s<10?'0':'')+s;}
 function extractYT(u){var m=u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);return m?m[1]:null;}
 function audioHTML(n){

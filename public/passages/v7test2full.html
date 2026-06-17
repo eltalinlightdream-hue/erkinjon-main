@@ -317,7 +317,7 @@ window.CDI = {
   ],
   ANS: {"q1":"Jamieson","q2":"11th July","q3":"waiter","q4":"sing","q5":"children","q6":"drive","q7":"transport","q8":"meals","q9":"Thursday","q10":"photo","q11":"B","q12":"C","q13":"B","q14":"B","q15":"A","q16":"C","q17":"B","q18":"C","q19":"B","q20":"A","q21":"C","q22":"A","q23":"E","q24":"B","q25":"D","q26":"F","q27":"B","q28":"D","q29":"B","q30":"E","q31":"success","q32":"social","q33":"plans","q34":"influence","q35":"materials","q36":"skills","q37":"reason","q38":"emotional","q39":"environment","q40":"analysis"},
   ALT: {"q2":["July 11th","11 July","July 11"]},
-  audioSrc: "/api/audio-proxy?id=12sHehm0lonaX8OZC-TOVcGyArZL88mAK",
+  audioSrc: "/passages/audio/v7fulltest2.mp3",
   totalParts: 4
 };
 </script>
@@ -418,7 +418,7 @@ document.getElementById('cdi-clear-hl').onclick=function(){
 
 /* ---------- Audio (per part, manual URL) ---------- */
 var players={};var p_dragging={};
-function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'. The Google Drive file may be private or blocked for direct streaming. <a href="'+D.audioSrc+'" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Open the audio link directly</a> to check it.';}
+function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'.';}
 function fmt(t){t=Math.max(0,t||0);var m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+(s<10?'0':'')+s;}
 function extractYT(u){var m=u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);return m?m[1]:null;}
 function audioHTML(n){

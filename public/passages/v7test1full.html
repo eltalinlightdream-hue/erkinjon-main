@@ -310,7 +310,7 @@ window.CDI = {
   ],
   ANS: {"q1":"city","q2":"photos","q3":"round","q4":"decorations","q5":"menu","q6":"sandwiches","q7":"5995","q8":"cake","q9":"izard","q10":"15th October","q11":"G","q12":"B","q13":"A","q14":"D","q15":"H","q16":"F","q17":"B","q18":"H","q19":"E","q20":"G","q21":"C","q22":"A","q23":"B","q24":"B","q25":"C","q26":"F","q27":"G","q28":"A","q29":"C","q30":"D","q31":"public","q32":"uncomfortable","q33":"freedom","q34":"taxes","q35":"government","q36":"polluted","q37":"lanes","q38":"relationships","q39":"advertisements","q40":"shopping malls"},
   ALT: {"q10":["October 15th","15 October","October 15"],"q40":["shopping centres","malls"]},
-  audioSrc: "/api/audio-proxy?id=1NeaZNE2mrXQAHsuS1rTYxrgZPN6YcAzD",
+  audioSrc: "/passages/audio/v7fulltest1.mp3",
   totalParts: 4
 };
 </script>
@@ -411,7 +411,7 @@ document.getElementById('cdi-clear-hl').onclick=function(){
 
 /* ---------- Audio (per part, manual URL) ---------- */
 var players={};var p_dragging={};
-function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'. The Google Drive file may be private or blocked for direct streaming. <a href="'+D.audioSrc+'" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Open the audio link directly</a> to check it.';}
+function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'.';}
 function fmt(t){t=Math.max(0,t||0);var m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+(s<10?'0':'')+s;}
 function extractYT(u){var m=u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);return m?m[1]:null;}
 function audioHTML(n){

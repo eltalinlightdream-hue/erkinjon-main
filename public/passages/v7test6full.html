@@ -316,7 +316,7 @@ window.CDI = {
   ],
   ANS: {"q1":"Fordyce","q2":"07840051963","q3":"nurse","q4":"primary","q5":"south","q6":"station","q7":"park","q8":"house","q9":"3","q10":"office","q11":"B","q12":"A","q13":"F","q14":"B","q15":"A","q16":"D","q17":"B","q18":"E","q19":"G","q20":"C","q21":"I","q22":"A","q23":"E","q24":"F","q25":"C","q26":"D","q27":"A","q28":"B","q29":"A","q30":"D","q31":"registration","q32":"telephones","q33":"ecology","q34":"insects","q35":"climate","q36":"repairs","q37":"plant","q38":"pools","q39":"documentation","q40":"pollution"},
   ALT: {"q9":["three","3 bedrooms","three bedrooms"],"q27":["b","a"],"q28":["a","b"],"q29":["d","a"],"q30":["a","d"]},
-  audioSrc: "/api/audio-proxy?id=1bzRAVCS8gk7gezdOFUHp_37zD58Xia5S",
+  audioSrc: "/passages/audio/v7fulltest6.mp3",
   totalParts: 4
 };
 </script>
@@ -417,7 +417,7 @@ document.getElementById('cdi-clear-hl').onclick=function(){
 
 /* ---------- Audio (per part, manual URL) ---------- */
 var players={};var p_dragging={};
-function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'. The Google Drive file may be private or blocked for direct streaming. <a href="'+D.audioSrc+'" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Open the audio link directly</a> to check it.';}
+function audErr(n,msg){var e=document.getElementById('cauderr-'+n);if(!e)return;e.style.display='block';e.innerHTML='\u26a0\ufe0f Audio could not load'+(msg?(': '+msg):'')+'.';}
 function fmt(t){t=Math.max(0,t||0);var m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+(s<10?'0':'')+s;}
 function extractYT(u){var m=u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);return m?m[1]:null;}
 function audioHTML(n){
