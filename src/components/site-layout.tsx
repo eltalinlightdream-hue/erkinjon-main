@@ -36,10 +36,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   const [readingOpen, setReadingOpen] = useState(false);
   const [writingOpen, setWritingOpen] = useState(false);
   const [speakingOpen, setSpeakingOpen] = useState(false);
+  const [japaneseOpen, setJapaneseOpen] = useState(false);
   const practiceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const readingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const writingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const speakingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const japaneseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const makeHover = useCallback(
     (
@@ -81,6 +83,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     PRACTICE_LINKS.some((l) => isActive(l.to)) ||
     isActive("/practice") ||
     loc.pathname.startsWith("/speaking/");
+  const japaneseActive = isActive("/japanese") || loc.pathname.startsWith("/japanese/");
 
   const navLink = (path: string, label: string, active: boolean) =>
     cn(
@@ -281,16 +284,50 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             >
               Articles
             </Link>
-            <Link
-              to="/japanese"
-              className={navLink(
-                "/japanese",
-                "Japanese",
-                isActive("/japanese") || loc.pathname.startsWith("/japanese/"),
+            {/* Japanese dropdown — hub link + its sub-pages */}
+            <div className="relative" {...makeHover(setJapaneseOpen, japaneseTimer)}>
+              <Link
+                to="/japanese"
+                className={cn(
+                  "px-3.5 py-2 rounded-full text-[13px] font-medium transition-colors duration-200 inline-flex items-center gap-1 relative",
+                  japaneseActive
+                    ? "text-primary"
+                    : "text-[var(--nav-text)] hover:text-[var(--nav-text-hover)] hover:bg-[var(--nav-hover-bg)]",
+                )}
+              >
+                Japanese{" "}
+                <ChevronDown
+                  className={cn(
+                    "w-3 h-3 opacity-60 transition-transform",
+                    japaneseOpen && "rotate-180",
+                  )}
+                />
+              </Link>
+              {japaneseOpen && (
+                <div className="absolute left-0 top-full pt-2 z-50">
+                  <div className={cn(dropdownPanel, "min-w-[190px]")}>
+                    <Link
+                      to="/japanese/alphabet"
+                      className={dropdownItem(isActive("/japanese/alphabet"))}
+                    >
+                      Alphabet
+                    </Link>
+                    <Link
+                      to="/japanese/topics"
+                      className={dropdownItem(isActive("/japanese/topics"))}
+                    >
+                      Topics &amp; Phrases
+                    </Link>
+                    <Link
+                      to="/japanese/grammar"
+                      className={dropdownItem(isActive("/japanese/grammar"))}
+                    >
+                      Grammar
+                    </Link>
+                  </div>
+                </div>
               )}
-            >
-              Japanese
-            </Link>
+            </div>
             <Link
               to="/contact-about"
               className={navLink("/contact-about", "Contact & About", isActive("/contact-about"))}
@@ -556,13 +593,36 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "py-2.5 px-3 rounded-lg text-sm font-medium transition-colors",
-                  isActive("/japanese") || loc.pathname.startsWith("/japanese/")
+                  japaneseActive
                     ? "text-primary bg-primary/5"
                     : "text-[var(--nav-text)] hover:bg-[var(--nav-hover-bg)] hover:text-[var(--nav-text-hover)]",
                 )}
               >
                 Japanese
               </Link>
+              <div className="pl-5 flex flex-col border-l border-primary/25 ml-3">
+                <Link
+                  to="/japanese/alphabet"
+                  onClick={() => setOpen(false)}
+                  className="py-2 text-sm text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]"
+                >
+                  Alphabet
+                </Link>
+                <Link
+                  to="/japanese/topics"
+                  onClick={() => setOpen(false)}
+                  className="py-2 text-sm text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]"
+                >
+                  Topics &amp; Phrases
+                </Link>
+                <Link
+                  to="/japanese/grammar"
+                  onClick={() => setOpen(false)}
+                  className="py-2 text-sm text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]"
+                >
+                  Grammar
+                </Link>
+              </div>
               <Link
                 to="/contact-about"
                 onClick={() => setOpen(false)}

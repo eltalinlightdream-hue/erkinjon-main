@@ -3,15 +3,17 @@ import { VideoEmbed } from "@/components/japanese/video-embed";
 import type { JapaneseLesson } from "@/lib/japanese-data";
 
 /**
- * One lesson block — a heading, short description, the embedded video and a
- * small credit line under it. Shared by the Alphabet and Topics pages so both
- * keep the same visual rhythm.
+ * One lesson block — an optional small label (e.g. "Lesson 1"), a heading,
+ * a short description, the embedded video and a small credit line under it.
+ * Shared by the Alphabet, Topics and Grammar pages so they keep the same
+ * visual rhythm; the grammar page passes `eyebrow` to number lessons in order.
  */
-export function LessonSection({ lesson }: { lesson: JapaneseLesson }) {
+export function LessonSection({ lesson, eyebrow }: { lesson: JapaneseLesson; eyebrow?: string }) {
   const { heading, description, youtubeId, videoTitle, channel } = lesson;
 
   return (
     <article className="mx-auto w-full max-w-3xl">
+      {eyebrow && <p className="eyebrow text-secondary mb-2">{eyebrow}</p>}
       <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-3">{heading}</h2>
       <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-6 max-w-2xl">
         {description}

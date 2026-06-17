@@ -30,6 +30,7 @@ import { Route as SpeakingWrittenSamplesRouteImport } from './routes/speaking_.w
 import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
 import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
 import { Route as JapaneseTopicsRouteImport } from './routes/japanese_.topics'
+import { Route as JapaneseGrammarRouteImport } from './routes/japanese_.grammar'
 import { Route as JapaneseAlphabetRouteImport } from './routes/japanese_.alphabet'
 import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
 import { Route as WritingSampleIdRouteImport } from './routes/writing_.sample.$id'
@@ -141,6 +142,11 @@ const JapaneseTopicsRoute = JapaneseTopicsRouteImport.update({
   path: '/japanese/topics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JapaneseGrammarRoute = JapaneseGrammarRouteImport.update({
+  id: '/japanese_/grammar',
+  path: '/japanese/grammar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JapaneseAlphabetRoute = JapaneseAlphabetRouteImport.update({
   id: '/japanese_/alphabet',
   path: '/japanese/alphabet',
@@ -186,6 +192,7 @@ export interface FileRoutesByFullPath {
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
   '/japanese/alphabet': typeof JapaneseAlphabetRoute
+  '/japanese/grammar': typeof JapaneseGrammarRoute
   '/japanese/topics': typeof JapaneseTopicsRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
@@ -214,6 +221,7 @@ export interface FileRoutesByTo {
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
   '/japanese/alphabet': typeof JapaneseAlphabetRoute
+  '/japanese/grammar': typeof JapaneseGrammarRoute
   '/japanese/topics': typeof JapaneseTopicsRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
@@ -243,6 +251,7 @@ export interface FileRoutesById {
   '/writing': typeof WritingRouteWithChildren
   '/articles_/$slug': typeof ArticlesSlugRoute
   '/japanese_/alphabet': typeof JapaneseAlphabetRoute
+  '/japanese_/grammar': typeof JapaneseGrammarRoute
   '/japanese_/topics': typeof JapaneseTopicsRoute
   '/speaking_/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking_/topics-explained': typeof SpeakingTopicsExplainedRoute
@@ -273,6 +282,7 @@ export interface FileRouteTypes {
     | '/writing'
     | '/articles/$slug'
     | '/japanese/alphabet'
+    | '/japanese/grammar'
     | '/japanese/topics'
     | '/speaking/pronunciation'
     | '/speaking/topics-explained'
@@ -301,6 +311,7 @@ export interface FileRouteTypes {
     | '/writing'
     | '/articles/$slug'
     | '/japanese/alphabet'
+    | '/japanese/grammar'
     | '/japanese/topics'
     | '/speaking/pronunciation'
     | '/speaking/topics-explained'
@@ -329,6 +340,7 @@ export interface FileRouteTypes {
     | '/writing'
     | '/articles_/$slug'
     | '/japanese_/alphabet'
+    | '/japanese_/grammar'
     | '/japanese_/topics'
     | '/speaking_/pronunciation'
     | '/speaking_/topics-explained'
@@ -358,6 +370,7 @@ export interface RootRouteChildren {
   WritingRoute: typeof WritingRouteWithChildren
   ArticlesSlugRoute: typeof ArticlesSlugRoute
   JapaneseAlphabetRoute: typeof JapaneseAlphabetRoute
+  JapaneseGrammarRoute: typeof JapaneseGrammarRoute
   JapaneseTopicsRoute: typeof JapaneseTopicsRoute
   SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
   SpeakingTopicsExplainedRoute: typeof SpeakingTopicsExplainedRoute
@@ -515,6 +528,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JapaneseTopicsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/japanese_/grammar': {
+      id: '/japanese_/grammar'
+      path: '/japanese/grammar'
+      fullPath: '/japanese/grammar'
+      preLoaderRoute: typeof JapaneseGrammarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/japanese_/alphabet': {
       id: '/japanese_/alphabet'
       path: '/japanese/alphabet'
@@ -595,6 +615,7 @@ const rootRouteChildren: RootRouteChildren = {
   WritingRoute: WritingRouteWithChildren,
   ArticlesSlugRoute: ArticlesSlugRoute,
   JapaneseAlphabetRoute: JapaneseAlphabetRoute,
+  JapaneseGrammarRoute: JapaneseGrammarRoute,
   JapaneseTopicsRoute: JapaneseTopicsRoute,
   SpeakingPronunciationRoute: SpeakingPronunciationRoute,
   SpeakingTopicsExplainedRoute: SpeakingTopicsExplainedRoute,
