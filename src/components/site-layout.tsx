@@ -282,6 +282,16 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               Articles
             </Link>
             <Link
+              to="/japanese"
+              className={navLink(
+                "/japanese",
+                "Japanese",
+                isActive("/japanese") || loc.pathname.startsWith("/japanese/"),
+              )}
+            >
+              Japanese
+            </Link>
+            <Link
               to="/contact-about"
               className={navLink("/contact-about", "Contact & About", isActive("/contact-about"))}
             >
@@ -542,6 +552,18 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 Vocabulary
               </Link>
               <Link
+                to="/japanese"
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "py-2.5 px-3 rounded-lg text-sm font-medium transition-colors",
+                  isActive("/japanese") || loc.pathname.startsWith("/japanese/")
+                    ? "text-primary bg-primary/5"
+                    : "text-[var(--nav-text)] hover:bg-[var(--nav-hover-bg)] hover:text-[var(--nav-text-hover)]",
+                )}
+              >
+                Japanese
+              </Link>
+              <Link
                 to="/contact-about"
                 onClick={() => setOpen(false)}
                 className={cn(
@@ -655,6 +677,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Articles
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/japanese"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Japanese
                 </Link>
               </li>
               <li>

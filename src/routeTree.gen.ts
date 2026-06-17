@@ -18,6 +18,7 @@ import { Route as ReadingRouteImport } from './routes/reading'
 import { Route as PremiumRouteImport } from './routes/premium'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as ListeningRouteImport } from './routes/listening'
+import { Route as JapaneseRouteImport } from './routes/japanese'
 import { Route as ContactAboutRouteImport } from './routes/contact-about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ArticlesRouteImport } from './routes/articles'
@@ -28,6 +29,8 @@ import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
 import { Route as SpeakingWrittenSamplesRouteImport } from './routes/speaking_.written-samples'
 import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
 import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
+import { Route as JapaneseTopicsRouteImport } from './routes/japanese_.topics'
+import { Route as JapaneseAlphabetRouteImport } from './routes/japanese_.alphabet'
 import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
 import { Route as WritingSampleIdRouteImport } from './routes/writing_.sample.$id'
 import { Route as WritingEssayIdRouteImport } from './routes/writing_.essay.$id'
@@ -76,6 +79,11 @@ const PracticeRoute = PracticeRouteImport.update({
 const ListeningRoute = ListeningRouteImport.update({
   id: '/listening',
   path: '/listening',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JapaneseRoute = JapaneseRouteImport.update({
+  id: '/japanese',
+  path: '/japanese',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactAboutRoute = ContactAboutRouteImport.update({
@@ -128,6 +136,16 @@ const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
   path: '/speaking/pronunciation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JapaneseTopicsRoute = JapaneseTopicsRouteImport.update({
+  id: '/japanese_/topics',
+  path: '/japanese/topics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JapaneseAlphabetRoute = JapaneseAlphabetRouteImport.update({
+  id: '/japanese_/alphabet',
+  path: '/japanese/alphabet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
   id: '/articles_/$slug',
   path: '/articles/$slug',
@@ -156,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/articles': typeof ArticlesRoute
   '/auth': typeof AuthRoute
   '/contact-about': typeof ContactAboutRoute
+  '/japanese': typeof JapaneseRoute
   '/listening': typeof ListeningRoute
   '/practice': typeof PracticeRoute
   '/premium': typeof PremiumRoute
@@ -166,6 +185,8 @@ export interface FileRoutesByFullPath {
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
+  '/japanese/alphabet': typeof JapaneseAlphabetRoute
+  '/japanese/topics': typeof JapaneseTopicsRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
@@ -181,6 +202,7 @@ export interface FileRoutesByTo {
   '/articles': typeof ArticlesRoute
   '/auth': typeof AuthRoute
   '/contact-about': typeof ContactAboutRoute
+  '/japanese': typeof JapaneseRoute
   '/listening': typeof ListeningRoute
   '/practice': typeof PracticeRoute
   '/premium': typeof PremiumRoute
@@ -191,6 +213,8 @@ export interface FileRoutesByTo {
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
   '/articles/$slug': typeof ArticlesSlugRoute
+  '/japanese/alphabet': typeof JapaneseAlphabetRoute
+  '/japanese/topics': typeof JapaneseTopicsRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
@@ -207,6 +231,7 @@ export interface FileRoutesById {
   '/articles': typeof ArticlesRoute
   '/auth': typeof AuthRoute
   '/contact-about': typeof ContactAboutRoute
+  '/japanese': typeof JapaneseRoute
   '/listening': typeof ListeningRoute
   '/practice': typeof PracticeRoute
   '/premium': typeof PremiumRoute
@@ -217,6 +242,8 @@ export interface FileRoutesById {
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
   '/articles_/$slug': typeof ArticlesSlugRoute
+  '/japanese_/alphabet': typeof JapaneseAlphabetRoute
+  '/japanese_/topics': typeof JapaneseTopicsRoute
   '/speaking_/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking_/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking_/written-samples': typeof SpeakingWrittenSamplesRoute
@@ -234,6 +261,7 @@ export interface FileRouteTypes {
     | '/articles'
     | '/auth'
     | '/contact-about'
+    | '/japanese'
     | '/listening'
     | '/practice'
     | '/premium'
@@ -244,6 +272,8 @@ export interface FileRouteTypes {
     | '/vocabulary'
     | '/writing'
     | '/articles/$slug'
+    | '/japanese/alphabet'
+    | '/japanese/topics'
     | '/speaking/pronunciation'
     | '/speaking/topics-explained'
     | '/speaking/written-samples'
@@ -259,6 +289,7 @@ export interface FileRouteTypes {
     | '/articles'
     | '/auth'
     | '/contact-about'
+    | '/japanese'
     | '/listening'
     | '/practice'
     | '/premium'
@@ -269,6 +300,8 @@ export interface FileRouteTypes {
     | '/vocabulary'
     | '/writing'
     | '/articles/$slug'
+    | '/japanese/alphabet'
+    | '/japanese/topics'
     | '/speaking/pronunciation'
     | '/speaking/topics-explained'
     | '/speaking/written-samples'
@@ -284,6 +317,7 @@ export interface FileRouteTypes {
     | '/articles'
     | '/auth'
     | '/contact-about'
+    | '/japanese'
     | '/listening'
     | '/practice'
     | '/premium'
@@ -294,6 +328,8 @@ export interface FileRouteTypes {
     | '/vocabulary'
     | '/writing'
     | '/articles_/$slug'
+    | '/japanese_/alphabet'
+    | '/japanese_/topics'
     | '/speaking_/pronunciation'
     | '/speaking_/topics-explained'
     | '/speaking_/written-samples'
@@ -310,6 +346,7 @@ export interface RootRouteChildren {
   ArticlesRoute: typeof ArticlesRoute
   AuthRoute: typeof AuthRoute
   ContactAboutRoute: typeof ContactAboutRoute
+  JapaneseRoute: typeof JapaneseRoute
   ListeningRoute: typeof ListeningRoute
   PracticeRoute: typeof PracticeRoute
   PremiumRoute: typeof PremiumRoute
@@ -320,6 +357,8 @@ export interface RootRouteChildren {
   VocabularyRoute: typeof VocabularyRoute
   WritingRoute: typeof WritingRouteWithChildren
   ArticlesSlugRoute: typeof ArticlesSlugRoute
+  JapaneseAlphabetRoute: typeof JapaneseAlphabetRoute
+  JapaneseTopicsRoute: typeof JapaneseTopicsRoute
   SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
   SpeakingTopicsExplainedRoute: typeof SpeakingTopicsExplainedRoute
   SpeakingWrittenSamplesRoute: typeof SpeakingWrittenSamplesRoute
@@ -392,6 +431,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ListeningRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/japanese': {
+      id: '/japanese'
+      path: '/japanese'
+      fullPath: '/japanese'
+      preLoaderRoute: typeof JapaneseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact-about': {
       id: '/contact-about'
       path: '/contact-about'
@@ -462,6 +508,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpeakingPronunciationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/japanese_/topics': {
+      id: '/japanese_/topics'
+      path: '/japanese/topics'
+      fullPath: '/japanese/topics'
+      preLoaderRoute: typeof JapaneseTopicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/japanese_/alphabet': {
+      id: '/japanese_/alphabet'
+      path: '/japanese/alphabet'
+      fullPath: '/japanese/alphabet'
+      preLoaderRoute: typeof JapaneseAlphabetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/articles_/$slug': {
       id: '/articles_/$slug'
       path: '/articles/$slug'
@@ -523,6 +583,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArticlesRoute: ArticlesRoute,
   AuthRoute: AuthRoute,
   ContactAboutRoute: ContactAboutRoute,
+  JapaneseRoute: JapaneseRoute,
   ListeningRoute: ListeningRoute,
   PracticeRoute: PracticeRoute,
   PremiumRoute: PremiumRoute,
@@ -533,6 +594,8 @@ const rootRouteChildren: RootRouteChildren = {
   VocabularyRoute: VocabularyRoute,
   WritingRoute: WritingRouteWithChildren,
   ArticlesSlugRoute: ArticlesSlugRoute,
+  JapaneseAlphabetRoute: JapaneseAlphabetRoute,
+  JapaneseTopicsRoute: JapaneseTopicsRoute,
   SpeakingPronunciationRoute: SpeakingPronunciationRoute,
   SpeakingTopicsExplainedRoute: SpeakingTopicsExplainedRoute,
   SpeakingWrittenSamplesRoute: SpeakingWrittenSamplesRoute,
