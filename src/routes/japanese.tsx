@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
-import { Languages, MessagesSquare, ArrowRight } from "lucide-react";
+import { Languages, MessagesSquare, BookText, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/japanese")({
   head: () => ({
@@ -29,11 +29,20 @@ const SECTIONS = [
   {
     n: "02",
     title: "Topics & Phrases",
-    tag: "Phrases & grammar",
-    body: "Everyday expressions and the first rules of grammar, explained clearly for absolute beginners — with more topics on the way.",
+    tag: "Speaking",
+    body: "Everyday speaking topics — greetings, numbers, family, food, shopping and travel — the language you'll actually use first.",
     cta: "Start speaking",
     icon: MessagesSquare,
     to: "/japanese/topics" as const,
+  },
+  {
+    n: "03",
+    title: "Grammar",
+    tag: "Step by step",
+    body: "A beginner grammar course in order — sentence structure, particles, verbs and tenses — so nothing ever feels out of sequence.",
+    cta: "Learn the grammar",
+    icon: BookText,
+    to: "/japanese/grammar" as const,
   },
 ];
 

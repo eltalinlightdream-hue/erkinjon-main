@@ -2,23 +2,23 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { LessonSection } from "@/components/japanese/lesson-section";
-import { topicLessons } from "@/lib/japanese-data";
+import { grammarLessons } from "@/lib/japanese-data";
 
-export const Route = createFileRoute("/japanese_/topics")({
+export const Route = createFileRoute("/japanese_/grammar")({
   head: () => ({
     meta: [
-      { title: "Japanese Topics & Phrases — Daily Phrases & Grammar | Abduraimov Erkinjon" },
+      { title: "Japanese Grammar for Beginners — Step by Step | Abduraimov Erkinjon" },
       {
         name: "description",
         content:
-          "Everyday Japanese phrases and beginner grammar, taught through embedded video lessons. More topics — Numbers, Family, Food, Travel — added over time.",
+          "A beginner Japanese grammar course in order — sentence structure, particles, verb conjugation, tenses and adjectives — taught through embedded video lessons you can watch on the page.",
       },
     ],
   }),
-  component: JapaneseTopics,
+  component: JapaneseGrammar,
 });
 
-function JapaneseTopics() {
+function JapaneseGrammar() {
   return (
     <SiteLayout>
       {/* ─── HEADER ───────────────────────────────────────────────── */}
@@ -29,22 +29,22 @@ function JapaneseTopics() {
         >
           <ArrowLeft className="w-4 h-4" /> Back to Japanese
         </Link>
-        <p className="eyebrow text-primary mb-5">日本語 · Topics & phrases</p>
+        <p className="eyebrow text-primary mb-5">日本語 · Grammar</p>
         <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-5">
-          Topics &amp; Phrases
+          Grammar, Step by Step
         </h1>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-          Once you can read kana, start using the language. These short lessons cover the everyday
-          speaking situations you'll meet first — introducing yourself, numbers, family, food,
-          shopping and travel — with more topics on the way.
+          Beginner grammar is easiest when you take it in order. These lessons follow the Genki 1
+          syllabus from start to finish — work through them top to bottom and each one builds on the
+          one before it.
         </p>
       </section>
 
-      {/* ─── LESSONS ──────────────────────────────────────────────── */}
+      {/* ─── LESSONS (numbered, in order) ─────────────────────────── */}
       <section className="container mx-auto px-4 pb-24 max-w-5xl">
         <div className="flex flex-col gap-16 md:gap-20">
-          {topicLessons.map((lesson) => (
-            <LessonSection key={lesson.key} lesson={lesson} />
+          {grammarLessons.map((lesson, i) => (
+            <LessonSection key={lesson.key} lesson={lesson} eyebrow={`Lesson ${i + 1}`} />
           ))}
         </div>
       </section>
