@@ -578,3 +578,117 @@
 .flashcard-back {
   transform: rotateY(180deg);
 }
+
+/* ─── SMOOTH SCROLL ───────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── SCROLL REVEAL ───────────────────────────────────────────── */
+/* Fades & lifts elements into view the first time they scroll into the
+   viewport — reuses the ink-bleed easing. Paired with <Reveal>. The
+   universal transition rule above only animates colour/shadow, so these
+   opacity/transform transitions are independent and not clobbered. */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── TOUCH FEEDBACK ──────────────────────────────────────────── */
+/* Hover affordances never fire on touch screens, so pressable surfaces
+   feel dead on phones. Mirror the existing hover look on :active so a
+   tap gives the same tactile response. No new colours — reuses tokens. */
+
+.tap-press {
+  transition: transform 0.14s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.tap-press:active {
+  transform: scale(0.97);
+}
+
+@media (hover: none) {
+  .bento-card:active {
+    transform: scale(0.985);
+    box-shadow: var(--shadow-soft), var(--glow-accent-soft);
+    border-color: color-mix(in srgb, var(--terracotta) 35%, var(--border));
+  }
+}
+
+/* ─── MENU & DROPDOWN ENTRANCES ───────────────────────────────── */
+
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nav-drop {
+  transform-origin: top center;
+  animation: navDrop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dropdown-enter {
+  transform-origin: top;
+  animation: dropIn 0.16s ease-out;
+}
+
+/* ─── REDUCED MOTION ──────────────────────────────────────────── */
+/* Honour users who ask the OS to minimise motion: neutralise reveals,
+   entrance animations and the ambient float/bob loops. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .ink-bleed {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
