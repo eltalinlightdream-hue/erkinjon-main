@@ -42,7 +42,7 @@ function ResetPasswordPage() {
   return (
     <SiteLayout>
       <section className="container mx-auto max-w-md px-4 py-16">
-        <div className="mb-8 text-center">
+        <div className="ink-bleed mb-8 text-center">
           <span className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-primary shadow-warm">
             <GraduationCap className="h-8 w-8 text-white" />
           </span>

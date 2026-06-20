@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper } from "lucide-react";
 
@@ -222,11 +223,11 @@ function Index() {
 
             {/* Right: illustration panel with overlapping quote card */}
             <div className="lg:col-span-5 relative ink-bleed" style={{ animationDelay: "0.45s" }}>
-              <div className="relative rounded-3xl bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)] border border-border shadow-soft p-8 md:p-10">
+              <div className="group/illu relative rounded-3xl bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)] border border-border shadow-soft p-8 md:p-10 transition-transform duration-500 ease-out hover:-translate-y-1.5 hover:shadow-warm">
                 <StudyDeskScene />
 
                 {/* Band 8.0 seal */}
-                <div className="absolute -top-5 -right-4 md:-right-6 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center shadow-warm rotate-6 select-none">
+                <div className="absolute -top-5 -right-4 md:-right-6 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center shadow-warm rotate-6 select-none transition-transform duration-500 ease-out group-hover/illu:rotate-12 group-hover/illu:scale-105">
                   <span className="text-[9px] uppercase tracking-[0.18em] opacity-90">Band</span>
                   <span className="font-serif text-2xl leading-none">8.0</span>
                   <span className="text-[9px] uppercase tracking-[0.18em] opacity-90 mt-0.5">
@@ -253,7 +254,7 @@ function Index() {
 
       {/* ─── FEATURES — numbered editorial rows ───────────────────── */}
       <section className="container mx-auto px-4 py-20 max-w-5xl">
-        <div className="text-center max-w-xl mx-auto mb-16">
+        <Reveal className="text-center max-w-xl mx-auto mb-16">
           <p className="eyebrow text-secondary mb-4">The curriculum</p>
           <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
             Everything you need to reach <em className="text-primary">Band 7+</em>
@@ -262,11 +263,12 @@ function Index() {
             From free strategy guides to premium model answers, every resource is built for the real
             test.
           </p>
-        </div>
+        </Reveal>
 
         <div className="flex flex-col">
           {FEATURES.map((f, i) => (
-            <article
+            <Reveal
+              as="article"
               key={f.n}
               className={`group grid md:grid-cols-12 gap-6 md:gap-10 items-center py-10 md:py-12 ${
                 i > 0 ? "border-t border-border" : ""
@@ -277,8 +279,8 @@ function Index() {
                 <span
                   className={`font-serif text-5xl md:text-6xl leading-none transition-colors duration-300 ${
                     f.premium
-                      ? "text-[var(--ochre)]/50 group-hover:text-[var(--ochre)]"
-                      : "text-primary/30 group-hover:text-primary"
+                      ? "text-[var(--ochre)]/50 group-hover:text-[var(--ochre)] group-active:text-[var(--ochre)]"
+                      : "text-primary/30 group-hover:text-primary group-active:text-primary"
                   }`}
                 >
                   {f.n}
@@ -311,7 +313,7 @@ function Index() {
                   }`}
                 >
                   {f.cta}
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1" />
                 </Link>
               </div>
 
@@ -322,7 +324,7 @@ function Index() {
                 }`}
               >
                 <div
-                  className={`w-24 h-24 rounded-2xl flex items-center justify-center border transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft ${
+                  className={`w-24 h-24 rounded-2xl flex items-center justify-center border transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft group-active:-translate-y-1 group-active:shadow-soft ${
                     f.premium
                       ? "bg-[var(--ochre-wash)] border-[var(--ochre)]/25 text-[var(--ochre)]"
                       : "bg-[var(--terracotta-wash)] border-primary/20 text-primary"
@@ -331,7 +333,7 @@ function Index() {
                   <f.icon className="w-9 h-9" strokeWidth={1.5} />
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -339,16 +341,18 @@ function Index() {
       {/* ─── PULL QUOTE ────────────────────────────────────────────── */}
       <section className="container mx-auto px-4 pb-20 max-w-3xl text-center">
         <OrnamentDivider />
-        <blockquote className="font-serif italic text-2xl md:text-3xl text-foreground leading-snug mt-12 mb-6">
-          “Language is learned in small, faithful sittings — not in a panic the week before the
-          exam.”
-        </blockquote>
-        <p className="eyebrow text-muted-foreground">From the teaching notes</p>
+        <Reveal>
+          <blockquote className="font-serif italic text-2xl md:text-3xl text-foreground leading-snug mt-12 mb-6">
+            “Language is learned in small, faithful sittings — not in a panic the week before the
+            exam.”
+          </blockquote>
+          <p className="eyebrow text-muted-foreground">From the teaching notes</p>
+        </Reveal>
       </section>
 
       {/* ─── CLOSING CTA ───────────────────────────────────────────── */}
       <section className="container mx-auto px-4 pb-24 max-w-5xl">
-        <div className="rounded-3xl bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)] border border-border shadow-soft px-8 py-14 md:px-16 text-center">
+        <Reveal className="rounded-3xl bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)] border border-border shadow-soft px-8 py-14 md:px-16 text-center">
           <p className="eyebrow text-primary mb-4">Si comincia</p>
           <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
             Ready when you are.
@@ -369,7 +373,7 @@ function Index() {
               </Button>
             </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
     </SiteLayout>
   );

@@ -1137,7 +1137,7 @@ function Writing() {
         <div className="absolute top-10 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="sword" size={32} opacity={1} />
         </div>
-        <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-8">IELTS Writing</h1>
+        <h1 className="ink-bleed font-serif text-3xl md:text-4xl text-foreground mb-8">IELTS Writing</h1>
 
         {/* Video banner */}
         <div className="relative overflow-hidden rounded-2xl px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border border-border shadow-card bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)]">
@@ -1241,7 +1241,7 @@ function Writing() {
                   }}
                   className="block text-left"
                 >
-                  <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                  <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300 cursor-pointer">
                     <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                       {task.image ? (
                         <img
@@ -1290,7 +1290,7 @@ function Writing() {
                     params={{ taskId: task.id }}
                     className="block"
                   >
-                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                       <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                         {task.image ? (
                           <img
@@ -1338,7 +1338,7 @@ function Writing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {visibleSamples.map((sample) => (
               <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
-                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                   <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                     {sample.coverImage ? (
                       <img
@@ -1380,7 +1380,7 @@ function Writing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WRITING_ESSAYS.map((essay) => (
               <Link key={essay.id} to="/writing/essay/$id" params={{ id: essay.id }}>
-                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                   <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                     <div className="text-4xl font-bold text-muted-foreground">
                       T{essay.testNumber}

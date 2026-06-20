@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { Youtube, Send, MapPin, Award, PenLine, MessageCircle, ArrowRight } from "lucide-react";
 
@@ -47,13 +48,13 @@ function ContactAbout() {
   return (
     <SiteLayout>
       <section className="container mx-auto px-4 py-16 max-w-5xl">
-        <div className="text-center mb-14">
+        <div className="ink-bleed text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">Contact &amp; About</h1>
           <p className="text-lg text-muted-foreground">A little about me, and the easiest ways to get in touch.</p>
         </div>
 
         {/* About */}
-        <div className="max-w-2xl mx-auto mb-20">
+        <Reveal className="max-w-2xl mx-auto mb-20">
           <div className="space-y-5">
             <div className="flex flex-wrap gap-3">
               <span className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-wide bg-accent px-3 py-1.5 rounded-full border border-border/60">
@@ -77,28 +78,30 @@ function ContactAbout() {
               "If you can explain it simply, you understand it well enough to teach it."
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Contact */}
-        <div className="text-center mb-10">
+        <Reveal className="text-center mb-10">
           <h2 className="text-3xl font-bold mb-2">Get in touch</h2>
           <p className="text-muted-foreground">Pick the channel that fits your question.</p>
-        </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-3 gap-5">
-          {CONTACTS.map((c) => (
-            <div key={c.title} className="bento-card rounded-3xl p-8 flex flex-col group">
-              <span className={`w-14 h-14 rounded-2xl ${c.tint} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
-                <c.icon className="w-6 h-6" />
-              </span>
-              <h3 className="font-serif text-xl font-semibold mb-2">{c.title}</h3>
-              <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">{c.desc}</p>
-              <a href={c.href} target="_blank" rel="noreferrer">
-                <Button className={`w-full ${c.btn} font-mono text-[11px] tracking-wide active:scale-95 transition-all`}>
-                  {c.label} <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                </Button>
-              </a>
-            </div>
+          {CONTACTS.map((c, i) => (
+            <Reveal key={c.title} className="h-full" delay={(i % 3) * 80}>
+              <div className="bento-card rounded-3xl p-8 flex flex-col group h-full">
+                <span className={`w-14 h-14 rounded-2xl ${c.tint} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-active:scale-110`}>
+                  <c.icon className="w-6 h-6" />
+                </span>
+                <h3 className="font-serif text-xl font-semibold mb-2">{c.title}</h3>
+                <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">{c.desc}</p>
+                <a href={c.href} target="_blank" rel="noreferrer">
+                  <Button className={`w-full ${c.btn} font-mono text-[11px] tracking-wide active:scale-95 transition-all`}>
+                    {c.label} <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
