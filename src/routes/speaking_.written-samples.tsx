@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { ArrowLeft, ArrowRight, BookOpen, MessageSquareQuote, X as XIcon } from "lucide-react";
 import {
   PART_LABELS,
@@ -159,24 +160,30 @@ function HighlightedText({
 function TopicCard({ topic }: { topic: SpeakingTopic }) {
   const count = topic.questions.length;
   return (
-    <Link to="/speaking/written-samples" search={{ topic: topic.id }}>
-      <div className="bento-card p-6 h-full flex flex-col cursor-pointer group">
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <span className="text-3xl leading-none">{topic.emoji}</span>
-          <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary bg-primary/10 px-2.5 py-1 rounded-full whitespace-nowrap">
-            {count} {count === 1 ? "question" : "questions"}
+    <Reveal className="h-full">
+      <Link
+        to="/speaking/written-samples"
+        search={{ topic: topic.id }}
+        className="group block h-full"
+      >
+        <div className="bento-card p-6 h-full flex flex-col cursor-pointer">
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <span className="text-3xl leading-none">{topic.emoji}</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary bg-primary/10 px-2.5 py-1 rounded-full whitespace-nowrap">
+              {count} {count === 1 ? "question" : "questions"}
+            </span>
+          </div>
+          <h3 className="font-serif text-lg leading-snug mb-2 text-foreground group-hover:text-primary group-active:text-primary transition-colors">
+            {topic.title}
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed flex-1">{topic.description}</p>
+          <span className="mt-4 text-sm font-medium text-primary inline-flex items-center gap-1.5">
+            Open{" "}
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-active:translate-x-0.5 transition-transform" />
           </span>
         </div>
-        <h3 className="font-serif text-lg leading-snug mb-2 text-foreground group-hover:text-primary transition-colors">
-          {topic.title}
-        </h3>
-        <p className="text-sm text-muted-foreground leading-relaxed flex-1">{topic.description}</p>
-        <span className="mt-4 text-sm font-medium text-primary inline-flex items-center gap-1.5">
-          Open{" "}
-          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-        </span>
-      </div>
-    </Link>
+      </Link>
+    </Reveal>
   );
 }
 
@@ -315,7 +322,7 @@ function IndexView({ part }: { part?: 1 | 2 | 3 }) {
 
   return (
     <section className="container mx-auto px-4 py-12 max-w-5xl">
-      <div className="text-center mb-12">
+      <div className="ink-bleed text-center mb-12">
         <p className="eyebrow text-primary mb-4">🎤 IELTS Speaking</p>
         <h1 className="font-serif text-2xl md:text-3xl leading-relaxed mb-4 text-foreground">
           Written Samples

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Play, X, Clock, ChevronDown, ChevronUp } from "lucide-react";
@@ -140,8 +141,16 @@ function Pronunciation() {
   return (
     <SiteLayout>
       <section className="container mx-auto px-4 py-12 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2">Pronunciation Lessons</h1>
-        <p className="text-muted-foreground mb-8 text-lg">
+        <h1
+          className="ink-bleed text-4xl md:text-5xl font-bold mb-2"
+          style={{ animationDelay: "0.05s" }}
+        >
+          Pronunciation Lessons
+        </h1>
+        <p
+          className="ink-bleed text-muted-foreground mb-8 text-lg"
+          style={{ animationDelay: "0.15s" }}
+        >
           Learn American English pronunciation from beginner to advanced — by Rachel's English.
         </p>
 
@@ -208,11 +217,11 @@ function Pronunciation() {
             </button>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <Reveal className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((lesson) => (
               <div
                 key={lesson.id}
-                className="rounded-xl border border-border bg-card overflow-hidden hover:shadow-warm hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
+                className="group rounded-xl border border-border bg-card overflow-hidden hover:shadow-warm hover:-translate-y-0.5 active:shadow-warm active:-translate-y-0.5 transition-all duration-200 flex flex-col"
               >
                 {/* Thumbnail */}
                 <div className="relative aspect-video bg-muted">
@@ -225,7 +234,7 @@ function Pronunciation() {
                   <button
                     type="button"
                     onClick={() => setPlaying(lesson)}
-                    className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 transition-opacity"
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 group-active:opacity-100 transition-opacity"
                     aria-label={`Watch ${lesson.title}`}
                   >
                     <span className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
@@ -261,7 +270,7 @@ function Pronunciation() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
         )}
       </section>
 
