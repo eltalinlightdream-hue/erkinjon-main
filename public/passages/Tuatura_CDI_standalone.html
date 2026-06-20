@@ -103,7 +103,9 @@ body.night-mode .feedback-answer.incorrect{color:#f5a0a8;background:rgba(220,53,
 .option,.true-false-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);cursor:pointer;color:var(--text-color);}
 .option input{flex-shrink:0;}
 .option-label{color:var(--text-color);}
-select,.select-answer,.short-answer,input[type=text]{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:30px;padding:4px 8px;font-family:Arial,sans-serif;max-width:100%;}
+.question-options{list-style:none;margin:8px 0;}
+.question-options li{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);margin-bottom:7px;color:var(--text-color);}
+select,.sel,.select-answer,.short-answer,input[type=text]{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:30px;padding:4px 8px;font-family:Arial,sans-serif;max-width:100%;}
 .matching-box,.option-list,.matching-list{border:1px solid var(--border-color);border-radius:6px;padding:14px 18px;margin:12px 0;background:var(--questions-bg);}
 .matching-list,.option-list ul{list-style:none;}
 .matching-box h4{margin:0 0 8px;font-size:15px;}
@@ -115,7 +117,6 @@ select,.select-answer,.short-answer,input[type=text]{border:1px solid var(--bord
 .drop-zone.filled{border-style:solid;border-color:var(--progress-complete);}
 .inline-correct{color:#28a745;font-weight:700;}
 .inline-wrong{color:#dc3545;font-weight:700;}
-.question.correct-mark{}.question.wrong-mark{}
 
 </style>
 </head>
@@ -352,6 +353,8 @@ function norm(s){return String(s==null?'':s).toLowerCase().trim().replace(/[’'
 function ansList(q){return Array.isArray(CA[q])?CA[q]:[CA[q]];}
 function isOk(q,v){if(v==='')return false;return ansList(q).some(a=>norm(a)===norm(v));}
 function dispAns(q){return ansList(q).join(' / ');}
+// checkbox group helper: a group named q<lo>-<hi> ("choose N") covers questions lo..hi
+function groupNameFor(q){q=String(q);let name=null;document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(m&&parseInt(m[1])<=parseInt(q)&&parseInt(q)<=parseInt(m[2]))name=cb.name;});return name;}
 function getVal(q){
   const checked=document.querySelectorAll('input[name="q'+q+'"]:checked');
   if(checked.length){return Array.from(checked).map(e=>e.value).join('');}
@@ -361,6 +364,8 @@ function getVal(q){
   if(el) return (el.value||'').trim();
   el=document.querySelector('.drop-zone[data-qnum="'+q+'"]');
   if(el) return (el.dataset.answer||'').trim();
+  const gn=groupNameFor(q);
+  if(gn){return Array.from(document.querySelectorAll('input[name="'+gn+'"]:checked')).map(e=>e.value).join(', ');}
   return '';
 }
 function qContainer(q){
@@ -370,7 +375,22 @@ function qContainer(q){
   if(el) return el.closest('.dropdown-question-row, .question, .question-item, li, p')||el.parentElement;
   el=document.getElementById('q'+q);
   if(el) return el.closest('.dropdown-question-row, .question, .question-item')||el;
+  const gn=groupNameFor(q);
+  if(gn){const cb=document.querySelector('input[name="'+gn+'"]');if(cb)return cb.closest('.question, .question-item')||cb.parentElement;}
   return null;
+}
+// per-question verdicts for checkbox "choose N" groups (each correct letter = 1 mark, any order)
+function groupVerdicts(){
+  const v={},seen={};
+  document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{
+    const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(!m||seen[cb.name])return;seen[cb.name]=1;
+    const lo=parseInt(m[1]),hi=parseInt(m[2]),qs=[];for(let q=lo;q<=hi;q++)qs.push(String(q));
+    const checked=Array.from(document.querySelectorAll('input[name="'+cb.name+'"]:checked')).map(e=>e.value);
+    const correct=qs.map(q=>CA[q]);const cn=correct.map(norm);const used={};let nC=0;
+    checked.forEach(val=>{const nv=norm(val);const idx=cn.indexOf(nv);if(idx>-1&&!used[idx]){used[idx]=1;nC++;}});
+    qs.forEach((q,i)=>{v[q]={ok:i<nC,user:checked.join(', ')||'(none)',correct:correct.join(', ')};});
+  });
+  return v;
 }
 // progress
 const pc=document.getElementById('progress-container');
@@ -380,15 +400,16 @@ document.addEventListener('change',updateProg);document.addEventListener('input'
 // submit / score
 let submitted=false;
 function lockAll(){submitted=true;document.body.classList.add('test-locked');document.querySelectorAll('input,select,textarea').forEach(e=>e.disabled=true);const r=document.getElementById('reset-btn');r.disabled=true;r.style.opacity='.4';}
-function showInline(){
+function verdict(q,gv){if(gv[q])return{ok:gv[q].ok,user:gv[q].user,disp:gv[q].correct};const user=getVal(q);return{ok:isOk(q,user),user:user||'(none)',disp:dispAns(q)};}
+function showInline(gv){
   document.querySelectorAll('.inline-correct,.inline-wrong').forEach(e=>e.remove());
-  KEYS.forEach(q=>{const ok=isOk(q,getVal(q));const sp=document.createElement('span');sp.className=ok?'inline-correct':'inline-wrong';sp.style.cssText='display:block;margin-top:6px;';sp.textContent=ok?'✓':'Correct: '+dispAns(q);const c=qContainer(q);if(c)c.appendChild(sp);});
+  KEYS.forEach(q=>{const r=verdict(q,gv);const sp=document.createElement('span');sp.className=r.ok?'inline-correct':'inline-wrong';sp.style.cssText='display:block;margin-top:6px;';sp.textContent=r.ok?'✓':'Correct: '+r.disp;const c=qContainer(q);if(c)c.appendChild(sp);});
 }
 document.getElementById('submit-btn').addEventListener('click',function(){
   if(submitted){document.getElementById('feedback-overlay').style.display='flex';return;}
-  let score=0,html='';
-  KEYS.forEach(q=>{const user=getVal(q);const ok=isOk(q,user);if(ok)score++;html+='<div class="feedback-item"><div class="feedback-question">Q'+q+'</div><div class="feedback-answer '+(ok?'correct':'incorrect')+'">Your answer: '+(user||'(none)')+'<br/>'+(ok?'✔ Correct':'✘ Incorrect – Correct: <strong>'+dispAns(q)+'</strong>')+'</div></div>';});
-  document.getElementById('feedback-body').innerHTML=html;document.getElementById('score-display').textContent=score+'/'+KEYS.length;document.getElementById('feedback-overlay').style.display='flex';lockAll();showInline();
+  const gv=groupVerdicts();let score=0,htmlOut='';
+  KEYS.forEach(q=>{const r=verdict(q,gv);if(r.ok)score++;htmlOut+='<div class="feedback-item"><div class="feedback-question">Q'+q+'</div><div class="feedback-answer '+(r.ok?'correct':'incorrect')+'">Your answer: '+r.user+'<br/>'+(r.ok?'✔ Correct':'✘ Incorrect – Correct: <strong>'+r.disp+'</strong>')+'</div></div>';});
+  document.getElementById('feedback-body').innerHTML=htmlOut;document.getElementById('score-display').textContent=score+'/'+KEYS.length;document.getElementById('feedback-overlay').style.display='flex';lockAll();showInline(gv);
 });
 document.getElementById('close-feedback').addEventListener('click',()=>document.getElementById('feedback-overlay').style.display='none');
 document.getElementById('reset-btn').addEventListener('click',()=>{if(submitted)return;document.querySelectorAll('input[type=text],textarea').forEach(e=>e.value='');document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(e=>e.checked=false);document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);updateProg();});
