@@ -1445,6 +1445,195 @@ const PASSAGES: Passage[] = [
       "A passage discussing how New Zealand businesses approach innovation, from Edison's laborious experimentation to Steve Jobs' visionary leadership.",
     htmlFile: "/passages/innovation_in_business_nz.html",
   },
+  {
+    id: "p1-bovids",
+    title: "Bovids",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage about the bovid family of mammals — one of the most diverse groups of animals on Earth, from tiny royal antelopes to massive bison.",
+    htmlFile: "/passages/bovids.html",
+  },
+  {
+    id: "p1-bodie-ghost-town",
+    title: "Bodie: America's Most Famous Ghost Town",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage about Bodie, California — once a thriving gold-rush town and now America's most famous ghost town, preserved in a state of arrested decay.",
+    htmlFile: "/passages/bodie_americas_most_famous_ghost_town.html",
+  },
+  {
+    id: "p2-cuneiform",
+    title: "An Important Language Development",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage about cuneiform, the world's first known writing system, which originated over 6,000 years ago in ancient Sumer in what is now southern Iraq.",
+    htmlFile: "/passages/an_important_language_development.html",
+  },
+  {
+    id: "p3-crisis-freshwater",
+    title: "Crisis! Freshwater",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage examining the global freshwater crisis — rising demand, shrinking supply, and the political and environmental consequences of water scarcity.",
+    htmlFile: "/passages/crisis_freshwater.html",
+  },
+  {
+    id: "p2-digital-diet",
+    title: "Digital Diet",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage about the hidden environmental cost of digital technology — the enormous energy consumed by computers, data centres, and the internet.",
+    htmlFile: "/passages/digital_diet.html",
+  },
+  {
+    id: "p2-dirty-river-clean-water",
+    title: "Dirty River But Clean Water",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage about innovative water management in a flood-prone canyon and the engineering solutions used to deliver clean drinking water.",
+    htmlFile: "/passages/dirty_river_but_clean_water.html",
+  },
+  {
+    id: "p3-fear-of-the-unknown",
+    title: "Fear of the Unknown",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage exploring why large American companies struggle to innovate and the growing threat posed by small, agile start-up firms.",
+    htmlFile: "/passages/fear_of_the_unknown.html",
+  },
+  {
+    id: "p3-doctoring-sales",
+    title: "Doctoring Sales",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage investigating the controversial sales and marketing strategies used by pharmaceutical companies to influence doctors' prescribing habits.",
+    htmlFile: "/passages/doctoring_sales.html",
+  },
+  {
+    id: "p2-e-training",
+    title: "E-training",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage examining the benefits, limitations and costs of e-learning and online training programs in corporate environments.",
+    htmlFile: "/passages/e_training.html",
+  },
+  {
+    id: "p2-grimms-fairy-tales",
+    title: "Grimm's Fairy Tales",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage about the history of the Brothers Grimm fairy tale collection, its origins, reception, and enduring global popularity.",
+    htmlFile: "/passages/grimms_fairy_tales.html",
+  },
+  {
+    id: "p2-how-the-mind-ages",
+    title: "How the Mind Ages",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage exploring how mental functions change with age and how lifestyle, activity, and flexibility influence cognitive health.",
+    htmlFile: "/passages/how_the_mind_ages.html",
+  },
+  {
+    id: "p1-food-desert",
+    title: "How to Find Your Way Out of a Food Desert",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A passage about citizens using online maps to document the lack of healthy food options in urban neighborhoods in Brooklyn, New York.",
+    htmlFile: "/passages/how_to_find_your_way_out_of_a_food_desert.html",
+  },
+  {
+    id: "p3-language-strategy",
+    title: "Language Strategy in Multinational Company",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage evaluating different approaches multinational companies use to manage language barriers, from lingua franca to training programs.",
+    htmlFile: "/passages/language_strategy_in_multinational_company.html",
+  },
+  {
+    id: "p2-life-code-unlocked",
+    title: "Life Code: Unlocked!",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage about how an applied mathematician used machine learning tools to model gene regulatory networks in yeast and decode the logic of gene expression.",
+    htmlFile: "/passages/life_code_unlocked.html",
+  },
+  {
+    id: "p2-light-pollution",
+    title: "Light Pollution",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage examining how artificial light at night disrupts the biological rhythms of humans, animals, and ecosystems, and what can be done to reduce it.",
+    htmlFile: "/passages/light_pollution.html",
+  },
+  {
+    id: "p2-mammoth-kill",
+    title: "Mammoth Kill",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage exploring three competing theories — human hunting, disease, and climate change — behind the extinction of mammoths and other megafauna 11,000 years ago.",
+    htmlFile: "/passages/mammoth_kill.html",
+  },
+  {
+    id: "p2-maori-fish-hooks",
+    title: "Maori Fish Hooks",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage tracing the history and ingenious design of traditional Maori fish hooks (matau), from their natural-material origins to their modern-day revival in commercial fishing.",
+    htmlFile: "/passages/maori_fish_hooks.html",
+  },
+  {
+    id: "p2-marketing-mind-control",
+    title: "Marketing and Mind Control",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage examining how advertising exploits the brain's associative and imitative tendencies, using examples from diamonds to bottled water and animal behaviour.",
+    htmlFile: "/passages/marketing_and_mind_control.html",
+  },
+  {
+    id: "p2-new-ways-teaching-history",
+    title: "New Ways of Teaching History",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage discussing the challenges of teaching history to digital-age students and how multimedia tools like PowerPoint can make lessons more interactive and effective.",
+    htmlFile: "/passages/new_ways_of_teaching_history.html",
+  },
+  {
+    id: "p2-saharan-solar-energy",
+    title: "Out of Africa: Saharan Solar Energy",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A passage reporting on proposals to harness the Sahara Desert's vast solar energy potential using Concentrating Solar Power technology to supply electricity to Europe.",
+    htmlFile: "/passages/out_of_africa_saharan_solar_energy.html",
+  },
+  {
+    id: "p3-reducing-climate-change",
+    title: "Reducing the Effects of Climate Change",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "A passage evaluating large-scale geo-engineering proposals — from space sunshades to Arctic aerosols — as a potential backup strategy for tackling global warming.",
+    htmlFile: "/passages/reducing_the_effects_of_climate_change.html",
+  },
 ];
 
 const FILTERS = [
