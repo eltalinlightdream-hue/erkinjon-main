@@ -40,6 +40,50 @@ type ListeningTest = {
 
 const TESTS: ListeningTest[] = [
   {
+    id: "full-test-1",
+    title: "Full Test 1",
+    section: 0,
+    description:
+      "Full 40-question test: music lessons, volunteering in Hambleford, a film studies project, and the history of soap.",
+    questions: 40,
+    htmlFile: "/passages/ftest1full.html",
+    audioFile: "/passages/audio/ftest1.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-2",
+    title: "Full Test 2",
+    section: 0,
+    description:
+      "Full 40-question test: a weekend guitar course booking, a spring festival, an action research course, and digital technology in education.",
+    questions: 40,
+    htmlFile: "/passages/ftest2full.html",
+    audioFile: "/passages/audio/ftest2.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-3",
+    title: "Full Test 3",
+    section: 0,
+    description:
+      "Full 40-question test: a lifeguard application, becoming a millionaire, performance arts course feedback, and a sea lion tracking study.",
+    questions: 40,
+    htmlFile: "/passages/ftest3full.html",
+    audioFile: "/passages/audio/ftest3.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-4",
+    title: "Full Test 4",
+    section: 0,
+    description:
+      "Full 40-question test: becoming a tea taster, Pioneer Historical Village, advice on waste disposal, and whale shark conservation.",
+    questions: 40,
+    htmlFile: "/passages/ftest4full.html",
+    audioFile: "/passages/audio/ftest4.mp3",
+    isPremium: false,
+  },
+  {
     id: "v9-test-1",
     title: "Vol 9 Test 1 — Accommodation & Dormancy",
     section: 0,
