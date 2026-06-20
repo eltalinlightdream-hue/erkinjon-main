@@ -1035,6 +1035,102 @@ const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
   },
+  {
+    id: "task2_53",
+    task: 2,
+    type: "Advantages/Disadvantages",
+    title: "Credit Cards and Debt",
+    description:
+      "A Task 2 essay about whether the advantages of easily available credit cards outweigh the disadvantages.",
+    image: "",
+    htmlFile: "/writing/task2_53.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_54",
+    task: 2,
+    type: "Discussion",
+    title: "Government Control of Food Choices",
+    description:
+      "A Task 2 discussion essay about whether the government should regulate people's nutrition and food choices or leave it to personal responsibility.",
+    image: "",
+    htmlFile: "/writing/task2_54.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_55",
+    task: 2,
+    type: "Two-Part Question",
+    title: "Rising Demand for University Education",
+    description:
+      "A Task 2 two-part essay about why more people want to attend university and whether this is a positive or negative development.",
+    image: "",
+    htmlFile: "/writing/task2_55.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_56",
+    task: 2,
+    type: "Discussion",
+    title: "Government Control of Fresh Water",
+    description:
+      "A Task 2 discussion essay about whether the government should strictly control the supply of fresh water or leave it unregulated.",
+    image: "",
+    htmlFile: "/writing/task2_56.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_57",
+    task: 2,
+    type: "Advantages/Disadvantages",
+    title: "Working Abroad with Family",
+    description:
+      "A Task 2 essay about whether the advantages of moving abroad for work and taking one's family outweigh the disadvantages.",
+    image: "",
+    htmlFile: "/writing/task2_57.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_58",
+    task: 2,
+    type: "Agree/Disagree",
+    title: "Pay for Professionals vs Entertainers",
+    description:
+      "A Task 2 essay about whether professionals such as doctors, nurses and teachers should be paid more than sports and entertainment personalities.",
+    image: "",
+    htmlFile: "/writing/task2_58.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_59",
+    task: 2,
+    type: "Two-Part Question",
+    title: "Having Children Late in Life",
+    description:
+      "A Task 2 essay about the reasons people have children later in life and the effects on society and family life.",
+    image: "",
+    htmlFile: "/writing/task2_59.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_60",
+    task: 2,
+    type: "Positive/Negative Development",
+    title: "Living Alone vs Extended Families",
+    description:
+      "A Task 2 essay about whether the trend towards living alone or in small family units rather than extended families is a positive or negative development.",
+    image: "",
+    htmlFile: "/writing/task2_60.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
 ];
 
 const TASK_TOTALS: Record<1 | 2, number> = {
