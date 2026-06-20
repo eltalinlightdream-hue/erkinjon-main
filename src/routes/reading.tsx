@@ -1142,14 +1142,6 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/Playing_with_science_2_CDI_standalone.html",
   },
   {
-    id: "p1-thomas-cole-2",
-    title: "Thomas Cole: American Nature Painter",
-    passageNumber: 1,
-    isPremium: false,
-    description: "Thomas Cole (1801–1848) was America’s first major landscape artist.",
-    htmlFile: "/passages/Thomas_cole_2_CDI_standalone.html",
-  },
-  {
     id: "p2-attraction-of-video-games",
     title: "The Attraction of Video Games",
     passageNumber: 2,
