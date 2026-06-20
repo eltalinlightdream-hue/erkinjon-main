@@ -701,7 +701,7 @@ function Listening() {
         <div className="absolute top-6 right-24 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="pickaxe" size={32} opacity={1} />
         </div>
-        <div className="mb-10">
+        <div className="ink-bleed mb-10">
           <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Listening</h1>
           <p className="text-muted-foreground mb-1">
             Full listening tests with built-in audio player, timer, and answer checker.

@@ -240,7 +240,7 @@ function Account() {
       <section className="container mx-auto px-4 py-12 max-w-5xl space-y-8">
 
         {/* Header */}
-        <div className="flex flex-wrap items-center gap-5 p-6 bento-card rounded-3xl">
+        <div className="ink-bleed flex flex-wrap items-center gap-5 p-6 bento-card rounded-3xl">
           <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white text-xl font-serif font-semibold shadow-warm">
             {initials}
           </div>

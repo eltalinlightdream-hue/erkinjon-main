@@ -1549,7 +1549,7 @@ function Reading() {
         <div className="absolute top-8 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="crafting-table" size={32} opacity={1} />
         </div>
-        <div className="mb-10">
+        <div className="ink-bleed mb-10">
           <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Reading Practice</h1>
           <p className="text-muted-foreground mb-1">Filter by passage type and open any passage in a clean reader view.</p>
           <p className="font-mono text-[11px] text-muted-foreground/70 tracking-wide italic">

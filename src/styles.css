@@ -630,6 +630,23 @@ html {
   }
 }
 
+/* An affordance that fades in on hover but stays visible on touch devices
+   (which never hover) and when a child is focused — so hover-only controls
+   like a card's delete button remain reachable on phones and keyboards. */
+.hover-reveal {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.group:hover .hover-reveal,
+.group:focus-within .hover-reveal {
+  opacity: 1;
+}
+@media (hover: none) {
+  .hover-reveal {
+    opacity: 1;
+  }
+}
+
 /* ─── MENU & DROPDOWN ENTRANCES ───────────────────────────────── */
 
 @keyframes navDrop {
