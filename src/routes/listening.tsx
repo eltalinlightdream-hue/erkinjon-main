@@ -686,6 +686,26 @@ const TESTS: ListeningTest[] = [
   audioFile: "/passages/audio/test28section4.mp4",
   isPremium: false,
 },
+  // Cambridge IELTS 20 – Test 1
+  { id: "cam20-t1-p1", title: "CAM 20 Test 1 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 1 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part1.html", isPremium: false },
+  { id: "cam20-t1-p2", title: "CAM 20 Test 1 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 1 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part2.html", isPremium: false },
+  { id: "cam20-t1-p3", title: "CAM 20 Test 1 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 1 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part3.html", isPremium: false },
+  { id: "cam20-t1-p4", title: "CAM 20 Test 1 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 1 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part4.html", isPremium: false },
+  // Cambridge IELTS 20 – Test 2
+  { id: "cam20-t2-p1", title: "CAM 20 Test 2 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 2 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part1.html", isPremium: false },
+  { id: "cam20-t2-p2", title: "CAM 20 Test 2 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 2 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part2.html", isPremium: false },
+  { id: "cam20-t2-p3", title: "CAM 20 Test 2 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 2 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part3.html", isPremium: false },
+  { id: "cam20-t2-p4", title: "CAM 20 Test 2 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 2 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part4.html", isPremium: false },
+  // Cambridge IELTS 20 – Test 3
+  { id: "cam20-t3-p1", title: "CAM 20 Test 3 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 3 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part1.html", isPremium: false },
+  { id: "cam20-t3-p2", title: "CAM 20 Test 3 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 3 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part2.html", isPremium: false },
+  { id: "cam20-t3-p3", title: "CAM 20 Test 3 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 3 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part3.html", isPremium: false },
+  { id: "cam20-t3-p4", title: "CAM 20 Test 3 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 3 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part4.html", isPremium: false },
+  // Cambridge IELTS 20 – Test 4
+  { id: "cam20-t4-p1", title: "CAM 20 Test 4 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 4 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part1.html", isPremium: false },
+  { id: "cam20-t4-p2", title: "CAM 20 Test 4 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 4 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part2.html", isPremium: false },
+  { id: "cam20-t4-p3", title: "CAM 20 Test 4 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 4 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part3.html", isPremium: false },
+  { id: "cam20-t4-p4", title: "CAM 20 Test 4 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 4 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part4.html", isPremium: false },
 ];
 
 const FILTERS = [
