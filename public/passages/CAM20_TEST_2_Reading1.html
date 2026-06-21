@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Cambridge 20 Test 2 – Reading Passage 1: Manatees</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+:root{--bg-color:#ffffff;--text-color:#000000;--passage-bg:#ffffff;--questions-bg:#ffffff;--border-color:#d5d5d5;--header-bg:#ffffff;--header-text:#000000;--footer-bg:#ffffff;--timer-text:#000000;--button-hover:#e4e4e4;--progress-complete:#21aa74;--highlight-color:#fef08a;--cdi-font-size:16px;--cdi-line-height:1.5;}
+body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--progress-complete:#81c995;--highlight-color:#6b5c10;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);overflow:hidden;display:flex;flex-direction:column;line-height:1.5;font-size:16px;}
+header{height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.logo-area{display:flex;align-items:center;gap:14px;}
+.ielts-logo{font-size:34px;font-weight:900;letter-spacing:-2px;color:#e31837;font-family:Arial Black,Arial,sans-serif;}
+.test-label{font-size:13px;font-weight:700;color:var(--header-text);}
+.telegram-btn{background:#0088cc;color:#fff;border-radius:22px;padding:6px 16px;font-size:14px;font-weight:600;text-decoration:none;}
+.telegram-btn:hover{background:#007bb5;}
+.header-controls{display:flex;align-items:center;gap:10px;}
+.timer-display{font-size:16px;font-weight:700;min-width:60px;text-align:right;color:var(--timer-text);}
+.icon-btn{background:transparent;border:0;color:var(--header-text);width:36px;height:36px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:4px;}
+.icon-btn:hover{background:var(--button-hover);}
+main{display:flex;flex:1;min-height:0;overflow:hidden;}
+.passage-container,.questions-container{height:100%;overflow-y:auto;padding:24px 28px 80px;background:var(--passage-bg);color:var(--text-color);min-width:220px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.questions-container{border-left:1px solid var(--border-color);}
+.cdi-resizer{width:6px;flex:0 0 6px;cursor:col-resize;background:var(--border-color);}
+.passage-title{font-size:16px;font-weight:700;margin:0 0 16px;}
+.passage-text p{margin-bottom:16px;text-align:justify;}
+.section-title{font-size:15px;font-weight:700;margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border-color);}
+.instructions{font-size:15px;margin-bottom:14px;line-height:1.5;}
+.question{margin-bottom:18px;}
+.question-title{display:flex;align-items:flex-start;gap:8px;font-size:15px;line-height:1.5;}
+.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border:1.6px solid #418fc6;border-radius:3px;font-weight:700;font-size:13px;color:var(--text-color);flex-shrink:0;margin-top:1px;}
+.tfng-options{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;}
+.tfng-options label{display:flex;align-items:center;gap:5px;font-size:14px;cursor:pointer;border:1px solid var(--border-color);padding:4px 10px;border-radius:4px;}
+.tfng-options label:hover{background:var(--button-hover);}
+.text-input{min-width:150px;padding:6px 10px;border-radius:4px;border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);font-size:15px;outline:none;}
+.text-input:focus{box-shadow:0 0 0 2px rgba(65,143,198,0.3);}
+footer{height:50px;padding:0 16px;background:var(--footer-bg);border-top:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+#progress-container{display:flex;gap:5px;flex-wrap:wrap;}
+.progress-item{width:28px;height:28px;border-radius:3px;background:transparent;color:var(--text-color);border:1.6px solid transparent;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;}
+.progress-item.completed{color:#2a6c96;border-color:#418fc6;}
+.action-buttons{display:flex;gap:10px;}
+button.btn-primary{padding:8px 18px;background:#0088cc;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;}
+button.btn-primary:hover{background:#007bb5;}
+button.btn-secondary{padding:8px 18px;background:transparent;color:var(--text-color);border:1px solid var(--border-color);border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;}
+button.btn-secondary:hover{background:var(--button-hover);}
+.feedback-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;}
+.feedback-box{background:var(--questions-bg);color:var(--text-color);border-radius:8px;padding:24px;max-width:520px;width:90%;max-height:80vh;overflow-y:auto;position:relative;}
+.feedback-score{font-size:32px;font-weight:900;color:#21aa74;margin-bottom:16px;}
+.feedback-item{margin-bottom:10px;font-size:14px;}
+.feedback-question{font-weight:700;}
+.feedback-answer.correct{color:#21aa74;}
+.feedback-answer.incorrect{color:#e31837;}
+#close-feedback{position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-color);}
+.highlight{background-color:var(--highlight-color);}
+@media(max-width:900px){main{flex-direction:column;}.passage-container,.questions-container{width:100%;height:50%}.cdi-resizer{display:none;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-area">
+    <div class="ielts-logo">IELTS</div>
+    <div class="test-label">Cambridge 20 · Test 2 · Reading Passage 1</div>
+    <a href="https://t.me/augustus_flores" target="_blank" class="telegram-btn"><i class="fab fa-telegram"></i> Augustus IELTS</a>
+  </div>
+  <div class="header-controls">
+    <span class="timer-display" id="timer">20:00</span>
+    <button class="icon-btn" id="start-timer"><i class="fas fa-play"></i></button>
+    <button class="icon-btn" id="pause-timer"><i class="fas fa-pause"></i></button>
+    <button class="icon-btn" id="night-mode-toggle"><i class="fas fa-moon"></i></button>
+  </div>
+</header>
+<main>
+<div class="passage-container" id="passage-text">
+<div class="passage-title">The Manatee – Gentle Giant of the Sea</div>
+<div class="passage-text">
+<p>Manatees are large, slow-moving aquatic mammals belonging to the order Sirenia. Three species exist today: the West Indian manatee (<em>Trichechus manatus</em>), the West African manatee (<em>Trichechus senegalensis</em>) and the Amazonian manatee (<em>Trichechus inunguis</em>). All three are classified as vulnerable or endangered on the IUCN Red List. Adults typically measure between 2.5 and 4 metres in length and weigh between 400 and 550 kilograms, though some individuals may be considerably larger. They are thought to live for 60 years or more in the wild, making them among the longer-lived aquatic mammals.</p>
+<p>The manatee's body is torpedo-shaped, with two forelimbs modified into flippers that the animal uses for steering, and a broad, paddle-shaped tail that drives it forward through the water in slow, undulating strokes. Unlike the tail flukes of cetaceans such as dolphins and whales, which are oriented horizontally and sweep up and down, the manatee's tail is a single, rounded, horizontal paddle. On each flipper, vestigial fingernails are still visible – a reminder of the terrestrial ancestry of sirenians, which are more closely related to elephants and hyraxes than to any marine mammal.</p>
+<p>Despite their aquatic lifestyle, manatees retain a fine layer of sparse, wiry hair distributed across their bodies. This hair is thought to serve a sensory function, detecting slight changes in water pressure caused by currents, nearby objects or the movement of other animals. Manatees have relatively poor eyesight, so this tactile hair may help them navigate in turbid water. Their hearing, by contrast, is well developed: they communicate through a range of squeaks, chirps and squeals at frequencies not always detectable by human ears.</p>
+<p>Manatees are herbivorous, consuming large quantities of aquatic plants. Their principal food source in coastal and estuarine environments is seagrasses, which they graze using a flexible, prehensile upper lip split into two halves that can move independently of each other. This specialised lip structure allows them to grasp and manipulate vegetation with remarkable dexterity. A single adult manatee may consume up to 10 percent of its body weight in plants each day. The continual grinding of tough plant material wears down their teeth rapidly; manatees compensate through a process of marching molar replacement – worn teeth at the front of the jaw fall out and are replaced by new teeth moving forward from the back.</p>
+<p>Like all marine mammals, manatees must breathe air at the surface. However, they are capable of remaining submerged for up to 20 minutes. Their lungs extend along the full length of their body cavity, a structural adaptation that provides excellent buoyancy control. By adjusting the air in their lungs, manatees can hover almost motionlessly at any depth, or sink gently without effort. They have no natural predators in the wild, and their low metabolic rate – adapted to life in warm, shallow water – means they are highly sensitive to cold. Water temperatures below about 20°C can induce cold stress syndrome, causing manatees to seek warm-water refuges such as natural springs and the outflows of power station cooling systems.</p>
+<p>The primary threats to manatees today are human-related. Boat strikes are the single leading cause of recorded manatee deaths, leaving distinctive propeller scars on the animals' broad backs – scars so consistent and characteristic that researchers use them to identify individual animals in the field. Coastal development has destroyed and degraded seagrass meadows, reducing feeding habitat. Algal blooms, driven partly by agricultural run-off, periodically devastate seagrass beds and can also produce toxins that directly kill manatees. Entanglement in fishing gear and ingestion of marine debris represent additional hazards.</p>
+<p>Conservation measures have had some success, particularly in Florida, where legal protections under the Marine Mammal Protection Act and the Endangered Species Act have restricted boat speeds in manatee habitat zones and imposed penalties for harassing or injuring the animals. The Florida manatee population, once estimated at fewer than 1,000 individuals in the 1970s, had recovered to over 8,000 by the early 2020s – a conservation success story, though the species was controversially reclassified from 'endangered' to 'threatened' in 2017, a move that critics argued reflected political rather than scientific judgement. Devastating seagrass die-offs in the Indian River Lagoon caused record manatee mortality in 2021 and 2022, underlining the fragility of the recovery.</p>
+</div>
+</div>
+<div class="cdi-resizer" id="cdi-resizer"></div>
+<div class="questions-container" id="questions-container">
+
+<div class="section-title">Questions 1–6</div>
+<div class="instructions">Complete the notes below. Write <strong>ONE WORD ONLY</strong> from the passage for each answer.</div>
+<div style="background:rgba(0,0,0,0.03);border-radius:8px;padding:14px;font-size:15px;line-height:2;">
+<b>Manatee Biology – Key Facts</b><br/>
+<b>Movement:</b> uses a horizontal, paddle-shaped <b><input type="text" name="q1" class="text-input" placeholder="one word"/></b> to propel itself; forelimbs modified into <b><input type="text" name="q2" class="text-input" placeholder="one word"/></b> for steering<br/>
+<b>Sensory:</b> sparse, wiry <b><input type="text" name="q3" class="text-input" placeholder="one word"/></b> across the body detects changes in water pressure<br/>
+<b>Diet:</b> primarily eats <b><input type="text" name="q4" class="text-input" placeholder="one word"/></b> in coastal and estuarine habitats; uses a split prehensile upper <b><input type="text" name="q5" class="text-input" placeholder="one word"/></b> to grasp vegetation<br/>
+<b>Physiology:</b> lungs run the full length of the body, giving excellent <b><input type="text" name="q6" class="text-input" placeholder="one word"/></b> control
+</div>
+
+<div class="section-title">Questions 7–13</div>
+<div class="instructions">Do the following statements agree with the information given in the reading passage?<br/>Write <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.</div>
+
+<div class="question" id="q7"><div class="question-title"><div class="qnum">7</div><div>Manatees are more closely related to elephants than to dolphins or whales.</div></div><div class="tfng-options"><label><input type="radio" name="q7" value="TRUE"/> TRUE</label><label><input type="radio" name="q7" value="FALSE"/> FALSE</label><label><input type="radio" name="q7" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+<div class="question" id="q8"><div class="question-title"><div class="qnum">8</div><div>Manatees use their hair primarily for warmth in cold water environments.</div></div><div class="tfng-options"><label><input type="radio" name="q8" value="TRUE"/> TRUE</label><label><input type="radio" name="q8" value="FALSE"/> FALSE</label><label><input type="radio" name="q8" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+<div class="question" id="q9"><div class="question-title"><div class="qnum">9</div><div>Manatees can remain underwater for more than half an hour without surfacing.</div></div><div class="tfng-options"><label><input type="radio" name="q9" value="TRUE"/> TRUE</label><label><input type="radio" name="q9" value="FALSE"/> FALSE</label><label><input type="radio" name="q9" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+<div class="question" id="q10"><div class="question-title"><div class="qnum">10</div><div>Manatees are sometimes hunted by sharks in coastal waters.</div></div><div class="tfng-options"><label><input type="radio" name="q10" value="TRUE"/> TRUE</label><label><input type="radio" name="q10" value="FALSE"/> FALSE</label><label><input type="radio" name="q10" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+<div class="question" id="q11"><div class="question-title"><div class="qnum">11</div><div>Boat strikes are the leading recorded cause of manatee deaths.</div></div><div class="tfng-options"><label><input type="radio" name="q11" value="TRUE"/> TRUE</label><label><input type="radio" name="q11" value="FALSE"/> FALSE</label><label><input type="radio" name="q11" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+<div class="question" id="q12"><div class="question-title"><div class="qnum">12</div><div>The reclassification of the Florida manatee from 'endangered' to 'threatened' was universally welcomed by scientists.</div></div><div class="tfng-options"><label><input type="radio" name="q12" value="TRUE"/> TRUE</label><label><input type="radio" name="q12" value="FALSE"/> FALSE</label><label><input type="radio" name="q12" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+<div class="question" id="q13"><div class="question-title"><div class="qnum">13</div><div>Record manatee deaths occurred in 2021 and 2022 due to seagrass die-offs.</div></div><div class="tfng-options"><label><input type="radio" name="q13" value="TRUE"/> TRUE</label><label><input type="radio" name="q13" value="FALSE"/> FALSE</label><label><input type="radio" name="q13" value="NOT GIVEN"/> NOT GIVEN</label></div></div>
+
+</div>
+</main>
+<footer>
+  <div id="progress-container"></div>
+  <div class="action-buttons">
+    <button class="btn-secondary" id="reset-btn">Clear All</button>
+    <button class="btn-primary" id="submit-btn">Check Answers</button>
+  </div>
+</footer>
+<div class="feedback-overlay" id="feedback-overlay">
+  <div class="feedback-box">
+    <button id="close-feedback">&times;</button>
+    <h2>Your Results</h2>
+    <div class="feedback-score" id="score-display"></div>
+    <div id="feedback-body"></div>
+  </div>
+</div>
+<script>
+document.getElementById('night-mode-toggle').addEventListener('click',function(){document.body.classList.toggle('night-mode');const i=this.querySelector('i');if(i){i.classList.toggle('fa-moon');i.classList.toggle('fa-sun');}});
+const correctAnswers={q1:'tail',q2:'flippers',q3:'hair',q4:'seagrasses',q5:'lips',q6:'buoyancy',q7:'TRUE',q8:'NOT GIVEN',q9:'FALSE',q10:'NOT GIVEN',q11:'TRUE',q12:'NOT GIVEN',q13:'TRUE'};
+const questionNumbers=[1,2,3,4,5,6,7,8,9,10,11,12,13];
+function normalize(s){return(s||'').toString().trim().toLowerCase().replace(/\s+/g,' ');}
+function getAnswerVal(qid){const r=Array.from(document.querySelectorAll(`input[name="${qid}"]`)).find(e=>e.type==='radio'&&e.checked);if(r)return r.value;const t=document.querySelector(`input[type="text"][name="${qid}"]`);return t?t.value:'';}
+function isCorrect(u,c){const a=Array.isArray(c)?c:String(c).split(/\s*[\/\|]\s*/);return a.some(v=>normalize(u)===normalize(v));}
+document.getElementById('submit-btn').addEventListener('click',function(){let score=0,html='';questionNumbers.forEach(n=>{const qid='q'+n,u=getAnswerVal(qid),ok=isCorrect(u,correctAnswers[qid]);if(ok)score++;html+=`<div class="feedback-item"><div class="feedback-question">Q${n}</div><div class="feedback-answer ${ok?'correct':'incorrect'}">Your answer: ${u||'(blank)'}<br/>${ok?'✔ Correct':'✘ Incorrect — Correct: '+correctAnswers[qid]}</div></div>`;});document.getElementById('feedback-body').innerHTML=html;document.getElementById('score-display').textContent=score+'/'+questionNumbers.length;document.getElementById('feedback-overlay').style.display='flex';});
+document.getElementById('close-feedback').addEventListener('click',function(){document.getElementById('feedback-overlay').style.display='none';});
+document.getElementById('reset-btn').addEventListener('click',function(){document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);document.querySelectorAll('input[type=text]').forEach(t=>t.value='');updateProgress();});
+const pc=document.getElementById('progress-container');questionNumbers.forEach(n=>{const d=document.createElement('div');d.className='progress-item';d.textContent=n;d.dataset.qid='q'+n;d.addEventListener('click',()=>{const el=document.getElementById('q'+n)||document.querySelector('[name="q'+n+'"]');if(el)el.scrollIntoView({behavior:'smooth',block:'center'});});pc.appendChild(d);});
+function updateProgress(){document.querySelectorAll('.progress-item').forEach(item=>{item.classList.toggle('completed',getAnswerVal(item.dataset.qid).trim()!=='');});}
+document.addEventListener('change',updateProgress);document.addEventListener('input',updateProgress);updateProgress();
+let remaining=20*60,timerInterval=null;const timerEl=document.getElementById('timer');
+function renderTimer(){const m=Math.floor(remaining/60).toString().padStart(2,'0'),s=(remaining%60).toString().padStart(2,'0');timerEl.textContent=m+':'+s;timerEl.style.color=remaining<=120?'#e31837':'var(--timer-text)';}
+document.getElementById('start-timer').addEventListener('click',function(){if(timerInterval)return;timerInterval=setInterval(function(){if(remaining<=0){clearInterval(timerInterval);timerInterval=null;alert('Time is up!');return;}remaining--;renderTimer();},1000);});
+document.getElementById('pause-timer').addEventListener('click',function(){clearInterval(timerInterval);timerInterval=null;});
+renderTimer();
+const resizer=document.getElementById('cdi-resizer'),pEl=document.querySelector('.passage-container'),qEl=document.querySelector('.questions-container');let isResizing=false;
+resizer.addEventListener('mousedown',function(e){isResizing=true;e.preventDefault();});
+document.addEventListener('mousemove',function(e){if(!isResizing)return;const main=document.querySelector('main'),rect=main.getBoundingClientRect(),pct=((e.clientX-rect.left)/rect.width)*100;if(pct>15&&pct<85){pEl.style.flex='none';pEl.style.width=pct+'%';qEl.style.flex='1';}});
+document.addEventListener('mouseup',function(){isResizing=false;});
+</script>
+<script src="/passages/test-progress-bridge.js"></script>
+</body>
+</html>
