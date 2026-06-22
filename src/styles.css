@@ -1,0 +1,711 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Atelier: soft rounded corners (12–16px scale) */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.75rem;
+  --radius-4xl: 2rem;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Atelier font stack: editorial serif + clean sans */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Fraunces', 'Georgia', serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ── Italian study atelier — giorno (light, default) ─────────────
+   Warm ivory paper, terracotta accent, olive tags, charcoal ink. */
+:root {
+  --radius: 0.875rem;
+
+  --background: #FAF6F0;
+  --foreground: #2B2522;
+
+  --card: #FFFCF7;
+  --card-foreground: #2B2522;
+  --popover: #FFFCF7;
+  --popover-foreground: #2B2522;
+
+  /* Primary: terracotta — CTAs, active links, highlights */
+  --primary: #C8553D;
+  --primary-foreground: #FFF9F4;
+
+  /* Secondary: deep olive — tags, badges, supporting accents */
+  --secondary: #5C6B47;
+  --secondary-foreground: #F7F8F2;
+
+  --muted: #F2ECE1;
+  --muted-foreground: #6F6357;
+
+  --accent: #F3EDE2;
+  --accent-foreground: #2B2522;
+
+  --destructive: #B3402E;
+  --destructive-foreground: #FFF9F4;
+
+  --border: #E7DECF;
+  --input: #F6F1E8;
+  --ring: #C8553D;
+
+  /* ── Brand palette ──────────────────────────────────────────────
+     Legacy variable names are kept so existing references across the
+     site resolve to the new atelier palette automatically. */
+  --terracotta:       #C8553D;
+  --terracotta-deep:  #A8462F;
+  --terracotta-soft:  #E8C9BE;
+  --terracotta-wash:  #F7E9E3;
+  --olive:            #5C6B47;
+  --olive-deep:       #49563A;
+  --olive-wash:       #ECEFE2;
+  --ochre:            #A8742C;   /* premium tier accent */
+  --ochre-deep:       #8A5E20;
+  --ochre-wash:       #F5EBD8;
+  --ink:              #2B2522;
+  --ink-soft:         #6F6357;
+  --paper:            #FAF6F0;
+  --paper-deep:       #F2ECE1;
+
+  --mc-grass:       var(--terracotta);
+  --mc-grass-dark:  var(--terracotta-deep);
+  --accent-teal:        var(--terracotta);
+  --accent-teal-bright: #B14A33;
+  --accent-teal-soft:   #D97257;
+  --accent-teal-deep:   #8F3A26;
+
+  --mc-dirt:        #B49A7C;
+  --mc-dirt-dark:   #8F7A60;
+  --mc-stone:       #C9BCA7;
+  --mc-stone-dark:  #A89A82;
+  --mc-sky:         #7E9AAB;
+  --mc-gold:        var(--ochre);
+  --mc-gold-dark:   var(--ochre-deep);
+  --mc-obsidian:    #211A14;
+  --mc-redstone:    #B3402E;
+
+  /* Soft halos for hover states */
+  --glow-accent:      0 0 0 1px rgba(200, 85, 61, 0.25), 0 8px 24px rgba(200, 85, 61, 0.12);
+  --glow-accent-soft: 0 6px 20px rgba(200, 85, 61, 0.10);
+  --glow-gold:        0 0 0 1px rgba(168, 116, 44, 0.30), 0 8px 24px rgba(168, 116, 44, 0.14);
+
+  /* Legacy color aliases */
+  --gold:   #A8742C;
+  --sakura: #C8553D;
+  --matcha: #5C6B47;
+  --washi:  #FAF6F0;
+
+  --gradient-primary: linear-gradient(135deg, #A8462F 0%, #C8553D 100%);
+  --gradient-sakura:  linear-gradient(135deg, #C8553D 0%, #D97257 100%);
+  --gradient-warm:    linear-gradient(160deg, #FAF6F0 0%, #F2ECE1 100%);
+
+  /* Soft layered shadows */
+  --shadow-soft: 0 1px 2px rgba(43, 37, 34, 0.05), 0 8px 24px rgba(43, 37, 34, 0.07);
+  --shadow-warm: 0 2px 4px rgba(43, 37, 34, 0.05), 0 16px 40px rgba(43, 37, 34, 0.10);
+  --shadow-card: 0 1px 2px rgba(43, 37, 34, 0.04), 0 4px 14px rgba(43, 37, 34, 0.06);
+
+  --chart-1: #C8553D;
+  --chart-2: #5C6B47;
+  --chart-3: #A8742C;
+  --chart-4: #8F7A60;
+  --chart-5: #B3402E;
+
+  --sidebar: #F6F1E8;
+  --sidebar-foreground: #2B2522;
+  --sidebar-primary: #C8553D;
+  --sidebar-primary-foreground: #FFF9F4;
+  --sidebar-accent: #F2ECE1;
+  --sidebar-accent-foreground: #2B2522;
+  --sidebar-border: #E7DECF;
+  --sidebar-ring: #C8553D;
+
+  /* Nav tokens */
+  --nav-bg: rgba(250, 246, 240, 0.9);
+  --nav-text: #6F6357;
+  --nav-text-hover: #2B2522;
+  --nav-hover-bg: #F2ECE1;
+  --nav-dropdown-bg: #FFFCF7;
+  --nav-border: #E7DECF;
+}
+
+/* ── Italian study atelier — sera (dark espresso, optional) ────── */
+.dark {
+  --background: #211A14;
+  --foreground: #F3ECE1;
+
+  --card: #2A221B;
+  --card-foreground: #F3ECE1;
+  --popover: #2E261E;
+  --popover-foreground: #F3ECE1;
+
+  --primary: #D8694E;
+  --primary-foreground: #FFF6EF;
+
+  --secondary: #6B7A54;
+  --secondary-foreground: #F4F6EC;
+
+  --muted: #322923;
+  --muted-foreground: #C7BAA8;
+
+  --accent: #342B23;
+  --accent-foreground: #F3ECE1;
+
+  --destructive: #D04C36;
+  --destructive-foreground: #FFF6EF;
+
+  --border: #3E342A;
+  --input: #2E261E;
+  --ring: #D8694E;
+
+  --terracotta:       #D8694E;
+  --terracotta-deep:  #B14A33;
+  --terracotta-soft:  #7A4233;
+  --terracotta-wash:  #3B2B24;
+  --olive:            #93A172;
+  --olive-deep:       #6B7A54;
+  --olive-wash:       #2E3023;
+  --ochre:            #D2A24C;
+  --ochre-deep:       #A8742C;
+  --ochre-wash:       #3A3020;
+  --ink:              #F3ECE1;
+  --ink-soft:         #C7BAA8;
+  --paper:            #211A14;
+  --paper-deep:       #2A221B;
+
+  --mc-grass:       var(--terracotta);
+  --mc-grass-dark:  var(--terracotta-deep);
+  --accent-teal:        var(--terracotta);
+  --accent-teal-bright: #E0826B;
+  --accent-teal-soft:   #EBA28F;
+  --accent-teal-deep:   #8F3A26;
+
+  --mc-gold:        var(--ochre);
+  --mc-gold-dark:   var(--ochre-deep);
+
+  --glow-accent:      0 0 0 1px rgba(216, 105, 78, 0.35), 0 8px 24px rgba(216, 105, 78, 0.18);
+  --glow-accent-soft: 0 6px 20px rgba(216, 105, 78, 0.14);
+  --glow-gold:        0 0 0 1px rgba(210, 162, 76, 0.35), 0 8px 24px rgba(210, 162, 76, 0.18);
+
+  --gold:   #D2A24C;
+  --sakura: #D8694E;
+  --matcha: #93A172;
+  --washi:  #211A14;
+
+  --gradient-primary: linear-gradient(135deg, #B14A33 0%, #D8694E 100%);
+  --gradient-sakura:  linear-gradient(135deg, #D8694E 0%, #EBA28F 100%);
+  --gradient-warm:    linear-gradient(160deg, #211A14 0%, #2A221B 100%);
+
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.30);
+  --shadow-warm: 0 2px 4px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.20), 0 4px 14px rgba(0, 0, 0, 0.25);
+
+  --sidebar: #2A221B;
+  --sidebar-foreground: #F3ECE1;
+  --sidebar-primary: #D8694E;
+  --sidebar-primary-foreground: #FFF6EF;
+  --sidebar-accent: #342B23;
+  --sidebar-accent-foreground: #F3ECE1;
+  --sidebar-border: #3E342A;
+  --sidebar-ring: #D8694E;
+
+  --nav-bg: rgba(33, 26, 20, 0.9);
+  --nav-text: #C7BAA8;
+  --nav-text-hover: #F3ECE1;
+  --nav-hover-bg: #342B23;
+  --nav-dropdown-bg: #2E261E;
+  --nav-border: #3E342A;
+}
+
+/* ─── THEME TRANSITION ────────────────────────────────────────── */
+
+*, *::before, *::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+/* Don't transition transforms (breaks animations) */
+[class*="mc-anim"],
+[style*="animation"] {
+  transition: opacity 0.3s ease !important;
+}
+
+/* ─── BASE ────────────────────────────────────────────────────── */
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "kern" 1;
+    position: relative;
+  }
+
+  /* Subtle paper-grain texture over the whole page */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', 'Georgia', serif;
+    font-weight: 550;
+    letter-spacing: -0.015em;
+    line-height: 1.18;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  input, textarea, select {
+    background-color: var(--input) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0.75rem !important;
+    color: var(--foreground) !important;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--terracotta) !important;
+    box-shadow: 0 0 0 3px rgba(200, 85, 61, 0.15) !important;
+    outline: none !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--muted-foreground) !important;
+  }
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────── */
+
+@keyframes inkBleed {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+@keyframes mcBob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes torchFlicker {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.82; }
+}
+
+/* ─── UTILITY CLASSES ─────────────────────────────────────────── */
+
+@layer utilities {
+  .bg-gradient-warm     { background-image: var(--gradient-warm); }
+  .bg-gradient-gold     { background-image: var(--gradient-primary); }
+  .bg-gradient-primary  { background-image: var(--gradient-primary); }
+  .bg-gradient-sakura   { background-image: var(--gradient-sakura); }
+
+  .shadow-soft          { box-shadow: var(--shadow-soft); }
+  .shadow-warm          { box-shadow: var(--shadow-warm); }
+  .shadow-card          { box-shadow: var(--shadow-card); }
+
+  .text-gold            { color: var(--gold); }
+  .bg-sage              { background-color: var(--matcha); }
+  .text-sage            { color: var(--matcha); }
+  .text-sakura          { color: var(--sakura); }
+
+  .glow-accent          { box-shadow: var(--glow-accent); }
+  .glow-accent-soft     { box-shadow: var(--glow-accent-soft); }
+
+  /* Thin terracotta rule along a section's top edge */
+  .sakura-top-border {
+    border-top: 1px solid var(--terracotta);
+  }
+
+  .mc-grass-border {
+    border-top: 2px solid var(--terracotta);
+  }
+
+  /* Uppercase eyebrow label with generous tracking */
+  .eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Centered ornament rule: ── ❖ ── */
+  .ornament-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--terracotta);
+  }
+  .ornament-rule::before,
+  .ornament-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Ink bleed reveal */
+  .ink-bleed {
+    animation: inkBleed 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Gentle vertical float (kept name for existing pages) */
+  .mc-bob {
+    animation: mcBob 3s ease-in-out infinite;
+  }
+
+  .mc-flicker {
+    animation: torchFlicker 2.2s ease-in-out infinite;
+  }
+
+  .animate-floating {
+    animation: floating 7s ease-in-out infinite;
+  }
+
+  /* Difficulty badges — soft atelier pills */
+  .badge-beginner {
+    background-color: var(--olive-wash);
+    color: var(--olive-deep);
+    border: 1px solid color-mix(in srgb, var(--olive) 40%, transparent);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .badge-intermediate {
+    background-color: var(--terracotta-wash);
+    color: var(--terracotta-deep);
+    border: 1px solid color-mix(in srgb, var(--terracotta) 40%, transparent);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .badge-advanced {
+    background-color: var(--ochre-wash);
+    color: var(--ochre-deep);
+    border: 1px solid color-mix(in srgb, var(--ochre) 40%, transparent);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
+
+/* ─── BACKGROUND PATTERNS (kept names, atelier styling) ───────── */
+
+.mc-bg-pattern {
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.mc-bg-stone {
+  background-image: linear-gradient(var(--border) 1px, transparent 1px);
+  background-size: 100% 28px;
+  background-position: 0 14px;
+  opacity: 1;
+}
+
+/* ─── NAV ─────────────────────────────────────────────────────── */
+
+.glass-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+/* ─── CARDS (kept .bento-card name; atelier paper cards) ──────── */
+
+.bento-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 1rem);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--terracotta) 35%, var(--border));
+  box-shadow: var(--shadow-soft), var(--glow-accent-soft);
+}
+
+/* ─── BUTTON HELPERS (kept names; soft atelier buttons) ───────── */
+
+.mc-btn,
+.btn-mc {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  border-radius: 9999px !important;
+  border: 1px solid transparent !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+}
+
+.mc-btn:hover, .btn-mc:hover {
+  box-shadow: var(--shadow-soft), var(--glow-accent-soft) !important;
+  transform: translateY(-1px) !important;
+}
+
+.mc-btn:active, .btn-mc:active {
+  box-shadow: var(--shadow-card) !important;
+  transform: translateY(0px) !important;
+}
+
+/* ─── FLASHCARD 3D FLIP ───────────────────────────────────────── */
+
+.flashcard-scene {
+  perspective: 1000px;
+}
+
+.flashcard {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.flashcard.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+/* ─── SMOOTH SCROLL ───────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── SCROLL REVEAL ───────────────────────────────────────────── */
+/* Fades & lifts elements into view the first time they scroll into the
+   viewport — reuses the ink-bleed easing. Paired with <Reveal>. The
+   universal transition rule above only animates colour/shadow, so these
+   opacity/transform transitions are independent and not clobbered. */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── TOUCH FEEDBACK ──────────────────────────────────────────── */
+/* Hover affordances never fire on touch screens, so pressable surfaces
+   feel dead on phones. Mirror the existing hover look on :active so a
+   tap gives the same tactile response. No new colours — reuses tokens. */
+
+.tap-press {
+  transition: transform 0.14s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.tap-press:active {
+  transform: scale(0.97);
+}
+
+@media (hover: none) {
+  .bento-card:active {
+    transform: scale(0.985);
+    box-shadow: var(--shadow-soft), var(--glow-accent-soft);
+    border-color: color-mix(in srgb, var(--terracotta) 35%, var(--border));
+  }
+}
+
+/* An affordance that fades in on hover but stays visible on touch devices
+   (which never hover) and when a child is focused — so hover-only controls
+   like a card's delete button remain reachable on phones and keyboards. */
+.hover-reveal {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.group:hover .hover-reveal,
+.group:focus-within .hover-reveal {
+  opacity: 1;
+}
+@media (hover: none) {
+  .hover-reveal {
+    opacity: 1;
+  }
+}
+
+/* ─── MENU & DROPDOWN ENTRANCES ───────────────────────────────── */
+
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nav-drop {
+  transform-origin: top center;
+  animation: navDrop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dropdown-enter {
+  transform-origin: top;
+  animation: dropIn 0.16s ease-out;
+}
+
+/* ─── REDUCED MOTION ──────────────────────────────────────────── */
+/* Honour users who ask the OS to minimise motion: neutralise reveals,
+   entrance animations and the ambient float/bob loops. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .ink-bleed {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
