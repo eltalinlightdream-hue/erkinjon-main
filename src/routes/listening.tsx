@@ -39,26 +39,6 @@ type ListeningTest = {
 };
 
 const TESTS: ListeningTest[] = [
-  // Cambridge IELTS 20 – Test 1
-  { id: "cam20-t1-p1", title: "CAM 20 Test 1 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 1 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part1.html", isPremium: false },
-  { id: "cam20-t1-p2", title: "CAM 20 Test 1 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 1 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part2.html", isPremium: false },
-  { id: "cam20-t1-p3", title: "CAM 20 Test 1 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 1 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part3.html", isPremium: false },
-  { id: "cam20-t1-p4", title: "CAM 20 Test 1 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 1 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part4.html", isPremium: false },
-  // Cambridge IELTS 20 – Test 2
-  { id: "cam20-t2-p1", title: "CAM 20 Test 2 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 2 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part1.html", isPremium: false },
-  { id: "cam20-t2-p2", title: "CAM 20 Test 2 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 2 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part2.html", isPremium: false },
-  { id: "cam20-t2-p3", title: "CAM 20 Test 2 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 2 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part3.html", isPremium: false },
-  { id: "cam20-t2-p4", title: "CAM 20 Test 2 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 2 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part4.html", isPremium: false },
-  // Cambridge IELTS 20 – Test 3
-  { id: "cam20-t3-p1", title: "CAM 20 Test 3 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 3 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part1.html", isPremium: false },
-  { id: "cam20-t3-p2", title: "CAM 20 Test 3 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 3 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part2.html", isPremium: false },
-  { id: "cam20-t3-p3", title: "CAM 20 Test 3 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 3 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part3.html", isPremium: false },
-  { id: "cam20-t3-p4", title: "CAM 20 Test 3 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 3 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part4.html", isPremium: false },
-  // Cambridge IELTS 20 – Test 4
-  { id: "cam20-t4-p1", title: "CAM 20 Test 4 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 4 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part1.html", isPremium: false },
-  { id: "cam20-t4-p2", title: "CAM 20 Test 4 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 4 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part2.html", isPremium: false },
-  { id: "cam20-t4-p3", title: "CAM 20 Test 4 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 4 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part3.html", isPremium: false },
-  { id: "cam20-t4-p4", title: "CAM 20 Test 4 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 4 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part4.html", isPremium: false },
   {
     id: "full-test-1",
     title: "Full Test 1",
@@ -713,8 +693,7 @@ const TESTS: ListeningTest[] = [
     section: 1,
     description: "Cambridge IELTS 21 Test 1 Listening Section 1 — restaurant recommendations. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_1_Part1.html",
-    audioFile: "/passages/audio/C21T1P1.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_1_Part1.html",
     isPremium: false,
   },
   {
@@ -723,8 +702,7 @@ const TESTS: ListeningTest[] = [
     section: 2,
     description: "Cambridge IELTS 21 Test 1 Listening Section 2 — Edelman Pottery. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_1_Part2.html",
-    audioFile: "/passages/audio/C21T1P2.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_1_Part2.html",
     isPremium: false,
   },
   {
@@ -733,8 +711,7 @@ const TESTS: ListeningTest[] = [
     section: 3,
     description: "Cambridge IELTS 21 Test 1 Listening Section 3 — loneliness and mental health. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_1_Part3.html",
-    audioFile: "/passages/audio/C21T1P3.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_1_Part3.html",
     isPremium: false,
   },
   {
@@ -743,8 +720,7 @@ const TESTS: ListeningTest[] = [
     section: 4,
     description: "Cambridge IELTS 21 Test 1 Listening Section 4 — reclaiming urban rivers. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_1_Part4.html",
-    audioFile: "/passages/audio/C21T1P4.mp3",
+    htmlFile: "/passages/CAM21_TEST_1_Part4.html",
     isPremium: false,
   },
   // Cambridge 21 — Test 2
@@ -754,8 +730,7 @@ const TESTS: ListeningTest[] = [
     section: 1,
     description: "Cambridge IELTS 21 Test 2 Listening Section 1 — support for home carers. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_2_Part1.html",
-    audioFile: "/passages/audio/C21T2P1.mp3",
+    htmlFile: "/passages/CAM21_TEST_2_Part1.html",
     isPremium: false,
   },
   {
@@ -764,8 +739,7 @@ const TESTS: ListeningTest[] = [
     section: 2,
     description: "Cambridge IELTS 21 Test 2 Listening Section 2 — volunteering at local festivals. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_2_Part2.html",
-    audioFile: "/passages/audio/C21T2P2.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_2_Part2.html",
     isPremium: false,
   },
   {
@@ -774,8 +748,7 @@ const TESTS: ListeningTest[] = [
     section: 3,
     description: "Cambridge IELTS 21 Test 2 Listening Section 3 — human geography project. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_2_Part3.html",
-    audioFile: "/passages/audio/C21T2P3.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_2_Part3.html",
     isPremium: false,
   },
   {
@@ -784,8 +757,7 @@ const TESTS: ListeningTest[] = [
     section: 4,
     description: "Cambridge IELTS 21 Test 2 Listening Section 4 — developing food trends. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_2_Part4.html",
-    audioFile: "/passages/audio/C21T2P4.mp3",
+    htmlFile: "/passages/CAM21_TEST_2_Part4.html",
     isPremium: false,
   },
   // Cambridge 21 — Test 3
@@ -795,8 +767,7 @@ const TESTS: ListeningTest[] = [
     section: 1,
     description: "Cambridge IELTS 21 Test 3 Listening Section 1 — furniture rental companies. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_3_Part1.html",
-    audioFile: "/passages/audio/C21T3P1.mp3",
+    htmlFile: "/passages/CAM21_TEST_3_Part1.html",
     isPremium: false,
   },
   {
@@ -805,8 +776,7 @@ const TESTS: ListeningTest[] = [
     section: 2,
     description: "Cambridge IELTS 21 Test 3 Listening Section 2 — Bidcaster archaeological dig. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_3_Part2.html",
-    audioFile: "/passages/audio/C21T3P2.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_3_Part2.html",
     isPremium: false,
   },
   {
@@ -815,8 +785,7 @@ const TESTS: ListeningTest[] = [
     section: 3,
     description: "Cambridge IELTS 21 Test 3 Listening Section 3 — history of theatre programmes. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_3_Part3.html",
-    audioFile: "/passages/audio/C21T3P3.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_3_Part3.html",
     isPremium: false,
   },
   {
@@ -825,8 +794,7 @@ const TESTS: ListeningTest[] = [
     section: 4,
     description: "Cambridge IELTS 21 Test 3 Listening Section 4 — inclusive design. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_3_Part4.html",
-    audioFile: "/passages/audio/C21T3P4.mp3",
+    htmlFile: "/passages/CAM21_TEST_3_Part4.html",
     isPremium: false,
   },
   // Cambridge 21 — Test 4
@@ -836,8 +804,7 @@ const TESTS: ListeningTest[] = [
     section: 1,
     description: "Cambridge IELTS 21 Test 4 Listening Section 1 — advice on a family visit. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_4_Part1.html",
-    audioFile: "/passages/audio/C21T4P1.mp3",
+    htmlFile: "/passages/CAM21_TEST_4_Part1.html",
     isPremium: false,
   },
   {
@@ -846,8 +813,7 @@ const TESTS: ListeningTest[] = [
     section: 2,
     description: "Cambridge IELTS 21 Test 4 Listening Section 2 — history of football. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_4_Part2.html",
-    audioFile: "/passages/audio/C21T4P2.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_4_Part2.html",
     isPremium: false,
   },
   {
@@ -856,8 +822,7 @@ const TESTS: ListeningTest[] = [
     section: 3,
     description: "Cambridge IELTS 21 Test 4 Listening Section 3 — children's handwriting. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_4_Part3.html",
-    audioFile: "/passages/audio/C21T4P3.1.mp3",
+    htmlFile: "/passages/CAM21_TEST_4_Part3.html",
     isPremium: false,
   },
   {
@@ -866,8 +831,7 @@ const TESTS: ListeningTest[] = [
     section: 4,
     description: "Cambridge IELTS 21 Test 4 Listening Section 4 — invasive species on islands. 10 questions.",
     questions: 10,
-    htmlFile: "/passages/CAM20_TEST_4_Part4.html",
-    audioFile: "/passages/audio/C21T4P4.mp3",
+    htmlFile: "/passages/CAM21_TEST_4_Part4.html",
     isPremium: false,
   },
 ];
