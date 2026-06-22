@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Cambridge 20 Test 2 – Reading Passage 2: The Psychology of Procrastination</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+:root{--bg-color:#ffffff;--text-color:#000000;--passage-bg:#ffffff;--questions-bg:#ffffff;--border-color:#d5d5d5;--header-bg:#ffffff;--header-text:#000000;--footer-bg:#ffffff;--timer-text:#000000;--button-hover:#e4e4e4;--progress-complete:#21aa74;--highlight-color:#fef08a;--cdi-font-size:16px;--cdi-line-height:1.5;}
+body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--progress-complete:#81c995;--highlight-color:#6b5c10;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);overflow:hidden;display:flex;flex-direction:column;line-height:1.5;font-size:16px;}
+header{height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.logo-area{display:flex;align-items:center;gap:14px;}
+.ielts-logo{font-size:34px;font-weight:900;letter-spacing:-2px;color:#e31837;font-family:Arial Black,Arial,sans-serif;}
+.test-label{font-size:13px;font-weight:700;color:var(--header-text);}
+.telegram-btn{background:#0088cc;color:#fff;border-radius:22px;padding:6px 16px;font-size:14px;font-weight:600;text-decoration:none;}
+.telegram-btn:hover{background:#007bb5;}
+.header-controls{display:flex;align-items:center;gap:10px;}
+.timer-display{font-size:16px;font-weight:700;min-width:60px;text-align:right;color:var(--timer-text);}
+.icon-btn{background:transparent;border:0;color:var(--header-text);width:36px;height:36px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:4px;}
+.icon-btn:hover{background:var(--button-hover);}
+main{display:flex;flex:1;min-height:0;overflow:hidden;}
+.passage-container,.questions-container{height:100%;overflow-y:auto;padding:24px 28px 80px;background:var(--passage-bg);color:var(--text-color);min-width:220px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.questions-container{border-left:1px solid var(--border-color);}
+.cdi-resizer{width:6px;flex:0 0 6px;cursor:col-resize;background:var(--border-color);}
+.passage-title{font-size:16px;font-weight:700;margin:0 0 16px;}
+.passage-text p{margin-bottom:16px;text-align:justify;}
+.section-title{font-size:15px;font-weight:700;margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border-color);}
+.instructions{font-size:15px;margin-bottom:14px;line-height:1.5;}
+.question{margin-bottom:18px;}
+.question-title{display:flex;align-items:flex-start;gap:8px;font-size:15px;line-height:1.5;}
+.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border:1.6px solid #418fc6;border-radius:3px;font-weight:700;font-size:13px;color:var(--text-color);flex-shrink:0;margin-top:1px;}
+.mcq-opts{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.mcq-opt{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border:1px solid var(--border-color);border-radius:4px;cursor:pointer;font-size:14px;}
+.mcq-opt:hover{background:var(--button-hover);}
+.text-input{min-width:150px;padding:6px 10px;border-radius:4px;border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);font-size:15px;outline:none;}
+.text-input:focus{box-shadow:0 0 0 2px rgba(65,143,198,0.3);}
+.select-input{min-width:60px;padding:6px 10px;border-radius:4px;border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);font-size:15px;outline:none;}
+footer{height:50px;padding:0 16px;background:var(--footer-bg);border-top:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+#progress-container{display:flex;gap:5px;flex-wrap:wrap;}
+.progress-item{width:28px;height:28px;border-radius:3px;background:transparent;color:var(--text-color);border:1.6px solid transparent;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;}
+.progress-item.completed{color:#2a6c96;border-color:#418fc6;}
+.action-buttons{display:flex;gap:10px;}
+button.btn-primary{padding:8px 18px;background:#0088cc;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;}
+button.btn-secondary{padding:8px 18px;background:transparent;color:var(--text-color);border:1px solid var(--border-color);border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;}
+button.btn-secondary:hover{background:var(--button-hover);}
+.feedback-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;}
+.feedback-box{background:var(--questions-bg);color:var(--text-color);border-radius:8px;padding:24px;max-width:520px;width:90%;max-height:80vh;overflow-y:auto;position:relative;}
+.feedback-score{font-size:32px;font-weight:900;color:#21aa74;margin-bottom:16px;}
+.feedback-item{margin-bottom:10px;font-size:14px;}
+.feedback-question{font-weight:700;}
+.feedback-answer.correct{color:#21aa74;}
+.feedback-answer.incorrect{color:#e31837;}
+#close-feedback{position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-color);}
+.highlight{background-color:var(--highlight-color);}
+@media(max-width:900px){main{flex-direction:column;}.passage-container,.questions-container{width:100%;height:50%}.cdi-resizer{display:none;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-area">
+    <div class="ielts-logo">IELTS</div>
+    <div class="test-label">Cambridge 20 · Test 2 · Reading Passage 2</div>
+    <a href="https://t.me/augustus_flores" target="_blank" class="telegram-btn"><i class="fab fa-telegram"></i> Augustus IELTS</a>
+  </div>
+  <div class="header-controls">
+    <span class="timer-display" id="timer">20:00</span>
+    <button class="icon-btn" id="start-timer"><i class="fas fa-play"></i></button>
+    <button class="icon-btn" id="pause-timer"><i class="fas fa-pause"></i></button>
+    <button class="icon-btn" id="night-mode-toggle"><i class="fas fa-moon"></i></button>
+  </div>
+</header>
+<main>
+<div class="passage-container" id="passage-text">
+<div class="passage-title">The Psychology of Procrastination</div>
+<div class="passage-text">
+<p>Procrastination – the voluntary delay of an intended action despite expecting to be worse off for the delay – affects an estimated 20 percent of adults chronically and a far larger proportion of people on a situational basis. Students, in particular, show high rates of academic procrastination: surveys across North American and European universities consistently find that the majority of students report delaying assignments, revision and other study tasks to a degree that causes them distress. It is a phenomenon that costs enormously in lost productivity, missed deadlines and psychological suffering, yet it resists simple solutions.</p>
+<p>The most common misconception about procrastination is that it is simply a matter of laziness. This conflation misleads both lay observers and, historically, psychologists. Laziness implies a general disposition to avoid effort; procrastination, by contrast, involves the postponement of specific intended tasks, often by people who show high levels of energy and productivity in other domains. Research consistently finds that procrastinators are no less ambitious or hardworking than non-procrastinators in general – they are simply more likely to delay particular tasks, often those that feel threatening, ambiguous or aversive.</p>
+<p>A growing body of evidence links procrastination to emotional regulation rather than to time management or willpower. Studies led by Fuschia Sirois and Timothy Pychyl, among others, have shown that people procrastinate primarily to escape negative emotions – anxiety, self-doubt, boredom and fear of failure – associated with a task. The short-term relief of putting something off is real and immediate; the longer-term costs are abstract and distant. From a cognitive perspective, procrastination can be understood as the prioritisation of present emotional comfort over future well-being.</p>
+<p>Certain tasks are particularly prone to triggering procrastination. Tasks perceived as threats to self-esteem – where failure might reflect badly on one's abilities – are avoided more systematically than others. Unstructured or ambiguous tasks, such as open-ended creative or research work, are more likely to be delayed than highly structured ones with clear steps. Deadlines set far in the future invite delay; those proximal in time create urgency. Exams and assessments are among the tasks most commonly linked to procrastination, partly because of their evaluative nature and partly because the work required to prepare for them feels both effortful and unpredictable in its rewards.</p>
+<p>Individual differences also predict procrastination. Trait perfectionism – the tendency to set excessively high standards and to evaluate one's performance harshly – is one of the most robust predictors of chronic procrastination. Perfectionists procrastinate not because they do not care about their work but because they fear producing something imperfect; initiating a task is itself a threat. Low self-efficacy – the belief that one is unlikely to succeed at a task regardless of effort – similarly predicts avoidance. People with high levels of impulsivity are also disproportionately prone to procrastination, as the immediate appeal of alternative activities overrides longer-term intentions.</p>
+<p>The emotional costs of chronic procrastination are significant. Procrastinators report higher levels of guilt, shame and self-blame than non-procrastinators, creating a self-reinforcing cycle: negative affect about having procrastinated increases the aversiveness of resuming the task, further fuelling avoidance. Studies have linked chronic procrastination to higher levels of depression and anxiety and to poorer physical health outcomes, including higher rates of cardiovascular disease, partly mediated by the elevated chronic stress associated with unfinished tasks and missed deadlines.</p>
+<p>Effective interventions tend to target the emotional mechanisms underlying procrastination rather than simply imposing better time management routines. Implementation intentions – specific if-then plans linking a situational trigger to an intended action ('If it is 9 am on Monday, then I will sit down and write for one hour') – have demonstrated reliable reductions in procrastination across multiple studies. Self-compassion interventions, which encourage individuals to respond to their own procrastination with understanding rather than self-criticism, also show promise: reducing guilt appears to make it less aversive to re-engage with the avoided task. Structured task breakdown and the elimination of distractions reduce the cognitive load associated with beginning difficult work.</p>
+</div>
+</div>
+<div class="cdi-resizer" id="cdi-resizer"></div>
+<div class="questions-container" id="questions-container">
+
+<div class="section-title">Questions 14–16</div>
+<div class="instructions">Choose the correct letter <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>.</div>
+
+<div class="question" id="q14">
+<div class="question-title"><div class="qnum">14</div><div>What does the writer say about the relationship between procrastination and laziness?</div></div>
+<div class="mcq-opts">
+<label class="mcq-opt"><input type="radio" name="q14" value="A"/> <span>A They are essentially the same phenomenon</span></label>
+<label class="mcq-opt"><input type="radio" name="q14" value="B"/> <span>B Treating them as the same leads to misunderstanding</span></label>
+<label class="mcq-opt"><input type="radio" name="q14" value="C"/> <span>C Lazy people are more likely to procrastinate</span></label>
+<label class="mcq-opt"><input type="radio" name="q14" value="D"/> <span>D Psychologists have always distinguished clearly between the two</span></label>
+</div>
+</div>
+
+<div class="question" id="q15">
+<div class="question-title"><div class="qnum">15</div><div>According to the passage, research by Sirois and Pychyl suggests procrastination is mainly driven by</div></div>
+<div class="mcq-opts">
+<label class="mcq-opt"><input type="radio" name="q15" value="A"/> <span>A poor time management skills</span></label>
+<label class="mcq-opt"><input type="radio" name="q15" value="B"/> <span>B a lack of willpower</span></label>
+<label class="mcq-opt"><input type="radio" name="q15" value="C"/> <span>C ambition and high standards</span></label>
+<label class="mcq-opt"><input type="radio" name="q15" value="F"/> <span>F the desire to avoid unpleasant feelings</span></label>
+</div>
+</div>
+
+<div class="question" id="q16">
+<div class="question-title"><div class="qnum">16</div><div>What is said about perfectionism and procrastination?</div></div>
+<div class="mcq-opts">
+<label class="mcq-opt"><input type="radio" name="q16" value="A"/> <span>A Perfectionists procrastinate because they lack ambition</span></label>
+<label class="mcq-opt"><input type="radio" name="q16" value="B"/> <span>B Fear of imperfection causes perfectionists to delay starting tasks</span></label>
+<label class="mcq-opt"><input type="radio" name="q16" value="C"/> <span>C Perfectionism rarely leads to chronic procrastination</span></label>
+<label class="mcq-opt"><input type="radio" name="q16" value="D"/> <span>D Perfectionists procrastinate because they set unrealistically low standards</span></label>
+</div>
+</div>
+
+<div class="section-title">Questions 17–22</div>
+<div class="instructions">Complete the summary below. Write <strong>ONE WORD ONLY</strong> from the passage for each answer.</div>
+<div style="background:rgba(0,0,0,0.03);border-radius:8px;padding:14px;font-size:15px;line-height:2.2;">
+People who procrastinate are not defined by <input type="text" name="q17" class="text-input" placeholder="one word"/> but by avoidance of specific tasks linked to negative emotions. They often feel <input type="text" name="q18" class="text-input" placeholder="one word"/> or fear failure. Tasks perceived as <input type="text" name="q19" class="text-input" placeholder="one word"/> to self-esteem, or evaluative tasks like <input type="text" name="q20" class="text-input" placeholder="one word"/>, are most often avoided. Chronic <input type="text" name="q21" class="text-input" placeholder="one word"/> tend to set unrealistically high standards and fear producing work that falls short. Procrastination creates a cycle of <input type="text" name="q22" class="text-input" placeholder="one word"/> and shame that reinforces further avoidance.
+</div>
+
+<div class="section-title">Questions 23–26</div>
+<div class="instructions">Complete each sentence with the correct ending <strong>A–E</strong> from the box below.<br/><em>A reduce the burden of starting difficult work &nbsp;&nbsp; B are often caused by poor time management &nbsp;&nbsp; C can lessen the shame that prevents re-engagement &nbsp;&nbsp; D are linked to higher rates of physical illness &nbsp;&nbsp; E specify exact situational triggers and intended actions</em></div>
+
+<div class="question" id="q23"><div class="question-title"><div class="qnum">23</div><div>Implementation intentions are effective because they <select class="select-input" name="q23"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
+<div class="question" id="q24"><div class="question-title"><div class="qnum">24</div><div>Self-compassion interventions help procrastinators because they <select class="select-input" name="q24"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
+<div class="question" id="q25"><div class="question-title"><div class="qnum">25</div><div>Breaking tasks into structured steps and removing distractions <select class="select-input" name="q25"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
+<div class="question" id="q26"><div class="question-title"><div class="qnum">26</div><div>The emotional consequences of chronic procrastination <select class="select-input" name="q26"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
+
+</div>
+</main>
+<footer>
+  <div id="progress-container"></div>
+  <div class="action-buttons">
+    <button class="btn-secondary" id="reset-btn">Clear All</button>
+    <button class="btn-primary" id="submit-btn">Check Answers</button>
+  </div>
+</footer>
+<div class="feedback-overlay" id="feedback-overlay">
+  <div class="feedback-box">
+    <button id="close-feedback">&times;</button>
+    <h2>Your Results</h2>
+    <div class="feedback-score" id="score-display"></div>
+    <div id="feedback-body"></div>
+  </div>
+</div>
+<script>
+document.getElementById('night-mode-toggle').addEventListener('click',function(){document.body.classList.toggle('night-mode');const i=this.querySelector('i');if(i){i.classList.toggle('fa-moon');i.classList.toggle('fa-sun');}});
+const correctAnswers={q14:'B',q15:'F',q16:'B',q17:'laziness',q18:'anxious',q19:'threats',q20:'exams',q21:'perfectionists',q22:'guilt',q23:'E',q24:'C',q25:'A',q26:'D'};
+const questionNumbers=[14,15,16,17,18,19,20,21,22,23,24,25,26];
+function normalize(s){return(s||'').toString().trim().toLowerCase().replace(/\s+/g,' ');}
+function getAnswerVal(qid){const r=Array.from(document.querySelectorAll(`input[name="${qid}"]`)).find(e=>e.type==='radio'&&e.checked);if(r)return r.value;const s=document.querySelector(`select[name="${qid}"]`);if(s&&s.value)return s.value;const t=document.querySelector(`input[type="text"][name="${qid}"]`);return t?t.value:'';}
+function isCorrect(u,c){const a=Array.isArray(c)?c:String(c).split(/\s*[\/\|]\s*/);return a.some(v=>normalize(u)===normalize(v));}
+document.getElementById('submit-btn').addEventListener('click',function(){let score=0,html='';questionNumbers.forEach(n=>{const qid='q'+n,u=getAnswerVal(qid),ok=isCorrect(u,correctAnswers[qid]);if(ok)score++;html+=`<div class="feedback-item"><div class="feedback-question">Q${n}</div><div class="feedback-answer ${ok?'correct':'incorrect'}">Your answer: ${u||'(blank)'}<br/>${ok?'✔ Correct':'✘ Incorrect — Correct: '+correctAnswers[qid]}</div></div>`;});document.getElementById('feedback-body').innerHTML=html;document.getElementById('score-display').textContent=score+'/'+questionNumbers.length;document.getElementById('feedback-overlay').style.display='flex';});
+document.getElementById('close-feedback').addEventListener('click',function(){document.getElementById('feedback-overlay').style.display='none';});
+document.getElementById('reset-btn').addEventListener('click',function(){document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);document.querySelectorAll('input[type=text]').forEach(t=>t.value='');document.querySelectorAll('select').forEach(s=>s.value='');updateProgress();});
+const pc=document.getElementById('progress-container');questionNumbers.forEach(n=>{const d=document.createElement('div');d.className='progress-item';d.textContent=n;d.dataset.qid='q'+n;d.addEventListener('click',()=>{const el=document.getElementById('q'+n)||document.querySelector('[name="q'+n+'"]');if(el)el.scrollIntoView({behavior:'smooth',block:'center'});});pc.appendChild(d);});
+function updateProgress(){document.querySelectorAll('.progress-item').forEach(item=>{item.classList.toggle('completed',getAnswerVal(item.dataset.qid).trim()!=='');});}
+document.addEventListener('change',updateProgress);document.addEventListener('input',updateProgress);updateProgress();
+let remaining=20*60,timerInterval=null;const timerEl=document.getElementById('timer');
+function renderTimer(){const m=Math.floor(remaining/60).toString().padStart(2,'0'),s=(remaining%60).toString().padStart(2,'0');timerEl.textContent=m+':'+s;timerEl.style.color=remaining<=120?'#e31837':'var(--timer-text)';}
+document.getElementById('start-timer').addEventListener('click',function(){if(timerInterval)return;timerInterval=setInterval(function(){if(remaining<=0){clearInterval(timerInterval);timerInterval=null;alert('Time is up!');return;}remaining--;renderTimer();},1000);});
+document.getElementById('pause-timer').addEventListener('click',function(){clearInterval(timerInterval);timerInterval=null;});
+renderTimer();
+const resizer=document.getElementById('cdi-resizer'),pEl=document.querySelector('.passage-container'),qEl=document.querySelector('.questions-container');let isResizing=false;
+resizer.addEventListener('mousedown',function(e){isResizing=true;e.preventDefault();});
+document.addEventListener('mousemove',function(e){if(!isResizing)return;const main=document.querySelector('main'),rect=main.getBoundingClientRect(),pct=((e.clientX-rect.left)/rect.width)*100;if(pct>15&&pct<85){pEl.style.flex='none';pEl.style.width=pct+'%';qEl.style.flex='1';}});
+document.addEventListener('mouseup',function(){isResizing=false;});
+</script>
+<script src="/passages/test-progress-bridge.js"></script>
+</body>
+</html>
