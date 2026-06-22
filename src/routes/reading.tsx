@@ -40,6 +40,106 @@ type Passage = {
 };
 
 const PASSAGES: Passage[] = [
+  // Cambridge IELTS 20 – Test 1
+  {
+    id: "cam20-t1-r1",
+    title: "Cambridge 20 Test 1 – The Kākāpō",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 1 Reading Passage 1: The Kākāpō — questions 1–13.",
+    htmlFile: "/passages/CAM20_TEST_1_Reading1.html",
+  },
+  {
+    id: "cam20-t1-r2",
+    title: "Cambridge 20 Test 1 – The Remarkable Elm",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 1 Reading Passage 2: The Remarkable Elm — questions 14–26.",
+    htmlFile: "/passages/CAM20_TEST_1_Reading2.html",
+  },
+  {
+    id: "cam20-t1-r3",
+    title: "Cambridge 20 Test 1 – Stress in the Modern Workplace",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 1 Reading Passage 3: Stress in the Modern Workplace — questions 27–40.",
+    htmlFile: "/passages/CAM20_TEST_1_Reading3.html",
+  },
+  // Cambridge IELTS 20 – Test 2
+  {
+    id: "cam20-t2-r1",
+    title: "Cambridge 20 Test 2 – Manatees",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 2 Reading Passage 1: Manatees — questions 1–13.",
+    htmlFile: "/passages/CAM20_TEST_2_Reading1.html",
+  },
+  {
+    id: "cam20-t2-r2",
+    title: "Cambridge 20 Test 2 – The Psychology of Procrastination",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 2 Reading Passage 2: The Psychology of Procrastination — questions 14–26.",
+    htmlFile: "/passages/CAM20_TEST_2_Reading2.html",
+  },
+  {
+    id: "cam20-t2-r3",
+    title: "Cambridge 20 Test 2 – Robot Umpires in Sport",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 2 Reading Passage 3: Robot Umpires in Sport — questions 27–40.",
+    htmlFile: "/passages/CAM20_TEST_2_Reading3.html",
+  },
+  // Cambridge IELTS 20 – Test 3
+  {
+    id: "cam20-t3-r1",
+    title: "Cambridge 20 Test 3 – The History of Frozen Food",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 3 Reading Passage 1: The History of Frozen Food — questions 1–13.",
+    htmlFile: "/passages/CAM20_TEST_3_Reading1.html",
+  },
+  {
+    id: "cam20-t3-r2",
+    title: "Cambridge 20 Test 3 – Masters of Disguise: The Cephalopods",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 3 Reading Passage 2: Masters of Disguise — The Cephalopods — questions 14–26.",
+    htmlFile: "/passages/CAM20_TEST_3_Reading2.html",
+  },
+  {
+    id: "cam20-t3-r3",
+    title: "Cambridge 20 Test 3 – Robots in the Workplace",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 3 Reading Passage 3: Robots in the Workplace — questions 27–40.",
+    htmlFile: "/passages/CAM20_TEST_3_Reading3.html",
+  },
+  // Cambridge IELTS 20 – Test 4
+  {
+    id: "cam20-t4-r1",
+    title: "Cambridge 20 Test 4 – Georgia O'Keeffe",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 4 Reading Passage 1: Georgia O'Keeffe — questions 1–13.",
+    htmlFile: "/passages/CAM20_TEST_4_Reading1.html",
+  },
+  {
+    id: "cam20-t4-r2",
+    title: "Cambridge 20 Test 4 – The Ocean and Climate Change",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 4 Reading Passage 2: The Ocean and Climate Change — questions 14–26.",
+    htmlFile: "/passages/CAM20_TEST_4_Reading2.html",
+  },
+  {
+    id: "cam20-t4-r3",
+    title: "Cambridge 20 Test 4 – Livestock Guard Dogs",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 20 Test 4 Reading Passage 3: Livestock Guard Dogs — questions 27–40.",
+    htmlFile: "/passages/CAM20_TEST_4_Reading3.html",
+  },
   {
     id: "p3-piraha",
     title: "The PirahГЈ People of Brazil",
@@ -1142,14 +1242,6 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/Playing_with_science_2_CDI_standalone.html",
   },
   {
-    id: "p1-thomas-cole-2",
-    title: "Thomas Cole: American Nature Painter",
-    passageNumber: 1,
-    isPremium: false,
-    description: "Thomas Cole (1801–1848) was America’s first major landscape artist.",
-    htmlFile: "/passages/Thomas_cole_2_CDI_standalone.html",
-  },
-  {
     id: "p2-attraction-of-video-games",
     title: "The Attraction of Video Games",
     passageNumber: 2,
@@ -1738,7 +1830,7 @@ function Reading() {
         <div className="absolute top-8 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="crafting-table" size={32} opacity={1} />
         </div>
-        <div className="mb-10">
+        <div className="ink-bleed mb-10">
           <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Reading Practice</h1>
           <p className="text-muted-foreground mb-1">Filter by passage type and open any passage in a clean reader view.</p>
           <p className="font-mono text-[11px] text-muted-foreground/70 tracking-wide italic">

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Headphones, BookOpen, PenLine, Mic, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/practice")({
@@ -58,7 +59,7 @@ function Practice() {
   return (
     <SiteLayout>
       <section className="container mx-auto px-4 py-16 max-w-5xl">
-        <div className="text-center mb-14">
+        <div className="ink-bleed text-center mb-14">
           <p className="eyebrow text-primary mb-4">The practice rooms</p>
           <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-4">Practice</h1>
           <p className="text-muted-foreground max-w-md mx-auto">
@@ -70,56 +71,58 @@ function Practice() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
-          {SECTIONS.map((s) => (
-            <Link key={s.to} to={s.to} className="block">
-              <div className="bento-card p-8 h-full flex flex-col group cursor-pointer relative overflow-hidden">
-                {/* Serif numeral watermark */}
-                <span
-                  className="absolute top-5 right-7 font-serif text-4xl leading-none opacity-20 group-hover:opacity-50 transition-opacity duration-300"
-                  style={{ color: s.color }}
-                  aria-hidden="true"
-                >
-                  {s.numeral}
-                </span>
-
-                {/* Icon medallion */}
-                <span
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border transition-transform duration-300 group-hover:-translate-y-1"
-                  style={{
-                    background: `color-mix(in srgb, ${s.color} 10%, transparent)`,
-                    borderColor: `color-mix(in srgb, ${s.color} 30%, transparent)`,
-                    color: s.color,
-                  }}
-                >
-                  <s.icon className="w-6 h-6" strokeWidth={1.5} />
-                </span>
-
-                <h2 className="font-serif text-xl text-foreground mb-2">{s.title}</h2>
-                <p className="text-sm text-muted-foreground mb-5 flex-1 leading-relaxed">
-                  {s.desc}
-                </p>
-
-                {/* Label badge */}
-                <div className="mb-6">
+          {SECTIONS.map((s, i) => (
+            <Reveal key={s.to} className="h-full" delay={(i % 2) * 80}>
+              <Link to={s.to} className="block h-full">
+                <div className="bento-card p-8 h-full flex flex-col group cursor-pointer relative overflow-hidden">
+                  {/* Serif numeral watermark */}
                   <span
-                    className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full"
+                    className="absolute top-5 right-7 font-serif text-4xl leading-none opacity-20 group-hover:opacity-50 group-active:opacity-50 transition-opacity duration-300"
+                    style={{ color: s.color }}
+                    aria-hidden="true"
+                  >
+                    {s.numeral}
+                  </span>
+
+                  {/* Icon medallion */}
+                  <span
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border transition-transform duration-300 group-hover:-translate-y-1 group-active:-translate-y-1"
                     style={{
-                      color: `color-mix(in srgb, ${s.color} 80%, var(--foreground))`,
-                      background: `color-mix(in srgb, ${s.color} 12%, transparent)`,
+                      background: `color-mix(in srgb, ${s.color} 10%, transparent)`,
+                      borderColor: `color-mix(in srgb, ${s.color} 30%, transparent)`,
+                      color: s.color,
                     }}
                   >
-                    {s.label}
+                    <s.icon className="w-6 h-6" strokeWidth={1.5} />
+                  </span>
+
+                  <h2 className="font-serif text-xl text-foreground mb-2">{s.title}</h2>
+                  <p className="text-sm text-muted-foreground mb-5 flex-1 leading-relaxed">
+                    {s.desc}
+                  </p>
+
+                  {/* Label badge */}
+                  <div className="mb-6">
+                    <span
+                      className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full"
+                      style={{
+                        color: `color-mix(in srgb, ${s.color} 80%, var(--foreground))`,
+                        background: `color-mix(in srgb, ${s.color} 12%, transparent)`,
+                      }}
+                    >
+                      {s.label}
+                    </span>
+                  </div>
+
+                  <span
+                    className="text-sm font-medium inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1"
+                    style={{ color: s.color }}
+                  >
+                    Start <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
-
-                <span
-                  className="text-sm font-medium inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ color: s.color }}
-                >
-                  Start <ArrowRight className="w-4 h-4" />
-                </span>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>

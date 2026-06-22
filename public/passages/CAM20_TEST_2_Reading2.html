@@ -1,80 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Cambridge 20 Test 2 – Reading Passage 2: The Psychology of Procrastination</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cambridge 20 Test 2 – Reading Passage 2: The Psychology of Procrastination – IELTS Reading</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
-:root{--bg-color:#ffffff;--text-color:#000000;--passage-bg:#ffffff;--questions-bg:#ffffff;--border-color:#d5d5d5;--header-bg:#ffffff;--header-text:#000000;--footer-bg:#ffffff;--timer-text:#000000;--button-hover:#e4e4e4;--progress-complete:#21aa74;--highlight-color:#fef08a;--cdi-font-size:16px;--cdi-line-height:1.5;}
-body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--progress-complete:#81c995;--highlight-color:#6b5c10;}
-*{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);overflow:hidden;display:flex;flex-direction:column;line-height:1.5;font-size:16px;}
-header{height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.logo-area{display:flex;align-items:center;gap:14px;}
-.ielts-logo{font-size:34px;font-weight:900;letter-spacing:-2px;color:#e31837;font-family:Arial Black,Arial,sans-serif;}
-.test-label{font-size:13px;font-weight:700;color:var(--header-text);}
-.telegram-btn{background:#0088cc;color:#fff;border-radius:22px;padding:6px 16px;font-size:14px;font-weight:600;text-decoration:none;}
-.telegram-btn:hover{background:#007bb5;}
-.header-controls{display:flex;align-items:center;gap:10px;}
-.timer-display{font-size:16px;font-weight:700;min-width:60px;text-align:right;color:var(--timer-text);}
-.icon-btn{background:transparent;border:0;color:var(--header-text);width:36px;height:36px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:4px;}
-.icon-btn:hover{background:var(--button-hover);}
-main{display:flex;flex:1;min-height:0;overflow:hidden;}
-.passage-container,.questions-container{height:100%;overflow-y:auto;padding:24px 28px 80px;background:var(--passage-bg);color:var(--text-color);min-width:220px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
-.questions-container{border-left:1px solid var(--border-color);}
-.cdi-resizer{width:6px;flex:0 0 6px;cursor:col-resize;background:var(--border-color);}
-.passage-title{font-size:16px;font-weight:700;margin:0 0 16px;}
-.passage-text p{margin-bottom:16px;text-align:justify;}
-.section-title{font-size:15px;font-weight:700;margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border-color);}
-.instructions{font-size:15px;margin-bottom:14px;line-height:1.5;}
-.question{margin-bottom:18px;}
-.question-title{display:flex;align-items:flex-start;gap:8px;font-size:15px;line-height:1.5;}
-.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border:1.6px solid #418fc6;border-radius:3px;font-weight:700;font-size:13px;color:var(--text-color);flex-shrink:0;margin-top:1px;}
-.mcq-opts{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
-.mcq-opt{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border:1px solid var(--border-color);border-radius:4px;cursor:pointer;font-size:14px;}
-.mcq-opt:hover{background:var(--button-hover);}
-.text-input{min-width:150px;padding:6px 10px;border-radius:4px;border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);font-size:15px;outline:none;}
-.text-input:focus{box-shadow:0 0 0 2px rgba(65,143,198,0.3);}
-.select-input{min-width:60px;padding:6px 10px;border-radius:4px;border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);font-size:15px;outline:none;}
-footer{height:50px;padding:0 16px;background:var(--footer-bg);border-top:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-#progress-container{display:flex;gap:5px;flex-wrap:wrap;}
-.progress-item{width:28px;height:28px;border-radius:3px;background:transparent;color:var(--text-color);border:1.6px solid transparent;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;}
-.progress-item.completed{color:#2a6c96;border-color:#418fc6;}
-.action-buttons{display:flex;gap:10px;}
-button.btn-primary{padding:8px 18px;background:#0088cc;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;}
-button.btn-secondary{padding:8px 18px;background:transparent;color:var(--text-color);border:1px solid var(--border-color);border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;}
-button.btn-secondary:hover{background:var(--button-hover);}
-.feedback-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;}
-.feedback-box{background:var(--questions-bg);color:var(--text-color);border-radius:8px;padding:24px;max-width:520px;width:90%;max-height:80vh;overflow-y:auto;position:relative;}
-.feedback-score{font-size:32px;font-weight:900;color:#21aa74;margin-bottom:16px;}
-.feedback-item{margin-bottom:10px;font-size:14px;}
-.feedback-question{font-weight:700;}
-.feedback-answer.correct{color:#21aa74;}
-.feedback-answer.incorrect{color:#e31837;}
-#close-feedback{position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-color);}
-.highlight{background-color:var(--highlight-color);}
-@media(max-width:900px){main{flex-direction:column;}.passage-container,.questions-container{width:100%;height:50%}.cdi-resizer{display:none;}}
+:root{--bg-color:#ffffff;--text-color:#000000;--passage-bg:#ffffff;--questions-bg:#ffffff;--border-color:#d5d5d5;--header-bg:#ffffff;--header-text:#000000;--footer-bg:#ffffff;--timer-bg:transparent;--timer-text:#000000;--button-bg:#efefef;--button-hover:#e4e4e4;--progress-complete:#21aa74;--progress-incomplete:#ffffff;--highlight-color:#fef08a;--cdi-font-size:16px;--cdi-line-height:1.6;--correct-color:#008a3d;--incorrect-color:#dc2626;}
+body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--highlight-color:#6b5c10;}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);}body{overflow:hidden;display:flex;flex-direction:column;font-size:16px;}
+header{height:56px;min-height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);position:relative;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:50}.logo-area{display:flex;align-items:center}.cdi-left-brand{gap:12px;min-width:260px}.ielts-logo{font-size:42px;font-weight:900;letter-spacing:-2px;color:#e31837;line-height:1;font-family:Arial Black,Arial,sans-serif}.ielts-logo::after{content:'™';font-size:9px;vertical-align:top;margin-left:1px;color:#e31837}.test-taker{font-size:16px;font-weight:700}.cdi-center-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}.social-link.telegram{display:flex;align-items:center;gap:8px;background:#0088cc;color:#fff;border-radius:22px;padding:6px 18px;font-size:15px;text-decoration:none}.header-controls{margin-left:auto;display:flex;align-items:center;gap:18px;color:var(--header-text)}.timer-container{display:flex;gap:6px;align-items:center;font-size:16px;font-weight:700}.mode-toggle,#start-timer,#pause-timer,#reset-timer{background:transparent;border:0;color:var(--header-text);width:34px;height:34px;padding:0;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}.mode-toggle:hover,#start-timer:hover,#pause-timer:hover,#reset-timer:hover{background:var(--button-hover)}
+.display-panel{position:fixed;top:56px;right:0;width:310px;background:var(--questions-bg);border-left:1px solid var(--border-color);box-shadow:-4px 0 16px rgba(0,0,0,.1);padding:18px;z-index:100;display:none;color:var(--text-color)}.display-panel.open{display:block}.display-panel h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 16px}.display-panel label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}.display-panel input[type=range]{width:100%;accent-color:#2a6c96}.theme-row{display:flex;gap:8px;margin-top:14px}.theme-row button{border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);border-radius:6px;padding:7px 10px;cursor:pointer}
+.cdi-part-header{margin:16px 14px 0;padding:12px 20px;background:rgb(241,242,236);border:1px solid var(--border-color);flex-shrink:0}body.night-mode .cdi-part-header{background:#1f2b47}.cdi-part-header p{margin:0;font-size:16px;line-height:1.45}.cdi-part-header p+p{margin-top:4px}main{display:flex;flex:1;min-height:0;background:var(--questions-bg);overflow:hidden;margin-top:16px}.passage-container,.questions-container{height:100%;overflow-y:auto;padding:24px 28px 70px;background:var(--passage-bg);color:var(--text-color);min-width:220px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height)}.passage-container{flex:1 1 50%}.questions-container{flex:1 1 50%;background:var(--questions-bg)}.passage-content{max-width:none;margin:0}.instructions{font-size:var(--cdi-font-size);margin:0 0 16px 0}.passage-title{font-size:18px;font-weight:700;margin:0 0 16px;color:var(--text-color)}.passage-text p,.questions-container p,.questions-container li,.questions-container label,.question-text{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color)}.passage-text p{margin:0 0 16px;text-align:left}.section-title{font-size:16px;font-weight:700;margin:24px 0 12px;padding:0;border:0;color:var(--text-color)}.question{background:transparent;border:0;border-radius:0;padding:0;margin:0 0 18px}.question-title{font-size:16px;font-weight:400;display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}.question-number{display:inline-flex;align-items:center;justify-content:center;min-width:24px;width:auto;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:16px;font-weight:700;line-height:1;flex-shrink:0}.text-input,.select-input{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-family:Arial,sans-serif;font-size:16px;min-height:30px;padding:3px 8px;margin:3px 6px 3px 0}.text-input{width:190px}.select-input{min-width:180px}.tfng-options{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}.tfng-options label{display:flex;align-items:center;gap:5px;font-size:var(--cdi-font-size);cursor:pointer;border:1px solid var(--border-color);padding:4px 10px;border-radius:4px}.tfng-options label:hover{background:var(--button-hover)}.tfng-options input{cursor:pointer}.mcq-opts{display:flex;flex-direction:column;gap:6px;margin-top:8px}.mcq-opt{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border:1px solid var(--border-color);border-radius:4px;cursor:pointer;font-size:var(--cdi-font-size)}.mcq-opt:hover{background:var(--button-hover)}.mcq-opt input{margin-top:2px;cursor:pointer}.q-space{height:8px}.correct-mark{color:var(--correct-color);font-weight:700;margin-left:8px}.wrong-mark{color:var(--incorrect-color);font-weight:700;margin-left:8px}.text-input.correct,.select-input.correct{border-color:var(--correct-color)!important}.text-input.wrong,.select-input.wrong{border-color:var(--incorrect-color)!important}input:disabled,select:disabled{opacity:.85;cursor:not-allowed}.cdi-resizer{width:16px;flex:0 0 16px;background:transparent;cursor:col-resize;position:relative;display:flex;align-items:center;justify-content:center;z-index:5}.cdi-resizer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-color);transform:translateX(-50%)}.cdi-resizer-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:35px;height:35px;border:1.6px solid #535353;background:#f9f9f9;color:#535353;display:flex;align-items:center;justify-content:center;font-size:16px;pointer-events:none}.highlight{background:var(--highlight-color);cursor:pointer}.highlight-tooltip{position:absolute;background:#333;color:#fff;padding:6px 10px;border-radius:4px;font-size:14px;z-index:99999;cursor:pointer;display:flex;gap:6px;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}.feedback-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;display:none;align-items:center;justify-content:center}.feedback-container{background:var(--passage-bg);color:var(--text-color);width:90%;max-width:760px;max-height:86vh;border-radius:8px;display:flex;flex-direction:column}.feedback-header{padding:18px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between}.feedback-title{font-size:20px;font-weight:700}.feedback-body{padding:18px;overflow:auto}.feedback-item{padding:10px 0;border-bottom:1px solid var(--border-color)}#close-feedback{font-size:24px;background:none;border:0;color:var(--text-color);cursor:pointer}footer{height:60px;background:var(--footer-bg);border-top:1px solid var(--border-color);padding:0;display:flex;align-items:stretch;flex-shrink:0}.progress-container{display:flex;gap:0;align-items:stretch;overflow-x:auto;flex:1;padding:0 16px}.progress-item{width:40px;height:100%;border-radius:3px;background:transparent;color:var(--text-color);border:1.6px solid transparent;display:inline-flex;align-items:center;justify-content:center;font-size:16px;position:relative;margin:0;cursor:pointer}.progress-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#d7d7d7}.progress-item.completed{color:#2a6c96}.progress-item.completed::before{background:#21aa74}.action-buttons{display:flex;align-items:stretch;gap:0;margin-left:auto}.btn-secondary,.btn-primary{height:100%;border-radius:0;padding:0 28px;background:#efefef;color:#535353;border:0;border-left:1px solid var(--border-color);font-size:16px;font-weight:400;cursor:pointer}.btn-secondary:hover,.btn-primary:hover{background:#e4e4e4}@media(max-width:900px){.test-taker{display:none}.ielts-logo{font-size:30px}.cdi-center-brand{position:static;transform:none;margin-left:8px}.header-controls{gap:6px}.cdi-part-header{margin:8px}.cdi-resizer{display:none}main{flex-direction:column}.passage-container,.questions-container{width:100%!important;flex:none!important;height:50%!important;padding:16px 18px 70px}.social-link.telegram span{display:inline}}
 </style>
-</head>
-<body>
-<header>
-  <div class="logo-area">
-    <div class="ielts-logo">IELTS</div>
-    <div class="test-label">Cambridge 20 · Test 2 · Reading Passage 2</div>
-    <a href="https://t.me/augustus_flores" target="_blank" class="telegram-btn"><i class="fab fa-telegram"></i> Augustus IELTS</a>
-  </div>
-  <div class="header-controls">
-    <span class="timer-display" id="timer">20:00</span>
-    <button class="icon-btn" id="start-timer"><i class="fas fa-play"></i></button>
-    <button class="icon-btn" id="pause-timer"><i class="fas fa-pause"></i></button>
-    <button class="icon-btn" id="night-mode-toggle"><i class="fas fa-moon"></i></button>
-  </div>
-</header>
-<main>
-<div class="passage-container" id="passage-text">
-<div class="passage-title">The Psychology of Procrastination</div>
-<div class="passage-text">
+</head><body>
+<header><div class="logo-area cdi-left-brand"><span class="ielts-logo">IELTS</span><span class="test-taker">Test taker ID</span></div><div class="cdi-center-brand"><a class="social-link telegram" href="https://t.me/augustus_flores" target="_blank"><i class="fab fa-telegram-plane"></i><span>Abduraimov Erkinjon</span></a></div><div class="header-controls"><div class="timer-container"><i class="fas fa-clock"></i><span id="timer">20:00</span></div><button id="start-timer" class="mode-toggle" title="Start"><i class="fas fa-play"></i></button><button id="pause-timer" class="mode-toggle" title="Pause"><i class="fas fa-pause"></i></button><button id="reset-timer" class="mode-toggle" title="Reset"><i class="fas fa-redo"></i></button><button class="mode-toggle" id="fullscreen-toggle" title="Fullscreen"><i class="fas fa-expand"></i></button><button class="mode-toggle" id="night-mode-toggle" title="Toggle Night Mode"><i class="fas fa-moon"></i></button><button class="mode-toggle" id="display-menu-toggle" title="Display options"><i class="fas fa-bars"></i></button></div></header>
+<div class="display-panel" id="display-panel"><h3>Display options</h3><label for="font-size-range">Text size</label><input id="font-size-range" type="range" min="14" max="22" value="16"><label for="line-height-range">Line spacing</label><input id="line-height-range" type="range" min="140" max="190" value="160"><div class="theme-row"><button type="button" data-theme-choice="light">Light</button><button type="button" data-theme-choice="dark">Dark</button></div></div>
+<div class="cdi-part-header"><p><strong>Passage 2</strong></p><p>Read the text and answer questions 14–26.</p></div>
+<main><div class="passage-container" id="passage-container"><div class="passage-content"><div class="passage-title">The Psychology of Procrastination</div><div class="passage-text" id="passage-text">
 <p>Procrastination – the voluntary delay of an intended action despite expecting to be worse off for the delay – affects an estimated 20 percent of adults chronically and a far larger proportion of people on a situational basis. Students, in particular, show high rates of academic procrastination: surveys across North American and European universities consistently find that the majority of students report delaying assignments, revision and other study tasks to a degree that causes them distress. It is a phenomenon that costs enormously in lost productivity, missed deadlines and psychological suffering, yet it resists simple solutions.</p>
 <p>The most common misconception about procrastination is that it is simply a matter of laziness. This conflation misleads both lay observers and, historically, psychologists. Laziness implies a general disposition to avoid effort; procrastination, by contrast, involves the postponement of specific intended tasks, often by people who show high levels of energy and productivity in other domains. Research consistently finds that procrastinators are no less ambitious or hardworking than non-procrastinators in general – they are simply more likely to delay particular tasks, often those that feel threatening, ambiguous or aversive.</p>
 <p>A growing body of evidence links procrastination to emotional regulation rather than to time management or willpower. Studies led by Fuschia Sirois and Timothy Pychyl, among others, have shown that people procrastinate primarily to escape negative emotions – anxiety, self-doubt, boredom and fear of failure – associated with a task. The short-term relief of putting something off is real and immediate; the longer-term costs are abstract and distant. From a cognitive perspective, procrastination can be understood as the prioritisation of present emotional comfort over future well-being.</p>
@@ -82,16 +21,14 @@ button.btn-secondary:hover{background:var(--button-hover);}
 <p>Individual differences also predict procrastination. Trait perfectionism – the tendency to set excessively high standards and to evaluate one's performance harshly – is one of the most robust predictors of chronic procrastination. Perfectionists procrastinate not because they do not care about their work but because they fear producing something imperfect; initiating a task is itself a threat. Low self-efficacy – the belief that one is unlikely to succeed at a task regardless of effort – similarly predicts avoidance. People with high levels of impulsivity are also disproportionately prone to procrastination, as the immediate appeal of alternative activities overrides longer-term intentions.</p>
 <p>The emotional costs of chronic procrastination are significant. Procrastinators report higher levels of guilt, shame and self-blame than non-procrastinators, creating a self-reinforcing cycle: negative affect about having procrastinated increases the aversiveness of resuming the task, further fuelling avoidance. Studies have linked chronic procrastination to higher levels of depression and anxiety and to poorer physical health outcomes, including higher rates of cardiovascular disease, partly mediated by the elevated chronic stress associated with unfinished tasks and missed deadlines.</p>
 <p>Effective interventions tend to target the emotional mechanisms underlying procrastination rather than simply imposing better time management routines. Implementation intentions – specific if-then plans linking a situational trigger to an intended action ('If it is 9 am on Monday, then I will sit down and write for one hour') – have demonstrated reliable reductions in procrastination across multiple studies. Self-compassion interventions, which encourage individuals to respond to their own procrastination with understanding rather than self-criticism, also show promise: reducing guilt appears to make it less aversive to re-engage with the avoided task. Structured task breakdown and the elimination of distractions reduce the cognitive load associated with beginning difficult work.</p>
-</div>
-</div>
-<div class="cdi-resizer" id="cdi-resizer"></div>
-<div class="questions-container" id="questions-container">
+</div></div></div><div class="cdi-resizer" id="cdi-resizer" role="separator" aria-orientation="vertical" title="Drag to resize"><div class="cdi-resizer-handle">↔</div></div><div class="questions-container" id="questions-container">
 
-<div class="section-title">Questions 14–16</div>
-<div class="instructions">Choose the correct letter <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>.</div>
+<h2 class="section-title">Questions 14–16</h2>
+<p>Choose the correct letter, <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>.</p>
+<div class="q-space"></div>
 
 <div class="question" id="q14">
-<div class="question-title"><div class="qnum">14</div><div>What does the writer say about the relationship between procrastination and laziness?</div></div>
+<div class="question-title"><span class="question-number">14</span><span>What does the writer say about the relationship between procrastination and laziness?</span></div>
 <div class="mcq-opts">
 <label class="mcq-opt"><input type="radio" name="q14" value="A"/> <span>A They are essentially the same phenomenon</span></label>
 <label class="mcq-opt"><input type="radio" name="q14" value="B"/> <span>B Treating them as the same leads to misunderstanding</span></label>
@@ -101,17 +38,17 @@ button.btn-secondary:hover{background:var(--button-hover);}
 </div>
 
 <div class="question" id="q15">
-<div class="question-title"><div class="qnum">15</div><div>According to the passage, research by Sirois and Pychyl suggests procrastination is mainly driven by</div></div>
+<div class="question-title"><span class="question-number">15</span><span>According to the passage, research by Sirois and Pychyl suggests procrastination is mainly driven by</span></div>
 <div class="mcq-opts">
 <label class="mcq-opt"><input type="radio" name="q15" value="A"/> <span>A poor time management skills</span></label>
 <label class="mcq-opt"><input type="radio" name="q15" value="B"/> <span>B a lack of willpower</span></label>
 <label class="mcq-opt"><input type="radio" name="q15" value="C"/> <span>C ambition and high standards</span></label>
-<label class="mcq-opt"><input type="radio" name="q15" value="F"/> <span>F the desire to avoid unpleasant feelings</span></label>
+<label class="mcq-opt"><input type="radio" name="q15" value="D"/> <span>D the desire to avoid unpleasant feelings</span></label>
 </div>
 </div>
 
 <div class="question" id="q16">
-<div class="question-title"><div class="qnum">16</div><div>What is said about perfectionism and procrastination?</div></div>
+<div class="question-title"><span class="question-number">16</span><span>What is said about perfectionism and procrastination?</span></div>
 <div class="mcq-opts">
 <label class="mcq-opt"><input type="radio" name="q16" value="A"/> <span>A Perfectionists procrastinate because they lack ambition</span></label>
 <label class="mcq-opt"><input type="radio" name="q16" value="B"/> <span>B Fear of imperfection causes perfectionists to delay starting tasks</span></label>
@@ -120,60 +57,170 @@ button.btn-secondary:hover{background:var(--button-hover);}
 </div>
 </div>
 
-<div class="section-title">Questions 17–22</div>
-<div class="instructions">Complete the summary below. Write <strong>ONE WORD ONLY</strong> from the passage for each answer.</div>
-<div style="background:rgba(0,0,0,0.03);border-radius:8px;padding:14px;font-size:15px;line-height:2.2;">
-People who procrastinate are not defined by <input type="text" name="q17" class="text-input" placeholder="one word"/> but by avoidance of specific tasks linked to negative emotions. They often feel <input type="text" name="q18" class="text-input" placeholder="one word"/> or fear failure. Tasks perceived as <input type="text" name="q19" class="text-input" placeholder="one word"/> to self-esteem, or evaluative tasks like <input type="text" name="q20" class="text-input" placeholder="one word"/>, are most often avoided. Chronic <input type="text" name="q21" class="text-input" placeholder="one word"/> tend to set unrealistically high standards and fear producing work that falls short. Procrastination creates a cycle of <input type="text" name="q22" class="text-input" placeholder="one word"/> and shame that reinforces further avoidance.
+<div class="q-space"></div>
+
+<h2 class="section-title">Questions 17–22</h2>
+<p>Complete the summary below.</p>
+<p>Write <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
+<div class="q-space"></div>
+
+<div class="question" id="q17">
+<div class="question-title"><span class="question-number">17</span><span>People who procrastinate are not defined by <input type="text" name="q17" class="text-input" autocomplete="off" placeholder="one word"/> but by the avoidance of specific tasks linked to negative emotions.</span></div>
 </div>
 
-<div class="section-title">Questions 23–26</div>
-<div class="instructions">Complete each sentence with the correct ending <strong>A–E</strong> from the box below.<br/><em>A reduce the burden of starting difficult work &nbsp;&nbsp; B are often caused by poor time management &nbsp;&nbsp; C can lessen the shame that prevents re-engagement &nbsp;&nbsp; D are linked to higher rates of physical illness &nbsp;&nbsp; E specify exact situational triggers and intended actions</em></div>
-
-<div class="question" id="q23"><div class="question-title"><div class="qnum">23</div><div>Implementation intentions are effective because they <select class="select-input" name="q23"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
-<div class="question" id="q24"><div class="question-title"><div class="qnum">24</div><div>Self-compassion interventions help procrastinators because they <select class="select-input" name="q24"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
-<div class="question" id="q25"><div class="question-title"><div class="qnum">25</div><div>Breaking tasks into structured steps and removing distractions <select class="select-input" name="q25"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
-<div class="question" id="q26"><div class="question-title"><div class="qnum">26</div><div>The emotional consequences of chronic procrastination <select class="select-input" name="q26"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></div></div></div>
-
+<div class="question" id="q18">
+<div class="question-title"><span class="question-number">18</span><span>They often feel <input type="text" name="q18" class="text-input" autocomplete="off" placeholder="one word"/> or fear failure when faced with such tasks.</span></div>
 </div>
-</main>
-<footer>
-  <div id="progress-container"></div>
-  <div class="action-buttons">
-    <button class="btn-secondary" id="reset-btn">Clear All</button>
-    <button class="btn-primary" id="submit-btn">Check Answers</button>
-  </div>
-</footer>
-<div class="feedback-overlay" id="feedback-overlay">
-  <div class="feedback-box">
-    <button id="close-feedback">&times;</button>
-    <h2>Your Results</h2>
-    <div class="feedback-score" id="score-display"></div>
-    <div id="feedback-body"></div>
-  </div>
+
+<div class="question" id="q19">
+<div class="question-title"><span class="question-number">19</span><span>Tasks perceived as <input type="text" name="q19" class="text-input" autocomplete="off" placeholder="one word"/> to self-esteem are avoided most systematically.</span></div>
 </div>
+
+<div class="question" id="q20">
+<div class="question-title"><span class="question-number">20</span><span>Evaluative tasks such as <input type="text" name="q20" class="text-input" autocomplete="off" placeholder="one word"/> are also among those most commonly delayed.</span></div>
+</div>
+
+<div class="question" id="q21">
+<div class="question-title"><span class="question-number">21</span><span>Chronic <input type="text" name="q21" class="text-input" autocomplete="off" placeholder="one word"/> tend to set unrealistically high standards and fear producing imperfect work.</span></div>
+</div>
+
+<div class="question" id="q22">
+<div class="question-title"><span class="question-number">22</span><span>Procrastination creates a self-reinforcing cycle of <input type="text" name="q22" class="text-input" autocomplete="off" placeholder="one word"/> and shame that fuels further avoidance.</span></div>
+</div>
+
+<div class="q-space"></div>
+
+<h2 class="section-title">Questions 23–26</h2>
+<p>Complete each sentence with the correct ending, <strong>A–E</strong>, below.</p>
+<p>A &nbsp; reduce the burden of starting difficult work<br/>B &nbsp; are often caused by poor time management<br/>C &nbsp; can lessen the shame that prevents re-engagement<br/>D &nbsp; are linked to higher rates of physical illness<br/>E &nbsp; specify exact situational triggers and intended actions</p>
+<div class="q-space"></div>
+
+<div class="question" id="q23">
+<div class="question-title"><span class="question-number">23</span><span>Implementation intentions are effective because they <select class="select-input" name="q23"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></span></div>
+</div>
+
+<div class="question" id="q24">
+<div class="question-title"><span class="question-number">24</span><span>Self-compassion interventions help procrastinators because they <select class="select-input" name="q24"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></span></div>
+</div>
+
+<div class="question" id="q25">
+<div class="question-title"><span class="question-number">25</span><span>Breaking tasks into structured steps and removing distractions <select class="select-input" name="q25"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></span></div>
+</div>
+
+<div class="question" id="q26">
+<div class="question-title"><span class="question-number">26</span><span>The emotional consequences of chronic procrastination <select class="select-input" name="q26"><option value="">–</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></span></div>
+</div>
+
+</div></main>
+<footer><div class="progress-container"><div class="progress-item" data-q="14">14</div><div class="progress-item" data-q="15">15</div><div class="progress-item" data-q="16">16</div><div class="progress-item" data-q="17">17</div><div class="progress-item" data-q="18">18</div><div class="progress-item" data-q="19">19</div><div class="progress-item" data-q="20">20</div><div class="progress-item" data-q="21">21</div><div class="progress-item" data-q="22">22</div><div class="progress-item" data-q="23">23</div><div class="progress-item" data-q="24">24</div><div class="progress-item" data-q="25">25</div><div class="progress-item" data-q="26">26</div></div><div class="action-buttons"><button class="btn-secondary" onclick="document.getElementById('passage-container').scrollTo(0,0);document.getElementById('questions-container').scrollTo(0,0);">Review</button><button class="btn-primary" id="check-answers">Check Answers</button></div></footer>
+<div class="feedback-overlay" id="feedback-overlay"><div class="feedback-container"><div class="feedback-header"><div class="feedback-title"><i class="fas fa-chart-bar"></i> Your Results <span class="score-display" id="score-display">0/13</span></div><button id="close-feedback">×</button></div><div class="feedback-body" id="feedback-body"></div></div></div>
+
 <script>
-document.getElementById('night-mode-toggle').addEventListener('click',function(){document.body.classList.toggle('night-mode');const i=this.querySelector('i');if(i){i.classList.toggle('fa-moon');i.classList.toggle('fa-sun');}});
-const correctAnswers={q14:'B',q15:'F',q16:'B',q17:'laziness',q18:'anxious',q19:'threats',q20:'exams',q21:'perfectionists',q22:'guilt',q23:'E',q24:'C',q25:'A',q26:'D'};
-const questionNumbers=[14,15,16,17,18,19,20,21,22,23,24,25,26];
-function normalize(s){return(s||'').toString().trim().toLowerCase().replace(/\s+/g,' ');}
-function getAnswerVal(qid){const r=Array.from(document.querySelectorAll(`input[name="${qid}"]`)).find(e=>e.type==='radio'&&e.checked);if(r)return r.value;const s=document.querySelector(`select[name="${qid}"]`);if(s&&s.value)return s.value;const t=document.querySelector(`input[type="text"][name="${qid}"]`);return t?t.value:'';}
-function isCorrect(u,c){const a=Array.isArray(c)?c:String(c).split(/\s*[\/\|]\s*/);return a.some(v=>normalize(u)===normalize(v));}
-document.getElementById('submit-btn').addEventListener('click',function(){let score=0,html='';questionNumbers.forEach(n=>{const qid='q'+n,u=getAnswerVal(qid),ok=isCorrect(u,correctAnswers[qid]);if(ok)score++;html+=`<div class="feedback-item"><div class="feedback-question">Q${n}</div><div class="feedback-answer ${ok?'correct':'incorrect'}">Your answer: ${u||'(blank)'}<br/>${ok?'✔ Correct':'✘ Incorrect — Correct: '+correctAnswers[qid]}</div></div>`;});document.getElementById('feedback-body').innerHTML=html;document.getElementById('score-display').textContent=score+'/'+questionNumbers.length;document.getElementById('feedback-overlay').style.display='flex';});
-document.getElementById('close-feedback').addEventListener('click',function(){document.getElementById('feedback-overlay').style.display='none';});
-document.getElementById('reset-btn').addEventListener('click',function(){document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);document.querySelectorAll('input[type=text]').forEach(t=>t.value='');document.querySelectorAll('select').forEach(s=>s.value='');updateProgress();});
-const pc=document.getElementById('progress-container');questionNumbers.forEach(n=>{const d=document.createElement('div');d.className='progress-item';d.textContent=n;d.dataset.qid='q'+n;d.addEventListener('click',()=>{const el=document.getElementById('q'+n)||document.querySelector('[name="q'+n+'"]');if(el)el.scrollIntoView({behavior:'smooth',block:'center'});});pc.appendChild(d);});
-function updateProgress(){document.querySelectorAll('.progress-item').forEach(item=>{item.classList.toggle('completed',getAnswerVal(item.dataset.qid).trim()!=='');});}
-document.addEventListener('change',updateProgress);document.addEventListener('input',updateProgress);updateProgress();
-let remaining=20*60,timerInterval=null;const timerEl=document.getElementById('timer');
-function renderTimer(){const m=Math.floor(remaining/60).toString().padStart(2,'0'),s=(remaining%60).toString().padStart(2,'0');timerEl.textContent=m+':'+s;timerEl.style.color=remaining<=120?'#e31837':'var(--timer-text)';}
-document.getElementById('start-timer').addEventListener('click',function(){if(timerInterval)return;timerInterval=setInterval(function(){if(remaining<=0){clearInterval(timerInterval);timerInterval=null;alert('Time is up!');return;}remaining--;renderTimer();},1000);});
-document.getElementById('pause-timer').addEventListener('click',function(){clearInterval(timerInterval);timerInterval=null;});
+(function(){
+const correctAnswers={q14:'B',q15:'D',q16:'B',q17:'laziness',q18:'anxious',q19:'threats',q20:'exams',q21:'perfectionists',q22:'guilt',q23:'E',q24:'C',q25:'A',q26:'D'};
+let total=20*60, remaining=total, interval=null, locked=false;
+const timer=document.getElementById('timer');
+function renderTimer(){const m=String(Math.floor(remaining/60)).padStart(2,'0');const s=String(remaining%60).padStart(2,'0');timer.textContent=m+':'+s;}
+function tick(){if(remaining<=0){clearInterval(interval);interval=null;checkAnswers();return;}remaining--;renderTimer();}
+document.getElementById('start-timer').onclick=()=>{if(!interval&&!locked)interval=setInterval(tick,1000);};
+document.getElementById('pause-timer').onclick=()=>{clearInterval(interval);interval=null;};
+document.getElementById('reset-timer').onclick=()=>{clearInterval(interval);interval=null;remaining=total;renderTimer();};
 renderTimer();
-const resizer=document.getElementById('cdi-resizer'),pEl=document.querySelector('.passage-container'),qEl=document.querySelector('.questions-container');let isResizing=false;
-resizer.addEventListener('mousedown',function(e){isResizing=true;e.preventDefault();});
-document.addEventListener('mousemove',function(e){if(!isResizing)return;const main=document.querySelector('main'),rect=main.getBoundingClientRect(),pct=((e.clientX-rect.left)/rect.width)*100;if(pct>15&&pct<85){pEl.style.flex='none';pEl.style.width=pct+'%';qEl.style.flex='1';}});
-document.addEventListener('mouseup',function(){isResizing=false;});
+const panel=document.getElementById('display-panel');
+document.getElementById('display-menu-toggle').onclick=()=>panel.classList.toggle('open');
+document.getElementById('font-size-range').oninput=e=>document.documentElement.style.setProperty('--cdi-font-size',e.target.value+'px');
+document.getElementById('line-height-range').oninput=e=>document.documentElement.style.setProperty('--cdi-line-height',(e.target.value/100).toString());
+document.querySelectorAll('[data-theme-choice]').forEach(b=>b.onclick=()=>{document.body.classList.toggle('night-mode',b.dataset.themeChoice==='dark')});
+document.getElementById('night-mode-toggle').onclick=()=>document.body.classList.toggle('night-mode');
+document.getElementById('fullscreen-toggle').onclick=()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}};
+const resizer=document.getElementById('cdi-resizer'), left=document.getElementById('passage-container'), right=document.getElementById('questions-container'), main=document.querySelector('main');
+let drag=false;function resize(clientX){const r=main.getBoundingClientRect();let pct=(clientX-r.left)/r.width*100;pct=Math.max(25,Math.min(75,pct));left.style.flex='0 0 calc('+pct+'% - 8px)';right.style.flex='0 0 calc('+(100-pct)+'% - 8px)';}
+resizer.addEventListener('mousedown',e=>{drag=true;resizer.classList.add('dragging');e.preventDefault();});document.addEventListener('mousemove',e=>{if(drag)resize(e.clientX)});document.addEventListener('mouseup',()=>{drag=false;resizer.classList.remove('dragging')});
+resizer.addEventListener('touchstart',e=>{drag=true;resizer.classList.add('dragging');e.preventDefault();},{passive:false});document.addEventListener('touchmove',e=>{if(drag&&e.touches[0])resize(e.touches[0].clientX)},{passive:false});document.addEventListener('touchend',()=>{drag=false;resizer.classList.remove('dragging')});
+let highlightTooltip=null;
+let selectedRange=null;
+let suppressNextHighlightOutsideClick=false;
+function removeHighlightTooltip(){if(highlightTooltip){highlightTooltip.remove();highlightTooltip=null;}}
+function createHighlightMenu(x,y){
+  removeHighlightTooltip();
+  const colors=['lightgreen','yellow','lightskyblue'];
+  const picker=document.createElement('div');
+  picker.className='highlight-tooltip';
+  picker.style.position='fixed';
+  picker.style.left=Math.max(8,x)+'px';
+  picker.style.top=Math.max(8,y)+'px';
+  picker.innerHTML='<i class="fas fa-highlighter"></i>';
+  colors.forEach(color=>{
+    const btn=document.createElement('button');
+    btn.type='button';btn.title='Highlight';btn.style.backgroundColor=color;btn.style.border='none';btn.style.width='22px';btn.style.height='22px';btn.style.margin='0 4px';btn.style.borderRadius='50%';btn.style.cursor='pointer';
+    btn.addEventListener('mousedown',e=>e.preventDefault());
+    btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();applyHighlight(color);});
+    picker.appendChild(btn);
+  });
+  picker.addEventListener('mousedown',e=>e.preventDefault());
+  document.body.appendChild(picker);
+  highlightTooltip=picker;
+  suppressNextHighlightOutsideClick=true;
+  setTimeout(()=>{suppressNextHighlightOutsideClick=false;},120);
+}
+function applyHighlight(color){
+  if(!selectedRange)return;
+  const span=document.createElement('span');
+  span.className='highlight';span.style.backgroundColor=color;span.setAttribute('data-color',color);
+  try{span.appendChild(selectedRange.extractContents());selectedRange.insertNode(span);}catch(err){try{selectedRange.surroundContents(span);}catch(e){}}
+  selectedRange=null;window.getSelection().removeAllRanges();removeHighlightTooltip();
+}
+function handleHighlightSelection(e){
+  const sel=window.getSelection();
+  if(!sel||sel.isCollapsed||!sel.toString().trim())return;
+  if(!e.currentTarget.contains(sel.anchorNode)||!e.currentTarget.contains(sel.focusNode))return;
+  selectedRange=sel.getRangeAt(0).cloneRange();
+  const rect=selectedRange.getBoundingClientRect();
+  createHighlightMenu(rect.left,rect.top-42);
+}
+const passageTextEl=document.getElementById('passage-text');
+const questionsEl=document.getElementById('questions-container');
+if(passageTextEl){passageTextEl.addEventListener('mouseup',handleHighlightSelection);passageTextEl.addEventListener('touchend',e=>setTimeout(()=>handleHighlightSelection(e),80));}
+if(questionsEl){questionsEl.addEventListener('mouseup',handleHighlightSelection);questionsEl.addEventListener('touchend',e=>setTimeout(()=>handleHighlightSelection(e),80));}
+document.addEventListener('click',e=>{
+  if(suppressNextHighlightOutsideClick){suppressNextHighlightOutsideClick=false;return;}
+  if(e.target.classList&&e.target.classList.contains('highlight')){
+    e.stopPropagation();removeHighlightTooltip();
+    const removeTip=document.createElement('div');
+    removeTip.className='highlight-tooltip';removeTip.style.position='fixed';removeTip.style.left=e.clientX+'px';removeTip.style.top=e.clientY+'px';
+    removeTip.innerHTML='<button type="button" style="color:white;background:red;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;">Remove Highlight</button>';
+    removeTip.querySelector('button').addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();const span=e.target;const parent=span.parentNode;while(span.firstChild)parent.insertBefore(span.firstChild,span);parent.removeChild(span);parent.normalize();removeTip.remove();highlightTooltip=null;});
+    document.body.appendChild(removeTip);highlightTooltip=removeTip;return;
+  }
+  if(highlightTooltip&&!highlightTooltip.contains(e.target)){removeHighlightTooltip();}
+});
+function norm(s){return String(s||'').trim().toLowerCase().replace(/\s+/g,' ');}
+function getVal(n){const checked=document.querySelector('input[name="q'+n+'"]:checked');if(checked)return checked.value;const el=document.querySelector('[name="q'+n+'"]');return el?el.value:'';}
+function setDisabled(){document.querySelectorAll('input,select').forEach(i=>i.disabled=true);}
+function updateProgress(){document.querySelectorAll('.progress-item').forEach(item=>{const n=item.dataset.q;if(getVal(n))item.classList.add('completed');else item.classList.remove('completed');});}
+document.querySelectorAll('input,select').forEach(i=>{i.addEventListener('input',updateProgress);i.addEventListener('change',updateProgress);});
+window.checkAnswers=function(){
+  if(locked)return;locked=true;clearInterval(interval);interval=null;
+  let score=0,totalQ=0;
+  const body=document.getElementById('feedback-body');body.innerHTML='';
+  Object.keys(correctAnswers).forEach(key=>{
+    const n=key.replace('q','');
+    const accepted=Array.isArray(correctAnswers[key])?correctAnswers[key]:[correctAnswers[key]];
+    const val=getVal(n);totalQ++;
+    let ok=accepted.some(a=>norm(a)===norm(val));
+    if(ok)score++;
+    let input=document.querySelector('[name="q'+n+'"]');
+    if(input&&input.type==='radio')input=document.querySelector('input[name="q'+n+'"]:checked')||document.querySelector('input[name="q'+n+'"]');
+    if(input)input.classList.add(ok?'correct':'wrong');
+    body.insertAdjacentHTML('beforeend','<div class="feedback-item"><strong>Question '+n+':</strong> '+(ok?'<span class="correct-mark">Correct</span>':'<span class="wrong-mark">Wrong</span>')+'<br>Your answer: '+(val||'<em>blank</em>')+'<br>Correct answer: '+accepted.join(' / ')+'</div>');
+  });
+  setDisabled();document.getElementById('score-display').textContent=score+'/'+totalQ;document.getElementById('feedback-overlay').style.display='flex';
+  try{window.dispatchEvent(new CustomEvent('test-submitted',{detail:{score,total:totalQ}}));}catch(e){}
+};
+document.getElementById('check-answers').onclick=checkAnswers;
+document.getElementById('close-feedback').onclick=()=>document.getElementById('feedback-overlay').style.display='none';
+document.querySelectorAll('.progress-item').forEach(i=>i.onclick=()=>document.getElementById('q'+i.dataset.q)?.scrollIntoView({behavior:'smooth',block:'center'}));
+})();
 </script>
 <script src="/passages/test-progress-bridge.js"></script>
-</body>
-</html>
+</body></html>

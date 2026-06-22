@@ -52,6 +52,51 @@ type HtmlTask = {
 };
 
 const HTML_TASKS: HtmlTask[] = [
+  // Cambridge IELTS 20 – Writing Task 1
+  {
+    id: "cam20-t1-task1",
+    task: 1,
+    type: "Bar Chart",
+    title: "Cambridge 20 Test 1 – Writing Task 1",
+    description: "Cambridge IELTS 20 Test 1 Writing Task 1: describe the bar chart and summarise the main features.",
+    image: "/writing-images/cam20_test1_task1.jpeg",
+    htmlFile: "/writing/CAM20_TEST_1_Task1.html",
+    minWords: 150,
+    timeMinutes: 20,
+  },
+  {
+    id: "cam20-t2-task1",
+    task: 1,
+    type: "Maps / Plans",
+    title: "Cambridge 20 Test 2 – Writing Task 1",
+    description: "Cambridge IELTS 20 Test 2 Writing Task 1: describe the floor plans of a library in 2005 and 2023.",
+    image: "/writing-images/cam20_test2_task.jpeg",
+    htmlFile: "/writing/CAM20_TEST_2_Task1.html",
+    minWords: 150,
+    timeMinutes: 20,
+  },
+  {
+    id: "cam20-t3-task1",
+    task: 1,
+    type: "Line Graph",
+    title: "Cambridge 20 Test 3 – Writing Task 1",
+    description: "Cambridge IELTS 20 Test 3 Writing Task 1: summarise the information shown in the chart.",
+    image: "/writing-images/cam20_test3_task1.jpeg",
+    htmlFile: "/writing/CAM20_TEST_3_Task1.html",
+    minWords: 150,
+    timeMinutes: 20,
+  },
+  {
+    id: "cam20-t4-task1",
+    task: 1,
+    type: "Mixed",
+    title: "Cambridge 20 Test 4 – Writing Task 1",
+    description: "Cambridge IELTS 20 Test 4 Writing Task 1: summarise the information shown in the chart.",
+    image: "/writing-images/cam20_test4_task1.jpeg",
+    htmlFile: "/writing/CAM20_TEST_4_Task1.html",
+    minWords: 150,
+    timeMinutes: 20,
+  },
   {
     id: "html-t1-water-use",
     task: 1,
@@ -308,6 +353,63 @@ const HTML_TASKS: HtmlTask[] = [
       "The table shows the amount of money given in aid of developing countries' technology by charities in the US, EU, and other countries from 2006 to 2010.",
     image: "/writing-images/task1_25.jpg",
     htmlFile: "/passages/task1_25.html",
+  },
+  // Cambridge IELTS 21 – Writing Task 2
+  {
+    id: "cam21-t1-task2",
+    task: 2,
+    type: "Agree/Disagree",
+    title: "Cambridge 21 Test 1 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 1 Writing Task 2: whether building tall apartment blocks is the best way to provide enough homes in large cities.",
+    prompt:
+      "The best way to provide enough homes in large cities is to build tall apartment blocks.\nTo what extent do you agree or disagree with this statement?",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_1_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "cam21-t2-task2",
+    task: 2,
+    type: "Discussion",
+    title: "Cambridge 21 Test 2 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 2 Writing Task 2: whether theatres and cinemas are still important in the digital age or no longer needed because entertainment is available online.",
+    prompt:
+      "Some people say that in the digital age, theatres and cinemas are no longer as important as people can watch all the entertainment they want online. Others argue that theatres and cinemas are still important both economically and culturally.\nDiscuss both these views and give your own opinion.",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_2_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "cam21-t3-task2",
+    task: 2,
+    type: "Advantages/Disadvantages",
+    title: "Cambridge 21 Test 3 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 3 Writing Task 2: whether the advantages of requiring all undergraduate courses to include study abroad or a work placement outweigh the disadvantages.",
+    prompt:
+      "All university undergraduate courses should include a period of time spent studying abroad or doing a work placement.\nDo you think the advantages of this would outweigh the disadvantages?",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_3_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "cam21-t4-task2",
+    task: 2,
+    type: "Two-Part Question",
+    title: "Cambridge 21 Test 4 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 4 Writing Task 2: whether primary schools focus too much on formal learning, and how important it is for children to play as well as learn.",
+    prompt:
+      "Some people argue that primary schools focus too much on formal learning.\nTo what extent do you agree with this opinion?\nHow important do you think it is for children to play as well as learn in the primary school classroom?",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_4_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
   },
   {
     id: "task2_1",
@@ -1035,6 +1137,102 @@ const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
   },
+  {
+    id: "task2_53",
+    task: 2,
+    type: "Advantages/Disadvantages",
+    title: "Credit Cards and Debt",
+    description:
+      "A Task 2 essay about whether the advantages of easily available credit cards outweigh the disadvantages.",
+    image: "",
+    htmlFile: "/writing/task2_53.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_54",
+    task: 2,
+    type: "Discussion",
+    title: "Government Control of Food Choices",
+    description:
+      "A Task 2 discussion essay about whether the government should regulate people's nutrition and food choices or leave it to personal responsibility.",
+    image: "",
+    htmlFile: "/writing/task2_54.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_55",
+    task: 2,
+    type: "Two-Part Question",
+    title: "Rising Demand for University Education",
+    description:
+      "A Task 2 two-part essay about why more people want to attend university and whether this is a positive or negative development.",
+    image: "",
+    htmlFile: "/writing/task2_55.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_56",
+    task: 2,
+    type: "Discussion",
+    title: "Government Control of Fresh Water",
+    description:
+      "A Task 2 discussion essay about whether the government should strictly control the supply of fresh water or leave it unregulated.",
+    image: "",
+    htmlFile: "/writing/task2_56.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_57",
+    task: 2,
+    type: "Advantages/Disadvantages",
+    title: "Working Abroad with Family",
+    description:
+      "A Task 2 essay about whether the advantages of moving abroad for work and taking one's family outweigh the disadvantages.",
+    image: "",
+    htmlFile: "/writing/task2_57.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_58",
+    task: 2,
+    type: "Agree/Disagree",
+    title: "Pay for Professionals vs Entertainers",
+    description:
+      "A Task 2 essay about whether professionals such as doctors, nurses and teachers should be paid more than sports and entertainment personalities.",
+    image: "",
+    htmlFile: "/writing/task2_58.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_59",
+    task: 2,
+    type: "Two-Part Question",
+    title: "Having Children Late in Life",
+    description:
+      "A Task 2 essay about the reasons people have children later in life and the effects on society and family life.",
+    image: "",
+    htmlFile: "/writing/task2_59.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "task2_60",
+    task: 2,
+    type: "Positive/Negative Development",
+    title: "Living Alone vs Extended Families",
+    description:
+      "A Task 2 essay about whether the trend towards living alone or in small family units rather than extended families is a positive or negative development.",
+    image: "",
+    htmlFile: "/writing/task2_60.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
 ];
 
 const TASK_TOTALS: Record<1 | 2, number> = {
@@ -1137,7 +1335,7 @@ function Writing() {
         <div className="absolute top-10 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="sword" size={32} opacity={1} />
         </div>
-        <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-8">IELTS Writing</h1>
+        <h1 className="ink-bleed font-serif text-3xl md:text-4xl text-foreground mb-8">IELTS Writing</h1>
 
         {/* Video banner */}
         <div className="relative overflow-hidden rounded-2xl px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border border-border shadow-card bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)]">
@@ -1241,7 +1439,7 @@ function Writing() {
                   }}
                   className="block text-left"
                 >
-                  <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                  <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300 cursor-pointer">
                     <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                       {task.image ? (
                         <img
@@ -1290,7 +1488,7 @@ function Writing() {
                     params={{ taskId: task.id }}
                     className="block"
                   >
-                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                       <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                         {task.image ? (
                           <img
@@ -1338,7 +1536,7 @@ function Writing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {visibleSamples.map((sample) => (
               <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
-                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                   <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                     {sample.coverImage ? (
                       <img
@@ -1380,7 +1578,7 @@ function Writing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WRITING_ESSAYS.map((essay) => (
               <Link key={essay.id} to="/writing/essay/$id" params={{ id: essay.id }}>
-                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 transition-all duration-300">
+                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                   <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                     <div className="text-4xl font-bold text-muted-foreground">
                       T{essay.testNumber}

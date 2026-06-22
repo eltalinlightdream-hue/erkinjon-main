@@ -39,6 +39,70 @@ type ListeningTest = {
 };
 
 const TESTS: ListeningTest[] = [
+  // Cambridge IELTS 20 – Test 1
+  { id: "cam20-t1-p1", title: "CAM 20 Test 1 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 1 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part1.html", isPremium: false },
+  { id: "cam20-t1-p2", title: "CAM 20 Test 1 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 1 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part2.html", isPremium: false },
+  { id: "cam20-t1-p3", title: "CAM 20 Test 1 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 1 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part3.html", isPremium: false },
+  { id: "cam20-t1-p4", title: "CAM 20 Test 1 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 1 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_1_Part4.html", isPremium: false },
+  // Cambridge IELTS 20 – Test 2
+  { id: "cam20-t2-p1", title: "CAM 20 Test 2 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 2 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part1.html", isPremium: false },
+  { id: "cam20-t2-p2", title: "CAM 20 Test 2 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 2 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part2.html", isPremium: false },
+  { id: "cam20-t2-p3", title: "CAM 20 Test 2 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 2 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part3.html", isPremium: false },
+  { id: "cam20-t2-p4", title: "CAM 20 Test 2 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 2 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_2_Part4.html", isPremium: false },
+  // Cambridge IELTS 20 – Test 3
+  { id: "cam20-t3-p1", title: "CAM 20 Test 3 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 3 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part1.html", isPremium: false },
+  { id: "cam20-t3-p2", title: "CAM 20 Test 3 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 3 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part2.html", isPremium: false },
+  { id: "cam20-t3-p3", title: "CAM 20 Test 3 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 3 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part3.html", isPremium: false },
+  { id: "cam20-t3-p4", title: "CAM 20 Test 3 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 3 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_3_Part4.html", isPremium: false },
+  // Cambridge IELTS 20 – Test 4
+  { id: "cam20-t4-p1", title: "CAM 20 Test 4 – Section 1", section: 1, description: "Cambridge IELTS 20 Test 4 Listening Section 1 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part1.html", isPremium: false },
+  { id: "cam20-t4-p2", title: "CAM 20 Test 4 – Section 2", section: 2, description: "Cambridge IELTS 20 Test 4 Listening Section 2 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part2.html", isPremium: false },
+  { id: "cam20-t4-p3", title: "CAM 20 Test 4 – Section 3", section: 3, description: "Cambridge IELTS 20 Test 4 Listening Section 3 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part3.html", isPremium: false },
+  { id: "cam20-t4-p4", title: "CAM 20 Test 4 – Section 4", section: 4, description: "Cambridge IELTS 20 Test 4 Listening Section 4 — 10 questions.", questions: 10, htmlFile: "/passages/CAM20_TEST_4_Part4.html", isPremium: false },
+  {
+    id: "full-test-1",
+    title: "Full Test 1",
+    section: 0,
+    description:
+      "Full 40-question test: music lessons, volunteering in Hambleford, a film studies project, and the history of soap.",
+    questions: 40,
+    htmlFile: "/passages/ftest1full.html",
+    audioFile: "/passages/audio/ftest1.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-2",
+    title: "Full Test 2",
+    section: 0,
+    description:
+      "Full 40-question test: a weekend guitar course booking, a spring festival, an action research course, and digital technology in education.",
+    questions: 40,
+    htmlFile: "/passages/ftest2full.html",
+    audioFile: "/passages/audio/ftest2.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-3",
+    title: "Full Test 3",
+    section: 0,
+    description:
+      "Full 40-question test: a lifeguard application, becoming a millionaire, performance arts course feedback, and a sea lion tracking study.",
+    questions: 40,
+    htmlFile: "/passages/ftest3full.html",
+    audioFile: "/passages/audio/ftest3.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-4",
+    title: "Full Test 4",
+    section: 0,
+    description:
+      "Full 40-question test: becoming a tea taster, Pioneer Historical Village, advice on waste disposal, and whale shark conservation.",
+    questions: 40,
+    htmlFile: "/passages/ftest4full.html",
+    audioFile: "/passages/audio/ftest4.mp3",
+    isPremium: false,
+  },
   {
     id: "v9-test-1",
     title: "Vol 9 Test 1 — Accommodation & Dormancy",
@@ -865,7 +929,7 @@ function Listening() {
         <div className="absolute top-6 right-24 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="pickaxe" size={32} opacity={1} />
         </div>
-        <div className="mb-10">
+        <div className="ink-bleed mb-10">
           <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Listening</h1>
           <p className="text-muted-foreground mb-1">
             Full listening tests with built-in audio player, timer, and answer checker.

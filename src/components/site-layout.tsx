@@ -102,7 +102,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     );
 
   const dropdownPanel =
-    "bg-[var(--nav-dropdown-bg)] border border-[var(--nav-border)] rounded-2xl shadow-warm py-2 overflow-hidden";
+    "dropdown-enter bg-[var(--nav-dropdown-bg)] border border-[var(--nav-border)] rounded-2xl shadow-warm py-2 overflow-hidden";
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -423,7 +423,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
         {/* Mobile menu */}
         {open && (
-          <div className="lg:hidden border-t border-[var(--nav-border)] bg-[var(--nav-dropdown-bg)]">
+          <div className="nav-drop lg:hidden border-t border-[var(--nav-border)] bg-[var(--nav-dropdown-bg)]">
             <div className="container mx-auto px-4 py-4 flex flex-col gap-0.5">
               <Link
                 to="/"
