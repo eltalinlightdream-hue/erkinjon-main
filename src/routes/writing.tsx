@@ -354,6 +354,63 @@ const HTML_TASKS: HtmlTask[] = [
     image: "/writing-images/task1_25.jpg",
     htmlFile: "/passages/task1_25.html",
   },
+  // Cambridge IELTS 21 – Writing Task 2
+  {
+    id: "cam21-t1-task2",
+    task: 2,
+    type: "Agree/Disagree",
+    title: "Cambridge 21 Test 1 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 1 Writing Task 2: whether building tall apartment blocks is the best way to provide enough homes in large cities.",
+    prompt:
+      "The best way to provide enough homes in large cities is to build tall apartment blocks.\nTo what extent do you agree or disagree with this statement?",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_1_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "cam21-t2-task2",
+    task: 2,
+    type: "Discussion",
+    title: "Cambridge 21 Test 2 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 2 Writing Task 2: whether theatres and cinemas are still important in the digital age or no longer needed because entertainment is available online.",
+    prompt:
+      "Some people say that in the digital age, theatres and cinemas are no longer as important as people can watch all the entertainment they want online. Others argue that theatres and cinemas are still important both economically and culturally.\nDiscuss both these views and give your own opinion.",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_2_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "cam21-t3-task2",
+    task: 2,
+    type: "Advantages/Disadvantages",
+    title: "Cambridge 21 Test 3 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 3 Writing Task 2: whether the advantages of requiring all undergraduate courses to include study abroad or a work placement outweigh the disadvantages.",
+    prompt:
+      "All university undergraduate courses should include a period of time spent studying abroad or doing a work placement.\nDo you think the advantages of this would outweigh the disadvantages?",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_3_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
+  {
+    id: "cam21-t4-task2",
+    task: 2,
+    type: "Two-Part Question",
+    title: "Cambridge 21 Test 4 – Writing Task 2",
+    description:
+      "Cambridge IELTS 21 Test 4 Writing Task 2: whether primary schools focus too much on formal learning, and how important it is for children to play as well as learn.",
+    prompt:
+      "Some people argue that primary schools focus too much on formal learning.\nTo what extent do you agree with this opinion?\nHow important do you think it is for children to play as well as learn in the primary school classroom?",
+    image: "",
+    htmlFile: "/writing/CAM21_TEST_4_Task2.html",
+    minWords: 250,
+    timeMinutes: 40,
+  },
   {
     id: "task2_1",
     task: 2,
