@@ -40,6 +40,106 @@ type Passage = {
 };
 
 const PASSAGES: Passage[] = [
+  // Cambridge IELTS 21 – Test 1
+  {
+    id: "cam21-t1-r1",
+    title: "Cambridge 21 Test 1 – The Davies Sisters",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 1 Reading Passage 1: The Davies Sisters — questions 1–13.",
+    htmlFile: "/passages/C21_T1_P1_The_Davies_Sisters.html",
+  },
+  {
+    id: "cam21-t1-r2",
+    title: "Cambridge 21 Test 1 – Why We Need Silence",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 1 Reading Passage 2: Why We Need Silence — questions 14–26.",
+    htmlFile: "/passages/C21_T1_P2_Why_We_Need_Silence.html",
+  },
+  {
+    id: "cam21-t1-r3",
+    title: "Cambridge 21 Test 1 – The World of Sugar",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 1 Reading Passage 3: The World of Sugar (book review) — questions 27–40.",
+    htmlFile: "/passages/C21_T1_P3_The_World_of_Sugar.html",
+  },
+  // Cambridge IELTS 21 – Test 2
+  {
+    id: "cam21-t2-r1",
+    title: "Cambridge 21 Test 2 – Do Animals Dream?",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 2 Reading Passage 1: Do Animals Dream? — questions 1–13.",
+    htmlFile: "/passages/C21_T2_P1_Do_Animals_Dream.html",
+  },
+  {
+    id: "cam21-t2-r2",
+    title: "Cambridge 21 Test 2 – Mapungubwe",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 2 Reading Passage 2: Mapungubwe — questions 14–26.",
+    htmlFile: "/passages/C21_T2_P2_Mapungubwe.html",
+  },
+  {
+    id: "cam21-t2-r3",
+    title: "Cambridge 21 Test 2 – Artificial Intelligence",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 2 Reading Passage 3: Artificial Intelligence — questions 27–40.",
+    htmlFile: "/passages/C21_T2_P3_Artificial_Intelligence.html",
+  },
+  // Cambridge IELTS 21 – Test 3
+  {
+    id: "cam21-t3-r1",
+    title: "Cambridge 21 Test 3 – Saving the Saiga",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 3 Reading Passage 1: Saving the Saiga — questions 1–13.",
+    htmlFile: "/passages/C21_T3_P1_Saving_the_Saiga.html",
+  },
+  {
+    id: "cam21-t3-r2",
+    title: "Cambridge 21 Test 3 – Getting Around Dar es Salaam",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 3 Reading Passage 2: The problems of getting around the city of Dar es Salaam — questions 14–26.",
+    htmlFile: "/passages/C21_T3_P2_Dar_es_Salaam.html",
+  },
+  {
+    id: "cam21-t3-r3",
+    title: "Cambridge 21 Test 3 – Rethinking the Past",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 3 Reading Passage 3: Rethinking the Past — questions 27–40.",
+    htmlFile: "/passages/C21_T3_P3_Rethinking_the_Past.html",
+  },
+  // Cambridge IELTS 21 – Test 4
+  {
+    id: "cam21-t4-r1",
+    title: "Cambridge 21 Test 4 – The Spread of the Water Hyacinth in Kenya",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 4 Reading Passage 1: The problems and benefits created by the spread of the water hyacinth in Kenya — questions 1–13.",
+    htmlFile: "/passages/C21_T4_P1_Water_Hyacinth.html",
+  },
+  {
+    id: "cam21-t4-r2",
+    title: "Cambridge 21 Test 4 – Multilingualism in India",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 4 Reading Passage 2: How could multilingualism benefit India's poorest schoolchildren? — questions 14–26.",
+    htmlFile: "/passages/C21_T4_P2_Multilingualism_in_India.html",
+  },
+  {
+    id: "cam21-t4-r3",
+    title: "Cambridge 21 Test 4 – The Globemakers",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 4 Reading Passage 3: The Globemakers — The Curious Story of an Ancient Craft — questions 27–40.",
+    htmlFile: "/passages/C21_T4_P3_The_Globemakers.html",
+  },
   // Cambridge IELTS 20 – Test 1
   {
     id: "cam20-t1-r1",
