@@ -40,6 +40,46 @@ type ListeningTest = {
 
 const TESTS: ListeningTest[] = [
   {
+    id: "c21-test-1",
+    title: "Cambridge 21 Test 1 — Sailing Club & Ocean Biodiversity",
+    section: 0,
+    description:
+      "Full 40-question test: Oyster Bay Sailing Club courses, working as a makeup trainee, an ocean biodiversity lecture, and the sources of rubber.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test1.html",
+    isPremium: false,
+  },
+  {
+    id: "c21-test-2",
+    title: "Cambridge 21 Test 2 — Steynford Classes & Cruise Ships",
+    section: 0,
+    description:
+      "Full 40-question test: one-day classes at Steynford College, walks in the region and Melby Coal Mine, food science course feedback, and challenges facing the cruise ship industry.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test2.html",
+    isPremium: false,
+  },
+  {
+    id: "c21-test-3",
+    title: "Cambridge 21 Test 3 — Shetland Ferry & Invasive Species",
+    section: 0,
+    description:
+      "Full 40-question test: the ferry to the Shetland Islands, starting a street food business, a sustainable and ethical fashion project, and invasive species.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test3.html",
+    isPremium: false,
+  },
+  {
+    id: "c21-test-4",
+    title: "Cambridge 21 Test 4 — Shopping Survey & Music Therapy",
+    section: 0,
+    description:
+      "Full 40-question test: a shopping survey in Broadbeach, an annual business exhibition, a presentation on houses of the future, and music therapy for surgical patients.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test4.html",
+    isPremium: false,
+  },
+  {
     id: "full-test-1",
     title: "Full Test 1",
     section: 0,
