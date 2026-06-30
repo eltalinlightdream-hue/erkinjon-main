@@ -36,4 +36,7 @@ screenshots/
 *.njsproj
 *.sln
 *.sw?
-.claude/
+# Ignore local Claude Code state, but keep the committed ECC rule packs + skills
+.claude/*
+!.claude/rules/
+!.claude/skills/
