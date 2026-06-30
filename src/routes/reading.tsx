@@ -40,6 +40,33 @@ type Passage = {
 };
 
 const PASSAGES: Passage[] = [
+  {
+    id: "p1-olmec",
+    title: "The Olmec and Their Great Stone Heads",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage about the ancient Olmec civilisation of Mesoamerica and the enormous sculpted stone heads they left behind.",
+    htmlFile: "/passages/Olmec_CDI_standalone.html",
+  },
+  {
+    id: "p1-bar-code",
+    title: "The History of the Bar Code",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage tracing the invention and standardisation of the bar code, from a 1948 idea to billions of daily scans.",
+    htmlFile: "/passages/Bar_code_CDI_standalone.html",
+  },
+  {
+    id: "p2-eating-meat",
+    title: "Should We Stop Eating Meat?",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "An academic passage weighing the environmental costs and trade-offs of a meat-free world.",
+    htmlFile: "/passages/Eating_meat_CDI_standalone.html",
+  },
   // Cambridge IELTS 21 – Test 1
   {
     id: "cam21-t1-r1",
