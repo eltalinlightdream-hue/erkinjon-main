@@ -1773,15 +1773,6 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/Cane_Toad_CDI_standalone.html",
   },
   {
-    id: "p1-sleep-study",
-    title: "Sleep Study on Modern-Day Hunter-Gatherers",
-    passageNumber: 1,
-    isPremium: false,
-    description:
-      "An academic passage describing research into the sleep patterns of present-day hunter-gatherer societies and what it reveals about human sleep — questions 1–13.",
-    htmlFile: "/passages/Sleep_Study_CDI_standalone.html",
-  },
-  {
     id: "p1-archaeoacoustics",
     title: "The Science of Archaeoacoustics",
     passageNumber: 1,
@@ -1798,24 +1789,6 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage on efforts to save the Przewalski horse from extinction and reintroduce it to the wild in Mongolia — questions 1–13.",
     htmlFile: "/passages/Przewalski_Horse_CDI_standalone.html",
-  },
-  {
-    id: "p2-coins",
-    title: "Coins – the First Form of Money",
-    passageNumber: 2,
-    isPremium: false,
-    description:
-      "An academic passage tracing the origins of coins as money and what ancient coins reveal about past societies — questions 14–26.",
-    htmlFile: "/passages/Coins_CDI_standalone.html",
-  },
-  {
-    id: "p3-grapefruit",
-    title: "Creating a Better Grapefruit",
-    passageNumber: 3,
-    isPremium: false,
-    description:
-      "An academic passage on the science of bitterness, taste receptors and efforts to make grapefruit and other foods less bitter — questions 27–40.",
-    htmlFile: "/passages/Grapefruit_CDI_standalone.html",
   },
   {
     id: "p3-age-proofing-brains",
