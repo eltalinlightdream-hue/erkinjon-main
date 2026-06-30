@@ -787,6 +787,74 @@ export const WRITING_SAMPLES: WritingSample[] = [
       { word: "Household activities tended to be done significantly more by…", definition: "Complex structure combining trend and comparison." }
     ],
   },
+  {
+    id: "t1-35",
+    reportNumber: 35,
+    task: 1 as const,
+    chartType: "Map/Plan",
+    question:
+      "Cambridge 21 Test 2 – The maps below show the layout of a college café before its redevelopment and in its current state.",
+    wordCount: 211,
+    content: `<p>The maps illustrate the layout of a college café before its redevelopment in relation to its current state. Overall, the café has undergone several modifications to its interior facilities, including the introduction of a salad bar, recycling bins, a take-away food section, a coffee bar, and a dedicated hot meals area. Additionally, visitors now have access to an outdoor barbeque area, which also accommodates outdoor seating for enhanced convenience.</p>
+<p>To begin with, the café's kitchen is positioned on the northern left-hand side, now focusing exclusively on hot meals preparation, whereas it previously served all types of food and drinks. The two staff dining rooms that were originally adjacent on the northern side have been converted into a take-away food section on the left and a coffee bar on the right. In the middle of the hall, tables and chairs remain in their original positions, while toilets are located in the bottom right-hand corner.</p>
+<p>Moving on, the standard bins have been replaced with recycling bins, positioned immediately to the left of the café entrance on the upper eastern side. An outdoor recreational zone has been added to the southern section, featuring a barbeque grill on the western side and seating areas accessible via single-swing doors on both the western and eastern walls.</p>`,
+    vocabulary: [
+      { word: "undergone several modifications", definition: "experienced a number of changes" },
+      { word: "interior facilities", definition: "the features and amenities inside a building" },
+      { word: "converted into", definition: "changed into a different use or form" },
+      { word: "remain in their original positions", definition: "stayed in the same places as before" },
+      { word: "replaced with", definition: "removed and substituted by something else" },
+      { word: "outdoor recreational zone", definition: "an outside area used for leisure activities" },
+      { word: "for enhanced convenience", definition: "to make something easier or more comfortable" },
+      { word: "exclusively", definition: "for one purpose only; solely" },
+      { word: "adjacent", definition: "next to or beside something" },
+      { word: "accommodates", definition: "provides enough space or room for" },
+    ],
+  },
+  {
+    id: "t1-36",
+    reportNumber: 36,
+    task: 1 as const,
+    chartType: "Mixed Charts",
+    question:
+      "Cambridge 21 Test 4 – The charts below give information about the categories of library users and their satisfaction with the facilities at a university library.",
+    wordCount: 181,
+    content: `<p>The report examines information about categories of library users and their satisfaction with library facilities at a university. In general, full-time undergraduates represent the majority of users, followed by full-time postgraduates, part-time postgraduates, and distance learners, whereas academic staff constitute the smallest share. A relatively higher proportion of users express high satisfaction compared to those fairly satisfied or dissatisfied, with the greatest satisfaction recorded for staff helpfulness.</p>
+<p>Examining the shares of different library users, full-time undergraduates comprise a substantial 44%, with full-time postgraduates ranking second at 20%. Part-time postgraduates follow in third place at 16%, while distance learners and academic staff differ by only one percentage point, with 8% and 7% respectively.</p>
+<p>Regarding library user satisfaction, a significant proportion of users are content with library facilities. Staff helpfulness receives the highest satisfaction rating, with 95% of users highly satisfied, 5% fairly satisfied, and no dissatisfied users. Opening hours also demonstrate strong satisfaction, with 65% highly satisfied and 35% fairly satisfied, with no recorded dissatisfaction. Book availability satisfies 50% of users highly, 40% fairly, and 10% not satisfied, whilst journal availability shows less satisfaction compared to books, with 45% highly satisfied, 35% fairly satisfied, and 20% dissatisfied. Finally, library wi-fi reliability is endorsed by 48% of users as highly reliable, with 33% fairly satisfied and 19% dissatisfied.</p>`,
+    vocabulary: [
+      { word: "represent the majority", definition: "make up the largest part of a group" },
+      { word: "constitute the smallest share", definition: "form the lowest proportion" },
+      { word: "comprise a substantial", definition: "make up a large amount or proportion" },
+      { word: "ranking second at", definition: "being in second place with a particular figure" },
+      { word: "differ by only one percentage point", definition: "vary by just 1%" },
+      { word: "content with", definition: "satisfied or pleased with something" },
+      { word: "highest satisfaction rating", definition: "the best score recorded for satisfaction" },
+      { word: "demonstrate strong satisfaction", definition: "show a high level of contentment" },
+      { word: "endorsed by", definition: "approved of or supported by" },
+      { word: "respectively", definition: "in the same order as previously mentioned" },
+    ],
+  },
+  {
+    id: "t1-37",
+    reportNumber: 37,
+    task: 1 as const,
+    chartType: "Line Graph",
+    question:
+      "Cambridge 21 Test 1 – The line graph below shows the number of jobs in four sectors (Manufacturing, Retail, Agriculture and Healthcare) in the US economy between 1960 and 2020.",
+    wordCount: 72,
+    content: `<p>The report examines changes in the number of jobs in four sectors — Manufacturing, Retail, Agriculture, and Healthcare — in the US economy between 1960 and 2020 in the line graph. Overall, the Manufacturing and Healthcare sectors followed an upward trend over the period in question, while Retail and Agriculture, which remained the most employed sectors by the end of the period, saw the opposite. Meanwhile, Healthcare recorded the lowest number of jobs throughout.</p>`,
+    vocabulary: [
+      { word: "examines changes", definition: "looks at how figures changed over time" },
+      { word: "upward trend", definition: "a general increase over time" },
+      { word: "saw the opposite", definition: "experienced the reverse trend" },
+      { word: "the most employed sectors", definition: "the areas with the largest number of jobs" },
+      { word: "by the end of the period", definition: "at the final point in the time frame" },
+      { word: "recorded the lowest", definition: "had the smallest figure" },
+      { word: "over the period in question", definition: "during the time being discussed" },
+      { word: "throughout", definition: "during the whole period" },
+    ],
+  },
 ];
 
 export function findWritingSample(id: string): WritingSample | undefined {
