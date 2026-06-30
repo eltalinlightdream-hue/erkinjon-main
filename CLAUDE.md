@@ -47,6 +47,31 @@ Language packs extend the `common/` baseline. When guidance conflicts with an
 existing, consistent pattern already in this codebase, prefer the codebase's
 established pattern and note the discrepancy.
 
+## Skills (ECC, `.claude/skills/`)
+
+Curated ECC skills are installed under `.claude/skills/`. Claude Code
+auto-discovers each `SKILL.md`; invoke one when a task matches its description
+(or the user types `/skill-name`). Installed set and when they fire:
+
+| Skill | Use it when |
+|-------|-------------|
+| `postgres-patterns` | Writing/optimizing Supabase (Postgres) queries, schema, indexes, RLS |
+| `database-migrations` | Creating or changing `supabase/migrations` |
+| `react-patterns` / `react-performance` / `react-testing` | Building, optimizing, or testing React components |
+| `frontend-patterns` | General frontend structure/state/data-fetching |
+| `design-system` | Generating or auditing UI consistency (shadcn/Tailwind) |
+| `motion-ui` | Animations / transitions (e.g. reveal, decorations) |
+| `error-handling` | Error boundaries, server-function failures, `error-capture.ts` |
+| `e2e-testing` | Playwright end-to-end tests |
+| `security-review` | Auth, user input, secrets, API endpoints, premium/sensitive features |
+| `bun-runtime` | Bun-specific tooling/runtime questions |
+| `coding-standards` | Broad code-quality passes |
+| `documentation-lookup` | Confirming library/framework APIs (TanStack, Supabase, Radix) |
+
+> Caveat: `documentation-lookup` is written around the Context7 MCP server,
+> which may not be configured here — treat it as "check current docs before
+> coding" guidance; use available fetch/search tools if Context7 is absent.
+
 > Some rule files reference ECC-specific agents/tooling (e.g. a `planner` or
 > `tdd-guide` agent, or `gh` search) that are **not** installed here. Treat
 > those as aspirational guidance, not hard requirements.
