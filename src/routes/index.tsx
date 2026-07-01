@@ -157,23 +157,23 @@ function Index() {
             </div>
 
             {/* Right: hero image panel */}
-            <div className=”lg:col-span-5 relative ink-bleed” style={{ animationDelay: “0.45s” }}>
-              <div className=”group/illu relative max-w-sm mx-auto rounded-3xl overflow-hidden border border-border shadow-soft transition-transform duration-500 ease-out hover:-translate-y-1.5 hover:shadow-warm”>
+            <div className="lg:col-span-5 relative ink-bleed" style={{ animationDelay: "0.45s" }}>
+              <div className="group/illu relative max-w-sm mx-auto rounded-3xl overflow-hidden border border-border shadow-soft transition-transform duration-500 ease-out hover:-translate-y-1.5 hover:shadow-warm">
                 <img
-                  src=”/writing-images/herostudy.jpg”
-                  alt=”Studying with focus and determination”
+                  src="/writing-images/herostudy.jpg"
+                  alt="Studying with focus and determination"
                   width={400}
                   height={260}
-                  className=”w-full h-auto object-cover”
-                  loading=”eager”
-                  fetchPriority=”high”
+                  className="w-full h-auto object-cover"
+                  loading="eager"
+                  fetchPriority="high"
                 />
 
                 {/* Band 8.0 seal */}
-                <div className=”absolute -top-5 -right-4 md:-right-6 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center shadow-warm rotate-6 select-none transition-transform duration-500 ease-out group-hover/illu:rotate-12 group-hover/illu:scale-105”>
-                  <span className=”text-[9px] uppercase tracking-[0.18em] opacity-90”>Band</span>
-                  <span className=”font-serif text-2xl leading-none”>8.0</span>
-                  <span className=”text-[9px] uppercase tracking-[0.18em] opacity-90 mt-0.5”>
+                <div className="absolute -top-5 -right-4 md:-right-6 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center shadow-warm rotate-6 select-none transition-transform duration-500 ease-out group-hover/illu:rotate-12 group-hover/illu:scale-105">
+                  <span className="text-[9px] uppercase tracking-[0.18em] opacity-90">Band</span>
+                  <span className="font-serif text-2xl leading-none">8.0</span>
+                  <span className="text-[9px] uppercase tracking-[0.18em] opacity-90 mt-0.5">
                     Teacher
                   </span>
                 </div>
