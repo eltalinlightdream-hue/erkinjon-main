@@ -37,6 +37,7 @@ type Passage = {
   htmlFile?: string;
   content?: string;
   isPremium: boolean;
+  isNew?: boolean;
 };
 
 const PASSAGES: Passage[] = [
@@ -48,6 +49,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage about the ancient Olmec civilisation of Mesoamerica and the enormous sculpted stone heads they left behind.",
     htmlFile: "/passages/Olmec_CDI_standalone.html",
+    isNew: true,
   },
   {
     id: "p1-bar-code",
@@ -57,6 +59,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage tracing the invention and standardisation of the bar code, from a 1948 idea to billions of daily scans.",
     htmlFile: "/passages/Bar_code_CDI_standalone.html",
+    isNew: true,
   },
   {
     id: "p2-eating-meat",
@@ -66,6 +69,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage weighing the environmental costs and trade-offs of a meat-free world.",
     htmlFile: "/passages/Eating_meat_CDI_standalone.html",
+    isNew: true,
   },
   // Cambridge IELTS 21 – Test 1
   {
@@ -75,6 +79,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 1 Reading Passage 1: The Davies Sisters — questions 1–13.",
     htmlFile: "/passages/C21_T1_P1_The_Davies_Sisters.html",
+    isNew: true,
   },
   {
     id: "cam21-t1-r2",
@@ -83,6 +88,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 1 Reading Passage 2: Why We Need Silence — questions 14–26.",
     htmlFile: "/passages/C21_T1_P2_Why_We_Need_Silence.html",
+    isNew: true,
   },
   {
     id: "cam21-t1-r3",
@@ -91,6 +97,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 1 Reading Passage 3: The World of Sugar (book review) — questions 27–40.",
     htmlFile: "/passages/C21_T1_P3_The_World_of_Sugar.html",
+    isNew: true,
   },
   // Cambridge IELTS 21 – Test 2
   {
@@ -100,6 +107,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 2 Reading Passage 1: Do Animals Dream? — questions 1–13.",
     htmlFile: "/passages/C21_T2_P1_Do_Animals_Dream.html",
+    isNew: true,
   },
   {
     id: "cam21-t2-r2",
@@ -108,6 +116,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 2 Reading Passage 2: Mapungubwe — questions 14–26.",
     htmlFile: "/passages/C21_T2_P2_Mapungubwe.html",
+    isNew: true,
   },
   {
     id: "cam21-t2-r3",
@@ -116,6 +125,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 2 Reading Passage 3: Artificial Intelligence — questions 27–40.",
     htmlFile: "/passages/C21_T2_P3_Artificial_Intelligence.html",
+    isNew: true,
   },
   // Cambridge IELTS 21 – Test 3
   {
@@ -125,6 +135,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 3 Reading Passage 1: Saving the Saiga — questions 1–13.",
     htmlFile: "/passages/C21_T3_P1_Saving_the_Saiga.html",
+    isNew: true,
   },
   {
     id: "cam21-t3-r2",
@@ -133,6 +144,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 3 Reading Passage 2: The problems of getting around the city of Dar es Salaam — questions 14–26.",
     htmlFile: "/passages/C21_T3_P2_Dar_es_Salaam.html",
+    isNew: true,
   },
   {
     id: "cam21-t3-r3",
@@ -141,6 +153,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 3 Reading Passage 3: Rethinking the Past — questions 27–40.",
     htmlFile: "/passages/C21_T3_P3_Rethinking_the_Past.html",
+    isNew: true,
   },
   // Cambridge IELTS 21 – Test 4
   {
@@ -150,6 +163,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 4 Reading Passage 1: The problems and benefits created by the spread of the water hyacinth in Kenya — questions 1–13.",
     htmlFile: "/passages/C21_T4_P1_Water_Hyacinth.html",
+    isNew: true,
   },
   {
     id: "cam21-t4-r2",
@@ -158,6 +172,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 4 Reading Passage 2: How could multilingualism benefit India's poorest schoolchildren? — questions 14–26.",
     htmlFile: "/passages/C21_T4_P2_Multilingualism_in_India.html",
+    isNew: true,
   },
   {
     id: "cam21-t4-r3",
@@ -166,6 +181,7 @@ const PASSAGES: Passage[] = [
     isPremium: false,
     description: "Cambridge IELTS 21 Test 4 Reading Passage 3: The Globemakers — The Curious Story of an Ancient Craft — questions 27–40.",
     htmlFile: "/passages/C21_T4_P3_The_Globemakers.html",
+    isNew: true,
   },
   {
     id: "p3-piraha",
@@ -1762,6 +1778,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage on the long history of seaweed as food, fuel and fertiliser, and its growing role in food security and biofuels — questions 1–13.",
     htmlFile: "/passages/Seaweed_CDI_standalone.html",
+    isNew: true,
   },
   {
     id: "p1-cane-toad",
@@ -1771,6 +1788,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage on how cane toads were introduced to Australia as biological pest control and became an invasive species — questions 1–13.",
     htmlFile: "/passages/Cane_Toad_CDI_standalone.html",
+    isNew: true,
   },
   {
     id: "p1-archaeoacoustics",
@@ -1780,6 +1798,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage on archaeoacoustics — the study of sound at ancient sites, from Paleolithic caves to Maltese hypogea and Greek theatres — questions 1–13.",
     htmlFile: "/passages/Archaeoacoustics_CDI_standalone.html",
+    isNew: true,
   },
   {
     id: "p1-przewalski-horse",
@@ -1789,6 +1808,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage on efforts to save the Przewalski horse from extinction and reintroduce it to the wild in Mongolia — questions 1–13.",
     htmlFile: "/passages/Przewalski_Horse_CDI_standalone.html",
+    isNew: true,
   },
   {
     id: "p3-age-proofing-brains",
@@ -1798,6 +1818,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage on research into keeping the brain healthy with age, mental exercise, supplements and the science behind them — questions 28–40.",
     htmlFile: "/passages/Age_Proofing_Brains_CDI_standalone.html",
+    isNew: true,
   },
   {
     id: "p3-science-filmmaking",
@@ -1807,6 +1828,7 @@ const PASSAGES: Passage[] = [
     description:
       "An academic passage on how computer-generated imagery and scientific research have transformed special effects in filmmaking — questions 27–40.",
     htmlFile: "/passages/Science_Filmmaking_CDI_standalone.html",
+    isNew: true,
   },
 ];
 
@@ -1994,6 +2016,7 @@ function Reading() {
                       <Badge variant="secondary" className="bg-accent text-foreground">
                         P{p.passageNumber}
                       </Badge>
+                      {p.isNew && <Badge>New</Badge>}
                       <TestProgressBadge status={progressStatus} detail={status} />
                     </div>
                     {locked && <Lock className="w-4 h-4 text-muted-foreground" />}
@@ -2081,6 +2104,7 @@ function Reading() {
                   Passage {active.passageNumber}
                 </Badge>
               )}
+              {active?.isNew && <Badge>New</Badge>}
             </div>
             <DialogTitle className="font-serif text-2xl">{active?.title}</DialogTitle>
           </DialogHeader>

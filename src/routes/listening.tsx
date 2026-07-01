@@ -36,6 +36,7 @@ type ListeningTest = {
   htmlFile: string;
   audioFile?: string;
   isPremium: boolean;
+  isNew?: boolean;
 };
 
 const TESTS: ListeningTest[] = [
@@ -48,6 +49,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test1.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "c21-test-2",
@@ -58,6 +60,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test2.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "c21-test-3",
@@ -68,6 +71,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test3.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "c21-test-4",
@@ -78,6 +82,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test4.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-1",
@@ -89,6 +94,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest1full.html",
     audioFile: "/passages/audio/ftest1.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-2",
@@ -100,6 +106,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest2full.html",
     audioFile: "/passages/audio/ftest2.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-3",
@@ -111,6 +118,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest3full.html",
     audioFile: "/passages/audio/ftest3.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-4",
@@ -122,6 +130,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest4full.html",
     audioFile: "/passages/audio/ftest4.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-5",
@@ -133,6 +142,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/v10test1full.html",
     audioFile: "/passages/audio/v10test1.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-6",
@@ -144,6 +154,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/v10test2full.html",
     audioFile: "/passages/audio/v10test2.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-7",
@@ -155,6 +166,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/v10test3full.html",
     audioFile: "/passages/audio/v10test3.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-8",
@@ -166,6 +178,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/v10test4full.html",
     audioFile: "/passages/audio/v10test4.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "v9-test-1",
@@ -900,6 +913,7 @@ function Listening() {
                       <Badge variant="secondary" className="bg-accent text-foreground">
                         {t.section === 0 ? "Full test" : `Section ${t.section}`}
                       </Badge>
+                      {t.isNew && <Badge>New</Badge>}
                       <TestProgressBadge status={progressStatus} detail={status} />
                     </div>
                     <div className="flex items-center gap-2">
