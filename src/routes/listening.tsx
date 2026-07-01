@@ -36,6 +36,7 @@ type ListeningTest = {
   htmlFile: string;
   audioFile?: string;
   isPremium: boolean;
+  isNew?: boolean;
 };
 
 const TESTS: ListeningTest[] = [
@@ -48,6 +49,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test1.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "c21-test-2",
@@ -58,6 +60,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test2.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "c21-test-3",
@@ -68,6 +71,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test3.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "c21-test-4",
@@ -78,6 +82,7 @@ const TESTS: ListeningTest[] = [
     questions: 40,
     htmlFile: "/passages/C21_Test4.html",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-1",
@@ -89,6 +94,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest1full.html",
     audioFile: "/passages/audio/ftest1.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-2",
@@ -100,6 +106,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest2full.html",
     audioFile: "/passages/audio/ftest2.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-3",
@@ -111,6 +118,7 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest3full.html",
     audioFile: "/passages/audio/ftest3.mp3",
     isPremium: false,
+    isNew: true,
   },
   {
     id: "full-test-4",
@@ -122,6 +130,55 @@ const TESTS: ListeningTest[] = [
     htmlFile: "/passages/ftest4full.html",
     audioFile: "/passages/audio/ftest4.mp3",
     isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-5",
+    title: "Full Test 5",
+    section: 0,
+    description:
+      "Full 40-question test: a housesitting registration form, becoming a millionaire, school science experiments, and the history of office design.",
+    questions: 40,
+    htmlFile: "/passages/v10test1full.html",
+    audioFile: "/passages/audio/v10test1.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-6",
+    title: "Full Test 6",
+    section: 0,
+    description:
+      "Full 40-question test: a travel booking call, a running competition, choosing university courses, and feeding wild animals.",
+    questions: 40,
+    htmlFile: "/passages/v10test2full.html",
+    audioFile: "/passages/audio/v10test2.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-7",
+    title: "Full Test 7",
+    section: 0,
+    description:
+      "Full 40-question test: a home cleaning service booking, a city museum tour, a business analysis methods discussion, and a graduate employment survey.",
+    questions: 40,
+    htmlFile: "/passages/v10test3full.html",
+    audioFile: "/passages/audio/v10test3.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-8",
+    title: "Full Test 8",
+    section: 0,
+    description:
+      "Full 40-question test: a school art competition, Palm Island walks and a regional park, a music students survey, and gastropods.",
+    questions: 40,
+    htmlFile: "/passages/v10test4full.html",
+    audioFile: "/passages/audio/v10test4.mp3",
+    isPremium: false,
+    isNew: true,
   },
   {
     id: "v9-test-1",
@@ -856,6 +913,7 @@ function Listening() {
                       <Badge variant="secondary" className="bg-accent text-foreground">
                         {t.section === 0 ? "Full test" : `Section ${t.section}`}
                       </Badge>
+                      {t.isNew && <Badge>New</Badge>}
                       <TestProgressBadge status={progressStatus} detail={status} />
                     </div>
                     <div className="flex items-center gap-2">

@@ -49,6 +49,7 @@ type HtmlTask = {
   prompt?: string;
   minWords?: number;
   timeMinutes?: number;
+  isNew?: boolean;
 };
 
 const HTML_TASKS: HtmlTask[] = [
@@ -63,6 +64,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM20_TEST_1_Task1.html",
     minWords: 150,
     timeMinutes: 20,
+    isNew: true,
   },
   {
     id: "cam20-t2-task1",
@@ -74,6 +76,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM20_TEST_2_Task1.html",
     minWords: 150,
     timeMinutes: 20,
+    isNew: true,
   },
   {
     id: "cam20-t3-task1",
@@ -85,6 +88,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM20_TEST_3_Task1.html",
     minWords: 150,
     timeMinutes: 20,
+    isNew: true,
   },
   {
     id: "cam20-t4-task1",
@@ -96,6 +100,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM20_TEST_4_Task1.html",
     minWords: 150,
     timeMinutes: 20,
+    isNew: true,
   },
   {
     id: "html-t1-water-use",
@@ -368,6 +373,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM21_TEST_1_Task2.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "cam21-t2-task2",
@@ -382,6 +388,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM21_TEST_2_Task2.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "cam21-t3-task2",
@@ -396,6 +403,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM21_TEST_3_Task2.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "cam21-t4-task2",
@@ -410,6 +418,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/CAM21_TEST_4_Task2.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_1",
@@ -1148,6 +1157,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_53.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_54",
@@ -1160,6 +1170,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_54.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_55",
@@ -1172,6 +1183,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_55.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_56",
@@ -1184,6 +1196,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_56.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_57",
@@ -1196,6 +1209,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_57.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_58",
@@ -1208,6 +1222,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_58.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_59",
@@ -1220,6 +1235,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_59.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
   {
     id: "task2_60",
@@ -1232,6 +1248,7 @@ const HTML_TASKS: HtmlTask[] = [
     htmlFile: "/writing/task2_60.html",
     minWords: 250,
     timeMinutes: 40,
+    isNew: true,
   },
 ];
 
@@ -1461,12 +1478,12 @@ function Writing() {
                       </span>
                     </div>
                     <div className="p-5 flex flex-col flex-1">
-                      <Badge
-                        variant="secondary"
-                        className="self-start mb-2 bg-accent text-foreground"
-                      >
-                        {task.type}
-                      </Badge>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge variant="secondary" className="bg-accent text-foreground">
+                          {task.type}
+                        </Badge>
+                        {task.isNew && <Badge>New</Badge>}
+                      </div>
                       <h3 className="font-serif text-lg font-semibold leading-snug mb-2">
                         {task.title}
                       </h3>
