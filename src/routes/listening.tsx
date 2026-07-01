@@ -124,6 +124,50 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "full-test-5",
+    title: "Full Test 5",
+    section: 0,
+    description:
+      "Full 40-question test: a housesitting registration form, becoming a millionaire, school science experiments, and the history of office design.",
+    questions: 40,
+    htmlFile: "/passages/v10test1full.html",
+    audioFile: "/passages/audio/v10test1.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-6",
+    title: "Full Test 6",
+    section: 0,
+    description:
+      "Full 40-question test: a travel booking call, a running competition, choosing university courses, and feeding wild animals.",
+    questions: 40,
+    htmlFile: "/passages/v10test2full.html",
+    audioFile: "/passages/audio/v10test2.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-7",
+    title: "Full Test 7",
+    section: 0,
+    description:
+      "Full 40-question test: a home cleaning service booking, a city museum tour, a business analysis methods discussion, and a graduate employment survey.",
+    questions: 40,
+    htmlFile: "/passages/v10test3full.html",
+    audioFile: "/passages/audio/v10test3.mp3",
+    isPremium: false,
+  },
+  {
+    id: "full-test-8",
+    title: "Full Test 8",
+    section: 0,
+    description:
+      "Full 40-question test: a school art competition, Palm Island walks and a regional park, a music students survey, and gastropods.",
+    questions: 40,
+    htmlFile: "/passages/v10test4full.html",
+    audioFile: "/passages/audio/v10test4.mp3",
+    isPremium: false,
+  },
+  {
     id: "v9-test-1",
     title: "Vol 9 Test 1 — Accommodation & Dormancy",
     section: 0,
