@@ -28,20 +28,20 @@ export function getTestProgressMeta(status: ProgressStatus) {
   if (status === "finished") {
     return {
       label: "Finished",
-      className: "bg-green-600 text-white border-green-600",
-      cardClassName: "border-green-500/40 bg-green-500/5",
+      className: "bg-[var(--badge-done-bg)] text-[var(--badge-done-fg)] border-transparent",
+      cardClassName: "border-[color-mix(in_srgb,var(--tint-green-fg)_26%,var(--border))]",
     };
   }
   if (status === "not_completed") {
     return {
       label: "Not completed",
-      className: "bg-amber-500 text-white border-amber-500",
-      cardClassName: "border-amber-500/40 bg-amber-500/5",
+      className: "bg-[var(--badge-progress-bg)] text-[var(--badge-progress-fg)] border-transparent",
+      cardClassName: "border-[color-mix(in_srgb,var(--tint-ochre-fg)_24%,var(--border))]",
     };
   }
   return {
     label: "Not done",
-    className: "bg-muted text-muted-foreground border-border",
+    className: "bg-[var(--badge-neutral-bg)] text-[var(--badge-neutral-fg)] border-transparent",
     cardClassName: "",
   };
 }

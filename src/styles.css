@@ -140,7 +140,16 @@
   /* Soft layered shadows */
   --shadow-soft: 0 1px 2px rgba(43, 37, 34, 0.05), 0 8px 24px rgba(43, 37, 34, 0.07);
   --shadow-warm: 0 2px 4px rgba(43, 37, 34, 0.05), 0 16px 40px rgba(43, 37, 34, 0.10);
-  --shadow-card: 0 1px 2px rgba(43, 37, 34, 0.04), 0 4px 14px rgba(43, 37, 34, 0.06);
+
+  /* ── Elevation: single warm-ink tier, adapted from Airbnb's card
+     shadow (rgba .02 / .04 / .1). Rest sits quiet on cream; hover
+     "floats" the card. Every card on the site shares these two. */
+  --shadow-card:       0 0 0 1px rgba(43, 37, 34, 0.02), 0 1px 2px rgba(43, 37, 34, 0.04), 0 4px 12px rgba(43, 37, 34, 0.05);
+  --shadow-card-hover: 0 0 0 1px rgba(43, 37, 34, 0.03), 0 2px 6px rgba(43, 37, 34, 0.05), 0 10px 24px rgba(43, 37, 34, 0.12);
+
+  /* Coral CTA halo — makes the primary button visually dominate */
+  --shadow-primary:    0 4px 14px rgba(200, 85, 61, 0.35);
+  --shadow-primary-lg: 0 6px 20px rgba(200, 85, 61, 0.42);
 
   --chart-1: #C8553D;
   --chart-2: #5C6B47;
@@ -164,6 +173,32 @@
   --nav-hover-bg: #F2ECE1;
   --nav-dropdown-bg: #FFFCF7;
   --nav-border: #E7DECF;
+
+  /* ── Icon-tint pairs ─────────────────────────────────────────────
+     One soft square background + a matching darker glyph colour per
+     category. Replaces the single pale-pink circle everything reused.
+     Used on Home + Practice category tiles (see .icon-tile). */
+  --tint-coral-bg:  #F7E9E3;  --tint-coral-fg:  #A8462F;
+  --tint-green-bg:  #ECEFE2;  --tint-green-fg:  #49563A;
+  --tint-blue-bg:   #E5EDF1;  --tint-blue-fg:   #3F6377;
+  --tint-ochre-bg:  #F5EBD8;  --tint-ochre-fg:  #8A5E20;
+  --tint-rose-bg:   #F6E7EA;  --tint-rose-fg:   #A14A5C;
+
+  /* ── Status-badge tints (soft bg + matching darker text) ────────
+     Replaces the hard bg-green-600 / bg-amber-500 fills. One pill
+     shape, per-status tint — used site-wide via <Badge> + progress. */
+  --badge-neutral-bg: #EFE9DD;          --badge-neutral-fg: #6F6357;
+  --badge-new-bg:     var(--tint-coral-bg); --badge-new-fg:  var(--tint-coral-fg);
+  --badge-progress-bg:var(--tint-ochre-bg); --badge-progress-fg:var(--tint-ochre-fg);
+  --badge-done-bg:    var(--tint-green-bg); --badge-done-fg: var(--tint-green-fg);
+  --badge-info-bg:    var(--tint-blue-bg);  --badge-info-fg: var(--tint-blue-fg);
+
+  /* ── Dark contrast band (footer / stats) ───────────────────────
+     A warm espresso surface so the site isn't pure cream everywhere. */
+  --surface-dark:      #26201B;
+  --surface-dark-soft: #332B24;
+  --on-dark:           #F5EFE6;
+  --on-dark-muted:     #B9AC9B;
 }
 
 /* ── Italian study atelier — sera (dark espresso, optional) ────── */
@@ -235,7 +270,10 @@
 
   --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.30);
   --shadow-warm: 0 2px 4px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.35);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.20), 0 4px 14px rgba(0, 0, 0, 0.25);
+  --shadow-card:       0 0 0 1px rgba(0, 0, 0, 0.30), 0 1px 2px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.28);
+  --shadow-card-hover: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.30), 0 10px 24px rgba(0, 0, 0, 0.38);
+  --shadow-primary:    0 4px 14px rgba(216, 105, 78, 0.40);
+  --shadow-primary-lg: 0 6px 20px rgba(216, 105, 78, 0.48);
 
   --sidebar: #2A221B;
   --sidebar-foreground: #F3ECE1;
@@ -252,6 +290,26 @@
   --nav-hover-bg: #342B23;
   --nav-dropdown-bg: #2E261E;
   --nav-border: #3E342A;
+
+  /* Icon-tint pairs — deepened washes, lifted glyphs for espresso mode */
+  --tint-coral-bg:  #3B2B24;  --tint-coral-fg:  #E0826B;
+  --tint-green-bg:  #2E3023;  --tint-green-fg:  #A6B487;
+  --tint-blue-bg:   #22303A;  --tint-blue-fg:   #8FB6CC;
+  --tint-ochre-bg:  #3A3020;  --tint-ochre-fg:  #D2A24C;
+  --tint-rose-bg:   #3A2830;  --tint-rose-fg:   #D98FA1;
+
+  /* Status-badge tints */
+  --badge-neutral-bg: #342B23;              --badge-neutral-fg: #C7BAA8;
+  --badge-new-bg:     var(--tint-coral-bg); --badge-new-fg:     var(--tint-coral-fg);
+  --badge-progress-bg:var(--tint-ochre-bg); --badge-progress-fg:var(--tint-ochre-fg);
+  --badge-done-bg:    var(--tint-green-bg); --badge-done-fg:    var(--tint-green-fg);
+  --badge-info-bg:    var(--tint-blue-bg);  --badge-info-fg:    var(--tint-blue-fg);
+
+  /* Dark contrast band — a touch off the page floor so it still reads */
+  --surface-dark:      #1B1510;
+  --surface-dark-soft: #271F18;
+  --on-dark:           #F5EFE6;
+  --on-dark-muted:     #B9AC9B;
 }
 
 /* ─── THEME TRANSITION ────────────────────────────────────────── */
@@ -376,6 +434,46 @@
   .shadow-soft          { box-shadow: var(--shadow-soft); }
   .shadow-warm          { box-shadow: var(--shadow-warm); }
   .shadow-card          { box-shadow: var(--shadow-card); }
+  .shadow-card-hover    { box-shadow: var(--shadow-card-hover); }
+  .shadow-primary       { box-shadow: var(--shadow-primary); }
+  .shadow-primary-lg    { box-shadow: var(--shadow-primary-lg); }
+
+  /* ── Icon-in-colored-square — shared category glyph treatment ────
+     Pair .icon-tile with a tint modifier: soft square bg + darker glyph.
+     Replaces the flat gray/pink circle reused everywhere. */
+  .icon-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.875rem;              /* rounded-xl, on the card radius language */
+  }
+  .icon-tile-coral { background: var(--tint-coral-bg); color: var(--tint-coral-fg); }
+  .icon-tile-green { background: var(--tint-green-bg); color: var(--tint-green-fg); }
+  .icon-tile-blue  { background: var(--tint-blue-bg);  color: var(--tint-blue-fg);  }
+  .icon-tile-ochre { background: var(--tint-ochre-bg); color: var(--tint-ochre-fg); }
+  .icon-tile-rose  { background: var(--tint-rose-bg);  color: var(--tint-rose-fg);  }
+
+  /* ── Soft status pills — bg tint + matching darker text ─────────
+     One pill shape, per-status tint. No hard bg-green-600 fills. */
+  .badge-tint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 9999px;
+    padding: 2px 10px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .badge-tint-neutral  { background: var(--badge-neutral-bg);  color: var(--badge-neutral-fg); }
+  .badge-tint-new      { background: var(--badge-new-bg);      color: var(--badge-new-fg); }
+  .badge-tint-progress { background: var(--badge-progress-bg); color: var(--badge-progress-fg); }
+  .badge-tint-done     { background: var(--badge-done-bg);     color: var(--badge-done-fg); }
+  .badge-tint-info     { background: var(--badge-info-bg);     color: var(--badge-info-fg); }
 
   .text-gold            { color: var(--gold); }
   .bg-sage              { background-color: var(--matcha); }
@@ -505,16 +603,16 @@
 .bento-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg, 1rem);
+  border-radius: var(--radius);          /* 14px — the one shared card shape */
   box-shadow: var(--shadow-card);
   transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
   position: relative;
 }
 
 .bento-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--terracotta) 35%, var(--border));
-  box-shadow: var(--shadow-soft), var(--glow-accent-soft);
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--terracotta) 22%, var(--border));
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* ─── BUTTON HELPERS (kept names; soft atelier buttons) ───────── */
