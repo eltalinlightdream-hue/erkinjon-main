@@ -15,9 +15,11 @@ import {
   MessageCircle,
   Sun,
   Moon,
+  Shield,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
+import { isAdminEmail } from "@/lib/admin-config";
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
@@ -369,6 +371,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     <Crown className="w-3 h-3" /> Premium
                   </span>
                 )}
+                {isAdminEmail(user.email) && (
+                  <Link to="/admin">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-[13px] h-8 text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]"
+                    >
+                      <Shield className="w-3.5 h-3.5 mr-1.5" /> Admin
+                    </Button>
+                  </Link>
+                )}
                 <Link to="/account">
                   <Button
                     variant="ghost"
@@ -647,6 +660,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <div className="pt-2 border-t border-[var(--nav-border)] flex flex-col gap-2">
                 {user ? (
                   <>
+                    {isAdminEmail(user.email) && (
+                      <Link to="/admin" onClick={() => setOpen(false)}>
+                        <Button variant="outline" className="w-full text-sm">
+                          <Shield className="w-4 h-4 mr-1.5" /> Admin Panel
+                        </Button>
+                      </Link>
+                    )}
                     <Link to="/account" onClick={() => setOpen(false)}>
                       <Button variant="outline" className="w-full text-sm">
                         Account
