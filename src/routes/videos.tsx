@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Youtube, Play, AlertCircle } from "lucide-react";
@@ -44,7 +45,7 @@ function Videos() {
           <Pig size={52} opacity={0.6} />
           <McItem item="chest" size={22} opacity={0.12} />
         </div>
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+        <div className="ink-bleed flex flex-wrap items-end justify-between gap-4 mb-10">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-3">Video Lessons</h1>
             <p className="text-muted-foreground text-lg">Pulled live from my YouTube channel — organised into playlists.</p>
@@ -94,7 +95,7 @@ function Videos() {
         {data?.ok && data.playlists.length > 0 && (
           <div className="space-y-12">
             {data.playlists.map((pl) => (
-              <div key={pl.id}>
+              <Reveal key={pl.id}>
                 <div className="flex items-baseline justify-between gap-4 mb-5">
                   <div>
                     <h2 className="font-serif text-2xl font-bold">{pl.title}</h2>
@@ -105,23 +106,23 @@ function Videos() {
                 <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x scrollbar-thin">
                   {pl.videos.map((v) => (
                     <button key={v.id} onClick={() => setActive({ id: v.id, title: v.title })} className="snap-start shrink-0 w-72 text-left group">
-                      <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted border border-border shadow-card hover:shadow-warm transition-shadow duration-300">
-                        <img src={v.thumbnail} alt={v.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                      <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted border border-border shadow-card hover:shadow-warm group-active:shadow-warm transition-shadow duration-300">
+                        <img src={v.thumbnail} alt={v.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105" loading="lazy" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent flex items-end p-3">
                           {v.duration && <span className="font-mono text-white text-[10px] bg-black/70 px-2 py-0.5 rounded tracking-wide">{v.duration}</span>}
                         </div>
-                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/20">
-                          <span className="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-warm scale-90 group-hover:scale-100 transition-transform duration-300">
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-all duration-300 bg-black/20">
+                          <span className="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-warm scale-90 group-hover:scale-100 group-active:scale-100 transition-transform duration-300">
                             <Play className="w-6 h-6 text-primary fill-current ml-0.5" />
                           </span>
                         </span>
                       </div>
-                      <h3 className="font-medium text-sm mt-2.5 line-clamp-2 group-hover:text-secondary transition-colors duration-200">{v.title}</h3>
+                      <h3 className="font-medium text-sm mt-2.5 line-clamp-2 group-hover:text-secondary group-active:text-secondary transition-colors duration-200">{v.title}</h3>
                     </button>
                   ))}
                   {pl.videos.length === 0 && <p className="text-sm text-muted-foreground">No videos in this playlist yet.</p>}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         )}

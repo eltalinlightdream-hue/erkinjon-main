@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Check, Crown, Send, Lock, Loader2 } from "lucide-react";
@@ -68,7 +69,7 @@ function Premium() {
       <div className="relative overflow-hidden border-b border-border/40 bg-gradient-warm">
         <div className="absolute top-0 right-0 w-[500px] h-[300px] rounded-full opacity-20 blur-[100px] pointer-events-none"
           style={{ background: "radial-gradient(circle, var(--terracotta) 0%, transparent 70%)" }} />
-        <div className="container mx-auto px-4 py-16 max-w-4xl text-center">
+        <div className="ink-bleed container mx-auto px-4 py-16 max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--terracotta)]/10 border border-[var(--terracotta)]/25 font-mono text-[11px] tracking-widest text-[var(--terracotta)] mb-6">
             <Crown className="w-3.5 h-3.5" /> Premium Access
           </span>
@@ -80,7 +81,7 @@ function Premium() {
       </div>
 
       <section className="container mx-auto px-4 py-14 max-w-4xl">
-        <div className="grid md:grid-cols-[1.2fr,1fr] gap-6">
+        <Reveal className="grid md:grid-cols-[1.2fr,1fr] gap-6">
 
           {/* Features card */}
           <div className="bento-card rounded-3xl overflow-hidden">
@@ -165,7 +166,7 @@ function Premium() {
               </>
             )}
           </div>
-        </div>
+        </Reveal>
 
         <p className="font-mono text-[11px] text-muted-foreground text-center mt-8 max-w-xl mx-auto tracking-wide leading-relaxed">
           Each activation code binds your account to a single device. If you change devices, contact me on Telegram and I'll reset it for you within 24 hours.

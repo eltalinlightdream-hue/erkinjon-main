@@ -29,11 +29,19 @@ function JapaneseTopics() {
         >
           <ArrowLeft className="w-4 h-4" /> Back to Japanese
         </Link>
-        <p className="eyebrow text-primary mb-5">日本語 · Topics & phrases</p>
-        <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-5">
+        <p className="ink-bleed eyebrow text-primary mb-5" style={{ animationDelay: "0.05s" }}>
+          日本語 · Topics & phrases
+        </p>
+        <h1
+          className="ink-bleed font-serif text-4xl md:text-5xl text-foreground mb-5"
+          style={{ animationDelay: "0.15s" }}
+        >
           Topics &amp; Phrases
         </h1>
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+        <p
+          className="ink-bleed text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+          style={{ animationDelay: "0.25s" }}
+        >
           Once you can read kana, start using the language. These short lessons cover the everyday
           speaking situations you'll meet first — introducing yourself, numbers, family, food,
           shopping and travel — with more topics on the way.

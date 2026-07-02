@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { GraduationCap, Loader2 } from "lucide-react";
+import { GraduationCap, Loader2, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
@@ -23,7 +23,10 @@ function ResetPasswordPage() {
   const [ready, setReady] = useState(false);
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const MIN_PASSWORD_LENGTH = 6;
 
   // Supabase auto-detects the recovery token from the URL hash on load.
   useEffect(() => {
@@ -42,7 +45,7 @@ function ResetPasswordPage() {
   return (
     <SiteLayout>
       <section className="container mx-auto max-w-md px-4 py-16">
-        <div className="mb-8 text-center">
+        <div className="ink-bleed mb-8 text-center">
           <span className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-primary shadow-warm">
             <GraduationCap className="h-8 w-8 text-white" />
           </span>
@@ -57,8 +60,8 @@ function ResetPasswordPage() {
             className="space-y-4"
             onSubmit={async (event) => {
               event.preventDefault();
-              if (password.length < 4 || password.length > 6) {
-                toast.error("Password must be 4–6 characters.");
+              if (password.length < MIN_PASSWORD_LENGTH) {
+                toast.error(`Password must be at least ${MIN_PASSWORD_LENGTH} characters.`);
                 return;
               }
               if (password !== confirm) {
@@ -83,30 +86,45 @@ function ResetPasswordPage() {
           >
             <div>
               <Label htmlFor="new-password">New password</Label>
-              <Input
-                id="new-password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                minLength={4}
-                maxLength={6}
-                autoComplete="new-password"
-                required
-              />
-              <p className="mt-1 text-xs text-muted-foreground">4–6 characters</p>
+              <div className="relative">
+                <Input
+                  id="new-password"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  minLength={MIN_PASSWORD_LENGTH}
+                  autoComplete="new-password"
+                  required
+                  className="pr-10"
+                />
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  onClick={() => setShowPassword((s) => !s)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
+              <p className="mt-1 text-xs text-muted-foreground">
+                At least {MIN_PASSWORD_LENGTH} characters
+              </p>
             </div>
             <div>
               <Label htmlFor="confirm-password">Confirm new password</Label>
-              <Input
-                id="confirm-password"
-                type="password"
-                value={confirm}
-                onChange={(e) => setConfirm(e.target.value)}
-                minLength={4}
-                maxLength={6}
-                autoComplete="new-password"
-                required
-              />
+              <div className="relative">
+                <Input
+                  id="confirm-password"
+                  type={showPassword ? "text" : "password"}
+                  value={confirm}
+                  onChange={(e) => setConfirm(e.target.value)}
+                  minLength={MIN_PASSWORD_LENGTH}
+                  autoComplete="new-password"
+                  required
+                  className="pr-10"
+                />
+              </div>
             </div>
             <Button
               type="submit"

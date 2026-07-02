@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Card } from "@/components/ui/card";
 import { Mic2, Lightbulb, FileText, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -54,7 +55,7 @@ function SectionCard({ section }: { section: SpeakingSection }) {
         "p-6 h-full flex flex-col transition-all duration-200",
         section.disabled
           ? "opacity-60 cursor-not-allowed"
-          : "hover:shadow-warm hover:-translate-y-1 cursor-pointer"
+          : "hover:shadow-warm hover:-translate-y-1 group-active:shadow-warm group-active:-translate-y-1 cursor-pointer"
       )}
     >
       <span className={`w-12 h-12 rounded-xl ${section.tint} flex items-center justify-center mb-4`}>
@@ -72,23 +73,29 @@ function SectionCard({ section }: { section: SpeakingSection }) {
     </Card>
   );
 
-  if (section.disabled) return <div>{inner}</div>;
-  return <Link to={section.to as any}>{inner}</Link>;
+  if (section.disabled) return <div className="h-full">{inner}</div>;
+  return (
+    <Link to={section.to as any} className="group block h-full">
+      {inner}
+    </Link>
+  );
 }
 
 function Speaking() {
   return (
     <SiteLayout>
       <section className="container mx-auto px-4 py-12 max-w-5xl">
-        <div className="text-center mb-12">
+        <div className="ink-bleed text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">IELTS Speaking</h1>
           <p className="text-lg text-muted-foreground">
             Pick a skill and start — every section is built around real IELTS question types.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {SECTIONS.map((s) => (
-            <SectionCard key={s.title} section={s} />
+          {SECTIONS.map((s, i) => (
+            <Reveal key={s.title} className="h-full" delay={(i % 3) * 80}>
+              <SectionCard section={s} />
+            </Reveal>
           ))}
         </div>
       </section>

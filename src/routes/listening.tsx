@@ -16,6 +16,7 @@ import {
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
 import { Sheep, McItem } from "@/components/minecraft-decorations";
+import { FREE_LIMITS } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/listening")({
   head: () => ({
@@ -36,9 +37,150 @@ type ListeningTest = {
   htmlFile: string;
   audioFile?: string;
   isPremium: boolean;
+  isNew?: boolean;
 };
 
 const TESTS: ListeningTest[] = [
+  {
+    id: "c21-test-1",
+    title: "Cambridge 21 Test 1 — Sailing Club & Ocean Biodiversity",
+    section: 0,
+    description:
+      "Full 40-question test: Oyster Bay Sailing Club courses, working as a makeup trainee, an ocean biodiversity lecture, and the sources of rubber.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test1.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "c21-test-2",
+    title: "Cambridge 21 Test 2 — Steynford Classes & Cruise Ships",
+    section: 0,
+    description:
+      "Full 40-question test: one-day classes at Steynford College, walks in the region and Melby Coal Mine, food science course feedback, and challenges facing the cruise ship industry.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test2.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "c21-test-3",
+    title: "Cambridge 21 Test 3 — Shetland Ferry & Invasive Species",
+    section: 0,
+    description:
+      "Full 40-question test: the ferry to the Shetland Islands, starting a street food business, a sustainable and ethical fashion project, and invasive species.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test3.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "c21-test-4",
+    title: "Cambridge 21 Test 4 — Shopping Survey & Music Therapy",
+    section: 0,
+    description:
+      "Full 40-question test: a shopping survey in Broadbeach, an annual business exhibition, a presentation on houses of the future, and music therapy for surgical patients.",
+    questions: 40,
+    htmlFile: "/passages/C21_Test4.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-1",
+    title: "Full Test 1",
+    section: 0,
+    description:
+      "Full 40-question test: music lessons, volunteering in Hambleford, a film studies project, and the history of soap.",
+    questions: 40,
+    htmlFile: "/passages/ftest1full.html",
+    audioFile: "/passages/audio/ftest1.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-2",
+    title: "Full Test 2",
+    section: 0,
+    description:
+      "Full 40-question test: a weekend guitar course booking, a spring festival, an action research course, and digital technology in education.",
+    questions: 40,
+    htmlFile: "/passages/ftest2full.html",
+    audioFile: "/passages/audio/ftest2.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-3",
+    title: "Full Test 3",
+    section: 0,
+    description:
+      "Full 40-question test: a lifeguard application, becoming a millionaire, performance arts course feedback, and a sea lion tracking study.",
+    questions: 40,
+    htmlFile: "/passages/ftest3full.html",
+    audioFile: "/passages/audio/ftest3.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-4",
+    title: "Full Test 4",
+    section: 0,
+    description:
+      "Full 40-question test: becoming a tea taster, Pioneer Historical Village, advice on waste disposal, and whale shark conservation.",
+    questions: 40,
+    htmlFile: "/passages/ftest4full.html",
+    audioFile: "/passages/audio/ftest4.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-5",
+    title: "Full Test 5",
+    section: 0,
+    description:
+      "Full 40-question test: a housesitting registration form, becoming a millionaire, school science experiments, and the history of office design.",
+    questions: 40,
+    htmlFile: "/passages/v10test1full.html",
+    audioFile: "/passages/audio/fulltest5aud.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-6",
+    title: "Full Test 6",
+    section: 0,
+    description:
+      "Full 40-question test: a travel booking call, a running competition, choosing university courses, and feeding wild animals.",
+    questions: 40,
+    htmlFile: "/passages/v10test2full.html",
+    audioFile: "/passages/audio/fulltest6aud.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-7",
+    title: "Full Test 7",
+    section: 0,
+    description:
+      "Full 40-question test: a home cleaning service booking, a city museum tour, a business analysis methods discussion, and a graduate employment survey.",
+    questions: 40,
+    htmlFile: "/passages/v10test3full.html",
+    audioFile: "/passages/audio/fulltest7aud.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "full-test-8",
+    title: "Full Test 8",
+    section: 0,
+    description:
+      "Full 40-question test: a school art competition, Palm Island walks and a regional park, a music students survey, and gastropods.",
+    questions: 40,
+    htmlFile: "/passages/v10test4full.html",
+    audioFile: "/passages/audio/fulltest8aud.mp3",
+    isPremium: false,
+    isNew: true,
+  },
   {
     id: "v9-test-1",
     title: "Vol 9 Test 1 — Accommodation & Dormancy",
@@ -663,6 +805,9 @@ function Listening() {
   const testIds = TESTS.map((t) => t.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(testIds);
 
+  // The first few tests stay free; everything after that is Premium-only.
+  const freeTestIds = new Set(TESTS.slice(0, FREE_LIMITS.listeningTests).map((t) => t.id));
+
   const sectionCounts = {
     all: TESTS.length,
     full: TESTS.filter((t) => t.section === 0).length,
@@ -701,7 +846,7 @@ function Listening() {
         <div className="absolute top-6 right-24 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="pickaxe" size={32} opacity={1} />
         </div>
-        <div className="mb-10">
+        <div className="ink-bleed mb-10">
           <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Listening</h1>
           <p className="text-muted-foreground mb-1">
             Full listening tests with built-in audio player, timer, and answer checker.
@@ -753,7 +898,7 @@ function Listening() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((t) => {
-              const locked = t.isPremium && !isPremium;
+              const locked = !freeTestIds.has(t.id) && !isPremium;
               const status = statuses[t.id];
               const progressStatus = statusFor(t.id);
               const isFinished = progressStatus === "finished";
@@ -772,6 +917,7 @@ function Listening() {
                       <Badge variant="secondary" className="bg-accent text-foreground">
                         {t.section === 0 ? "Full test" : `Section ${t.section}`}
                       </Badge>
+                      {t.isNew && <Badge>New</Badge>}
                       <TestProgressBadge status={progressStatus} detail={status} />
                     </div>
                     <div className="flex items-center gap-2">

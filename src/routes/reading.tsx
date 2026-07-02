@@ -18,6 +18,7 @@ import {
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
 import { SteveReading, McItem } from "@/components/minecraft-decorations";
+import { FREE_LIMITS } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/reading")({
   head: () => ({
@@ -37,9 +38,152 @@ type Passage = {
   htmlFile?: string;
   content?: string;
   isPremium: boolean;
+  isNew?: boolean;
 };
 
 const PASSAGES: Passage[] = [
+  {
+    id: "p1-olmec",
+    title: "The Olmec and Their Great Stone Heads",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage about the ancient Olmec civilisation of Mesoamerica and the enormous sculpted stone heads they left behind.",
+    htmlFile: "/passages/Olmec_CDI_standalone.html",
+    isNew: true,
+  },
+  {
+    id: "p1-bar-code",
+    title: "The History of the Bar Code",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage tracing the invention and standardisation of the bar code, from a 1948 idea to billions of daily scans.",
+    htmlFile: "/passages/Bar_code_CDI_standalone.html",
+    isNew: true,
+  },
+  {
+    id: "p2-eating-meat",
+    title: "Should We Stop Eating Meat?",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "An academic passage weighing the environmental costs and trade-offs of a meat-free world.",
+    htmlFile: "/passages/Eating_meat_CDI_standalone.html",
+    isNew: true,
+  },
+  // Cambridge IELTS 21 – Test 1
+  {
+    id: "cam21-t1-r1",
+    title: "Cambridge 21 Test 1 – The Davies Sisters",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 1 Reading Passage 1: The Davies Sisters — questions 1–13.",
+    htmlFile: "/passages/C21_T1_P1_The_Davies_Sisters.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t1-r2",
+    title: "Cambridge 21 Test 1 – Why We Need Silence",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 1 Reading Passage 2: Why We Need Silence — questions 14–26.",
+    htmlFile: "/passages/C21_T1_P2_Why_We_Need_Silence.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t1-r3",
+    title: "Cambridge 21 Test 1 – The World of Sugar",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 1 Reading Passage 3: The World of Sugar (book review) — questions 27–40.",
+    htmlFile: "/passages/C21_T1_P3_The_World_of_Sugar.html",
+    isNew: true,
+  },
+  // Cambridge IELTS 21 – Test 2
+  {
+    id: "cam21-t2-r1",
+    title: "Cambridge 21 Test 2 – Do Animals Dream?",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 2 Reading Passage 1: Do Animals Dream? — questions 1–13.",
+    htmlFile: "/passages/C21_T2_P1_Do_Animals_Dream.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t2-r2",
+    title: "Cambridge 21 Test 2 – Mapungubwe",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 2 Reading Passage 2: Mapungubwe — questions 14–26.",
+    htmlFile: "/passages/C21_T2_P2_Mapungubwe.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t2-r3",
+    title: "Cambridge 21 Test 2 – Artificial Intelligence",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 2 Reading Passage 3: Artificial Intelligence — questions 27–40.",
+    htmlFile: "/passages/C21_T2_P3_Artificial_Intelligence.html",
+    isNew: true,
+  },
+  // Cambridge IELTS 21 – Test 3
+  {
+    id: "cam21-t3-r1",
+    title: "Cambridge 21 Test 3 – Saving the Saiga",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 3 Reading Passage 1: Saving the Saiga — questions 1–13.",
+    htmlFile: "/passages/C21_T3_P1_Saving_the_Saiga.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t3-r2",
+    title: "Cambridge 21 Test 3 – Getting Around Dar es Salaam",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 3 Reading Passage 2: The problems of getting around the city of Dar es Salaam — questions 14–26.",
+    htmlFile: "/passages/C21_T3_P2_Dar_es_Salaam.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t3-r3",
+    title: "Cambridge 21 Test 3 – Rethinking the Past",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 3 Reading Passage 3: Rethinking the Past — questions 27–40.",
+    htmlFile: "/passages/C21_T3_P3_Rethinking_the_Past.html",
+    isNew: true,
+  },
+  // Cambridge IELTS 21 – Test 4
+  {
+    id: "cam21-t4-r1",
+    title: "Cambridge 21 Test 4 – The Spread of the Water Hyacinth in Kenya",
+    passageNumber: 1,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 4 Reading Passage 1: The problems and benefits created by the spread of the water hyacinth in Kenya — questions 1–13.",
+    htmlFile: "/passages/C21_T4_P1_Water_Hyacinth.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t4-r2",
+    title: "Cambridge 21 Test 4 – Multilingualism in India",
+    passageNumber: 2,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 4 Reading Passage 2: How could multilingualism benefit India's poorest schoolchildren? — questions 14–26.",
+    htmlFile: "/passages/C21_T4_P2_Multilingualism_in_India.html",
+    isNew: true,
+  },
+  {
+    id: "cam21-t4-r3",
+    title: "Cambridge 21 Test 4 – The Globemakers",
+    passageNumber: 3,
+    isPremium: false,
+    description: "Cambridge IELTS 21 Test 4 Reading Passage 3: The Globemakers — The Curious Story of an Ancient Craft — questions 27–40.",
+    htmlFile: "/passages/C21_T4_P3_The_Globemakers.html",
+    isNew: true,
+  },
   {
     id: "p3-piraha",
     title: "The PirahГЈ People of Brazil",
@@ -1142,14 +1286,6 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/Playing_with_science_2_CDI_standalone.html",
   },
   {
-    id: "p1-thomas-cole-2",
-    title: "Thomas Cole: American Nature Painter",
-    passageNumber: 1,
-    isPremium: false,
-    description: "Thomas Cole (1801–1848) was America’s first major landscape artist.",
-    htmlFile: "/passages/Thomas_cole_2_CDI_standalone.html",
-  },
-  {
     id: "p2-attraction-of-video-games",
     title: "The Attraction of Video Games",
     passageNumber: 2,
@@ -1634,6 +1770,67 @@ const PASSAGES: Passage[] = [
       "A passage evaluating large-scale geo-engineering proposals — from space sunshades to Arctic aerosols — as a potential backup strategy for tackling global warming.",
     htmlFile: "/passages/reducing_the_effects_of_climate_change.html",
   },
+  // Fozilbek IELTS – CDI passages
+  {
+    id: "p1-seaweed",
+    title: "Seaweed",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage on the long history of seaweed as food, fuel and fertiliser, and its growing role in food security and biofuels — questions 1–13.",
+    htmlFile: "/passages/Seaweed_CDI_standalone.html",
+    isNew: true,
+  },
+  {
+    id: "p1-cane-toad",
+    title: "Australia's Cane Toad Problem",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage on how cane toads were introduced to Australia as biological pest control and became an invasive species — questions 1–13.",
+    htmlFile: "/passages/Cane_Toad_CDI_standalone.html",
+    isNew: true,
+  },
+  {
+    id: "p1-archaeoacoustics",
+    title: "The Science of Archaeoacoustics",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage on archaeoacoustics — the study of sound at ancient sites, from Paleolithic caves to Maltese hypogea and Greek theatres — questions 1–13.",
+    htmlFile: "/passages/Archaeoacoustics_CDI_standalone.html",
+    isNew: true,
+  },
+  {
+    id: "p1-przewalski-horse",
+    title: "Back to Wild: The Przewalski Horse",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "An academic passage on efforts to save the Przewalski horse from extinction and reintroduce it to the wild in Mongolia — questions 1–13.",
+    htmlFile: "/passages/Przewalski_Horse_CDI_standalone.html",
+    isNew: true,
+  },
+  {
+    id: "p3-age-proofing-brains",
+    title: "Age-proofing Our Brains",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "An academic passage on research into keeping the brain healthy with age, mental exercise, supplements and the science behind them — questions 28–40.",
+    htmlFile: "/passages/Age_Proofing_Brains_CDI_standalone.html",
+    isNew: true,
+  },
+  {
+    id: "p3-science-filmmaking",
+    title: "Science and Filmmaking",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "An academic passage on how computer-generated imagery and scientific research have transformed special effects in filmmaking — questions 27–40.",
+    htmlFile: "/passages/Science_Filmmaking_CDI_standalone.html",
+    isNew: true,
+  },
 ];
 
 const FILTERS = [
@@ -1664,6 +1861,9 @@ function Reading() {
 
   const passageIds = PASSAGES.map((p) => p.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(passageIds);
+
+  // The first few passages stay free; everything after that is Premium-only.
+  const freePassageIds = new Set(PASSAGES.slice(0, FREE_LIMITS.readingPassages).map((p) => p.id));
 
   // BUG FIX: the PASSAGES list contains entries that share the same title /
   // htmlFile (e.g. "The Bug Picture" appears twice), which made the search
@@ -1738,7 +1938,7 @@ function Reading() {
         <div className="absolute top-8 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="crafting-table" size={32} opacity={1} />
         </div>
-        <div className="mb-10">
+        <div className="ink-bleed mb-10">
           <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Reading Practice</h1>
           <p className="text-muted-foreground mb-1">Filter by passage type and open any passage in a clean reader view.</p>
           <p className="font-mono text-[11px] text-muted-foreground/70 tracking-wide italic">
@@ -1801,7 +2001,7 @@ function Reading() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((p) => {
-              const locked = p.isPremium && !isPremium;
+              const locked = !freePassageIds.has(p.id) && !isPremium;
               const status = statuses[p.id];
               const progressStatus = statusFor(p.id);
               const isFinished = progressStatus === "finished";
@@ -1820,6 +2020,7 @@ function Reading() {
                       <Badge variant="secondary" className="bg-accent text-foreground">
                         P{p.passageNumber}
                       </Badge>
+                      {p.isNew && <Badge>New</Badge>}
                       <TestProgressBadge status={progressStatus} detail={status} />
                     </div>
                     {locked && <Lock className="w-4 h-4 text-muted-foreground" />}
@@ -1907,6 +2108,7 @@ function Reading() {
                   Passage {active.passageNumber}
                 </Badge>
               )}
+              {active?.isNew && <Badge>New</Badge>}
             </div>
             <DialogTitle className="font-serif text-2xl">{active?.title}</DialogTitle>
           </DialogHeader>

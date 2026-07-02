@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,8 @@ import {
   DIFFICULTIES,
   DIFFICULTY_STYLES,
 } from "@/lib/articles-data";
+import { useIsPremium, PremiumCardOverlay } from "@/components/premium-lock";
+import { isFreeArticle } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/articles")({
   head: () => ({
@@ -47,6 +50,7 @@ function Articles() {
   const [topic, setTopic] = useState<"All" | ArticleTopic>("All");
   const [difficulty, setDifficulty] = useState<"All" | ArticleDifficulty>("All");
   const [search, setSearch] = useState("");
+  const isPremium = useIsPremium();
 
   // Sort newest first; mark first 10 as "new"
   const sorted = useMemo(
@@ -72,7 +76,7 @@ function Articles() {
           <SteveReading size={60} opacity={0.65} className="mc-bob" />
           <McItem item="book" size={20} opacity={0.12} />
         </div>
-        <div className="mb-8">
+        <div className="ink-bleed mb-8">
           <h1 className="text-2xl md:text-3xl font-bold mb-3 text-[#C09040]">📰 Articles</h1>
           <p className="text-lg text-muted-foreground">
             Reading practice by topic and difficulty — each with key vocabulary and pronunciation tips.
@@ -132,58 +136,78 @@ function Articles() {
           </p>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((a) => {
+            {filtered.map((a, idx) => {
               const img = a.coverImage || TOPIC_FALLBACK_IMAGES[a.topic];
               const isNew = newIds.has(a.id);
+              const locked = !isFreeArticle(a.id) && !isPremium;
+              const card = (
+                    <Card className="h-full hover:shadow-[0_16px_40px_rgba(43,64,128,0.14)] hover:-translate-y-1.5 group-active:shadow-[0_16px_40px_rgba(43,64,128,0.14)] group-active:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col">
+                      <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                        <img
+                          src={img}
+                          alt={a.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                        />
+                        {isNew && (
+                          <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-amber-400 text-amber-950 text-xs font-semibold px-2.5 py-1 shadow">
+                            <Sparkles className="w-3 h-3" /> New
+                          </span>
+                        )}
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <div className="flex items-center gap-2 mb-3 flex-wrap">
+                          <Badge variant="secondary" className="bg-accent text-foreground">
+                            {a.topic}
+                          </Badge>
+                          <Badge variant="outline" className={DIFFICULTY_STYLES[a.difficulty]}>
+                            {a.difficulty}
+                          </Badge>
+                        </div>
+                        <h2 className="font-serif text-lg font-semibold mb-2 leading-snug">
+                          {a.title}
+                        </h2>
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">
+                          {a.description}
+                        </p>
+                        <div className="flex items-center justify-between text-xs text-muted-foreground">
+                          <span className="inline-flex items-center gap-1">
+                            <Clock className="w-3 h-3" /> {a.readingTime} min
+                          </span>
+                          <span>
+                            {new Date(a.date).toLocaleDateString(undefined, {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            })}
+                          </span>
+                          <Badge variant="outline" className="text-[10px]">
+                            {a.category}
+                          </Badge>
+                        </div>
+                      </div>
+                    </Card>
+              );
+
               return (
-                <Link key={a.id} to="/articles/$slug" params={{ slug: a.slug }}>
-                  <Card className="h-full hover:shadow-[0_16px_40px_rgba(43,64,128,0.14)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col">
-                    <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-                      <img
-                        src={img}
-                        alt={a.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                      />
-                      {isNew && (
-                        <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-amber-400 text-amber-950 text-xs font-semibold px-2.5 py-1 shadow">
-                          <Sparkles className="w-3 h-3" /> New
-                        </span>
-                      )}
-                    </div>
-                    <div className="p-5 flex flex-col flex-1">
-                      <div className="flex items-center gap-2 mb-3 flex-wrap">
-                        <Badge variant="secondary" className="bg-accent text-foreground">
-                          {a.topic}
-                        </Badge>
-                        <Badge variant="outline" className={DIFFICULTY_STYLES[a.difficulty]}>
-                          {a.difficulty}
-                        </Badge>
+                <Reveal key={a.id} className="h-full" delay={(idx % 3) * 70}>
+                  {locked ? (
+                    <div className="relative rounded-xl overflow-hidden h-full">
+                      <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
+                        {card}
                       </div>
-                      <h2 className="font-serif text-lg font-semibold mb-2 leading-snug">
-                        {a.title}
-                      </h2>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">
-                        {a.description}
-                      </p>
-                      <div className="flex items-center justify-between text-xs text-muted-foreground">
-                        <span className="inline-flex items-center gap-1">
-                          <Clock className="w-3 h-3" /> {a.readingTime} min
-                        </span>
-                        <span>
-                          {new Date(a.date).toLocaleDateString(undefined, {
-                            year: "numeric",
-                            month: "short",
-                            day: "numeric",
-                          })}
-                        </span>
-                        <Badge variant="outline" className="text-[10px]">
-                          {a.category}
-                        </Badge>
-                      </div>
+                      <PremiumCardOverlay label="Premium article" />
                     </div>
-                  </Card>
-                </Link>
+                  ) : (
+                    <Link
+                      to="/articles/$slug"
+                      params={{ slug: a.slug }}
+                      className="group block h-full"
+                    >
+                      {card}
+                    </Link>
+                  )}
+                </Reveal>
               );
             })}
           </div>

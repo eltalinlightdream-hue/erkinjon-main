@@ -1,4 +1,5 @@
 import { Youtube } from "lucide-react";
+import { Reveal } from "@/components/reveal";
 import { VideoEmbed } from "@/components/japanese/video-embed";
 import type { JapaneseLesson } from "@/lib/japanese-data";
 
@@ -12,7 +13,7 @@ export function LessonSection({ lesson, eyebrow }: { lesson: JapaneseLesson; eye
   const { heading, description, youtubeId, videoTitle, channel } = lesson;
 
   return (
-    <article className="mx-auto w-full max-w-3xl">
+    <Reveal as="article" className="mx-auto w-full max-w-3xl">
       {eyebrow && <p className="eyebrow text-secondary mb-2">{eyebrow}</p>}
       <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-3">{heading}</h2>
       <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-6 max-w-2xl">
@@ -32,6 +33,6 @@ export function LessonSection({ lesson, eyebrow }: { lesson: JapaneseLesson; eye
           <Youtube className="h-3.5 w-3.5" /> Watch on YouTube
         </a>
       </p>
-    </article>
+    </Reveal>
   );
 }

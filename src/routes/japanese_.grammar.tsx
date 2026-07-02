@@ -29,11 +29,19 @@ function JapaneseGrammar() {
         >
           <ArrowLeft className="w-4 h-4" /> Back to Japanese
         </Link>
-        <p className="eyebrow text-primary mb-5">日本語 · Grammar</p>
-        <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-5">
+        <p className="ink-bleed eyebrow text-primary mb-5" style={{ animationDelay: "0.05s" }}>
+          日本語 · Grammar
+        </p>
+        <h1
+          className="ink-bleed font-serif text-4xl md:text-5xl text-foreground mb-5"
+          style={{ animationDelay: "0.15s" }}
+        >
           Grammar, Step by Step
         </h1>
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+        <p
+          className="ink-bleed text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+          style={{ animationDelay: "0.25s" }}
+        >
           Beginner grammar is easiest when you take it in order. These lessons follow the Genki 1
           syllabus from start to finish — work through them top to bottom and each one builds on the
           one before it.

@@ -89,7 +89,7 @@ function Folders({ onOpen, onReview }: { onOpen: (id: string) => void; onReview:
   return (
     <>
       {/* Header */}
-      <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
+      <div className="ink-bleed flex items-end justify-between gap-4 flex-wrap mb-8">
         <div>
           <h1 className="text-4xl md:text-5xl font-bold mb-2">Vocabulary</h1>
           <p className="text-muted-foreground">Folders, spaced-repetition flashcards, and your review streak.</p>
@@ -194,11 +194,11 @@ function FolderCard({ folder, onOpen, onReview }: { folder: any; onOpen: () => v
   return (
     <div className="bento-card rounded-2xl p-6 flex flex-col group">
       {/* Sakura top accent on hover */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+      <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity"
         style={{ background: "linear-gradient(90deg, var(--terracotta-soft) 0%, var(--terracotta) 100%)" }} />
 
       <div className="flex items-center justify-between mb-4">
-        <span className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center transition-transform group-hover:scale-105">
+        <span className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center transition-transform group-hover:scale-105 group-active:scale-105">
           <Folder className="w-5 h-5 text-secondary" />
         </span>
         {folder.is_default && (
@@ -351,7 +351,7 @@ function FolderDetail({ folderId, onBack, onReview }: { folderId: string; onBack
                 <Button
                   size="icon"
                   variant="ghost"
-                  className="h-7 w-7 rounded-lg shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="hover-reveal h-7 w-7 rounded-lg shrink-0"
                   onClick={async () => {
                     if (!confirm(`Delete "${w.word}"?`)) return;
                     await delFn({ data: { id: w.id } });

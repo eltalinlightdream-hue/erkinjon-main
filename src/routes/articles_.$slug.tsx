@@ -57,6 +57,7 @@ function highlightRange(root: HTMLElement, range: Range, color: "yellow" | "gree
   }
 }
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -70,6 +71,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { findArticle, ARTICLES, DIFFICULTY_STYLES } from "@/lib/articles-data";
+import { useIsPremium, PremiumRequired } from "@/components/premium-lock";
+import { isFreeArticle } from "@/lib/premium-content";
 import { SaveVocabModal } from "@/components/save-vocab-modal";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -102,6 +105,7 @@ interface HighlightPopup {
 function ArticleView() {
   const { slug } = Route.useParams();
   const article = findArticle(slug);
+  const isPremium = useIsPremium();
   const [saveOpen, setSaveOpen] = useState<null | {
     word: string;
     definition: string;
@@ -242,6 +246,14 @@ function ArticleView() {
     );
   }
 
+  if (!isFreeArticle(article.id) && !isPremium) {
+    return (
+      <SiteLayout>
+        <PremiumRequired title="This article is Premium" />
+      </SiteLayout>
+    );
+  }
+
   const cover =
     article.coverImage ||
     "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1600&q=80";
@@ -262,7 +274,7 @@ function ArticleView() {
         }} />
 
         <div className="absolute inset-0 flex items-end">
-          <div className="container mx-auto px-4 pb-10 max-w-4xl">
+          <div className="ink-bleed container mx-auto px-4 pb-10 max-w-4xl">
             <Link
               to="/articles"
               className="font-mono text-[11px] tracking-widest text-white/75 hover:text-white inline-flex items-center gap-1.5 mb-5 uppercase transition-colors"
@@ -449,14 +461,14 @@ function ArticleView() {
               {article.vocabulary.length} words · click any card to save
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <Reveal className="grid sm:grid-cols-2 gap-4">
               {article.vocabulary.map((v) => (
                 <div
                   key={v.word}
                   className="bento-card rounded-2xl p-6 flex flex-col group"
                 >
                   {/* Sakura top accent */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                  <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity"
                     style={{ background: "linear-gradient(90deg, var(--terracotta-soft) 0%, var(--terracotta) 100%)" }} />
 
                   <div className="flex items-start justify-between mb-3 gap-2">
@@ -486,7 +498,7 @@ function ArticleView() {
                   </Button>
                 </div>
               ))}
-            </div>
+            </Reveal>
           </section>
         )}
 
@@ -498,7 +510,7 @@ function ArticleView() {
               {article.pronunciation.length} difficult words from this article
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <Reveal className="grid sm:grid-cols-2 gap-4">
               {article.pronunciation.map((p) => (
                 <div key={p.word} className="bento-card rounded-2xl p-6">
                   <div className="flex items-start justify-between mb-3 gap-2">
@@ -521,7 +533,7 @@ function ArticleView() {
                   </div>
                 </div>
               ))}
-            </div>
+            </Reveal>
           </section>
         )}
       </article>
