@@ -89,9 +89,8 @@ function Index() {
         </div>
 
         <div className="relative container mx-auto px-4 pt-16 md:pt-24 pb-16 md:pb-24">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left: editorial headline */}
-            <div className="lg:col-span-7 max-w-2xl">
+          {/* Editorial headline — full width */}
+          <div className="max-w-4xl">
               <p
                 className="ink-bleed eyebrow text-primary mb-6"
                 style={{ animationDelay: "0.05s" }}
@@ -100,14 +99,14 @@ function Index() {
               </p>
 
               <h1
-                className="ink-bleed font-serif text-4xl md:text-6xl text-foreground mb-6"
+                className="ink-bleed font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6"
                 style={{ animationDelay: "0.2s" }}
               >
                 Master IELTS with <em className="text-primary">guided practice</em>
               </h1>
 
               <p
-                className="ink-bleed text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-9"
+                className="ink-bleed text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mb-9"
                 style={{ animationDelay: "0.35s" }}
               >
                 Friendly lessons, real exam strategies and structured practice — built for Uzbek
@@ -154,31 +153,6 @@ function Index() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Right: hero image panel */}
-            <div className="lg:col-span-5 relative ink-bleed" style={{ animationDelay: "0.45s" }}>
-              <div className="group/illu relative max-w-sm mx-auto rounded-3xl overflow-hidden border border-border shadow-soft transition-transform duration-500 ease-out hover:-translate-y-1.5 hover:shadow-warm">
-                <img
-                  src="/ielts-logo.svg"
-                  alt="IELTS — International English Language Testing System"
-                  width={400}
-                  height={260}
-                  className="w-full h-auto object-cover bg-card"
-                  loading="eager"
-                  fetchPriority="high"
-                />
-
-                {/* Band 8.0 seal */}
-                <div className="absolute -top-5 -right-4 md:-right-6 w-24 h-24 rounded-full bg-primary text-primary-foreground flex flex-col items-center justify-center shadow-warm rotate-6 select-none transition-transform duration-500 ease-out group-hover/illu:rotate-12 group-hover/illu:scale-105">
-                  <span className="text-[9px] uppercase tracking-[0.18em] opacity-90">Band</span>
-                  <span className="font-serif text-2xl leading-none">8.0</span>
-                  <span className="text-[9px] uppercase tracking-[0.18em] opacity-90 mt-0.5">
-                    Teacher
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
