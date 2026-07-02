@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import { WRITING_TASKS, getAllWritingProgress, type WritingStatus } from "@/lib/writing-data";
 import { cn } from "@/lib/utils";
 import { SteveMining, McItem } from "@/components/minecraft-decorations";
+import { useIsPremium, PremiumCardOverlay } from "@/components/premium-lock";
+import { FREE_LIMITS, isFreeWritingSample, isFreeWritingEssay } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/writing")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -1262,6 +1264,16 @@ const SAMPLE_TOTALS = {
   "t2-samples": WRITING_ESSAYS.length,
 };
 
+// The first few simulators in each task stay free; the rest are Premium-only.
+const freeSimulatorIds = new Set(
+  ([1, 2] as const).flatMap((task) =>
+    HTML_TASKS.filter((t) => t.task === task)
+      .slice(0, FREE_LIMITS.writingSimulatorsPerTask)
+      .map((t) => t.id),
+  ),
+);
+const isFreeSimulator = (id: string) => freeSimulatorIds.has(id);
+
 const TASK1_FILTERS = [
   "All",
   "Line Graph",
@@ -1287,6 +1299,7 @@ type TabType = 1 | 2 | "t1-samples" | "t2-samples";
 function Writing() {
   const { task: taskParam } = Route.useSearch();
   const { user } = useAuth();
+  const isPremium = useIsPremium();
   const navigate = useNavigate();
   const [tab, setTab] = useState<TabType>(() => {
     if (taskParam === "t1-samples") return "t1-samples";
@@ -1444,18 +1457,9 @@ function Writing() {
               </p>
             )}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {visibleHtml.map((task) => (
-                <button
-                  key={task.id}
-                  onClick={() => {
-                    if (!user) {
-                      void navigate({ to: "/auth" });
-                      return;
-                    }
-                    window.open(task.htmlFile, "_blank");
-                  }}
-                  className="block text-left"
-                >
+              {visibleHtml.map((task) => {
+                const locked = !isFreeSimulator(task.id) && !isPremium;
+                const card = (
                   <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300 cursor-pointer">
                     <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                       {task.image ? (
@@ -1493,8 +1497,35 @@ function Writing() {
                       </p>
                     </div>
                   </Card>
-                </button>
-              ))}
+                );
+
+                if (locked) {
+                  return (
+                    <div key={task.id} className="relative rounded-xl overflow-hidden h-full">
+                      <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
+                        {card}
+                      </div>
+                      <PremiumCardOverlay />
+                    </div>
+                  );
+                }
+
+                return (
+                  <button
+                    key={task.id}
+                    onClick={() => {
+                      if (!user) {
+                        void navigate({ to: "/auth" });
+                        return;
+                      }
+                      window.open(task.htmlFile, "_blank");
+                    }}
+                    className="block text-left"
+                  >
+                    {card}
+                  </button>
+                );
+              })}
               {visibleTasks.map((task) => {
                 const status = progress[task.id]?.status ?? "not_started";
                 const meta = STATUS_META[status];
@@ -1551,8 +1582,9 @@ function Writing() {
         {/* Samples tabs */}
         {tab === "t1-samples" && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {visibleSamples.map((sample) => (
-              <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
+            {visibleSamples.map((sample) => {
+              const locked = !isFreeWritingSample(sample.id) && !isPremium;
+              const card = (
                 <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                   <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                     {sample.coverImage ? (
@@ -1586,15 +1618,33 @@ function Writing() {
                     </p>
                   </div>
                 </Card>
-              </Link>
-            ))}
+              );
+
+              if (locked) {
+                return (
+                  <div key={sample.id} className="relative rounded-xl overflow-hidden h-full">
+                    <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
+                      {card}
+                    </div>
+                    <PremiumCardOverlay />
+                  </div>
+                );
+              }
+
+              return (
+                <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
+                  {card}
+                </Link>
+              );
+            })}
           </div>
         )}
 
         {tab === "t2-samples" && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {WRITING_ESSAYS.map((essay) => (
-              <Link key={essay.id} to="/writing/essay/$id" params={{ id: essay.id }}>
+            {WRITING_ESSAYS.map((essay) => {
+              const locked = !isFreeWritingEssay(essay.id) && !isPremium;
+              const card = (
                 <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
                   <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
                     <div className="text-4xl font-bold text-muted-foreground">
@@ -1619,8 +1669,25 @@ function Writing() {
                     </p>
                   </div>
                 </Card>
-              </Link>
-            ))}
+              );
+
+              if (locked) {
+                return (
+                  <div key={essay.id} className="relative rounded-xl overflow-hidden h-full">
+                    <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
+                      {card}
+                    </div>
+                    <PremiumCardOverlay />
+                  </div>
+                );
+              }
+
+              return (
+                <Link key={essay.id} to="/writing/essay/$id" params={{ id: essay.id }}>
+                  {card}
+                </Link>
+              );
+            })}
           </div>
         )}
       </section>

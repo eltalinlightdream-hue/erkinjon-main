@@ -16,6 +16,8 @@ import {
   DIFFICULTIES,
   DIFFICULTY_STYLES,
 } from "@/lib/articles-data";
+import { useIsPremium, PremiumCardOverlay } from "@/components/premium-lock";
+import { isFreeArticle } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/articles")({
   head: () => ({
@@ -48,6 +50,7 @@ function Articles() {
   const [topic, setTopic] = useState<"All" | ArticleTopic>("All");
   const [difficulty, setDifficulty] = useState<"All" | ArticleDifficulty>("All");
   const [search, setSearch] = useState("");
+  const isPremium = useIsPremium();
 
   // Sort newest first; mark first 10 as "new"
   const sorted = useMemo(
@@ -136,13 +139,8 @@ function Articles() {
             {filtered.map((a, idx) => {
               const img = a.coverImage || TOPIC_FALLBACK_IMAGES[a.topic];
               const isNew = newIds.has(a.id);
-              return (
-                <Reveal key={a.id} className="h-full" delay={(idx % 3) * 70}>
-                  <Link
-                    to="/articles/$slug"
-                    params={{ slug: a.slug }}
-                    className="group block h-full"
-                  >
+              const locked = !isFreeArticle(a.id) && !isPremium;
+              const card = (
                     <Card className="h-full hover:shadow-[0_16px_40px_rgba(43,64,128,0.14)] hover:-translate-y-1.5 group-active:shadow-[0_16px_40px_rgba(43,64,128,0.14)] group-active:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col">
                       <div className="relative aspect-[16/9] overflow-hidden bg-muted">
                         <img
@@ -189,7 +187,26 @@ function Articles() {
                         </div>
                       </div>
                     </Card>
-                  </Link>
+              );
+
+              return (
+                <Reveal key={a.id} className="h-full" delay={(idx % 3) * 70}>
+                  {locked ? (
+                    <div className="relative rounded-xl overflow-hidden h-full">
+                      <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
+                        {card}
+                      </div>
+                      <PremiumCardOverlay label="Premium article" />
+                    </div>
+                  ) : (
+                    <Link
+                      to="/articles/$slug"
+                      params={{ slug: a.slug }}
+                      className="group block h-full"
+                    >
+                      {card}
+                    </Link>
+                  )}
                 </Reveal>
               );
             })}

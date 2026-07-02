@@ -71,6 +71,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { findArticle, ARTICLES, DIFFICULTY_STYLES } from "@/lib/articles-data";
+import { useIsPremium, PremiumRequired } from "@/components/premium-lock";
+import { isFreeArticle } from "@/lib/premium-content";
 import { SaveVocabModal } from "@/components/save-vocab-modal";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -103,6 +105,7 @@ interface HighlightPopup {
 function ArticleView() {
   const { slug } = Route.useParams();
   const article = findArticle(slug);
+  const isPremium = useIsPremium();
   const [saveOpen, setSaveOpen] = useState<null | {
     word: string;
     definition: string;
@@ -239,6 +242,14 @@ function ArticleView() {
             ← Back to articles
           </Link>
         </div>
+      </SiteLayout>
+    );
+  }
+
+  if (!isFreeArticle(article.id) && !isPremium) {
+    return (
+      <SiteLayout>
+        <PremiumRequired title="This article is Premium" />
       </SiteLayout>
     );
   }

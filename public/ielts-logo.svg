@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="IELTS — International English Language Testing System">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf7f1"/>
+      <stop offset="1" stop-color="#f1e7db"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b8452e"/>
+      <stop offset="1" stop-color="#8f3220"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="260" fill="url(#bg)"/>
+  <rect x="0" y="0" width="400" height="8" fill="url(#ink)"/>
+
+  <!-- Roundel mark -->
+  <circle cx="200" cy="96" r="46" fill="none" stroke="url(#ink)" stroke-width="4"/>
+  <circle cx="200" cy="96" r="38" fill="url(#ink)"/>
+  <text x="200" y="107" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700"
+        letter-spacing="1" fill="#fbf7f1">IE</text>
+
+  <!-- Wordmark -->
+  <text x="200" y="188" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700"
+        letter-spacing="6" fill="#2b2320">IELTS</text>
+
+  <!-- Strapline -->
+  <text x="200" y="216" text-anchor="middle"
+        font-family="'Courier New', monospace" font-size="11" letter-spacing="2.5" fill="#8a7f74">
+    INTERNATIONAL ENGLISH LANGUAGE
+  </text>
+  <text x="200" y="232" text-anchor="middle"
+        font-family="'Courier New', monospace" font-size="11" letter-spacing="2.5" fill="#8a7f74">
+    TESTING SYSTEM
+  </text>
+</svg>
