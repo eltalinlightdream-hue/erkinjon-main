@@ -16,6 +16,7 @@ import {
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
 import { Sheep, McItem } from "@/components/minecraft-decorations";
+import { FREE_LIMITS } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/listening")({
   head: () => ({
@@ -804,6 +805,9 @@ function Listening() {
   const testIds = TESTS.map((t) => t.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(testIds);
 
+  // The first few tests stay free; everything after that is Premium-only.
+  const freeTestIds = new Set(TESTS.slice(0, FREE_LIMITS.listeningTests).map((t) => t.id));
+
   const sectionCounts = {
     all: TESTS.length,
     full: TESTS.filter((t) => t.section === 0).length,
@@ -894,7 +898,7 @@ function Listening() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((t) => {
-              const locked = t.isPremium && !isPremium;
+              const locked = !freeTestIds.has(t.id) && !isPremium;
               const status = statuses[t.id];
               const progressStatus = statusFor(t.id);
               const isFinished = progressStatus === "finished";

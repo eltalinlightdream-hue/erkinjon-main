@@ -6,6 +6,8 @@ import { ArrowLeft, BookmarkPlus as BPIcon, Highlighter, X as XIcon, Eraser } fr
 import { findWritingEssay } from "@/lib/writing-samples-data";
 import { SaveVocabModal } from "@/components/save-vocab-modal";
 import { cn } from "@/lib/utils";
+import { useIsPremium, PremiumRequired } from "@/components/premium-lock";
+import { isFreeWritingEssay } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/writing_/essay/$id")({
   head: ({ params }) => {
@@ -30,6 +32,7 @@ interface HighlightPopup {
 function WritingEssayView() {
   const { id } = Route.useParams();
   const essay = findWritingEssay(id);
+  const isPremium = useIsPremium();
   const [popup, setPopup] = useState<HighlightPopup | null>(null);
   const [saveOpen, setSaveOpen] = useState<null | { word: string; definition: string; example: string }>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -114,6 +117,14 @@ function WritingEssayView() {
             ← Back to Task 2 Samples
           </Link>
         </div>
+      </SiteLayout>
+    );
+  }
+
+  if (!isFreeWritingEssay(essay.id) && !isPremium) {
+    return (
+      <SiteLayout>
+        <PremiumRequired title="This Task 2 sample is Premium" />
       </SiteLayout>
     );
   }

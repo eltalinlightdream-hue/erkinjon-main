@@ -160,11 +160,11 @@ function Index() {
             <div className="lg:col-span-5 relative ink-bleed" style={{ animationDelay: "0.45s" }}>
               <div className="group/illu relative max-w-sm mx-auto rounded-3xl overflow-hidden border border-border shadow-soft transition-transform duration-500 ease-out hover:-translate-y-1.5 hover:shadow-warm">
                 <img
-                  src="/writing-images/herostudy.jpg"
-                  alt="Studying with focus and determination"
+                  src="/ielts-logo.svg"
+                  alt="IELTS — International English Language Testing System"
                   width={400}
                   height={260}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover bg-card"
                   loading="eager"
                   fetchPriority="high"
                 />

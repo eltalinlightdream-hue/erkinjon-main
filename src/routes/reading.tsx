@@ -18,6 +18,7 @@ import {
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
 import { SteveReading, McItem } from "@/components/minecraft-decorations";
+import { FREE_LIMITS } from "@/lib/premium-content";
 
 export const Route = createFileRoute("/reading")({
   head: () => ({
@@ -1861,6 +1862,9 @@ function Reading() {
   const passageIds = PASSAGES.map((p) => p.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(passageIds);
 
+  // The first few passages stay free; everything after that is Premium-only.
+  const freePassageIds = new Set(PASSAGES.slice(0, FREE_LIMITS.readingPassages).map((p) => p.id));
+
   // BUG FIX: the PASSAGES list contains entries that share the same title /
   // htmlFile (e.g. "The Bug Picture" appears twice), which made the search
   // results show duplicates. Deduplicate by a normalised title + htmlFile key
@@ -1997,7 +2001,7 @@ function Reading() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((p) => {
-              const locked = p.isPremium && !isPremium;
+              const locked = !freePassageIds.has(p.id) && !isPremium;
               const status = statuses[p.id];
               const progressStatus = statusFor(p.id);
               const isFinished = progressStatus === "finished";

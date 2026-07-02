@@ -11,6 +11,8 @@ import {
   type SpeakingTopic,
 } from "@/lib/speaking-samples-data";
 import { cn } from "@/lib/utils";
+import { useIsPremium, PremiumCardOverlay, PremiumRequired } from "@/components/premium-lock";
+import { isFreeSpeakingTopic } from "@/lib/premium-content";
 
 type SamplesSearch = {
   topic?: string;
@@ -158,7 +160,39 @@ function HighlightedText({
 /* ── Topic card (index view) ─────────────────────────────────── */
 
 function TopicCard({ topic }: { topic: SpeakingTopic }) {
+  const isPremium = useIsPremium();
+  const locked = !isFreeSpeakingTopic(topic.id) && !isPremium;
   const count = topic.questions.length;
+  const inner = (
+    <div className="bento-card p-6 h-full flex flex-col cursor-pointer">
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <span className="text-3xl leading-none">{topic.emoji}</span>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary bg-primary/10 px-2.5 py-1 rounded-full whitespace-nowrap">
+          {count} {count === 1 ? "question" : "questions"}
+        </span>
+      </div>
+      <h3 className="font-serif text-lg leading-snug mb-2 text-foreground group-hover:text-primary group-active:text-primary transition-colors">
+        {topic.title}
+      </h3>
+      <p className="text-sm text-muted-foreground leading-relaxed flex-1">{topic.description}</p>
+      <span className="mt-4 text-sm font-medium text-primary inline-flex items-center gap-1.5">
+        Open{" "}
+        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-active:translate-x-0.5 transition-transform" />
+      </span>
+    </div>
+  );
+
+  if (locked) {
+    return (
+      <Reveal className="h-full">
+        <div className="relative rounded-2xl overflow-hidden h-full">
+          <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">{inner}</div>
+          <PremiumCardOverlay label="Premium topic" />
+        </div>
+      </Reveal>
+    );
+  }
+
   return (
     <Reveal className="h-full">
       <Link
@@ -166,22 +200,7 @@ function TopicCard({ topic }: { topic: SpeakingTopic }) {
         search={{ topic: topic.id }}
         className="group block h-full"
       >
-        <div className="bento-card p-6 h-full flex flex-col cursor-pointer">
-          <div className="flex items-start justify-between gap-3 mb-3">
-            <span className="text-3xl leading-none">{topic.emoji}</span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary bg-primary/10 px-2.5 py-1 rounded-full whitespace-nowrap">
-              {count} {count === 1 ? "question" : "questions"}
-            </span>
-          </div>
-          <h3 className="font-serif text-lg leading-snug mb-2 text-foreground group-hover:text-primary group-active:text-primary transition-colors">
-            {topic.title}
-          </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed flex-1">{topic.description}</p>
-          <span className="mt-4 text-sm font-medium text-primary inline-flex items-center gap-1.5">
-            Open{" "}
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-active:translate-x-0.5 transition-transform" />
-          </span>
-        </div>
+        {inner}
       </Link>
     </Reveal>
   );
@@ -381,11 +400,26 @@ function IndexView({ part }: { part?: 1 | 2 | 3 }) {
 function WrittenSamples() {
   const { topic: topicId, part } = Route.useSearch();
   const topic = topicId ? findSpeakingTopic(topicId) : undefined;
+  const isPremium = useIsPremium();
 
   // Scroll to top when switching between index and topic views
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [topicId]);
 
-  return <SiteLayout>{topic ? <TopicView topic={topic} /> : <IndexView part={part} />}</SiteLayout>;
+  const topicLocked = !!topic && !isFreeSpeakingTopic(topic.id) && !isPremium;
+
+  return (
+    <SiteLayout>
+      {topic ? (
+        topicLocked ? (
+          <PremiumRequired title="This speaking topic is Premium" />
+        ) : (
+          <TopicView topic={topic} />
+        )
+      ) : (
+        <IndexView part={part} />
+      )}
+    </SiteLayout>
+  );
 }
