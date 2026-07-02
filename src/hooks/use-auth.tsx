@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from "react
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { getDeviceFingerprint } from "@/lib/fingerprint";
+import { isAdminEmail } from "@/lib/admin-config";
 
 export interface Profile {
   id: string;
@@ -32,22 +33,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [deviceConflict, setDeviceConflict] = useState(false);
 
-  const loadProfile = async (uid: string) => {
-    const { data } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", uid)
-      .maybeSingle();
-    if (!data) { setProfile(null); return; }
+  const loadProfile = async (uid: string, email?: string | null) => {
+    const { data } = await supabase.from("profiles").select("*").eq("id", uid).maybeSingle();
+    if (!data) {
+      setProfile(null);
+      return;
+    }
     setProfile(data as Profile);
+
+    // The admin account is never locked to a single device.
+    if (isAdminEmail(email ?? data.email)) {
+      setDeviceConflict(false);
+      return;
+    }
 
     // Device-binding for premium users
     if (data.is_premium) {
       const fp = getDeviceFingerprint();
       if (!data.device_fingerprint) {
-        await supabase.from("profiles").update({
-          device_fingerprint: fp,
-        } as never).eq("id", uid);
+        await supabase
+          .from("profiles")
+          .update({
+            device_fingerprint: fp,
+          } as never)
+          .eq("id", uid);
         setDeviceConflict(false);
       } else if (data.device_fingerprint !== fp) {
         setDeviceConflict(true);
@@ -64,7 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setSession(s);
       setUser(s?.user ?? null);
       if (s?.user) {
-        setTimeout(() => loadProfile(s.user.id), 0);
+        setTimeout(() => loadProfile(s.user.id, s.user.email), 0);
       } else {
         setProfile(null);
         setDeviceConflict(false);
@@ -73,16 +82,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session);
       setUser(data.session?.user ?? null);
-      if (data.session?.user) loadProfile(data.session.user.id);
+      if (data.session?.user) loadProfile(data.session.user.id, data.session.user.email);
       setLoading(false);
     });
     return () => sub.subscription.unsubscribe();
   }, []);
 
   const value: AuthCtx = {
-    user, session, profile, loading, deviceConflict,
-    signOut: async () => { await supabase.auth.signOut(); },
-    refreshProfile: async () => { if (user) await loadProfile(user.id); },
+    user,
+    session,
+    profile,
+    loading,
+    deviceConflict,
+    signOut: async () => {
+      await supabase.auth.signOut();
+    },
+    refreshProfile: async () => {
+      if (user) await loadProfile(user.id, user.email);
+    },
   };
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
