@@ -1831,6 +1831,37 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/Science_Filmmaking_CDI_standalone.html",
     isNew: true,
   },
+  // Volume 11 – Test 1 (Premium)
+  {
+    id: "vol11-t1-r1",
+    title: "Volume 11 Test 1 – The History of the Pencil",
+    passageNumber: 1,
+    isPremium: true,
+    description:
+      "Volume 11 Test 1 Reading Passage 1: the origins of the modern pencil, from 16th-century Borrowdale graphite to how pencils are manufactured today — questions 1–13.",
+    htmlFile: "/passages/Vol11_T1_P1_History_of_the_Pencil.html",
+    isNew: true,
+  },
+  {
+    id: "vol11-t1-r2",
+    title: "Volume 11 Test 1 – How Do Plants Talk to Each Other?",
+    passageNumber: 2,
+    isPremium: true,
+    description:
+      "Volume 11 Test 1 Reading Passage 2: research on the subtle chemical, root and possibly acoustic ways plants communicate — questions 14–26.",
+    htmlFile: "/passages/Vol11_T1_P2_How_Do_Plants_Talk.html",
+    isNew: true,
+  },
+  {
+    id: "vol11-t1-r3",
+    title: "Volume 11 Test 1 – We Have Star Performers",
+    passageNumber: 3,
+    isPremium: true,
+    description:
+      "Volume 11 Test 1 Reading Passage 3: Jeffrey Pfeffer questions the assumption that talent is fixed and that hiring stars guarantees success — questions 27–40.",
+    htmlFile: "/passages/Vol11_T1_P3_Star_Performers.html",
+    isNew: true,
+  },
 ];
 
 const FILTERS = [
