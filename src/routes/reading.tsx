@@ -42,6 +42,38 @@ type Passage = {
 };
 
 const PASSAGES: Passage[] = [
+  // Newest tests first — add new tests at the TOP of this list.
+  // Volume 11 – Test 1 (Premium)
+  {
+    id: "vol11-t1-r1",
+    title: "Volume 11 Test 1 – The History of the Pencil",
+    passageNumber: 1,
+    isPremium: true,
+    description:
+      "Volume 11 Test 1 Reading Passage 1: the origins of the modern pencil, from 16th-century Borrowdale graphite to how pencils are manufactured today — questions 1–13.",
+    htmlFile: "/passages/Vol11_T1_P1_History_of_the_Pencil.html",
+    isNew: true,
+  },
+  {
+    id: "vol11-t1-r2",
+    title: "Volume 11 Test 1 – How Do Plants Talk to Each Other?",
+    passageNumber: 2,
+    isPremium: true,
+    description:
+      "Volume 11 Test 1 Reading Passage 2: research on the subtle chemical, root and possibly acoustic ways plants communicate — questions 14–26.",
+    htmlFile: "/passages/Vol11_T1_P2_How_Do_Plants_Talk.html",
+    isNew: true,
+  },
+  {
+    id: "vol11-t1-r3",
+    title: "Volume 11 Test 1 – We Have Star Performers",
+    passageNumber: 3,
+    isPremium: true,
+    description:
+      "Volume 11 Test 1 Reading Passage 3: Jeffrey Pfeffer questions the assumption that talent is fixed and that hiring stars guarantees success — questions 27–40.",
+    htmlFile: "/passages/Vol11_T1_P3_Star_Performers.html",
+    isNew: true,
+  },
   {
     id: "p1-olmec",
     title: "The Olmec and Their Great Stone Heads",
@@ -1831,37 +1863,6 @@ const PASSAGES: Passage[] = [
     htmlFile: "/passages/Science_Filmmaking_CDI_standalone.html",
     isNew: true,
   },
-  // Volume 11 – Test 1 (Premium)
-  {
-    id: "vol11-t1-r1",
-    title: "Volume 11 Test 1 – The History of the Pencil",
-    passageNumber: 1,
-    isPremium: true,
-    description:
-      "Volume 11 Test 1 Reading Passage 1: the origins of the modern pencil, from 16th-century Borrowdale graphite to how pencils are manufactured today — questions 1–13.",
-    htmlFile: "/passages/Vol11_T1_P1_History_of_the_Pencil.html",
-    isNew: true,
-  },
-  {
-    id: "vol11-t1-r2",
-    title: "Volume 11 Test 1 – How Do Plants Talk to Each Other?",
-    passageNumber: 2,
-    isPremium: true,
-    description:
-      "Volume 11 Test 1 Reading Passage 2: research on the subtle chemical, root and possibly acoustic ways plants communicate — questions 14–26.",
-    htmlFile: "/passages/Vol11_T1_P2_How_Do_Plants_Talk.html",
-    isNew: true,
-  },
-  {
-    id: "vol11-t1-r3",
-    title: "Volume 11 Test 1 – We Have Star Performers",
-    passageNumber: 3,
-    isPremium: true,
-    description:
-      "Volume 11 Test 1 Reading Passage 3: Jeffrey Pfeffer questions the assumption that talent is fixed and that hiring stars guarantees success — questions 27–40.",
-    htmlFile: "/passages/Vol11_T1_P3_Star_Performers.html",
-    isNew: true,
-  },
 ];
 
 const FILTERS = [
@@ -1893,8 +1894,12 @@ function Reading() {
   const passageIds = PASSAGES.map((p) => p.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(passageIds);
 
-  // The first few passages stay free; everything after that is Premium-only.
-  const freePassageIds = new Set(PASSAGES.slice(0, FREE_LIMITS.readingPassages).map((p) => p.id));
+  // The first few NON-premium passages stay free; explicitly premium tests are
+  // never free regardless of position, so new premium tests can sit at the top
+  // of the list without falling into the free slice.
+  const freePassageIds = new Set(
+    PASSAGES.filter((p) => !p.isPremium).slice(0, FREE_LIMITS.readingPassages).map((p) => p.id),
+  );
 
   // BUG FIX: the PASSAGES list contains entries that share the same title /
   // htmlFile (e.g. "The Bug Picture" appears twice), which made the search
@@ -2037,7 +2042,7 @@ function Reading() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((p) => {
-              const locked = !freePassageIds.has(p.id) && !isPremium;
+              const locked = (p.isPremium || !freePassageIds.has(p.id)) && !isPremium;
               const status = statuses[p.id];
               const progressStatus = statusFor(p.id);
               const isFinished = progressStatus === "finished";
