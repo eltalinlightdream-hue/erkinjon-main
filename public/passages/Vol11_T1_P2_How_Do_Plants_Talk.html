@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>How do plants talk to each other? – IELTS</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+
+:root{--bg-color:#fff;--text-color:#000;--passage-bg:#fff;--questions-bg:#fff;--border-color:#d5d5d5;--highlight-color:#fef08a;--header-bg:#fff;--header-text:#000;--button-hover:#e4e4e4;--progress-complete:#21aa74;--timer-text:#000;--footer-bg:#fff;--cdi-font-size:16px;--cdi-line-height:1.5;}
+body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--highlight-color:#6b5c10;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--progress-complete:#81c995;}
+*{margin:0;padding:0;box-sizing:border-box;transition:background-color .3s,color .3s;}
+html,body{height:100%;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);overflow:hidden;display:flex;flex-direction:column;font-size:16px;}
+header{height:56px;min-height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);position:relative;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:50;}
+.cdi-left-brand{display:flex;align-items:center;gap:12px;min-width:220px;}
+.ielts-logo{font-size:40px;font-weight:900;letter-spacing:-2px;color:#e31837;line-height:1;font-family:Arial Black,Arial,sans-serif;}
+.ielts-logo::after{content:'™';font-size:9px;vertical-align:top;color:#e31837;}
+.test-taker{font-size:15px;font-weight:700;color:var(--header-text);}
+.cdi-center-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.social-link.telegram{background:#0088cc;color:#fff;border-radius:22px;padding:6px 18px;font-size:15px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;}
+.social-link.telegram:hover{background:#007bb5;}
+.header-controls{margin-left:auto;display:flex;align-items:center;gap:14px;}
+.timer-container{color:var(--timer-text);font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.hbtn{background:transparent;border:0;color:var(--header-text);width:34px;height:34px;padding:0;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px;}
+.hbtn:hover{background:var(--button-hover);}
+.display-panel{position:fixed;top:56px;right:0;width:min(300px,100vw);background:var(--questions-bg);border-left:1px solid var(--border-color);box-shadow:-4px 0 16px rgba(0,0,0,.15);padding:16px;z-index:2000;display:none;color:var(--text-color);}
+.display-panel.open{display:block;}
+.display-panel h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;}
+.display-panel label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px;}
+.display-panel input[type=range]{width:100%;accent-color:#2a6c96;}
+.theme-row{display:flex;gap:8px;margin-top:12px;}
+.theme-row button{border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);border-radius:6px;padding:6px 10px;cursor:pointer;}
+.cdi-part-header{margin:14px 14px 0;padding:10px 18px;background:rgb(241,242,236);border:1px solid var(--border-color);flex-shrink:0;}
+body.night-mode .cdi-part-header{background:#1f2b47;border-color:#3a3f4b;}
+.cdi-part-header p{margin:0;font-size:15px;line-height:1.4;color:var(--text-color);}
+main{display:flex;flex:1;min-height:0;margin-top:14px;overflow:hidden;}
+.passage-container,.questions-container{height:100%;overflow-y:auto;padding:22px 26px 70px;background:var(--passage-bg);color:var(--text-color);min-width:200px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.questions-container{background:var(--questions-bg);}
+.passage-title{font-size:18px;font-weight:700;margin:0 0 6px;text-align:center;color:var(--text-color);}
+.passage-subtitle{font-style:italic;font-size:15px;text-align:center;margin:0 0 16px;color:var(--text-color);}
+.passage-text p{margin:0 0 14px;color:var(--text-color);font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.sec-title{font-size:16px;font-weight:700;margin:0 0 10px;color:var(--text-color);}
+.instructions{font-size:15px;margin:0 0 14px;color:var(--text-color);}
+.question{margin:0 0 22px;}
+.q-title{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.q-num{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:15px;font-weight:700;flex-shrink:0;}
+.question.answered .q-num{background:rgba(33,170,116,0.12);}
+.q-text{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.mcq-options{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
+.mcq-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);cursor:pointer;font-size:var(--cdi-font-size);color:var(--text-color);}
+.mcq-option input{transform:scale(1.1);flex-shrink:0;}
+.text-input{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:28px;padding:3px 8px;font-family:Arial,sans-serif;}
+.notes-box{border:1px solid var(--border-color);border-radius:6px;padding:14px 18px;margin-bottom:16px;background:var(--questions-bg);}
+.notes-box p,.notes-box li{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.notes-box ul{margin-left:18px;}.notes-box li{margin-bottom:7px;}
+.cdi-resizer{width:16px;flex:0 0 16px;background:transparent;cursor:col-resize;position:relative;display:flex;align-items:center;justify-content:center;z-index:5;}
+.cdi-resizer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-color);transform:translateX(-50%);}
+.cdi-resizer-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border:1.6px solid #535353;background:#f9f9f9;color:#535353;display:flex;align-items:center;justify-content:center;font-size:15px;pointer-events:none;}
+body.night-mode .cdi-resizer-handle{background:#1f2b47;color:#b0b3b8;border-color:#3a3f4b;}
+.cdi-resizer:hover::before,.cdi-resizer.dragging::before{background:#2a6c96;}
+.cdi-resizer:hover .cdi-resizer-handle,.cdi-resizer.dragging .cdi-resizer-handle{color:#2a6c96;border-color:#2a6c96;}
+footer{height:60px;background:var(--footer-bg);border-top:1px solid var(--border-color);padding:0;display:flex;align-items:stretch;flex-shrink:0;}
+.progress-container{display:flex;align-items:stretch;overflow-x:auto;flex:1;padding:0 14px;}
+.progress-item{width:38px;height:100%;background:transparent;color:var(--text-color);border:1.6px solid transparent;display:inline-flex;align-items:center;justify-content:center;font-size:15px;position:relative;cursor:pointer;}
+.progress-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#d7d7d7;}
+.progress-item.completed{color:#2a6c96;}.progress-item.completed::before{background:#21aa74;}
+.action-buttons{display:flex;align-items:stretch;}
+.btn-secondary,.btn-primary{height:100%;border-radius:0;padding:0 24px;background:#efefef;color:#535353;border:0;border-left:1px solid var(--border-color);font-size:15px;cursor:pointer;}
+.btn-secondary:hover,.btn-primary:hover{background:#e4e4e4;}
+.feedback-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:3000;display:none;justify-content:center;align-items:center;}
+.feedback-container{background:var(--passage-bg);width:90%;max-width:880px;height:88%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.3);display:flex;flex-direction:column;}
+.feedback-header{padding:18px 20px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;}
+.feedback-title{font-size:20px;font-weight:700;color:var(--text-color);display:flex;align-items:center;gap:10px;}
+.score-display{font-size:22px;font-weight:700;margin-left:8px;}
+#close-feedback{font-size:22px;background:none;border:none;color:var(--text-color);cursor:pointer;}
+.feedback-body{padding:18px;overflow-y:auto;}
+.feedback-item{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border-color);}
+.feedback-question{font-weight:700;margin-bottom:5px;font-size:15px;color:var(--text-color);}
+.feedback-answer{font-size:14px;padding:7px 11px;border-radius:4px;}
+.feedback-answer.correct{background:rgba(40,167,69,.1);color:#155724;}
+.feedback-answer.incorrect{background:rgba(220,53,69,.1);color:#721c24;}
+body.night-mode .feedback-answer.correct{color:#81c995;background:rgba(40,167,69,.15);}
+body.night-mode .feedback-answer.incorrect{color:#f5a0a8;background:rgba(220,53,69,.15);}
+.highlight{background-color:var(--highlight-color);cursor:pointer;}
+.highlight-tooltip{position:fixed;background:#333;color:#fff;padding:5px 10px;border-radius:4px;font-size:13px;z-index:9999;display:flex;align-items:center;gap:5px;}
+.inline-correct{color:#28a745;font-weight:700;margin-left:8px;font-size:14px;}
+.inline-wrong{color:#dc3545;font-weight:600;margin-left:8px;font-size:13px;}
+.test-locked input,.test-locked select{pointer-events:none;opacity:.85;}
+.test-locked .mcq-option{cursor:default;}
+@media(max-width:900px){.test-taker{display:none;}.cdi-center-brand{position:static;transform:none;margin-left:6px;}.cdi-resizer{display:none!important;}main{flex-direction:column;}.passage-container,.questions-container{width:100%!important;flex:none!important;height:50%!important;}}
+
+
+/* ---- compat: source question classes restyled to dolls look ---- */
+.question-rubric h3,.section-title{font-size:16px;font-weight:700;margin:18px 0 10px;color:var(--text-color);}
+.question-rubric p,.instructions{font-size:15px;margin:0 0 12px;color:var(--text-color);}
+.question-group{margin:0 0 8px;}
+.question-content{margin-bottom:8px;}
+.dropdown-question-row{display:flex;flex-direction:column;gap:8px;margin:0 0 18px;}
+.dropdown-question-row>p,.question-item p{margin:0 0 6px;color:var(--text-color);}
+.question-number{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:14px;font-weight:700;margin-right:8px;flex-shrink:0;}
+.question.answered .question-number,.answered .question-number{background:rgba(33,170,116,0.12);}
+.question-title{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;color:var(--text-color);font-weight:600;}
+.options{display:flex;flex-direction:column;gap:7px;margin-top:8px;}
+.option,.true-false-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);cursor:pointer;color:var(--text-color);}
+.option input{flex-shrink:0;}
+.option-label{color:var(--text-color);}
+.question-options{list-style:none;margin:8px 0;}
+.question-options li{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);margin-bottom:7px;color:var(--text-color);}
+select,.sel,.select-answer,.short-answer,input[type=text]{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:30px;padding:4px 8px;font-family:Arial,sans-serif;max-width:100%;}
+.matching-box,.option-list,.matching-list{border:1px solid var(--border-color);border-radius:6px;padding:14px 18px;margin:12px 0;background:var(--questions-bg);}
+.matching-list,.option-list ul{list-style:none;}
+.matching-box h4{margin:0 0 8px;font-size:15px;}
+.matching-list li,.option-list div{margin:6px 0;color:var(--text-color);}
+.question-item{margin:12px 0;}
+.sectionRubric{display:none;}
+.headings-bank li{cursor:grab;padding:6px;margin:4px 0;border:1px solid var(--border-color);border-radius:4px;}
+.drop-zone{display:inline-block;min-width:70px;min-height:30px;border:2px dashed var(--border-color);border-radius:5px;padding:5px 9px;margin:4px;background:var(--questions-bg);cursor:pointer;}
+.drop-zone.filled{border-style:solid;border-color:var(--progress-complete);}
+.inline-correct{color:#28a745;font-weight:700;}
+.inline-wrong{color:#dc3545;font-weight:700;}
+
+.passage-text img{max-width:100%;height:auto;border-radius:8px;margin:8px 0;display:block;}.summary-text{margin:0 0 8px;}.summary-text p,.summary-text li{margin:0 0 8px;color:var(--text-color);font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}.summary-text ul{margin-left:20px;}.summary-input{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:28px;padding:3px 8px;font-family:Arial,sans-serif;min-width:140px;}.true-false-option{display:block;}.true-false-option p,.dropdown-question-row p{margin:0 0 8px;}.true-false-option select,.dropdown-question-row select{min-width:160px;}.mcq-option{cursor:pointer;}.questions-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:var(--cdi-font-size);}.questions-table th{background:#2a6c96;color:#fff;padding:10px 12px;text-align:left;border:1px solid var(--border-color);}.questions-table td{padding:9px 12px;border:1px solid var(--border-color);vertical-align:middle;color:var(--text-color);line-height:var(--cdi-line-height);}.questions-table td.area-cell{font-weight:700;background:rgb(241,242,236);}body.night-mode .questions-table td.area-cell{background:#1f2b47;}
+</style>
+</head>
+<body>
+<header>
+  <div class="cdi-left-brand"><span class="ielts-logo">IELTS</span><span class="test-taker">Test taker ID</span></div>
+  <div class="cdi-center-brand"><a class="social-link telegram" href="https://t.me/augustus_flores" target="_blank"><i class="fab fa-telegram-plane"></i><span>Abduraimov Erkinjon</span></a></div>
+  <div class="header-controls">
+    <div class="timer-container"><i class="fas fa-clock"></i><span id="timer">20:00</span></div>
+    <button class="hbtn" id="start-timer"><i class="fas fa-play"></i></button>
+    <button class="hbtn" id="pause-timer"><i class="fas fa-pause"></i></button>
+    <button class="hbtn" id="reset-timer"><i class="fas fa-redo"></i></button>
+    <button class="hbtn" id="fullscreen-toggle"><i class="fas fa-expand"></i></button>
+    <button class="hbtn" id="night-mode-toggle"><i class="fas fa-moon"></i></button>
+    <button class="hbtn" id="display-menu-toggle"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+<div class="display-panel" id="display-panel">
+  <h3>Display options</h3>
+  <label>Text size</label><input id="font-size-range" type="range" min="14" max="22" value="16"/>
+  <label>Line spacing</label><input id="line-height-range" type="range" min="140" max="190" value="150"/>
+  <div class="theme-row"><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
+</div>
+<div class="cdi-part-header"><p><strong>Reading Passage 2</strong></p><p>You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.</p></div>
+<main>
+  <div class="passage-container" id="passage-container">
+    <div class="passage-title">How do plants talk to each other?</div>
+    <div class="passage-subtitle">Research shows that plants communicate and interact with each other in surprisingly subtle and sophisticated ways.</div>
+    <div class="passage-text" id="passage-text">
+
+
+<p><strong>A</strong> In 1983, plant scientists Jack Schultz and Ian Baldwin reported that the leaves of young maple trees increased their defense systems when exposed to maples that had been damaged by plant-eating (herbivorous) insects. The injured trees, they suggested, were alerting neighbors to the presence of a predator by releasing chemical signals into the air. But the plant research community did not accept this. The results were difficult to replicate, critics pointed out. Many also questioned how it could be evolutionarily stable if it benefited neighboring plants but not the plant releasing the signal. By the late 1980s, most ecologists felt that Schultz and Baldwin's idea had been discredited.</p>
+<p><strong>B</strong> A decade later, however, a number of more carefully designed experiments began to yield convincing indications to the contrary. In 2000, evolutionary ecologist Richard Karban showed that wild tobacco plants became resistant to herbivores when grown in close proximity to sagebrush plants whose leaves had been damaged by cutting. This change appeared to be in response to chemicals – known as volatile organic compounds or VOCs – released by the sagebrush plants. Other researchers soon reported similar VOC-induced defense responses in several other plants, including lima bean, broad bean, barley, and corn. And in 2006, Karban showed that VOCs released by damaged sagebrush induce herbivore resistance in plants growing at distances of up to 60 cm, well within the range of sagebrush neighbors in nature.</p>
+<p><strong>C</strong> But the question still remains: 'Why should a plant waste valuable resources on a function which has no obvious advantage for it?' One hypothesis is that external communication channels are merely an extension of within-plant signaling. In sagebrush, lima bean, and poplar, VOCs released from damaged parts of a plant induce resistance in intact sections of the same plant, suggesting that each individual plant uses the signals to coordinate its own physiological responses to protect itself. Karban agrees, saying: 'The interplant signaling we see may be a result of plants co-opting that process.' Alternatively, VOC-based signaling between plants may have been favored because it enhances the 'extended fitness' of the sender by aiding related plants of the same species: a strategy known as kin selection.</p>
+<p><strong>D</strong> Over the past few years, a team led by Ariel Novoplansky of Ben-Gurion University of the Negev in Israel seems to have found proof that distress signals can be passed through the plants' roots. They planted garden pea plants in rows and subjected the first in each row to conditions similar to those experienced in a drought. They then evaluated the response by measuring the microscopic holes on leaves, known as pores, which react when there is a shortage of water. After fifteen minutes, the stressed plant was seen to be closing its pores, followed by all of its neighbors, one by one. Importantly, in a control setup where root contact between neighboring plants was blocked, pores stayed open. Meanwhile, David Johnson's team at the University of Aberdeen in Scotland have been studying the labyrinths of hair-like fungi that occur around the roots of most plants. These fungi are involved in an important two-way relationship: in exchange for sugars, they provide plants with much-needed phosphorus and nitrogen. Research in which broad bean plants were infested with aphids – small herbivorous insects – revealed that these networks also served as a channel for warning neighboring plants of the infestation.</p>
+<p><strong>E</strong> Monica Gagliano of the University of Western Australia believes that plants may even use sounds to alert their neighbors. In one study, she demonstrated that chili plants growing next to fennel plants developed more quickly than seedlings grown with other chili plants. Gagliano and her colleagues suspect the chili plants were compensating for the presence of the fennel, which is known to release chemicals that inhibit the growth of other plants. Remarkably, however, when plant communication pathways – airborne volatiles, root contact, and common fungal networks – were blocked, the results begged for an alternative explanation. 'We think this other channel of communication might be acoustic,' says Gagliano. But behavioral ecologist Carel ten Cate of the University of Leiden in the Netherlands points out that taking advantage of such benefits would require sensory mechanisms yet to be described in plants. Despite widespread skepticism, Gagliano has received some encouragement. Richard Karban, for example, is cautiously enthusiastic. 'Whether or not the explanation she favors is the right one,' he says, 'I think that she's gotten results that, as a field, we need to come to grips with.'</p>
+<p><strong>F</strong> Researchers believe that knowledge of this phenomenon could eventually be applied to agriculture, and lead to the cultivation of hardier crops. But all agree that there is still much work to be done: applying our limited knowledge of plant-communication mechanisms to agriculture is a big jump, says Johnson, 'but it is definitely on the horizon.' Nevertheless, one message has emerged loud and clear from those studying this new realm of botanical interaction: despite not possessing eyes, ears, or a nervous system, plants are anything but uncommunicative. 'When I started my PhD (in the late 1980s), all this stuff was considered very weird,' recalls Ariel Novoplansky. 'Today, there is no doubt. We now recognise that plants are capable of some very sophisticated exchanges of information with other plants. This idea is not strange anymore.'</p>
+
+    </div>
+  </div>
+  <div class="cdi-resizer" id="cdi-resizer"><div class="cdi-resizer-handle">↔</div></div>
+  <div class="questions-container" id="questions-container">
+<div class="question"><div class="question-rubric"><p><strong>Questions 14-19</strong></p><p>Reading Passage 2 has six paragraphs, <strong>A–F</strong>.</p><p>Choose the correct heading for each paragraph from the list of headings below.</p><p>Write the correct number, <strong>i–viii</strong>, in each box.</p></div>
+<div class="notes-box"><h4>List of Headings</h4><ul>
+<li><strong>i</strong>&nbsp;&nbsp;Sending messages underground</li>
+<li><strong>ii</strong>&nbsp;&nbsp;Potential advantages for farmers</li>
+<li><strong>iii</strong>&nbsp;&nbsp;The widespread rejection of an idea</li>
+<li><strong>iv</strong>&nbsp;&nbsp;One species accelerating growth in another</li>
+<li><strong>v</strong>&nbsp;&nbsp;Some obstacles to plant communication</li>
+<li><strong>vi</strong>&nbsp;&nbsp;Evidence leading to renewed belief in a theory</li>
+<li><strong>vii</strong>&nbsp;&nbsp;New technologies which helped researchers</li>
+<li><strong>viii</strong>&nbsp;&nbsp;A suggested benefit to the sender of plant communication</li>
+</ul></div>
+<div class="dropdown-question-row" data-q="14"><p><span class="question-number">14</span> Paragraph A <select name="q14"><option value="">--</option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select></p></div>
+<div class="dropdown-question-row" data-q="15"><p><span class="question-number">15</span> Paragraph B <select name="q15"><option value="">--</option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select></p></div>
+<div class="dropdown-question-row" data-q="16"><p><span class="question-number">16</span> Paragraph C <select name="q16"><option value="">--</option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select></p></div>
+<div class="dropdown-question-row" data-q="17"><p><span class="question-number">17</span> Paragraph D <select name="q17"><option value="">--</option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select></p></div>
+<div class="dropdown-question-row" data-q="18"><p><span class="question-number">18</span> Paragraph E <select name="q18"><option value="">--</option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select></p></div>
+<div class="dropdown-question-row" data-q="19"><p><span class="question-number">19</span> Paragraph F <select name="q19"><option value="">--</option><option value="i">i</option><option value="ii">ii</option><option value="iii">iii</option><option value="iv">iv</option><option value="v">v</option><option value="vi">vi</option><option value="vii">vii</option><option value="viii">viii</option></select></p></div>
+<div class="question"><div class="question-rubric"><p><strong>Questions 20-23</strong></p><p>Complete the summary below.</p><p>Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.</p></div><div class="summary-text">
+<p><strong>Plant communication research in Israel and Scotland</strong></p>
+<p>Plants may send messages via their <input class="summary-input" maxlength="40" name="q20" placeholder="20" type="text"/> according to Ariel Novoplansky of Ben-Gurion University in Israel. In one study, Novoplansky's team planted rows of garden peas, and created conditions like a <input class="summary-input" maxlength="40" name="q21" placeholder="21" type="text"/> around the first plant in each row. The plants responded by closing the tiny holes on their leaf surfaces, known as pores. They then appeared to signal to other plants nearby, causing them to respond in a similar way.</p>
+<p>Research at the University of Aberdeen in Scotland, meanwhile, has focused on the networks of <input class="summary-input" maxlength="40" name="q22" placeholder="22" type="text"/> which connect the plants beneath the soil. These structures, which extract sugars from the plants and supply them with phosphorus and nitrogen, also seem to play a key role in plant communication. Experiments involving broad bean plants and plant-eating insects called <input class="summary-input" maxlength="40" name="q23" placeholder="23" type="text"/> have also produced some interesting results.</p>
+</div></div>
+<div class="question"><div class="question-rubric"><p><strong>Questions 24-26</strong></p><p>Look at the following statements (Questions 24–26) and the list of researchers below.</p><p>Match each statement with the correct researcher, <strong>A–E</strong>.</p></div>
+<div class="notes-box"><h4>List of researchers</h4><ul>
+<li><strong>A</strong>&nbsp;&nbsp;Richard Karban</li>
+<li><strong>B</strong>&nbsp;&nbsp;Ariel Novoplansky</li>
+<li><strong>C</strong>&nbsp;&nbsp;David Johnson</li>
+<li><strong>D</strong>&nbsp;&nbsp;Monica Gagliano</li>
+<li><strong>E</strong>&nbsp;&nbsp;Carel ten Cate</li>
+</ul></div>
+<div class="dropdown-question-row" data-q="24"><p><span class="question-number">24</span> It is likely that research into plant communication will one day help to improve our food supply. <select name="q24"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></p></div>
+<div class="dropdown-question-row" data-q="25"><p><span class="question-number">25</span> Plant communication could occur as a consequence of internal mechanisms intended to help a single plant. <select name="q25"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></p></div>
+<div class="dropdown-question-row" data-q="26"><p><span class="question-number">26</span> Attitudes towards plant communication have changed greatly in recent decades. <select name="q26"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></p></div>
+    <div style="height:28px"></div>
+  </div>
+</main>
+<footer>
+  <div class="progress-container" id="progress-container"></div>
+  <div class="action-buttons">
+    <button class="btn-secondary" id="reset-btn">Reset Answers</button>
+    <button class="btn-primary" id="submit-btn">Submit Answers</button>
+  </div>
+</footer>
+<div class="feedback-overlay" id="feedback-overlay">
+  <div class="feedback-container">
+    <div class="feedback-header">
+      <div class="feedback-title"><i class="fas fa-chart-bar"></i> Results <span class="score-display" id="score-display">0/0</span></div>
+      <button id="close-feedback"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="feedback-body" id="feedback-body"></div>
+  </div>
+</div>
+
+<script>
+const CA = {"14": "iii", "15": "vi", "16": "viii", "17": "i", "18": "iv", "19": "ii", "20": "roots", "21": "drought", "22": "fungi", "23": "aphids", "24": "C", "25": "A", "26": "B"};
+const KEYS = Object.keys(CA).sort((a,b)=>parseInt(a,10)-parseInt(b,10));
+function norm(s){return String(s==null?'':s).toLowerCase().trim().replace(/[’']/g,"'").replace(/\s+/g,' ').replace(/[.,;:]+$/,'');}
+function ansList(q){return Array.isArray(CA[q])?CA[q]:[CA[q]];}
+function isOk(q,v){if(v==='')return false;return ansList(q).some(a=>norm(a)===norm(v));}
+function dispAns(q){return ansList(q).join(' / ');}
+// checkbox group helper: a group named q<lo>-<hi> ("choose N") covers questions lo..hi
+function groupNameFor(q){q=String(q);let name=null;document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(m&&parseInt(m[1])<=parseInt(q)&&parseInt(q)<=parseInt(m[2]))name=cb.name;});return name;}
+function getVal(q){
+  const checked=document.querySelectorAll('input[name="q'+q+'"]:checked');
+  if(checked.length){return Array.from(checked).map(e=>e.value).join('');}
+  let el=document.querySelector('input[name="q'+q+'"], textarea[name="q'+q+'"], select[name="q'+q+'"]');
+  if(el) return (el.value||'').trim();
+  el=document.querySelector('#q'+q+' select, #q'+q+' input, #q'+q+' textarea');
+  if(el) return (el.value||'').trim();
+  el=document.querySelector('.drop-zone[data-qnum="'+q+'"]');
+  if(el) return (el.dataset.answer||'').trim();
+  const gn=groupNameFor(q);
+  if(gn){return Array.from(document.querySelectorAll('input[name="'+gn+'"]:checked')).map(e=>e.value).join(', ');}
+  return '';
+}
+function qContainer(q){
+  let el=document.querySelector('[data-q="'+q+'"]');
+  if(el) return el;
+  el=document.querySelector('input[name="q'+q+'"], textarea[name="q'+q+'"], select[name="q'+q+'"]');
+  if(el) return el.closest('.dropdown-question-row, .question, .question-item, li, p')||el.parentElement;
+  el=document.getElementById('q'+q);
+  if(el) return el.closest('.dropdown-question-row, .question, .question-item')||el;
+  const gn=groupNameFor(q);
+  if(gn){const cb=document.querySelector('input[name="'+gn+'"]');if(cb)return cb.closest('.question, .question-item')||cb.parentElement;}
+  return null;
+}
+// per-question verdicts for checkbox "choose N" groups (each correct letter = 1 mark, any order)
+function groupVerdicts(){
+  const v={},seen={};
+  document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{
+    const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(!m||seen[cb.name])return;seen[cb.name]=1;
+    const lo=parseInt(m[1]),hi=parseInt(m[2]),qs=[];for(let q=lo;q<=hi;q++)qs.push(String(q));
+    const checked=Array.from(document.querySelectorAll('input[name="'+cb.name+'"]:checked')).map(e=>e.value);
+    const correct=qs.map(q=>CA[q]);const cn=correct.map(norm);const used={};let nC=0;
+    checked.forEach(val=>{const nv=norm(val);const idx=cn.indexOf(nv);if(idx>-1&&!used[idx]){used[idx]=1;nC++;}});
+    qs.forEach((q,i)=>{v[q]={ok:i<nC,user:checked.join(', ')||'(none)',correct:correct.join(', ')};});
+  });
+  return v;
+}
+// progress
+const pc=document.getElementById('progress-container');
+KEYS.forEach(q=>{const d=document.createElement('div');d.className='progress-item';d.textContent=q;d.dataset.qid=q;d.addEventListener('click',()=>{const t=document.querySelector('[name="q'+q+'"], #q'+q+', [data-q="'+q+'"], .drop-zone[data-qnum="'+q+'"]');if(t)t.scrollIntoView({behavior:'smooth',block:'center'});});pc.appendChild(d);});
+function updateProg(){KEYS.forEach(q=>{const ans=getVal(q)!=='';const item=document.querySelector('.progress-item[data-qid="'+q+'"]');if(item)item.classList.toggle('completed',ans);const c=qContainer(q);if(c&&c.classList)c.classList.toggle('answered',ans);});}
+document.addEventListener('change',updateProg);document.addEventListener('input',updateProg);
+// submit / score
+let submitted=false;
+function lockAll(){submitted=true;document.body.classList.add('test-locked');document.querySelectorAll('input,select,textarea').forEach(e=>e.disabled=true);const r=document.getElementById('reset-btn');r.disabled=true;r.style.opacity='.4';}
+function verdict(q,gv){if(gv[q])return{ok:gv[q].ok,user:gv[q].user,disp:gv[q].correct};const user=getVal(q);return{ok:isOk(q,user),user:user||'(none)',disp:dispAns(q)};}
+function showInline(gv){
+  document.querySelectorAll('.inline-correct,.inline-wrong').forEach(e=>e.remove());
+  KEYS.forEach(q=>{const r=verdict(q,gv);const sp=document.createElement('span');sp.className=r.ok?'inline-correct':'inline-wrong';sp.style.cssText='display:block;margin-top:6px;';sp.textContent=r.ok?'✓':'Correct: '+r.disp;const c=qContainer(q);if(c)c.appendChild(sp);});
+}
+document.getElementById('submit-btn').addEventListener('click',function(){
+  if(submitted){document.getElementById('feedback-overlay').style.display='flex';return;}
+  const gv=groupVerdicts();let score=0,htmlOut='';
+  KEYS.forEach(q=>{const r=verdict(q,gv);if(r.ok)score++;htmlOut+='<div class="feedback-item"><div class="feedback-question">Q'+q+'</div><div class="feedback-answer '+(r.ok?'correct':'incorrect')+'">Your answer: '+r.user+'<br/>'+(r.ok?'✔ Correct':'✘ Incorrect – Correct: <strong>'+r.disp+'</strong>')+'</div></div>';});
+  document.getElementById('feedback-body').innerHTML=htmlOut;document.getElementById('score-display').textContent=score+'/'+KEYS.length;document.getElementById('feedback-overlay').style.display='flex';lockAll();showInline(gv);
+});
+document.getElementById('close-feedback').addEventListener('click',()=>document.getElementById('feedback-overlay').style.display='none');
+document.getElementById('reset-btn').addEventListener('click',()=>{if(submitted)return;document.querySelectorAll('input[type=text],textarea').forEach(e=>e.value='');document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(e=>e.checked=false);document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);updateProg();});
+// timer
+let ti=null,tr=1200;function updT(){const m=Math.floor(tr/60).toString().padStart(2,'0'),s=(tr%60).toString().padStart(2,'0');document.getElementById('timer').textContent=m+':'+s;}
+document.getElementById('start-timer').addEventListener('click',()=>{if(ti)return;ti=setInterval(()=>{if(tr>0){tr--;updT();}else{clearInterval(ti);ti=null;alert('Time is up!');}},1000);});
+document.getElementById('pause-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;});
+document.getElementById('reset-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;tr=1200;updT();});
+// night mode
+document.getElementById('night-mode-toggle').addEventListener('click',function(){document.body.classList.toggle('night-mode');const i=this.querySelector('i');i.classList.toggle('fa-moon');i.classList.toggle('fa-sun');});
+// fullscreen
+document.getElementById('fullscreen-toggle').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();});
+document.addEventListener('fullscreenchange',()=>{document.getElementById('fullscreen-toggle').innerHTML=document.fullscreenElement?'<i class="fas fa-compress"></i>':'<i class="fas fa-expand"></i>';});
+// display panel
+const dpanel=document.getElementById('display-panel'),dmenu=document.getElementById('display-menu-toggle');
+dmenu.addEventListener('click',e=>{e.stopPropagation();dpanel.classList.toggle('open');});
+document.addEventListener('click',e=>{if(dpanel.classList.contains('open')&&!dpanel.contains(e.target)&&!dmenu.contains(e.target))dpanel.classList.remove('open');});
+const fsr=document.getElementById('font-size-range'),lhr=document.getElementById('line-height-range');
+function applyDisp(){document.documentElement.style.setProperty('--cdi-font-size',(fsr?fsr.value:16)+'px');document.documentElement.style.setProperty('--cdi-line-height',lhr?(Number(lhr.value)/100):1.5);}
+fsr.addEventListener('input',applyDisp);lhr.addEventListener('input',applyDisp);
+document.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>{b.dataset.themeChoice==='dark'?document.body.classList.add('night-mode'):document.body.classList.remove('night-mode');}));
+// resizer
+const pc2=document.getElementById('passage-container'),qc=document.getElementById('questions-container'),rs=document.getElementById('cdi-resizer');
+pc2.style.flex='0 0 50%';qc.style.flex='1 1 auto';let drag=false;
+rs.addEventListener('mousedown',e=>{if(window.innerWidth<=900)return;drag=true;rs.classList.add('dragging');document.body.style.cursor='col-resize';document.body.style.userSelect='none';e.preventDefault();});
+window.addEventListener('mousemove',e=>{if(!drag)return;const main=rs.parentElement,rect=main.getBoundingClientRect(),total=rect.width-rs.offsetWidth;let left=e.clientX-rect.left;left=Math.min(Math.max(left,total*.22),total*.78);pc2.style.flex='0 0 '+left+'px';qc.style.flex='1 1 auto';});
+window.addEventListener('mouseup',()=>{drag=false;rs.classList.remove('dragging');document.body.style.cursor='';document.body.style.userSelect='';});
+// highlight color picker
+let hlTip=null,selR=null;
+function colorPicker(x,y){if(hlTip)hlTip.remove();const colors=["lightgreen","yellow","lightskyblue","#ffb3b3"];const p=document.createElement('div');p.className='highlight-tooltip';p.style.cssText=`top:${y}px;left:${x}px;position:fixed;z-index:9999;display:flex;gap:4px;`;colors.forEach(c=>{const b=document.createElement('button');b.style.cssText=`background:${c};border:none;width:20px;height:20px;border-radius:50%;cursor:pointer;`;b.onclick=()=>{applyHL(c);p.remove();hlTip=null;};p.appendChild(b);});document.body.appendChild(p);hlTip=p;}
+function applyHL(color){if(!selR)return;try{const sp=document.createElement('span');sp.className='highlight';sp.style.backgroundColor=color;sp.appendChild(selR.extractContents());selR.insertNode(sp);selR=null;window.getSelection().removeAllRanges();sp.addEventListener('click',e=>{e.stopPropagation();if(hlTip){hlTip.remove();hlTip=null;}const t=document.createElement('div');t.className='highlight-tooltip';t.style.cssText=`top:${e.clientY}px;left:${e.clientX}px;position:fixed;z-index:9999;`;t.innerHTML='<button style="color:#fff;background:red;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;">Remove</button>';t.querySelector('button').onclick=()=>{const par=sp.parentNode;while(sp.firstChild)par.insertBefore(sp.firstChild,sp);par.removeChild(sp);par.normalize();t.remove();hlTip=null;};document.body.appendChild(t);hlTip=t;});}catch(e){selR=null;}}
+['passage-text','questions-container'].forEach(id=>{const node=document.getElementById(id);if(!node)return;node.addEventListener('mouseup',e=>{const sel=window.getSelection();if(!sel||!sel.toString().trim())return;if(!e.currentTarget.contains(sel.anchorNode))return;try{selR=sel.getRangeAt(0).cloneRange();const r=selR.getBoundingClientRect();colorPicker(r.left,r.top-44);}catch(err){selR=null;}});});
+document.addEventListener('mousedown',e=>{if(hlTip&&!hlTip.contains(e.target)){hlTip.remove();hlTip=null;window.getSelection().removeAllRanges();selR=null;}});
+document.addEventListener('DOMContentLoaded',()=>{updT();updateProg();});
+</script>
+<script src="/passages/test-progress-bridge.js"></script>
+</body>
+</html>
