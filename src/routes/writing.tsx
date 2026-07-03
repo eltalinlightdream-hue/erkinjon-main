@@ -28,14 +28,17 @@ export const Route = createFileRoute("/writing")({
 });
 
 const STATUS_META: Record<WritingStatus, { label: string; className: string }> = {
-  not_started: { label: "Not started", className: "bg-muted text-muted-foreground border-border" },
+  not_started: {
+    label: "Not started",
+    className: "bg-[var(--badge-neutral-bg)] text-[var(--badge-neutral-fg)] border-transparent",
+  },
   in_progress: {
     label: "In Progress",
-    className: "bg-[var(--ochre-wash)] text-[var(--ochre-deep)] border-[var(--ochre)]/40",
+    className: "bg-[var(--badge-progress-bg)] text-[var(--badge-progress-fg)] border-transparent",
   },
   completed: {
     label: "Completed",
-    className: "bg-[var(--olive-wash)] text-[var(--olive-deep)] border-[var(--olive)]/40",
+    className: "bg-[var(--badge-done-bg)] text-[var(--badge-done-fg)] border-transparent",
   },
 };
 
@@ -1368,7 +1371,7 @@ function Writing() {
         <h1 className="ink-bleed font-serif text-3xl md:text-4xl text-foreground mb-8">IELTS Writing</h1>
 
         {/* Video banner */}
-        <div className="relative overflow-hidden rounded-2xl px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border border-border shadow-card bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)]">
+        <div className="relative overflow-hidden rounded-[0.875rem] px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border border-border shadow-card bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)]">
           <div className="relative">
             <p className="font-serif text-lg mb-0.5">Want to watch Writing lessons?</p>
             <p className="text-sm text-muted-foreground">
@@ -1460,24 +1463,24 @@ function Writing() {
               {visibleHtml.map((task) => {
                 const locked = !isFreeSimulator(task.id) && !isPremium;
                 const card = (
-                  <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300 cursor-pointer">
-                    <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                  <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1 cursor-pointer">
+                    <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
                       {task.image ? (
                         <img
                           src={task.image}
                           alt={task.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-lg border border-border/60"
                           loading="lazy"
                         />
                       ) : (
-                        <div className="text-4xl font-bold text-muted-foreground">
+                        <div className="font-serif text-4xl text-muted-foreground/70">
                           Task {task.task}
                         </div>
                       )}
-                      <span className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full border bg-muted text-muted-foreground border-border">
+                      <span className="absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[var(--badge-neutral-bg)] text-[var(--badge-neutral-fg)] shadow-card">
                         Not started
                       </span>
-                      <span className="absolute top-3 right-3 bg-black/50 text-white rounded-full p-1">
+                      <span className="absolute top-3 right-3 bg-card/90 text-foreground rounded-full p-1.5 shadow-card">
                         <ExternalLink className="w-3 h-3" />
                       </span>
                     </div>
@@ -1536,23 +1539,23 @@ function Writing() {
                     params={{ taskId: task.id }}
                     className="block"
                   >
-                    <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
-                      <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                    <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
+                      <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
                         {task.image ? (
                           <img
                             src={task.image}
                             alt={task.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover rounded-lg border border-border/60"
                             loading="lazy"
                           />
                         ) : (
-                          <div className="text-4xl font-bold text-muted-foreground">
+                          <div className="font-serif text-4xl text-muted-foreground/70">
                             Task {task.task}
                           </div>
                         )}
                         <span
                           className={cn(
-                            "absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full border",
+                            "absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-0.5 rounded-full border shadow-card",
                             meta.className,
                           )}
                         >
@@ -1585,21 +1588,21 @@ function Writing() {
             {visibleSamples.map((sample) => {
               const locked = !isFreeWritingSample(sample.id) && !isPremium;
               const card = (
-                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
-                  <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
+                <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
+                  <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
                     {sample.coverImage ? (
                       <img
                         src={sample.coverImage}
                         alt={`Report ${sample.reportNumber}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-lg border border-border/60"
                         loading="lazy"
                       />
                     ) : (
-                      <div className="text-4xl font-bold text-muted-foreground">
+                      <div className="font-serif text-4xl text-muted-foreground/70">
                         R{sample.reportNumber}
                       </div>
                     )}
-                    <span className="absolute top-3 left-3 font-mono text-[10px] tracking-widest bg-secondary/80 text-secondary-foreground px-2 py-0.5 rounded-full">
+                    <span className="absolute top-3 left-3 text-[11px] font-semibold bg-card/90 text-foreground px-2.5 py-0.5 rounded-full shadow-card">
                       Report {sample.reportNumber}
                     </span>
                   </div>
@@ -1645,12 +1648,12 @@ function Writing() {
             {WRITING_ESSAYS.map((essay) => {
               const locked = !isFreeWritingEssay(essay.id) && !isPremium;
               const card = (
-                <Card className="overflow-hidden h-full flex flex-col hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)] hover:-translate-y-1 active:shadow-[0_12px_32px_rgba(43,64,128,0.12)] active:-translate-y-1 transition-all duration-300">
-                  <div className="relative aspect-[16/10] bg-muted flex items-center justify-center">
-                    <div className="text-4xl font-bold text-muted-foreground">
+                <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
+                  <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
+                    <div className="font-serif text-4xl text-muted-foreground/70">
                       T{essay.testNumber}
                     </div>
-                    <span className="absolute top-3 left-3 font-mono text-[10px] tracking-widest bg-secondary/80 text-secondary-foreground px-2 py-0.5 rounded-full">
+                    <span className="absolute top-3 left-3 text-[11px] font-semibold bg-card/90 text-foreground px-2.5 py-0.5 rounded-full shadow-card">
                       Test {essay.testNumber}
                     </span>
                   </div>

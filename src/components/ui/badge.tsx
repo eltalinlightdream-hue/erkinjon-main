@@ -4,16 +4,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center border-2 px-2.5 py-0.5 text-[10px] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 font-mono tracking-wide",
+  "inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold leading-normal whitespace-nowrap font-sans transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
-        default: "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "text-foreground",
+        // Soft tinted pills — bg tint + matching darker text, one pill shape.
+        default: "border-transparent bg-[var(--badge-new-bg)] text-[var(--badge-new-fg)]",
+        secondary: "border-transparent bg-[var(--badge-neutral-bg)] text-[var(--badge-neutral-fg)]",
+        success: "border-transparent bg-[var(--badge-done-bg)] text-[var(--badge-done-fg)]",
+        progress: "border-transparent bg-[var(--badge-progress-bg)] text-[var(--badge-progress-fg)]",
+        info: "border-transparent bg-[var(--badge-info-bg)] text-[var(--badge-info-fg)]",
+        destructive: "border-transparent bg-destructive/12 text-destructive",
+        outline: "border-border bg-transparent text-foreground",
       },
     },
     defaultVariants: {

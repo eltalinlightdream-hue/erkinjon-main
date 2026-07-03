@@ -2,7 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-import { BookOpen, PenLine, Youtube, Crown, ArrowRight, Newspaper } from "lucide-react";
+import {
+  BookOpen,
+  PenLine,
+  Youtube,
+  Crown,
+  ArrowRight,
+  Newspaper,
+  Headphones,
+  Mic,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,6 +36,41 @@ function OrnamentDivider() {
     </div>
   );
 }
+
+const PRACTICE_PREVIEW = [
+  {
+    to: "/listening" as const,
+    title: "Listening",
+    desc: "Full tests with audio, timer and answer checker.",
+    icon: Headphones,
+    tile: "icon-tile-coral",
+    accent: "var(--tint-coral-fg)",
+  },
+  {
+    to: "/reading" as const,
+    title: "Reading",
+    desc: "Academic passages with real question types.",
+    icon: BookOpen,
+    tile: "icon-tile-green",
+    accent: "var(--tint-green-fg)",
+  },
+  {
+    to: "/writing" as const,
+    title: "Writing",
+    desc: "Task 1 & 2 prompts with guided practice.",
+    icon: PenLine,
+    tile: "icon-tile-ochre",
+    accent: "var(--tint-ochre-fg)",
+  },
+  {
+    to: "/speaking" as const,
+    title: "Speaking",
+    desc: "Model answers and Part 2 topic practice.",
+    icon: Mic,
+    tile: "icon-tile-blue",
+    accent: "var(--tint-blue-fg)",
+  },
+];
 
 const FEATURES = [
   {
@@ -157,6 +201,35 @@ function Index() {
         </div>
       </section>
 
+      {/* ─── PRACTICE PREVIEW — four skills, icon-tile cards ───────── */}
+      <section className="container mx-auto px-4 pb-4 max-w-5xl">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {PRACTICE_PREVIEW.map((s, i) => (
+            <Reveal key={s.to} delay={i * 60} className="h-full">
+              <Link to={s.to} className="group block h-full">
+                <div className="bento-card h-full p-5 flex flex-col">
+                  <span
+                    className={`icon-tile ${s.tile} w-11 h-11 mb-4 transition-transform duration-300 group-hover:-translate-y-1 group-active:-translate-y-1`}
+                  >
+                    <s.icon className="w-5 h-5" strokeWidth={1.6} />
+                  </span>
+                  <h3 className="font-serif text-lg text-foreground mb-1">{s.title}</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed flex-1 mb-3">
+                    {s.desc}
+                  </p>
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[13px] font-medium transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1"
+                    style={{ color: s.accent }}
+                  >
+                    Start <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       <OrnamentDivider />
 
       {/* ─── FEATURES — numbered editorial rows ───────────────────── */}
@@ -231,10 +304,8 @@ function Index() {
                 }`}
               >
                 <div
-                  className={`w-24 h-24 rounded-2xl flex items-center justify-center border transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft group-active:-translate-y-1 group-active:shadow-soft ${
-                    f.premium
-                      ? "bg-[var(--ochre-wash)] border-[var(--ochre)]/25 text-[var(--ochre)]"
-                      : "bg-[var(--terracotta-wash)] border-primary/20 text-primary"
+                  className={`icon-tile w-24 h-24 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-card-hover group-active:-translate-y-1 group-active:shadow-card-hover ${
+                    f.premium ? "icon-tile-ochre" : "icon-tile-coral"
                   }`}
                 >
                   <f.icon className="w-9 h-9" strokeWidth={1.5} />
@@ -259,26 +330,37 @@ function Index() {
 
       {/* ─── CLOSING CTA ───────────────────────────────────────────── */}
       <section className="container mx-auto px-4 pb-24 max-w-5xl">
-        <Reveal className="rounded-3xl bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)] border border-border shadow-soft px-8 py-14 md:px-16 text-center">
-          <p className="eyebrow text-primary mb-4">Si comincia</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-            Ready when you are.
-          </h2>
-          <p className="text-muted-foreground max-w-md mx-auto leading-relaxed mb-8">
-            Open a practice passage now — no account needed — or join Premium for the complete study
-            programme.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/reading">
-              <Button size="lg" className="px-8 text-sm">
-                Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
-              </Button>
-            </Link>
-            <Link to="/premium">
-              <Button size="lg" variant="outline" className="px-8 text-sm">
-                Get Premium Access
-              </Button>
-            </Link>
+        <Reveal className="relative overflow-hidden rounded-3xl bg-[var(--surface-dark)] shadow-warm px-8 py-14 md:px-16 text-center">
+          {/* Soft coral wash in the espresso band */}
+          <div
+            className="absolute -top-24 right-0 w-[360px] h-[360px] rounded-full bg-[var(--terracotta)]/[0.14] blur-3xl pointer-events-none"
+            aria-hidden="true"
+          />
+          <div className="relative">
+            <p className="eyebrow text-[var(--terracotta-soft)] mb-4">Si comincia</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-[var(--on-dark)] mb-4">
+              Ready when you are.
+            </h2>
+            <p className="text-[var(--on-dark-muted)] max-w-md mx-auto leading-relaxed mb-8">
+              Open a practice passage now — no account needed — or join Premium for the complete
+              study programme.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link to="/reading">
+                <Button size="lg" className="px-8 text-sm">
+                  Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
+                </Button>
+              </Link>
+              <Link to="/premium">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-8 text-sm border-[var(--on-dark)]/25 bg-transparent text-[var(--on-dark)] hover:border-[var(--on-dark)]/50 hover:text-[var(--on-dark)]"
+                >
+                  Get Premium Access
+                </Button>
+              </Link>
+            </div>
           </div>
         </Reveal>
       </section>
