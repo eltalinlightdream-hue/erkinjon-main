@@ -27,10 +27,7 @@ export function TestProgressBadge({ status, detail }: ProgressBadgeProps) {
       : "";
 
   return (
-    <Badge
-      variant="outline"
-      className={cn("font-mono text-[10px] tracking-wider rounded-full px-2.5", meta.className)}
-    >
+    <Badge variant="outline" className={cn(meta.className)}>
       {meta.label}
       {scoreText}
     </Badge>
@@ -45,12 +42,12 @@ type ProgressSelectProps = {
 export function TestProgressSelect({ value, onChange }: ProgressSelectProps) {
   return (
     <Select value={value} onValueChange={(next) => onChange(next as ProgressStatus)}>
-      <SelectTrigger className="h-8 rounded-lg font-mono text-[11px] tracking-wide border-border/60">
+      <SelectTrigger className="h-8 rounded-lg text-xs font-medium border-border/60">
         <SelectValue />
       </SelectTrigger>
-      <SelectContent className="font-mono text-[11px] tracking-wide rounded-xl">
+      <SelectContent className="text-xs rounded-xl">
         {TEST_PROGRESS_OPTIONS.map((option) => (
-          <SelectItem key={option.value} value={option.value} className="font-mono text-[11px]">
+          <SelectItem key={option.value} value={option.value} className="text-xs">
             {option.label}
           </SelectItem>
         ))}

@@ -13,6 +13,7 @@ import {
   Lock, Send, Eye, EyeOff, CheckCircle2
 } from "lucide-react";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { getDeviceFingerprint } from "@/lib/fingerprint";
 import { resetDevice } from "@/lib/premium.functions";
@@ -240,7 +241,7 @@ function Account() {
       <section className="container mx-auto px-4 py-12 max-w-5xl space-y-8">
 
         {/* Header */}
-        <div className="ink-bleed flex flex-wrap items-center gap-5 p-6 bento-card rounded-3xl">
+        <div className="ink-bleed flex flex-wrap items-center gap-5 p-6 bento-card">
           <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white text-xl font-serif font-semibold shadow-warm">
             {initials}
           </div>
@@ -359,13 +360,13 @@ function Account() {
             <>
               {/* Summary cards */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <StatCard icon={<BarChart2 className="w-5 h-5 text-secondary" />} label="Tests this week" value={String(testsThisWeek)} />
-                <StatCard icon={<BarChart2 className="w-5 h-5 text-secondary" />} label="Tests (15 days)" value={String(tests15Days)} />
-                <StatCard icon={<BarChart2 className="w-5 h-5 text-secondary" />} label="Tests this month" value={String(testsThisMonth)} />
-                <StatCard icon={<Trophy className="w-5 h-5 text-gold" />} label="Avg Band" value={String(avgBand)} />
-                <StatCard icon={<Flame className="w-5 h-5 text-orange-500" />} label="Day streak" value={`${streak} day${streak !== 1 ? "s" : ""}`} />
-                <StatCard icon={<BookOpen className="w-5 h-5 text-secondary" />} label="Vocab words" value={String(vocabCount)} />
-                <StatCard icon={<BookOpen className="w-5 h-5 text-blue-500" />} label="Articles read" value={String(articlesRead)} />
+                <StatCard icon={<BarChart2 />} tile="icon-tile-blue" label="Tests this week" value={String(testsThisWeek)} />
+                <StatCard icon={<BarChart2 />} tile="icon-tile-blue" label="Tests (15 days)" value={String(tests15Days)} />
+                <StatCard icon={<BarChart2 />} tile="icon-tile-blue" label="Tests this month" value={String(testsThisMonth)} />
+                <StatCard icon={<Trophy />} tile="icon-tile-ochre" label="Avg Band" value={String(avgBand)} />
+                <StatCard icon={<Flame />} tile="icon-tile-coral" label="Day streak" value={`${streak} day${streak !== 1 ? "s" : ""}`} />
+                <StatCard icon={<BookOpen />} tile="icon-tile-green" label="Vocab words" value={String(vocabCount)} />
+                <StatCard icon={<BookOpen />} tile="icon-tile-rose" label="Articles read" value={String(articlesRead)} />
               </div>
 
               {/* Activity heatmap */}
@@ -436,11 +437,35 @@ function Row({ icon, label, value }: { icon: React.ReactNode; label: string; val
   );
 }
 
-function StatCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function StatCard({
+  icon,
+  label,
+  value,
+  tile,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  tile: string;
+}) {
+  // Muted treatment for empty metrics so a zero doesn't read as an error.
+  const isZero = /^0(\s|$)/.test(value);
   return (
-    <Card className="p-4 flex flex-col gap-2">
-      <div className="flex items-center gap-2">{icon}<span className="text-xs text-muted-foreground">{label}</span></div>
-      <span className="text-2xl font-bold">{value}</span>
+    <Card className="p-4 flex flex-col gap-3">
+      <div className="flex items-center gap-2.5">
+        <span className={`icon-tile ${tile} w-8 h-8 shrink-0 rounded-lg [&_svg]:w-4 [&_svg]:h-4`}>
+          {icon}
+        </span>
+        <span className="text-xs text-muted-foreground leading-tight">{label}</span>
+      </div>
+      <span
+        className={cn(
+          "font-serif text-2xl leading-none",
+          isZero ? "text-muted-foreground/60 font-normal" : "text-foreground font-semibold",
+        )}
+      >
+        {value}
+      </span>
     </Card>
   );
 }

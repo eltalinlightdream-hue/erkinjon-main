@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Lock, Crown, BookOpen, RotateCcw, Search } from "lucide-react";
+import { Lock, Crown, BookOpen, RotateCcw, Search, Clock } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
@@ -1947,13 +1947,14 @@ function Reading() {
         </div>
 
         <div className="space-y-3 mb-6">
+          {/* Primary filter — passage type (heavier than the status row below) */}
           <div className="flex flex-wrap gap-2">
             {FILTERS.map((f) => (
               <Button
                 key={f.v}
                 variant={filter === f.v ? "default" : "outline"}
                 size="sm"
-                className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
+                className="text-[13px] font-semibold rounded-full h-9 px-5"
                 onClick={() => setFilter(f.v)}
               >
                 {f.label} ({passageCounts[f.v]})
@@ -1971,21 +1972,25 @@ function Reading() {
             />
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          {/* Secondary filter — status (smaller, quieter) */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground mr-1">
+              Status
+            </span>
             <Button
-              variant={statusFilter === "all" ? "default" : "outline"}
+              variant={statusFilter === "all" ? "secondary" : "ghost"}
               size="sm"
-              className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
+              className="text-[11px] rounded-full h-7 px-3"
               onClick={() => setStatusFilter("all")}
             >
-              All statuses ({statusCounts.all})
+              All ({statusCounts.all})
             </Button>
             {TEST_PROGRESS_OPTIONS.map((option) => (
               <Button
                 key={option.value}
-                variant={statusFilter === option.value ? "default" : "outline"}
+                variant={statusFilter === option.value ? "secondary" : "ghost"}
                 size="sm"
-                className="font-mono text-[11px] tracking-wide rounded-full h-8 px-4"
+                className="text-[11px] rounded-full h-7 px-3"
                 onClick={() => setStatusFilter(option.value)}
               >
                 {option.label} ({statusCounts[option.value]})
@@ -2010,20 +2015,17 @@ function Reading() {
               return (
                 <Card
                   key={p.id}
-                  className={cn(
-                    "p-6 flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(43,64,128,0.12)]",
-                    progressMeta.cardClassName,
-                  )}
+                  className={cn("p-6 flex flex-col relative overflow-hidden", progressMeta.cardClassName)}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex flex-wrap items-center gap-1.5">
                       <Badge variant="secondary" className="bg-accent text-foreground">
                         P{p.passageNumber}
                       </Badge>
                       {p.isNew && <Badge>New</Badge>}
                       <TestProgressBadge status={progressStatus} detail={status} />
                     </div>
-                    {locked && <Lock className="w-4 h-4 text-muted-foreground" />}
+                    {locked && <Lock className="w-4 h-4 text-muted-foreground shrink-0 mt-1" />}
                   </div>
 
                   <h3
@@ -2038,13 +2040,19 @@ function Reading() {
                   {p.description && (
                     <p
                       className={cn(
-                        "text-sm text-muted-foreground mb-5 flex-1",
+                        "text-sm text-muted-foreground mb-4 flex-1 line-clamp-3",
                         locked && "blur-sm select-none",
                       )}
                     >
                       {p.description}
                     </p>
                   )}
+
+                  {/* Meta row — passage type · recommended time */}
+                  <p className="flex items-center gap-1.5 text-xs text-muted-foreground mb-4">
+                    <Clock className="w-3.5 h-3.5" />
+                    Passage {p.passageNumber} · ~{p.passageNumber === 3 ? 22 : 20} min
+                  </p>
 
                   {status?.completedAt && (
                     <p className="text-xs text-muted-foreground mb-3">

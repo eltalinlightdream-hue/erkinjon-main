@@ -19,38 +19,42 @@ export const Route = createFileRoute("/practice")({
 const SECTIONS = [
   {
     to: "/listening",
-    numeral: "I",
     title: "Listening",
     icon: Headphones,
     desc: "Practice with full IELTS listening tests",
-    color: "var(--terracotta)",
+    tile: "icon-tile-coral",
+    accent: "var(--tint-coral-fg)",
+    badgeTint: "badge-tint-new",
     label: "Section 1–4",
   },
   {
     to: "/reading",
-    numeral: "II",
     title: "Reading",
     icon: BookOpen,
     desc: "Academic reading passages with questions",
-    color: "var(--olive)",
+    tile: "icon-tile-green",
+    accent: "var(--tint-green-fg)",
+    badgeTint: "badge-tint-done",
     label: "Passages 1–3",
   },
   {
     to: "/writing",
-    numeral: "III",
     title: "Writing",
     icon: PenLine,
     desc: "Task 1 and Task 2 guided practice",
-    color: "var(--ochre)",
+    tile: "icon-tile-ochre",
+    accent: "var(--tint-ochre-fg)",
+    badgeTint: "badge-tint-progress",
     label: "Task 1 & 2",
   },
   {
     to: "/speaking",
-    numeral: "IV",
     title: "Speaking",
     icon: Mic,
     desc: "Model answers and topic practice",
-    color: "var(--mc-sky)",
+    tile: "icon-tile-blue",
+    accent: "var(--tint-blue-fg)",
+    badgeTint: "badge-tint-info",
     label: "Parts 1–3",
   },
 ] as const;
@@ -75,23 +79,9 @@ function Practice() {
             <Reveal key={s.to} className="h-full" delay={(i % 2) * 80}>
               <Link to={s.to} className="block h-full">
                 <div className="bento-card p-8 h-full flex flex-col group cursor-pointer relative overflow-hidden">
-                  {/* Serif numeral watermark */}
+                  {/* Icon in colored square */}
                   <span
-                    className="absolute top-5 right-7 font-serif text-4xl leading-none opacity-20 group-hover:opacity-50 group-active:opacity-50 transition-opacity duration-300"
-                    style={{ color: s.color }}
-                    aria-hidden="true"
-                  >
-                    {s.numeral}
-                  </span>
-
-                  {/* Icon medallion */}
-                  <span
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border transition-transform duration-300 group-hover:-translate-y-1 group-active:-translate-y-1"
-                    style={{
-                      background: `color-mix(in srgb, ${s.color} 10%, transparent)`,
-                      borderColor: `color-mix(in srgb, ${s.color} 30%, transparent)`,
-                      color: s.color,
-                    }}
+                    className={`icon-tile ${s.tile} w-14 h-14 mb-6 transition-transform duration-300 group-hover:-translate-y-1 group-active:-translate-y-1`}
                   >
                     <s.icon className="w-6 h-6" strokeWidth={1.5} />
                   </span>
@@ -103,20 +93,12 @@ function Practice() {
 
                   {/* Label badge */}
                   <div className="mb-6">
-                    <span
-                      className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full"
-                      style={{
-                        color: `color-mix(in srgb, ${s.color} 80%, var(--foreground))`,
-                        background: `color-mix(in srgb, ${s.color} 12%, transparent)`,
-                      }}
-                    >
-                      {s.label}
-                    </span>
+                    <span className={`badge-tint ${s.badgeTint}`}>{s.label}</span>
                   </div>
 
                   <span
                     className="text-sm font-medium inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1"
-                    style={{ color: s.color }}
+                    style={{ color: s.accent }}
                   >
                     Start <ArrowRight className="w-4 h-4" />
                   </span>
