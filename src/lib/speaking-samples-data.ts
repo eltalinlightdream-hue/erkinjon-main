@@ -2459,6 +2459,367 @@ export const SPEAKING_TOPICS: SpeakingTopic[] = [
       },
     ],
   },
+  {
+    id: "invention-ai",
+    part: 2,
+    title: "Describe an invention that changed the world",
+    emoji: "🤖",
+    description: "A model long-turn answer about Artificial Intelligence and ChatGPT.",
+    cueCard: [
+      "What the invention is",
+      "How you learned about it",
+      "How it is used",
+      "Why it is important",
+    ],
+    questions: [
+      {
+        q: "Describe an invention that changed the world.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There have been hundreds of [[groundbreaking inventions|innovations that significantly advance or change a field or industry]] over the past century, ranging from the internet to the wheel. But now I am going to talk about a recent invention that [[totally blew my mind|completely amazed or astounded me]]. It's Artificial Intelligence, or AI, which is pretty much [[a game-changer|something that fundamentally alters or revolutionizes a situation or industry]], and the latest thing in this realm is ChatGPT-4. It's this smart invention that's changed the direction of how we talk to technology and how it responds to us.\n\nImagine you are having a chat with your computer or your phone, and it understands what you're saying and responds like a real person. That's GPT. You can type or talk to it, and it gets what you mean and chats back in a way that makes sense. It's like your [[tech buddy|an AI or technology that interacts with you in a friendly and intuitive way]] who's a mind reader.\n\nThe cool thing is that ChatGPT-4 is an evolution of previous versions, and it's part of the bigger picture of AI. The concept of AI has been around [[since the dawn of the 21st century|from the beginning of the 21st century]], but it's now that we're seeing these amazing advancements, and ChatGPT-4 is a star player in that journey.\n\nSo, why is it important? Well, it's a game-changer. It's making our lives easier in so many ways. It's like having a super-smart assistant that's available 24/7, and it's helping us in business, healthcare, education, and more. This invention is [[pushing the boundaries of|extending the limits or possibilities in a particular field]] what technology can do, and it's pretty exciting to think about what's coming next, you know.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "long-car-journey",
+    part: 2,
+    title: "Describe a long car journey you went on",
+    emoji: "🚗",
+    description: "A model long-turn answer about a weekly drive to a legendary palov spot.",
+    cueCard: [
+      "Where you went",
+      "Who you went with",
+      "What you did during the journey",
+      "How you felt about it",
+    ],
+    questions: [
+      {
+        q: "Describe a long car journey you went on.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really like [[dull|boring or uninteresting]] car journeys, you know. [[If anything|discourse marker — in fact; more accurately]], I can go on a long car journey once a year for a holiday. But now I've got this favorite [[eating spot|a restaurant or place to enjoy a meal]] in Tashkent, and it's called \"SamOsh.\" They serve the most amazing palov you can find in town and I am going to talk about them now.\n\n[[The catch is|the challenge or noteworthy aspect is]], \"SamOsh\" is [[tucked away|hidden or situated in a less obvious location]] in this [[obscure part of the city|a less-known or less-visited area of the city]]. Getting there involves an hour-long car ride. But you know, my colleagues and I really love this place so much that we make the journey at least once a week.\n\nIt's not just about the destination, to be honest — it's the whole journey that makes it special. I usually go with my colleagues, and we [[have a blast|idiom — have a great time]] during the car ride. We chat, share stories, and make plans, all while looking forward to the [[mouthwatering|extremely delicious or appetizing]] palov we're about to [[devour|to eat or consume eagerly]].\n\nHow do I feel about it? Well, I absolutely love it. The journey feels like a fun adventure, [[building up our excitement|increasing our anticipation or eagerness]] for the incredible palov waiting for us there. But it's not just about the food; it's about the [[great company|enjoyable companionship or friends]], [[camaraderie|a sense of friendship, trust and goodwill among a group]] and the memories we create. So, yeah, it's a journey I always eagerly await, and it's become [[a cherished part of my week|something highly valued that happens regularly each week]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "a-book",
+    part: 2,
+    title: "Describe a book you enjoy reading again and again",
+    emoji: "📖",
+    description: "A model long-turn answer about Dostoevsky's Notes from Underground.",
+    cueCard: [
+      "What the book is",
+      "How often you read it",
+      "Why you keep coming back to it",
+      "How it makes you feel",
+    ],
+    questions: [
+      {
+        q: "Describe a book you enjoy reading again and again.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "You know, there's a book I keep going back to, and I am going to talk about it now. It's \"Notes from Underground\" by Fyodor Dostoevsky. It's a pretty deep novel, written way back in 1864, and it's all about the human mind and soul.\n\nI have this habit of reading \"Notes from Underground\" about once a year. The very reason why I keep coming back to it is Dostoevsky's incredible way of [[peeling back|uncovering or revealing deeper layers or aspects]] the layers of his [[protagonist's|the main character of a story]] thoughts. This guy, the \"Underground Man,\" he's so complex, and the author's way of portraying his [[inner turmoil|intense emotional conflict or distress within a person]] and [[philosophical musings|deep, contemplative thoughts on fundamental or abstract ideas]] is just brilliant.\n\nWhat I find fascinating is how Dostoevsky describes the human psyche, showing all the messy emotions and contradictions we deal with. His style is like [[an intellectual rollercoaster|a journey of complex and thought-provoking mental experiences]]. It forces you to confront your own thoughts and feelings in a pretty [[intense way|a manner that is deeply engaging or emotionally charged]].\n\nThe cool thing is, whenever I'm feeling down or stuck in a rough patch, I turn to this book. It's like a shot of inspiration and hope when life's throwing its worst at you. It reminds me that, even in the darkest moments, there's [[a glimmer of light at the end of the tunnel|a symbol of hope or a positive sign in challenging times]] to [[yearn for|to strongly desire or long for something]]. It's like your friend saying, \"Hey, things can get better.\"",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "moved-new-apartment",
+    part: 2,
+    title: "Describe a person who recently moved to a new home",
+    emoji: "📦",
+    description:
+      "A model long-turn answer about a friend's move from the city centre to the suburbs.",
+    cueCard: [
+      "Who this person is",
+      "What the new place is like",
+      "Why they moved",
+      "How they feel about it now",
+    ],
+    questions: [
+      {
+        q: "Describe a person who recently moved to a new home.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I think it's one of the rarest things we do in our lifetime. If anything, we only move to a new apartment once or twice. I've got a buddy named Ernazar who's in his early twenties, and he [[recently switched things up|made a recent change or alteration in his life]] by moving to a new place. He is my childhood friend and I've known him my whole entire life, you know.\n\nSo, this new place he's got is pretty sweet — a cool, modern apartment in a quiet suburban area. It's a [[huge upgrade|a substantial improvement or enhancement]] from his previous spot, which was this tiny, pricey place right in the city center. His new [[pad|informal — a person's home]] has [[spacious|having a lot of room or ample space]] rooms, loads of natural light, and it's super peaceful. It's just what he needed for a more comfortable and budget-friendly living space.\n\nHis decision to move was all about the crazy high rent prices in the city center. I mean, it was [[eating into his wallet big time|costing him a significant amount of money]]. So, he [[figured a switch|decided to make a change or transition]] to a quieter suburb would give him a better quality of life without [[breaking the bank|idiom — spending so much that it strains your finances]]. Plus, he wanted [[a change of scenery|a new and different environment or surroundings]], something more chill to match his young professional life.\n\nDo you know what the best part is? This move has been amazing for him. He's not just in a more spacious and budget-friendly place; he's also way happier and more relaxed. It's like [[a weight off his shoulders|idiom — a relief from a burden or stress]]. He's got more [[cash to play with|extra money for spending as you wish]], whether it's saving up or going out to have fun. Seeing him enjoy this new and [[improved setup|a better living or working arrangement]] just makes me happy.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "popular-person",
+    part: 2,
+    title: "Describe a popular person",
+    emoji: "⭐",
+    description: "A model long-turn answer about podcast host Joe Rogan.",
+    cueCard: [
+      "Who this person is",
+      "What they do",
+      "How you came to know about them",
+      "Why they are popular",
+    ],
+    questions: [
+      {
+        q: "Describe a popular person.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I think it's really easy nowadays to become popular, especially in the era of the internet: with popularity being a click away, I mean, you don't have to put much effort in. So, now I want to tell you about this super popular guy Joe Rogan. He's the host of this amazing podcast called the \"Joe Rogan Experience\" on YouTube and I've been a fan of his for a while now.\n\nJoe Rogan [[wears many hats|idiom — has multiple roles or responsibilities]], you know. He's a stand-up comedian, actor, and even a former mixed martial artist. But it's his role as a podcast host that's made him really famous. I first [[came across|found or discovered by chance]] him through his stand-up comedy and his gig as a UFC commentator. His humor and depth of knowledge totally [[hooked me in|captivated or deeply interested me]].\n\nOne of the coolest things about him is the incredible variety of guests he brings onto his podcast. I mean, he's had Elon Musk, famous comedians, and respected scientists like Andrew Huberman. It's like he can chat with anyone about anything, and that's what I find super intriguing.\n\nWhat I love most about Joe is his authenticity. He's not afraid to ask the [[tough questions|challenging or difficult inquiries that require deep thought]] and [[get to the heart of the matter|to reach the core or most important part of a discussion]] during his conversations. He's not just looking for [[clickbait headlines|sensational or misleading headlines designed to attract attention and clicks]]; he genuinely wants to explore important topics. That's why I respect him so much. He's [[a breath of fresh air|idiom — something new and refreshing, in contrast to what's common]] in an era where sensationalism often takes over.\n\nBesides all that, he's a bit of a role model, especially in the world of masculinity. He's all about discipline, [[resilience|the ability to bounce back from setbacks or adversity]], and mental strength, which I think is something many people can learn from and [[look up to|admire and consider as a role model or source of inspiration]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "movie-didnt-like",
+    part: 2,
+    title: "Describe a movie you watched and didn't like",
+    emoji: "🍿",
+    description: "A model long-turn answer about the Barbie movie not living up to the hype.",
+    cueCard: [
+      "What the movie was",
+      "When you watched it",
+      "Why you didn't like it",
+      "How you felt about the hype",
+    ],
+    questions: [
+      {
+        q: "Describe a movie you watched and didn't like.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really watch a lot of movies these days since I'm busy with the many responsibilities I have got. But now I am going to talk about this Barbie movie I saw recently — quite a [[letdown|a disappointment; something that falls short of expectations]], to be honest. It had received a lot of [[media hype|excessive promotion and attention in the media]], but it didn't quite [[live up to the buzz|meet the high expectations generated by media coverage]]. It [[falls under the fantasy genre|belongs to the fantasy category of films]], and I caught it a few weeks ago.\n\nSo, the main reason for my disappointment was the story. It felt like I'd seen it all before — the classic \"girl saves the day\" plot. I was hoping for something more original and thought-provoking, but it just didn't [[deliver in that department|meet expectations or perform well in that aspect]].\n\nThe characters, too, didn't have that depth I was expecting. They felt kind of [[one-dimensional|lacking depth or complexity]], which was [[a bummer|informal — something disappointing or unfortunate]], considering the potential for more complex and interesting characters in a Barbie movie.\n\nThe humor was [[a bit of a miss|a failure; something that doesn't meet expectations]] for me. It [[leaned more towards|tended to be inclined towards or favor]] kid-friendly, [[slapstick|a style of humor involving exaggerated physical actions and simple situations]] humor, making it a bit hard for adults like me to fully connect with the film. I think animated movies can have clever humor that appeals to people of all ages.\n\nVisually, the movie was nice, but it didn't [[bring anything groundbreaking to the table|contribute anything innovative or uniquely valuable]] in terms of shooting quality. I was hoping for something more, given the advanced technology we have these days.\n\nAnd you know what made it even more disappointing? All the media hype. It [[set my expectations really high|raised my anticipation to a very elevated level]], and the movie just couldn't quite reach them.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "helpful-person",
+    part: 2,
+    title: "Describe a person who often helps others",
+    emoji: "🦸",
+    description: "A model long-turn answer about Mr. Abdulla, the neighbourhood's guardian angel.",
+    cueCard: [
+      "Who this person is",
+      "How you know them",
+      "How they help people",
+      "How you feel about them",
+    ],
+    questions: [
+      {
+        q: "Describe a person who often helps others.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Always [[lending a helping hand|offering assistance]] to people, especially to strangers, definitely brings positive outcomes to our lives. And now I'm going to talk about this amazing person I know, Mr. Abdulla. He's like the neighborhood's [[guardian angel|a constant helper and protector]], always ready to lend a helping hand.\n\nSo, Mr. Abdulla is this elderly gentleman who lives in my neighborhood. I've known him since I was born, you know. He's retired and spends most of his time [[tending to|caring for]] his beautiful garden. And let me tell you, that garden of his is like [[a small piece of paradise|a beautiful, perfect place]].\n\nHe's somehow special, you know, because of his eagerness to help people. He's a gardening wizard, and he's more than happy to [[lend out|to share something temporarily]] his gardening tools whenever someone needs them. Need a shovel, a rake, or any gardening advice? He's your guy. But it's not just about the garden. He's always there for anyone who needs assistance with anything.\n\nOne time, I was driving to work, and [[out of the blue|idiom — suddenly and unexpectedly]], my car broke down. It couldn't have happened at a worse time because I had an important meeting that day. I was stuck on the side of the road, feeling helpless and stressed. And you know who came [[to my rescue|to help me in a difficult situation]]? Mr. Abdulla in his old Jeep. He not only gave me a lift to work but also helped me [[get my car sorted out|informal — get my car fixed]]. His [[timely support|prompt assistance at exactly the right moment]] [[saved the day|idiom — prevented a crisis]], and I [[can't thank him enough|expression — I am extremely grateful]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "ideal-house",
+    part: 2,
+    title: "Describe your ideal house",
+    emoji: "🌲",
+    description: "A model long-turn answer about a fairytale house deep in the forest.",
+    cueCard: [
+      "Where it would be",
+      "What it would look like",
+      "When you would live there",
+      "Why it appeals to you",
+    ],
+    questions: [
+      {
+        q: "Describe your ideal house.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "You know, when I think about my ideal home, I [[can't help but picture|feel compelled to imagine; unable to resist the mental image]] a charming house [[tucked away|hidden or situated in a discreet, secluded location]] in the [[heart of a beautiful forest|the central and most picturesque part of a woodland]]. It's the kind of place that feels like a fairytale come to life, and I'm going to talk about it.\n\nFirst off, I'd place this house in a remote part of a [[lush|abundantly green, thriving, and full of life]], untouched forest. I'm talking about a real [[off-the-grid|not connected to public utilities; remote and self-sustaining]], peaceful retreat where you're far, far away from the city's noise and pollution. The idea here is to live in harmony with nature, surrounded by tall trees and a thriving ecosystem.\n\nNow, in terms of the house itself, I'm all about that [[rustic|having a simple, rural, and unrefined quality]], [[old-world charm|a quality that evokes the beauty and appeal of a past era]]. I envision it made of timber and stone, with a classic [[thatched roof|a roof covered with straw or reeds, seen in traditional architecture]] and those big, [[wooden beams|strong horizontal wooden supports in a building]]. The exterior would combine seamlessly with the natural surroundings, and you'd find generous windows all around the house, so you could take in those breathtaking forest views from every room. And of course, there's a [[spacious|having ample space; roomy]] porch, perfect for sipping coffee and taking in the forest sights and sounds.\n\nAs for when I'd want to live there, I'd say it's the kind of place I'd move to when I'm ready to fully embrace a slower, more [[contemplative|involving quiet, deep thought]] lifestyle. I'm thinking of it as a [[retirement dream|an ideal living situation for your post-working years]]. A peaceful spot where I can read, write, and [[immerse myself in|become completely absorbed in]] the beauty of the natural world.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "adventure",
+    part: 2,
+    title: "Describe an adventure you would like to go on",
+    emoji: "🪂",
+    description: "A model long-turn answer about a bungee jumping dream with a friend.",
+    cueCard: [
+      "What the adventure is",
+      "Who you would go with",
+      "When and where you would do it",
+      "Why it excites you",
+    ],
+    questions: [
+      {
+        q: "Describe an adventure you would like to go on.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I wouldn't be wrong if I said I'm one of the most adventurous people on Earth. I've always had this [[wild idea|an exciting, unconventional thought]] in my head about going [[bungee jumping|jumping from a height attached to an elastic cord]], and I'm telling you, it's going to be a [[heart-pounding thrill|an intensely exciting experience]]. I've got a buddy named Jo'rabek who's just as [[nuts about|informal — extremely passionate about]] extreme sports as I am, so I figure he's [[the perfect companion|the ideal partner for an activity]] for this wild ride.\n\nSo, we're thinking, why not make this bungee jumping extravaganza happen on a bright, sunny day? The kind of day where the sky is the bluest blue you've ever seen, and the sun's rays are [[beaming down|shining brightly from above]]. That way, we can get the full experience with some [[epic views|spectacular sights]] while we [[plunge into the unknown|dive into uncertainty]]. A weekend during the summer sounds like the perfect time, you know.\n\nNow, what's the plan? The whole concept of [[leaping off a platform|jumping from a raised surface]] and free-falling, only to [[bounce back up|rebound after a fall]], [[gives me a rush|provides a surge of excitement]] just thinking about it. It's all about that extreme sensation, you know? The feeling of weightlessness and then the [[cord jerking you back|the elastic cord suddenly pulling you upward]] to safety. That's what we're after — pure, [[unadulterated|pure; not mixed with anything else]] thrill.\n\nBut where should we do this? Well, not just any old place. We want to pick a spot that's legendary for bungee jumping, maybe one of those breathtaking canyons or cliffs. We're talking about a location that not only delivers a crazy [[adrenaline rush|a surge of energy and excitement from danger or thrill]] but also offers [[jaw-dropping|astonishing; amazing]] natural beauty. It's [[the combo of|informal — the combination of]] extreme adventure and [[stunning scenery|exceptionally beautiful landscapes]] that would make this trip absolutely unforgettable.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "difficult-decision",
+    part: 2,
+    title: "Describe a difficult decision you once made",
+    emoji: "⚖️",
+    description: "A model long-turn answer about buying a house and moving from Navoi to Tashkent.",
+    cueCard: [
+      "What the decision was",
+      "Why it was difficult",
+      "What you considered before deciding",
+      "What the result was",
+    ],
+    questions: [
+      {
+        q: "Describe a difficult decision you once made.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Well, one of the most significant decisions I've ever made was to buy a house in a completely different city, Tashkent, and move away from my hometown, Navoi. The reason behind this major decision was my job. About two years ago, I was offered a fantastic opportunity in Tashkent, which meant I had to [[pack up|prepare all your things for moving]] and leave Navoi.\n\nIt was a tough decision, no doubt. I had lived in Navoi practically my whole life, so leaving my familiar surroundings was [[a big deal|a significant matter]]. Of course, to make this decision, I had to consider a bunch of factors.\n\n[[First and foremost|discourse marker — most importantly; before anything else]], I had to think about my career. I talked to mentors and experts in my field to understand if this job in Tashkent was worth it. I wanted to know if it could [[open up more doors|idiom — create more opportunities]] for me [[in the long run|over a long period of time]].\n\nThen, of course, there was my family. I had several [[heart-to-heart conversations|honest, sincere talks about feelings]] with my loved ones. We looked into schools, lifestyle, and the overall quality of life in Tashkent, especially in comparison to Navoi. [[Their input|their opinions and contributions]] was crucial.\n\nMoney was another [[big part of the equation|a significant factor in the decision]]. I met with financial advisors to see if it was even [[feasible|possible and practical to achieve]] to buy a house in Tashkent. That city's real estate market is quite pricey compared to Navoi, so I needed to understand the [[financial implications|the effects on your money situation]], including mortgage rates and [[property appreciation|the increase of a property's value over time]].\n\n[[At the end of the day|idiom — in the end; ultimately]], I decided to go for it. The potential for personal and professional growth, the better educational opportunities for my kids, and the possibility of the property appreciating in value [[swayed me towards|persuaded me to choose]] Tashkent.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "expensive-item",
+    part: 2,
+    title: "Describe an expensive item you would like to give as a gift",
+    emoji: "⌚",
+    description: "A model long-turn answer about a fur coat and a Rolex for a beloved brother.",
+    cueCard: [
+      "What the item is",
+      "Who you would give it to",
+      "Why you chose it",
+      "What it symbolizes for you",
+    ],
+    questions: [
+      {
+        q: "Describe an expensive item you would like to give as a gift.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "To be honest, I'm not the one to choose or give presents, but now I'm going to talk about an expensive gift I'm dreaming of giving to my brother. It's going to be a fantastic fur coat and a [[top-of-the-line|the highest quality or best available in a category]] Rolex watch. I've chosen these because my brother is just an incredible person who's always been there for me, and I think he truly deserves something extraordinary. Now, saving up for these beauties will take me about 3 to 4 months, [[factoring in|including in the calculation]] my regular monthly expenses and making sure I can afford them without causing any [[financial stress|anxiety or pressure caused by money difficulties]].\n\nSo, the fur coat and Rolex watch are quite special to me. They symbolize not only the value of time but also the [[strong bond|a close and enduring connection between people]] I share with my brother. He's been [[a rock in my life|idiom — someone who provides unwavering support and stability]], providing [[unwavering support|consistent, steadfast support that never changes in difficult times]] and being super [[selfless|caring about others' needs more than your own]] in his actions. I'm [[forever grateful|extremely thankful]] for his kindness and love.\n\nThe Rolex watch, well, it's all about time. It's a reminder of all the moments we've shared and all the ones we'll create in the future. By gifting it to him, I want to express my gratitude for the time he's dedicated to our relationship and the excitement I feel about the moments we're yet to experience.\n\nNow, that fur coat, it's all about warmth, comfort, and protection. Just like my brother, who's always provided me with emotional warmth and a sense of security. He's been [[a constant shelter in the storms of life|metaphor — someone who always protects and guides you during hard times]], offering unwavering support and guidance. The fur coat is a way of saying, \"Hey, I want you to feel as comfortable and protected as you've made me feel all this time.\"",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "water-sport",
+    part: 2,
+    title: "Describe a water sport you would like to try",
+    emoji: "🏄",
+    description: "A model long-turn answer about the dream of learning to surf.",
+    cueCard: [
+      "What the sport is",
+      "Where you would do it",
+      "Whether it is easy or difficult",
+      "Why you want to try it",
+    ],
+    questions: [
+      {
+        q: "Describe a water sport you would like to try.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's one of the rarest topics that I might think of, but I've got curious about water sports quite recently. And now I'm going to talk about a water sport I've [[got my eye on|idiom — having a strong interest or desire for something]], which is surfing! Surfing is all about riding awesome waves on a surfboard, and it's something I've been [[dying to try|eagerly wanting to experience]] in the future.\n\nFirst off, where would I do it? Well, I'd love to head to some famous surf spots like Hawaii, South Africa, and Australia. These places are like [[heaven for surfers|ideal locations with great waves for surfers]], with incredible waves that are perfect for catching a ride.\n\nNow, is surfing easy or difficult? Honestly, it's [[no walk in the park|idiom — not easy at all]]. I've watched tons of YouTube videos of pros, and they make it look effortless, but trust me, it's not. You need serious physical strength, balance, and a deep understanding of how the ocean works. That's part of what makes it so fascinating — the challenge and the thrill of it all.\n\nSpeaking of YouTube, I've got a couple of favorite surfers I follow. One of them is Kelly Slater, [[an absolute legend|a highly respected and skilled person]] in the surfing world. The way he rides those waves is like [[poetry in motion|graceful and beautiful movement]]. Then there's Stephanie Gilmore, who's a rock star in women's surfing. Watching them [[pull off those incredible moves|successfully execute impressive actions]] and ride massive waves just [[fires up my enthusiasm|ignites my excitement and eagerness]] to try it myself.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "public-speech",
+    part: 2,
+    title: "Describe a speech you gave",
+    emoji: "🎙️",
+    description: "A model long-turn answer about an unconventional birthday speech for a friend.",
+    cueCard: [
+      "When and where you gave it",
+      "What the speech was about",
+      "How you felt about giving it",
+      "How people reacted",
+    ],
+    questions: [
+      {
+        q: "Describe a speech you gave.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "To be honest, I'm [[not really cut out for|not naturally suited or skilled for a particular task or role]] making public speeches, but let me tell you about this speech I gave at my friend's birthday party, which was a bit different from your usual birthday wishes. We celebrated it on August 2nd with a small group of close friends and family.\n\nSo, instead of the usual \"may all your dreams come true\" and such, I decided to take a more [[unconventional|different from what is usual or expected]] approach. I started by [[recounting|recalling and telling in detail]] some of the funny mistakes and [[mishaps|small unlucky accidents or unfortunate incidents]] my friend had gotten himself into over the years. You know, those hilarious moments that we all have but don't always talk about. It was a great way to [[reminisce about|fondly remember and talk about the past]] the good times we've had and the lessons learned from those [[blunders|careless or embarrassing mistakes]].\n\nI didn't stop there, though. I also decided to bring up some of the common [[pitfalls|common mistakes or hidden problems people tend to fall into]] we all fall into, like making [[impulse purchases|unplanned, spontaneous buying decisions made without much thought]]. In our group, there's [[a running joke|a recurring humorous comment or situation a group keeps referring to]] about not buying a [[ridiculously expensive|extremely overpriced or costly]] car, and I couldn't resist [[poking fun at|making lighthearted, playful jokes about]] that too. But my intention was to make the point that it's okay to make mistakes as long as you learn from them.\n\nTo be honest, I had [[mixed feelings|both positive and negative emotions at the same time]] about the speech. I was a little nervous at first, not knowing how my friend and the guests would react to this different approach. But as I started sharing those funny stories and saw the smiles and laughter [[spreading through the room|becoming noticeable among everyone present]], I felt [[a huge sense of relief|a strong feeling that worry has disappeared]]. My friend and everyone else really got into it, and by the end of the speech, the atmosphere was all [[positive vibes|informal — a good, cheerful atmosphere]]. It turned out to be a memorable and enjoyable moment, and I'm glad I could [[add a unique twist|introduce an original element that makes something different and special]] to the birthday celebration.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "crowded-place",
+    part: 2,
+    title: "Describe a crowded place you have visited",
+    emoji: "🚇",
+    description: "A model long-turn answer about a lunchtime crush at Pakhtakor subway station.",
+    cueCard: [
+      "Where the place is",
+      "When you went there",
+      "What it was like",
+      "How you felt about it",
+    ],
+    questions: [
+      {
+        q: "Describe a crowded place you have visited.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I really [[despise|strongly dislike; have a deep aversion to]] places that are [[fully packed with|completely filled with, having no room available]] people and always try to avoid them as much as I can. But now let me tell you about this crazy experience I had at the \"Pakhtakor\" subway station, [[right in the heart of|located at the central part of]] my city. So, I usually take the subway in the mornings and evenings, and I'm used to seeing quite a few people during those times. But one day, during my lunch break, I decided to head back home, and that's when things got interesting.\n\nNo kidding, I was totally [[taken aback|surprised or shocked by something unexpected]] by the sight that greeted me at this station. It was like [[a sudden influx of|a sudden and large increase in the number of]] people from all over the city. I couldn't believe my eyes. The place was absolutely packed, and it felt like every living soul in town had decided to hang out there right when I showed up.\n\nWhat added to the chaos was that there was a problem with one of the metro lines that day, causing a 10-minute delay. You'd think a 10-minute delay [[isn't a big deal|is not a significant or important issue]], right? Well, apparently, it is when you're dealing with a subway station during lunchtime.\n\nThere were people everywhere — on the platform, in the [[concourse|a large open area in a public building used for gathering or moving through]], basically just everywhere you looked. It was like [[a mad rush|a chaotic and hurried movement or activity]], and I'd estimate there were easily thousands of people around. The noise level was [[off the charts|idiom — exceedingly high or extreme]] — conversations, footsteps, and those ever-annoying announcements over the [[intercom|a system for voice announcements over loudspeakers]].\n\nI couldn't help but feel [[a mix of|a combination of different emotions]] surprise and a bit of discomfort. I mean, I'm used to the [[hustle and bustle|the busy and noisy activity of a crowded place]] during the rush hours, but this was [[a different ballgame|idiom — a completely different situation]]. I had to [[wade through the crowd|move through a densely packed group of people with effort]] like an adventurer through the Amazon jungle, making sure I didn't [[bump into|accidentally collide with]] anyone or lose my stuff.\n\nBut here's the thing: as overwhelming as it was, I couldn't help but find it strangely fascinating. It made me realize the importance of picking the right time for my subway trips, like not during the lunchtime rush. It also gave me a glimpse of how many folks rely on the subway in our city. It's like a [[lifeline|something vital that people depend on to live or function]], and I appreciate how efficient our public transportation system is.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "interesting-job",
+    part: 2,
+    title: "Describe a job you think is interesting",
+    emoji: "📰",
+    description: "A model long-turn answer about the demanding life of a news reporter.",
+    cueCard: [
+      "What the job is",
+      "How you know about it",
+      "What skills it requires",
+      "Whether you would do it yourself",
+    ],
+    questions: [
+      {
+        q: "Describe a job you think is interesting.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There are many jobs that seem really [[intriguing|very interesting; fascinating]] to me, ranging from truck drivers to software developers. But now I'm going to talk about the exciting and quite demanding job of a news reporter. It's a profession that really [[grabs my attention|captures my interest]] because it's like [[a whirlwind of challenges|many complex, fast-moving difficulties]]. I got introduced to this world through my [[keen interest in|strong fascination with]] current events and the media.\n\nNews reporters have this super cool job of keeping us all [[in the know|informed; up to date]] about what's happening in the world. They're like information superheroes. To [[nail this gig|informal — excel at this job]], you need to be [[a jack of all trades|idiom — someone skilled in many different areas]]: awesome communication skills, [[a knack for|a natural talent for]] analyzing situations [[on the fly|quickly, while things are happening]], the ability to work under [[immense pressure|very high stress]], and adaptability to every twist and turn the news can throw at you. Staying well-informed and [[thinking on your feet|idiom — reacting and deciding quickly without preparation]] are the [[secret ingredients|the key factors for achieving success]] for success.\n\nOne really mind-blowing thing about news reporters is their [[unwavering commitment|consistent, dedicated devotion that never weakens]] to getting us the news, even when Mother Nature [[throws a tantrum|behaves wildly and unpredictably]]. I'll never forget this one time when a reporter was standing in the middle of a heavy rainstorm, reporting live about a major storm [[wreaking havoc|causing extensive damage]]. It was like something out of an action movie. Despite getting [[drenched|soaking wet]] and battling the wind, that reporter stayed [[cool as a cucumber|idiom — completely calm under pressure]] and kept us all informed. It's a classic example of their dedication to keeping us [[in the loop|idiom — well-informed and updated]], no matter what.\n\nNow, here's the thing: as cool as this job may sound, I don't think I'm [[cut out for it|naturally suited for it]]. It's [[incredibly demanding|extremely challenging]], with [[tight deadlines|very short time limits]] and the need to face some pretty intense situations. While I totally respect and admire news reporters for what they do, I think my interests and skills are better suited for something else. But I'll forever be [[in awe of|filled with admiration and wonder for]] the folks who take on the challenge of being news reporters and keep us informed [[day in and day out|continuously, every single day]]. They're literally [[the unsung heroes|people whose efforts go unnoticed or unappreciated]] of the media world!",
+          },
+        ],
+      },
+    ],
+  },
 
   /* ═══════════════════ PART 3 ═══════════════════ */
   {
