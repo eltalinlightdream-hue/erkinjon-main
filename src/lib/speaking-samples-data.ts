@@ -34,6 +34,24 @@ export const PART_LABELS: Record<1 | 2 | 3, { name: string; sub: string }> = {
   3: { name: "Part 3", sub: "Two-way Discussion" },
 };
 
+/* ────────────────────────────────────────────────────────────────
+   Useful Phrases — tips, language chunks and go-to expressions for
+   the speaking test. Add groups here as content becomes available;
+   `text` supports the same [[phrase|definition]] highlight markup
+   as the sample answers.
+   ──────────────────────────────────────────────────────────────── */
+
+export interface PhraseGroup {
+  id: string;
+  title: string;
+  emoji: string;
+  description: string;
+  /** Each entry is a phrase, tip or language chunk shown as its own card. */
+  items: { heading: string; text: string }[];
+}
+
+export const SPEAKING_PHRASES: PhraseGroup[] = [];
+
 export const SPEAKING_TOPICS: SpeakingTopic[] = [
   /* ═══════════════════ PART 1 ═══════════════════ */
   {
