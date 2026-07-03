@@ -8,9 +8,22 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Crown, LogOut, User as UserIcon, Smartphone, AlertTriangle,
-  Calendar, Loader2, BookOpen, BarChart2, Flame, Trophy,
-  Lock, Send, Eye, EyeOff, CheckCircle2
+  Crown,
+  LogOut,
+  User as UserIcon,
+  Smartphone,
+  AlertTriangle,
+  Calendar,
+  Loader2,
+  BookOpen,
+  BarChart2,
+  Flame,
+  Trophy,
+  Lock,
+  Send,
+  Eye,
+  EyeOff,
+  CheckCircle2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -31,7 +44,14 @@ export const Route = createFileRoute("/account")({
 });
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-type TestResult = { id: string; passage_title: string; score: number; total: number; band: number | null; completed_at: string };
+type TestResult = {
+  id: string;
+  passage_title: string;
+  score: number;
+  total: number;
+  band: number | null;
+  completed_at: string;
+};
 type LeaderboardEntry = { user_id: string; name: string; tests: number; avg_band: number };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -52,6 +72,12 @@ function getWeekStart() {
   return d.toISOString();
 }
 
+/** Local-timezone day key (YYYY-MM-DD). toISOString() would bucket by UTC
+ *  days, shifting evening tests onto the next day for UTC+ students. */
+function localDayKey(d: Date) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
 function bandColor(band: number) {
   if (band >= 7) return "text-green-600";
   if (band >= 5.5) return "text-yellow-600";
@@ -61,13 +87,17 @@ function bandColor(band: number) {
 // ─── Activity Heatmap ────────────────────────────────────────────────────────
 function ActivityHeatmap({ results }: { results: TestResult[] }) {
   const weeks = 15;
+  const counts = new Map<string, number>();
+  for (const r of results) {
+    const key = localDayKey(new Date(r.completed_at));
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
   const days: { date: string; count: number }[] = [];
   for (let i = weeks * 7 - 1; i >= 0; i--) {
     const d = new Date();
     d.setDate(d.getDate() - i);
-    const dateStr = d.toISOString().split("T")[0];
-    const count = results.filter(r => r.completed_at.startsWith(dateStr)).length;
-    days.push({ date: dateStr, count });
+    const dateStr = localDayKey(d);
+    days.push({ date: dateStr, count: counts.get(dateStr) ?? 0 });
   }
   const grouped: { date: string; count: number }[][] = [];
   for (let i = 0; i < days.length; i += 7) grouped.push(days.slice(i, i + 7));
@@ -82,9 +112,13 @@ function ActivityHeatmap({ results }: { results: TestResult[] }) {
                 key={day.date}
                 title={`${day.date}: ${day.count} test${day.count !== 1 ? "s" : ""}`}
                 className={`w-4 h-4 rounded-sm border border-border ${
-                  day.count === 0 ? "bg-muted" :
-                  day.count === 1 ? "bg-green-200" :
-                  day.count === 2 ? "bg-green-400" : "bg-green-600"
+                  day.count === 0
+                    ? "bg-muted"
+                    : day.count === 1
+                      ? "bg-green-200"
+                      : day.count === 2
+                        ? "bg-green-400"
+                        : "bg-green-600"
                 }`}
               />
             ))}
@@ -129,7 +163,9 @@ function Account() {
       data: {
         fullName: String(user.user_metadata?.full_name ?? user.user_metadata?.name ?? ""),
       },
-    }).then(() => refreshProfile()).catch(() => undefined);
+    })
+      .then(() => refreshProfile())
+      .catch(() => undefined);
     loadStats();
   }, [user]);
 
@@ -140,11 +176,20 @@ function Account() {
       try {
         const read = new Set(JSON.parse(localStorage.getItem("erkinjon_read_articles") ?? "[]"));
         setArticlesRead(read.size);
-      } catch { /* ignore */ }
+      } catch {
+        /* ignore */
+      }
       const [resR, vocR, lbR] = await Promise.all([
-        supabase.from("test_results").select("*").eq("user_id", user!.id).order("completed_at", { ascending: false }),
+        supabase
+          .from("test_results")
+          .select("*")
+          .eq("user_id", user!.id)
+          .order("completed_at", { ascending: false }),
         supabase.from("vocabulary_words").select("id", { count: "exact" }).eq("user_id", user!.id),
-        supabase.from("test_results").select("user_id, band, profiles(full_name)").gte("completed_at", getWeekStart()),
+        supabase
+          .from("test_results")
+          .select("user_id, band, profiles(full_name)")
+          .gte("completed_at", getWeekStart()),
       ]);
       if (resR.data) setResults(resR.data);
       if (vocR.count !== null) setVocabCount(vocR.count);
@@ -158,12 +203,15 @@ function Account() {
           if (!map[uid]) map[uid] = { name, bands: [] };
           map[uid].bands.push(r.band);
         });
-        const lb: LeaderboardEntry[] = Object.entries(map).map(([uid, v]) => ({
-          user_id: uid,
-          name: v.name,
-          tests: v.bands.length,
-          avg_band: Math.round((v.bands.reduce((a, b) => a + b, 0) / v.bands.length) * 10) / 10,
-        })).sort((a, b) => b.avg_band - a.avg_band || b.tests - a.tests).slice(0, 10);
+        const lb: LeaderboardEntry[] = Object.entries(map)
+          .map(([uid, v]) => ({
+            user_id: uid,
+            name: v.name,
+            tests: v.bands.length,
+            avg_band: Math.round((v.bands.reduce((a, b) => a + b, 0) / v.bands.length) * 10) / 10,
+          }))
+          .sort((a, b) => b.avg_band - a.avg_band || b.tests - a.tests)
+          .slice(0, 10);
         setLeaderboard(lb);
       }
     } catch (e) {
@@ -174,15 +222,26 @@ function Account() {
   }
 
   async function changePassword() {
-    if (newPw !== confirmPw) { toast.error("New passwords don't match."); return; }
-    if (newPw.length < 6) { toast.error("Password must be at least 6 characters."); return; }
+    if (newPw !== confirmPw) {
+      toast.error("New passwords don't match.");
+      return;
+    }
+    if (newPw.length < 6) {
+      toast.error("Password must be at least 6 characters.");
+      return;
+    }
     setPwBusy(true);
     const { error } = await supabase.auth.updateUser({ password: newPw });
     setPwBusy(false);
-    if (error) { toast.error(error.message); return; }
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     toast.success("Password updated successfully!");
     setShowPwForm(false);
-    setCurrentPw(""); setNewPw(""); setConfirmPw("");
+    setCurrentPw("");
+    setNewPw("");
+    setConfirmPw("");
   }
 
   if (loading || !user) {
@@ -209,70 +268,102 @@ function Account() {
   };
 
   const initials = (profile?.full_name || user.email || "?")
-    .split(" ").map((s) => s[0]).slice(0, 2).join("").toUpperCase();
+    .split(" ")
+    .map((s) => s[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
 
-  const activated = profile?.activated_at ? new Date(profile.activated_at).toLocaleDateString() : null;
+  const activated = profile?.activated_at
+    ? new Date(profile.activated_at).toLocaleDateString()
+    : null;
 
   // Stats computed
   const weekStart = getWeekStart();
   const day15 = daysAgo(15);
   const monthStart = daysAgo(30);
 
-  const testsThisWeek = results.filter(r => isInRange(r.completed_at, weekStart)).length;
-  const tests15Days = results.filter(r => isInRange(r.completed_at, day15)).length;
-  const testsThisMonth = results.filter(r => isInRange(r.completed_at, monthStart)).length;
+  const testsThisWeek = results.filter((r) => isInRange(r.completed_at, weekStart)).length;
+  const tests15Days = results.filter((r) => isInRange(r.completed_at, day15)).length;
+  const testsThisMonth = results.filter((r) => isInRange(r.completed_at, monthStart)).length;
 
-  const recentBands = results.slice(0, 5).map(r => r.band ?? 0);
-  const avgBand = recentBands.length ? (recentBands.reduce((a, b) => a + b, 0) / recentBands.length).toFixed(1) : "—";
+  const recentBands = results.slice(0, 5).map((r) => r.band ?? 0);
+  const avgBand = recentBands.length
+    ? (recentBands.reduce((a, b) => a + b, 0) / recentBands.length).toFixed(1)
+    : "—";
 
-  // Streak: consecutive days with at least 1 test
+  // Streak: consecutive local days with at least 1 test. A test-free
+  // today doesn't break yesterday's run — the day isn't over yet.
+  const activeDays = new Set(results.map((r) => localDayKey(new Date(r.completed_at))));
   let streak = 0;
-  for (let i = 0; i < 30; i++) {
-    const d = new Date(); d.setDate(d.getDate() - i);
-    const ds = d.toISOString().split("T")[0];
-    if (results.some(r => r.completed_at.startsWith(ds))) streak++;
-    else if (i > 0) break;
+  const cursor = new Date();
+  if (!activeDays.has(localDayKey(cursor))) cursor.setDate(cursor.getDate() - 1);
+  while (activeDays.has(localDayKey(cursor))) {
+    streak++;
+    cursor.setDate(cursor.getDate() - 1);
   }
 
-  const myRank = leaderboard.findIndex(e => e.user_id === user.id) + 1;
+  const myRank = leaderboard.findIndex((e) => e.user_id === user.id) + 1;
 
   return (
     <SiteLayout>
       <section className="container mx-auto px-4 py-12 max-w-5xl space-y-8">
-
         {/* Header */}
         <div className="ink-bleed flex flex-wrap items-center gap-5 p-6 bento-card">
           <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white text-xl font-serif font-semibold shadow-warm">
             {initials}
           </div>
           <div className="flex-1">
-            <h1 className="text-2xl md:text-3xl font-bold">{profile?.full_name || "Welcome back"}</h1>
-            <p className="font-mono text-xs text-muted-foreground tracking-wide mt-0.5">{user.email}</p>
+            <h1 className="text-2xl md:text-3xl font-bold">
+              {profile?.full_name || "Welcome back"}
+            </h1>
+            <p className="font-mono text-xs text-muted-foreground tracking-wide mt-0.5">
+              {user.email}
+            </p>
           </div>
-          <Button variant="outline" className="font-mono text-xs tracking-wide" onClick={() => signOut()}>
+          <Button
+            variant="outline"
+            className="font-mono text-xs tracking-wide"
+            onClick={() => signOut()}
+          >
             <LogOut className="w-4 h-4 mr-2" /> Sign out
           </Button>
         </div>
 
         {/* Row 1: Membership + Profile */}
         <div className="grid md:grid-cols-2 gap-5">
-
           {/* Membership */}
-          <Card className={`p-6 ${profile?.is_premium ? "bg-gradient-warm border-[#C07850]/20" : ""}`}>
+          <Card
+            className={`p-6 ${profile?.is_premium ? "bg-gradient-warm border-[#C07850]/20" : ""}`}
+          >
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-serif text-xl font-semibold">Membership</h2>
-              {profile?.is_premium
-                ? <Badge className="bg-gold/15 text-gold border-gold/30"><Crown className="w-3 h-3 mr-1" /> Premium</Badge>
-                : <Badge variant="secondary" className="bg-accent">Free</Badge>}
+              {profile?.is_premium ? (
+                <Badge className="bg-gold/15 text-gold border-gold/30">
+                  <Crown className="w-3 h-3 mr-1" /> Premium
+                </Badge>
+              ) : (
+                <Badge variant="secondary" className="bg-accent">
+                  Free
+                </Badge>
+              )}
             </div>
             {profile?.is_premium ? (
               <>
-                <p className="text-sm text-muted-foreground mb-2">You have full access to all premium materials.</p>
-                {activated && <p className="text-xs text-muted-foreground inline-flex items-center gap-1.5"><Calendar className="w-3 h-3" /> Activated on {activated}</p>}
+                <p className="text-sm text-muted-foreground mb-2">
+                  You have full access to all premium materials.
+                </p>
+                {activated && (
+                  <p className="text-xs text-muted-foreground inline-flex items-center gap-1.5">
+                    <Calendar className="w-3 h-3" /> Activated on {activated}
+                  </p>
+                )}
               </>
             ) : (
               <>
-                <p className="text-sm text-muted-foreground mb-4">Upgrade to unlock model answers, PDFs and worksheets.</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Upgrade to unlock model answers, PDFs and worksheets.
+                </p>
                 <a href="https://t.me/augustus_at" target="_blank" rel="noreferrer">
                   <Button className="bg-gradient-gold text-primary-foreground w-full">
                     <Send className="w-4 h-4 mr-2" /> Contact to Upgrade
@@ -286,8 +377,16 @@ function Account() {
           <Card className="p-6">
             <h2 className="font-serif text-xl font-semibold mb-3">Profile</h2>
             <div className="space-y-3 text-sm mb-4">
-              <Row icon={<UserIcon className="w-4 h-4" />} label="Name" value={profile?.full_name || "—"} />
-              <Row icon={<UserIcon className="w-4 h-4" />} label="Email" value={user.email ?? "—"} />
+              <Row
+                icon={<UserIcon className="w-4 h-4" />}
+                label="Name"
+                value={profile?.full_name || "—"}
+              />
+              <Row
+                icon={<UserIcon className="w-4 h-4" />}
+                label="Email"
+                value={user.email ?? "—"}
+              />
             </div>
 
             {!showPwForm ? (
@@ -300,21 +399,44 @@ function Account() {
                 <div>
                   <Label htmlFor="newpw">New Password</Label>
                   <div className="relative">
-                    <Input id="newpw" type={showPw ? "text" : "password"} value={newPw} onChange={e => setNewPw(e.target.value)} minLength={6} />
-                    <button type="button" className="absolute right-2 top-2 text-muted-foreground" onClick={() => setShowPw(!showPw)}>
+                    <Input
+                      id="newpw"
+                      type={showPw ? "text" : "password"}
+                      value={newPw}
+                      onChange={(e) => setNewPw(e.target.value)}
+                      minLength={6}
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-2 top-2 text-muted-foreground"
+                      onClick={() => setShowPw(!showPw)}
+                    >
                       {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="confirmpw">Confirm New Password</Label>
-                  <Input id="confirmpw" type={showPw ? "text" : "password"} value={confirmPw} onChange={e => setConfirmPw(e.target.value)} />
+                  <Input
+                    id="confirmpw"
+                    type={showPw ? "text" : "password"}
+                    value={confirmPw}
+                    onChange={(e) => setConfirmPw(e.target.value)}
+                  />
                 </div>
                 <div className="flex gap-2">
                   <Button size="sm" onClick={changePassword} disabled={pwBusy}>
-                    {pwBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <><CheckCircle2 className="w-4 h-4 mr-1" /> Save</>}
+                    {pwBusy ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 mr-1" /> Save
+                      </>
+                    )}
                   </Button>
-                  <Button size="sm" variant="outline" onClick={() => setShowPwForm(false)}>Cancel</Button>
+                  <Button size="sm" variant="outline" onClick={() => setShowPwForm(false)}>
+                    Cancel
+                  </Button>
                 </div>
               </div>
             )}
@@ -325,17 +447,28 @@ function Account() {
         {profile?.is_premium && (
           <Card className={`p-6 ${deviceConflict ? "border-destructive/40 bg-destructive/5" : ""}`}>
             <div className="flex items-start gap-3 mb-3">
-              <span className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${deviceConflict ? "bg-destructive/15" : "bg-sage/15"}`}>
-                {deviceConflict ? <AlertTriangle className="w-5 h-5 text-destructive" /> : <Smartphone className="w-5 h-5 text-sage" />}
+              <span
+                className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${deviceConflict ? "bg-destructive/15" : "bg-sage/15"}`}
+              >
+                {deviceConflict ? (
+                  <AlertTriangle className="w-5 h-5 text-destructive" />
+                ) : (
+                  <Smartphone className="w-5 h-5 text-sage" />
+                )}
               </span>
               <div className="flex-1">
                 <h2 className="font-serif text-xl font-semibold">Connected Device</h2>
-                <p className="text-sm text-muted-foreground">Premium accounts are limited to one device.</p>
+                <p className="text-sm text-muted-foreground">
+                  Premium accounts are limited to one device.
+                </p>
               </div>
             </div>
             {deviceConflict ? (
               <>
-                <p className="text-sm mb-4">This account is bound to a different device. If this is your new device, you can rebind it below.</p>
+                <p className="text-sm mb-4">
+                  This account is bound to a different device. If this is your new device, you can
+                  rebind it below.
+                </p>
                 <div className="flex flex-wrap gap-2">
                   <Button onClick={onResetDevice} disabled={busy} variant="destructive">
                     {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : "Bind to this device"}
@@ -346,7 +479,9 @@ function Account() {
                 </div>
               </>
             ) : (
-              <p className="text-sm text-muted-foreground">✅ This device (current) — bound to your premium account.</p>
+              <p className="text-sm text-muted-foreground">
+                ✅ This device (current) — bound to your premium account.
+              </p>
             )}
           </Card>
         )}
@@ -355,18 +490,55 @@ function Account() {
         <div>
           <h2 className="font-serif text-2xl font-bold mb-4">My Progress</h2>
           {statsLoading ? (
-            <div className="flex justify-center py-8"><Loader2 className="w-6 h-6 animate-spin text-muted-foreground" /></div>
+            <div className="flex justify-center py-8">
+              <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+            </div>
           ) : (
             <>
               {/* Summary cards */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <StatCard icon={<BarChart2 />} tile="icon-tile-blue" label="Tests this week" value={String(testsThisWeek)} />
-                <StatCard icon={<BarChart2 />} tile="icon-tile-blue" label="Tests (15 days)" value={String(tests15Days)} />
-                <StatCard icon={<BarChart2 />} tile="icon-tile-blue" label="Tests this month" value={String(testsThisMonth)} />
-                <StatCard icon={<Trophy />} tile="icon-tile-ochre" label="Avg Band" value={String(avgBand)} />
-                <StatCard icon={<Flame />} tile="icon-tile-coral" label="Day streak" value={`${streak} day${streak !== 1 ? "s" : ""}`} />
-                <StatCard icon={<BookOpen />} tile="icon-tile-green" label="Vocab words" value={String(vocabCount)} />
-                <StatCard icon={<BookOpen />} tile="icon-tile-rose" label="Articles read" value={String(articlesRead)} />
+                <StatCard
+                  icon={<BarChart2 />}
+                  tile="icon-tile-blue"
+                  label="Tests this week"
+                  value={String(testsThisWeek)}
+                />
+                <StatCard
+                  icon={<BarChart2 />}
+                  tile="icon-tile-blue"
+                  label="Tests (15 days)"
+                  value={String(tests15Days)}
+                />
+                <StatCard
+                  icon={<BarChart2 />}
+                  tile="icon-tile-blue"
+                  label="Tests this month"
+                  value={String(testsThisMonth)}
+                />
+                <StatCard
+                  icon={<Trophy />}
+                  tile="icon-tile-ochre"
+                  label="Avg Band"
+                  value={String(avgBand)}
+                />
+                <StatCard
+                  icon={<Flame />}
+                  tile="icon-tile-coral"
+                  label="Day streak"
+                  value={`${streak} day${streak !== 1 ? "s" : ""}`}
+                />
+                <StatCard
+                  icon={<BookOpen />}
+                  tile="icon-tile-green"
+                  label="Vocab words"
+                  value={String(vocabCount)}
+                />
+                <StatCard
+                  icon={<BookOpen />}
+                  tile="icon-tile-rose"
+                  label="Articles read"
+                  value={String(articlesRead)}
+                />
               </div>
 
               {/* Activity heatmap */}
@@ -380,13 +552,24 @@ function Account() {
                 <Card className="p-6 mb-6">
                   <h3 className="font-semibold mb-4">Recent Tests</h3>
                   <div className="space-y-2">
-                    {results.slice(0, 8).map(r => (
-                      <div key={r.id} className="flex items-center justify-between py-2 border-b border-border last:border-0 text-sm">
-                        <span className="text-muted-foreground truncate max-w-[60%]">{r.passage_title}</span>
+                    {results.slice(0, 8).map((r) => (
+                      <div
+                        key={r.id}
+                        className="flex items-center justify-between py-2 border-b border-border last:border-0 text-sm"
+                      >
+                        <span className="text-muted-foreground truncate max-w-[60%]">
+                          {r.passage_title}
+                        </span>
                         <div className="flex items-center gap-3">
-                          <span>{r.score}/{r.total}</span>
-                          <span className={`font-bold ${bandColor(r.band ?? 0)}`}>Band {r.band ?? "—"}</span>
-                          <span className="text-xs text-muted-foreground">{new Date(r.completed_at).toLocaleDateString()}</span>
+                          <span>
+                            {r.score}/{r.total}
+                          </span>
+                          <span className={`font-bold ${bandColor(r.band ?? 0)}`}>
+                            Band {r.band ?? "—"}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {new Date(r.completed_at).toLocaleDateString()}
+                          </span>
                         </div>
                       </div>
                     ))}
@@ -402,26 +585,43 @@ function Account() {
           <div className="flex items-center gap-2 mb-4">
             <Trophy className="w-5 h-5 text-gold" />
             <h2 className="font-serif text-xl font-semibold">Weekly Leaderboard</h2>
-            {myRank > 0 && <Badge variant="secondary" className="ml-auto">You: #{myRank}</Badge>}
+            {myRank > 0 && (
+              <Badge variant="secondary" className="ml-auto">
+                You: #{myRank}
+              </Badge>
+            )}
           </div>
           {leaderboard.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No tests completed this week yet. Be the first!</p>
+            <p className="text-sm text-muted-foreground">
+              No tests completed this week yet. Be the first!
+            </p>
           ) : (
             <div className="space-y-2">
               {leaderboard.map((entry, i) => (
-                <div key={entry.user_id} className={`flex items-center gap-3 py-2 px-3 rounded-lg text-sm ${entry.user_id === user.id ? "bg-accent border border-border font-semibold" : ""}`}>
-                  <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${i === 0 ? "bg-yellow-400 text-white" : i === 1 ? "bg-gray-300 text-gray-800" : i === 2 ? "bg-amber-600 text-white" : "bg-muted text-muted-foreground"}`}>
+                <div
+                  key={entry.user_id}
+                  className={`flex items-center gap-3 py-2 px-3 rounded-lg text-sm ${entry.user_id === user.id ? "bg-accent border border-border font-semibold" : ""}`}
+                >
+                  <span
+                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${i === 0 ? "bg-yellow-400 text-white" : i === 1 ? "bg-gray-300 text-gray-800" : i === 2 ? "bg-amber-600 text-white" : "bg-muted text-muted-foreground"}`}
+                  >
                     {i + 1}
                   </span>
-                  <span className="flex-1">{entry.name}{entry.user_id === user.id ? " (you)" : ""}</span>
-                  <span className="text-muted-foreground">{entry.tests} test{entry.tests !== 1 ? "s" : ""}</span>
-                  <span className={`font-bold ${bandColor(entry.avg_band)}`}>Band {entry.avg_band}</span>
+                  <span className="flex-1">
+                    {entry.name}
+                    {entry.user_id === user.id ? " (you)" : ""}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {entry.tests} test{entry.tests !== 1 ? "s" : ""}
+                  </span>
+                  <span className={`font-bold ${bandColor(entry.avg_band)}`}>
+                    Band {entry.avg_band}
+                  </span>
                 </div>
               ))}
             </div>
           )}
         </Card>
-
       </section>
     </SiteLayout>
   );
@@ -431,7 +631,9 @@ function Account() {
 function Row({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
-      <span className="inline-flex items-center gap-2 text-muted-foreground">{icon} {label}</span>
+      <span className="inline-flex items-center gap-2 text-muted-foreground">
+        {icon} {label}
+      </span>
       <span className="font-medium text-right">{value}</span>
     </div>
   );
