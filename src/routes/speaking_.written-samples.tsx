@@ -2,29 +2,46 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
-import { ArrowLeft, ArrowRight, BookOpen, MessageSquareQuote, X as XIcon } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  Lightbulb,
+  MessageSquareQuote,
+  X as XIcon,
+} from "lucide-react";
 import {
   PART_LABELS,
+  SPEAKING_PHRASES,
   SPEAKING_TOPICS,
   findSpeakingTopic,
   topicsByPart,
   type SpeakingTopic,
 } from "@/lib/speaking-samples-data";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import { useIsPremium, PremiumCardOverlay, PremiumRequired } from "@/components/premium-lock";
 import { isFreeSpeakingTopic } from "@/lib/premium-content";
 
 type SamplesSearch = {
   topic?: string;
-  part?: 1 | 2 | 3;
+  part?: 1 | 2 | 3 | "phrases";
 };
 
 export const Route = createFileRoute("/speaking_/written-samples")({
   validateSearch: (search: Record<string, unknown>): SamplesSearch => ({
     topic: typeof search.topic === "string" ? search.topic : undefined,
-    part: ["1", "2", "3"].includes(String(search.part))
-      ? (Number(search.part) as 1 | 2 | 3)
-      : undefined,
+    part:
+      search.part === "phrases"
+        ? "phrases"
+        : ["1", "2", "3"].includes(String(search.part))
+          ? (Number(search.part) as 1 | 2 | 3)
+          : undefined,
   }),
   head: () => ({
     meta: [
@@ -186,7 +203,9 @@ function TopicCard({ topic }: { topic: SpeakingTopic }) {
     return (
       <Reveal className="h-full">
         <div className="relative rounded-2xl overflow-hidden h-full">
-          <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">{inner}</div>
+          <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
+            {inner}
+          </div>
           <PremiumCardOverlay label="Premium topic" />
         </div>
       </Reveal>
@@ -295,20 +314,29 @@ function TopicView({ topic }: { topic: SpeakingTopic }) {
               </h2>
             </div>
 
-            {/* Answers */}
-            <div className="space-y-5 md:pl-11">
+            {/* Answers — collapsible accordion, first version open */}
+            <Accordion
+              type="multiple"
+              defaultValue={question.answers.length > 0 ? [question.answers[0].label] : []}
+              className="space-y-3 md:pl-11"
+            >
               {question.answers.map((answer) => (
-                <div
+                <AccordionItem
                   key={answer.label}
-                  className="bg-card border border-border rounded-2xl shadow-card p-5 border-l-4 border-l-primary"
+                  value={answer.label}
+                  className="bg-card border border-border rounded-2xl shadow-card border-l-4 border-l-primary border-b overflow-hidden"
                 >
-                  <span className="inline-block text-[10px] font-semibold tracking-[0.12em] uppercase text-primary bg-primary/10 rounded-full px-2.5 py-0.5 mb-3">
-                    {answer.label}
-                  </span>
-                  <HighlightedText text={answer.text} onWordClick={open} />
-                </div>
+                  <AccordionTrigger className="px-5 py-4 hover:no-underline hover:bg-primary/5 transition-colors">
+                    <span className="text-[10px] font-semibold tracking-[0.12em] uppercase text-primary bg-primary/10 rounded-full px-2.5 py-0.5">
+                      {answer.label}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5">
+                    <HighlightedText text={answer.text} onWordClick={open} />
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
         ))}
       </div>
@@ -332,11 +360,60 @@ function TopicView({ topic }: { topic: SpeakingTopic }) {
   );
 }
 
+/* ── Useful phrases section ──────────────────────────────────── */
+
+function PhrasesView() {
+  const { open, node } = useDefinitionPopup();
+
+  if (SPEAKING_PHRASES.length === 0) {
+    return (
+      <div className="max-w-xl mx-auto text-center border-2 border-dashed border-primary/30 rounded-2xl px-6 py-14 bg-primary/5">
+        {node}
+        <Lightbulb className="w-8 h-8 text-primary mx-auto mb-4" />
+        <h2 className="font-serif text-lg text-foreground mb-2">Useful Phrases — coming soon</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          This section will collect useful phrases, tips and language chunks for the speaking test.
+          Check back soon — content is on its way.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-12">
+      {node}
+      {SPEAKING_PHRASES.map((group) => (
+        <div key={group.id}>
+          <div className="flex items-center gap-4 mb-6">
+            <span className="font-serif text-sm bg-primary text-primary-foreground px-3.5 py-1.5 rounded-full shadow-card whitespace-nowrap">
+              {group.emoji} {group.title}
+            </span>
+            <div className="flex-1 h-px bg-gradient-to-r from-primary/40 to-transparent" />
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5">{group.description}</p>
+          <div className="space-y-4">
+            {group.items.map((item) => (
+              <div
+                key={item.heading}
+                className="bg-card border border-border rounded-2xl shadow-card p-5 border-l-4 border-l-primary"
+              >
+                <h3 className="font-serif text-base text-foreground mb-2">{item.heading}</h3>
+                <HighlightedText text={item.text} onWordClick={open} />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /* ── Index view: parts → topic cards ─────────────────────────── */
 
-function IndexView({ part }: { part?: 1 | 2 | 3 }) {
+function IndexView({ part }: { part?: 1 | 2 | 3 | "phrases" }) {
   const navigate = useNavigate();
-  const parts = part ? [part] : ([1, 2, 3] as const);
+  // No "All Parts" view — default to Part 1 when nothing is selected
+  const active = part ?? 1;
   const total = SPEAKING_TOPICS.reduce((n, t) => n + t.questions.length, 0);
 
   return (
@@ -354,45 +431,56 @@ function IndexView({ part }: { part?: 1 | 2 | 3 }) {
 
       {/* Part filter tabs */}
       <div className="flex justify-center gap-2 mb-12 flex-wrap">
-        <button
-          onClick={() => navigate({ to: "/speaking/written-samples", search: {} })}
-          className={cn(
-            "font-mono text-[11px] tracking-wider px-4 py-2 border-2 transition-colors",
-            !part
-              ? "bg-primary text-primary-foreground border-primary shadow-card"
-              : "border-border text-muted-foreground hover:text-foreground hover:border-primary/50",
-          )}
-        >
-          All Parts
-        </button>
         {([1, 2, 3] as const).map((p) => (
           <button
             key={p}
             onClick={() => navigate({ to: "/speaking/written-samples", search: { part: p } })}
             className={cn(
-              "font-mono text-[11px] tracking-wider px-4 py-2 border-2 transition-colors",
-              part === p
+              "font-mono text-[11px] tracking-wider px-4 py-2 border-2 transition-colors inline-flex items-center gap-2",
+              active === p
                 ? "bg-primary text-primary-foreground border-primary shadow-card"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-primary/50",
             )}
           >
             {PART_LABELS[p].name}
+            <span
+              className={cn(
+                "text-[10px] font-semibold rounded-full px-1.5 py-0.5 leading-none",
+                active === p
+                  ? "bg-primary-foreground/20 text-primary-foreground"
+                  : "bg-primary/10 text-primary",
+              )}
+            >
+              {topicsByPart(p).length}
+            </span>
           </button>
         ))}
+        <button
+          onClick={() => navigate({ to: "/speaking/written-samples", search: { part: "phrases" } })}
+          className={cn(
+            "font-mono text-[11px] tracking-wider px-4 py-2 border-2 transition-colors inline-flex items-center gap-2",
+            active === "phrases"
+              ? "bg-primary text-primary-foreground border-primary shadow-card"
+              : "border-border text-muted-foreground hover:text-foreground hover:border-primary/50",
+          )}
+        >
+          <Lightbulb className="w-3.5 h-3.5" />
+          Useful Phrases
+        </button>
       </div>
 
-      <div className="space-y-14">
-        {parts.map((p) => (
-          <div key={p}>
-            <PartHeader part={p} />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {topicsByPart(p).map((t) => (
-                <TopicCard key={t.id} topic={t} />
-              ))}
-            </div>
+      {active === "phrases" ? (
+        <PhrasesView />
+      ) : (
+        <div>
+          <PartHeader part={active} />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {topicsByPart(active).map((t) => (
+              <TopicCard key={t.id} topic={t} />
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </section>
   );
 }
