@@ -4802,6 +4802,809 @@ export const ARTICLES: Article[] = [
       },
     ],
   },
+  {
+    id: "a19",
+    slug: "food-global-supply-health-policy-and-food-waste",
+    title: "Food: Global Supply, Health Policy and Food Waste",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-02",
+    description:
+      "From food imports and sugar taxes to food waste and family meals, the global food system involves difficult trade-offs between convenience, health, and sustainability.",
+    readingTime: 6,
+    content: `
+    <p><strong>The way food is produced, traded, and consumed shapes public health, the environment, and daily family life — and almost every part of the system involves a trade-off.</strong></p>
+
+    <h2>Importing food: benefits and vulnerabilities</h2>
+    <p>Importing food gives countries access to tropical fruits, out-of-season produce, and a wider variety of ingredients than local land can provide. Japan, for example, imports a large share of its food supply, allowing its population to enjoy a globally diverse diet despite limited farmland. International trade also creates economic opportunities, letting some nations earn billions from exports and employ millions of farmers and workers.</p>
+
+    <p>However, heavy reliance on imported food creates real vulnerabilities. Transporting food across continents generates significant carbon emissions, and long journeys can reduce freshness and nutritional value. Depending on foreign sources can also weaken domestic agriculture and create dangerous dependencies — a risk that became clear during the COVID-19 pandemic, when supply-chain disruptions left many countries facing shortages.</p>
+
+    <h2>Sugar taxes versus education</h2>
+    <p>Governments increasingly use taxes to discourage consumption of unhealthy products. Mexico's tax on sugary drinks led to a measurable fall in purchases within two years, and similar policies elsewhere reduced consumption most among low-income residents, who often face the highest rates of diet-related illness. These taxes work because they create an immediate financial incentive for healthier choices while funding public-health programmes.</p>
+
+    <p>Others argue that education produces better long-term results than financial penalties. Subsidising fresh fruit and vegetables, running school nutrition programmes, and teaching people to read nutrition labels can change behaviour at its root. Countries that invest in comprehensive nutrition education have achieved dramatic improvements in public health, suggesting that positive reinforcement can be as powerful as taxation.</p>
+
+    <h2>Why we waste so much food</h2>
+    <p>A surprising amount of edible food is discarded before it is ever eaten. Much of this waste happens at the retail level, where supermarkets reject perfectly good produce for failing to meet cosmetic standards. Consumers add to the problem by buying more than they can eat, often encouraged by bulk-buying incentives and oversized packaging, while restaurants generate waste through large portions and policies that discourage donating leftovers.</p>
+
+    <p>Effective solutions require coordinated action across the whole food chain. France's pioneering law banning supermarkets from throwing away unsold food and requiring donations to food banks has redirected millions of meals. Apps that connect consumers with discounted surplus food, smarter packaging, and public-awareness campaigns about meal planning and storage have all proven successful in cutting household waste.</p>
+
+    <h2>The decline of the family meal</h2>
+    <p>Busy modern schedules have pushed many families toward eating separately. Individual eating can reduce stress over coordinating complicated timetables and lets people make personalised dietary choices. Yet shared meals offer benefits that are hard to replace: children who regularly eat with their families tend to show stronger communication skills, better academic performance, and healthier eating habits, because family meals pass on values, etiquette, and good nutrition together.</p>
+
+    <h2>Processed foods and health</h2>
+    <p>Processed foods are popular because they are cheap, convenient, and long-lasting, and manufacturers engineer flavours and textures that make them intensely satisfying. But regular consumption of products high in sodium, sugar, and additives is strongly linked to obesity, diabetes, and heart disease. The convenience of processed food can carry a serious long-term cost to health, which is why fresh, whole ingredients remain central to good nutrition.</p>
+  `,
+    vocabulary: [
+      {
+        word: "food security",
+        wordType: "noun phrase",
+        definition: "reliable access to enough safe and nutritious food",
+        example: "Relying on imports can threaten a country's food security.",
+      },
+      {
+        word: "supply chain",
+        wordType: "noun phrase",
+        definition: "the network that moves a product from producer to consumer",
+        example: "The pandemic exposed weaknesses in the global food supply chain.",
+      },
+      {
+        word: "carbon footprint",
+        wordType: "noun phrase",
+        definition: "the total greenhouse gases produced by an activity",
+        example: "Importing food from other continents increases its carbon footprint.",
+      },
+      {
+        word: "self-sufficiency",
+        wordType: "noun",
+        definition: "the ability to produce what you need without outside help",
+        example: "Some governments encourage food self-sufficiency for security.",
+      },
+      {
+        word: "incentive",
+        wordType: "noun",
+        definition: "something that encourages a person to act in a certain way",
+        example: "A sugar tax creates a financial incentive to drink less soda.",
+      },
+      {
+        word: "subsidise",
+        wordType: "verb",
+        definition: "to help pay for something so it becomes cheaper for people",
+        example: "Governments can subsidise fresh fruit to make it affordable.",
+      },
+      {
+        word: "cosmetic standards",
+        wordType: "noun phrase",
+        definition: "rules about how food should look rather than how it tastes",
+        example: "Supermarkets reject edible produce that fails cosmetic standards.",
+      },
+      {
+        word: "surplus",
+        wordType: "noun",
+        definition: "an amount that is more than what is needed",
+        example: "Apps help restaurants sell surplus food at a discount.",
+      },
+      {
+        word: "processed food",
+        wordType: "noun phrase",
+        definition: "food that has been changed from its natural state, often with additives",
+        example: "Processed food is convenient but often high in sugar and salt.",
+      },
+      {
+        word: "nutritional value",
+        wordType: "noun phrase",
+        definition: "how healthy a food is based on its nutrients",
+        example: "Long transport can lower the nutritional value of fresh produce.",
+      },
+      {
+        word: "communal",
+        wordType: "adjective",
+        definition: "shared by members of a group or community",
+        example: "Family dinners have a communal value beyond the food itself.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "vulnerability",
+        ipa: "/vul-nur-uh-BIL-uh-tee/",
+        syllables: "vul-ner-a-bil-i-ty",
+        tip: "Stress BIL.",
+      },
+      {
+        word: "nutrition",
+        ipa: "/noo-TRISH-un/",
+        syllables: "nu-tri-tion",
+        tip: "Stress TRISH.",
+      },
+      {
+        word: "agriculture",
+        ipa: "/AG-ri-kul-cher/",
+        syllables: "ag-ri-cul-ture",
+        tip: "Stress AG.",
+      },
+      {
+        word: "obesity",
+        ipa: "/oh-BEE-suh-tee/",
+        syllables: "o-be-si-ty",
+        tip: "Stress BEE.",
+      },
+      {
+        word: "surplus",
+        ipa: "/SUR-plus/",
+        syllables: "sur-plus",
+        tip: "Stress SUR.",
+      },
+      {
+        word: "subsidise",
+        ipa: "/SUB-si-dyz/",
+        syllables: "sub-si-dise",
+        tip: "Stress SUB.",
+      },
+    ],
+  },
+  {
+    id: "a20",
+    slug: "crime-and-punishment-prison-rehabilitation-and-juvenile-justice",
+    title: "Crime and Punishment: Prison, Rehabilitation and Juvenile Justice",
+    category: "Reading",
+    topic: "Crime",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1453873531674-2151bcd01707?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-04",
+    description:
+      "Should societies punish or rehabilitate? This article weighs prison against alternatives, examines juvenile justice, and asks whether crime comes from nature or environment.",
+    readingTime: 6,
+    content: `
+    <p><strong>Few debates divide opinion as sharply as how societies should respond to crime — through punishment, rehabilitation, or by changing the conditions that produce it in the first place.</strong></p>
+
+    <h2>Prison versus alternatives</h2>
+    <p>Prisons protect society by removing dangerous offenders from communities and preventing them from committing further crimes. They also act as a deterrent: the threat of losing one's freedom can discourage many potential offenders. For serious and violent repeat offenders, secure custody may be the only way to guarantee public safety.</p>
+
+    <p>For non-violent offenders, however, alternatives often produce better results at lower cost. Community-service programmes allow offenders to give back to society while keeping their jobs and family relationships, addressing the root causes of crime rather than simply punishing its symptoms. Electronic monitoring is far cheaper than incarceration, and countries that emphasise rehabilitation over punishment tend to achieve much lower rates of reoffending.</p>
+
+    <h2>Trying juveniles as adults</h2>
+    <p>When young people commit extremely serious crimes, some argue that adult sentencing is the only proportionate response, since the harm to victims is the same regardless of the offender's age. Tougher penalties may also deter other young people, particularly where criminal groups deliberately recruit minors because they expect lighter punishment.</p>
+
+    <p>Yet scientific evidence supports keeping juvenile and adult justice systems separate. The part of the brain responsible for impulse control and long-term planning is not fully developed in adolescence, meaning teenagers genuinely cannot weigh consequences the way adults can. Young offenders who receive rehabilitation-focused treatment are far less likely to reoffend than those processed through adult courts, suggesting that age-appropriate intervention produces better outcomes.</p>
+
+    <h2>Nature, environment, or society?</h2>
+    <p>Research suggests that biology can influence a tendency toward crime: studies of adopted children show that a criminal record in a biological parent raises the likelihood of offending even in stable homes. But environmental factors are equally powerful. Children exposed to violence at home are far more likely to become violent adults, and neighbourhoods with high unemployment consistently produce higher crime rates regardless of residents' backgrounds.</p>
+
+    <p>Crucially, crime rates can change dramatically within a single generation when communities receive investment in education, jobs, and social services. Cities that improved street lighting, removed abandoned buildings, and created vibrant public spaces have achieved significant reductions in crime, and targeted programmes offering education and employment as alternatives to gang membership have cut youth violence. This shows that addressing underlying conditions works better than punishment alone.</p>
+
+    <h2>Technology: threat and tool</h2>
+    <p>Technology has created new categories of crime, from identity theft and online fraud to ransomware attacks that cross international borders and stay beyond the reach of traditional law enforcement. At the same time, it gives police powerful tools: DNA databases have solved cold cases decades old, and data-driven policing helps departments deploy officers more effectively, contributing to falling crime rates in several major cities.</p>
+  `,
+    vocabulary: [
+      {
+        word: "deterrent",
+        wordType: "noun",
+        definition: "something that discourages a person from doing something",
+        example: "Prison is often described as a deterrent to crime.",
+      },
+      {
+        word: "rehabilitation",
+        wordType: "noun",
+        definition: "the process of helping an offender return to a normal, law-abiding life",
+        example: "Some prisons focus on rehabilitation rather than punishment.",
+      },
+      {
+        word: "incarceration",
+        wordType: "noun",
+        definition: "the state of being kept in prison",
+        example: "Electronic monitoring is cheaper than incarceration.",
+      },
+      {
+        word: "reoffend",
+        wordType: "verb",
+        definition: "to commit another crime after being punished",
+        example: "Offenders who receive support are less likely to reoffend.",
+      },
+      {
+        word: "recidivism",
+        wordType: "noun",
+        definition: "the tendency of a convicted criminal to reoffend",
+        example: "Rehabilitation programmes aim to reduce recidivism.",
+      },
+      {
+        word: "proportionate",
+        wordType: "adjective",
+        definition: "matching something else in size or seriousness",
+        example: "A proportionate sentence fits the seriousness of the crime.",
+      },
+      {
+        word: "juvenile",
+        wordType: "noun",
+        definition: "a young person who is not yet legally an adult",
+        example: "Juvenile offenders are usually tried in a separate court.",
+      },
+      {
+        word: "impulse control",
+        wordType: "noun phrase",
+        definition: "the ability to resist sudden urges or act with self-restraint",
+        example: "The teenage brain has weaker impulse control than an adult's.",
+      },
+      {
+        word: "predisposition",
+        wordType: "noun",
+        definition: "a natural tendency to behave in a particular way",
+        example: "A stable environment can override a genetic predisposition.",
+      },
+      {
+        word: "root cause",
+        wordType: "noun phrase",
+        definition: "the underlying reason behind a problem",
+        example: "Reducing poverty addresses a root cause of crime.",
+      },
+      {
+        word: "law enforcement",
+        wordType: "noun phrase",
+        definition: "the agencies and people responsible for upholding the law",
+        example: "New technology gives law enforcement powerful tools.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "rehabilitation",
+        ipa: "/ree-huh-bil-uh-TAY-shun/",
+        syllables: "re-ha-bil-i-ta-tion",
+        tip: "Stress TAY.",
+      },
+      {
+        word: "incarceration",
+        ipa: "/in-kar-suh-RAY-shun/",
+        syllables: "in-car-cer-a-tion",
+        tip: "Stress RAY.",
+      },
+      {
+        word: "recidivism",
+        ipa: "/ri-SID-uh-viz-um/",
+        syllables: "re-cid-i-vism",
+        tip: "Stress SID.",
+      },
+      {
+        word: "juvenile",
+        ipa: "/JOO-vuh-nyl/",
+        syllables: "ju-ve-nile",
+        tip: "Stress JOO.",
+      },
+      {
+        word: "deterrent",
+        ipa: "/dih-TER-unt/",
+        syllables: "de-ter-rent",
+        tip: "Stress TER.",
+      },
+      {
+        word: "proportionate",
+        ipa: "/pruh-POR-shuh-nut/",
+        syllables: "pro-por-tion-ate",
+        tip: "Stress POR.",
+      },
+    ],
+  },
+  {
+    id: "a21",
+    slug: "arts-education-the-value-of-art-in-schools",
+    title: "Arts Education: The Value of Art in Schools",
+    category: "Reading",
+    topic: "Education",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-06",
+    description:
+      "Should art be a core subject or a supplement to maths and science? This article explores the value of arts education and the trade-offs schools face with limited time and resources.",
+    readingTime: 5,
+    content: `
+    <p><strong>As schools compete to raise results in maths and science, the place of art in the curriculum has become a genuine point of debate.</strong></p>
+
+    <h2>Why arts education matters</h2>
+    <p>Arts education develops creative skills that transfer directly to other subjects. Students engaged in art learn to think in ways that support scientific inquiry and mathematical reasoning, because creative problem-solving exercises the same mental processes. Rather than competing with academic subjects, the arts can strengthen them.</p>
+
+    <p>Art is also fundamental for navigating modern society. Visual media constantly shape our decisions and beliefs, and without training to analyse and create visual communication, students lack the tools to become informed citizens. In a media-saturated economy, understanding how images and messages work is a practical life skill, not a luxury.</p>
+
+    <h2>The case for prioritising core subjects</h2>
+    <p>Others argue that prioritising art equally with maths, science, and literacy could disadvantage students in competitive academic environments where fundamental skills determine future opportunities. Countries that consistently rank highest in international educational assessments tend to maintain a rigorous focus on mathematical and scientific literacy, treating the arts as supplementary rather than equivalent.</p>
+
+    <p>With limited school hours and resources, allocation becomes a strategic decision. Schools must weigh which subjects provide the greatest long-term benefit for the largest number of students. When budgets are tight, core academic subjects often deliver the clearest returns in employment and further study.</p>
+
+    <h2>Finding a balance</h2>
+    <p>The strongest position may reject the idea that schools must choose between the two. A well-designed curriculum can integrate creative and analytical thinking so that art supports academic achievement instead of competing with it. The real question is not whether art has value, but how to combine it with core subjects in a way that prepares students for a complex, creative, and information-driven world.</p>
+  `,
+    vocabulary: [
+      {
+        word: "curriculum",
+        wordType: "noun",
+        definition: "the subjects that make up a course of study at a school",
+        example: "Some schools are removing art from the curriculum.",
+      },
+      {
+        word: "core subject",
+        wordType: "noun phrase",
+        definition: "a subject considered essential, such as maths or science",
+        example: "Maths and literacy are treated as core subjects.",
+      },
+      {
+        word: "creative problem-solving",
+        wordType: "noun phrase",
+        definition: "finding original solutions by thinking imaginatively",
+        example: "Art develops creative problem-solving that helps in science.",
+      },
+      {
+        word: "literacy",
+        wordType: "noun",
+        definition: "the ability to read, write, or understand a particular field",
+        example: "Scientific literacy is a priority in many school systems.",
+      },
+      {
+        word: "transferable skill",
+        wordType: "noun phrase",
+        definition: "a skill useful across many different subjects or jobs",
+        example: "Creativity is a transferable skill valued by employers.",
+      },
+      {
+        word: "supplementary",
+        wordType: "adjective",
+        definition: "added to something else as an extra rather than a main part",
+        example: "Some systems treat art as supplementary to core subjects.",
+      },
+      {
+        word: "allocation",
+        wordType: "noun",
+        definition: "the act of giving out resources for a particular purpose",
+        example: "Limited budgets make the allocation of school hours difficult.",
+      },
+      {
+        word: "media-saturated",
+        wordType: "adjective",
+        definition: "filled with a very large amount of media and images",
+        example: "Young people grow up in a media-saturated world.",
+      },
+      {
+        word: "informed citizen",
+        wordType: "noun phrase",
+        definition: "a person with the knowledge to take part in society and make good decisions",
+        example: "Visual literacy helps students become informed citizens.",
+      },
+      {
+        word: "rigorous",
+        wordType: "adjective",
+        definition: "extremely thorough, careful, and demanding",
+        example: "Top-ranked systems maintain a rigorous focus on maths.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "curriculum",
+        ipa: "/kuh-RIK-yuh-lum/",
+        syllables: "cur-ric-u-lum",
+        tip: "Stress RIK.",
+      },
+      {
+        word: "literacy",
+        ipa: "/LIT-ur-uh-see/",
+        syllables: "lit-er-a-cy",
+        tip: "Stress LIT.",
+      },
+      {
+        word: "creativity",
+        ipa: "/kree-ay-TIV-uh-tee/",
+        syllables: "cre-a-tiv-i-ty",
+        tip: "Stress TIV.",
+      },
+      {
+        word: "supplementary",
+        ipa: "/sup-luh-MEN-tuh-ree/",
+        syllables: "sup-ple-men-ta-ry",
+        tip: "Stress MEN.",
+      },
+      {
+        word: "allocation",
+        ipa: "/al-uh-KAY-shun/",
+        syllables: "al-lo-ca-tion",
+        tip: "Stress KAY.",
+      },
+      {
+        word: "rigorous",
+        ipa: "/RIG-ur-us/",
+        syllables: "rig-or-ous",
+        tip: "Stress RIG.",
+      },
+    ],
+  },
+  {
+    id: "a22",
+    slug: "animal-testing-ethics-and-modern-alternatives",
+    title: "Animal Testing: Ethics and Modern Alternatives",
+    category: "Reading",
+    topic: "Science",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-08",
+    description:
+      "Animal testing has driven major medical breakthroughs, but modern alternatives raise the question of whether it is still necessary. This article weighs the science and the ethics.",
+    readingTime: 5,
+    content: `
+    <p><strong>Animal testing has saved countless human lives, yet advances in science are forcing a hard question: is it still necessary?</strong></p>
+
+    <h2>The medical case for animal research</h2>
+    <p>For much of modern history, animal research has directly benefited human health. Medical breakthroughs, including vaccines for polio and other diseases and many cancer treatments, have all depended on animal research, saving millions of lives that might otherwise have been lost. Because of physiological similarities between humans and laboratory animals, particularly primates and rodents, animals have served as models for understanding disease and testing treatment safety before human trials.</p>
+
+    <p>Supporters also argue that computer simulations and cell cultures, while useful, cannot fully replicate the complex interactions between organs, immune systems, and metabolic processes that occur in a living organism. A whole-body response can reveal effects that isolated cells cannot.</p>
+
+    <h2>The rise of modern alternatives</h2>
+    <p>Modern alternatives, however, demonstrate that scientific progress can continue without causing unnecessary animal suffering. In-vitro testing using human cell cultures often provides more accurate results than animal models, because a large proportion of drugs that pass animal trials fail in human studies due to differences between species.</p>
+
+    <p>Advanced computer modelling and artificial organ systems now replicate human biology more precisely than animal subjects for many applications. Some major companies have completely eliminated animal testing without compromising product safety or innovation, showing that ethical and effective research can go hand in hand.</p>
+
+    <h2>The principle of the "3Rs"</h2>
+    <p>Much of modern practice is guided by the principle of the "3Rs": Replace animals with alternative methods wherever possible, Reduce the number of animals used, and Refine procedures to minimise suffering. This framework accepts that some animal research may still be justified while pushing science steadily toward more humane methods. The goal is not to ignore medicine's debt to animal research, but to ensure that testing is used only when no reliable alternative exists.</p>
+  `,
+    vocabulary: [
+      {
+        word: "animal testing",
+        wordType: "noun phrase",
+        definition: "the use of animals in scientific experiments",
+        example: "Animal testing has contributed to many medical breakthroughs.",
+      },
+      {
+        word: "in-vitro",
+        wordType: "adjective",
+        definition: "taking place in a test tube or dish rather than a living body",
+        example: "In-vitro testing uses human cell cultures.",
+      },
+      {
+        word: "cell culture",
+        wordType: "noun phrase",
+        definition: "living cells grown in a laboratory for study",
+        example: "Scientists test new drugs on human cell cultures.",
+      },
+      {
+        word: "physiological",
+        wordType: "adjective",
+        definition: "relating to how living bodies function",
+        example: "Physiological similarities make some animals useful models.",
+      },
+      {
+        word: "vaccine",
+        wordType: "noun",
+        definition: "a substance that protects the body against a disease",
+        example: "Vaccines for polio were developed through animal research.",
+      },
+      {
+        word: "simulation",
+        wordType: "noun",
+        definition: "a model that imitates a real process, often on a computer",
+        example: "Computer simulations can replace some animal experiments.",
+      },
+      {
+        word: "ethical",
+        wordType: "adjective",
+        definition: "relating to what is morally right or acceptable",
+        example: "There are strong ethical objections to animal testing.",
+      },
+      {
+        word: "innovation",
+        wordType: "noun",
+        definition: "the introduction of new ideas, methods, or products",
+        example: "Companies have cut animal testing without losing innovation.",
+      },
+      {
+        word: "replicate",
+        wordType: "verb",
+        definition: "to copy or reproduce something exactly",
+        example: "Artificial organs can replicate human biology closely.",
+      },
+      {
+        word: "metabolic process",
+        wordType: "noun phrase",
+        definition: "a chemical reaction in the body that keeps it alive",
+        example: "Isolated cells cannot show every metabolic process.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "physiological",
+        ipa: "/fiz-ee-uh-LOJ-i-kul/",
+        syllables: "phys-i-o-log-i-cal",
+        tip: "Stress LOJ.",
+      },
+      {
+        word: "vaccine",
+        ipa: "/vak-SEEN/",
+        syllables: "vac-cine",
+        tip: "Stress SEEN.",
+      },
+      {
+        word: "in-vitro",
+        ipa: "/in-VEE-troh/",
+        syllables: "in-vi-tro",
+        tip: "Stress VEE.",
+      },
+      {
+        word: "metabolic",
+        ipa: "/met-uh-BOL-ik/",
+        syllables: "met-a-bol-ic",
+        tip: "Stress BOL.",
+      },
+      {
+        word: "replicate",
+        ipa: "/REP-li-kayt/",
+        syllables: "rep-li-cate",
+        tip: "Stress REP.",
+      },
+      {
+        word: "ethical",
+        ipa: "/ETH-i-kul/",
+        syllables: "eth-i-cal",
+        tip: "Stress ETH.",
+      },
+    ],
+  },
+  {
+    id: "a23",
+    slug: "advertising-to-children-bans-versus-ethical-regulation",
+    title: "Advertising to Children: Bans versus Ethical Regulation",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-10",
+    description:
+      "Should advertising to children be banned outright or carefully regulated? This article examines the ethics of marketing to young audiences and the search for a balanced approach.",
+    readingTime: 5,
+    content: `
+    <p><strong>Children are among the most impressionable members of society, which makes advertising aimed at them one of the most contested issues in modern marketing.</strong></p>
+
+    <h2>The case for banning ads to children</h2>
+    <p>Young children, particularly those under twelve, often lack the cognitive ability to distinguish between entertainment and commercial persuasion, making them exceptionally susceptible to advertising. When companies deliberately exploit developmental psychology to create desire for sugary cereals, expensive toys, or digital products, they can bypass parental authority and directly influence society's most vulnerable members.</p>
+
+    <p>Some countries have already recognised this ethical concern by prohibiting television advertisements directed at children, demonstrating that such restrictions are both feasible and beneficial for child development. Supporters argue that children cannot give informed consent to marketing and therefore deserve special protection.</p>
+
+    <h2>The risk of a complete ban</h2>
+    <p>A complete ban, however, might inadvertently stifle legitimate educational and informational content that helps young people make informed choices. Age-appropriate advertisements for educational materials, healthy food options, or safety products can serve valuable social functions. Removing all advertising could remove useful information along with the harmful kind.</p>
+
+    <h2>A balanced approach</h2>
+    <p>Rather than a blanket prohibition, a more nuanced approach could achieve child protection while preserving beneficial commercial communication. Strict content guidelines, time restrictions on when ads can appear, and mandatory disclosure requirements would target the manipulative tactics without banning everything. The focus should be on eliminating deceptive or psychologically manipulative techniques, not on silencing all messages aimed at young audiences. Regulation, in this view, protects children more effectively than outright prohibition.</p>
+  `,
+    vocabulary: [
+      {
+        word: "impressionable",
+        wordType: "adjective",
+        definition: "easily influenced because of being young or inexperienced",
+        example: "Children are impressionable and easily swayed by adverts.",
+      },
+      {
+        word: "susceptible",
+        wordType: "adjective",
+        definition: "likely to be affected or influenced by something",
+        example: "Young viewers are especially susceptible to advertising.",
+      },
+      {
+        word: "commercial persuasion",
+        wordType: "noun phrase",
+        definition: "the use of messages to make people want to buy something",
+        example: "Children struggle to recognise commercial persuasion.",
+      },
+      {
+        word: "developmental psychology",
+        wordType: "noun phrase",
+        definition: "the study of how people grow and change mentally over time",
+        example: "Advertisers exploit developmental psychology to create desire.",
+      },
+      {
+        word: "prohibition",
+        wordType: "noun",
+        definition: "the act of officially forbidding something",
+        example: "A complete prohibition on ads could remove useful content.",
+      },
+      {
+        word: "blanket ban",
+        wordType: "noun phrase",
+        definition: "a ban that applies to everything without exceptions",
+        example: "A blanket ban may be less effective than careful rules.",
+      },
+      {
+        word: "disclosure",
+        wordType: "noun",
+        definition: "the act of making information clearly known",
+        example: "Mandatory disclosure tells viewers when content is an advert.",
+      },
+      {
+        word: "nuanced",
+        wordType: "adjective",
+        definition: "showing careful attention to small but important differences",
+        example: "A nuanced approach balances protection and free expression.",
+      },
+      {
+        word: "manipulative",
+        wordType: "adjective",
+        definition: "controlling or influencing someone in an unfair, clever way",
+        example: "Rules should target manipulative advertising tactics.",
+      },
+      {
+        word: "informed consent",
+        wordType: "noun phrase",
+        definition: "agreement given with full understanding of what is involved",
+        example: "Children cannot give informed consent to marketing.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "impressionable",
+        ipa: "/im-PRESH-uh-nuh-bul/",
+        syllables: "im-pres-sion-a-ble",
+        tip: "Stress PRESH.",
+      },
+      {
+        word: "susceptible",
+        ipa: "/suh-SEP-tuh-bul/",
+        syllables: "sus-cep-ti-ble",
+        tip: "Stress SEP.",
+      },
+      {
+        word: "psychology",
+        ipa: "/sy-KOL-uh-jee/",
+        syllables: "psy-chol-o-gy",
+        tip: "Stress KOL. The 'p' is silent.",
+      },
+      {
+        word: "prohibition",
+        ipa: "/proh-uh-BISH-un/",
+        syllables: "pro-hi-bi-tion",
+        tip: "Stress BISH.",
+      },
+      {
+        word: "disclosure",
+        ipa: "/dis-KLOH-zher/",
+        syllables: "dis-clo-sure",
+        tip: "Stress KLOH.",
+      },
+      {
+        word: "manipulative",
+        ipa: "/muh-NIP-yuh-luh-tiv/",
+        syllables: "ma-nip-u-la-tive",
+        tip: "Stress NIP.",
+      },
+    ],
+  },
+  {
+    id: "a24",
+    slug: "tourism-and-travel-economic-benefits-versus-environmental-and-social-costs",
+    title: "Tourism and Travel: Economic Benefits versus Environmental and Social Costs",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-12",
+    description:
+      "Tourism drives economic growth and creates jobs, but mass tourism can damage the environment and disrupt local communities. This article weighs the benefits against the costs.",
+    readingTime: 6,
+    content: `
+    <p><strong>Tourism is one of the world's largest industries, but its economic rewards come with real environmental and social costs.</strong></p>
+
+    <h2>The economic case for tourism</h2>
+    <p>Tourism generates significant economic benefits that extend far beyond the money spent by visitors. The industry contributes around a tenth of global GDP and supports roughly one in ten jobs worldwide, demonstrating its critical role in economic development. Some countries derive a large share of their national income from tourism, while small island nations can depend almost entirely on visitor spending for economic survival.</p>
+
+    <p>Tourism also stimulates infrastructure development, from airports and highways to telecommunications networks, which benefits local populations long after tourists depart. Furthermore, the industry provides crucial employment opportunities for young people and women in regions where alternative economic activities remain limited, offering pathways out of poverty through jobs ranging from hotel management to artisan craft production.</p>
+
+    <h2>The costs of mass tourism</h2>
+    <p>Mass tourism, however, inflicts severe environmental degradation and social disruption that often outweighs its economic advantages. Popular destinations such as Venice, Barcelona, and Dubrovnik illustrate how excessive visitor numbers can transform living cities into theme parks, driving out local residents through gentrification and eroding quality of life for those who remain.</p>
+
+    <p>The carbon footprint of international aviation contributes significantly to climate change, while fragile natural environments suffer lasting damage from the sheer volume of visitors. Water shortages, waste, and rising property prices frequently follow the arrival of large tourist numbers, shifting the burden onto local communities.</p>
+
+    <h2>Toward sustainable tourism</h2>
+    <p>The challenge is not to end tourism but to manage it responsibly. Sustainable tourism seeks to spread visitors more evenly, protect vulnerable sites, and ensure that local people share in the benefits rather than bearing only the costs. Measures such as visitor limits, tourist taxes that fund conservation, and support for local ownership can help preserve both the economy and the places travellers come to see.</p>
+  `,
+    vocabulary: [
+      {
+        word: "mass tourism",
+        wordType: "noun phrase",
+        definition: "travel by very large numbers of people to the same destinations",
+        example: "Mass tourism can overwhelm small historic cities.",
+      },
+      {
+        word: "GDP",
+        wordType: "noun",
+        definition: "gross domestic product; the total value of a country's economy",
+        example: "Tourism contributes about a tenth of global GDP.",
+      },
+      {
+        word: "infrastructure",
+        wordType: "noun",
+        definition: "the basic systems and structures a place needs, like roads and airports",
+        example: "Tourism can fund infrastructure that benefits residents.",
+      },
+      {
+        word: "gentrification",
+        wordType: "noun",
+        definition: "the process by which rising prices push out original residents",
+        example: "Tourism-driven gentrification forces locals out of city centres.",
+      },
+      {
+        word: "environmental degradation",
+        wordType: "noun phrase",
+        definition: "damage to the natural environment",
+        example: "Too many visitors cause environmental degradation.",
+      },
+      {
+        word: "sustainable",
+        wordType: "adjective",
+        definition: "able to continue over time without harming the environment",
+        example: "Sustainable tourism protects sites for future generations.",
+      },
+      {
+        word: "overtourism",
+        wordType: "noun",
+        definition: "the problem of too many tourists visiting one place",
+        example: "Overtourism has changed the character of Venice.",
+      },
+      {
+        word: "conservation",
+        wordType: "noun",
+        definition: "the protection of nature and important places",
+        example: "Tourist taxes can be used to fund conservation.",
+      },
+      {
+        word: "artisan",
+        wordType: "noun",
+        definition: "a skilled worker who makes things by hand",
+        example: "Tourism supports artisan craft producers in rural regions.",
+      },
+      {
+        word: "quality of life",
+        wordType: "noun phrase",
+        definition: "the general well-being and comfort of a person or community",
+        example: "Overtourism can erode residents' quality of life.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "tourism",
+        ipa: "/TOOR-iz-um/",
+        syllables: "tour-ism",
+        tip: "Stress TOOR.",
+      },
+      {
+        word: "infrastructure",
+        ipa: "/IN-fruh-struk-cher/",
+        syllables: "in-fra-struc-ture",
+        tip: "Stress IN.",
+      },
+      {
+        word: "gentrification",
+        ipa: "/jen-truh-fi-KAY-shun/",
+        syllables: "gen-tri-fi-ca-tion",
+        tip: "Stress KAY.",
+      },
+      {
+        word: "sustainable",
+        ipa: "/suh-STAY-nuh-bul/",
+        syllables: "sus-tain-a-ble",
+        tip: "Stress STAY.",
+      },
+      {
+        word: "conservation",
+        ipa: "/kon-ser-VAY-shun/",
+        syllables: "con-ser-va-tion",
+        tip: "Stress VAY.",
+      },
+      {
+        word: "degradation",
+        ipa: "/deg-ruh-DAY-shun/",
+        syllables: "deg-ra-da-tion",
+        tip: "Stress DAY.",
+      },
+    ],
+  },
 ];
 export function findArticle(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.slug === slug);
