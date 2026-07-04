@@ -4481,6 +4481,576 @@ export const SPEAKING_TOPICS: SpeakingTopic[] = [
       },
     ],
   },
+  /* ═══════ PART 2 — Cue cards (Describe…) ═══════ */
+  {
+    id: "positive-change-life",
+    part: 2,
+    title: "Describe a positive change in your life",
+    emoji: "🏋️",
+    description: "A model long-turn answer about taking up the gym and building discipline.",
+    cueCard: ["What the change was", "When it happened", "How it happened", "And explain how you felt about it"],
+    questions: [
+      {
+        q: "Describe a positive change in your life.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Making a change is not an easy thing, but one change that has improved my life for the better is [[hitting the gym|going to a fitness or exercise facility]]. I used to be [[trapped in a sedentary lifestyle|stuck in a way of living with very little physical activity]], [[indulging in unhealthy food choices|regularly eating foods that are bad for you]]. But that's all in the past now.\n\nSince I decided to take my health seriously, things have [[taken a turn for the better|experienced a positive change or improvement]]. I've got more energy, and I [[kickstart my day|begin the day with energy and enthusiasm]] with a morning workout. It's like [[a shot of positivity|a boost of optimism]] that keeps me going.\n\nWhat's really cool is that the gym has brought some [[structure to my life|organisation and order in daily activities]]. It's not just about lifting weights; it's about [[setting a routine|establishing a fixed schedule of activities]]. This [[newfound discipline|a recently acquired ability to control your actions]] has helped me manage my time and responsibilities better.\n\nAnd you won't believe the impact it's had on my [[mental well-being|the state of your psychological and emotional health]]. I'm more focused, less stressed, and I'm even [[tackling challenges|dealing with difficult tasks]] with more confidence. Every time I look in the mirror, I see a changed man moving forward, and that gives me a lot of confidence. I actually regret not taking up this habit way earlier, but as they say, [[better late than never|it is preferable to do something late than not at all]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "waiting-for-something-nice",
+    part: 2,
+    title: "Describe a time when you waited for something nice",
+    emoji: "⚽",
+    description: "A model long-turn answer about waiting to see Cristiano Ronaldo play live.",
+    cueCard: ["What you waited for", "How long you waited", "Why you were looking forward to it", "And explain how you felt while waiting"],
+    questions: [
+      {
+        q: "Describe a time when you waited for something nice to happen.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Amazing things are [[worth the wait|valuable enough to justify a long wait]]. Since Cristiano Ronaldo switched clubs, I've been looking forward to the start of the Asian Champions League, because there was a [[slim chance|a very low probability]] that his team might [[get drawn in the same group|be selected to compete together in a tournament]] as my local team — which has turned out to be the case.\n\nThat's just [[straight out of a movie|so extraordinary it seems like it's from a film]]. I mean, Ronaldo's coming to my town. I've been a massive fan of his forever, and this is a [[once-in-a-lifetime opportunity|a rare chance that may never come again]].\n\nThe moment I learnt about this, I rushed to buy a ticket for the match. But [[here's the catch|here is the drawback or complication]] — it cost me three times the usual price. Was it worth it? Absolutely. When you're talking about seeing your idol [[in the flesh|in person, rather than on a screen]], it's a [[no-brainer|a very obvious, easy decision]].\n\nI can't even [[put into words|express something that is beyond description]] how I'm feeling about the prospect of finally meeting him. The excitement is [[through the roof|at an extremely high level]]. It's not just a game; it's a chance to watch Ronaldo [[up close|in close proximity]] and maybe, just maybe, get a chance to say hello. The days leading up to the match [[feel like forever|seem to last a very long time]], but I know it's going to be a memory for a lifetime.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "bad-service",
+    part: 2,
+    title: "Describe a time when you received bad service",
+    emoji: "🍽️",
+    description: "A model long-turn answer about a beloved but poorly-run plov centre.",
+    cueCard: ["Where it happened", "What the poor service was", "What you did", "And explain how you felt about it"],
+    questions: [
+      {
+        q: "Describe a time when you received bad service at a restaurant or shop.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Let me [[preface|give context before starting a discussion]] this by telling you that I'm [[a real sucker for|someone with a strong craving for]] plov, and I eat it in the same place at least twice a week. The plov centre is called SamOsh, which has become a sort of [[guilty pleasure|something enjoyable that you feel slightly ashamed to enjoy]] for me — because they serve the most [[mouthwatering|extremely delicious and appetising]] plov you can imagine, but with really terrible service.\n\nHere's the catch: this place is always [[jam-packed|crammed and filled to capacity]]. It's like the entire town knows about their plov magic, so just finding a table is a challenge in itself. You often end up sharing a table with strangers, which can be cosy or chaotic depending on your perspective.\n\nTheir service [[leaves a lot to be desired|is not nearly as good as it should be]]. It's known for being [[lacklustre|lacking energy or quality]], [[to say the least|to put it mildly]]. On one memorable occasion, I waited for my plov for [[what felt like an eternity|a period that seemed exceptionally long]]. It was as if they'd [[misplaced my order|lost track of what I ordered]], and I was [[growing impatient|becoming increasingly restless from waiting]]. But I knew the reward would be worth it. Finally, when my plate of delicious plov arrived, I couldn't have been happier — that was until I found a free table. Just as I was about to sit down, a stranger [[swooped in|arrived suddenly and decisively]] and took the chair right in front of me, which was a little [[baffling|puzzling and confusing]] because there were plenty of other empty tables around.\n\nDespite these regular [[service hiccups|temporary problems in the quality of service]] and the overcrowding, I keep returning — and that's because of their incredible plov. The same is true for most of their other regular customers.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "sportsperson-admire",
+    part: 2,
+    title: "Describe a sportsperson you admire",
+    emoji: "🏀",
+    description: "A model long-turn answer about Stephen Curry.",
+    cueCard: ["Who this person is", "What sport they play", "What you know about them", "And explain why you admire them"],
+    questions: [
+      {
+        q: "Describe a sportsperson you admire.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I've always been into sport and [[dabbled in|engaged casually in]] different kinds of sports when I was a child. These days I often watch football — I don't think there's a better sport — but [[every now and then|occasionally; from time to time]] I find myself watching basketball, and today I want to talk about a legend of the game, [[none other than|no one else but]] Stephen Curry. What I admire most about him is his incredible three-point shooting ability. He's not just good; he's the best in the game, and his records [[speak for themselves|are clear and need no further explanation]].\n\nWhat's even more fascinating is how he's achieved such greatness despite being shorter than most of his basketball peers. In a sport where [[height often rules|taller players usually have the advantage]], he's shown that skill and hard work can [[overcome physical limitations|triumph over physical disadvantages]]. It's a [[classic underdog story|a typical tale of someone succeeding against the odds]] that's truly inspiring.\n\nCurry's impact on basketball is [[immense|extremely large and significant]]. He's right up there with legends like Kobe Bryant and LeBron James, and he's a [[true icon of the sport|a person revered as a symbol of excellence]]. What's even more intriguing is the comparison people make between Curry and Lionel Messi — both are considered naturally gifted athletes who [[make the extraordinary look easy|perform very difficult things with apparent ease]]. What makes Curry a [[phenomenon|a remarkable, exceptional individual]] [[by all accounts|according to all available reports]] is the legacy he's built and his impact on the game. For me, he's even better than LeBron James.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "computer-problem",
+    part: 2,
+    title: "Describe a problem you had with a computer",
+    emoji: "🖥️",
+    description: "A model long-turn answer about blue-screen trouble after switching to Windows.",
+    cueCard: ["What the problem was", "When it happened", "How you solved it", "And explain how you felt about it"],
+    questions: [
+      {
+        q: "Describe a problem you had with a computer or a piece of equipment.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I've got a computer woe to share. It wasn't a [[hardware glitch|a fault in the physical components]] but a [[software hiccup|a minor issue in a program's functioning]]. You see, I [[switched from|changed over from one thing to another]] my trusty MacBook to a Windows laptop, and that's when the trouble started. When I [[fired up|started or activated]] the new laptop, the screen would turn blue, and then the [[darn thing|a frustrated way of referring to a device]] would restart itself.\n\nNaturally, I [[hit up|informally went to for help]] YouTube and read some blogs, hoping to [[find a quick fix|discover a speedy solution]]. [[It turns out|as it unexpectedly emerged]], I wasn't the only one facing this issue — it's a common hiccup among Windows users. The [[culprit|the cause or source of the problem]], it seems, was incompatible drivers or software conflicts, which were causing those annoying blue screens and restarts. I never had these troubles with my MacBook; it was known for its stable OS, and I miss that simplicity.\n\nSo, following the advice of trusty [[tech-savvy geeks|people highly knowledgeable about technology]], I updated drivers, ran an antivirus scan, and tested the memory and hard drive. It turned out to be a driver issue, so I updated it. Problem solved, and my laptop [[ran smoothly again|resumed working without any issues]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "advice-you-gave",
+    part: 2,
+    title: "Describe a piece of advice you gave to someone",
+    emoji: "🎓",
+    description: "A model long-turn answer about advising a college-bound student.",
+    cueCard: ["Who you gave advice to", "What the advice was", "Why you gave it", "And explain how they responded"],
+    questions: [
+      {
+        q: "Describe a piece of advice you gave to someone.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I'll be honest, giving advice is a [[tricky business|a complex and challenging matter]]. It's easy to get it wrong by letting our own [[biases|prejudices that favour one perspective]] [[creep in|gradually and unnoticed enter or influence]], so I usually [[shy away from|avoid due to hesitation]] giving advice.\n\nBut here's the thing. As an IELTS instructor, I have students who often [[turn to me for guidance|seek advice and assistance from me]]. So when a [[college-bound student|a student preparing to enter higher education]] came to me, I had to [[step up|take on the responsibility]].\n\nI advised them to [[set clear goals|define specific, well-structured objectives]], both short-term and long-term, for their college journey. I told them to explore their passions and make sure their chosen field [[aligned with their dreams|was in harmony with their aspirations]]. I also encouraged them to get involved in college clubs and organisations, and I emphasised the importance of time management and staying organised.\n\nI [[couldn't help but|felt compelled to]] recommend a fantastic book by Cal Newport on excelling in college — something that had been a [[game-changer|something that significantly changes a situation]] for me during my own college years. But the real [[nugget of advice|a particularly valuable piece of advice]] I gave was about seeking academic support and building a network early on. Most high schoolers don't realise that college life can be [[demanding|requiring a lot of effort and energy]], and these things can [[make a big difference|have a substantial impact]]. Hopefully, with my advice, his college life will be a lot easier than mine.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "successful-business-person",
+    part: 2,
+    title: "Describe a successful business person you know",
+    emoji: "📦",
+    description: "A model long-turn answer about a 19-year-old dropshipping entrepreneur.",
+    cueCard: ["Who this person is", "What business they do", "How you know them", "And explain why they are successful"],
+    questions: [
+      {
+        q: "Describe a successful business person you know.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Running a successful business is [[no small feat|a significant, impressive accomplishment]]. The person I want to talk about is a [[real standout|a truly exceptional individual]], because he has a [[thriving business|a highly successful, prospering enterprise]] at the age of 19 — and he's my student. He's into dropshipping and [[runs a logistics firm|manages a delivery company]], and it's truly impressive how he makes it all work.\n\nFirst off, he's just 19 and still a student, which makes his achievements even more [[jaw-dropping|astonishing and incredibly impressive]]. With dropshipping, he's got a [[keen sense for|a strong intuition for]] [[spotting trending products|identifying items that are currently popular]] and using digital marketing to [[reach customers worldwide|connect with a global customer base]]. It's like he's got a sixth sense for [[what's hot in the market|what is popular or sought after right now]]. From that alone he makes a decent amount of money, and the dropshipping is more of a [[side hustle|a secondary source of income]].\n\nBut that's not all. He also runs a logistics firm that ensures smooth delivery of goods from all over the world. What really [[gets me|astonishes or impresses me]] is how he balances all of this with his studies. It's a lot to [[juggle|manage multiple responsibilities at once]], but he's doing it with style. His success story is [[nothing short of|absolutely; without a doubt]] inspiring. I'm sure with his work ethic and [[foresight|the ability to anticipate and plan for the future]], he'll achieve greater heights [[down the line|in the future; over time]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "beautiful-city",
+    part: 2,
+    title: "Describe a beautiful city you have visited",
+    emoji: "🌉",
+    description: "A model long-turn answer about San Francisco.",
+    cueCard: ["Which city it is", "When you visited", "What you did there", "And explain why you think it is beautiful"],
+    questions: [
+      {
+        q: "Describe a beautiful city you have visited.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "San Francisco, in my [[limited travel experience|not having travelled very extensively]], is [[hands down|without a doubt; unquestionably]] the most beautiful city I've visited. I haven't been to a ton of places yet — just a few cities in Uzbekistan and quick trips to Istanbul and Almaty — but let me tell you why San Francisco [[takes the top spot|is ranked as the best]] for me.\n\nFirst, the Golden Gate Bridge is a [[showstopper|something exceptionally impressive]]. It's not just a bridge; it's an [[icon|a symbol representing something notable]]. Covered in that famous International Orange, it [[stands out against|is noticeably distinct compared to]] the bay's blue waters, especially when it's [[a bit misty|slightly foggy or hazy]]. I remember just standing there and thinking, wow. It's a sight you won't forget.\n\nAnd the city's architecture is [[something else|exceptional; extraordinary]]. Those Victorian houses with their colourful paint and [[intricate designs|complex and detailed patterns]] are like something out of a storybook. You've got places like Alamo Square with the Painted Ladies, and Lombard Street, which is like a [[real-life rollercoaster road|a winding, steep street like a theme-park ride]]. Plus, the city's [[hilly landscape|an area with many slopes and elevations]] means you get [[stunning views|extremely beautiful vistas]] around almost every corner.\n\nNow I've got a real [[itch to|strong desire to]] go back, and maybe even live there someday. It's not just about the pretty sights; San Francisco is a [[hub of creativity and innovation|a central place for dynamic creative activity]]. It's got this amazing [[mix of|a combination or blend of]] cultures, and the energy in the city is [[infectious|spreading enthusiasm to others]]. So it's not just the scenery; it's the [[whole package|every aspect considered together]] that makes me want to go back and call it home.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "person-interesting-ideas",
+    part: 2,
+    title: "Describe a person who has interesting ideas",
+    emoji: "🧠",
+    description: "A model long-turn answer about a friend full of original thinking.",
+    cueCard: ["Who this person is", "How you know them", "What interesting ideas they have", "And explain why their ideas are interesting"],
+    questions: [
+      {
+        q: "Describe a person who has interesting ideas or opinions.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I've got this friend of mine, Muhammadali, and he's not your typical [[try-hard|someone who makes excessive efforts to seem impressive]] when it comes to being interesting. He's just naturally [[loaded with|having an abundance of]] intriguing ideas.\n\nLet me give you a couple of examples. We were chatting about time management, and instead of the usual stuff, he [[throws this curveball|presents an unexpected, unconventional idea]]: manage your energy, not your time. It sounded weird at first, but it totally [[makes sense|is logical and reasonable]]. He said we should do tasks when we're naturally more energetic, and it [[just clicked for me|I suddenly understood it]].\n\nThen, talking about travel, he [[brings up this concept|introduces this particular idea]] he calls intentional travel. It's not about solo or group travel; it's about [[setting intentions for|establishing specific goals for]] your trip, like personal growth or cultural immersion. It [[adds a whole new layer of purpose to|brings a fresh, deeper sense of meaning to]] your adventures.\n\nBut it's not just talk with Muhammadali; he [[walks the talk|acts in a way consistent with his words]]. He challenges us to see the world differently and [[embraces fresh perspectives|welcomes new points of view]]. Spending time with him is like a crash course in creative thinking. He's [[one of a kind|unique; unlike anyone else]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "interesting-place-country",
+    part: 2,
+    title: "Describe an interesting place in your country",
+    emoji: "🏔️",
+    description: "A model long-turn answer about the Cave of Tamerlane in Uzbekistan.",
+    cueCard: ["Where it is", "How you know about it", "What it is like", "And explain why it is interesting"],
+    questions: [
+      {
+        q: "Describe an interesting place in your country.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Uzbekistan is a [[treasure trove of|a place with many wonderful things]] interesting destinations, and there's this [[hidden gem|a fantastic place that's not well known]] known as the Cave of Tamerlane, or Amir Temur Guragani. It's [[tucked away|hidden in a quiet spot]] in the Gissar Mountains, right in the Yakkabag district of the Kashkadarya region.\n\nGetting there is like [[stepping into|walking into; entering]] an adventure movie. You follow this [[winding trail|a curvy path or route]] with stone steps that takes you down into a [[stunning canyon|an incredibly beautiful rocky valley]]. This canyon goes on for about six miles and is surrounded by [[towering rock formations|very tall natural rock structures]] that look [[straight out of a movie|as if they're from a film]], kind of like the film Gold of the Mackenna.\n\nWhen you finally reach the entrance of the cave, it's this massive archway, almost like a gateway into another world. Inside, [[you're in for a treat|you'll have a delightful experience]]. The cave is a wonderland of [[strange formations|unusual, peculiar shapes]] that look like jellyfish, and beautiful stalactites.\n\nThere's this cool legend that says the cave was a [[secret hideout|a hidden place for privacy]] for Tamerlane and his men as they [[geared up for military campaigns|got ready for battles and wars]] — though not everyone's convinced by that story. After going to the cave, I was honestly [[blown away|extremely impressed]]. The [[sheer beauty|absolute, pure beauty]] and deep history of the place left me [[pretty amazed|feeling very astonished]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "useful-advertisement",
+    part: 2,
+    title: "Describe a useful advertisement you have seen",
+    emoji: "🎧",
+    description: "A model long-turn answer about a podcast ad for a health supplement.",
+    cueCard: ["Where you saw it", "What it was for", "What it was about", "And explain why you found it useful"],
+    questions: [
+      {
+        q: "Describe a useful advertisement you have seen.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I had this interesting experience with a particularly useful advertisement for Athletic Greens vitamins. It happened when I was listening to Tim Ferriss's podcast. I have to admit, I'm usually [[in the habit of|having a regular practice of]] skipping ads, especially when I'm using an app like Snipd. But on this occasion, something made me stop and actually pay attention.\n\nTim Ferriss was talking about Athletic Greens, and it [[caught my ear|attracted my attention]] because he mentioned something that [[struck a chord with me|resonated and evoked a strong response in me]]. He spoke about how, despite his best efforts, he was [[lacking in|experiencing a deficiency of]] some crucial nutrients. It [[got me thinking|provoked thought]] about my own diet and health.\n\nFor the first time, instead of [[fast-forwarding through the ad|skipping the advertisement to reach the content]], I decided to listen in. And it wasn't just me — a lot of people were discussing Athletic Greens. It [[had this buzz around it|generated excitement and attention]], almost like a shared secret among the podcast's listeners.\n\nSo I thought, why not [[give it a shot|try it]]? I purchased Athletic Greens, and it's been a [[game-changer|something that significantly improves a situation]] for my health. It was a useful advertisement because it provided valuable information about something I genuinely needed but might not have discovered otherwise.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "difficult-task",
+    part: 2,
+    title: "Describe a difficult task you completed",
+    emoji: "🎤",
+    description: "A model long-turn answer about giving a TEDx talk.",
+    cueCard: ["What the task was", "When you did it", "Why it was difficult", "And explain how you felt after completing it"],
+    questions: [
+      {
+        q: "Describe a difficult task you completed.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "For the majority of people, speaking in public is their top fear, and so was mine — and that's what I want to talk about today. You might think giving a TED talk is quite an achievement, and it used to be. However, it seems like [[everyone and their grandma|a huge number of people]] has given a TED talk these days, and it's [[lost some of its shine|diminished in value and impressiveness]]. But let me tell you, it was still a [[challenging experience|a difficult and demanding situation]].\n\nThe difficulty began with coming up with unique and engaging ideas. With so many TED talks out there, finding a topic that hadn't been [[exhausted|used up completely]] was [[no small feat|a significant accomplishment]]. I wanted something fresh, something that could genuinely [[captivate the audience|hold the attention of the listeners]] and [[offer a different perspective|provide an alternative point of view]].\n\nThe pressure was real. Giving a TEDx talk in front of your peers and teachers can be [[nerve-wracking|extremely stressful and anxiety-inducing]]. There was the expectation to [[deliver something exceptional|provide something of outstanding quality]], and I didn't want to disappoint.\n\nBut in the end, I managed to come up with a topic I was passionate about and that I thought could [[resonate with my audience|create a strong connection with the listeners]]. The process of researching, [[crafting the talk|carefully composing the speech]], and rehearsing was demanding, but incredibly rewarding. Even though it felt like TED talks were [[a dime a dozen|very common and easy to find]] at my school, the experience taught me a lot about public speaking and the importance of sharing ideas that matter. Looking back, I can tell it was [[no walk in the park|a task that was far from easy]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "foreigner-your-language",
+    part: 2,
+    title: "Describe a foreigner who speaks your language well",
+    emoji: "🗣️",
+    description: "A model long-turn answer about the US ambassador speaking Uzbek.",
+    cueCard: ["Who this person is", "How you know them", "Why they learned your language", "And explain how you felt about it"],
+    questions: [
+      {
+        q: "Describe a foreigner you know who speaks your language well.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "When someone wants to [[pick up a language|learn or acquire a new language]], they won't usually say I want to learn Uzbek, so it's not that common for me to see foreigners speak my mother tongue. But I've seen a few online.\n\nOne such person is the US ambassador. I've never met him in person, but I've seen many videos of him congratulating people from Uzbekistan on [[various occasions|different events or situations]]. Let me tell you, it's quite impressive how well he speaks Uzbek, especially considering it's not the most widely spoken language in the world.\n\nNot only does he speak Uzbek, but he does it with a really nice accent. Hearing someone speak your mother tongue, especially when their native language is something as widely spoken as English, has [[turned out to be|developed into; resulted in]] a [[delightful experience|a highly enjoyable encounter]]. It's like listening to a friend from your own country. His pronunciation is [[on point|very accurate and precise]], and he sounds genuinely comfortable with the language, which [[adds a personal touch|makes it more individual and intimate]] to his messages.\n\nI'm usually used to hearing foreign ambassadors speak in English or through interpreters, so this was a pleasant surprise. You can tell he's making a [[genuine effort|sincere and authentic attempt]] to [[connect with|build a meaningful relationship with]] the people of Uzbekistan. I understand he might be [[reading from a teleprompter|reciting a script displayed on a device]], but the fact that he's taking the time to [[engage with|interact and involve himself with]] the local population in their own language is a really great [[gesture|an action that conveys a feeling or intention]]. It shows a lot of [[respect and goodwill|positive regard and good intentions]], and it definitely [[goes a long way|has a significant impact]] in building positive relations between the two countries. So [[kudos to him|praise and credit to him]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "activity-made-tired",
+    part: 2,
+    title: "Describe an activity that made you feel tired",
+    emoji: "🥾",
+    description: "A model long-turn answer about an exhausting mountain hike.",
+    cueCard: ["What the activity was", "When and where you did it", "Who you did it with", "And explain why it made you feel tired"],
+    questions: [
+      {
+        q: "Describe an activity that made you feel tired.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "The two activities I do most often that leave me [[feeling exhausted|in a state of extreme tiredness]] are football and tennis, which I play every week. But today I want to talk about a recent adventure that totally [[wore me out|made me very tired and drained]] — I went [[hiking|walking in natural, hilly terrain for leisure]] with some friends in the nearby mountains, and let me tell you, it was a real [[energy-zapper|an activity that significantly drains your energy]].\n\nWe hit the trailhead early in the morning, all [[pumped up|feeling excited and full of energy]] and [[full of excitement|filled with anticipation]]. The hike started off pretty easy, with [[well-marked paths|clearly defined, easy-to-follow trails]] and [[picturesque scenery|beautiful, visually attractive landscapes]]. But as we climbed higher, the [[terrain got steeper|the ground became more uphill and harder]] and more challenging. It felt like a never-ending stair-climbing contest, and my legs were [[on the verge of mutiny|close to rebelling against further effort]].\n\nThe [[fatigue|extreme tiredness or weariness]] started [[kicking in|beginning to take effect]] around the halfway mark. My legs turned into jelly, and I was huffing and puffing like a steam engine. We had to take frequent breaks just to catch our breath and sip water. At one point I even thought about turning back, but my friends didn't let me.\n\nWhen we finally [[reached the summit|arrived at the highest point]], it was a mix of exhaustion and exhilaration. The view was [[absolutely breathtaking|incredibly stunning and awe-inspiring]], and I realised all the hard work had been worth it. We sat there for a while, enjoying the scenery and [[refuelling with some snacks|replenishing our energy with food]]. The hike back down was easier on the legs, but I was still [[wiped out|extremely tired]] when we reached the trailhead again. I could barely move, but the sense of accomplishment and the beautiful memories [[made it all worthwhile|justified all the effort and fatigue]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "successful-person-know",
+    part: 2,
+    title: "Describe a successful person you know",
+    emoji: "🩺",
+    description: "A model long-turn answer about an uncle who is a surgeon and community hero.",
+    cueCard: ["Who this person is", "How you know them", "What they do", "And explain why you think they are successful"],
+    questions: [
+      {
+        q: "Describe a successful person you know.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Success means different things to different people. I believe it's not just about money, and I want to tell you about my uncle, who's a [[real standout|a truly exceptional individual]] in our town. He's what I'd call a [[well-rounded success story|a person successful in many aspects of life]].\n\nMy uncle is [[the talk of the town|a widely discussed, popular figure locally]], and not just because he's an amazing surgeon. He's got a reputation that [[stretches far and wide|extends over a wide area]], thanks to his skill and precision in the operating room. People travel from all over just to get treated by him. What's even more impressive is that his success extends beyond his personal achievements.\n\nHe's not just about making money. He's set up a clinic that offers [[affordable healthcare|reasonably priced, accessible medical care]] to those who can't easily access it. He's all about giving back. He's not just a [[medical whiz|someone highly skilled in medicine]] — I can safely say he's a real community hero, because he's [[big on|strongly committed to]] supporting education and [[health awareness initiatives|efforts to educate people about health]]. He's always putting together free medical camps to teach people about staying healthy.\n\nAnd here's the best part: he's a mentor to young folks aiming to [[make it in healthcare|succeed in the healthcare profession]]. He doesn't just [[hoard his knowledge|keep his knowledge without sharing it]]; he shares it generously, helping others on their journey. I believe that if there are more people who [[strive to make a positive impact|work purposefully to create a beneficial effect]] on the lives of others besides achieving results in their own fields, we can call them successful in [[every sense of the word|in every possible meaning]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "exciting-adventure",
+    part: 2,
+    title: "Describe an exciting adventure you did with someone",
+    emoji: "🚣",
+    description: "A model long-turn answer about trying rowing on a Tashkent canal.",
+    cueCard: ["What it was", "Who you did it with", "Where you did it", "And explain why it was exciting"],
+    questions: [
+      {
+        q: "Describe an exciting adventure you did with someone.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I usually don't [[engage in exciting activities|take part in thrilling pursuits]], but this one time is worth sharing. A friend of mine and I were [[itching to|eager and restless to]] try something different, to [[break away from our usual routines|depart from our typical daily habits]], and we [[stumbled upon|discovered by chance]] the idea of rowing.\n\nWe thought, why not [[give it a shot|try it]]? Neither of us had ever tried rowing before, so we were naturally curious about dipping our oars into the world of water sports. But here's the thing that got us at first — the cost of the equipment. Rowing can be a bit expensive; you need a boat, oars, all the safety gear, and it [[adds up|accumulates over time]]. However, we thought of it as an investment, not just in equipment but in ourselves — a chance to explore a unique activity, get fit, and enjoy nature, [[all rolled into one|combining several things into a single experience]].\n\nWe picked a fantastic spot for our [[escapade|an adventurous, daring experience]]: a beautiful canal right in the heart of Tashkent. Surrounded by [[lush greenery|abundant, vibrant plant life]], it was a peaceful getaway from the city's [[hustle and bustle|the noisy, busy activity of a place]]. As we set off, I was pleasantly surprised by the [[serenity|calm, peace and tranquillity]] of the water and the sheer effort it took to navigate our boat. Rowing turned out to be quite a physical challenge, but also incredibly satisfying.\n\nThe best part is that this whole experience made me appreciate the value of trying new things. Sure, the initial cost was [[a bit of a hit|slightly costly]], but the adventure and all the learning that came with it totally justified the expense. It taught me the power of [[stepping out of my comfort zone|moving beyond my familiar, secure routine]], [[embracing|accepting and welcoming]] fresh experiences, and realising how enriching it can be.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "period-of-history-interested",
+    part: 2,
+    title: "Describe a period of history you are interested in",
+    emoji: "🕌",
+    description: "A model long-turn answer about the Islamic Golden Age.",
+    cueCard: ["Which period it is", "How you learned about it", "What happened during it", "And explain why you are interested in it"],
+    questions: [
+      {
+        q: "Describe a period of history you are interested in.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I've always been really [[intrigued by|curious and interested in]] Islam, and I want to feel more connected to it, since I started experiencing a sort of identity crisis lately. I've heard [[bits and pieces|small fragments of information]] about the Islamic Golden Age, and it seems like such a [[fascinating|extremely interesting and captivating]] period. But I've got this feeling that I'm not really connected to the religion, so I think it would be amazing to [[dive into|become fully involved in]] the Islamic Golden Age and learn more about it.\n\nThe Islamic Golden Age, which spanned from around the 8th to the 13th century, was an incredible time. There were [[major breakthroughs|significant advances or discoveries]] in maths, astronomy, medicine, and philosophy. And what's really cool is that scholars from different backgrounds and cultures [[came together|gathered and united]] to share ideas. It was like [[a hub|a central point where ideas converge]] of knowledge exchange.\n\nOne thing that [[stands out|is noticeably exceptional]] for me is the House of Wisdom in Baghdad. It was the ultimate knowledge-sharing spot, translating and [[preserving|protecting and maintaining in original state]] works from all sorts of ancient civilisations — Greek, Roman, Persian, and Indian. That's some serious cross-cultural [[brainpower|intellectual capacity]] right there.\n\nSo I'm thinking that by digging deeper into the Islamic Golden Age, I can really [[get a sense of|understand or perceive]] what was going on back then and, at the same time, [[feel connected|experience a sense of belonging]] to my religion. It's not just about expanding my knowledge; it's about strengthening my connection with this important part of my [[heritage|the traditions and values passed down through generations]]. And who knows, it might even [[challenge some of the stereotypes|question widely held oversimplified beliefs]] I have about that time. It's a journey I'm totally looking forward to.",
+          },
+        ],
+      },
+    ],
+  },
+  /* ═══════ From mock tests — Test One (Day 1) & Test Three (Day 3) ═══════ */
+  {
+    id: "chocolate",
+    part: 1,
+    title: "Chocolate",
+    emoji: "🍫",
+    description: "Whether you like chocolate, your favourite flavour, and chocolate as a gift.",
+    questions: [
+      {
+        q: "Do you like eating chocolate?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "To be honest, I don't really have [[a sweet tooth|a strong liking for sugary food]], so I wouldn't say I'm too [[big on|very fond of]] eating chocolate. I do enjoy it from time to time and it can be a great treat, but like I said, I'm not the biggest fan of chocolate.",
+          },
+        ],
+      },
+      {
+        q: "What's your favorite flavor?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "As I said, I'm not too big on having chocolate every day, so I don't really have specific preferences for different flavours. I can go for any flavour I'm [[in the mood for|feeling like having at the time]], or whatever my kids are having — if they share their milk or white chocolate with me, I'm fine with it. Occasionally I do [[get a craving for|feel a strong desire for]] dark chocolate, so that could be my favourite, so to speak, though I don't really have strong preferences.",
+          },
+        ],
+      },
+      {
+        q: "Do you think it is good to use chocolate as gifts to others?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Well, yes and no. Yes, because some people really like chocolate, so it could be a nice gift for them. But we should also consider the preferences and needs of the people we're giving gifts to. Sometimes chocolate may not be the best choice for everyone, especially if they have certain health issues, so we have to be [[mindful of|conscious and considerate of]] that.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "singing-self-expression",
+    part: 1,
+    title: "Singing & Self-expression",
+    emoji: "🎙️",
+    description: "Whether you like singing, learning to sing, who you sing for, and singing and happiness.",
+    questions: [
+      {
+        q: "Do you like singing?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, I do. I definitely like singing, because it's a form of [[self-expression|showing your own feelings and personality]], and I enjoy it when I'm alone or with friends in a karaoke bar. We tend to sing our favourite songs, and sometimes I sing along to whatever I'm listening to in my car. It just feels great — you can [[put all your emotions out|release all your feelings openly]] and have fun with it.",
+          },
+        ],
+      },
+      {
+        q: "Have you ever learned how to sing?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "No, I haven't. I've never taken any formal lessons, and I've never joined a band or a choir — apart from the music lessons at school. It must have been in my middle-school years when we had once-a-week music lessons, but I don't really remember learning anything there.",
+          },
+        ],
+      },
+      {
+        q: "Who do you want to sing for?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's an interesting question. I don't really sing for anybody in particular — it's just a form of self-expression. Singing helps me [[relieve the tension|release built-up stress]] and control my emotions. Sometimes I sing children's songs for my kids, if that counts, and sometimes at karaoke I sing for my friends, because for [[an amateur singer|someone who sings without being professional]] I do have a great voice — at least that's what they tell me.",
+          },
+        ],
+      },
+      {
+        q: "Do you think singing can bring happiness to people?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, singing can definitely [[cheer people up|make people feel happier]], because it's about expressing yourself freely and putting your emotions out there — being [[vulnerable|open and exposed emotionally]], basically. Singing makes you feel vulnerable and human, and in that respect it somehow makes you happier, because that's when we start feeling really content with ourselves. It's natural, and singing is one of those activities that can give you this river of emotions.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "historical-period-learn-more",
+    part: 2,
+    title: "Describe a historical period you would like to know more about",
+    emoji: "🚀",
+    description: "A model long-turn answer about the Cold War, the Space Race and chess.",
+    cueCard: ["When it was", "What you are interested in", "What you already know", "And explain why you would like to know more"],
+    questions: [
+      {
+        q: "Describe a historical period you would like to know more about.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "The historical period I'd like to know more about is the Cold War. I'm particularly fascinated by two specific areas of that period: the Space Race and chess competitions, both of which were a [[symbol|something that represents something with deeper meaning]] of the great technological and intellectual battle between the United States, representing the western world, and the USSR, the eastern world.\n\nSince I'm a big fan of chess, I know pretty much all the history of the game and how it was used as [[a tool of propaganda|something used to promote a political cause, often in a biased way]] by the two governments. So I'd very much like to learn more about the other competition, the Space Race. I already have the general understanding of it, but I'd like to know more about the [[behind-the-scenes|happening away from public view]] details — the great technological achievements like the Apollo program, and the political decisions that may have [[shaped|given form to; influenced]] the very nature of this competition.\n\nAnother thing I think is quite important to understand is the [[shift from|change or movement from one state to another]] competition to cooperation, which resulted in great global space-exploration projects such as the International Space Station.\n\nSo in summary, even though the Cold War is [[widely known for|famous and recognised for]] shaping the current global stage and international relations — which could be a superb topic to [[dive into|start exploring with enthusiasm]] — my fascination [[has more to do with|is more closely connected with]] these two specific areas, and how this competition [[paved the way for|prepared for and made possible]] the modern science we know today.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "history-and-learning",
+    part: 3,
+    title: "History & Learning",
+    emoji: "📜",
+    description: "Whether everyone should know history, how children learn it, and protecting old buildings.",
+    questions: [
+      {
+        q: "Should everyone know history?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yeah, I believe it's quite [[crucial|extremely important or necessary]] for everyone to have a certain understanding of history. By studying the past, we can gain valuable [[insight|a deep and clear understanding of something]] into how previous events have [[shaped|influenced the form and development of]] the world we live in today, avoid the mistakes of the past, and make an [[informed choice|a decision made after careful consideration of the facts]] in the future.",
+          },
+        ],
+      },
+      {
+        q: "In what ways can children learn history?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There are many different methods that could be employed. A traditional but still [[relevant|having a direct bearing on the matter]] approach is studying history through textbooks, which can still be quite valuable. However, a more [[hands-on approach|a method that involves doing rather than just reading]] can be more effective in engaging children and sparking their interest — for example, visiting historical sites or museums can give children first-hand experience of the past. In addition, we shouldn't forget technological advancements: there are apps and [[interactive|involving active participation rather than just watching]] educational videos that can make learning history more accessible for children.",
+          },
+        ],
+      },
+      {
+        q: "Is it hard to protect historical buildings?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Preserving historical buildings can be a challenge, especially when we consider the high costs involved. But on the whole, I think it's important to preserve these buildings, as they provide a [[tangible connection|a real, physical link you can see and touch]] to the past and offer great educational value. It's just a matter of balancing the costs with the [[cultural significance|the importance something has due to its ties to a culture]] of the building. For example, [[iconic landmarks|structures considered a symbol of a place or period]] such as the Great Wall of China or the Pyramids of Giza should be preserved despite the expense, no matter the cost, because the cultural and educational benefits justify their [[preservation|keeping something safe and unchanged over time]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "art-p1",
+    part: 1,
+    title: "Art",
+    emoji: "🎨",
+    description: "Whether you like art, drawing as a kid, visiting galleries, and art in your room.",
+    questions: [
+      {
+        q: "Do you like art?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, I do. I'm actually fascinated by all forms of art — drawing, painting, sculpture, dance, music, [[you name it|and anything else you could mention]].",
+          },
+        ],
+      },
+      {
+        q: "Did you learn drawing when you were a kid?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, I did. I remember taking drawing classes as part of my elementary-school [[curriculum|the whole set of subjects and experiences in education]] — it was [[compulsory|required by rules; not optional]], so we had no choice. I found the lessons boring, but it was also the first time I was introduced to the term still-life drawing, so maybe, after all, it did mean something.",
+          },
+        ],
+      },
+      {
+        q: "Have you ever visited an art gallery?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, I have, when I was living in the US as an [[exchange student|a student who attends a school in another country]]. I was staying with a [[host family|a family that provides lodging to a visiting student]] who were really interested in going to different galleries and museums, and there were quite a few in our neighbourhood. Every weekend we'd go to a gallery or museum, walk around, and they'd ask my opinion on the pieces [[on display|put somewhere for people to see]]. I was only 17 or 18, so I pretended to understand all the complexities and sophistication, but they were kind enough to explain all the [[cultural references|things relating to the culture of a country]].",
+          },
+        ],
+      },
+      {
+        q: "Is there any artwork on the wall in your room?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Not now, but there used to be. There was an artwork before the recent remodel, but after it I changed the wallpaper, and now the artwork doesn't really [[go with|match or blend well with]] the new one, so I had to [[take it down|remove it from the wall]]. Overall, though, having artwork in your room shows you're connected to the art world and makes the room feel more sophisticated, so I think it's a good thing.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "colours",
+    part: 1,
+    title: "Colour",
+    emoji: "🌈",
+    description: "Your favourite colour, bright versus dark, colours you dislike, and why colour matters.",
+    questions: [
+      {
+        q: "What is your favorite color?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really have a single favourite colour, but in the context of what I usually wear, I prefer green, because it's really calming and natural. I like the way green makes me feel.",
+          },
+        ],
+      },
+      {
+        q: "Do you prefer bright colors or dark colors?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I prefer bright colours in general, because they [[stand out|are easily noticeable]], and I like to [[stand out from the crowd|be distinct from everyone else]]. In a way, bright colours help me do that. Dark colours can be depressing at times, so that's another reason I prefer bright ones.",
+          },
+        ],
+      },
+      {
+        q: "Are there any colors that you dislike?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really have specific colours I dislike, to be honest, but within the context of fashion or interior design, I don't really like [[pale and faded|light and washed-out]] colours. Other than that, I'm not really [[picky|hard to please]] when it comes to colours.",
+          },
+        ],
+      },
+      {
+        q: "Are colors important to you?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, colour is important to everyone, as it can affect our mood. It's also used by designers, people in fashion, and businesses. Understanding colours and how they [[trigger certain emotions|cause particular feelings to arise]] can help you make an [[informed choice|a decision based on relevant knowledge]], especially when buying something — some companies try to [[trick you into|deceive you so that you make]] unnecessary purchases with the use of different colours, and understanding that can make you less of a target. So in that context, colour can be quite important.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "helped-a-friend",
+    part: 2,
+    title: "Describe a time when you helped a friend",
+    emoji: "🤝",
+    description: "A model long-turn answer about lending money to a friend in need.",
+    cueCard: ["When it happened", "How you helped your friend", "Why you helped them", "And explain how you felt about it"],
+    questions: [
+      {
+        q: "Describe a time when you helped a friend.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Helping friends whenever they need us is important — it's a [[social construct|an idea created and accepted by a society]], part of our social agreement, so to speak. But I have this principle of not lending money to friends, especially close ones, as it may potentially harm the relationship.\n\nThere was this one time when a classmate of mine approached me while he was having money problems. I knew he had a [[stable job|a position he could keep for a long time]] and would be able to [[pay me back|repay the loan]], but I had this principle. Still, seeing the pain in his eyes — he was really in a big problem, and it was a significant amount of money that nobody else was willing to help with — I decided to [[ditch|abandon; give up]] my principle and help him out, to [[give him the benefit of the doubt|choose to trust him despite the uncertainty]].\n\nI'm actually glad I did, because it took our relationship to the next level of trust and reliability. He not only repaid his debt, but also returned the favour when I needed his help, so it was a very positive outcome. [[Reflecting on|thinking carefully about]] that instance now, I can say that taking a chance on a friend like that brought a positive change to our relationship. Plus, the moment I gave him the money, I could see the happiness in his eyes, so it was very satisfying to know I could make a positive change in someone's life.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function findSpeakingTopic(id: string): SpeakingTopic | undefined {
