@@ -3059,6 +3059,1428 @@ export const SPEAKING_TOPICS: SpeakingTopic[] = [
       },
     ],
   },
+  /* ═══════════ PART 3 — Topic sets (single model answers) ═══════════ */
+  {
+    id: "waiting",
+    part: 3,
+    title: "Waiting",
+    emoji: "⏳",
+    description: "Everyday waiting, whether children are more patient, and why we dislike it.",
+    questions: [
+      {
+        q: "What are the daily experiences that people have to wait for?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Well, it's a [[universal experience|something everyone goes through]] to find yourself waiting for something. The most common one, I believe, is traffic jams, especially in big cities. When you're [[commuting during peak hours|travelling to and from work at the busiest times]], that's when people [[play the waiting game|wait patiently with no choice]]. Another one is in restaurants or cafés, where your patience is tested. There's a usual eating spot of mine, and every day I wait in a long line to pay for the meal I got.",
+          },
+        ],
+      },
+      {
+        q: "Do you think children have more patience than adults?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I believe it heavily [[boils down to|comes down to; depends mainly on]] the situation, and the reality is [[not that black and white|not simple; has many shades in between]]. Sometimes, for a toddler, five minutes can feel like [[an eternity|a very long time]]. But kids can surprise you with their capacity for patience, especially if they're engaged in something they love or are looking forward to a reward. Adults, on the other hand, have had more time to practise patience — life throws all sorts of waiting games at us, and we learn to deal with them. But does that make us more patient? Not always, because we're [[juggling a million things|managing many responsibilities at once]] and time feels precious.",
+          },
+        ],
+      },
+      {
+        q: "Why do people dislike waiting?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "The first reason is that there's a [[sense of lost time|the feeling that time is being wasted]]. You understand that time's precious, and when you're waiting, you feel like you could be doing a million other productive things instead. But you're stuck, and it makes you feel bad. Then there's also the element of [[uncertainty|not knowing what will happen]], especially if you don't know how long the wait will be. It's the not knowing that [[can eat at you|slowly makes you anxious or frustrated]] — five minutes? Thirty minutes? An hour? That uncertainty can be harder to deal with than the wait itself.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "customer-service",
+    part: 3,
+    title: "Service",
+    emoji: "🛎️",
+    description: "How people react to bad service, what customers expect, and whether robots can do better.",
+    questions: [
+      {
+        q: "How do people respond to bad service?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Most people don't hesitate to let a manager or employee know [[right off the bat|instantly; without delay]] when the service [[isn't up to snuff|fails to meet expected standards]], which is a totally classic move. They want to address the problem [[head-on|directly and boldly]], hoping for a quick resolution or at least acknowledgement. Then there are the so-called [[silent sufferers|people who endure dissatisfaction without complaining, voicing it later]]. They might feel dissatisfaction, but they don't want to say anything — most of the time they express that disappointment later through online reviews or by simply choosing not to return.",
+          },
+        ],
+      },
+      {
+        q: "As a customer, what kinds of services do you expect from a company?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "As a customer, it heavily [[boils down to|comes down to; depends mainly on]] a few key elements, like quality. Whether it's a product or a service, people want to get something worth what they're paying for. Then there's reliability — clients want to trust the company. They want it to [[deliver on its promises|keep its commitments]] at the right time for the right cost. And as a small business owner, I realised that being transparent about your product or service is a big one too. You should be honest about what you're selling, what it costs, and the terms of the deal — no hidden fees, no [[fine print tricks|deceptive details buried in the small print]]. People respect honesty, and it also [[fosters trust|encourages trust to grow]] between a client and a company.",
+          },
+        ],
+      },
+      {
+        q: "What is bad service?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "For me, the first [[deal-breaker|a critical issue that ruins everything]] is when the staff have a poor attitude. If they seem [[indifferent|apathetic; not caring at all]], rude, or outright hostile, you feel it right away. This is how most customers will [[be put off|feel repelled or discouraged]] by the staff. Long waits or delays are also huge. I really [[despise|strongly dislike]] services that leave me waiting too long, or when I'm just left on hold — they're being disrespectful to my precious time.",
+          },
+        ],
+      },
+      {
+        q: "Do you think robots can sometimes provide better customer service than people?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Sure, in some scenarios they can offer better customer service. They're efficient and consistent — a robot doesn't get tired or have a bad day, mood, or [[whatnot|and so on; et cetera]]. They're also great for 24/7 service — no need for sleep, no coffee breaks. Got a question at 3 a.m.? No problem, you can just ask it. For straightforward, informational things, like checking your bank balance or finding out when your package is arriving, robots are on point. But there are also times when the human touch [[comes into play|becomes relevant]]. When things get tricky, or there's a tough situation with [[a fussy customer|a demanding or difficult customer]], that's when humans are [[on the front|taking the lead; handling it directly]], because a robot can't genuinely [[empathise|understand and share someone's feelings]] with you, or [[reassure|offer comfort or confidence]] you with a tone of voice, a smile, or that human connection.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "athletes-sports",
+    part: 3,
+    title: "Athletes & Sports",
+    emoji: "🏅",
+    description: "The qualities of an athlete, popular sports, benefits for children and spotting talent.",
+    questions: [
+      {
+        q: "What characteristics do you think an athlete should have?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I think being a professional athlete is all about the [[whole package|the complete set of qualities]] of physical, mental, and emotional strength. Obviously, you need physical fitness — whatever your sport demands, you should just have it. Another one is [[mental toughness|the ability to stay strong under pressure]]. The mind has to be as fit as the body: you should stay focused when the crowd's screaming and keep your composure when there's tremendous pressure on. The next one is discipline. It's about doing what needs to be done, even when you don't want to. [[Rain or shine|no matter the circumstances]], win or lose, you're training, practising, pushing.",
+          },
+        ],
+      },
+      {
+        q: "What kind of sports are popular in your country?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "In Uzbekistan, people just [[go nuts for|are extremely enthusiastic about]] boxing and football. If you stop one person at random and ask their favourite sport, it's literally one of these two. Football is a [[cultural phenomenon|something hugely important within a culture]] — Sundays are sacred for football matches, like a weekly holiday during the season. Boxing is also [[primal|deeply exciting on an instinctive level]]. The big fights are spectacles, with a buzz that's electric. It's like [[everyone and their dog|absolutely everybody]] watches these big fights.",
+          },
+        ],
+      },
+      {
+        q: "What are the benefits of sports for children?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Engaging in sports from childhood obviously makes a kid physically fit. It builds their strength, coordination, and overall health, and such early exposure [[lays the foundations|creates the base]] for a lifetime of fitness. Plus, there's the [[mental resilience|the ability to recover from setbacks]]. Sports can be tough — you lose, you mess up, and it stings. But then you learn, you get back out there, and you try again. Building that mental toughness is what's going to help them through life, way beyond the field or the court.",
+          },
+        ],
+      },
+      {
+        q: "Is it easy to identify children's talents?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's really [[a hit or miss|unpredictable; sometimes it works, sometimes not]] to identify gifted children. Sometimes it's right there on the surface, shining at you, but other times it's more hidden, and you've got to do some [[sifting|careful searching to find what matters]]. Some kids [[show their cards early|reveal their abilities from a young age]] — when a child has a natural inclination, a pull towards something, it can be pretty obvious. But talent isn't always a [[lightning bolt|a sudden, obvious flash]]; sometimes it's a [[slow burn|something that develops gradually over time]] that builds with practice and patience. Some children need exposure to different activities, encouragement to try new things, and the space to mess up and learn from it.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "computers",
+    part: 3,
+    title: "Computers",
+    emoji: "💻",
+    description: "What we use computers for, students and screens, gaming addiction and new products.",
+    questions: [
+      {
+        q: "What do people use computers for?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Honestly, it's better to ask what we don't use computers for these days, right? People are literally doing everything with computers today — education, research, assignments, remote work, and even online shopping and entertainment. So I'd say there's no particularly [[dominant|most common; standing out above the rest]] thing that people do with them nowadays. Computers are like a [[Swiss army knife|a tool useful for a huge range of purposes]] for modern life, so to speak.",
+          },
+        ],
+      },
+      {
+        q: "Should students be allowed to use computers at school?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yeah, students should absolutely be using computers at school, as long as we teach them not just to use the technology, but to use it wisely. They shouldn't be [[scrolling through TikToks|mindlessly browsing short videos]] when they should be [[hitting the textbooks|studying hard]], you know? We need to make sure they're visiting the right websites and the right programs. But if we're not showing them how to [[navigate this digital world|find their way through online life safely]], we're [[setting them up to|putting them in a position to]] get lost in it.",
+          },
+        ],
+      },
+      {
+        q: "What do you think of people who are addicted to playing computer games?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Well, I think they're [[caught in a tough spot|stuck in a difficult situation]]. Games are amazing, but they're like a spice: great in the right amount, but too much can overpower everything else. You start [[missing out on|failing to experience or enjoy]] other stuff — hanging out in the real world, building relationships face-to-face, getting fresh air, living life away from the screen. It's about finding the [[sweet spot|the ideal balance]] where you enjoy the virtual worlds while [[keeping your feet on the ground|staying connected to real life]] in the real one. And if someone's lost that balance, they need a hand to help them back up, not judgment for falling down.",
+          },
+        ],
+      },
+      {
+        q: "Should parents limit the amount of time that children spend using computers?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, parents should definitely [[have a say over|have some control or influence on]] how much time their children spend on these technologies. It's not just setting a timer and saying, that's it. It's about engaging with what they're doing online — what games are they playing? What videos are they watching? Who are they talking to? Parents should also be involved so they can guide them through the [[digital jungle|the confusing and risky online world]].",
+          },
+        ],
+      },
+      {
+        q: "Why do people often have problems using new products?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Oh, the experience of trying to use something new for the first time is wild. We get used to doing things a certain way, and when something comes along, it totally [[flips the script|completely changes the usual situation]]. Naturally, there's this thing called [[change aversion|the tendency to resist new or unfamiliar things]] — we're naturally skeptical of new things because they feel unfamiliar, and our first instinct is to resist. We just don't want negative first impressions. Imagine coming to a new restaurant for the first time: you don't want to taste something new because the whole experience might turn out to be negative, so you just [[stick to your usual|keep to what you already know and trust]] hamburgers.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "advice",
+    part: 3,
+    title: "Advice",
+    emoji: "🧭",
+    description: "Whether parents should advise children, when advice is accepted, and who should give it.",
+    questions: [
+      {
+        q: "Do you think parents should give advice to their children?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "For sure — it's a big part of being a parent. When you have these little humans looking up to you, and you've lived longer and gained the experience, that's why you should definitely [[share the nuggets of your wisdom|offer your valuable insights]]. It's our job to [[hand that knowledge down|pass wisdom on to the next generation]] so they become good people when they grow up. But it's better to encourage them to think for themselves, to become their own person. So most of the time, the best advice is helping them take sensible decisions on their own. The advice shouldn't just be do this or that — it should be about teaching them how to be better decision-makers on their own.",
+          },
+        ],
+      },
+      {
+        q: "What are the areas in which people are more (or less) willing to accept advice?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "When it comes to taking advice, people get pretty complex. Sometimes they ask for your advice, but when you give it, they don't really follow it, which [[drives me crazy|frustrates or annoys me]] sometimes. But I guess it's all about the [[personal stakes involved|how much someone is personally invested]], and they might [[put up walls against|resist; refuse to accept]] some advice, especially [[unsolicited|given without being asked for]] advice. Advice about romantic relationships doesn't really help, because the topic is so close to the heart — people should figure that out [[on their own terms|according to their own preferences]]. But people do like it when they get advice about their personal development. Such advice gives this [[dopamine hike|a surge of pleasure or motivation]] and [[gives them fuel|provides energy and drive]], like they're ready to take on everything.",
+          },
+        ],
+      },
+      {
+        q: "Do you prefer advice from your family or your friends?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It [[boils down to|comes down to; is ultimately about]] the situation you're asking advice for. Your family have known you your whole life. They've seen your [[ups and downs|highs and lows]] and might offer wisdom that comes from years of watching you grow up. But the thing about family advice is that sometimes they're too close to the situation, so they might struggle to be objective because they're so invested in your life. On the [[flip side|the opposite point of view]], your friends might offer the best advice too, since they know the current you. They're the ones you're [[in the trenches with|going through daily struggles alongside]] every day. Plus, friends can sometimes be more honest because they're less afraid of hurting you — they can [[give it to you straight|tell you the truth directly]].",
+          },
+        ],
+      },
+      {
+        q: "Why do so many young people not accept the advice of older people?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's mainly because they live in different worlds sometimes, and the advice can feel [[outdated|no longer current or relevant]]. It doesn't [[match up with|align with; fit]] what's happening in the world today. The pace of change is so fast that what worked twenty years ago might not work now. Plus, there can be a [[communication gap|a lack of mutual understanding]] too. The advice might be [[solid|good and reliable]], but if it's not delivered in a way that resonates, it's going to [[fall flat|fail to have the intended effect]]. But it's not that young people never want advice — they do, they just want to feel understood.",
+          },
+        ],
+      },
+      {
+        q: "In general, what kind of person is most suitable for giving advice to others?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "A suitable advice-giver is someone who doesn't let their [[ego|sense of self-importance or pride]] get in the way. Their advice should be [[unbiased|free from personal prejudice]] — like they're genuinely there to help. Experience is key as well; you want someone who's been through some stuff, who's been [[through thick and thin|through both good and bad times]] and learned from it all. And they should be great listeners — that's the aspect most people ignore when offering advice. Giving good advice isn't just about talking; it's about listening, really hearing what the other person is dealing with. It's about understanding [[the question behind the question|the deeper issue beneath what is actually asked]].",
+          },
+        ],
+      },
+      {
+        q: "Do you think it's ok if professional advice costs a lot?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's a hot topic. When you pay for a lawyer, a doctor, a business consultant, or a top-notch mechanic, you're not just paying for the time it takes them to solve your problem — you're paying for the years they spent becoming a problem-solver, for the expertise they gained. But this professional advice should be fair. You can't just charge crazy high prices simply because you can. There has to be a balance: the cost should [[mirror|reflect; correspond to]] the value provided, and it should be accessible enough that people can actually get the help they need.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "family-business-success",
+    part: 3,
+    title: "Family Business & Success",
+    emoji: "🏪",
+    description: "Family businesses, working with relatives, and what it takes to become successful.",
+    questions: [
+      {
+        q: "What kinds of family businesses are common in your country?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's become a common thing to open a family business in Uzbekistan. Especially with the economy [[flourishing by leaps and bounds|growing very rapidly]], every family has some sort of business now, whether as a [[side hustle|a small job done alongside your main work]] or extra income. Every neighbourhood has these [[mom-and-pop shops|small family-run stores]] where they sell everything you might want. These are the places where you walk in and they know your name, your dog's name, and how you like your coffee. They're special because they're personal and you feel the connection — plus the seller is your neighbour, so you can take what you want and pay later. And family-owned restaurants are [[mushrooming|appearing and spreading rapidly]] too, where recipes are like treasured family secrets, handed down from grandma, to mum, to the kid who's now running the whole show.",
+          },
+        ],
+      },
+      {
+        q: "Is it good to work with family members?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Oh, it's definitely tough. People who work with their families are [[dancing on a wire|doing something risky that requires great balance]], and I respect them. On one hand, there's nothing better than building something with your loved ones — there's a trust you can't easily find with anyone else. You've [[got each other's back|support and protect one another]] when [[push comes to shove|the situation becomes critical]]. But here's the catch: things get intense, especially when times are tough, and it's difficult to separate work from your personal life. You have a disagreement with a family member at the office, and before you know it that person is sitting at the same dinner table with you, so your [[boundaries get blurry|the lines between roles become unclear]]. And you can't easily fire your brother or aunt when things don't work out — it puts you in a super-awkward position. But I know a lot of people who do a great job working with family, and I must say, [[kudos to them|credit and respect to them]].",
+          },
+        ],
+      },
+      {
+        q: "What does it take to become successful?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I believe there isn't just one magic ingredient that makes the dish delicious, so to speak, and that's especially the case with success. There are definitely a bunch of factors that [[play a part|contribute; are involved]] when chasing success, but I'd say passion and dedication come first. You've got to love what you're doing and put in the work — the hours, [[the grind|the hard, repetitive effort]]. And you can't talk about success without considering failure; it's about how you handle the punches, the [[setbacks|obstacles that slow your progress]]. I've talked to a lot of successful business owners in Uzbekistan, and the thing I noticed is a bit of fearlessness, a [[willingness to take risks|being ready to gamble on uncertain outcomes]] — you take chances and make bets on yourself. A pinch of all these factors helps you achieve success.",
+          },
+        ],
+      },
+      {
+        q: "Why is it that some people achieve success faster?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "This whole thing is wild. When you're trying to be successful, the irony is that there's always someone who hit that success button way earlier than you, and that's because of some advantages that shouldn't be [[overlooked|missed or ignored]]. The first is that they got the timing right — sometimes through luck. Some people have a [[knack for|a natural talent for]] spotting trends and gaps, seeing the future way earlier than one might dare to imagine. Then there are the opportunities they have. Sometimes people are given opportunities that others aren't — an education, an internship, a mentor who takes a chance on them, all of which provide a [[shortcut to success|a faster route to achievement]]. So those two are the main reasons some people achieve it earlier.",
+          },
+        ],
+      },
+      {
+        q: "What do people need to sacrifice for success?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There's always a price you pay to reach a certain level of greatness — success isn't free. Oftentimes it's time. You must be willing to sacrifice countless hours grinding on your journey while the rest of the world is sleeping, partying, or chilling out. It's also about what you do with your time: you must cut out this [[instant gratification|the desire for immediate reward]] and gravitate towards [[delayed gratification|giving up a reward now for a bigger one later]], a long-term gain. You might skip that party to work on your business, or reschedule your day. Plus, this whole success thing [[takes its toll on|causes damage or strain to]] your relationships too — they take a hit. You're chasing this dream, and not everyone's going to understand or support it. You might miss out on time with family, friends, or a significant other. It's almost impossible to [[strike that balance|find the right equilibrium]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "history-buildings",
+    part: 3,
+    title: "History & Buildings",
+    emoji: "🏛️",
+    description: "Tall buildings, why we visit historical places, protecting them, and old architecture.",
+    questions: [
+      {
+        q: "Why are there so many tall buildings in cities?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I guess it's all because of efficiency. Instead of a structure spreading out over miles, you just go up. You can have hundreds of people working or living in the [[footprint|the ground area a building occupies]] of a single building. And it's not just about the space; it's about the economics too. The more you can do in one spot, the more value you get out of that [[prime real estate|the most desirable and expensive land]].",
+          },
+        ],
+      },
+      {
+        q: "Why do people like to visit historical places?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "People love visiting historical places because it's literally like time travel. You're [[walking in the footsteps of|following the path once taken by]] those who came before you — it's like a portal that gives you a sense of amazement, a connection to our ancestors. When you stand where history happened, you feel part of the story of humanity. It's [[humbling|making you feel modest, aware of something greater]] and inspiring; you think about the lives of those who stood there before you, their struggles, their triumphs. It's a [[shared human heritage|the common history and culture belonging to us all]]. And there's a wonder to it — the [[awe of craftsmanship|deep admiration for skilled work]] and the legacy that's lasted centuries or even millennia. It [[blows your mind|amazes you completely]] how they built these places with the tools they had.",
+          },
+        ],
+      },
+      {
+        q: "What can we do to stop visitors from damaging historical places?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "The first key is education. You should let people know the significance of these places and what they represent. Make them understand that this isn't just old stuff — it's our [[collective heritage|the shared inheritance of a whole community]]. When people get that, they're more likely to respect it. You should also do all the checking and monitoring. When some authorities say a [[large influx of tourists|a big flow of visitors arriving]] destroyed this or that building, it often turns out to be not the tourists but the building itself — it's old and might get lost against the [[stand of time|the test of time; ageing over the years]]. That's why the government should do regular check-ups of such buildings.",
+          },
+        ],
+      },
+      {
+        q: "What is interesting about old buildings?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I believe it's not just one thing that speaks to you about old buildings. They're a [[link to the past|a connection to earlier times]]; they connect us with previous generations. It's a way to touch history, to feel part of the longer human story. You look at old buildings and think about the lives of people who were there before you — it's really something. Then you've got the survival aspect, which is wild. These buildings have [[stood through|endured; survived]] wars, weather, and the [[rise and fall of empires|the growth and collapse of great powers]]. They've seen things change around them, and yet here they are, still standing, which is fascinating.",
+          },
+        ],
+      },
+      {
+        q: "Is having too many tourists a positive thing for historical attractions?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's a [[double-edged sword|something with both good and bad consequences]]. On the bright side, tourism brings in the cash, and that cash is crucial for preservation — it pays for the upkeep, the staff, the conservation work. Plus it boosts the local economy: shops, restaurants, and hotels all get a [[piece of the pie|a share of the benefits]]. But on the flip side, too many tourists can [[put a real strain on|place heavy pressure on]] these sites. We're talking [[wear and tear|damage caused by ordinary use over time]], potential damage, not to mention the impact on the local community — traffic jams, crowded streets. It can take away from the charm and the experience, not just for the visitors but for the folks who live there.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "ideas-opinions",
+    part: 3,
+    title: "Ideas & Opinions",
+    emoji: "💡",
+    description: "When children form opinions, whether they mirror parents, and where new ideas come from.",
+    questions: [
+      {
+        q: "When do children begin to have their own ideas and opinions?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I believe it's way earlier than most people think. Most people say kids don't have independent thinking until at least [[puberty age|the age when physical changes of adolescence begin]], but what I really see is that they start it way earlier. You'll see it when they choose their own clothing and decide what they want to eat for dinner. And they question things too — parents are constantly [[bombarded with|faced with a rapid stream of]] whys from their children. I believe that's when they [[build their own world|form their own unique perspectives]] by exploring things.",
+          },
+        ],
+      },
+      {
+        q: "Do you think children will always have ideas and opinions similar to those of their parents?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Not always. I think parents are just there to [[lay down the foundations|establish the basic groundwork]] in their children's thinking. Children pick up many things from parents — language, mannerisms, opinions, even preferences. But as children grow, they start getting all these different [[inputs|varied sources that shape understanding]]. They go to school, university, and meet [[people from all walks of life|individuals from all kinds of backgrounds]], and this is when other influences start [[seeping in|gradually entering and affecting them]] and shaping their thinking. They might go in a totally different direction from their parents. Plus, every generation has its own vibe and mindset — the stuff that was [[a big deal|very significant]] for one generation might not be for the next.",
+          },
+        ],
+      },
+      {
+        q: "What encourages people to come up with new ideas or inventions?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Traditional wisdom says that every [[groundbreaking|highly innovative; pioneering]] invention was just random, [[out of the blue|happening unexpectedly, without warning]]. But what I really think is that there's a [[trial-and-error|learning through repeated attempts and mistakes]] aspect [[behind the scenes|happening privately, out of public view]]. It's like when you're using something and it just doesn't work right, and you think, this could be better. That irritation [[lights a fire under you|strongly motivates you to act]], and before you know it you're sketching out designs on a [[napkin|an impromptu surface for a quick sketch]]. Plus there's collaboration. When you [[bounce ideas off other people|share and test ideas with others]], you get this [[synergy|combined effort producing more than the sum of its parts]] where the whole is greater than the parts. You might have a piece of the puzzle, someone else has another, you put them together, and boom, you've got something new.",
+          },
+        ],
+      },
+      {
+        q: "Do you agree that people should spend more time reading about the ideas of famous thinkers of the past?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "For sure. The problems we're facing nowadays aren't new. We've been trying to make sense of the universe, society, morality, and [[all that jazz|and everything similar]] for centuries. When you read the wise thoughts of great thinkers of the past, you see where ideas originated and how they've evolved — and sometimes you realise the old answers [[can still apply today|are still relevant now]], or maybe they just need a [[refresh|an update or revision]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "trying-new-things",
+    part: 3,
+    title: "Travelling & Trying New Things",
+    emoji: "🧭",
+    description: "Accessing travel information, how ages react to new things, and trying new activities.",
+    questions: [
+      {
+        q: "How can people access travel information?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There are [[a bunch of|numerous; several]] ways to do this. Especially with the internet, it's literally [[in the palm of your hands|readily available, usually on your phone]]. There are websites and apps like Google Flights, all of which are [[mind-blowing|astonishing; remarkable]] and let us compare flights from [[all over the planet|from everywhere in the world]]. And even better, there are YouTube channels and blogs — thousands of them [[dumping knowledge bombs|sharing lots of valuable information]] about [[hidden gems|lesser-known wonderful places]] and travel hacks. I follow a few such vloggers and got really curious about travelling because of them; I've already booked a flight to Nepal next month. And if you're [[old school|traditional; doing things the classic way]], you can still walk into a bookstore and pick up a travel guide — they still [[fit the bill|are suitable for the purpose]].",
+          },
+        ],
+      },
+      {
+        q: "How do young and old people react differently to new things?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "When young people see new things, their [[eyes light up|they show sudden excitement]], you know — no fear, just [[pure curiosity|genuine, simple interest]], jumping [[all in|fully committed without hesitation]] no matter what. It's like, a new phone? I'll figure it out in two seconds. A new social media platform? I've already got a hundred followers, boom. They find their way with new things [[in a flash|extremely quickly]]. On the [[flip side|in contrast]], with the elderly it's a completely different scenario. They've got the experience, they've [[seen things come and go|witnessed many changes over time]], so they're not going to [[jump on the bandwagon|adopt something just because it's popular]] unless they have a reason. They're like, hold up — what's the new thing? Why do I need it? And that's totally okay.",
+          },
+        ],
+      },
+      {
+        q: "Should young people try as many new activities as possible?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yeah, definitely. Life's too short to [[play it safe|avoid all risks; stay in your comfort zone]]. When you're at this age, your brain is like a [[sponge that soaks up everything|something that absorbs information very quickly]]. You might try a new sport and [[end up sucking at it|turn out to be bad at it]] — but who cares? You learned that this sport isn't [[your thing|the activity you enjoy or excel at]]. Go do something else; you expand your brain this way. And it's not just about the brain — you find out who you are. Young people discover their passion. That's why I'm [[a big believer|strongly convinced and supportive]] in the idea of trying everything when you're young.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "advertising",
+    part: 3,
+    title: "Advertising",
+    emoji: "📣",
+    description: "Why new things make us happy, online vs newspaper ads, and how ads shape what we buy.",
+    questions: [
+      {
+        q: "Why does buying new things make people happy?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's actually wild how people get this rush when they buy new stuff. Your brain gets hit with a [[dopamine blast|an intense burst of pleasure chemicals]] every time you [[snag something fresh off the shelf|quickly grab a brand-new item]]. There's actual science behind it — it's what they call the [[hedonic treadmill|the tendency to return to a baseline of happiness after each pleasure]]. You buy something, you [[get a kick|feel a momentary thrill]], but then you adapt and you're back to wanting more. Plus, it's about status. We're all part of this big social game whether we like it or not, and getting new gear can make you feel like you're [[levelling up in life|advancing to a higher position]]. Society always [[shoves it down our throats|forcefully pushes the idea on us]] that happiness is just one purchase away.",
+          },
+        ],
+      },
+      {
+        q: "Which one is more effective, newspaper advertising or online advertising?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's definitely online advertising, because we're living in a digital age. Newspapers had their time and have become [[obsolete|outdated; no longer used]], but today it's all about online advertising — it's not even close. Online ads are like a [[sniper rifle|extremely precise and targeted]]: you've got all the data and analytics, you know what people are clicking on and buying, and you can target exactly who you want, when you want. It's just [[nuts|incredibly impressive or effective]]. And you can reach the entire world with online ads. On the flip side, with newspapers it's [[old school|traditional; outdated]] and you're limited to whoever's picking up that paper in your city.",
+          },
+        ],
+      },
+      {
+        q: "What are the most advertised products in your country?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "In Uzbekistan, it's [[predominantly|mainly; for the most part]] consumer goods and food chains. If you just drive down the freeway or [[flip through channels|change TV channels quickly one after another]], it's like a non-stop [[bombardment of|an overwhelming flood of]] fast food and soda ads. Coca-Cola is everywhere. And it's not just Coke — it's all the big [[fast-food spots|quick-service food outlets]] too: your burger places, your taco spots, your pizza places.",
+          },
+        ],
+      },
+      {
+        q: "How do ads make us buy what we don't need at all?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Ads show you this perfect picture of life with their product. Suddenly you're sitting there thinking you need this thing you never thought about before. They create a sense of urgency — like if you don't buy it now, you're [[missing out|failing to get an opportunity others have]], not keeping up with everyone else. [[FOMO|Fear Of Missing Out — anxiety about missed opportunities]] is a powerful motivator. And these ads repeat over and over, so even if you don't need the thing, it starts to feel familiar. [[Familiarity breeds trust|the more familiar something is, the more we trust it]], and the more you trust it, the more likely you are to buy it. It's a [[vicious loop|a self-reinforcing harmful cycle]].",
+          },
+        ],
+      },
+      {
+        q: "What role does social media play in advertising?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Social media plays a big part in this [[advertising landscape|the overall marketing environment]]. It's personal — like a direct line into your brain, because the targeting is [[surgical|extremely precise and accurate]]. These platforms have so much data on you it's scary: they know what you like, what you click on, who your friends are, what you're talking about. So the ads you get are [[tailored to|custom-made for]] you specifically. It's like having a billboard in your front yard that changes based on what you're thinking about that day. Plus the feedback loop is instant. Companies [[put out an ad|release an advertisement]] and can tell [[right away|immediately]] if it's working — they see the likes, shares, and comments. If it's not [[hitting|succeeding; landing well]], they [[tweak|make small adjustments to]] it and try again. It's a never-ending cycle of optimisation, and that's the real power of social media advertising.",
+          },
+        ],
+      },
+      {
+        q: "What are the advantages of advertising?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Nowadays, advertising is like [[oxygen|something absolutely vital]] for companies — without it, they're invisible. The first big advantage is visibility. You could have the best product in the world, but if no one knows about it, what good is it? So advertising [[gets the word out|spreads information to many people]]. And branding is another massive one. Ads aren't just about selling a product; they're about [[selling an image|promoting a lifestyle or perception]], a lifestyle. Think about companies like Apple or Nike — their ads make you feel something. They're selling you the idea that if you buy their products, you're innovative, you're an athlete, you're part of a [[tribe|a like-minded community you belong to]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "challenges-and-pride",
+    part: 3,
+    title: "Challenges & Pride",
+    emoji: "🏔️",
+    description: "The challenges young people face, overcoming difficulty, rewards and feeling proud.",
+    questions: [
+      {
+        q: "What challenges do young people face today?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Young people are dealing with [[a whole set of|a large number of]] challenges today. One of the big ones is the pressure to succeed, and that [[comes from all angles|originates from many directions at once]] — parents, school, society, [[you name it|and everything else you could mention]]. And with the rise of social media and the digital world, it brought some challenges too. It's a [[double-edged sword|something with both good and bad sides]] now: while it connects us in amazing ways, most young people are [[falling victim to|suffering the harmful effects of]] addiction, social comparison, and FOMO. It's like navigating a [[virtual minefield|an online space full of hidden dangers]]. But I hope young people overcome these difficulties with ease — it's [[a wild ride|an unpredictable, intense experience]], but they're [[in the driver's seat|in control of their own path]].",
+          },
+        ],
+      },
+      {
+        q: "How do people overcome challenges?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Challenges are a big part of our lives now, and there's no [[one-size-fits-all|a single solution that works for everyone]] answer. But I guess it all starts with the right mindset. You should take that [[never-give-up attitude|a determined refusal to quit]] and let your mind figure out the ways. Surrounding yourself with the right [[crew|supportive group of people around you]] is also [[a game-changer|something that dramatically improves the situation]] — they support you and push you to be your best. Plus, staying focused and disciplined is key. You've got to [[put in the work|consistently make the effort]], whether it's in the gym, at work, or in your personal life. It's like building a muscle: the more you work it, the stronger it gets.",
+          },
+        ],
+      },
+      {
+        q: "What rewards can companies offer to outstanding employees?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Rewards are like a [[winning formula|a reliably successful approach]] for keeping top talent motivated and happy. There's the traditional way: financial incentives. Bonuses, salary increases, or profit-sharing can really show employees they're valued. Then there are non-monetary rewards too. Recognition is a big one — employee of the month, public praise, or even [[a shoutout|a public mention of acknowledgement]] in a company newsletter. It's like [[putting their name up in lights|celebrating their achievements publicly]].",
+          },
+        ],
+      },
+      {
+        q: "On what occasions would people feel proud of themselves?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Well, there are the small wins in everyday life, like [[acing a test|scoring extremely well on an exam]], [[nailing a presentation|delivering it perfectly]] at work, or even just [[hitting a personal best|achieving your own highest result]] at the gym. It's like a high-five from your inner self. Then there are the big life moments, like graduating, landing your dream job, or starting a family — it's like standing on top of a mountain, looking at how far you've come. And let's not forget the times when you help others. When you make a positive impact on someone's life, supporting a friend or being there for your family, that's a special kind of pride.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "learning-languages",
+    part: 3,
+    title: "Languages",
+    emoji: "🗣️",
+    description: "Learning English, its future, age and language, and the difficulties learners face.",
+    questions: [
+      {
+        q: "Is it popular to learn English in your country?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Oh, definitely. Learning English has been [[gaining popularity|becoming more widely liked]] in recent years. It's not just a language anymore; it's [[a ticket to|something that grants access to]] all sorts of opportunities. With English proficiency, you can [[unlock doors to|open access to]] international universities, job markets, and global communication. And those standardised tests like the SAT and IELTS have become a big deal — they're like the passport to studying abroad and [[pursuing higher education|seeking advanced studies]] in English-speaking countries.",
+          },
+        ],
+      },
+      {
+        q: "Do you think English will be the mainstream language of the world in the future?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "That's a fascinating question. English has definitely become a [[global lingua franca|a common language used worldwide between different peoples]] — the language of international business, diplomacy, and the internet. But predicting the future, especially with languages, is tricky. It's possible that English could continue to dominate, given its widespread use. However, we live in a [[diverse world|a world full of variety and different cultures]], and cultural diversity is a beautiful thing. So the future might be a [[blend of|a mixture or combination of]] English and other languages. It's like a linguistic ecosystem, and each language [[brings its unique flavour to the table|contributes its own distinct qualities]].",
+          },
+        ],
+      },
+      {
+        q: "Is it easier for young people to learn a language than for older people?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There's this [[perception|a common belief or view]] that young folks have a language-learning advantage, and [[there's some truth to it|it is partly accurate]]. When you're a kid, your brain is [[versatile|adaptable and flexible]], [[soaking up|absorbing quickly]] all kinds of information, including languages — it's a natural part of our early development. But it doesn't mean the elderly can't learn languages. It's more about the approach and motivation. As you get older, you might have other responsibilities, and it can be [[a big deal|a significant challenge]] to find the time and dedication to learn a new language.",
+          },
+        ],
+      },
+      {
+        q: "What difficulties do people face when learning a language?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Learning a new language is not [[a walk in the park|something easy and effortless]]. There are some [[hurdles|obstacles or challenges]] that everyone faces along the way. Firstly, there's pronunciation. Each language has its unique sounds, and mastering those can be a real problem — you might sound like a [[toddler|a very young child]] when you're just starting out. Then there's grammar. Every language has its rules, and they can get pretty complex. It's like trying to [[solve a puzzle|work out a complex problem]], and you make a ton of mistakes before it all clicks. I believe these two aspects are the hardest, because there's no [[shortcut|an easier or quicker way]] to master them.",
+          },
+        ],
+      },
+      {
+        q: "Is it more important to learn foreign languages now than ever?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Definitely. In today's world, learning foreign languages is like a [[superpower|a special, exceptional ability]]. The world is more [[interconnected|closely linked together]] than ever, and being able to communicate in multiple languages [[opens up a door to|provides access to]] a [[world of opportunities|a wide range of possibilities]]. From business and travel to diplomacy to [[career boosts|improvements to your professional prospects]], knowing a foreign language gives you [[a competitive edge|an advantage over others]]. It serves as a bridge nowadays to connect with [[people from all walks of life|individuals from all kinds of backgrounds]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "feeling-tired",
+    part: 3,
+    title: "Feeling Tired",
+    emoji: "😴",
+    description: "Which work is more tiring, why there's never enough time, and when people feel tired.",
+    questions: [
+      {
+        q: "Which is more tiring, labour work or studying in the library?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's like [[comparing apples and oranges|contrasting two very different things]]. Both can be exhausting in their own right, and it depends on your preferences and what you're built for. Some people thrive in the physical world, while others [[find their element|discover where they naturally do best]] in the realm of ideas. I believe it's all about finding your thing and what leaves you feeling accomplished [[at the end of the day|when everything is considered]].",
+          },
+        ],
+      },
+      {
+        q: "Do you think that not having enough time is a feature of our modern life?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Oh, that's a common one — the whole not-enough-hours-in-a-day thing, especially in urban areas. Life today is fast-paced and [[jam-packed|extremely full and crowded]]. We've got [[a lot on our plate|many responsibilities to handle]] — work, family, social media, Netflix, you name it, all [[pulling us in different directions|dividing our attention many ways]]. And part of the reason is that we often forget to prioritise. We're [[swamped with|overwhelmed by a large amount of]] stuff that might not actually be that important. But the truth is, there are enough hours in a day; it's about how we choose to use them. It's like that old saying: don't count the days, make the days count.",
+          },
+        ],
+      },
+      {
+        q: "When do people usually feel tired?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There could be a bunch of reasons for [[fatigue|extreme tiredness]], but the most common one is lack of sleep. We're all guilty of staying up too late, whether it's [[binge-watching|watching many episodes in one sitting]] shows, working late, or just [[scrolling through the endless social media abyss|continuously browsing social media with no end]]. That'll [[drain your energy|use up your strength]] really quick. And we shouldn't [[overlook|fail to notice or ignore]] stress, which can have a huge impact on people's mental health.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "measuring-success",
+    part: 3,
+    title: "Measuring Success",
+    emoji: "🎯",
+    description: "How we judge others' success and what helps students succeed at school.",
+    questions: [
+      {
+        q: "In general, how do people judge the success of others?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's intriguing how we judge the success of others. We have [[societal standards|the norms and expectations set by society]] about success. Most of the time, it's about the external stuff you own — the car you drive, the house you live in, or the job you have. It's a [[societal scoreboard|a public way of ranking people by outward achievement]]. But the truth is, real success goes way deeper than that. I feel like it's about happiness, [[fulfilment|a deep sense of satisfaction and meaning]], and personal growth. So we should be looking at how content and satisfied someone is with their life, not just the material stuff. Are they following their passions, learning, and growing? Are they making a positive impact on the world? That's the real measure of success. It's not what you have; it's who you've become and [[the mark you leave|the lasting impact you have on the world]].",
+          },
+        ],
+      },
+      {
+        q: "What are the factors that influence students' grades at school?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Achieving success at school isn't just about [[hitting the books|studying hard]], although that's a big part of it. It's about finding your passion, being curious, and [[staying hungry for knowledge|keeping a strong desire to learn]]. You've got to be engaged with the material, not just memorising it for a test. And surround yourself with a good [[crew|group of people around you]] too — hang out with people who motivate and support you. There's a saying, [[iron sharpens iron|people improve each other through challenge and interaction]], and the same goes for learning. Your peers can push you to be your best.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "adventures-risks",
+    part: 3,
+    title: "Adventures & Risks",
+    emoji: "🧗",
+    description: "How adventure relieves stress, the skills it needs, and why young people seek thrills.",
+    questions: [
+      {
+        q: "How do adventurous and exciting activities help people relieve stress?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I believe it's all about that [[adrenaline rush|the sudden surge of energy and excitement]]. With your body getting flooded with this stuff and you feeling [[a pinch of|a small amount of]] a sense of accomplishment, it's a [[natural stress-buster|something that naturally reduces stress]]. You're so focused on what you're doing — whether it's [[nailing|successfully accomplishing]] a tricky climb or navigating a crazy rapid — that you forget about the everyday stressors. Your problems, your bills, your job — you [[unplug from|disconnect and disengage from]] all that. It's like [[hitting a reset button|starting fresh; beginning anew]] in your brain.",
+          },
+        ],
+      },
+      {
+        q: "What skills do people need to take part in adventurous activities?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "To get a thrill from such activities, a variety of skills [[come into play|become relevant and necessary]]. You've got to be in [[some decent shape|reasonably good physical condition]], especially for activities like rock climbing, hiking, or extreme sports. I don't mean you should be a [[stud|an exceptionally fit person]], but at least you should be eating healthily, because you need that core strength and stamina to keep going when [[things go south|the situation gets worse]]. But it's not just about the body — it's about the mind too. [[Mental fortitude|inner strength and courage under pressure]] is huge. You need to stay cool under pressure, make quick decisions, and not [[freak out|panic or react with extreme anxiety]] when [[things get hairy|the situation becomes risky or difficult]]. It's that mental nerve that separates the [[thrill-seekers|people who actively chase excitement]] from the panicked ones.",
+          },
+        ],
+      },
+      {
+        q: "Why do young people like doing exciting things?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Young folks are [[wired for excitement|naturally built to seek thrills]] — it's in our DNA. They're at a stage in life where they're figuring things out, [[pushing boundaries|testing their limits]], and seeking experiences that make them feel alive. Exciting things — extreme sports, travel, or just crazy adventures — give them a rush that's hard to find elsewhere. Plus, there's a bit of [[rebellion|defiance against accepted rules]] in there too. Young people often [[rebel against|resist and oppose]] [[the status quo|the existing state of things]] and seek excitement as a way to [[challenge norms|question established standards]] and discover who they really are.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "opinions-and-advice",
+    part: 3,
+    title: "Opinions & Advice",
+    emoji: "🗨️",
+    description: "Changing opinions, the risk of too much advice, and advice across generations.",
+    questions: [
+      {
+        q: "What important changes in popular ideas and opinions have taken place recently?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Mainstream ideas are always [[subject to change|liable to change]] because of propaganda machines and media manipulation. One positive change has been people's attitudes towards environmental problems. More and more people are realising that the current environmental situation is bad and action needs to be taken, so [[environmentally-responsible|acting with care for the environment]] individuals are [[calling on|publicly urging]] their governments to adopt policies that force industries to [[scale down|reduce the size of]] their output.",
+          },
+        ],
+      },
+      {
+        q: "What problems can people face if they ask many different people for advice?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "The danger with asking many people for advice is that it gets more difficult to make a decision. Usually people are bad at giving advice, since they give it from their own perspective. However hard one tries to [[put himself in the other person's shoes|imagine another person's situation]], it's not really possible, so when you ask way too many people for advice, you just end up making it difficult for yourself.",
+          },
+        ],
+      },
+      {
+        q: "In general, what kind of person is most suitable for giving advice to others?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "The person most suited to giving advice is someone who has [[seen a lot in life|gained wide experience over the years]] and has a lot of experience. Even then, the person should be careful to give advice that is not [[too general|too broad to be useful]], since general advice is not of any use to the person who came seeking it.",
+          },
+        ],
+      },
+      {
+        q: "In what situations can old people ask younger people for advice?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Older people might go to younger people for advice when they're not sure about something that is more [[particular to|specific to]] the younger generation. For example, it might be something like cryptocurrencies, a recent [[craze|a widespread short-lived enthusiasm]] that everyone wants to be part of. If they have some money [[lying around|available and unused]], older people could ask younger ones whether investing in something like that is worth it. It's not necessarily the technology that they ask advice about.",
+          },
+        ],
+      },
+      {
+        q: "Why do so many young people not accept the advice of older people?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Younger people might not [[resonate with|connect with; relate to]] the words of older people. Usually the advice given to them might not make sense because of the [[generation gap|the difference in attitudes between age groups]]. So if young people fail to [[relate to|understand and identify with]] the advice, they might not follow or accept it when it comes from the older generation.",
+          },
+        ],
+      },
+      {
+        q: "Some people find it easier to accept advice than others. Why do you think there is this difference?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It comes down to the willingness with which they approach it when they go asking for advice in the first place. Some people approach others [[adamant that|firmly and stubbornly convinced that]] they're right, and they ask for advice just for the sake of doing so, while others are genuinely in need of advice — and when given it, they [[act on it|take action based on it]] or accept it more enthusiastically.",
+          },
+        ],
+      },
+    ],
+  },
+  /* ═══════ PART 1 — from full mock tests (Tests 2, 4–7) ═══════ */
+  {
+    id: "staying-up-late",
+    part: 1,
+    title: "Staying Up Late",
+    emoji: "🌙",
+    description: "Being a night owl, staying up as a kid, and how it feels the next day.",
+    questions: [
+      {
+        q: "Do you often stay up late?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I'm [[a night person|someone who prefers being awake late at night]], I have to admit. Staying up late is pretty much a regular thing for me at this point. I know it's not really healthy, but this is what it is. So yeah, I do stay up late very often, even though I'm not too proud of it.",
+          },
+        ],
+      },
+      {
+        q: "Did you stay up late when you were a kid?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "No, I don't think so, because my parents would never allow it. Plus, I was going to school, which started in the morning, so I needed my night's sleep. In a way, I didn't have the [[freedom|the ability to act without restriction]] to stay up late when I was a kid.",
+          },
+        ],
+      },
+      {
+        q: "What do you do when you stay up late?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Different things. I could watch a movie, but most of all I'm quite productive during the night — that's one of the reasons I stay up late. I get most of my work done at night time when my kids are asleep and I have the living room to myself, so I can [[catch up with|get up to date on]] certain tasks.",
+          },
+        ],
+      },
+      {
+        q: "What does it feel like the following day when you stay up late?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "To me it feels like a normal day, because staying up late is pretty normal for me. Plus, I have [[flexible working hours|a schedule with variable start and end times]], so I don't really have to get up in the morning. I just [[compensate for|make up for; balance out]] it by staying in bed sometimes till noon. So it doesn't really feel unusual — it's just any other day.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "jewelry",
+    part: 1,
+    title: "Jewelry",
+    emoji: "💍",
+    description: "Wearing jewelry, what type you like, and giving it as a gift.",
+    questions: [
+      {
+        q: "How often do you wear jewelry?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really wear jewelry in the traditional sense — I don't wear necklaces, bracelets, or rings. Maybe it's a cultural thing; in Asian cultures it's not common for men to wear jewelry. But I think watches count as jewelry, at least as a practical thing or an [[accessory|an item added to complete or enhance an outfit]]. So yeah, I do wear a watch every day, if that counts.",
+          },
+        ],
+      },
+      {
+        q: "What type of jewelry do you like to wear?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Like I said, I'm not really sure. Maybe I like to wear my [[wedding band|the ring worn to show you are married]] more often — again, this is more of a cultural thing. After many years of marriage you just forget to put on your wedding ring, but this is something I probably should be wearing. Other than that, I'm just not too interested in wearing a piece of jewelry.",
+          },
+        ],
+      },
+      {
+        q: "Have you ever received jewelry as a gift?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Maybe, maybe not — I'm not sure, though. I received a watch as a gift, if that counts as jewelry. And at some point somebody might have given me a cheap bracelet, the kind people bring back from their travels, but I don't really remember.",
+          },
+        ],
+      },
+      {
+        q: "Would you give jewelry as a present to others?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yeah, I think I would. Jewelry can make a great present, especially for women — you can buy them a ring, earrings, or necklaces in different designs. You could even make it [[personalized|customised specially for one person]] by engraving a message for them, which makes it even more special.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "morning-time",
+    part: 1,
+    title: "Morning Time",
+    emoji: "🌅",
+    description: "Getting up early, breakfast, morning habits, and how they've changed.",
+    questions: [
+      {
+        q: "Do you like to get up early?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I would like to, but I usually can't, because I normally stay up late — I'm [[a night person|someone who prefers being active at night]]. Getting up early is quite a difficult task for me. But I'm okay with it, because I have very [[flexible working hours|variable start and end times for work]].",
+          },
+        ],
+      },
+      {
+        q: "Is breakfast important?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "They say breakfast is the most important meal of the day, because it helps you [[get a head start on|begin ahead of the usual point]] your day and provides you with necessary vitamins and [[nutrients|substances in food essential for health and growth]]. But since I don't really get up early, I sometimes skip my breakfast.",
+          },
+        ],
+      },
+      {
+        q: "What do you usually do in the morning?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really have a strict [[morning routine|a set of habits you go through after waking up]]. I get up and then do whatever — usually I check my phone for emails and messages and try to respond to the urgent ones. I'd like to do some morning exercise, but I'm getting quite lazy these days, so that doesn't happen every day. Roughly, it's get up, check my phone, respond to emails, have a shower, maybe some breakfast, and then go to work.",
+          },
+        ],
+      },
+      {
+        q: "Did you have the same morning routine when you were younger?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "No, of course not, because when I was younger I had [[obligations|duties or commitments you must fulfil]] — I had to get up early, go to school, and so on. But nowadays, since I'm an adult and independent, I don't really have to go anywhere in the morning. Like I said, I'm [[self-employed|working for yourself rather than an employer]], so I don't have a set time I have to be at work, which gives me some freedom.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "weekends",
+    part: 1,
+    title: "Weekends",
+    emoji: "🎡",
+    description: "What you do on weekends, your favourite part, and whether they're long enough.",
+    questions: [
+      {
+        q: "What do you usually do on weekends?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I try to spend some [[quality time|time spent giving someone your full attention]] with my kids on weekends. But since I'm [[self-employed|working for myself]], sometimes I do need to get some work done as well.",
+          },
+        ],
+      },
+      {
+        q: "What is your favorite part of the weekend?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "My favourite part of the weekend has to be the evenings, when I get to take my kids out to an [[amusement park|a large outdoor area with rides and entertainment]] or somewhere similar, and we try to have fun there. Sometimes I also go out with my friends — those are the [[highlights of my weekend|the best parts of the weekend]].",
+          },
+        ],
+      },
+      {
+        q: "Do you think your weekends are long enough?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Like I said, I'm self-employed, so my working hours are quite flexible. I don't really get stressed during the week, so I'm pretty satisfied with my weekends — they're long enough, I think.",
+          },
+        ],
+      },
+      {
+        q: "What did you do last weekend?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Last weekend I was shopping. It was [[back-to-school|the period when children return to school after a break]] time for my kids, and I also own a language school, so we were getting some things ready for classes to resume. I was shopping for [[school supplies|items students commonly use for study]] for my kids as well.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "space-travel",
+    part: 1,
+    title: "Outer Space & Space Travel",
+    emoji: "🚀",
+    description: "Whether you'd travel to space, learning about stars, and why studying them matters.",
+    questions: [
+      {
+        q: "Do you want to travel to outer space?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Personally, I'm not really interested in [[commercial space travel|space travel offered by private companies for profit]], to be honest. For one thing, I don't really have the money for it — it's very expensive. Space travel for scientific purposes is quite necessary, but for commercial reasons I think we should think carefully before committing to such projects. It's enough that we're polluting the earth; I don't see the point of going to space and polluting that as well.",
+          },
+        ],
+      },
+      {
+        q: "What would you do if you had an opportunity?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "That's a very luxurious type of travel, and it costs a lot to go to outer space. But if I had the opportunity, and if I could be assured it was safe enough, then just [[for the sake of|out of; in the interest of]] curiosity — to be able to see the earth from a distance — I think I'd feel truly [[humbled|made to feel modest before something greater]]. So yes, I'd take that chance, knowing there were no risks. I remember watching a movie like Apollo 13, where Tom Hanks is [[orbiting around|following a circular path around]] the moon, looks back at the earth, tries to cover the whole planet with his thumb, and realises just how small our planet is in the universe.",
+          },
+        ],
+      },
+      {
+        q: "Have you ever learnt about stars and outer space?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, I have. I took some classes at school. But recently I've become more interested in this field because of my son — he's been crazy about the concepts of light years and black holes, and he makes me watch videos on YouTube to discuss afterwards. I've been learning a lot.",
+          },
+        ],
+      },
+      {
+        q: "Is it important to study stars?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Studying stars is quite important, I think. First of all, there's the concept of [[technology spill-over|when technology developed for one purpose benefits another]] — technology used for space exploration can be applied back here on earth. Plus, the knowledge we gain from learning about stars can help us better understand our universe, our planet, and climate change too. It's an interesting topic, and [[suffice to say|it is enough to say]] that studying stars is quite critical.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "happiness-p1",
+    part: 1,
+    title: "Happiness",
+    emoji: "😊",
+    description: "What happiness means to you, childhood joys, and how weather affects your mood.",
+    questions: [
+      {
+        q: "What do you think of happiness?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "To me, happiness is the state of being [[content|satisfied and at peace with what you have]] and satisfied with your life. Overall, it's a very deep and philosophical topic that can be approached in many different ways. But [[simply put|to state it in the most basic way]], happiness is being happy without any conditions, let's say.",
+          },
+        ],
+      },
+      {
+        q: "What usually made you happy when you were a child?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "When I was a kid, I liked going places with my parents — visiting a relative, going to [[amusement parks|large outdoor areas with rides and entertainment]] or swimming pools. Those were my happiest memories, because my parents were always busy working and didn't have much free time, so those were special times.",
+          },
+        ],
+      },
+      {
+        q: "Does the weather ever affect how you feel?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Generally speaking, yes. Pleasant, sunny weather can put me in a good mood — you can go out with your family or friends. On the other hand, [[gloomy|dull and dark in a way that causes low spirits]] weather makes me sad. I think this all goes back to our psychological associations from movies and music: they usually use sad tones to reflect stormy weather, so we tend to [[associate|connect in the mind]] bad weather with sadness.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "music",
+    part: 1,
+    title: "Music",
+    emoji: "🎵",
+    description: "The music you like, when you listen, how long, and how it makes you feel.",
+    questions: [
+      {
+        q: "What kinds of music do you like to listen to?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I like listening to all kinds of music, depending on my mood. For example, if I'm feeling down, I like the music from the 90s. Or if I need to [[push myself|force yourself to make a greater effort]], like when I feel like working out, I like listening to hip hop, specifically Eminem songs.",
+          },
+        ],
+      },
+      {
+        q: "When do you often listen to music?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I often listen to music when I'm driving, because the experience just makes me feel calm, especially [[soothing|gently calming and relaxing]] music. Or I can have background music on if I'm studying, since it can also help me concentrate.",
+          },
+        ],
+      },
+      {
+        q: "How much time do you spend listening to music every day?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really [[set aside|reserve for a particular purpose]] a specific time for listening to music. Like I said, it's usually in the background — if I'm walking or driving somewhere, I usually listen to music, or sometimes podcasts as well.",
+          },
+        ],
+      },
+      {
+        q: "How do you feel when you listen to it?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Music has a way of connecting to our emotions. Sometimes listening to sad songs can make us feel that way, and sometimes cheerful songs make us happier. The same applies to me — music helps us [[express our emotions|show our feelings outwardly]] in a better way, I think.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "public-transport",
+    part: 1,
+    title: "Public Transport",
+    emoji: "🚇",
+    description: "The most popular transport, driving to work, and traffic problems where you live.",
+    questions: [
+      {
+        q: "What is the most popular means of transportation in your hometown?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I have to say it's the Metro — the subway system. I think it's the most popular, and the next one has to be the bus system. Both of these forms of public transport are popular in Tashkent.",
+          },
+        ],
+      },
+      {
+        q: "Is driving to work popular in your country?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, it's getting more and more popular. Unfortunately — and I say unfortunately because it's not really good for the environment — I can see that more and more cars are on our roads every day, especially during [[rush hour|the busiest part of the day for traffic]] periods, when there's [[traffic congestion|roads overcrowded with vehicles]]. So more and more people are driving to work nowadays.",
+          },
+        ],
+      },
+      {
+        q: "Are there any traffic problems in your area?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yeah, like I said, there's usually traffic congestion in Tashkent, especially during [[peak hours|the busiest hours, as in rush hour]] — in the morning when everyone's going to work, or in the evening when they're coming back. That's the biggest problem in Tashkent, I think.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "hair",
+    part: 1,
+    title: "Hair",
+    emoji: "💇",
+    description: "Going to the barber, changing your hair colour, and haircuts you didn't like.",
+    questions: [
+      {
+        q: "Do you like going to the hairdresser's or barber's?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "No, but I like my hairstyle, and I don't change it very frequently — I go maybe four or five times a year. It's a lot of [[hassle|an irritating inconvenience]]: you have to make an appointment, so I don't really like it that much.",
+          },
+        ],
+      },
+      {
+        q: "Do you want to change your hair color?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "No, I don't think I ever would, because I really love my dark hair. People always ask me whether I've [[dyed|changed the colour of using a chemical]] it, but it's the natural dark colour, and I'd never change it.",
+          },
+        ],
+      },
+      {
+        q: "How often do you have a haircut?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "About four or five times a year, because I like to keep my hair long. I don't really like going to hairdressers that often, because there's always a chance they might [[mess up|do badly; ruin]] my hairstyle. My hair is something I'm quite proud of, so I don't even want barbers touching it for no reason.",
+          },
+        ],
+      },
+      {
+        q: "Have you had a haircut that you didn't like?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Almost every time, I have to say. Like I said, I'm really quite sensitive about my hair, and every time someone gives me a shorter haircut, I hate it. I'm very [[demanding|hard to satisfy; expecting a lot]], so I have one barber I always go to now, and I always make my expectations as clear as possible.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "t-shirts",
+    part: 1,
+    title: "T-shirts",
+    emoji: "👕",
+    description: "Wearing T-shirts, prints, whether older people can wear them, and buying them as souvenirs.",
+    questions: [
+      {
+        q: "Do you like wearing T-shirts?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yes, I love wearing T-shirts. I'm [[a casual dresser|someone who dresses in a relaxed, informal way]], so T-shirts go with the rest of my outfits usually.",
+          },
+        ],
+      },
+      {
+        q: "How often do you wear T-shirts?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "In the summertime and warmer months I tend to wear them every day. But even in winter, I wear them as an [[undershirt|a garment worn underneath a shirt]].",
+          },
+        ],
+      },
+      {
+        q: "Do you like T-shirts with pictures or prints?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "No, I don't really like T-shirts with pictures and prints, because I hate wearing something that has a [[cliché|an overused, unoriginal idea or design]] or too obvious a design. But if it's a quote from one of my favourite movies or TV shows, then I'm okay with it, because it expresses [[individuality|the qualities that make you different from others]] in a way.",
+          },
+        ],
+      },
+      {
+        q: "Do you think older people who wear T-shirts are fashionable?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It depends on the person. Overall, if the T-shirt goes with their outfit, then it's fine. But if it's [[out of place|not suited to the situation or surroundings]], it may not look as good. Overall, though, I don't believe in the idea that certain age groups have a limited choice of clothing.",
+          },
+        ],
+      },
+      {
+        q: "Would you buy T-shirts as souvenirs on vacation?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yeah, I think T-shirts can be a great [[souvenir|an object kept as a reminder of a place]] or gift. I wouldn't buy them for myself, for obvious reasons, but for my friends I think they'd appreciate one — say, a T-shirt from a particular city with the city's name printed on it. So yeah, it would make a great souvenir.",
+          },
+        ],
+      },
+    ],
+  },
+  /* ═══════ PART 2 — from full mock tests (Tests 2, 4–7) ═══════ */
+  {
+    id: "ideal-job",
+    part: 2,
+    title: "Describe an ideal job you'd like to do in the future",
+    emoji: "💼",
+    description: "A model long-turn answer about moving from teaching towards business.",
+    cueCard: ["What it is", "How you will get this job", "What skills you need", "Why you would like to do it"],
+    questions: [
+      {
+        q: "Describe an ideal job you'd like to do in the future.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I'm not really sure about an ideal job, because I'm 34 and I'm a teacher — specifically, an IELTS instructor. I've been teaching in this field for the past ten years or so, which is quite a long time, and I love teaching. I have a [[great passion for|a strong enthusiasm or interest in]] it and I cannot really imagine myself doing any other job. [[As a matter of fact|in reality; actually]], I tried working in different jobs, such as customer service, but for me teaching is my [[true passion and calling|a genuine, deep-seated purpose in life]].\n\nAlong with teaching, I also have a small language school, which I run, located here in Tashkent, Uzbekistan. My experience in [[running the school|managing and overseeing its operations]] has given me some experience in business and management. I also have a degree in business, which is funny because, despite that, I still consider myself more of a teacher than a manager.\n\nIn the future, I'd like to focus more on learning about business and become a more business-oriented professional rather than a teacher, because I feel I've achieved everything I wanted to achieve in teaching, and it's now time to [[face new challenges|deal with unfamiliar, difficult situations]] and [[grow professionally|advance and improve in your career]]. I'm already reading business books and taking online courses, so hopefully in the future I can become a successful business person.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "fashionable-person",
+    part: 2,
+    title: "Describe a person who likes to dress fashionably",
+    emoji: "🕶️",
+    description: "A model long-turn answer about Magnus Carlsen's sense of style.",
+    cueCard: ["Who he/she is", "What job he/she does", "What kind of clothes he/she wears", "Why he/she likes fashion"],
+    questions: [
+      {
+        q: "Describe a person who likes to dress fashionably.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I may not be the best person to talk about fashion, because I'm far from an expert on this topic. But if I had to pick one person who dresses fashionably, it has to be Magnus Carlsen, the current world chess champion. I really like Magnus's sense of style — he's got this unique [[fashion sense|a knowledge of how to dress fashionably]] where he can [[pull off|wear successfully; carry off]] any type of outfit you can think of, from [[casual wear|relaxed clothing for everyday use]] to [[formal wear|clothing for formal occasions, like suits]], depending on the event he's attending.\n\nAnother reason he's got this great taste in fashion might be his modelling career. He's actually a model for high-end brands like G-Star and Hugo Boss, and that might explain his exceptional fashion sense. In a way, Magnus Carlsen breaks the typical stereotype of chess players as unfashionable and nerdy, so to speak. With his great sense of fashion and sharp-looking outfits fitting the occasion, I think he can be an inspiration for younger generations. This very fashionable style of his is a reflection of his confidence and [[individuality|the quality that makes a person distinct from others]] — and he also happens to be one of the best chess players of all time.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "piece-of-news",
+    part: 2,
+    title: "Describe a piece of news about someone you know well",
+    emoji: "📰",
+    description: "A model long-turn answer about a friend finding an inclusive school for his son.",
+    cueCard: ["What the news was", "When and how you heard it", "How you felt about it"],
+    questions: [
+      {
+        q: "Describe a piece of news that you heard about someone you know well.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I have a very close friend who has an [[autistic|affected by autism, a condition affecting social interaction]] son — his son is [[on the spectrum|having characteristics of autism spectrum disorder]]. He and his wife have been struggling for the past few years to put their child in the right school. Unfortunately, because of the education system in Uzbekistan, these [[mainstream schools|ordinary schools for students without special educational needs]] lacked [[inclusive education|schooling that includes children of all abilities together]] and a proper understanding of autism, so it was quite challenging for them to find a school where their kid could develop social and academic skills.\n\nRecently we had a conversation, and he was really happy to tell me they'd finally found a private school willing to [[take a chance on|risk giving an opportunity to]] his son. It's a mainstream private school, but they were willing to give his autistic son a flexible schedule, so he can attend the classes he likes and [[opt out of|choose not to take part in]] the ones he isn't interested in. I was also happy to hear that the students in the class were very supportive and [[open-minded|willing to consider new ideas; unprejudiced]] about it. They had a very positive relationship with this kid, who is actually very bright and just lacks social skills. Overall, I was happy to learn he got accepted into a mainstream school with inclusive education — I think it can be an important step in his education.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "city-short-stay",
+    part: 2,
+    title: "Describe a city where you'd like to stay for a short time",
+    emoji: "🏝️",
+    description: "A model long-turn answer about Galveston, Texas.",
+    cueCard: ["What city it is", "Who you will go there with", "What you will do there", "Why you will stay only for a short time"],
+    questions: [
+      {
+        q: "Describe a city where you'd like to stay for a short time.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "The city I'd like to stay in for a short time has to be Galveston, Texas. It's a small island on the Gulf of Mexico. I spent the summer of 2008 there doing a [[work-and-travel program|a scheme that lets students work abroad and travel afterwards]] — it gives students a visa that allows them to work, and then travel at the end of the program.\n\n2008 was the year of the financial crisis, so I was working two or three jobs to pay back my debts. It was also the time the island got hit by [[Hurricane Ike|a major 2008 hurricane that struck the Texas coast]], so I couldn't really spend the whole summer there — I had to run away from the hurricane as soon as I heard about it. I was too young anyway, so I couldn't really explore the island.\n\nNow, from reading about it online, I've learned there are historical museums like the Railroad Museum, some great amusement parks you can visit with your family, and the beaches are lovely, though quite busy during summertime. So I'm actually planning to go back to Galveston, this time with my family, now that I have the money to explore the island and see some sights. The reason I'd want to stay only for a short time is that I think we could explore the island in a very short period — we'd only need about seven days to see everything we want to see.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "enjoyable-daily-routine",
+    part: 2,
+    title: "Describe a daily routine you enjoy",
+    emoji: "🍕",
+    description: "A model long-turn answer about a relaxing family weekend routine.",
+    cueCard: ["What you do", "When it became your routine", "Whether you will change it", "Why you enjoy it"],
+    questions: [
+      {
+        q: "Describe a daily routine you enjoy.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Daily routines can be very practical and help us organise our days and weeks and be more efficient, but I want to talk about a particular routine that I find enjoyable and relaxing — my weekend routine. It usually starts the night before. On Saturday nights we tend to have fun as a family — playing games, watching movies or cartoons — and we [[stay up late|remain awake into the night]], because it's not a school night, so I allow my children to stay up late as well.\n\nThe idea is to [[sleep in|sleep later than usual in the morning]] the next day. When we wake up, we have a casual breakfast-lunch. I order a pizza for the whole family so we can eat together, and we plan our day for the rest of the Sunday. Normally we go out to visit parks, or visit friends and family. Sometimes we plan a picnic with my brother's family — he has two kids just like me, so it can be quite an [[eventful|full of interesting or exciting events]] Sunday.\n\nI really love it. Having such a relaxing routine can [[set the mood for|create the right atmosphere for]] the upcoming week and allows us to [[recharge|recover energy and freshness]] our minds and bodies. Having an enjoyable Sunday like this can be a source of inspiration and motivation for the whole family.",
+          },
+        ],
+      },
+    ],
+  },
+  /* ═══════ PART 3 — from full mock tests (Tests 2, 4, 6) ═══════ */
+  {
+    id: "jobs-career",
+    part: 3,
+    title: "Jobs & Career",
+    emoji: "🧑‍💼",
+    description: "Popular jobs, children's ambitions, career regrets, and what matters besides money.",
+    questions: [
+      {
+        q: "What are the most popular jobs in your country?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There are jobs that have become quite universal throughout the world — for example, working in IT, being an IT specialist, data analyst, or data scientist, which the younger generation aspires to. These are quite [[lucrative|producing a lot of money; financially rewarding]] and also very [[in-demand|wanted or needed by many people]]. But speaking about Uzbekistan, another job that's been [[on the rise|increasing; becoming more common]] lately is teaching English. It's popular among young students trying to be [[self-sufficient|able to support themselves without help]] and earn some money on the side, since we have all these private English schools. There are always job openings for English teachers, and it's usually students who speak English that [[jump at this opportunity|eagerly seize the chance]] — some become great teachers, others do it just temporarily.",
+          },
+        ],
+      },
+      {
+        q: "What do most children want to be when they grow up?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I think it has more to do with national pride, especially for boys. When they grow up, they want to be in the army or the police force — something to represent their manhood and defend their country. I think this is quite true universally. But with girls, they usually want jobs that care for people — being a doctor or a teacher is something that appeals to them, I think. I'm not too sure, though.",
+          },
+        ],
+      },
+      {
+        q: "Do people regret their career choices when they're old?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Some people do, I think — these are the people who couldn't take risks. They must have been stuck at a [[dead-end job|a job with no opportunity for advancement]] their whole life. Some people basically live in a [[rat race|an exhausting, competitive struggle for wealth or status]], barely [[making ends meet|earning just enough to cover basic needs]], and can't put aside enough money to take risks. So when they get old and retire, they might regret it, wishing they'd been more adventurous and taken more chances. The [[key takeaway|the main point to remember]] here is that you have to be more risk-taking and braver when it comes to job opportunities.",
+          },
+        ],
+      },
+      {
+        q: "What other factors, besides money, should people consider when choosing a career path?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "While there are lots of things to consider, money shouldn't even be your top priority. Even though young people coming into the job market usually consider the financial aspect first — how much the pay is — sooner or later you realise money isn't the [[key factor|the most important element]]. It's actually other things, like job satisfaction, the working conditions, your employer's attitude towards you, or their attitude towards the environment. And there's [[room for growth|the potential for advancement or improvement]] — can you advance in your career, is there opportunity to grow not just professionally but personally, along with your relationship with your colleagues. These are all factors that should be considered above money.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "fashion-trends",
+    part: 3,
+    title: "Fashion",
+    emoji: "👗",
+    description: "Why fashion matters to some, how trends affect shopping, and how companies benefit.",
+    questions: [
+      {
+        q: "Why is fashion important to some people?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I think some people follow fashion to express themselves and their [[individuality|the qualities that make a person distinct]]. That way, they like to wear the latest brands and styles, and they [[take pride in|feel proud of]] looking sharp and [[put together|looking good through dressing well and having style]].",
+          },
+        ],
+      },
+      {
+        q: "How do fashion trends affect the way people shop?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "[[Fashion trends|the popular styles of clothing at a particular time]] can definitely influence how we shop. For example, whenever a new trend comes out — a certain style of jeans or a pair of shoes — people who follow fashion are more likely to buy those items if they want to stay current and look [[on trend|in line with the latest fashion]]. But it's not for everyone; some people don't really care about fashion trends, and it doesn't affect their shopping behaviour.",
+          },
+        ],
+      },
+      {
+        q: "How can companies benefit from fashion trends?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Companies definitely benefit from fashion trends by using them to update their product line. They can make sure the current fashion reflects in their product development and design — for example, if they see a particular colour or style becoming popular, they can try to [[incorporate|take in or include as part of a whole]] that into their clothing lines. They should also keep an eye on what's on trend, so they're not stocking items that are no longer in demand. But it's also important to remember that fashion has a way of [[cycling back|returning to older styles again]] to older styles, so companies need to keep that in mind too.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "cities-urbanisation",
+    part: 3,
+    title: "Cities & Urbanisation",
+    emoji: "🏙️",
+    description: "Town versus city living, why young people move, urbanisation, and keeping people in the country.",
+    questions: [
+      {
+        q: "Do people in your country tend to live in smaller towns or bigger cities?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I'd have to say smaller towns or the countryside, because Uzbekistan is still an agricultural country. A lot of people rely on farming and agriculture for their [[livelihoods|the means of securing life's necessities]], so from that perspective I still think the majority live in the countryside or smaller towns.",
+          },
+        ],
+      },
+      {
+        q: "Why do young people want to move to cities?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "It's true that young people are [[migrating to|moving to a new area to find work or a better life]] cities in search of jobs. There are better [[career opportunities|chances that move you towards your career goals]] in the cities, and a better [[nightlife|evening and late-night entertainment such as bars and clubs]], which young people tend to prefer. Young families also prefer cities because of the educational and medical facilities. These are the reasons young people are migrating to cities more and more.",
+          },
+        ],
+      },
+      {
+        q: "Will urbanisation increase in the future?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Yeah, I think it will, because the [[living standards|the level of comfort and wealth people have]] in cities are just so much higher and more convenient compared to the countryside. More and more people will start realising this, and, as I said, there are better educational and medical facilities. It's just better, even for older people, to live in cities nowadays because of the support you can get. I think that trend will continue into the future.",
+          },
+        ],
+      },
+      {
+        q: "How can people be encouraged to live in the country?",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There are different ways the government can encourage people to stay in the countryside. First, they need to make sure living standards are at least equal. They need [[public amenities|facilities provided for public use, like parks and community centres]] like parks, good medical facilities, and schools. They also need career opportunities and more job vacancies in the countryside, and to ensure there's a good internet connection so people can stay connected and work from home. One last thing the government can do is promote the healthy lifestyle of the countryside by increasing [[public awareness|the public's level of understanding of an issue]] of how much healthier it is to live there. If we can create those amenities and conveniences to improve rural living standards, more and more people will probably choose to stay.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function findSpeakingTopic(id: string): SpeakingTopic | undefined {
