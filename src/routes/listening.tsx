@@ -509,6 +509,30 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "lm7-full-test-6",
+    title: "LM7 Full Test 6 — Improving Winton & Magnetism in Animals",
+    section: 0,
+    description:
+      "Full 40-question test: an interview about improving Winton, Mentona Fashion careers, a project on palm oil, and magnetism in animals.",
+    questions: 40,
+    htmlFile: "/passages/lm7test6full.html",
+    audioFile: "/passages/audio/lm7test6.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "lm7-full-test-7",
+    title: "LM7 Full Test 7 — Stamford Properties & Naked Mole Rats",
+    section: 0,
+    description:
+      "Full 40-question test: renting from Stamford Properties, Clifton Furniture staff orientation, careers and a work placement, and naked mole rats.",
+    questions: 40,
+    htmlFile: "/passages/lm7test7full.html",
+    audioFile: "/passages/audio/lm7test7.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
     id: "lm7-full-test-8",
     title: "LM7 Full Test 8 — Campervans & Natural Building Materials",
     section: 0,
