@@ -509,6 +509,30 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "lm7-full-test-8",
+    title: "LM7 Full Test 8 — Campervans & Natural Building Materials",
+    section: 0,
+    description:
+      "Full 40-question test: an Oz Campervans quote form, Bexter Sports Centre, bees and the Varroa mite, and natural building materials.",
+    questions: 40,
+    htmlFile: "/passages/lm7test8full.html",
+    audioFile: "/passages/audio/lm7test8.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "lm7-full-test-9",
+    title: "LM7 Full Test 9 — Wildlife Society & Solar Water Purifier",
+    section: 0,
+    description:
+      "Full 40-question test: a Wildlife Conservation Society membership form, an office move, the artist Samuel Prout, and the SW40 solar water purifier.",
+    questions: 40,
+    htmlFile: "/passages/lm7test9full.html",
+    audioFile: "/passages/audio/lm7test9.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
     id: "lm7-full-test-10",
     title: "LM7 Full Test 10 — Riverdale Pre-school & Driverless Vehicles",
     section: 0,
