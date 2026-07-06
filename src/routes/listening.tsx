@@ -509,6 +509,18 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "lm7-full-test-10",
+    title: "LM7 Full Test 10 — Riverdale Pre-school & Driverless Vehicles",
+    section: 0,
+    description:
+      "Full 40-question test: Riverdale Pre-school enrolment, finding a part-time job at university, a research project on the use of public services, and a driverless vehicle competition.",
+    questions: 40,
+    htmlFile: "/passages/lm7test10full.html",
+    audioFile: "/passages/audio/lm7test10.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
     id: "s4-dormancy",
     title: "Dormancy",
     section: 4,
