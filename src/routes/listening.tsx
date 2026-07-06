@@ -454,6 +454,61 @@ const TESTS: ListeningTest[] = [
     isPremium: false,
   },
   {
+    id: "lm7-full-test-1",
+    title: "LM7 Full Test 1 — Farm Centre & Vacation Jobs & Geology & Night Shift",
+    section: 0,
+    description:
+      "Full 40-question test: Winsham Farm Centre, a vacation jobs survey, a geology study syndicate, and health effects of night shift work.",
+    questions: 40,
+    htmlFile: "/passages/lm7test1full.html",
+    audioFile: "/passages/audio/lm7test1.mp3",
+    isPremium: false,
+  },
+  {
+    id: "lm7-full-test-2",
+    title: "LM7 Full Test 2 — Wildlife Conservation & Spring Festival & Archaeology & Digital Technology",
+    section: 0,
+    description:
+      "Full 40-question test: a Wildlife Conservation Society membership form, a Spring Festival guide, an archaeology course discussion, and digital technology theory.",
+    questions: 40,
+    htmlFile: "/passages/lm7test2full.html",
+    audioFile: "/passages/audio/lm7test2.mp3",
+    isPremium: false,
+  },
+  {
+    id: "lm7-full-test-3",
+    title: "LM7 Full Test 3 — Student Accommodation & Global Museum & Pacific Tapa & Learner Persistence",
+    section: 0,
+    description:
+      "Full 40-question test: student accommodation options, a global museum tour, Pacific tapa cloth uses, and a study on learner persistence.",
+    questions: 40,
+    htmlFile: "/passages/lm7test3full.html",
+    audioFile: "/passages/audio/lm7test3.mp3",
+    isPremium: false,
+  },
+  {
+    id: "lm7-full-test-4",
+    title: "LM7 Full Test 4 — Garden Centre & Hospital Volunteers & Lighthouses & First Factories",
+    section: 0,
+    description:
+      "Full 40-question test: a Bellfield Garden Centre job, hospital ward volunteers, a lighthouses presentation, and the history of the first factories.",
+    questions: 40,
+    htmlFile: "/passages/lm7test4full.html",
+    audioFile: "/passages/audio/lm7test4.mp3",
+    isPremium: false,
+  },
+  {
+    id: "lm7-full-test-5",
+    title: "LM7 Full Test 5 — Moving to Burnside & Mahana Market & Community Centre & Science Fiction",
+    section: 0,
+    description:
+      "Full 40-question test: moving to Burnside, Mahana Market manager interview, a potential community centre plan, and the importance of science fiction.",
+    questions: 40,
+    htmlFile: "/passages/lm7test5full.html",
+    audioFile: "/passages/audio/lm7test5.mp3",
+    isPremium: false,
+  },
+  {
     id: "s4-dormancy",
     title: "Dormancy",
     section: 4,
