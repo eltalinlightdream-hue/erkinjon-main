@@ -455,7 +455,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-1",
-    title: "LM7 Full Test 1 — Farm Centre & Vacation Jobs & Geology & Night Shift",
+    title: "Full Test 9",
     section: 0,
     description:
       "Full 40-question test: Winsham Farm Centre, a vacation jobs survey, a geology study syndicate, and health effects of night shift work.",
@@ -466,7 +466,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-2",
-    title: "LM7 Full Test 2 — Wildlife Conservation & Spring Festival & Archaeology & Digital Technology",
+    title: "Full Test 10",
     section: 0,
     description:
       "Full 40-question test: a Wildlife Conservation Society membership form, a Spring Festival guide, an archaeology course discussion, and digital technology theory.",
@@ -477,7 +477,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-3",
-    title: "LM7 Full Test 3 — Student Accommodation & Global Museum & Pacific Tapa & Learner Persistence",
+    title: "Full Test 11",
     section: 0,
     description:
       "Full 40-question test: student accommodation options, a global museum tour, Pacific tapa cloth uses, and a study on learner persistence.",
@@ -488,7 +488,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-4",
-    title: "LM7 Full Test 4 — Garden Centre & Hospital Volunteers & Lighthouses & First Factories",
+    title: "Full Test 12",
     section: 0,
     description:
       "Full 40-question test: a Bellfield Garden Centre job, hospital ward volunteers, a lighthouses presentation, and the history of the first factories.",
@@ -499,7 +499,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-5",
-    title: "LM7 Full Test 5 — Moving to Burnside & Mahana Market & Community Centre & Science Fiction",
+    title: "Full Test 13",
     section: 0,
     description:
       "Full 40-question test: moving to Burnside, Mahana Market manager interview, a potential community centre plan, and the importance of science fiction.",
@@ -510,7 +510,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-6",
-    title: "LM7 Full Test 6 — Improving Winton & Magnetism in Animals",
+    title: "Full Test 14",
     section: 0,
     description:
       "Full 40-question test: an interview about improving Winton, Mentona Fashion careers, a project on palm oil, and magnetism in animals.",
@@ -522,7 +522,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-7",
-    title: "LM7 Full Test 7 — Stamford Properties & Naked Mole Rats",
+    title: "Full Test 15",
     section: 0,
     description:
       "Full 40-question test: renting from Stamford Properties, Clifton Furniture staff orientation, careers and a work placement, and naked mole rats.",
@@ -534,7 +534,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-8",
-    title: "LM7 Full Test 8 — Campervans & Natural Building Materials",
+    title: "Full Test 16",
     section: 0,
     description:
       "Full 40-question test: an Oz Campervans quote form, Bexter Sports Centre, bees and the Varroa mite, and natural building materials.",
@@ -546,7 +546,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-9",
-    title: "LM7 Full Test 9 — Wildlife Society & Solar Water Purifier",
+    title: "Full Test 17",
     section: 0,
     description:
       "Full 40-question test: a Wildlife Conservation Society membership form, an office move, the artist Samuel Prout, and the SW40 solar water purifier.",
@@ -558,7 +558,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-10",
-    title: "LM7 Full Test 10 — Riverdale Pre-school & Driverless Vehicles",
+    title: "Full Test 18",
     section: 0,
     description:
       "Full 40-question test: Riverdale Pre-school enrolment, finding a part-time job at university, a research project on the use of public services, and a driverless vehicle competition.",
@@ -570,7 +570,7 @@ const TESTS: ListeningTest[] = [
   },
   {
     id: "lm7-full-test-11",
-    title: "LM7 Full Test 11 — Pearson's Estate Agency & Insects as a Food Source",
+    title: "Full Test 19",
     section: 0,
     description:
       "Full 40-question test: registering with Pearson's Estate Agency, an orientation talk at the Pennyfield Horse Riding Centre, a tutorial on a student's Just Coffee essay, and a lecture on insects as a food source.",
