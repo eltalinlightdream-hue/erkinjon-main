@@ -5051,6 +5051,158 @@ export const SPEAKING_TOPICS: SpeakingTopic[] = [
       },
     ],
   },
+  {
+    id: "painting-you-like",
+    part: 2,
+    title: "Describe a painting you like",
+    emoji: "🎨",
+    description: "A model long-turn answer about Van Gogh's Starry Night.",
+    cueCard: ["What it is", "When and where you saw it", "What it looks like", "And explain why you like it"],
+    questions: [
+      {
+        q: "Describe a painting or work of art you like.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I wouldn't describe myself as an [[art enthusiast|a person with a strong interest and passion for art]], but I'd like to talk about one of my [[all-time favourite|the most cherished of all]] paintings — Vincent Van Gogh's \"Starry Night.\" I [[stumbled upon|discovered by chance]] this masterpiece a few years back during a visit to the Museum of Modern Art in New York City, and it's been [[etched in my memory|deeply and permanently imprinted in my mind]] ever since.\n\nSo, \"Starry Night\" is a real beauty. It's like a magical, [[swirling night|a night scene with a dynamic, swirling appearance]] sky with bright, colourful stars, a crescent moon, and a cute little village down below. What's cool is that it's not your typical calm-night scene; it's more like the universe having a wild party up there. The colours are striking — deep blues, vibrant yellows, and some enchanting greens — creating this sense of harmony and peace, despite the cosmic chaos.\n\nThe genius [[behind this masterpiece|the artist responsible for this outstanding work]] is Vincent Van Gogh. He painted it in 1889 while he was at a mental asylum in France. It's not just a pretty picture; it's more like [[a window into|a view offering insight into]] Van Gogh's emotional world. The stars and the village are like characters in his [[inner drama|the emotional struggles and conflicts within him]].\n\nWhat really makes it stand out for me is the emotion it carries. At first glance it's like, wow, that's a bit wild! But when you dig deeper, it's all about longing and the idea that even in the midst of [[turbulence|chaos, disturbance and unrest]], there's incredible beauty. The stars seem to dance, and the village is all calm below, which is a striking contrast.\n\nNow, [[here's the kicker|the surprising part that adds real significance]]. I got even more into this painting after hearing Neil deGrasse Tyson talk about it. He explained that Van Gogh, despite the [[emotional turmoil|intense inner conflict and upheaval]], was quite the scientist in his own right. The stars and moon are scientifically accurate, even though they're represented with such [[artistic flair|a unique, creative style]]. This [[fusion of|the blending together of]] art and science just blew my mind.\n\nIn fact, I couldn't resist getting a high-quality copy of \"Starry Night\" and [[hanging it up|displaying it]] in my workroom. Whenever I feel stressed or need [[a burst of inspiration|a sudden surge of creative ideas]], I just look at it. The swirling stars remind me that there's beauty and order even in the [[craziest times|the most chaotic, unpredictable moments]].",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "photo-makes-you-happy",
+    part: 2,
+    title: "Describe a photo that makes you happy",
+    emoji: "📷",
+    description: "A model long-turn answer about a first-day-of-school photograph.",
+    cueCard: ["When it was taken", "Who took it", "What is in the photo", "And explain why it makes you happy"],
+    questions: [
+      {
+        q: "Describe a photo that makes you happy.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I don't really like pictures of myself, since I'm not [[a photogenic person|someone who looks attractive in photographs]] by nature, you know? But let me tell you about a picture that always [[brings a big smile to my face|makes me really happy]]. It's a snapshot from my very first day of school, [[a momentous day|a day of great importance]] in my life. My mum was the photographer, and it was taken at our home, a place filled with so many [[wonderful memories|recollections of happy experiences]].\n\nI remember that day like it was yesterday. The sun was shining brightly, and there was this [[sense of excitement in the air|a feeling of anticipation and enthusiasm all around]]. It happened on September 5th, which is quite a significant date in my country — it's not only the start of the school year but also Teachers' Day.\n\nIn this photo, you'll see a little version of me, all [[decked out|dressed up in a stylish way]] in my brand-new school uniform. I had this huge backpack on my tiny shoulders, and I was [[beaming with|smiling brightly and radiating]] a mix of nervousness and curiosity. I must have been around six years old, and my eyes were filled with wonder.\n\nWhat makes this photo so special is the [[rush of nostalgia|a sudden, strong longing for the past]] it brings. Looking at it, I'm instantly transported back to a time when life was simple, and my biggest concern was making new friends and learning new things. It captures the sheer joy of my childhood, and it's a heartwarming reminder of that [[carefree time|a period with few worries or responsibilities]].\n\nBut here's the thing — it's a bit of [[a two-edged sword|something with both a positive and a negative side]] for me. While it's a lovely [[trip down memory lane|a journey through past experiences and memories]], it also serves as a gentle reminder of how quickly time flies. [[It's a bit bittersweet to think about|it brings mixed feelings of joy and sadness]] how that little kid in the photo is now an adult, with responsibilities and grown-up worries. It's a reminder to seize the day and cherish every moment.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "party-you-attended",
+    part: 2,
+    title: "Describe a party you attended",
+    emoji: "🎉",
+    description: "A model long-turn answer about a backyard summer get-together with college friends.",
+    cueCard: ["Whose party it was", "Where it was held", "What you did there", "And explain why you enjoyed it"],
+    questions: [
+      {
+        q: "Describe a party you attended and enjoyed.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I'd love to tell you about this amazing party I attended recently. It was [[a casual get-together|a relaxed, informal gathering]] with my friends, which turned out to be [[an absolute blast|an extremely enjoyable, exciting experience]].\n\nSo, this party went down a few months back, during a warm summer evening, which was the [[perfect setting|an ideal environment]] for some [[outdoor fun|enjoyable activities outdoors]]. We decided to [[throw it|organise and host it]] in my buddy's backyard, and let me tell you, that place is like a [[mini-paradise|a small, beautiful place like a little piece of heaven]] with a cosy patio and lots of [[greenery|lush plants and trees]]. It [[set the scene for|created the perfect atmosphere for]] a great time.\n\nOur guest list was made up of some of my closest college buddies. We've known each other for years, and this was a chance to catch up. About ten of us showed up, which was just the right size for a fantastic gathering.\n\nWe wanted to keep things easygoing, so we made it [[a potluck-style affair|an event where each guest brings food to share]]. Everyone brought something, but the real star of the show was the barbecue. We grilled up a storm with all sorts of meats and veggies, and the smell was [[mouthwatering|so delicious it made your mouth water]]. To keep things going, we set up game consoles and a speaker system playing our favourite tunes — a perfect mix of great food and entertainment.\n\nAs for the activities, it was [[a real mixed bag|a varied assortment of things]]. We took turns on the video games, got competitive with some board games, and even had a hilarious game of charades. The [[laughter was non-stop|the laughter was continuous and unending]]. Later in the evening, we gathered around a bonfire, shared stories, and [[reminisced|recalled the past with nostalgia]] about our college days. It was one of those moments that just felt right, you know?\n\nWhat made this party so special was the chance to reconnect with old friends. We could just be ourselves, with no formality and no pressure. The cosy backyard, the [[scrumptious|exceptionally delicious]] BBQ, and all the fun games created an atmosphere of pure joy. It was all about celebrating our friendship, reliving the past, and enjoying the simple pleasures of life.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "park-you-like",
+    part: 2,
+    title: "Describe a park you like to visit",
+    emoji: "🌳",
+    description: "A model long-turn answer about Central Park (Mirzo Ulug'bek Park) in Tashkent.",
+    cueCard: ["Where it is", "How often you go there", "What it is like", "And explain why you like it"],
+    questions: [
+      {
+        q: "Describe a park you like to visit.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "There aren't really many parks I enjoy going to, especially here in Tashkent. But the one I do like visiting is Central Park — or, as we locals call it, Mirzo Ulug'bek Park — in the heart of Tashkent. It's [[hands down|without a doubt; unquestionably]] one of [[my all-time favourite|the best of all the places I've ever been to]] places to hang out. I make it a point to visit twice a week — once in the middle of the workweek and again on weekends. This place has got everything you could ask for, and that's why I keep coming back.\n\nYou see, Central Park is like [[an oasis of calm right smack|a peaceful, quiet place right in the middle]] of the bustling city. As soon as I [[step foot|set foot]] in there, it's like the city noise and the chaos in my head just disappear. Instead, I'm greeted by the [[soothing sounds|pleasant, comforting sounds that help you relax]] of chirping birds, rustling leaves, and the gentle flow of fountains. It's almost like entering another world of tranquillity. For me, it's my escape from [[the daily grind|the routine, monotonous demands of daily life]], a place to unwind from the pressures of work.\n\nBut [[the real deal with|the most impressive thing about]] Central Park is the fantastic views it serves up. There's an impressive mix of colourful flowers, sculptures, and lovely pathways. During spring it's a [[riot of colours|a burst of vibrant colours]] with those well-kept flowerbeds, and the views are absolutely breathtaking. Every time I take a stroll, I can't help but feel at peace and, dare I say, awestruck by the beauty. It's like visual therapy that [[melts away the stresses|relieves the pressures and worries]] of the day.\n\nAnd if you're into picnics, this place has you covered. There are these idyllic picnic spots that are just perfect for family gatherings or hanging out with friends. Imagine having [[a leisurely picnic|a relaxed, unhurried outdoor meal]] under the shade of the giant trees, or just sitting by the serene lake — [[it's the recipe for a perfect day out|it's the ideal combination for a wonderful day outdoors]]. It's in these moments that I spend quality time with my loved ones and truly let go of the worries that build up during a busy workweek.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "person-who-cooks-for-others",
+    part: 2,
+    title: "Describe a person who likes to cook for others",
+    emoji: "👨‍🍳",
+    description: "A model long-turn answer about a college roommate who loved cooking for friends.",
+    cueCard: ["Who this person is", "How you know them", "What they cook", "And explain why they like cooking for others"],
+    questions: [
+      {
+        q: "Describe a person who likes to cook for others.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Well, I know a lot of people who like cooking and [[do a pretty good job|do it with real skill]] at it. But when I think of someone who really enjoys cooking for others, the first person that [[pops into my head|comes to mind]] is my [[college buddy|close friend from college]] and roommate, John. This guy [[was something else when it came to|really excelled when it came to]] cooking, even though he started as a total amateur in the kitchen.\n\nYou see, John and I were close friends back in our college years. One day, I introduced him to a traditional dish from my culture, palov, which was [[foreign to him|completely unfamiliar to him]]. But instead of being [[daunted by the challenge|intimidated by the difficulty]], he [[took it on with a passion|approached it with great enthusiasm]] that was hard to miss. It was as if he had this innate talent for cooking, even with dishes he'd never heard of.\n\nWhat made John's cooking special was the way it brought out his kindness. Whenever he prepared a meal, he [[put his heart into it|showed genuine care and effort]]. He wasn't doing it for [[personal glory|recognition or fame for himself]], but because he genuinely loved making people happy through his food. You could taste the love and care in every bite.\n\nOne thing that stood out was that he saw cooking as a form of self-expression, something he did during his [[me-time|personal relaxation and leisure time]]. He didn't aspire to be a professional chef, but cooking was his way of relaxing. So whenever he felt like experimenting with new recipes or simply wanted to [[unwind|relax and de-stress]], he'd [[head to|go to]] the kitchen. His dishes were not just delicious but also [[oozed creativity|showed a remarkable amount of original ideas]], making every meal with him an unforgettable experience.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "science-subject-interested",
+    part: 2,
+    title: "Describe a science subject you are interested in",
+    emoji: "🔭",
+    description: "A model long-turn answer about a fascination with astronomy and Carl Sagan.",
+    cueCard: ["What it is", "How you became interested in it", "What you know about it", "And explain why you find it interesting"],
+    questions: [
+      {
+        q: "Describe a science subject you are interested in.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I've always been interested in science, but one particular subject I'm [[fascinated by|extremely interested in and captivated by]] is astronomy. It all began when I [[stumbled upon|discovered by chance]] the captivating documentaries and books of the legendary science communicator, Carl Sagan. This guy was [[a real science rockstar|a prominent, highly influential figure in science]], and he had this [[incredible knack for|exceptional talent for]] making the cosmos [[feel close to home|feel familiar and relatable]].\n\nOne of Sagan's quotes that really [[speaks to me|resonates deeply with me]] is: \"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself.\" I mean, isn't that [[mind-blowing|absolutely astonishing]]? It just shows how we're [[intricately connected|closely intertwined]] with the universe.\n\nSo why does astronomy [[light up my world|bring me so much joy and excitement]]? Well, first and foremost, it's the [[sheer awe of|the overwhelming wonder at]] exploring the universe. Just think about it — billions of galaxies, each with billions of stars and maybe even planets like ours. It's a humbling and exciting thought.\n\nAstronomy doesn't just let us [[stargaze|observe the stars in the night sky]]; it helps us understand where we came from. The Big Bang theory, the birth of stars and galaxies — it's like [[peeling back|gradually uncovering]] the layers of the universe's history. The more you learn, the more it [[boggles your mind|astonishes you completely]].\n\nAnd who can forget the quest for [[extraterrestrial life|life beyond Earth]]? Sagan was super into that, and it's a topic that's always fascinated me too. The possibility of life beyond Earth is [[the stuff of sci-fi dreams|the kind of idea you find in science fiction]]! But it's not all [[cosmic pondering|reflecting on the mysteries of the universe]]. Astronomy has [[real-world applications|practical uses in everyday life]] too — predicting eclipses, meteor showers, or even advancing technology and exploring space. It's all [[linked back to|connected back to]] our fascination with the stars.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "rule-you-dont-like",
+    part: 2,
+    title: "Describe a rule you don't like",
+    emoji: "📵",
+    description: "A model long-turn answer about the ban on using phones in libraries.",
+    cueCard: ["What the rule is", "Where it applies", "Why you don't like it", "And explain what you would change about it"],
+    questions: [
+      {
+        q: "Describe a rule you don't like.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "Well, I honestly think there are way too many rules. Rules you have to follow as a child, rules you have to [[comply with|follow and adhere to]] at school — they're [[ubiquitous|present everywhere; completely widespread]].\n\nYou know, there's this one rule that really [[gets on my nerves|annoys and irritates me]] — the ban on using cellphones in libraries. I mean, I get why they want to keep things quiet and focused, but I think it's a bit [[too strict and outdated|excessively rigid and behind the times]].\n\nLibraries have always been these [[havens for|safe, comforting places for]] quiet learning, and I totally respect that. But let's be real — our smartphones are basically like Swiss Army knives for learning. You can access e-books, research things, and use all sorts of educational apps right on your phone. Plus, I'm one of those people who likes to [[jot down notes|quickly write brief notes]] on my phone during study sessions. So this [[no-cellphone policy|a rule that prohibits any cellphone use]] seems like it's [[holding onto the past|resisting change and keeping outdated practices]].\n\nAnd you know what's frustrating? There are moments when you absolutely need your phone. I remember once I had a family emergency, and not having my phone with me in the library was [[a real headache|a significant, frustrating problem]]. So instead of [[an all-out ban|a complete, unrestricted prohibition]], why not allow quiet cellphone use for educational purposes and essential communication? That way, the library can be a place for both traditional and modern learning, and everyone can [[get the best of both worlds|enjoy the advantages of both at once]].\n\nThis rule is something I [[can't quite get behind|can't fully support or agree with]]. I get the need for peace and quiet, but this rule really needs to change.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "person-never-met",
+    part: 2,
+    title: "Describe a person you have never met in person",
+    emoji: "💬",
+    description: "A model long-turn answer about an online friend from Russia met through Reddit.",
+    cueCard: ["Who this person is", "How you know about them", "What kind of person they are", "And explain why you would like to meet them"],
+    questions: [
+      {
+        q: "Describe a person you have never met in person but would like to know more about.",
+        answers: [
+          {
+            label: "Model Answer",
+            text: "I've met many people on the internet's [[town square|a central public space for gathering — in this case, Reddit]], which is Reddit. I've got this friend from Russia who's just a very interesting individual. We [[crossed paths|met by chance]] on a language-learning subreddit, and our [[connection was instant|a strong bond formed almost immediately]]. What's really cool about her is that she's an Arabic teacher at a university. Her deep understanding of the language and Middle Eastern culture is seriously impressive. She's [[not just book-smart|not just knowledgeable from books and formal study]]; she's lived it by [[extensively travelling|travelling to many different places]] around the Middle East. Plus, she even got her degree from an American college.\n\nBut it's not just her job or her travels that make her so interesting — it's the way she sees the world. Our conversations often [[veer into|suddenly turn towards]] deep discussions about global politics, history, and [[current affairs|news and events happening right now]]. And every time we chat, I [[can't help but be blown away|can't help but be extremely impressed]] by her [[insights|deep understandings and perspectives]]. She's like this [[walking, talking encyclopedia|someone with extensive knowledge on a huge range of topics]].\n\nWhat's even more [[fascinating|extremely interesting and captivating]] is her perspective on my home country, Uzbekistan. She's curious about it and wants to visit, but she made this intriguing point: that Uzbekistan, as a post-Soviet country, might not feel entirely foreign to her because there are some [[shared cultural elements|common customs and traditions held by both societies]]. It's a viewpoint I'd never considered, and it shows how she can look at [[things from all angles|things from many different perspectives]].\n\nSo, even though we've never met in person, I'm super eager to keep this virtual friendship going.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function findSpeakingTopic(id: string): SpeakingTopic | undefined {
