@@ -569,6 +569,18 @@ const TESTS: ListeningTest[] = [
     isNew: true,
   },
   {
+    id: "lm7-full-test-11",
+    title: "LM7 Full Test 11 — Pearson's Estate Agency & Insects as a Food Source",
+    section: 0,
+    description:
+      "Full 40-question test: registering with Pearson's Estate Agency, an orientation talk at the Pennyfield Horse Riding Centre, a tutorial on a student's Just Coffee essay, and a lecture on insects as a food source.",
+    questions: 40,
+    htmlFile: "/passages/lm7test11full.html",
+    audioFile: "/passages/audio/lm7test11.mp3",
+    isPremium: false,
+    isNew: true,
+  },
+  {
     id: "s4-dormancy",
     title: "Dormancy",
     section: 4,
