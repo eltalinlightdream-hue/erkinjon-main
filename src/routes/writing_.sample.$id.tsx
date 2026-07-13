@@ -6,7 +6,8 @@ import { findWritingSample } from "@/lib/writing-samples-data";
 import { HighlightableContent } from "@/components/highlightable-content";
 import { cn } from "@/lib/utils";
 import { useIsPremium, PremiumRequired } from "@/components/premium-lock";
-import { isFreeWritingSample } from "@/lib/premium-content";
+import { isFreeWritingSample, effectiveIsPremium, writingContentId } from "@/lib/premium-content";
+import { useContentOverrides } from "@/hooks/use-content-overrides";
 
 export const Route = createFileRoute("/writing_/sample/$id")({
   head: ({ params }) => {
@@ -29,6 +30,7 @@ function WritingSampleView() {
   const { id } = Route.useParams();
   const sample = findWritingSample(id);
   const isPremium = useIsPremium();
+  const { overrides } = useContentOverrides();
 
   if (!sample) {
     return (
@@ -47,7 +49,13 @@ function WritingSampleView() {
     );
   }
 
-  if (!isFreeWritingSample(sample.id) && !isPremium) {
+  const sampleIsPremium = effectiveIsPremium(
+    "writing",
+    writingContentId.sample(sample.id),
+    !isFreeWritingSample(sample.id),
+    overrides,
+  );
+  if (sampleIsPremium && !isPremium) {
     return (
       <SiteLayout>
         <PremiumRequired title="This Task 1 sample is Premium" />
