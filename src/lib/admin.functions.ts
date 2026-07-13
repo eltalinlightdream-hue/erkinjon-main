@@ -227,3 +227,98 @@ export const adminDeleteCode = createServerFn({ method: "POST" })
     }
     return { ok: true };
   });
+
+/* ────────────────────────────────────────────────────────────────
+   Content free/premium overrides. Each row is an admin exception to
+   the built-in "first N free" defaults, keyed by (content_type,
+   content_id). Absent row = use the default. The admin Content panel
+   deletes a row (rather than storing it) when a choice matches the
+   default, so the table only ever holds genuine exceptions.
+   ──────────────────────────────────────────────────────────────── */
+
+export interface AdminContentOverride {
+  content_type: string;
+  content_id: string;
+  is_premium: boolean;
+  updated_at: string;
+}
+
+const contentSectionSchema = z.enum(["listening", "reading", "writing", "speaking"]);
+const contentIdSchema = z.string().trim().min(1).max(200);
+
+export const adminListContentOverrides = createServerFn({ method: "POST" })
+  .middleware([requireAdmin])
+  .handler(async (): Promise<AdminContentOverride[]> => {
+    const { data, error } = await supabaseAdmin
+      .from("content_premium_overrides")
+      .select("content_type, content_id, is_premium, updated_at");
+    if (error) throw new Error("Could not load content overrides.");
+    return data ?? [];
+  });
+
+export const adminSetContentPremium = createServerFn({ method: "POST" })
+  .middleware([requireAdmin])
+  .inputValidator(
+    z.object({
+      contentType: contentSectionSchema,
+      contentId: contentIdSchema,
+      isPremium: z.boolean(),
+    }).parse,
+  )
+  .handler(async ({ data, context }) => {
+    const { error } = await supabaseAdmin.from("content_premium_overrides").upsert(
+      {
+        content_type: data.contentType,
+        content_id: data.contentId,
+        is_premium: data.isPremium,
+        updated_at: new Date().toISOString(),
+        updated_by: context.userId,
+      },
+      { onConflict: "content_type,content_id" },
+    );
+    if (error) throw new Error("Could not update this item.");
+    return { ok: true };
+  });
+
+export const adminBulkUpsertContentPremium = createServerFn({ method: "POST" })
+  .middleware([requireAdmin])
+  .inputValidator(
+    z.object({
+      contentType: contentSectionSchema,
+      contentIds: z.array(contentIdSchema).min(1).max(2000),
+      isPremium: z.boolean(),
+    }).parse,
+  )
+  .handler(async ({ data, context }) => {
+    const now = new Date().toISOString();
+    const rows = data.contentIds.map((contentId) => ({
+      content_type: data.contentType,
+      content_id: contentId,
+      is_premium: data.isPremium,
+      updated_at: now,
+      updated_by: context.userId,
+    }));
+    const { error } = await supabaseAdmin
+      .from("content_premium_overrides")
+      .upsert(rows, { onConflict: "content_type,content_id" });
+    if (error) throw new Error("Could not update these items.");
+    return { ok: true, count: rows.length };
+  });
+
+export const adminResetContentOverride = createServerFn({ method: "POST" })
+  .middleware([requireAdmin])
+  .inputValidator(
+    z.object({
+      contentType: contentSectionSchema,
+      contentIds: z.array(contentIdSchema).min(1).max(2000),
+    }).parse,
+  )
+  .handler(async ({ data }) => {
+    const { error } = await supabaseAdmin
+      .from("content_premium_overrides")
+      .delete()
+      .eq("content_type", data.contentType)
+      .in("content_id", data.contentIds);
+    if (error) throw new Error("Could not reset these items to default.");
+    return { ok: true };
+  });

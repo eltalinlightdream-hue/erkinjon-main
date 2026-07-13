@@ -59,6 +59,30 @@ export type Database = {
         }
         Relationships: []
       }
+      content_premium_overrides: {
+        Row: {
+          content_id: string
+          content_type: string
+          is_premium: boolean
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          content_id: string
+          content_type: string
+          is_premium: boolean
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          content_id?: string
+          content_type?: string
+          is_premium?: boolean
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       bookmarks: {
         Row: {
           created_at: string

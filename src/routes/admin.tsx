@@ -2,20 +2,23 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { Activity, Crown, KeyRound, Loader2, Shield, Users } from "lucide-react";
+import { Activity, Crown, KeyRound, Library, Loader2, Shield, Users } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { StudentsPanel } from "@/components/admin/students-panel";
 import { CodesPanel } from "@/components/admin/codes-panel";
+import { ContentPanel } from "@/components/admin/content-panel";
 import { isWithinDays } from "@/components/admin/admin-format";
 import { useAuth } from "@/hooks/use-auth";
 import { isAdminEmail } from "@/lib/admin-config";
 import {
   adminListCodes,
+  adminListContentOverrides,
   adminListStudents,
   type AdminCode,
+  type AdminContentOverride,
   type AdminStudent,
 } from "@/lib/admin.functions";
 
@@ -36,17 +39,20 @@ function Admin() {
   const navigate = useNavigate();
   const listStudentsFn = useServerFn(adminListStudents);
   const listCodesFn = useServerFn(adminListCodes);
+  const listOverridesFn = useServerFn(adminListContentOverrides);
 
   const [students, setStudents] = useState<AdminStudent[]>([]);
   const [codes, setCodes] = useState<AdminCode[]>([]);
+  const [overrides, setOverrides] = useState<AdminContentOverride[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
 
   const isAdmin = isAdminEmail(user?.email);
 
   const loadAll = useCallback(async () => {
-    const [studentsResult, codesResult] = await Promise.allSettled([
+    const [studentsResult, codesResult, overridesResult] = await Promise.allSettled([
       listStudentsFn(),
       listCodesFn(),
+      listOverridesFn(),
     ]);
     if (studentsResult.status === "fulfilled") {
       setStudents(studentsResult.value);
@@ -58,7 +64,12 @@ function Admin() {
     } else {
       toast.error("Could not load activation codes.");
     }
-  }, [listStudentsFn, listCodesFn]);
+    if (overridesResult.status === "fulfilled") {
+      setOverrides(overridesResult.value);
+    } else {
+      toast.error("Could not load content overrides.");
+    }
+  }, [listStudentsFn, listCodesFn, listOverridesFn]);
 
   useEffect(() => {
     if (!loading && !user) navigate({ to: "/auth" });
@@ -182,12 +193,18 @@ function Admin() {
             <TabsTrigger value="codes" className="font-mono text-xs tracking-wide">
               <KeyRound className="w-3.5 h-3.5 mr-1.5" /> Activation codes
             </TabsTrigger>
+            <TabsTrigger value="content" className="font-mono text-xs tracking-wide">
+              <Library className="w-3.5 h-3.5 mr-1.5" /> Content access
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="students">
             <StudentsPanel students={students} isLoading={isLoadingData} onReload={loadAll} />
           </TabsContent>
           <TabsContent value="codes">
             <CodesPanel codes={codes} isLoading={isLoadingData} onReload={loadAll} />
+          </TabsContent>
+          <TabsContent value="content">
+            <ContentPanel overrides={overrides} isLoading={isLoadingData} onReload={loadAll} />
           </TabsContent>
         </Tabs>
       </section>

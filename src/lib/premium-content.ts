@@ -13,6 +13,9 @@
 import { ARTICLES } from "@/lib/articles-data";
 import { WRITING_SAMPLES, WRITING_ESSAYS } from "@/lib/writing-samples-data";
 import { SPEAKING_TOPICS } from "@/lib/speaking-samples-data";
+import { TESTS } from "@/lib/listening-data";
+import { PASSAGES } from "@/lib/reading-data";
+import { HTML_TASKS } from "@/lib/writing-simulators-data";
 
 /** How many items stay free at the top of each content list. */
 export const FREE_LIMITS = {
@@ -46,5 +49,71 @@ export const isFreeWritingSample = (id: string): boolean => freeWritingSampleIds
 const freeWritingEssayIds = firstIds(WRITING_ESSAYS, FREE_LIMITS.writingSamplesPerTask);
 export const isFreeWritingEssay = (id: string): boolean => freeWritingEssayIds.has(id);
 
+/* Writing simulators: the first N in each task (1 and 2) stay free. */
+const freeWritingSimulatorIds = new Set(
+  ([1, 2] as const).flatMap((task) =>
+    HTML_TASKS.filter((t) => t.task === task)
+      .slice(0, FREE_LIMITS.writingSimulatorsPerTask)
+      .map((t) => t.id),
+  ),
+);
+export const isFreeWritingSimulator = (id: string): boolean => freeWritingSimulatorIds.has(id);
+
 const freeSpeakingTopicIds = firstIds(SPEAKING_TOPICS, FREE_LIMITS.speakingTopics);
 export const isFreeSpeakingTopic = (id: string): boolean => freeSpeakingTopicIds.has(id);
+
+/* Listening: the first N tests in list order stay free. */
+const freeListeningTestIds = firstIds(TESTS, FREE_LIMITS.listeningTests);
+export const isFreeListeningTest = (id: string): boolean => freeListeningTestIds.has(id);
+
+/* Reading: the first N non-premium passages stay free; passages flagged
+   `isPremium` in the data are always premium by default. */
+const freeReadingPassageIds = new Set(
+  PASSAGES.filter((p) => !p.isPremium)
+    .slice(0, FREE_LIMITS.readingPassages)
+    .map((p) => p.id),
+);
+export const isDefaultPremiumReading = (passage: { id: string; isPremium: boolean }): boolean =>
+  passage.isPremium || !freeReadingPassageIds.has(passage.id);
+
+/* ────────────────────────────────────────────────────────────────
+   Admin content overrides — a persisted per-item free/premium choice
+   that layers on top of the default rules above. When an admin sets
+   an item explicitly, that decision wins; untouched items keep the
+   defaults. See `content_premium_overrides` (Supabase) + the admin
+   Content panel.
+   ──────────────────────────────────────────────────────────────── */
+
+export type ContentSection = "listening" | "reading" | "writing" | "speaking";
+
+/** Overrides keyed by `${section}:${contentId}` → is_premium. */
+export type ContentOverrideMap = Record<string, boolean>;
+
+export const overrideKey = (section: ContentSection, contentId: string): string =>
+  `${section}:${contentId}`;
+
+/**
+ * Effective premium status for one item: the admin override when one
+ * exists, otherwise the built-in default. `overrides` may be undefined
+ * (e.g. before the map has loaded) — in that case the default is used.
+ */
+export function effectiveIsPremium(
+  section: ContentSection,
+  contentId: string,
+  defaultIsPremium: boolean,
+  overrides: ContentOverrideMap | undefined,
+): boolean {
+  const value = overrides?.[overrideKey(section, contentId)];
+  return value === undefined ? defaultIsPremium : value;
+}
+
+/**
+ * The three Writing content families share the "writing" section but
+ * live in separate lists, so their override ids are namespaced to stay
+ * unique. Routes and the admin registry build ids through these.
+ */
+export const writingContentId = {
+  simulator: (id: string): string => `sim:${id}`,
+  sample: (id: string): string => `sample:${id}`,
+  essay: (id: string): string => `essay:${id}`,
+} as const;

@@ -26,7 +26,8 @@ import {
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import { useIsPremium, PremiumCardOverlay, PremiumRequired } from "@/components/premium-lock";
-import { isFreeSpeakingTopic } from "@/lib/premium-content";
+import { isFreeSpeakingTopic, effectiveIsPremium } from "@/lib/premium-content";
+import { useContentOverrides } from "@/hooks/use-content-overrides";
 
 type SamplesSearch = {
   topic?: string;
@@ -178,7 +179,10 @@ function HighlightedText({
 
 function TopicCard({ topic }: { topic: SpeakingTopic }) {
   const isPremium = useIsPremium();
-  const locked = !isFreeSpeakingTopic(topic.id) && !isPremium;
+  const { overrides } = useContentOverrides();
+  const locked =
+    effectiveIsPremium("speaking", topic.id, !isFreeSpeakingTopic(topic.id), overrides) &&
+    !isPremium;
   const count = topic.questions.length;
   const inner = (
     <div className="bento-card p-6 h-full flex flex-col cursor-pointer">
@@ -489,13 +493,17 @@ function WrittenSamples() {
   const { topic: topicId, part } = Route.useSearch();
   const topic = topicId ? findSpeakingTopic(topicId) : undefined;
   const isPremium = useIsPremium();
+  const { overrides } = useContentOverrides();
 
   // Scroll to top when switching between index and topic views
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [topicId]);
 
-  const topicLocked = !!topic && !isFreeSpeakingTopic(topic.id) && !isPremium;
+  const topicLocked =
+    !!topic &&
+    effectiveIsPremium("speaking", topic.id, !isFreeSpeakingTopic(topic.id), overrides) &&
+    !isPremium;
 
   return (
     <SiteLayout>
