@@ -26,10 +26,11 @@ import {
   Volume2,
   CheckCircle2,
   Download,
+  Loader2,
 } from "lucide-react";
 import { HighlightableContent } from "@/components/highlightable-content";
-import { ArticlePrint } from "@/components/article-print";
 import { findArticle, ARTICLES, DIFFICULTY_STYLES } from "@/lib/articles-data";
+import { downloadArticlePdf } from "@/lib/article-pdf";
 import { useIsPremium, PremiumRequired } from "@/components/premium-lock";
 import { isFreeArticle } from "@/lib/premium-content";
 import { SaveVocabModal } from "@/components/save-vocab-modal";
@@ -65,6 +66,7 @@ function ArticleView() {
   }>(null);
   const [tab, setTab] = useState<TabKey>("article");
   const [finished, setFinished] = useState(() => getReadSlugs().has(slug));
+  const [downloading, setDownloading] = useState(false);
 
   if (!article) {
     return (
@@ -182,11 +184,30 @@ function ArticleView() {
           ))}
 
           <button
-            onClick={() => window.print()}
+            onClick={async () => {
+              if (downloading) return;
+              setDownloading(true);
+              try {
+                // Let the spinner paint before the synchronous build runs.
+                await new Promise((r) => requestAnimationFrame(() => r(null)));
+                downloadArticlePdf(article);
+                toast.success("PDF downloaded");
+              } catch {
+                toast.error("Could not generate the PDF. Please try again.");
+              } finally {
+                setDownloading(false);
+              }
+            }}
+            disabled={downloading}
             title="Download this article and its vocabulary as a PDF"
-            className="ml-auto shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 my-2 rounded-full font-mono text-[10px] tracking-widest uppercase border border-border text-muted-foreground hover:text-secondary hover:border-secondary hover:bg-secondary/8 active:scale-95 transition-all whitespace-nowrap"
+            className="ml-auto shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 my-2 rounded-full font-mono text-[10px] font-semibold tracking-widest uppercase bg-secondary text-white shadow-sm hover:bg-secondary/90 active:scale-95 transition-all whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            <Download className="w-3.5 h-3.5" /> PDF
+            {downloading ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+            ) : (
+              <Download className="w-3.5 h-3.5" />
+            )}
+            {downloading ? "Preparing…" : "Download PDF"}
           </button>
         </div>
         {/* Signature gradient line */}
@@ -343,9 +364,6 @@ function ArticleView() {
           </section>
         )}
       </article>
-
-      {/* Hidden printable document — revealed only by the print stylesheet */}
-      <ArticlePrint article={article} />
 
       {saveOpen && (
         <SaveVocabModal
