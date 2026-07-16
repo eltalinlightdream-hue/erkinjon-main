@@ -807,3 +807,185 @@ html {
     opacity: 1 !important;
   }
 }
+
+/* ─── ARTICLE PDF / PRINT ─────────────────────────────────────── */
+/* The printable article document (see components/article-print.tsx) is
+   hidden on screen and revealed only when printing / saving to PDF. */
+
+.article-print-root {
+  display: none;
+}
+
+@media print {
+  /* Isolate the printable document: hide the app shell, toasts, nav, etc. */
+  body > *:not(.article-print-root) {
+    display: none !important;
+  }
+
+  @page {
+    margin: 18mm 16mm;
+  }
+
+  .article-print-root {
+    display: block !important;
+    max-width: 100%;
+    color: #1b1b20;
+    background: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .article-print-root .ap-header {
+    border-bottom: 2px solid #c8613f;
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+  }
+
+  .article-print-root .ap-eyebrow {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #b0563a;
+    margin: 0 0 8px;
+  }
+
+  .article-print-root .ap-title {
+    font-size: 24pt;
+    font-weight: 700;
+    line-height: 1.12;
+    margin: 0 0 10px;
+  }
+
+  .article-print-root .ap-desc {
+    font-size: 11.5pt;
+    font-style: italic;
+    color: #43434c;
+    margin: 0 0 8px;
+  }
+
+  .article-print-root .ap-meta {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 8.5pt;
+    letter-spacing: 0.05em;
+    color: #6b6b73;
+    margin: 0;
+  }
+
+  .article-print-root .ap-body h2 {
+    font-size: 15pt;
+    font-weight: 700;
+    margin: 20px 0 8px;
+    break-after: avoid;
+  }
+
+  .article-print-root .ap-body h3 {
+    font-size: 12.5pt;
+    font-weight: 700;
+    margin: 16px 0 6px;
+    break-after: avoid;
+  }
+
+  .article-print-root .ap-body p {
+    margin: 0 0 10px;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .article-print-root .ap-body ul,
+  .article-print-root .ap-body ol {
+    margin: 0 0 10px;
+    padding-left: 22px;
+  }
+
+  .article-print-root .ap-body li {
+    margin-bottom: 4px;
+  }
+
+  .article-print-root .ap-body blockquote {
+    border-left: 3px solid #c8613f;
+    padding-left: 14px;
+    font-style: italic;
+    color: #43434c;
+    margin: 0 0 10px;
+  }
+
+  .article-print-root .ap-section {
+    margin-top: 26px;
+    break-before: page;
+  }
+
+  .article-print-root .ap-section-title {
+    font-size: 16pt;
+    font-weight: 700;
+    border-bottom: 1px solid #d8d8dc;
+    padding-bottom: 6px;
+    margin: 0 0 14px;
+  }
+
+  .article-print-root .ap-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-print-root .ap-vocab-item {
+    break-inside: avoid;
+    padding: 8px 0;
+    border-bottom: 1px solid #ececef;
+  }
+
+  .article-print-root .ap-vocab-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 3px;
+  }
+
+  .article-print-root .ap-word {
+    font-size: 13pt;
+    font-weight: 700;
+  }
+
+  .article-print-root .ap-tag {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b6b73;
+    border: 1px solid #d8d8dc;
+    border-radius: 4px;
+    padding: 1px 5px;
+  }
+
+  .article-print-root .ap-ipa {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 10pt;
+    color: #b0563a;
+  }
+
+  .article-print-root .ap-def {
+    margin: 0 0 3px;
+    font-size: 10.5pt;
+  }
+
+  .article-print-root .ap-example {
+    margin: 0;
+    font-size: 10pt;
+    font-style: italic;
+    color: #56565e;
+  }
+
+  .article-print-root .ap-footer {
+    margin-top: 28px;
+    padding-top: 10px;
+    border-top: 1px solid #d8d8dc;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 8pt;
+    letter-spacing: 0.05em;
+    color: #8a8a92;
+  }
+}

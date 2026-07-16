@@ -19,8 +19,16 @@ import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, ArrowLeft, BookmarkPlus as BPIcon, Volume2, CheckCircle2 } from "lucide-react";
+import {
+  Clock,
+  ArrowLeft,
+  BookmarkPlus as BPIcon,
+  Volume2,
+  CheckCircle2,
+  Download,
+} from "lucide-react";
 import { HighlightableContent } from "@/components/highlightable-content";
+import { ArticlePrint } from "@/components/article-print";
 import { findArticle, ARTICLES, DIFFICULTY_STYLES } from "@/lib/articles-data";
 import { useIsPremium, PremiumRequired } from "@/components/premium-lock";
 import { isFreeArticle } from "@/lib/premium-content";
@@ -151,7 +159,7 @@ function ArticleView() {
 
       {/* ─── Sticky tab bar ─────────────────────────────── */}
       <div className="sticky top-14 z-30 glass-nav border-b border-border/40">
-        <div className="container mx-auto px-4 max-w-4xl flex gap-0 overflow-x-auto">
+        <div className="container mx-auto px-4 max-w-4xl flex items-center gap-0 overflow-x-auto">
           {(
             [
               { k: "article", label: "Article" },
@@ -172,6 +180,14 @@ function ArticleView() {
               {label}
             </button>
           ))}
+
+          <button
+            onClick={() => window.print()}
+            title="Download this article and its vocabulary as a PDF"
+            className="ml-auto shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 my-2 rounded-full font-mono text-[10px] tracking-widest uppercase border border-border text-muted-foreground hover:text-secondary hover:border-secondary hover:bg-secondary/8 active:scale-95 transition-all whitespace-nowrap"
+          >
+            <Download className="w-3.5 h-3.5" /> PDF
+          </button>
         </div>
         {/* Signature gradient line */}
         <div
@@ -327,6 +343,9 @@ function ArticleView() {
           </section>
         )}
       </article>
+
+      {/* Hidden printable document — revealed only by the print stylesheet */}
+      <ArticlePrint article={article} />
 
       {saveOpen && (
         <SaveVocabModal
