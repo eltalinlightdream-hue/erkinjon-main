@@ -5605,6 +5605,2509 @@ export const ARTICLES: Article[] = [
       },
     ],
   },
+  {
+    id: "a25",
+    slug: "we-need-social-science-not-just-medical-science-to-beat-the-pandemic",
+    title: "We Need Social Science, Not Just Medical Science, to Beat the Pandemic",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-05",
+    description:
+      "Vaccines and medicine are only half the battle. Controlling a pandemic also depends on human behaviour, social inequality, and how well scientists communicate what they know.",
+    readingTime: 5,
+    content: `
+      <p><strong>When the history of the COVID pandemic is written, it will not only be a story of viruses and vaccines. It will also be a story of human behaviour, trust, and social inequality — factors that medical science alone cannot manage.</strong></p>
+
+      <h2>Why medicine is not enough</h2>
+      <p>Scientific research gave us new knowledge quickly, and the development of vaccines in record time was welcome news. Yet even with vaccines, success in controlling the virus continues to depend on how people behave. Science cannot beat a pandemic through medical fixes alone; social and behavioural science need a seat at the table too.</p>
+
+      <h2>Lessons from history</h2>
+      <p>The assumption that modern societies are simply ready to "follow the science" is not supported by the past. During the great flu pandemic of 1918–19, some cities did far better than others at containing a virus that killed close to 50 million people. Distrust of government and science undermined efforts to encourage mask-wearing, and many people not only refused to comply but protested against the rules.</p>
+      <p>The polio campaigns of the 1950s look like a success story, but the reality was messier. A national vaccine mandate lacked a clear federal plan, poor oversight of manufacturing made some children sick, and limited resources slowed the rollout. The resulting confusion created public distrust that took years to fade.</p>
+
+      <h2>Science as a social phenomenon</h2>
+      <p>The pandemic held up a mirror to society, reflecting the inequality we have allowed to harden over time. Understanding social reactions to scientific knowledge — and helping science become aware of its own biases — is exactly the work that social science can do.</p>
+
+      <h2>Communicating uncertainty</h2>
+      <p>Science gains its authority through constant testing and revision, but to outsiders this can look like confusion. Early in the pandemic people were told to scrub surfaces rather than wear masks; later it became clear that airborne droplets were the main route of transmission. Scientists need to communicate not just what they know, but how they come to know it.</p>
+
+      <h2>The threat of misinformation</h2>
+      <p>Human behaviour evolves as knowledge grows, but each of us interprets that knowledge in our own way. Because of the pervasive influence of social media, new findings are often overwhelmed by misinformation, conspiracy theories, and "alternative facts". For science to build a healthier and more just world, science and social science must work hand in hand.</p>
+    `,
+    vocabulary: [
+      {
+        word: "confounding factor",
+        wordType: "noun phrase",
+        definition: "something that makes a situation harder to understand or measure",
+        example: "Human behaviour is a major confounding factor in any pandemic.",
+      },
+      {
+        word: "mitigate",
+        wordType: "verb",
+        definition: "to make something less severe or harmful",
+        example: "Masks and distancing helped mitigate the spread of the virus.",
+      },
+      {
+        word: "comply",
+        wordType: "verb",
+        definition: "to obey a rule, order, or request",
+        example: "Many people refused to comply with mask mandates.",
+      },
+      {
+        word: "oversight",
+        wordType: "noun",
+        definition: "careful watching to make sure something is done correctly",
+        example: "Poor oversight of the vaccine's production made some children sick.",
+      },
+      {
+        word: "inequity",
+        wordType: "noun",
+        definition: "a situation that is unfair because some people have more than others",
+        example: "The pandemic exposed deep social inequity.",
+      },
+      {
+        word: "distrust",
+        wordType: "noun",
+        definition: "a feeling that you cannot rely on or believe someone",
+        example: "Distrust of government slowed the public health response.",
+      },
+      {
+        word: "transmission",
+        wordType: "noun",
+        definition: "the process of passing something, such as a disease, from one person to another",
+        example: "Airborne droplets are the main route of viral transmission.",
+      },
+      {
+        word: "pervasive",
+        wordType: "adjective",
+        definition: "spreading widely and present in every part of something",
+        example: "Social media has a pervasive influence on public opinion.",
+      },
+      {
+        word: "misinformation",
+        wordType: "noun",
+        definition: "false or inaccurate information, especially that is spread widely",
+        example: "Misinformation about vaccines spread rapidly online.",
+      },
+      {
+        word: "conspiracy theory",
+        wordType: "noun phrase",
+        definition: "a belief that a secret plan by powerful people explains an event",
+        example: "The internet gave easy access to conspiracy theories.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "anthropology",
+        ipa: "/an-thruh-POL-uh-jee/",
+        syllables: "an-thro-pol-o-gy",
+        tip: "Stress POL.",
+      },
+      {
+        word: "pandemic",
+        ipa: "/pan-DEM-ik/",
+        syllables: "pan-dem-ic",
+        tip: "Stress DEM.",
+      },
+      {
+        word: "vaccine",
+        ipa: "/vak-SEEN/",
+        syllables: "vac-cine",
+        tip: "Stress SEEN.",
+      },
+      {
+        word: "inequity",
+        ipa: "/in-EK-wuh-tee/",
+        syllables: "in-eq-ui-ty",
+        tip: "Stress EK.",
+      },
+      {
+        word: "misinformation",
+        ipa: "/mis-in-fer-MAY-shun/",
+        syllables: "mis-in-for-ma-tion",
+        tip: "Stress MAY.",
+      },
+    ],
+  },
+  {
+    id: "a26",
+    slug: "covid-wont-be-the-last-pandemic-will-we-be-better-prepared",
+    title: "Covid Won't Be the Last Pandemic. Will We Be Better Prepared for the Next One?",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-07",
+    description:
+      "Scientists agree another pandemic is a matter of when, not if. Global surveillance, faster vaccines, and sustained investment in research are the keys to being ready.",
+    readingTime: 6,
+    content: `
+      <p><strong>Most scientists agree that we will face another pandemic — the question is when, not if. Whether the next crisis comes from a new virus or a drug-resistant bacterium, preparation must begin long before it arrives.</strong></p>
+
+      <h2>Where the next threat might come from</h2>
+      <p>The next pandemic could be caused by antibiotic-resistant bacteria that already exist, evading even our drugs of last resort. Or, like COVID-19, it could come from a virus spilling over from animals to humans. Every time a virus circulates among bats, rodents, livestock, or birds and then meets people, there is a chance it will jump species and begin spreading between humans.</p>
+
+      <h2>Global surveillance</h2>
+      <p>International travel and trade connect countries and give diseases new ways to spread. Just as we have a weather service, governments should invest in a global virus surveillance network to scan for dangerous new pathogens and catch animal viruses before they cross into human populations. It is not only new pathogens we should fear, but new variants of existing viruses, which have already emerged in several countries.</p>
+
+      <h2>Building capacity everywhere</h2>
+      <p>Countries need genetic sequencing facilities to detect and track new strains and to judge whether booster shots are needed. Wealthier nations already have this infrastructure, but poorer ones often do not. International bodies such as the World Bank and the World Health Organization have a crucial role to play in funding and supporting outbreak detection worldwide.</p>
+
+      <h2>Faster vaccines</h2>
+      <p>COVID-19 vaccines were developed at remarkable speed, but next time we will need to move even faster. Developing a vaccine is only half the battle: countries also need manufacturing capacity and coordination to create regional hubs for mass production and delivery.</p>
+
+      <h2>Don't forget the flu</h2>
+      <p>Seasonal flu causes an estimated 650,000 deaths every year, and a new pandemic strain could be disastrous. Rather than only building enough hospitals to treat the sick, governments should aim to suppress the spread of dangerous pathogens. A single-dose universal flu vaccine that protects against many strains would be a major step forward.</p>
+
+      <h2>Invest now, not later</h2>
+      <p>The scientific leaps of the past few years can seem like magic, but they rest on decades of patient research. The importance of science has never been more obvious, and governments should be pouring resources into it rather than pulling back. Investing now is the only way to be truly ready when the next pandemic arrives.</p>
+    `,
+    vocabulary: [
+      {
+        word: "contagious",
+        wordType: "adjective",
+        definition: "able to be passed from one person to another by contact",
+        example: "A highly contagious virus can spread across the world in weeks.",
+      },
+      {
+        word: "antibiotic-resistant",
+        wordType: "adjective",
+        definition: "describing bacteria that our antibiotic drugs can no longer kill",
+        example: "Antibiotic-resistant bacteria could cause a future pandemic.",
+      },
+      {
+        word: "spillover",
+        wordType: "noun",
+        definition: "the moment a disease passes from animals to humans",
+        example: "COVID-19 is thought to have begun as a spillover event.",
+      },
+      {
+        word: "surveillance",
+        wordType: "noun",
+        definition: "close and continuous watching of something to detect problems early",
+        example: "A global surveillance network could spot new pathogens quickly.",
+      },
+      {
+        word: "pathogen",
+        wordType: "noun",
+        definition: "a tiny organism, such as a virus or bacterium, that causes disease",
+        example: "Scientists scan for dangerous new pathogens.",
+      },
+      {
+        word: "variant",
+        wordType: "noun",
+        definition: "a slightly changed version of a virus",
+        example: "New variants of the virus arose in several countries.",
+      },
+      {
+        word: "sequencing",
+        wordType: "noun",
+        definition: "the process of working out the genetic code of an organism",
+        example: "Sequencing facilities help track new strains of a virus.",
+      },
+      {
+        word: "infrastructure",
+        wordType: "noun",
+        definition: "the basic systems and facilities that a country needs to function",
+        example: "Poorer countries often lack the infrastructure to sequence viruses.",
+      },
+      {
+        word: "immunity",
+        wordType: "noun",
+        definition: "the body's ability to resist a particular disease",
+        example: "A new flu strain could evade our existing immunity.",
+      },
+      {
+        word: "outbreak",
+        wordType: "noun",
+        definition: "a sudden start of a disease in a place",
+        example: "Early detection can stop an outbreak from becoming a pandemic.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "pathogen",
+        ipa: "/PATH-uh-jen/",
+        syllables: "path-o-gen",
+        tip: "Stress PATH.",
+      },
+      {
+        word: "surveillance",
+        ipa: "/ser-VAY-luns/",
+        syllables: "sur-veil-lance",
+        tip: "Stress VAY.",
+      },
+      {
+        word: "variant",
+        ipa: "/VAIR-ee-unt/",
+        syllables: "var-i-ant",
+        tip: "Stress VAIR.",
+      },
+      {
+        word: "immunity",
+        ipa: "/i-MYOO-nuh-tee/",
+        syllables: "im-mu-ni-ty",
+        tip: "Stress MYOO.",
+      },
+      {
+        word: "influenza",
+        ipa: "/in-floo-EN-zuh/",
+        syllables: "in-flu-en-za",
+        tip: "Stress EN.",
+      },
+    ],
+  },
+  {
+    id: "a27",
+    slug: "prehistoric-human-fossils-hiding-in-plain-sight-in-southeast-asia",
+    title: "Prehistoric Human Fossils 'Hiding in Plain Sight' in Southeast Asia",
+    category: "Reading",
+    topic: "Science",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1453873531674-2151bcd01707?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-09",
+    description:
+      "Genetic evidence suggests an ancient human species, the Denisovans, once lived in Island Southeast Asia — even though their fossils have never been found there.",
+    readingTime: 5,
+    content: `
+      <p><strong>Island Southeast Asia holds one of the richest records of ancient human relatives on Earth. New genetic research suggests another species — the mysterious Denisovans — may still be waiting to be discovered there.</strong></p>
+
+      <h2>A puzzling gap</h2>
+      <p>Denisovan fossils have only ever been found thousands of kilometres away, in caves in Siberia and on the Tibetan Plateau. Yet a study of the genomes of more than 400 living people found that the ancestors of people in Island Southeast Asia interbred with Denisovans. Curiously, the researchers found no sign of interbreeding with two species whose fossils we do have from the region: <em>Homo floresiensis</em> and <em>Homo luzonensis</em>.</p>
+
+      <h2>An ancient melting pot</h2>
+      <p>Both of those small-statured species are thought to descend from <em>Homo erectus</em>, the first ancient human to leave Africa. When modern humans spread out of Africa around 70,000 years ago, they met and interbred with other groups already living across Eurasia — first Neanderthals, and later Denisovans. Today, the largest amounts of Denisovan ancestry are found in Island Southeast Asia and the former continent of Sahul, which included New Guinea and Australia.</p>
+
+      <h2>So where are the fossils?</h2>
+      <p>Two possibilities could reconcile the genetics with the missing bones. First, Denisovans may have mixed with modern humans in places where fossils have simply not yet been found, such as Sulawesi or Australia. Second, we may need to rethink fossils we have already discovered — perhaps Denisovans were far more varied in size and shape than we realised, and some have been labelled with a different name.</p>
+
+      <h2>Hiding in plain sight</h2>
+      <p>If that second idea is correct, it would mean the Denisovans have been hiding in plain sight all along, disguised as <em>H. floresiensis</em>, <em>H. luzonensis</em>, or later forms of <em>H. erectus</em>. Solving the puzzle will take future archaeological, DNA, and protein studies — but for now, the possibilities are fascinating.</p>
+    `,
+    vocabulary: [
+      {
+        word: "hominin",
+        wordType: "noun",
+        definition: "a member of the group that includes modern humans and their close ancestors",
+        example: "The region has one of the richest hominin fossil records in the world.",
+      },
+      {
+        word: "fossil record",
+        wordType: "noun phrase",
+        definition: "the total collection of fossils that tells us about life in the past",
+        example: "Island Southeast Asia has an intriguing fossil record.",
+      },
+      {
+        word: "interbreed",
+        wordType: "verb",
+        definition: "to mate and produce young with a member of a different group or species",
+        example: "Modern humans interbred with Denisovans and Neanderthals.",
+      },
+      {
+        word: "genome",
+        wordType: "noun",
+        definition: "the complete set of genetic material in an organism",
+        example: "Researchers searched the genomes of more than 400 people.",
+      },
+      {
+        word: "ancestry",
+        wordType: "noun",
+        definition: "the people from whom a person is descended",
+        example: "Some populations carry significant Denisovan ancestry.",
+      },
+      {
+        word: "diverge",
+        wordType: "verb",
+        definition: "to separate and develop in different directions",
+        example: "Their ancestors diverged from modern humans two million years ago.",
+      },
+      {
+        word: "colonise",
+        wordType: "verb",
+        definition: "to move into and settle a new area",
+        example: "Homo erectus colonised the islands about 700,000 years ago.",
+      },
+      {
+        word: "pristine",
+        wordType: "adjective",
+        definition: "in its original, unspoiled condition",
+        example: "Some fossils are remarkably pristine.",
+      },
+      {
+        word: "unearth",
+        wordType: "verb",
+        definition: "to find something in the ground by digging, or to discover it",
+        example: "Denisovan fossils may still be unearthed in the region.",
+      },
+      {
+        word: "reconcile",
+        wordType: "verb",
+        definition: "to make two different ideas or facts agree with each other",
+        example: "Two theories could reconcile the genetics with the fossil evidence.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "hominin",
+        ipa: "/HOM-uh-nin/",
+        syllables: "hom-i-nin",
+        tip: "Stress HOM.",
+      },
+      {
+        word: "genome",
+        ipa: "/JEE-nohm/",
+        syllables: "ge-nome",
+        tip: "Stress JEE.",
+      },
+      {
+        word: "ancestry",
+        ipa: "/AN-ses-tree/",
+        syllables: "an-ces-try",
+        tip: "Stress AN.",
+      },
+      {
+        word: "archaeological",
+        ipa: "/ar-kee-uh-LOJ-i-kul/",
+        syllables: "ar-chae-o-log-i-cal",
+        tip: "Stress LOJ.",
+      },
+      {
+        word: "Neanderthal",
+        ipa: "/nee-AN-der-tawl/",
+        syllables: "Ne-an-der-thal",
+        tip: "Stress AN.",
+      },
+    ],
+  },
+  {
+    id: "a28",
+    slug: "dont-be-fooled-covid-wont-be-cured-by-a-panacea",
+    title: "Don't Be Fooled: Covid Won't Be Cured by a Panacea",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-11",
+    description:
+      "History is full of miracle 'cure-alls' that never worked. The search for a single wonder drug against Covid repeats an old human wish for a simpler world.",
+    readingTime: 5,
+    content: `
+      <p><strong>Humans have always longed for a single cure that fixes everything. From medieval remedies to modern miracle drugs, the story of the panacea is a story about our wish for a simpler world.</strong></p>
+
+      <h2>The oldest wish in medicine</h2>
+      <p>In the Middle Ages you could buy a remedy called theriac that supposedly cured epilepsy, indigestion, heart trouble, fevers, and more. It was completely useless, but it reflected a longstanding wish for a cure-all. No historian of medicine was surprised to see questionable remedies promoted for COVID-19, from zinc supplements to hydroxychloroquine. Panaceas appeal to our longing for a world where every problem can be solved with the push of a button.</p>
+
+      <h2>Why some old remedies worked</h2>
+      <p>Medicine walks a fine line, because a few traditional remedies really did contain active ingredients. Aspirin was developed from willow bark, and the antimalarial drug artemisinin came from a traditional Chinese remedy. Even today, many drugs are found by informed trial and error, so it does not pay to rule out a candidate just because there is no obvious reason it should work.</p>
+
+      <h2>Testing the hopefuls</h2>
+      <p>That is why trials of vitamin D and of ivermectin, an antiparasitic drug, were worth running. But careful studies found little or no clear benefit against Covid. A cure from such a common substance always sounded too good to be true, and there is little prospect that these drugs are the wonder cures some had hoped for.</p>
+
+      <h2>Most diseases need specific medicines</h2>
+      <p>The lesson is the one that physicians reached centuries ago: most diseases demand specific medicines. That is the whole basis of vaccines, which train the immune system against a particular pathogen. A single vaccine is unlikely to protect against all coronaviruses, let alone all viruses.</p>
+
+      <h2>Looking inward</h2>
+      <p>If anything comes close to a modern panacea, it is a deeper understanding of our own immune system — probably the most complex part of the body after the brain — and the ability to guide it. There are no universal medicines out there in the world; for new health solutions, we may be wiser to look within.</p>
+    `,
+    vocabulary: [
+      {
+        word: "panacea",
+        wordType: "noun",
+        definition: "a supposed cure or solution for all problems or diseases",
+        example: "There is no single panacea for a complex disease.",
+      },
+      {
+        word: "remedy",
+        wordType: "noun",
+        definition: "a medicine or treatment for a disease or problem",
+        example: "Traditional remedies sometimes contain real active ingredients.",
+      },
+      {
+        word: "efficacy",
+        wordType: "noun",
+        definition: "the ability of a treatment to produce the desired result",
+        example: "The trial found no clear efficacy against the virus.",
+      },
+      {
+        word: "supplement",
+        wordType: "noun",
+        definition: "a substance taken to add nutrients to the diet",
+        example: "Zinc supplements were wrongly promoted as a Covid cure.",
+      },
+      {
+        word: "antiparasitic",
+        wordType: "adjective",
+        definition: "acting against parasites that live in or on the body",
+        example: "Ivermectin is an antiparasitic drug.",
+      },
+      {
+        word: "trial and error",
+        wordType: "noun phrase",
+        definition: "trying different methods until one succeeds",
+        example: "Many drugs are still discovered by trial and error.",
+      },
+      {
+        word: "immune system",
+        wordType: "noun phrase",
+        definition: "the body system that defends against disease",
+        example: "Vaccines train the immune system to fight a pathogen.",
+      },
+      {
+        word: "inflammatory",
+        wordType: "adjective",
+        definition: "causing swelling, heat, and redness in the body",
+        example: "The virus can trigger a dangerous inflammatory response.",
+      },
+      {
+        word: "rational",
+        wordType: "adjective",
+        definition: "based on clear thinking and reason",
+        example: "Modern science aims to be a rational craft.",
+      },
+      {
+        word: "bogus",
+        wordType: "adjective",
+        definition: "false or fake",
+        example: "Many bogus remedies were sold during the pandemic.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "panacea",
+        ipa: "/pan-uh-SEE-uh/",
+        syllables: "pan-a-ce-a",
+        tip: "Stress SEE.",
+      },
+      {
+        word: "efficacy",
+        ipa: "/EF-i-kuh-see/",
+        syllables: "ef-fi-ca-cy",
+        tip: "Stress EF.",
+      },
+      {
+        word: "remedy",
+        ipa: "/REM-uh-dee/",
+        syllables: "rem-e-dy",
+        tip: "Stress REM.",
+      },
+      {
+        word: "immune",
+        ipa: "/i-MYOON/",
+        syllables: "im-mune",
+        tip: "Stress MYOON.",
+      },
+      {
+        word: "inflammatory",
+        ipa: "/in-FLAM-uh-tor-ee/",
+        syllables: "in-flam-ma-to-ry",
+        tip: "Stress FLAM.",
+      },
+    ],
+  },
+  {
+    id: "a29",
+    slug: "why-america-is-beating-europe-on-vaccination",
+    title: "Why America Is Beating Europe on Vaccination",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-13",
+    description:
+      "Early in the pandemic, France's response looked more competent than America's. In the vaccine race, the picture reversed — a story of strategy, risk, and 'vaccine nationalism'.",
+    readingTime: 5,
+    content: `
+      <p><strong>For a while, careful, cautious Europe seemed to be handling the pandemic better than the United States. Then the race to vaccinate began, and the tables turned.</strong></p>
+
+      <h2>A reversal of fortune</h2>
+      <p>Written from France, this account describes watching American friends and family get vaccinated while the writer, a healthy 63-year-old, faced months of waiting. Pandemic competence had shifted from good daily governance to a global scramble for vaccines — and on that measure, the U.S. was clearly leading Europe.</p>
+
+      <h2>Two different bets</h2>
+      <p>The European Union approached vaccine buying in its careful way: using the purchasing power of 446 million people to negotiate lower prices and holding drug companies responsible for any problems. The United States and Britain instead moved quickly, partnered with drug companies, set aside worries about legal liability, and secured first access to the finished product.</p>
+
+      <h2>Speed versus caution</h2>
+      <p>The faster approach paid off in the short term. America was soon awash with doses, vaccinating around two million people a day, while months into its campaign France had fully vaccinated only a small share of its population. Britain, too, was vaccinating at record speed.</p>
+
+      <h2>Vaccine nationalism</h2>
+      <p>The bitterness in Europe was sharpened by a sense of unfairness. Europe produces vaccines and had exported millions of doses abroad, even as it struggled to meet its own needs. Frustrated, the EU moved to restrict exports to countries with higher vaccination rates. The episode revealed how quickly the moral high ground of international cooperation can give way to an "our people first" approach in a global crisis.</p>
+
+      <h2>A race that must be won</h2>
+      <p>With more contagious variants spreading, hospitalisations and deaths were rising again in Europe. The writer argues that the race between the virus and vaccination is one the world can only win through cooperation — and appeals to the U.S. to step back from putting itself first.</p>
+    `,
+    vocabulary: [
+      {
+        word: "inoculation",
+        wordType: "noun",
+        definition: "the act of giving a vaccine to protect against disease",
+        example: "Mass inoculation was the key to ending the crisis.",
+      },
+      {
+        word: "procurement",
+        wordType: "noun",
+        definition: "the process of obtaining supplies, especially by an organisation",
+        example: "The EU handled vaccine procurement as a single bloc.",
+      },
+      {
+        word: "liability",
+        wordType: "noun",
+        definition: "legal responsibility for something, especially for harm or costs",
+        example: "The U.S. dismissed liability concerns to move faster.",
+      },
+      {
+        word: "bloc",
+        wordType: "noun",
+        definition: "a group of countries that act together",
+        example: "The European bloc negotiated for lower prices.",
+      },
+      {
+        word: "eligible",
+        wordType: "adjective",
+        definition: "allowed or qualified to do or receive something",
+        example: "He would not be eligible for the vaccine until mid-May.",
+      },
+      {
+        word: "debacle",
+        wordType: "noun",
+        definition: "a complete and embarrassing failure",
+        example: "Critics called the slow rollout a debacle.",
+      },
+      {
+        word: "nationalism",
+        wordType: "noun",
+        definition: "the belief that your own nation's interests come first",
+        example: "Vaccine nationalism led countries to block exports.",
+      },
+      {
+        word: "equitable",
+        wordType: "adjective",
+        definition: "fair and equal for everyone involved",
+        example: "Europe favoured an equitable global system for sharing vaccines.",
+      },
+      {
+        word: "contagious",
+        wordType: "adjective",
+        definition: "easily spread from one person to another",
+        example: "A more contagious variant spread across the continent.",
+      },
+      {
+        word: "circumspect",
+        wordType: "adjective",
+        definition: "careful and cautious before acting or speaking",
+        example: "The prime minister was more circumspect this time.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "inoculation",
+        ipa: "/i-nok-yuh-LAY-shun/",
+        syllables: "in-oc-u-la-tion",
+        tip: "Stress LAY.",
+      },
+      {
+        word: "procurement",
+        ipa: "/pruh-KYOOR-munt/",
+        syllables: "pro-cure-ment",
+        tip: "Stress KYOOR.",
+      },
+      {
+        word: "liability",
+        ipa: "/ly-uh-BIL-uh-tee/",
+        syllables: "li-a-bil-i-ty",
+        tip: "Stress BIL.",
+      },
+      {
+        word: "equitable",
+        ipa: "/EK-wi-tuh-bul/",
+        syllables: "eq-ui-ta-ble",
+        tip: "Stress EK.",
+      },
+      {
+        word: "nationalism",
+        ipa: "/NASH-uh-nuh-liz-um/",
+        syllables: "na-tion-al-ism",
+        tip: "Stress NASH.",
+      },
+    ],
+  },
+  {
+    id: "a30",
+    slug: "what-if-the-worlds-biggest-customer-went-green",
+    title: "What If the World's Biggest Customer Went Green?",
+    category: "Reading",
+    topic: "Environment",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-15",
+    description:
+      "The U.S. government spends over $500 billion a year buying goods and services. Using that purchasing power to demand clean products could push whole industries to go green.",
+    readingTime: 6,
+    content: `
+      <p><strong>Every year the U.S. federal government spends more than $500 billion buying goods and services — roughly the size of Sweden's entire economy. That makes it the single biggest consumer in the world, and it could use that power to drive industries toward sustainability.</strong></p>
+
+      <h2>How purchasing power works</h2>
+      <p>When the government spends money strategically, it can act as a powerful market leader. By awarding contracts to companies that meet green standards, it creates steady, reliable demand for climate-friendly products. Experts point to three areas where this could matter most: electric vehicles, clean energy, and greener construction materials.</p>
+
+      <h2>Electric vehicles</h2>
+      <p>The government owns hundreds of thousands of vehicles, only a tiny fraction of them electric. Buying more would not transform the national fleet overnight, but it would give manufacturers a guaranteed customer and help build public trust. Charging stations installed at national parks, for example, would let visitors see electric vehicles as practical.</p>
+
+      <h2>More renewable energy</h2>
+      <p>The government can also buy power directly from low-carbon sources through "power purchase agreements," stimulating demand for wind, solar, and other clean energy. Federal buildings could even generate their own power with rooftop solar, and military bases could add renewables and better energy storage — cutting emissions while making operations more resilient.</p>
+
+      <h2>Cleaner buildings and materials</h2>
+      <p>Non-residential buildings account for a large share of national energy use, and the government leases hundreds of millions of square feet of space. Making those buildings more efficient — and demanding low-carbon cement and steel for construction — could cut emissions across heavy industry, since a fifth of the iron and steel bought in the U.S. is paid for with taxpayer money.</p>
+
+      <h2>Turning an order into reality</h2>
+      <p>The main obstacle is cost, because agencies are often required to buy the cheapest option available. Experts say real change will require clear priorities, honest tracking of progress, and a willingness to weigh a product's environmental impact against its price. Expect the shift to happen over years, not months — but as the world's biggest buyer, the government's choices could reshape entire markets.</p>
+    `,
+    vocabulary: [
+      {
+        word: "purchasing power",
+        wordType: "noun phrase",
+        definition: "the ability to influence markets through the money you spend",
+        example: "The government's purchasing power could reshape whole industries.",
+      },
+      {
+        word: "catalyst",
+        wordType: "noun",
+        definition: "something that causes an important change to happen",
+        example: "Green spending could act as a catalyst for sustainable business.",
+      },
+      {
+        word: "sustainable",
+        wordType: "adjective",
+        definition: "able to continue without damaging the environment",
+        example: "Steady demand helps sustainable companies grow.",
+      },
+      {
+        word: "procurement",
+        wordType: "noun",
+        definition: "the process of buying goods and services for an organisation",
+        example: "Green procurement rules would favour low-carbon products.",
+      },
+      {
+        word: "emissions",
+        wordType: "noun",
+        definition: "gases released into the air, especially those that harm the climate",
+        example: "Efficient buildings can cut a country's emissions.",
+      },
+      {
+        word: "renewable",
+        wordType: "adjective",
+        definition: "describing energy from sources that are naturally replaced, like wind or sun",
+        example: "The government can buy more renewable energy.",
+      },
+      {
+        word: "resilient",
+        wordType: "adjective",
+        definition: "able to recover quickly from difficult conditions",
+        example: "On-site energy makes military bases more resilient.",
+      },
+      {
+        word: "fleet",
+        wordType: "noun",
+        definition: "a group of vehicles owned or operated by one organisation",
+        example: "The federal vehicle fleet includes hundreds of thousands of cars.",
+      },
+      {
+        word: "threshold",
+        wordType: "noun",
+        definition: "a level or point that must be reached before something happens",
+        example: "The government can set a green threshold for its suppliers.",
+      },
+      {
+        word: "life cycle",
+        wordType: "noun phrase",
+        definition: "the whole existence of a product, from creation to disposal",
+        example: "True cost looks at a product's entire life cycle.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "sustainable",
+        ipa: "/suh-STAY-nuh-bul/",
+        syllables: "sus-tain-a-ble",
+        tip: "Stress STAY.",
+      },
+      {
+        word: "catalyst",
+        ipa: "/KAT-uh-list/",
+        syllables: "cat-a-lyst",
+        tip: "Stress KAT.",
+      },
+      {
+        word: "emissions",
+        ipa: "/i-MISH-unz/",
+        syllables: "e-mis-sions",
+        tip: "Stress MISH.",
+      },
+      {
+        word: "renewable",
+        ipa: "/ri-NOO-uh-bul/",
+        syllables: "re-new-a-ble",
+        tip: "Stress NOO.",
+      },
+      {
+        word: "resilient",
+        ipa: "/ri-ZIL-yunt/",
+        syllables: "re-sil-ient",
+        tip: "Stress ZIL.",
+      },
+    ],
+  },
+  {
+    id: "a31",
+    slug: "the-disappearance-of-department-stores",
+    title: "The Disappearance of Department Stores Will Rob Us of a Certain Kind of Magic",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-17",
+    description:
+      "As famous department stores close their doors, we lose more than a place to shop. We lose a physical, shared world that once offered comfort, escape, and a kind of dream space.",
+    readingTime: 5,
+    content: `
+      <p><strong>Great department stores are vanishing from the high street. Their loss is not only economic — it is the loss of a certain kind of magic that online shopping cannot replace.</strong></p>
+
+      <h2>A store in decline</h2>
+      <p>Thousands of shops disappeared from British high streets in a single year, but the struggles of one famous chain, John Lewis, felt especially significant. Founded in 1864 and owned by its own employees, it had long stood for solidity and comfort. Yet the pandemic pushed it into its first annual loss, and for the first time in decades it could not pay its staff a bonus.</p>
+
+      <h2>A world in one building</h2>
+      <p>Part of the appeal of a department store is the illusion that everything you could ever need is contained within one reassuringly physical space. Where an online marketplace lists thousands of options for a set of bed sheets, a department store might offer just sixty-four. Life is broken into helpful sections — baby, school, home — while online shopping makes your choices frighteningly limitless.</p>
+
+      <h2>Comfort and class</h2>
+      <p>For many shoppers, these stores offered a feeling of being "contained" and safe. They also carried quiet signals of social class: aspirational but not intimidating, comfortable rather than dazzling. You might go to a grand luxury store to feel a little unworthy, the writer suggests, but you went to John Lewis to feel at home.</p>
+
+      <h2>A dream space for women</h2>
+      <p>When they first appeared in the late 18th century, department stores were among the only public spaces designed for the pleasure and convenience of women. With no admission requirements, any woman could walk in, browse, and experience a kind of luxury once reserved for the aristocracy. They functioned almost like social clubs — places to imagine another life.</p>
+
+      <h2>What we lose online</h2>
+      <p>During the pandemic, dozens of shops closed every day, and many that shut temporarily may never reopen. As shoppers turn to the internet, the writer reflects that we lose something human: the comfort of other people, real and imagined, sharing the same physical space. Buying the same items online, she admits, just does not feel the same.</p>
+    `,
+    vocabulary: [
+      {
+        word: "flagship",
+        wordType: "noun",
+        definition: "the most important or impressive store or product of a company",
+        example: "The flagship store on Oxford Street may become offices.",
+      },
+      {
+        word: "administration",
+        wordType: "noun",
+        definition: "a legal state in which a failing company is managed to try to save it",
+        example: "The chain went into administration and closed many stores.",
+      },
+      {
+        word: "aspirational",
+        wordType: "adjective",
+        definition: "showing a wish to achieve a higher social position or better life",
+        example: "The store had an aspirational but comfortable image.",
+      },
+      {
+        word: "consolidated",
+        wordType: "adjective",
+        definition: "brought together into a single, unified whole",
+        example: "The store offered a consolidated world of items in one place.",
+      },
+      {
+        word: "indignation",
+        wordType: "noun",
+        definition: "anger caused by something felt to be unfair or wrong",
+        example: "Women could shop all day without moral indignation.",
+      },
+      {
+        word: "lure",
+        wordType: "noun",
+        definition: "the attractive quality that makes people want something",
+        example: "Part of the store's lure was its middle-class image.",
+      },
+      {
+        word: "palatial",
+        wordType: "adjective",
+        definition: "large and splendid, like a palace",
+        example: "The architecture of these shops was palatial.",
+      },
+      {
+        word: "signifier",
+        wordType: "noun",
+        definition: "something that is a sign or symbol of a larger idea",
+        example: "The store was a signifier of a stable middle-class life.",
+      },
+      {
+        word: "vacant",
+        wordType: "adjective",
+        definition: "empty; not being used or occupied",
+        example: "City centres will feel quieter and more vacant.",
+      },
+      {
+        word: "illusory",
+        wordType: "adjective",
+        definition: "based on something that is not real or true",
+        example: "The security the store represented was always partly illusory.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "aspirational",
+        ipa: "/as-puh-RAY-shuh-nul/",
+        syllables: "as-pi-ra-tion-al",
+        tip: "Stress RAY.",
+      },
+      {
+        word: "palatial",
+        ipa: "/puh-LAY-shul/",
+        syllables: "pa-la-tial",
+        tip: "Stress LAY.",
+      },
+      {
+        word: "indignation",
+        ipa: "/in-dig-NAY-shun/",
+        syllables: "in-dig-na-tion",
+        tip: "Stress NAY.",
+      },
+      {
+        word: "illusory",
+        ipa: "/i-LOO-suh-ree/",
+        syllables: "il-lu-so-ry",
+        tip: "Stress LOO.",
+      },
+      {
+        word: "aristocracy",
+        ipa: "/a-ri-STOK-ruh-see/",
+        syllables: "a-ris-toc-ra-cy",
+        tip: "Stress STOK.",
+      },
+    ],
+  },
+  {
+    id: "a32",
+    slug: "no-people-arent-unemployed-because-theyre-lazy",
+    title: "No, People Aren't Unemployed Because They're Lazy",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-19",
+    description:
+      "We teach children that hard work always brings success, and that a job is worth having only if it pays well. A closer look shows both ideas are myths worth questioning.",
+    readingTime: 5,
+    content: `
+      <p><strong>We like to believe that hard work always leads to a good life, and we teach this to children. But underneath these values lie two myths that quietly blame people for outcomes they did not choose.</strong></p>
+
+      <h2>Myth 1: Success comes only from effort</h2>
+      <p>This idea, rooted in the notion of meritocracy, sounds admirable: anyone can succeed if they try hard enough. But it has a dark side. When someone does not succeed, we tend to blame them for being lazy or lacking initiative — a mistake in logic. People may have lost jobs to a pandemic, faced systemic barriers, or struggled with mental health. In truth, one of the strongest predictors of financial success is not effort at all, but the wealth of the family you were born into.</p>
+
+      <h2>Myth 2: You should feel ashamed of an unambitious job</h2>
+      <p>We also tell people that any job is good, and that they should always strive for something "better". Because humans want to fit in — a tendency known as conformity bias — we come to see some jobs as more prestigious than others, usually those that pay the most.</p>
+
+      <h2>Undervaluing essential work</h2>
+      <p>The flip side of that bias is that we undervalue low earners. Nurses, teachers, retail workers, and cleaners perform vital tasks yet are paid little, while high executive salaries are treated as clearly positive. The amount of training a job requires shapes this bias too: artists work long hours for low pay, but that matters little to those who prize earnings above all.</p>
+
+      <h2>What actually makes a good job</h2>
+      <p>Having a prestigious, high-paying job is not what makes people satisfied. Studies show that job security, autonomy, and work-life balance matter far more. When we talk to children — and to ourselves — about what a good job is, we should speak less about wages and more about meaning, independence, and balance.</p>
+    `,
+    vocabulary: [
+      {
+        word: "narrative",
+        wordType: "noun",
+        definition: "a way of explaining events that fits a particular set of beliefs",
+        example: "The narrative that hard work always pays off can be misleading.",
+      },
+      {
+        word: "meritocracy",
+        wordType: "noun",
+        definition: "a system in which people succeed based on their own ability and effort",
+        example: "The myth is based on the idea of meritocracy.",
+      },
+      {
+        word: "systemic",
+        wordType: "adjective",
+        definition: "affecting an entire system or society rather than one part of it",
+        example: "Systemic racism can block people from opportunities.",
+      },
+      {
+        word: "predictor",
+        wordType: "noun",
+        definition: "something that helps you forecast what will happen",
+        example: "Family wealth is one of the greatest predictors of success.",
+      },
+      {
+        word: "conformity bias",
+        wordType: "noun phrase",
+        definition: "the tendency to adopt others' beliefs instead of using your own judgement",
+        example: "Conformity bias makes us value certain jobs more than others.",
+      },
+      {
+        word: "prestigious",
+        wordType: "adjective",
+        definition: "respected and admired as very important or of high quality",
+        example: "Some jobs are seen as more prestigious than others.",
+      },
+      {
+        word: "autonomy",
+        wordType: "noun",
+        definition: "the freedom to make your own decisions",
+        example: "Autonomy in a role is crucial to job satisfaction.",
+      },
+      {
+        word: "indulgence",
+        wordType: "noun",
+        definition: "the act of allowing yourself to do or have what you enjoy",
+        example: "Leaders wrongly blamed unemployment on personal indulgence.",
+      },
+      {
+        word: "undervalue",
+        wordType: "verb",
+        definition: "to think or say that something is worth less than it really is",
+        example: "Society tends to undervalue essential low-paid work.",
+      },
+      {
+        word: "fallacy",
+        wordType: "noun",
+        definition: "a mistaken belief based on faulty reasoning",
+        example: "Blaming the poor for their situation rests on a logical fallacy.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "meritocracy",
+        ipa: "/mer-i-TOK-ruh-see/",
+        syllables: "mer-i-toc-ra-cy",
+        tip: "Stress TOK.",
+      },
+      {
+        word: "autonomy",
+        ipa: "/aw-TON-uh-mee/",
+        syllables: "au-ton-o-my",
+        tip: "Stress TON.",
+      },
+      {
+        word: "prestigious",
+        ipa: "/pre-STIJ-us/",
+        syllables: "pres-ti-gious",
+        tip: "Stress STIJ.",
+      },
+      {
+        word: "systemic",
+        ipa: "/si-STEM-ik/",
+        syllables: "sys-tem-ic",
+        tip: "Stress STEM.",
+      },
+      {
+        word: "fallacy",
+        ipa: "/FAL-uh-see/",
+        syllables: "fal-la-cy",
+        tip: "Stress FAL.",
+      },
+    ],
+  },
+  {
+    id: "a33",
+    slug: "the-british-at-play-the-social-power-of-sport",
+    title: "The British at Play: The Social Power of Sport",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-21",
+    description:
+      "A review of Nigel Townson's social history of British sport, exploring why sport holds such power over class, gender, identity, and the modern media.",
+    readingTime: 5,
+    content: `
+      <p><strong>Around four billion people — over half the world's population — watch at least part of major events like the Olympic Games. But raw numbers do not get to the heart of why sport holds such social power in the modern world.</strong></p>
+
+      <h2>More than a game</h2>
+      <p>Sport is a powerful social force. Friends and colleagues discuss it constantly, and it is one of the few topics acceptable when starting a conversation with strangers. Its language has even passed into everyday life: we talk about "team players" in situations that have nothing to do with sport, and the word "goal", meaning an objective, grew out of its sporting sense.</p>
+
+      <h2>In groups and out groups</h2>
+      <p>Nigel Townson's <em>The British at Play</em> examines the links between sport and social class, gender, violence, and national identity. It shows how sport creates "in groups", most obviously the supporters of a football team, who define themselves by loyalty to their own side and opposition to others. In an extreme form, this leads to hooliganism — and the book argues that sensational media coverage helps create the very climate of panic in which such trouble occurs.</p>
+
+      <h2>Changing roles</h2>
+      <p>Several of the book's themes reflect wider social change. Women are entering fields once closed to them — as commentators, producers, and editors of sports coverage. This greater visibility highlights the weakening of the old view that sport is mainly for men.</p>
+
+      <h2>The perfect medium for advertisers</h2>
+      <p>The global health-and-fitness boom has been driven partly by our wish for an "ideal" body shape, an image that sport constantly promotes. Because sport reaches viewers through strong images rather than words, it is the perfect medium for advertisers. So sport becomes big money: TV companies depend on it, and football clubs turn into businesses that sell merchandise and shares.</p>
+
+      <h2>The missing question</h2>
+      <p>The reviewer praises the book but offers one criticism: despite its title, it never asks the most basic question of all — why do people actually play? Its real power, the reviewer argues, rests on the psychological and physical joy of sport, the way it involves the whole person and allows us, simply, to play.</p>
+    `,
+    vocabulary: [
+      {
+        word: "get to the heart of",
+        wordType: "phrase",
+        definition: "to reach the most important or central part of something",
+        example: "These figures don't get to the heart of the matter.",
+      },
+      {
+        word: "have nothing to do with",
+        wordType: "phrase",
+        definition: "to not be connected to or involve someone or something",
+        example: "We use 'team player' in situations that have nothing to do with sport.",
+      },
+      {
+        word: "stereotype",
+        wordType: "noun",
+        definition: "a fixed, often wrong, idea of what a person or group is like",
+        example: "The book challenges common stereotypes of soccer fans.",
+      },
+      {
+        word: "visibility",
+        wordType: "noun",
+        definition: "the degree to which something is seen or noticed",
+        example: "The greater visibility of women is changing the sport.",
+      },
+      {
+        word: "medium",
+        wordType: "noun",
+        definition: "a method or channel for expressing or communicating something",
+        example: "Sport is the perfect medium for advertisers.",
+      },
+      {
+        word: "transmit",
+        wordType: "verb",
+        definition: "to pass a feeling or message from one person to others",
+        example: "The book does not fully transmit the passion of sport.",
+      },
+      {
+        word: "commercialism",
+        wordType: "noun",
+        definition: "the practice of treating something mainly as a way to make money",
+        example: "Modern sport is shaped by commercialism.",
+      },
+      {
+        word: "hooliganism",
+        wordType: "noun",
+        definition: "violent or destructive behaviour, especially by groups of sports fans",
+        example: "Extreme rivalry can lead to hooliganism.",
+      },
+      {
+        word: "loyalty",
+        wordType: "noun",
+        definition: "strong support for or faithfulness to a person or group",
+        example: "Fans define themselves by loyalty to their team.",
+      },
+      {
+        word: "significance",
+        wordType: "noun",
+        definition: "the importance or meaning of something",
+        example: "The book explores the social significance of sport.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "stereotype",
+        ipa: "/STER-ee-oh-typ/",
+        syllables: "ster-e-o-type",
+        tip: "Stress STER.",
+      },
+      {
+        word: "visibility",
+        ipa: "/viz-uh-BIL-uh-tee/",
+        syllables: "vis-i-bil-i-ty",
+        tip: "Stress BIL.",
+      },
+      {
+        word: "commercialism",
+        ipa: "/kuh-MUR-shuh-liz-um/",
+        syllables: "com-mer-cial-ism",
+        tip: "Stress MUR.",
+      },
+      {
+        word: "hooliganism",
+        ipa: "/HOO-li-guh-niz-um/",
+        syllables: "hoo-li-gan-ism",
+        tip: "Stress HOO.",
+      },
+      {
+        word: "significance",
+        ipa: "/sig-NIF-i-kuns/",
+        syllables: "sig-nif-i-cance",
+        tip: "Stress NIF.",
+      },
+    ],
+  },
+  {
+    id: "a34",
+    slug: "recognising-autism-diverse-talents-and-needs",
+    title: "Autism Awareness: Recognising Diverse Talents and Needs",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-23",
+    description:
+      "Autism appears in strikingly varied ways. Truly embracing neurodiversity means valuing autistic people's talents while also supporting those who need the most care.",
+    readingTime: 4,
+    content: `
+      <p><strong>Autism affects social interaction, but it appears in strikingly varied ways in each individual. Recognising this diversity means valuing autistic people's talents while also supporting those who need the most care.</strong></p>
+
+      <h2>A difference, not only a disability</h2>
+      <p>A senior naval commander recently explained that he believed his autism made him a better officer, giving him deep focus and calm under enormous pressure. Some autistic people require full-time support; others regard their condition as a difference rather than a disability, pointing to strengths such as concentration and resistance to peer pressure. Ignoring people with the condition wastes talent and risks the "groupthink" that comes from hiring only people whose minds work the same way.</p>
+
+      <h2>The cost of narrow vision</h2>
+      <p>The greatest costs of that narrow vision are borne by autistic people themselves. New research suggests that more children are autistic than previously thought — around one in 57 — reflecting a global rise thought to be due mainly to better recognition. Yet only about one in five autistic adults is employed. Changing that requires not just recognising abilities, but adapting workplaces, practices, and expectations.</p>
+
+      <h2>Value beyond usefulness</h2>
+      <p>Autistic people should not be valued only when they are seen as "productive". The pandemic showed how far we still are from true acceptance: some autistic people were placed under blanket "do not resuscitate" orders without consent, and many lost the social care their families relied on. Younger people with learning disabilities often waited far longer for vaccination despite higher risks.</p>
+
+      <h2>The real meaning of neurodiversity</h2>
+      <p>Embracing neurodiversity must mean more than celebrating those who can thrive in a world built for neurotypical people. It must also mean supporting those who are severely affected. Autistic people are valuable not because their autism can be useful to society, but simply because they are people.</p>
+    `,
+    vocabulary: [
+      {
+        word: "neurodiversity",
+        wordType: "noun",
+        definition: "the idea that differences in how brains work are natural variation",
+        example: "Embracing neurodiversity means accepting different kinds of minds.",
+      },
+      {
+        word: "neurotypical",
+        wordType: "adjective",
+        definition: "having a brain that works in the way considered usual",
+        example: "The world is often designed for neurotypical people.",
+      },
+      {
+        word: "developmental condition",
+        wordType: "noun phrase",
+        definition: "a condition that affects how a person grows and develops",
+        example: "Autism is a developmental condition affecting social interaction.",
+      },
+      {
+        word: "manifest",
+        wordType: "verb",
+        definition: "to show or appear in a particular way",
+        example: "Autism can manifest very differently in each person.",
+      },
+      {
+        word: "resilience",
+        wordType: "noun",
+        definition: "the ability to cope with or recover from difficulty",
+        example: "Some point to skills such as deep focus and resilience.",
+      },
+      {
+        word: "groupthink",
+        wordType: "noun",
+        definition: "poor decisions caused by everyone in a group thinking the same way",
+        example: "Hiring similar minds risks groupthink.",
+      },
+      {
+        word: "squander",
+        wordType: "verb",
+        definition: "to waste something valuable",
+        example: "Ignoring autistic people squanders talent.",
+      },
+      {
+        word: "consent",
+        wordType: "noun",
+        definition: "permission for something to happen",
+        example: "Orders were placed without their consent.",
+      },
+      {
+        word: "diverse",
+        wordType: "adjective",
+        definition: "showing a lot of variety; very different from one another",
+        example: "The condition shows diverse talents and needs.",
+      },
+      {
+        word: "thrive",
+        wordType: "verb",
+        definition: "to grow, develop, or succeed well",
+        example: "Some autistic people thrive even in a world not built for them.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "autism",
+        ipa: "/AW-tiz-um/",
+        syllables: "au-tism",
+        tip: "Stress AW.",
+      },
+      {
+        word: "neurodiversity",
+        ipa: "/noor-oh-di-VUR-suh-tee/",
+        syllables: "neu-ro-di-ver-si-ty",
+        tip: "Stress VUR.",
+      },
+      {
+        word: "resilience",
+        ipa: "/ri-ZIL-yuns/",
+        syllables: "re-sil-ience",
+        tip: "Stress ZIL.",
+      },
+      {
+        word: "squander",
+        ipa: "/SKWON-der/",
+        syllables: "squan-der",
+        tip: "Stress SKWON.",
+      },
+      {
+        word: "diverse",
+        ipa: "/dy-VURS/",
+        syllables: "di-verse",
+        tip: "Stress VURS.",
+      },
+    ],
+  },
+  {
+    id: "a35",
+    slug: "we-need-to-talk-about-the-astrazeneca-vaccine",
+    title: "We Need to Talk About the AstraZeneca Vaccine",
+    category: "Reading",
+    topic: "Health",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1618015359417-4b0e0bf0f0b6?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-25",
+    description:
+      "A vital vaccine, an extremely rare possible side effect, and an almost impossible communication problem: how do regulators tell the truth without frightening people away?",
+    readingTime: 6,
+    content: `
+      <p><strong>The AstraZeneca vaccine was one of the most important tools against COVID-19, central to a plan to deliver billions of doses worldwide. That is exactly why a wave of worrying news put regulators in an almost impossible position.</strong></p>
+
+      <h2>A sudden pause</h2>
+      <p>Regulators in more than 20 European countries briefly suspended the vaccine after scattered reports of blood clots. Days later, experts recommended continuing its use, concluding the benefits far outweighed the risks. Many commentators called the pause harmful, noting that the number of clots was actually lower than you would expect in the general population.</p>
+
+      <h2>A rarer, stranger problem</h2>
+      <p>But the real issue was more specific than "blood clots". A small number of previously healthy people had developed an unusual combination: clots throughout the body together with low levels of platelets, the cells that help blood clot. Regulators faced the possibility — still unproven — that perhaps one in a million vaccinated people could suffer a serious reaction, even as more than a million doses were given each day.</p>
+
+      <h2>An impossible balance</h2>
+      <p>Anything the regulators said risked reducing trust in vaccination and thus increasing the pandemic's toll. Yet staying silent about a possible reaction could make the eventual damage worse. Given the huge numbers of lives the vaccine was saving, the balance of costs and benefits clearly favoured continued use — but authorities could not simply look the other way, because early diagnosis of the rare condition could save lives.</p>
+
+      <h2>The long game of trust</h2>
+      <p>Some countries limited the vaccine to older people, since most cases involved those under 50. Regulators added clear warnings about symptoms to watch for. Communicating about very rare reactions is a long game: the hardest challenge comes later, when the eager have been vaccinated and it is time to persuade the hesitant.</p>
+
+      <h2>Honesty over easy answers</h2>
+      <p>There are precedents for handling rare vaccine reactions honestly, such as the tiny risk of a nerve disorder linked to ordinary flu shots. The writer argues that European regulators were not being stupid or political. They faced a genuine conundrum, and transparency — not denial — is what preserves public confidence when it is needed most.</p>
+    `,
+    vocabulary: [
+      {
+        word: "indispensable",
+        wordType: "adjective",
+        definition: "so important that you cannot manage without it",
+        example: "The vaccine was indispensable to the global rollout.",
+      },
+      {
+        word: "regulator",
+        wordType: "noun",
+        definition: "an official body that controls an activity and makes sure rules are followed",
+        example: "European regulators suspended the vaccine for a short time.",
+      },
+      {
+        word: "suspend",
+        wordType: "verb",
+        definition: "to stop something for a period of time",
+        example: "Several countries chose to suspend distribution.",
+      },
+      {
+        word: "platelet",
+        wordType: "noun",
+        definition: "a tiny blood cell that helps the blood to clot",
+        example: "Patients had unusually low platelet counts.",
+      },
+      {
+        word: "outweigh",
+        wordType: "verb",
+        definition: "to be greater or more important than something else",
+        example: "The benefits far outweigh the risks.",
+      },
+      {
+        word: "hesitancy",
+        wordType: "noun",
+        definition: "unwillingness to do something because of doubt or worry",
+        example: "The drama increased vaccine hesitancy.",
+      },
+      {
+        word: "transparency",
+        wordType: "noun",
+        definition: "openness and honesty, with nothing hidden",
+        example: "Transparency helps authorities keep public trust.",
+      },
+      {
+        word: "conundrum",
+        wordType: "noun",
+        definition: "a difficult problem with no easy answer",
+        example: "The regulators faced a nearly impossible conundrum.",
+      },
+      {
+        word: "precedent",
+        wordType: "noun",
+        definition: "an earlier event used as an example or guide for later ones",
+        example: "There are clear precedents for handling rare reactions.",
+      },
+      {
+        word: "toll",
+        wordType: "noun",
+        definition: "the amount of damage or number of deaths caused by something",
+        example: "Losing trust could increase the pandemic's toll.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "indispensable",
+        ipa: "/in-di-SPEN-suh-bul/",
+        syllables: "in-dis-pen-sa-ble",
+        tip: "Stress SPEN.",
+      },
+      {
+        word: "conundrum",
+        ipa: "/kuh-NUN-drum/",
+        syllables: "co-nun-drum",
+        tip: "Stress NUN.",
+      },
+      {
+        word: "transparency",
+        ipa: "/trans-PAIR-un-see/",
+        syllables: "trans-par-en-cy",
+        tip: "Stress PAIR.",
+      },
+      {
+        word: "hesitancy",
+        ipa: "/HEZ-i-tun-see/",
+        syllables: "hes-i-tan-cy",
+        tip: "Stress HEZ.",
+      },
+      {
+        word: "precedent",
+        ipa: "/PRES-i-dunt/",
+        syllables: "prec-e-dent",
+        tip: "Stress PRES.",
+      },
+    ],
+  },
+  {
+    id: "a36",
+    slug: "clothes-that-last-a-fashion-trend-not-a-passing-fad",
+    title: "Clothes That Last Should Become a Fashion Trend, Not a Passing Fad",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-27",
+    description:
+      "Fashion has long been driven by the restless engine of buying more. But a quiet shift toward mending, longevity, and keepsakes suggests that lasting value may be coming back.",
+    readingTime: 4,
+    content: `
+      <p><strong>Much fashion writing is really just a shopping list dressed up in adjectives, driven by the restless engine of acquisition. Yet the writer senses the ground shifting toward something more durable: the idea that clothes should last.</strong></p>
+
+      <h2>Longevity over novelty</h2>
+      <p>The most precious item in your wardrobe is rarely the expensive dress you bought last week. It is more likely the hand-stitched shirt a grandmother made decades ago. New books and documentaries celebrate mending and the stories held in old clothes rather than new ones. Fashion, the writer predicts, will soon have to consider longevity as well as novelty — finding creative ways to follow the idea that "elegance is refusal".</p>
+
+      <h2>In defence of bold taste</h2>
+      <p>The essay drifts into a memory of interviewing a famously opinionated writer who collected garish, kitsch objects. When the writer once dismissed them as "hideous", he corrected her: bad taste, he insisted, is perfectly acceptable. It is <em>no</em> taste — bland, timid, and colourless — that is truly unforgivable.</p>
+
+      <h2>A talisman of hope</h2>
+      <p>Finally, the writer describes spending her modest lockdown savings on a keepsake: a "lover's eye" ring, a kind of jewellery popular in the late 18th century, when a tiny painting of a loved one's eye helped separated couples feel close. The ring, she says, makes surprisingly good company — a small, lasting object that reassures her she will soon be able to embrace the people she has missed.</p>
+    `,
+    vocabulary: [
+      {
+        word: "longevity",
+        wordType: "noun",
+        definition: "long life or long-lasting existence",
+        example: "Fashion is starting to value longevity over novelty.",
+      },
+      {
+        word: "novelty",
+        wordType: "noun",
+        definition: "the quality of being new and interesting",
+        example: "The industry has long been driven by novelty.",
+      },
+      {
+        word: "acquisition",
+        wordType: "noun",
+        definition: "the act of buying or gaining possession of something",
+        example: "The engine of fashion writing is acquisition.",
+      },
+      {
+        word: "manifesto",
+        wordType: "noun",
+        definition: "a public statement of aims and beliefs",
+        example: "Her new book is a manifesto for mending clothes.",
+      },
+      {
+        word: "keepsake",
+        wordType: "noun",
+        definition: "a small item kept in memory of a person or time",
+        example: "She bought a keepsake to remember the strange year.",
+      },
+      {
+        word: "talisman",
+        wordType: "noun",
+        definition: "an object thought to bring good luck or protection",
+        example: "The ring became a talisman of hope.",
+      },
+      {
+        word: "fad",
+        wordType: "noun",
+        definition: "a fashion or interest that is very popular for a short time",
+        example: "Lasting clothes should be more than a passing fad.",
+      },
+      {
+        word: "kitsch",
+        wordType: "noun",
+        definition: "art or objects that are showy and in poor taste, sometimes on purpose",
+        example: "He proudly collected an array of kitsch.",
+      },
+      {
+        word: "edict",
+        wordType: "noun",
+        definition: "an official order or firm rule",
+        example: "She followed the edict that 'elegance is refusal'.",
+      },
+      {
+        word: "insipid",
+        wordType: "adjective",
+        definition: "lacking flavour, character, or interest; dull",
+        example: "He hated insipid, colourless design.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "longevity",
+        ipa: "/lon-JEV-uh-tee/",
+        syllables: "lon-gev-i-ty",
+        tip: "Stress JEV.",
+      },
+      {
+        word: "acquisition",
+        ipa: "/ak-wuh-ZISH-un/",
+        syllables: "ac-qui-si-tion",
+        tip: "Stress ZISH.",
+      },
+      {
+        word: "talisman",
+        ipa: "/TAL-is-mun/",
+        syllables: "tal-is-man",
+        tip: "Stress TAL.",
+      },
+      {
+        word: "manifesto",
+        ipa: "/man-uh-FES-toh/",
+        syllables: "man-i-fes-to",
+        tip: "Stress FES.",
+      },
+      {
+        word: "insipid",
+        ipa: "/in-SIP-id/",
+        syllables: "in-sip-id",
+        tip: "Stress SIP.",
+      },
+    ],
+  },
+  {
+    id: "a37",
+    slug: "an-interstellar-visitor-had-a-sad-story-to-tell",
+    title: "An Interstellar Visitor Had a Sad Story to Tell",
+    category: "Reading",
+    topic: "Science",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-06-29",
+    description:
+      "A comet from beyond our solar system drifted alone for hundreds of millions of years before grazing our sun. Its pristine surface revealed just how profound its isolation had been.",
+    readingTime: 5,
+    content: `
+      <p><strong>In 2019 an amateur astronomer discovered a comet unlike any other in our solar system: it was not orbiting the sun at all. It had drifted in from interstellar space, and the story its surface told was a strangely lonely one.</strong></p>
+
+      <h2>A visitor from far away</h2>
+      <p>The comet, later named Borisov after its discoverer, had been travelling alone through the space between stars until it entered our solar system and grazed past the sun. Warmed for the first time in who knows how long, its ice thawed slightly, releasing a glowing cloud of dust that powerful telescopes could study.</p>
+
+      <h2>The mark of loneliness</h2>
+      <p>By analysing that dust, researchers learned about the comet's composition and origins. One finding was rather melancholy: Borisov is one of the most pristine comets ever observed. Its surface showed almost no sign of a previous encounter with a star. To be so unblemished, astronomers realised, it must have been travelling utterly alone for an extraordinarily long time.</p>
+
+      <h2>Clues in the dust</h2>
+      <p>The cloud of particles around the comet, called a coma, carries rich information about the planetary system it came from. Evidence suggests Borisov formed close to its parent star before being flung to the outer edges of its system, perhaps by the gravity of giant planets like our own Jupiter and Saturn.</p>
+
+      <h2>Almost certainly alone forever</h2>
+      <p>As Borisov neared Jupiter, a telescope caught a piece of it breaking off — so it will not leave our solar system exactly as it arrived. But it is extremely unlikely ever to pass close to another star. The distances between stars are so vast that even if two galaxies collided, almost no stars would ever touch. Borisov coasted alone for hundreds of millions of years to reach us, and for it, this encounter may be the only one it ever has.</p>
+
+      <h2>A glimpse of another home</h2>
+      <p>For us, the fleeting visit was illuminating. Our interstellar guest carried evidence of its distant birthplace, where a star once ignited and left just enough material behind to form planets and moons. Through a chance encounter with a comet like Borisov, we can glimpse how alien worlds might resemble our own.</p>
+    `,
+    vocabulary: [
+      {
+        word: "interstellar",
+        wordType: "adjective",
+        definition: "existing or happening in the space between the stars",
+        example: "Borisov was an interstellar visitor to our solar system.",
+      },
+      {
+        word: "comet",
+        wordType: "noun",
+        definition: "an icy object in space that forms a glowing tail near the sun",
+        example: "The comet thawed as it passed the sun.",
+      },
+      {
+        word: "orbit",
+        wordType: "verb",
+        definition: "to travel in a curved path around a star or planet",
+        example: "Unlike other comets, this one did not orbit the sun.",
+      },
+      {
+        word: "pristine",
+        wordType: "adjective",
+        definition: "in a perfect, original, unspoiled condition",
+        example: "Borisov is one of the most pristine comets ever seen.",
+      },
+      {
+        word: "composition",
+        wordType: "noun",
+        definition: "the parts or substances that something is made of",
+        example: "Researchers studied the comet's composition.",
+      },
+      {
+        word: "melancholy",
+        wordType: "adjective",
+        definition: "sad or thoughtful in a gentle way",
+        example: "The finding was strangely melancholy.",
+      },
+      {
+        word: "unblemished",
+        wordType: "adjective",
+        definition: "having no marks, faults, or damage",
+        example: "Its unblemished surface showed it had been alone.",
+      },
+      {
+        word: "gravity",
+        wordType: "noun",
+        definition: "the force that pulls objects toward one another in space",
+        example: "Giant planets can move comets with their gravity.",
+      },
+      {
+        word: "fleeting",
+        wordType: "adjective",
+        definition: "lasting only a very short time",
+        example: "The fleeting visit was still illuminating.",
+      },
+      {
+        word: "ignite",
+        wordType: "verb",
+        definition: "to catch fire or start burning",
+        example: "The cosmos ignited a star into existence.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "interstellar",
+        ipa: "/in-ter-STEL-er/",
+        syllables: "in-ter-stel-lar",
+        tip: "Stress STEL.",
+      },
+      {
+        word: "comet",
+        ipa: "/KOM-it/",
+        syllables: "com-et",
+        tip: "Stress KOM.",
+      },
+      {
+        word: "pristine",
+        ipa: "/PRIS-teen/",
+        syllables: "pris-tine",
+        tip: "Stress PRIS.",
+      },
+      {
+        word: "melancholy",
+        ipa: "/MEL-un-kol-ee/",
+        syllables: "mel-an-chol-y",
+        tip: "Stress MEL.",
+      },
+      {
+        word: "gravity",
+        ipa: "/GRAV-uh-tee/",
+        syllables: "grav-i-ty",
+        tip: "Stress GRAV.",
+      },
+    ],
+  },
+  {
+    id: "a38",
+    slug: "vaccine-passports-a-tool-to-handle-with-care",
+    title: "Vaccine Passports: A Tool to Handle With Care",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-01",
+    description:
+      "Proof of vaccination could help reopen society, but it raises hard questions about discrimination, privacy, and freedom. The answer lies in careful design, not rigid ideology.",
+    readingTime: 5,
+    content: `
+      <p><strong>Could proof of vaccination or a negative test help reopen shops, workplaces, and public life? The idea is tempting, but it raises deep practical and ethical questions that must be handled with care.</strong></p>
+
+      <h2>A tempting shortcut</h2>
+      <p>As lockdowns dragged on and public patience wore thin, governments began to ask whether a vaccination certificate could speed up the revival of social and economic activity. What was once dismissed became, cautiously, a subject for serious review.</p>
+
+      <h2>Practical and ethical complexities</h2>
+      <p>The problems are real. It is unclear what legal basis would allow services to be withheld from someone unable — or unwilling — to prove vaccination, which could amount to unlawful discrimination. There are worries about employers abusing such power, about fraud, and about the privacy and security of an official register of people's medical status.</p>
+
+      <h2>A false sense of safety</h2>
+      <p>There is also the hazard that certificate holders might relax good hygiene, wrongly believing themselves untouchable. No vaccine is 100% effective, and protection against serious illness does not necessarily stop transmission. Issuing people a "licence to mingle" could backfire if it means the collective guard drops.</p>
+
+      <h2>The prize on the other side</h2>
+      <p>Against those risks stands a real prize: restored activity, saved jobs, and improved mental wellbeing. Since the goal is to live with the virus rather than eliminate it, some system for showing vaccination or a negative test seems almost inevitable — such rules are already built into international travel.</p>
+
+      <h2>Design, not dogma</h2>
+      <p>There is a big difference between passports for foreign travel and a domestic licence to shop or work, which would be unprecedented. But the complexity of an idea is not a reason to reject it. A badly built system could be dangerous; a well-designed one, with the right legal safeguards, could be immensely valuable. The key measures are careful design and competent administration — not rigid ideology on either side.</p>
+    `,
+    vocabulary: [
+      {
+        word: "certification",
+        wordType: "noun",
+        definition: "official proof that something is true or has been done",
+        example: "Employers might require certification of vaccination.",
+      },
+      {
+        word: "discrimination",
+        wordType: "noun",
+        definition: "unfair treatment of people based on a particular characteristic",
+        example: "Withholding services could amount to unlawful discrimination.",
+      },
+      {
+        word: "circumspect",
+        wordType: "adjective",
+        definition: "careful and cautious before acting",
+        example: "The prime minister was more circumspect about the idea.",
+      },
+      {
+        word: "hazard",
+        wordType: "noun",
+        definition: "a possible source of danger or harm",
+        example: "There is a hazard that people will relax good hygiene.",
+      },
+      {
+        word: "transmission",
+        wordType: "noun",
+        definition: "the passing of a disease from one person to another",
+        example: "Vaccination does not always stop transmission.",
+      },
+      {
+        word: "unprecedented",
+        wordType: "adjective",
+        definition: "never having happened or existed before",
+        example: "A domestic licence to shop would be unprecedented.",
+      },
+      {
+        word: "safeguard",
+        wordType: "noun",
+        definition: "a measure taken to protect against harm or misuse",
+        example: "The right legal safeguards would make the system valuable.",
+      },
+      {
+        word: "dogma",
+        wordType: "noun",
+        definition: "a fixed belief accepted without question",
+        example: "Policy should be based on design, not dogma.",
+      },
+      {
+        word: "onerous",
+        wordType: "adjective",
+        definition: "involving a lot of effort or difficulty; burdensome",
+        example: "Public tolerance of onerous restrictions has a limit.",
+      },
+      {
+        word: "civil liberties",
+        wordType: "noun phrase",
+        definition: "the basic rights and freedoms that belong to every citizen",
+        example: "Any measure must be mindful of civil liberties.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "certification",
+        ipa: "/sur-tuh-fi-KAY-shun/",
+        syllables: "cer-ti-fi-ca-tion",
+        tip: "Stress KAY.",
+      },
+      {
+        word: "discrimination",
+        ipa: "/dis-krim-uh-NAY-shun/",
+        syllables: "dis-crim-i-na-tion",
+        tip: "Stress NAY.",
+      },
+      {
+        word: "unprecedented",
+        ipa: "/un-PRES-i-den-tid/",
+        syllables: "un-prec-e-dent-ed",
+        tip: "Stress PRES.",
+      },
+      {
+        word: "onerous",
+        ipa: "/OH-nur-us/",
+        syllables: "on-er-ous",
+        tip: "Stress OH.",
+      },
+      {
+        word: "dogma",
+        ipa: "/DOG-muh/",
+        syllables: "dog-ma",
+        tip: "Stress DOG.",
+      },
+    ],
+  },
+  {
+    id: "a39",
+    slug: "why-do-my-children-find-me-so-annoying",
+    title: "Why Do My Children Find Me So Annoying?",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1476234251651-f353703a034d?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-03",
+    description:
+      "A warm, comic column about family life after lockdown — teenagers, mornings, and the suspicion that the breakdown in discipline is really the parent's own.",
+    readingTime: 4,
+    content: `
+      <p><strong>In this affectionate, comic column, a writer pokes fun at a government claim that children lost their discipline during lockdown — and gradually admits that the only discipline that has really broken down might be her own.</strong></p>
+
+      <h2>A claim that doesn't add up</h2>
+      <p>The writer explains that she now follows the news mostly through how upset people sound on radio phone-ins. That is how she learns of a minister's belief that children have lost their discipline over lockdown — a claim teachers everywhere reject. Far from being unruly, they say, pupils have been on exquisite behaviour, so happy to be out of the house that they seem to want to earn their good fortune with lovely manners.</p>
+
+      <h2>Teenagers are another story</h2>
+      <p>Secondary-school children, she admits, are harder to read. She spends her days on elaborate theories about why they find her so annoying and why they hate mornings. Is it the effect of a strange year, or simply ordinary adolescence? A gently absurd conversation about carrying emergency cash — with children baffled that ticket machines exist — captures the comic gap between generations.</p>
+
+      <h2>The empathy of children</h2>
+      <p>The real warmth of the piece comes from her son, whose empathy she has admired since he was barely able to talk. When she nervously warns him never to joke about death, he gives her a sympathetic look that silently asks whether lockdown, and too much time on her phone, might be getting to her.</p>
+
+      <h2>The real conclusion</h2>
+      <p>The column ends with a neat comic twist. Discipline, the writer concludes, really has broken down over the past year — but mainly hers, not the children's.</p>
+    `,
+    vocabulary: [
+      {
+        word: "discipline",
+        wordType: "noun",
+        definition: "controlled, orderly behaviour, or training to produce it",
+        example: "A minister claimed children had lost their discipline.",
+      },
+      {
+        word: "exquisite",
+        wordType: "adjective",
+        definition: "extremely beautiful or, here, delightfully good",
+        example: "Their behaviour has become exquisite.",
+      },
+      {
+        word: "demonise",
+        wordType: "verb",
+        definition: "to describe someone as evil or to blame in order to turn others against them",
+        example: "She suspects a strategy to demonise parts of society.",
+      },
+      {
+        word: "proximal",
+        wordType: "adjective",
+        definition: "close to something in space or time",
+        example: "Months of being so excessively proximal may be the cause.",
+      },
+      {
+        word: "adolescence",
+        wordType: "noun",
+        definition: "the period of development between childhood and adulthood",
+        example: "She could not tell lockdown from ordinary adolescence.",
+      },
+      {
+        word: "perplexed",
+        wordType: "adjective",
+        definition: "confused because something is difficult to understand",
+        example: "She was blankly perplexed that anyone could still be asleep.",
+      },
+      {
+        word: "empathy",
+        wordType: "noun",
+        definition: "the ability to understand and share another person's feelings",
+        example: "She was struck afresh by her son's empathy.",
+      },
+      {
+        word: "quizzical",
+        wordType: "adjective",
+        definition: "showing mild, amused puzzlement",
+        example: "He gave her a sympathetic, quizzical look.",
+      },
+      {
+        word: "superstitious",
+        wordType: "adjective",
+        definition: "believing that certain acts or events bring good or bad luck",
+        example: "She is not usually a superstitious person.",
+      },
+      {
+        word: "whimsy",
+        wordType: "noun",
+        definition: "playful or fanciful behaviour or humour",
+        example: "The column is full of gentle whimsy.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "exquisite",
+        ipa: "/EK-skwi-zit/",
+        syllables: "ex-qui-site",
+        tip: "Stress EK.",
+      },
+      {
+        word: "adolescence",
+        ipa: "/ad-uh-LES-uns/",
+        syllables: "ad-o-les-cence",
+        tip: "Stress LES.",
+      },
+      {
+        word: "empathy",
+        ipa: "/EM-puh-thee/",
+        syllables: "em-pa-thy",
+        tip: "Stress EM.",
+      },
+      {
+        word: "quizzical",
+        ipa: "/KWIZ-i-kul/",
+        syllables: "quiz-zi-cal",
+        tip: "Stress KWIZ.",
+      },
+      {
+        word: "superstitious",
+        ipa: "/soo-per-STISH-us/",
+        syllables: "su-per-sti-tious",
+        tip: "Stress STISH.",
+      },
+    ],
+  },
+  {
+    id: "a40",
+    slug: "the-retail-crash-has-changed-the-high-street",
+    title: "The Retail Crash Has Changed the High Street Beyond Recognition",
+    category: "Reading",
+    topic: "Business",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-05",
+    description:
+      "As shops reopen, crowds return to a high street transformed by a deeper crisis. The retail crash is less about the pandemic than about decades of economic change.",
+    readingTime: 6,
+    content: `
+      <p><strong>As shops reopen and crowds return, the high street may look revived. But the retail crash is much more than a pandemic story — it is the acceleration of a transformation that has been under way for a decade.</strong></p>
+
+      <h2>A melancholy homecoming</h2>
+      <p>Britain lost around 17,500 chain outlets in a single year, with more closures following and job losses running at hundreds every working day. Some forecasters predict tens of thousands of vacant shops. Yet many analysts see this not simply as a disaster but as a long-overdue reckoning: the country, they argue, had simply built too many shops.</p>
+
+      <h2>Empires collapse</h2>
+      <p>Familiar names have vanished. When one major fashion empire imploded, it took a string of well-known brands with it, and the end of a famous department store chain left more than a hundred towns without a fixture of middle-market shopping — not only in big cities but in smaller towns that can least afford the loss.</p>
+
+      <h2>Winners and losers</h2>
+      <p>Smaller cities often lack the advantages that help big urban centres survive: large universities, thriving creative industries, and investors drawn to repurposed spaces. For these places, losing shops is a blow to local economies and to collective self-esteem, as aspirational stores give way to discount chains.</p>
+
+      <h2>A Great British mistake</h2>
+      <p>From the 1980s onward, retail was promoted as a way to fill the gaps left by closed-down industries — sometimes literally, with retail parks built on former mines and factories. There was always something precarious about people working in shops to earn money to spend in other shops, a structure that risked toppling in on itself.</p>
+
+      <h2>Rethinking the town centre</h2>
+      <p>Now "deindustrialisation" is being followed by "deretailing". Some towns are responding with imagination: converting empty department stores into university lecture halls, planning community-owned high streets, or even replacing shops with parks. What runs through these projects is a shared effort to shrink and rationalise old shopping districts and push toward a future beyond simply buying and selling things.</p>
+    `,
+    vocabulary: [
+      {
+        word: "retail",
+        wordType: "noun",
+        definition: "the business of selling goods to the public in shops",
+        example: "The retail crash reshaped the high street.",
+      },
+      {
+        word: "outlet",
+        wordType: "noun",
+        definition: "a shop or place that sells a particular product",
+        example: "Thousands of chain outlets closed in a single year.",
+      },
+      {
+        word: "reckoning",
+        wordType: "noun",
+        definition: "a time when the results of past actions must be faced",
+        example: "Some see the crash as a long-overdue reckoning.",
+      },
+      {
+        word: "implode",
+        wordType: "verb",
+        definition: "to collapse suddenly and completely",
+        example: "The fashion empire imploded, closing many brands.",
+      },
+      {
+        word: "precarious",
+        wordType: "adjective",
+        definition: "not safe or stable; likely to fail",
+        example: "There was always something precarious about the shift to retail.",
+      },
+      {
+        word: "vacant",
+        wordType: "adjective",
+        definition: "empty and available; not in use",
+        example: "There could soon be 80,000 vacant shops.",
+      },
+      {
+        word: "deindustrialisation",
+        wordType: "noun",
+        definition: "the decline of manufacturing industry in a region",
+        example: "Deindustrialisation is being followed by deretailing.",
+      },
+      {
+        word: "regeneration",
+        wordType: "noun",
+        definition: "the process of improving and bringing new life to an area",
+        example: "One town has an ambitious regeneration plan.",
+      },
+      {
+        word: "rationalise",
+        wordType: "verb",
+        definition: "to reorganise something to make it more efficient",
+        example: "Towns are trying to rationalise their shopping districts.",
+      },
+      {
+        word: "ubiquitous",
+        wordType: "adjective",
+        definition: "seeming to be everywhere",
+        example: "The ubiquitous discount chain is opening new shops.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "precarious",
+        ipa: "/pri-KAIR-ee-us/",
+        syllables: "pre-car-i-ous",
+        tip: "Stress KAIR.",
+      },
+      {
+        word: "reckoning",
+        ipa: "/REK-uh-ning/",
+        syllables: "reck-on-ing",
+        tip: "Stress REK.",
+      },
+      {
+        word: "regeneration",
+        ipa: "/ri-jen-uh-RAY-shun/",
+        syllables: "re-gen-er-a-tion",
+        tip: "Stress RAY.",
+      },
+      {
+        word: "ubiquitous",
+        ipa: "/yoo-BIK-wi-tus/",
+        syllables: "u-biq-ui-tous",
+        tip: "Stress BIK.",
+      },
+      {
+        word: "rationalise",
+        ipa: "/RASH-uh-nuh-lyz/",
+        syllables: "ra-tion-al-ise",
+        tip: "Stress RASH.",
+      },
+    ],
+  },
+  {
+    id: "a41",
+    slug: "the-case-for-optimism-a-pep-talk-from-steven-pinker",
+    title: "The Case for Optimism: A Pep Talk From Steven Pinker",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-07",
+    description:
+      "The psychologist Steven Pinker argues that, despite the headlines, life is getting better. A writer weighs that data-driven optimism against his own doubts about the future.",
+    readingTime: 6,
+    content: `
+      <p><strong>The psychologist Steven Pinker irritates many intellectuals, yet his central claim is bracing: contrary to what the daily headlines suggest, the world is getting better and better. A doubtful admirer set out to test that optimism.</strong></p>
+
+      <h2>An upbeat message</h2>
+      <p>Seeking encouragement during a grim season, the writer invited Pinker to give his school a "pep talk". In his book <em>Enlightenment Now</em>, Pinker argues that we should be grateful to live in our era — the best, despite recent setbacks, in our long and troubled history. It was exactly the message his students and colleagues seemed to need.</p>
+
+      <h2>The graphs of progress</h2>
+      <p>Pinker presented charts showing rises in good things — income, longevity, literacy, democracy, civil rights, leisure — and falls in bad things: poverty, infant mortality, famine, torture, war, and racist attitudes. Together, he argues, they show we are wealthier, healthier, freer, more peaceful, and kinder than ever before, not by a little but by a lot.</p>
+
+      <h2>Not a naive optimist</h2>
+      <p>Pinker does not claim we live in the best of all possible worlds. He recognises that the goods of modern life are unequally shared and that poverty, disease, and violence endure. His point is that we have advanced against these ancient miseries — and can advance further if we resist fatalism, tribalism, and revolutionary fanaticism. He calls himself a kind of "conservative progressive", wanting to preserve the institutions, like science and democracy, that have helped humanity flourish.</p>
+
+      <h2>Setbacks and limits</h2>
+      <p>Progress, Pinker admits, is neither steady nor inevitable; there are reversals. He calls climate change perhaps the biggest problem in human history and favours carbon taxes and cleaner energy over abolishing capitalism. Yet his faith in progress is not absolute: drawing on a "tragic" view of human nature, he says we will never entirely eliminate pollution, prejudice, or violence.</p>
+
+      <h2>Doubt and hope</h2>
+      <p>The writer shares much of Pinker's outlook but keeps his doubts. He worries, with a historian friend, that industrial civilisation may not be sustainable, and sees democracy itself as a fragile, sometimes destabilising force. Still, another part of him hopes an age-old dream might be within reach: if the decline of war continues, perhaps humanity could end war for good. That would not be utopia — we would still grow old, grieve, and quarrel — but, as Pinker says, it would be pretty good.</p>
+    `,
+    vocabulary: [
+      {
+        word: "optimism",
+        wordType: "noun",
+        definition: "a tendency to expect good outcomes",
+        example: "Pinker defends a data-driven optimism.",
+      },
+      {
+        word: "flourishing",
+        wordType: "noun",
+        definition: "the state of growing, thriving, and doing well",
+        example: "He defines progress as improvements in human flourishing.",
+      },
+      {
+        word: "longevity",
+        wordType: "noun",
+        definition: "long life",
+        example: "The graphs show rising longevity over the past century.",
+      },
+      {
+        word: "fatalism",
+        wordType: "noun",
+        definition: "the belief that events are fixed and cannot be changed",
+        example: "Progress requires resisting fatalism.",
+      },
+      {
+        word: "tribalism",
+        wordType: "noun",
+        definition: "strong loyalty to one's own group above others",
+        example: "He warns against tribalism and fanaticism.",
+      },
+      {
+        word: "empirical",
+        wordType: "adjective",
+        definition: "based on observation and evidence rather than theory",
+        example: "His optimism stems from empirical evidence.",
+      },
+      {
+        word: "inequality",
+        wordType: "noun",
+        definition: "an unfair difference in wealth, status, or opportunity",
+        example: "He argues that poverty matters more than inequality.",
+      },
+      {
+        word: "sustainable",
+        wordType: "adjective",
+        definition: "able to continue over the long term without collapse",
+        example: "A friend doubts industrial civilisation is sustainable.",
+      },
+      {
+        word: "utopia",
+        wordType: "noun",
+        definition: "an imagined perfect society",
+        example: "Pinker doubts that utopia is feasible.",
+      },
+      {
+        word: "complacent",
+        wordType: "adjective",
+        definition: "self-satisfied and unaware of possible dangers",
+        example: "Some fear that acknowledging progress makes us complacent.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "optimism",
+        ipa: "/OP-ti-miz-um/",
+        syllables: "op-ti-mism",
+        tip: "Stress OP.",
+      },
+      {
+        word: "empirical",
+        ipa: "/em-PIR-i-kul/",
+        syllables: "em-pir-i-cal",
+        tip: "Stress PIR.",
+      },
+      {
+        word: "utopia",
+        ipa: "/yoo-TOH-pee-uh/",
+        syllables: "u-to-pi-a",
+        tip: "Stress TOH.",
+      },
+      {
+        word: "fatalism",
+        ipa: "/FAY-tuh-liz-um/",
+        syllables: "fa-tal-ism",
+        tip: "Stress FAY.",
+      },
+      {
+        word: "complacent",
+        ipa: "/kum-PLAY-sunt/",
+        syllables: "com-pla-cent",
+        tip: "Stress PLAY.",
+      },
+    ],
+  },
+  {
+    id: "a42",
+    slug: "to-close-the-gender-gap-in-wages-we-need-to-start-young",
+    title: "To Close the Gender Gap in Wages, We Need to Start Young",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-09",
+    description:
+      "New research finds that girls as young as eight already ask for less than boys when negotiating with a man — a sign that the wage gap begins long before the first job.",
+    readingTime: 5,
+    content: `
+      <p><strong>Children are natural negotiators, turning five more minutes at the playground into ten. New research suggests these childhood negotiations may share a surprising feature with adult ones: girls tend to ask for less than boys.</strong></p>
+
+      <h2>The adult wage gap</h2>
+      <p>When a woman starts a job today, she is likely to earn markedly less than a man in the same position. One driving force behind this gap is that women tend to negotiate less than men — but only in certain situations. When negotiating with a woman, men and women ask for about the same. When negotiating with a man, a gap appears, and women ask for, and get, less.</p>
+
+      <h2>Testing it in children</h2>
+      <p>Researchers wondered whether this pattern emerges late, after young adults absorb social norms, or whether it is rooted earlier in childhood. To find out, they gave children aged four to nine the chance to negotiate for a bonus of stickers with either a woman or a man. The children kept their requests modest — no one asked for a million.</p>
+
+      <h2>A gap by age eight</h2>
+      <p>The results were striking. By the age of eight, girls were already asking for fewer stickers than boys when negotiating with a man — about two fewer. When the person offering the stickers was a woman, no gap appeared. In other words, the same pattern seen in adult women shows up in girls by around third grade.</p>
+
+      <h2>What are we teaching?</h2>
+      <p>The findings raise uncomfortable questions. What are we teaching girls, openly or subtly, that leads them to ask for less from a man than from a woman? Or are adults treating girls differently, reacting less warmly when girls make larger requests? The researchers cannot yet answer, but they argue the questions deserve attention.</p>
+
+      <h2>Starting earlier</h2>
+      <p>The push for negotiation classes and workplace equality is vital, the authors argue, but it may start too late. These patterns are the gradual accumulation of childhood experiences, not something that appears with a first job. Teaching all children to advocate for themselves — and paying attention to how we respond to daughters and sons — could help close the gap before it opens.</p>
+    `,
+    vocabulary: [
+      {
+        word: "negotiate",
+        wordType: "verb",
+        definition: "to try to reach an agreement by discussion",
+        example: "Children negotiate for more time at the playground.",
+      },
+      {
+        word: "wage gap",
+        wordType: "noun phrase",
+        definition: "the difference in average pay between two groups, such as men and women",
+        example: "One cause of the wage gap is that women negotiate less.",
+      },
+      {
+        word: "norm",
+        wordType: "noun",
+        definition: "a standard or pattern of behaviour that is usual in a group",
+        example: "Young adults absorb social norms about gender.",
+      },
+      {
+        word: "pronounced",
+        wordType: "adjective",
+        definition: "very noticeable or strong",
+        example: "The gap was most pronounced when negotiating with a man.",
+      },
+      {
+        word: "hypothesise",
+        wordType: "verb",
+        definition: "to suggest an explanation to be tested by research",
+        example: "They hypothesised that girls would ask for less.",
+      },
+      {
+        word: "implicitly",
+        wordType: "adverb",
+        definition: "in a way that is suggested but not directly stated",
+        example: "We may be teaching girls something implicitly.",
+      },
+      {
+        word: "advocate",
+        wordType: "verb",
+        definition: "to speak or argue in favour of something, including oneself",
+        example: "Children should feel comfortable advocating for themselves.",
+      },
+      {
+        word: "accumulation",
+        wordType: "noun",
+        definition: "a gradual gathering or build-up of something over time",
+        example: "The gap is the accumulation of many small experiences.",
+      },
+      {
+        word: "curriculum",
+        wordType: "noun",
+        definition: "the subjects that make up a course of study at a school",
+        example: "Negotiation training could be added to the curriculum.",
+      },
+      {
+        word: "modest",
+        wordType: "adjective",
+        definition: "not large in amount or size",
+        example: "The children's requests stayed relatively modest.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "negotiate",
+        ipa: "/ni-GOH-shee-ayt/",
+        syllables: "ne-go-ti-ate",
+        tip: "Stress GOH.",
+      },
+      {
+        word: "hypothesise",
+        ipa: "/hy-POTH-uh-syz/",
+        syllables: "hy-poth-e-sise",
+        tip: "Stress POTH.",
+      },
+      {
+        word: "advocate",
+        ipa: "/AD-vuh-kayt/",
+        syllables: "ad-vo-cate",
+        tip: "Stress AD.",
+      },
+      {
+        word: "curriculum",
+        ipa: "/kuh-RIK-yuh-lum/",
+        syllables: "cur-ric-u-lum",
+        tip: "Stress RIK.",
+      },
+      {
+        word: "pronounced",
+        ipa: "/pruh-NOWNST/",
+        syllables: "pro-nounced",
+        tip: "Stress NOWNST.",
+      },
+    ],
+  },
+  {
+    id: "a43",
+    slug: "the-science-of-hugging",
+    title: "The Science of Hugging, and Why We Missed It So Much",
+    category: "Reading",
+    topic: "Science",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-11",
+    description:
+      "Why do we crave the touch of others? The answer lies in our evolution, our skin, and a special set of nerves that turn a gentle hug into calm and comfort.",
+    readingTime: 5,
+    content: `
+      <p><strong>During the pandemic, one of the things people missed most was a simple hug. To understand why we crave the touch of others, we need to look at our evolution, our social history, and our skin.</strong></p>
+
+      <h2>Born to be held</h2>
+      <p>Humans are born helpless, relying on others to feed, warm, and comfort us. Like all mammals, we are innately predisposed to seek physical contact for survival. Skin-to-skin contact between a mother and infant helps regulate the baby's heart and breathing, lowers stress hormones, and shapes the developing brain. Touch signals to a baby that support is near and it is safe.</p>
+
+      <h2>Touch across a lifetime</h2>
+      <p>As we grow older, touch keeps playing a role in forming and maintaining relationships. When we are distressed, we return to those early experiences, relying on non-verbal comfort such as holding hands, hugs, and caresses. These rewarding sensations are rooted in the skin, which is filled with sensory receptors that tell us what is happening on our body's surface.</p>
+
+      <h2>A special kind of nerve</h2>
+      <p>For a long time, scientists studying touch focused on the nerves in our hands and fingers that help us explore surfaces and textures. But researchers have become increasingly interested in a different set of touch-sensitive nerves in areas like the back. These respond most to skin temperature and gentle, slow stroking — exactly the speed people naturally use when caressing an infant or a partner.</p>
+
+      <h2>The chemistry of comfort</h2>
+      <p>When stimulated, these nerves send signals to the emotional regions of the brain, releasing a cascade of neurochemicals. One of the most notable is oxytocin, a hormone released by gentle skin contact such as hugs. Oxytocin plays a role in social bonding, reduces stress, and increases our tolerance to pain — but only when the touch is actually wanted.</p>
+
+      <h2>Not only human</h2>
+      <p>Those comforting partners do not have to be human: oxytocin rises in both a dog and its owner when the animal is stroked, which may partly explain the rise in pet ownership during lockdown. Deprived of touch, many people felt lonely and distressed. Released from restrictions, the writer suggests, we will quickly return to hugging — perhaps appreciating it a little more than before.</p>
+    `,
+    vocabulary: [
+      {
+        word: "predisposed",
+        wordType: "adjective",
+        definition: "naturally inclined to behave or feel in a particular way",
+        example: "We are innately predisposed to seek physical contact.",
+      },
+      {
+        word: "regulate",
+        wordType: "verb",
+        definition: "to control or keep something at the right level",
+        example: "Skin-to-skin contact helps regulate a baby's heart rate.",
+      },
+      {
+        word: "sensory receptor",
+        wordType: "noun phrase",
+        definition: "a cell that detects a stimulus such as touch or temperature",
+        example: "The skin is full of sensory receptors.",
+      },
+      {
+        word: "innervate",
+        wordType: "verb",
+        definition: "to supply a body part with nerves",
+        example: "The skin is innervated with many kinds of receptors.",
+      },
+      {
+        word: "stimulate",
+        wordType: "verb",
+        definition: "to cause activity in the body or mind",
+        example: "When these nerves are stimulated, they release chemicals.",
+      },
+      {
+        word: "oxytocin",
+        wordType: "noun",
+        definition: "a hormone linked to bonding, released by gentle touch",
+        example: "Hugs cause the release of oxytocin.",
+      },
+      {
+        word: "bonding",
+        wordType: "noun",
+        definition: "the forming of a close relationship",
+        example: "Oxytocin plays a role in social bonding.",
+      },
+      {
+        word: "buffer",
+        wordType: "verb",
+        definition: "to protect against or lessen the effect of something",
+        example: "Gentle touch can buffer against the effects of stress.",
+      },
+      {
+        word: "crave",
+        wordType: "verb",
+        definition: "to want something very strongly",
+        example: "Many of us crave the touch of other people.",
+      },
+      {
+        word: "distressed",
+        wordType: "adjective",
+        definition: "feeling extreme worry, sadness, or pain",
+        example: "When distressed, we seek non-verbal comfort.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "oxytocin",
+        ipa: "/ok-si-TOH-sin/",
+        syllables: "ox-y-to-cin",
+        tip: "Stress TOH.",
+      },
+      {
+        word: "predisposed",
+        ipa: "/pree-di-SPOHZD/",
+        syllables: "pre-dis-posed",
+        tip: "Stress SPOHZD.",
+      },
+      {
+        word: "regulate",
+        ipa: "/REG-yuh-layt/",
+        syllables: "reg-u-late",
+        tip: "Stress REG.",
+      },
+      {
+        word: "stimulate",
+        ipa: "/STIM-yuh-layt/",
+        syllables: "stim-u-late",
+        tip: "Stress STIM.",
+      },
+      {
+        word: "caress",
+        ipa: "/kuh-RES/",
+        syllables: "ca-ress",
+        tip: "Stress RES.",
+      },
+    ],
+  },
+  {
+    id: "a44",
+    slug: "a-world-of-pre-booked-fun-spare-a-thought-for-the-disorganised",
+    title: "A World of Pre-Booked Fun: Spare a Thought for the Disorganised",
+    category: "Reading",
+    topic: "Culture",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-13",
+    description:
+      "As life reopens on a system of advance bookings, a self-confessed disorganised writer mourns the slow death of spontaneity in the modern city.",
+    readingTime: 4,
+    content: `
+      <p><strong>As lockdown ends and life reopens, everything must be booked in advance. For a self-confessed disorganised person, this is not liberation but a quiet defeat — a victory for the enemies of spontaneity.</strong></p>
+
+      <h2>Barred from the fun</h2>
+      <p>The writer confesses he feels no excitement about reopening. He has no plans, and everywhere is already fully booked. This represents a triumph for his ideological enemies: the highly organised go-getters with stable incomes who have the foresight to plan things in advance. His own brain, he jokes, simply does not work that way — he once spent a whole year of university with a broken tooth because he could not get round to booking a dentist.</p>
+
+      <h2>The death of spontaneity</h2>
+      <p>Beyond his comic resentment lies a real worry: the death of spontaneity. Deciding to duck into a pub for a solo pint used to be an act of carefree whimsy. When you must book a table, drinking alone starts to feel deliberate and even shameful, and asking for "a table for one" becomes an affront to human dignity. Spontaneity, he argues, is a large part of what makes going out pleasurable.</p>
+
+      <h2>A city that plans ahead</h2>
+      <p>He fears this shift is not temporary. For years, it has become harder to do anything in the city without planning ahead, as spontaneous nightlife gives way to monthly events in ever more distant places. A more organised, "infantilising" culture has emerged — axe-throwing, escape rooms, themed brunches — the commodified "experience" model of socialising that you cannot simply wander into.</p>
+
+      <h2>Room for the wanderers</h2>
+      <p>Perhaps, he hopes, some venues will still cater to the wanderers, keeping a few tables for walk-ins while others become quasi-restaurants. Eventually, he trusts, a degree of spontaneity will return to city life. Until then, for those who like to be surprised by where the night takes them, lockdown will not really feel over.</p>
+    `,
+    vocabulary: [
+      {
+        word: "spontaneity",
+        wordType: "noun",
+        definition: "the quality of acting on impulse, without planning",
+        example: "He mourns the loss of spontaneity in city life.",
+      },
+      {
+        word: "foresight",
+        wordType: "noun",
+        definition: "the ability to predict and prepare for future needs",
+        example: "Advance bookers have the foresight to plan ahead.",
+      },
+      {
+        word: "whimsy",
+        wordType: "noun",
+        definition: "playful, spontaneous, or fanciful behaviour",
+        example: "Ducking into a pub used to be an act of carefree whimsy.",
+      },
+      {
+        word: "affront",
+        wordType: "noun",
+        definition: "an action or remark that insults someone's dignity",
+        example: "Asking for a table for one felt like an affront to dignity.",
+      },
+      {
+        word: "animosity",
+        wordType: "noun",
+        definition: "strong dislike or hostility",
+        example: "He feels a comic animosity toward the organised.",
+      },
+      {
+        word: "commodified",
+        wordType: "adjective",
+        definition: "turned into something to be bought and sold",
+        example: "Nightlife has become a commodified 'experience'.",
+      },
+      {
+        word: "infantilising",
+        wordType: "adjective",
+        definition: "treating adults as if they were children",
+        example: "He describes an infantilising culture of themed events.",
+      },
+      {
+        word: "peripheral",
+        wordType: "adjective",
+        definition: "located on the edge or outer part of something",
+        example: "Events moved to ever more peripheral places.",
+      },
+      {
+        word: "revelry",
+        wordType: "noun",
+        definition: "lively and noisy celebration",
+        example: "The journey between bars was part of the revelry.",
+      },
+      {
+        word: "grotty",
+        wordType: "adjective",
+        definition: "unpleasant, dirty, or of poor quality (informal British English)",
+        example: "He prefers grotty, spontaneous nights out.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "spontaneity",
+        ipa: "/spon-tuh-NAY-uh-tee/",
+        syllables: "spon-ta-ne-i-ty",
+        tip: "Stress NAY.",
+      },
+      {
+        word: "foresight",
+        ipa: "/FOR-syt/",
+        syllables: "fore-sight",
+        tip: "Stress FOR.",
+      },
+      {
+        word: "affront",
+        ipa: "/uh-FRUNT/",
+        syllables: "af-front",
+        tip: "Stress FRUNT.",
+      },
+      {
+        word: "animosity",
+        ipa: "/an-i-MOS-uh-tee/",
+        syllables: "an-i-mos-i-ty",
+        tip: "Stress MOS.",
+      },
+      {
+        word: "peripheral",
+        ipa: "/puh-RIF-uh-rul/",
+        syllables: "pe-riph-er-al",
+        tip: "Stress RIF.",
+      },
+    ],
+  },
 ];
 export function findArticle(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.slug === slug);
