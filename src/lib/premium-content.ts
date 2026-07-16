@@ -49,14 +49,16 @@ export const isFreeWritingSample = (id: string): boolean => freeWritingSampleIds
 const freeWritingEssayIds = firstIds(WRITING_ESSAYS, FREE_LIMITS.writingSamplesPerTask);
 export const isFreeWritingEssay = (id: string): boolean => freeWritingEssayIds.has(id);
 
-/* Writing simulators: the first N in each task (1 and 2) stay free. */
-const freeWritingSimulatorIds = new Set(
-  ([1, 2] as const).flatMap((task) =>
+/* Writing simulators: the first N in each task (1 and 2) stay free, plus any
+   simulator explicitly flagged `isFree` in the data. */
+const freeWritingSimulatorIds = new Set([
+  ...([1, 2] as const).flatMap((task) =>
     HTML_TASKS.filter((t) => t.task === task)
       .slice(0, FREE_LIMITS.writingSimulatorsPerTask)
       .map((t) => t.id),
   ),
-);
+  ...HTML_TASKS.filter((t) => t.isFree).map((t) => t.id),
+]);
 export const isFreeWritingSimulator = (id: string): boolean => freeWritingSimulatorIds.has(id);
 
 const freeSpeakingTopicIds = firstIds(SPEAKING_TOPICS, FREE_LIMITS.speakingTopics);

@@ -14,6 +14,8 @@ export type HtmlTask = {
   minWords?: number;
   timeMinutes?: number;
   isNew?: boolean;
+  /** Force this simulator to stay free regardless of the default free-slice policy. */
+  isFree?: boolean;
 };
 
 export const HTML_TASKS: HtmlTask[] = [
@@ -1227,6 +1229,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-holidaymakers-accommodation-types",
@@ -1239,6 +1242,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-us-government-research-spending",
@@ -1251,6 +1255,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-football-match-attendance-in-europe",
@@ -1263,6 +1268,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-actual-vs-expected-city-populations",
@@ -1275,6 +1281,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-silk-production-in-england-and-wales",
@@ -1287,6 +1294,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-bridgetown-1700-vs-2000",
@@ -1299,6 +1307,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-electricity-consumption-in-eastern-europe",
@@ -1311,6 +1320,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-university-salaries-and-fees",
@@ -1323,6 +1333,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-ryemouth-village-1995-vs-present",
@@ -1335,6 +1346,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-healthcare-satisfaction-in-four-countries",
@@ -1347,6 +1359,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-student-course-types-over-time",
@@ -1359,6 +1372,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-walton-museum-south-wing-redevelopment",
@@ -1371,6 +1385,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-trips-by-men-and-women",
@@ -1383,6 +1398,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-village-development-1910-vs-2010",
@@ -1395,6 +1411,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-household-spending-in-europe",
@@ -1407,6 +1424,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-australian-school-leavers-destinations",
@@ -1419,6 +1437,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-cinema-attendance-by-age-group",
@@ -1431,6 +1450,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-students-across-university-departments",
@@ -1443,6 +1463,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-music-event-attendance-in-australia",
@@ -1455,6 +1476,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-income-and-poverty-in-three-us-states",
@@ -1467,6 +1489,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-weekly-food-consumption-in-europe",
@@ -1479,6 +1502,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-share-of-world-population-by-country",
@@ -1491,6 +1515,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-uk-residents-trips-abroad",
@@ -1503,6 +1528,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-how-carbonated-drinks-are-made",
@@ -1515,6 +1541,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
   {
     id: "html-t1-telephone-and-internet-use-in-china",
@@ -1527,6 +1554,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 150,
     timeMinutes: 20,
     isNew: true,
+    isFree: true,
   },
 
   // ── IELTS CDI Report – additional Writing Task 2 simulators ──
@@ -1541,6 +1569,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_62",
@@ -1553,6 +1582,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_63",
@@ -1565,6 +1595,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_64",
@@ -1577,6 +1608,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_65",
@@ -1589,6 +1621,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_66",
@@ -1601,6 +1634,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_67",
@@ -1613,6 +1647,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_68",
@@ -1625,6 +1660,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_69",
@@ -1637,6 +1673,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_70",
@@ -1649,6 +1686,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_71",
@@ -1661,6 +1699,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_72",
@@ -1673,6 +1712,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_73",
@@ -1685,6 +1725,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_74",
@@ -1697,6 +1738,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_75",
@@ -1709,6 +1751,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_76",
@@ -1721,6 +1764,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_77",
@@ -1733,6 +1777,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_78",
@@ -1745,6 +1790,7 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
   {
     id: "task2_79",
@@ -1757,5 +1803,6 @@ export const HTML_TASKS: HtmlTask[] = [
     minWords: 250,
     timeMinutes: 40,
     isNew: true,
+    isFree: true,
   },
 ];
