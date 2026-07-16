@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>The Strange World of Sight – IELTS</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+
+:root{--bg-color:#fff;--text-color:#000;--passage-bg:#fff;--questions-bg:#fff;--border-color:#d5d5d5;--highlight-color:#fef08a;--header-bg:#fff;--header-text:#000;--button-hover:#e4e4e4;--progress-complete:#21aa74;--timer-text:#000;--footer-bg:#fff;--cdi-font-size:16px;--cdi-line-height:1.5;}
+body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--highlight-color:#6b5c10;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--progress-complete:#81c995;}
+*{margin:0;padding:0;box-sizing:border-box;transition:background-color .3s,color .3s;}
+html,body{height:100%;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);overflow:hidden;display:flex;flex-direction:column;font-size:16px;}
+header{height:56px;min-height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);position:relative;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:50;}
+.cdi-left-brand{display:flex;align-items:center;gap:12px;min-width:220px;}
+.ielts-logo{font-size:40px;font-weight:900;letter-spacing:-2px;color:#e31837;line-height:1;font-family:Arial Black,Arial,sans-serif;}
+.ielts-logo::after{content:'™';font-size:9px;vertical-align:top;color:#e31837;}
+.test-taker{font-size:15px;font-weight:700;color:var(--header-text);}
+.cdi-center-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.social-link.telegram{background:#0088cc;color:#fff;border-radius:22px;padding:6px 18px;font-size:15px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;}
+.social-link.telegram:hover{background:#007bb5;}
+.header-controls{margin-left:auto;display:flex;align-items:center;gap:14px;}
+.timer-container{color:var(--timer-text);font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.hbtn{background:transparent;border:0;color:var(--header-text);width:34px;height:34px;padding:0;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px;}
+.hbtn:hover{background:var(--button-hover);}
+.display-panel{position:fixed;top:56px;right:0;width:min(300px,100vw);background:var(--questions-bg);border-left:1px solid var(--border-color);box-shadow:-4px 0 16px rgba(0,0,0,.15);padding:16px;z-index:2000;display:none;color:var(--text-color);}
+.display-panel.open{display:block;}
+.display-panel h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;}
+.display-panel label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px;}
+.display-panel input[type=range]{width:100%;accent-color:#2a6c96;}
+.theme-row{display:flex;gap:8px;margin-top:12px;}
+.theme-row button{border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);border-radius:6px;padding:6px 10px;cursor:pointer;}
+.cdi-part-header{margin:14px 14px 0;padding:10px 18px;background:rgb(241,242,236);border:1px solid var(--border-color);flex-shrink:0;}
+body.night-mode .cdi-part-header{background:#1f2b47;border-color:#3a3f4b;}
+.cdi-part-header p{margin:0;font-size:15px;line-height:1.4;color:var(--text-color);}
+main{display:flex;flex:1;min-height:0;margin-top:14px;overflow:hidden;}
+.passage-container,.questions-container{height:100%;overflow-y:auto;padding:22px 26px 70px;background:var(--passage-bg);color:var(--text-color);min-width:200px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.questions-container{background:var(--questions-bg);}
+.passage-title{font-size:18px;font-weight:700;margin:0 0 6px;text-align:center;color:var(--text-color);}
+.passage-subtitle{font-style:italic;font-size:15px;text-align:center;margin:0 0 16px;color:var(--text-color);}
+.passage-text p{margin:0 0 14px;color:var(--text-color);font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.sec-title{font-size:16px;font-weight:700;margin:0 0 10px;color:var(--text-color);}
+.instructions{font-size:15px;margin:0 0 14px;color:var(--text-color);}
+.question{margin:0 0 22px;}
+.q-title{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.q-num{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:15px;font-weight:700;flex-shrink:0;}
+.question.answered .q-num{background:rgba(33,170,116,0.12);}
+.q-text{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.mcq-options{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
+.mcq-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);cursor:pointer;font-size:var(--cdi-font-size);color:var(--text-color);}
+.mcq-option input{transform:scale(1.1);flex-shrink:0;}
+.text-input{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:28px;padding:3px 8px;font-family:Arial,sans-serif;}
+.notes-box{border:1px solid var(--border-color);border-radius:6px;padding:14px 18px;margin-bottom:16px;background:var(--questions-bg);}
+.notes-box p,.notes-box li{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.notes-box .nb-title{text-align:center;font-weight:700;margin-bottom:10px;}
+.notes-box .nb-head{font-weight:700;margin:12px 0 4px;}
+.notes-box .nb-line{margin:5px 0;padding-left:14px;position:relative;}
+.cdi-resizer{width:16px;flex:0 0 16px;background:transparent;cursor:col-resize;position:relative;display:flex;align-items:center;justify-content:center;z-index:5;}
+.cdi-resizer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-color);transform:translateX(-50%);}
+.cdi-resizer-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border:1.6px solid #535353;background:#f9f9f9;color:#535353;display:flex;align-items:center;justify-content:center;font-size:15px;pointer-events:none;}
+body.night-mode .cdi-resizer-handle{background:#1f2b47;color:#b0b3b8;border-color:#3a3f4b;}
+.cdi-resizer:hover::before,.cdi-resizer.dragging::before{background:#2a6c96;}
+.cdi-resizer:hover .cdi-resizer-handle,.cdi-resizer.dragging .cdi-resizer-handle{color:#2a6c96;border-color:#2a6c96;}
+footer{height:60px;background:var(--footer-bg);border-top:1px solid var(--border-color);padding:0;display:flex;align-items:stretch;flex-shrink:0;}
+.progress-container{display:flex;align-items:stretch;overflow-x:auto;flex:1;padding:0 14px;}
+.progress-item{width:38px;height:100%;background:transparent;color:var(--text-color);border:1.6px solid transparent;display:inline-flex;align-items:center;justify-content:center;font-size:15px;position:relative;cursor:pointer;}
+.progress-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#d7d7d7;}
+.progress-item.completed{color:#2a6c96;}.progress-item.completed::before{background:#21aa74;}
+.action-buttons{display:flex;align-items:stretch;}
+.btn-secondary,.btn-primary{height:100%;border-radius:0;padding:0 24px;background:#efefef;color:#535353;border:0;border-left:1px solid var(--border-color);font-size:15px;cursor:pointer;}
+.btn-secondary:hover,.btn-primary:hover{background:#e4e4e4;}
+.feedback-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:3000;display:none;justify-content:center;align-items:center;}
+.feedback-container{background:var(--passage-bg);width:90%;max-width:880px;height:88%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.3);display:flex;flex-direction:column;}
+.feedback-header{padding:18px 20px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;}
+.feedback-title{font-size:20px;font-weight:700;color:var(--text-color);display:flex;align-items:center;gap:10px;}
+.score-display{font-size:22px;font-weight:700;margin-left:8px;}
+#close-feedback{font-size:22px;background:none;border:none;color:var(--text-color);cursor:pointer;}
+.feedback-body{padding:18px;overflow-y:auto;}
+.feedback-item{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border-color);}
+.feedback-question{font-weight:700;margin-bottom:5px;font-size:15px;color:var(--text-color);}
+.feedback-answer{font-size:14px;padding:7px 11px;border-radius:4px;}
+.feedback-answer.correct{background:rgba(40,167,69,.1);color:#155724;}
+.feedback-answer.incorrect{background:rgba(220,53,69,.1);color:#721c24;}
+body.night-mode .feedback-answer.correct{color:#81c995;background:rgba(40,167,69,.15);}
+body.night-mode .feedback-answer.incorrect{color:#f5a0a8;background:rgba(220,53,69,.15);}
+.highlight{background-color:var(--highlight-color);cursor:pointer;}
+.highlight-tooltip{position:fixed;background:#333;color:#fff;padding:5px 10px;border-radius:4px;font-size:13px;z-index:9999;display:flex;align-items:center;gap:5px;}
+.inline-correct{color:#28a745;font-weight:700;margin-left:8px;font-size:14px;}
+.inline-wrong{color:#dc3545;font-weight:600;margin-left:8px;font-size:13px;}
+.test-locked input,.test-locked select{pointer-events:none;opacity:.85;}
+.test-locked .mcq-option{cursor:default;}
+
+/* ---- compat: source question classes restyled to dolls look ---- */
+.question-rubric h3,.section-title{font-size:16px;font-weight:700;margin:18px 0 10px;color:var(--text-color);}
+.question-rubric p,.instructions{font-size:15px;margin:0 0 12px;color:var(--text-color);}
+.question-group{margin:0 0 8px;}
+.question-content{margin-bottom:8px;}
+.dropdown-question-row{display:flex;flex-direction:column;gap:8px;margin:0 0 18px;}
+.dropdown-question-row>p,.question-item p{margin:0 0 6px;color:var(--text-color);}
+.question-number{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:14px;font-weight:700;margin-right:8px;flex-shrink:0;}
+.question.answered .question-number,.answered .question-number{background:rgba(33,170,116,0.12);}
+.true-false-option{margin:0 0 16px;}
+.true-false-option p{margin:0 0 6px;color:var(--text-color);}
+select,.sel,.select-answer,.short-answer,.summary-input,input[type=text]{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:30px;padding:4px 8px;font-family:Arial,sans-serif;max-width:100%;}
+.summary-input{min-width:120px;text-align:center;}
+.matching-box,.option-list,.matching-list{border:1px solid var(--border-color);border-radius:6px;padding:14px 18px;margin:12px 0;background:var(--questions-bg);}
+.matching-list,.option-list ul{list-style:none;}
+.matching-box h4{margin:0 0 8px;font-size:15px;}
+.matching-list li,.option-list div{margin:6px 0;color:var(--text-color);}
+.question-item{margin:12px 0;}
+.inline-correct{color:#28a745;font-weight:700;}
+.inline-wrong{color:#dc3545;font-weight:700;}
+@media(max-width:900px){.test-taker{display:none;}.cdi-center-brand{position:static;transform:none;margin-left:6px;}.cdi-resizer{display:none!important;}main{flex-direction:column;}.passage-container,.questions-container{width:100%!important;flex:none!important;height:50%!important;}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="cdi-left-brand"><span class="ielts-logo">IELTS</span><span class="test-taker">Test taker ID</span></div>
+  <div class="cdi-center-brand"><a class="social-link telegram" href="https://t.me/augustus_flores" target="_blank"><i class="fab fa-telegram-plane"></i><span>Abduraimov Erkinjon</span></a></div>
+  <div class="header-controls">
+    <div class="timer-container"><i class="fas fa-clock"></i><span id="timer">20:00</span></div>
+    <button class="hbtn" id="start-timer"><i class="fas fa-play"></i></button>
+    <button class="hbtn" id="pause-timer"><i class="fas fa-pause"></i></button>
+    <button class="hbtn" id="reset-timer"><i class="fas fa-redo"></i></button>
+    <button class="hbtn" id="fullscreen-toggle"><i class="fas fa-expand"></i></button>
+    <button class="hbtn" id="night-mode-toggle"><i class="fas fa-moon"></i></button>
+    <button class="hbtn" id="display-menu-toggle"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+<div class="display-panel" id="display-panel">
+  <h3>Display options</h3>
+  <label>Text size</label><input id="font-size-range" type="range" min="14" max="22" value="16"/>
+  <label>Line spacing</label><input id="line-height-range" type="range" min="140" max="190" value="150"/>
+  <div class="theme-row"><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
+</div>
+<div class="cdi-part-header"><p><strong>Reading Passage 3</strong></p><p>You should spend about 20 minutes on Questions 1–14, which are based on Reading Passage 3.</p></div><main>
+  <div class="passage-container" id="passage-container">
+    <div class="passage-title">The strange world of sight</div>
+    
+    <div class="passage-text" id="passage-text">
+<p><em>Seeing is believing, it is said. But, asks Richard Gregory, could it be the other way round?</em></p>
+<p>Two of the great British men of the 17th century, the philosopher John Locke and the physicist Isaac Newton, were both aware that objects are not coloured, and that against all appearances light is not coloured either. This is still not generally recognized even now, 400 years later, because it seems so implausible. Yet it tells us something very important – that perceptions are not identical with what we perceive, and may be very different.</p>
+<p>The most accurate historical account of perception is that of the 19th-century German scientist Hermann von Helmholtz. However, it was ridiculed at the time. Von Helmholtz thought that perceptions are unconscious inferences we make based on a combination of clues provided by the eyes and other senses, and knowledge of the world. This idea of unconscious inference for perception preceded, by several years, the psychoanalyst Freud&#x27;s notion of the unconscious, which was also initially treated with derision because it undermined the notion of humans as pre-eminently rational beings who could be held responsible for their actions and awarded blame or praise accordingly.</p>
+<p>Crucially, perception of the present depends on rich, though of course not always correct or appropriate, knowledge from the past. We interpret sense data (what we hear, touch, taste, see and smell) from the present according to what we already know. This raises the question: if we see the present through memory, why aren&#x27;t past and present confused? The pioneering Russian neurologist Alexander Luria described the case of Mr S, who had a remarkable memory. However, he was prone to just such confusions, for example mistaking seeing his clock for remembering it, and so failing to get up in the morning. This suggests that perhaps an important function of perception is to underline the present. Individual perceptions have a vividness that is rare for memories, which might be how we are able to separate them. Try this: look at something for a few seconds, and then shut your eyes and visualize it in memory. You will almost certainly find that the memory is pale by comparison with the perception. Perhaps this is why past and present are not normally confused. Luria&#x27;s Mr S had exceptionally vivid memories, and rich synaesthesia (experiencing perceptions from another sense as well as the one being stimulated, such as musical notes experienced as colours), which may be why he confused seeing with having seen.</p>
+<p>The complexity of processes involved in how we see first impressed itself on me 45 years ago. With my colleague Jean Wallace, I studied the rare case of Sydney Bradford, a man who had been born blind but, through a corneal graft at the age of 52, suddenly found himself able to see. Almost immediately after the operation he was able to &quot;see&quot; but he could only see those things that he already knew about, having experienced them through touch. It was his touch memories that enabled him to perceive them with his eyes. When Bradford was first taken to the zoo, he proved utterly unable to see an elephant as he had no knowledge to make sense of his perceptions.</p>
+<p>The more recent case in California of Mike May, who was also born blind, is similar. Since his operation, his sight has gradually improved as he learns to see, for example, by understanding how shadows represent depth and tell us about the shape of things. Some of the consequences of May&#x27;s new-found vision were less happy. He had been a champion blind skier, but following the operation, he would have to shut his eyes while skiing to block out what he now found was a terrifying sight.</p>
+<p>But acceptance of this intimate connection between memory and perception, even though it was first noticed in the 17th century, has been slow in brain science. Despite the fact that state-of-the-art brain imaging shows that perception animates parts of the brain associated with both present information and memory, most research on memory and perception is still undertaken as if these were separate processes. Seeing used to be thought of as taking place only in the eyes, and in quite specialized brain regions: but now it seems that half the brain is occupied with seeing, requiring a lot of energy. Perhaps this is why we shut our eyes for a rest.</p>
+<p>It is not just extreme cases like Mike May, but also much more common errors of seeing – illusions – that can reveal the crucial role of memory in governing what we (think we) see. Perception depends on specific knowledge and probabilities. Our brains calculate the likelihood of what is out there, and when too far-fetched, perceptions are rejected. A dramatic and discomforting example is looking at the two sides of a face-mask. From the front it is a convex shape with the nose sticking out. Then if the mask is rotated, the back of the mask will be seen as convex, though we know that it must be concave. It is almost, if not quite, impossible to sketch the back of a hollow mask to look as it is – hollow. Science often learns from what does not happen: people not seeing a hollow face as hollow is the most revealing experiment on perception. The unsettling truth from brain science is that even people with no visual impairment see what, at some level, they expect to see, and often miss things as they really are.</p>
+    </div>
+  </div>
+  <div class="cdi-resizer" id="cdi-resizer"><div class="cdi-resizer-handle">↔</div></div>
+  <div class="questions-container" id="questions-container">
+<div class="question"><div class="question-rubric"><h3>Questions 1–4</h3>
+<p>Choose the correct letter, <strong>A, B, C or D</strong>.</p>
+</div><div class="question-content">
+<div class="question" id="q1"><div class="q-title"><div class="q-num">1</div><div class="q-text">Why does the writer refer to Locke and Newton in the first paragraph?</div></div>
+<div class="mcq-options">
+<label class="mcq-option"><input type="radio" name="q1" value="A"/> <span>A. to indicate that his article will cover several scientific fields</span></label>
+<label class="mcq-option"><input type="radio" name="q1" value="B"/> <span>B. to stress how much physics has changed in 400 years</span></label>
+<label class="mcq-option"><input type="radio" name="q1" value="C"/> <span>C. to persuade the reader to take him seriously</span></label>
+<label class="mcq-option"><input type="radio" name="q1" value="D"/> <span>D. to point out that his notions are not new</span></label>
+</div></div>
+<div class="question" id="q2"><div class="q-title"><div class="q-num">2</div><div class="q-text">According to the writer, why was Freud's theory of the unconscious mocked?</div></div>
+<div class="mcq-options">
+<label class="mcq-option"><input type="radio" name="q2" value="A"/> <span>A. It was too complex for his contemporaries to understand.</span></label>
+<label class="mcq-option"><input type="radio" name="q2" value="B"/> <span>B. It involved criticism of the way people behaved in society.</span></label>
+<label class="mcq-option"><input type="radio" name="q2" value="C"/> <span>C. People felt that it devalued the accepted concept of humanity.</span></label>
+<label class="mcq-option"><input type="radio" name="q2" value="D"/> <span>D. People assumed that it was intended as a joke.</span></label>
+</div></div>
+<div class="question" id="q3"><div class="q-title"><div class="q-num">3</div><div class="q-text">The writer describes Mr S failing to get up in order to demonstrate</div></div>
+<div class="mcq-options">
+<label class="mcq-option"><input type="radio" name="q3" value="A"/> <span>A. how realistic most people&#x27;s memories are</span></label>
+<label class="mcq-option"><input type="radio" name="q3" value="B"/> <span>B. how hard it is to tell dreaming and waking apart</span></label>
+<label class="mcq-option"><input type="radio" name="q3" value="C"/> <span>C. how unusual it is to mistake a perception for a memory</span></label>
+<label class="mcq-option"><input type="radio" name="q3" value="D"/> <span>D. how valuable knowledge of the past can be</span></label>
+</div></div>
+<div class="question" id="q4"><div class="q-title"><div class="q-num">4</div><div class="q-text">What point is the writer making in the text as a whole?</div></div>
+<div class="mcq-options">
+<label class="mcq-option"><input type="radio" name="q4" value="A"/> <span>A. Perception involves much more than the data collected by the eyes.</span></label>
+<label class="mcq-option"><input type="radio" name="q4" value="B"/> <span>B. Learning to see as an adult can be a time-consuming process.</span></label>
+<label class="mcq-option"><input type="radio" name="q4" value="C"/> <span>C. Science is failing to devote enough attention to sight.</span></label>
+<label class="mcq-option"><input type="radio" name="q4" value="D"/> <span>D. Human perception is remarkably reliable.</span></label>
+</div></div>
+</div></div>
+<div class="question"><div class="question-rubric"><h3>Questions 5–10</h3>
+<p>Do the following statements agree with the views of the writer in Reading Passage 3?</p>
+<p><strong>YES</strong> if the statement agrees with the views of the writer</p>
+<p><strong>NO</strong> if the statement contradicts the views of the writer</p>
+<p><strong>NOT GIVEN</strong> if it is impossible to say what the writer thinks about this</p>
+</div><div class="question-content">
+<div class="question" id="q5"><div class="q-title"><div class="q-num">5</div><div class="q-text">Sydney Bradford relied on recollections of objects he had been told about to help him see after his operation.</div></div>
+<select name="q5" class="sel"><option value="">-- Select --</option>
+<option value="YES">YES</option>
+<option value="NO">NO</option>
+<option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="question" id="q6"><div class="q-title"><div class="q-num">6</div><div class="q-text">People who only start to see as adults can learn to see as other people do in time.</div></div>
+<select name="q6" class="sel"><option value="">-- Select --</option>
+<option value="YES">YES</option>
+<option value="NO">NO</option>
+<option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="question" id="q7"><div class="q-title"><div class="q-num">7</div><div class="q-text">People who have gained their sight as adults find certain activities harder to do than before.</div></div>
+<select name="q7" class="sel"><option value="">-- Select --</option>
+<option value="YES">YES</option>
+<option value="NO">NO</option>
+<option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="question" id="q8"><div class="q-title"><div class="q-num">8</div><div class="q-text">It is evident now that sight involves the eyes and one particular area of the brain.</div></div>
+<select name="q8" class="sel"><option value="">-- Select --</option>
+<option value="YES">YES</option>
+<option value="NO">NO</option>
+<option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="question" id="q9"><div class="q-title"><div class="q-num">9</div><div class="q-text">The mask experiment is particularly useful in training people who are regaining their sight.</div></div>
+<select name="q9" class="sel"><option value="">-- Select --</option>
+<option value="YES">YES</option>
+<option value="NO">NO</option>
+<option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="question" id="q10"><div class="q-title"><div class="q-num">10</div><div class="q-text">People with perfect vision can fail to interpret objects correctly under certain circumstances.</div></div>
+<select name="q10" class="sel"><option value="">-- Select --</option>
+<option value="YES">YES</option>
+<option value="NO">NO</option>
+<option value="NOT GIVEN">NOT GIVEN</option></select></div>
+</div></div>
+<div class="question"><div class="question-rubric"><h3>Questions 11–14</h3>
+<p>Complete the summary using the list of words, <strong>A–J</strong>, below.</p>
+<p>Write the correct letter, <strong>A–J</strong>, in boxes 11–14 on your answer sheet.</p>
+</div><div class="question-content">
+<div class="option-list">
+<div><strong>A</strong>&nbsp;&nbsp;back</div>
+<div><strong>B</strong>&nbsp;&nbsp;brain</div>
+<div><strong>C</strong>&nbsp;&nbsp;view</div>
+<div><strong>D</strong>&nbsp;&nbsp;convex</div>
+<div><strong>E</strong>&nbsp;&nbsp;sight</div>
+<div><strong>F</strong>&nbsp;&nbsp;nose</div>
+<div><strong>G</strong>&nbsp;&nbsp;round</div>
+<div><strong>H</strong>&nbsp;&nbsp;hollow</div>
+<div><strong>I</strong>&nbsp;&nbsp;drawing</div>
+<div><strong>J</strong>&nbsp;&nbsp;preconception</div>
+</div>
+<div class="notes-box"><p class="nb-title">The mask experiment</p>
+<p>In this experiment, having looked at the front of a simple face-mask, subjects look at the reverse. However, the subjects are convinced that they are still looking at a mask which is <select name="q11" class="sel" style="min-width:70px" id="q11"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select> in shape. They believe that the <select name="q12" class="sel" style="min-width:70px" id="q12"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select> is poking out in the normal manner because that is what they are used to seeing. Attempting to make a <select name="q13" class="sel" style="min-width:70px" id="q13"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select> of the mask in this orientation leads to the same problem. The subjects fail to see a concave form because of the <select name="q14" class="sel" style="min-width:70px" id="q14"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="J">J</option></select> they have that the features of a face stick out.</p>
+</div>
+</div></div>
+    <div style="height:28px"></div>
+  </div>
+</main>
+<footer>
+  <div class="progress-container" id="progress-container"></div>
+  <div class="action-buttons">
+    <button class="btn-secondary" id="reset-btn">Reset Answers</button>
+    <button class="btn-primary" id="submit-btn">Submit Answers</button>
+  </div>
+</footer>
+<div class="feedback-overlay" id="feedback-overlay">
+  <div class="feedback-container">
+    <div class="feedback-header">
+      <div class="feedback-title"><i class="fas fa-chart-bar"></i> Results <span class="score-display" id="score-display">0/0</span></div>
+      <button id="close-feedback"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="feedback-body" id="feedback-body"></div>
+  </div>
+</div>
+
+<script>
+const CA = {"1": "D", "2": "C", "3": "C", "4": "A", "5": "NO", "6": "YES", "7": "YES", "8": "NO", "9": "NOT GIVEN", "10": "YES", "11": "D", "12": "F", "13": "I", "14": "J"};
+const KEYS = Object.keys(CA).sort((a,b)=>parseInt(a,10)-parseInt(b,10));
+function norm(s){return String(s==null?'':s).toLowerCase().trim().replace(/[’']/g,"'").replace(/\s+/g,' ').replace(/[.,;:]+$/,'');}
+function ansList(q){return Array.isArray(CA[q])?CA[q]:[CA[q]];}
+function isOk(q,v){if(v==='')return false;return ansList(q).some(a=>norm(a)===norm(v));}
+function dispAns(q){return ansList(q).join(' / ');}
+function groupNameFor(q){q=String(q);let name=null;document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(m&&parseInt(m[1])<=parseInt(q)&&parseInt(q)<=parseInt(m[2]))name=cb.name;});return name;}
+function getVal(q){
+  const checked=document.querySelectorAll('input[name="q'+q+'"]:checked');
+  if(checked.length){return Array.from(checked).map(e=>e.value).join('');}
+  let el=document.querySelector('input[name="q'+q+'"], textarea[name="q'+q+'"], select[name="q'+q+'"]');
+  if(el) return (el.value||'').trim();
+  el=document.querySelector('#q'+q+' select, #q'+q+' input, #q'+q+' textarea');
+  if(el) return (el.value||'').trim();
+  el=document.querySelector('.drop-zone[data-qnum="'+q+'"]');
+  if(el) return (el.dataset.answer||'').trim();
+  const gn=groupNameFor(q);
+  if(gn){return Array.from(document.querySelectorAll('input[name="'+gn+'"]:checked')).map(e=>e.value).join(', ');}
+  return '';
+}
+function qContainer(q){
+  let el=document.querySelector('[data-q="'+q+'"]');
+  if(el) return el;
+  el=document.querySelector('input[name="q'+q+'"], textarea[name="q'+q+'"], select[name="q'+q+'"]');
+  if(el) return el.closest('.dropdown-question-row, .true-false-option, .question, .question-item, li, p')||el.parentElement;
+  el=document.getElementById('q'+q);
+  if(el) return el.closest('.dropdown-question-row, .true-false-option, .question, .question-item')||el;
+  const gn=groupNameFor(q);
+  if(gn){const cb=document.querySelector('input[name="'+gn+'"]');if(cb)return cb.closest('.question, .question-item')||cb.parentElement;}
+  return null;
+}
+function groupVerdicts(){
+  const v={},seen={};
+  document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{
+    const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(!m||seen[cb.name])return;seen[cb.name]=1;
+    const lo=parseInt(m[1]),hi=parseInt(m[2]),qs=[];for(let q=lo;q<=hi;q++)qs.push(String(q));
+    const checked=Array.from(document.querySelectorAll('input[name="'+cb.name+'"]:checked')).map(e=>e.value);
+    const correct=qs.map(q=>CA[q]);const cn=correct.map(norm);const used={};let nC=0;
+    checked.forEach(val=>{const nv=norm(val);const idx=cn.indexOf(nv);if(idx>-1&&!used[idx]){used[idx]=1;nC++;}});
+    qs.forEach((q,i)=>{v[q]={ok:i<nC,user:checked.join(', ')||'(none)',correct:correct.join(', ')};});
+  });
+  return v;
+}
+const pc=document.getElementById('progress-container');
+KEYS.forEach(q=>{const d=document.createElement('div');d.className='progress-item';d.textContent=q;d.dataset.qid=q;d.addEventListener('click',()=>{const t=document.querySelector('[name="q'+q+'"], #q'+q+', [data-q="'+q+'"], .drop-zone[data-qnum="'+q+'"]');if(t)t.scrollIntoView({behavior:'smooth',block:'center'});});pc.appendChild(d);});
+function updateProg(){KEYS.forEach(q=>{const ans=getVal(q)!=='';const item=document.querySelector('.progress-item[data-qid="'+q+'"]');if(item)item.classList.toggle('completed',ans);const c=qContainer(q);if(c&&c.classList)c.classList.toggle('answered',ans);});}
+document.addEventListener('change',updateProg);document.addEventListener('input',updateProg);
+let submitted=false;
+function lockAll(){submitted=true;document.body.classList.add('test-locked');document.querySelectorAll('input,select,textarea').forEach(e=>e.disabled=true);const r=document.getElementById('reset-btn');r.disabled=true;r.style.opacity='.4';}
+function verdict(q,gv){if(gv[q])return{ok:gv[q].ok,user:gv[q].user,disp:gv[q].correct};const user=getVal(q);return{ok:isOk(q,user),user:user||'(none)',disp:dispAns(q)};}
+function showInline(gv){
+  document.querySelectorAll('.inline-correct,.inline-wrong').forEach(e=>e.remove());
+  KEYS.forEach(q=>{const r=verdict(q,gv);const sp=document.createElement('span');sp.className=r.ok?'inline-correct':'inline-wrong';sp.style.cssText='display:block;margin-top:6px;';sp.textContent=r.ok?'✓':'Correct: '+r.disp;const c=qContainer(q);if(c)c.appendChild(sp);});
+}
+document.getElementById('submit-btn').addEventListener('click',function(){
+  if(submitted){document.getElementById('feedback-overlay').style.display='flex';return;}
+  const gv=groupVerdicts();let score=0,htmlOut='';
+  KEYS.forEach(q=>{const r=verdict(q,gv);if(r.ok)score++;htmlOut+='<div class="feedback-item"><div class="feedback-question">Q'+q+'</div><div class="feedback-answer '+(r.ok?'correct':'incorrect')+'">Your answer: '+r.user+'<br/>'+(r.ok?'✔ Correct':'✘ Incorrect – Correct: <strong>'+r.disp+'</strong>')+'</div></div>';});
+  document.getElementById('feedback-body').innerHTML=htmlOut;document.getElementById('score-display').textContent=score+'/'+KEYS.length;document.getElementById('feedback-overlay').style.display='flex';lockAll();showInline(gv);
+});
+document.getElementById('close-feedback').addEventListener('click',()=>document.getElementById('feedback-overlay').style.display='none');
+document.getElementById('reset-btn').addEventListener('click',()=>{if(submitted)return;document.querySelectorAll('input[type=text],textarea').forEach(e=>e.value='');document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(e=>e.checked=false);document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);updateProg();});
+let ti=null,tr=1200;function updT(){const m=Math.floor(tr/60).toString().padStart(2,'0'),s=(tr%60).toString().padStart(2,'0');document.getElementById('timer').textContent=m+':'+s;}
+document.getElementById('start-timer').addEventListener('click',()=>{if(ti)return;ti=setInterval(()=>{if(tr>0){tr--;updT();}else{clearInterval(ti);ti=null;alert('Time is up!');}},1000);});
+document.getElementById('pause-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;});
+document.getElementById('reset-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;tr=1200;updT();});
+document.getElementById('night-mode-toggle').addEventListener('click',function(){document.body.classList.toggle('night-mode');const i=this.querySelector('i');i.classList.toggle('fa-moon');i.classList.toggle('fa-sun');});
+document.getElementById('fullscreen-toggle').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();});
+document.addEventListener('fullscreenchange',()=>{document.getElementById('fullscreen-toggle').innerHTML=document.fullscreenElement?'<i class="fas fa-compress"></i>':'<i class="fas fa-expand"></i>';});
+const dpanel=document.getElementById('display-panel'),dmenu=document.getElementById('display-menu-toggle');
+dmenu.addEventListener('click',e=>{e.stopPropagation();dpanel.classList.toggle('open');});
+document.addEventListener('click',e=>{if(dpanel.classList.contains('open')&&!dpanel.contains(e.target)&&!dmenu.contains(e.target))dpanel.classList.remove('open');});
+const fsr=document.getElementById('font-size-range'),lhr=document.getElementById('line-height-range');
+function applyDisp(){document.documentElement.style.setProperty('--cdi-font-size',(fsr?fsr.value:16)+'px');document.documentElement.style.setProperty('--cdi-line-height',lhr?(Number(lhr.value)/100):1.5);}
+fsr.addEventListener('input',applyDisp);lhr.addEventListener('input',applyDisp);
+document.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>{b.dataset.themeChoice==='dark'?document.body.classList.add('night-mode'):document.body.classList.remove('night-mode');}));
+const pc2=document.getElementById('passage-container'),qc=document.getElementById('questions-container'),rs=document.getElementById('cdi-resizer');
+pc2.style.flex='0 0 50%';qc.style.flex='1 1 auto';let drag=false;
+rs.addEventListener('mousedown',e=>{if(window.innerWidth<=900)return;drag=true;rs.classList.add('dragging');document.body.style.cursor='col-resize';document.body.style.userSelect='none';e.preventDefault();});
+window.addEventListener('mousemove',e=>{if(!drag)return;const main=rs.parentElement,rect=main.getBoundingClientRect(),total=rect.width-rs.offsetWidth;let left=e.clientX-rect.left;left=Math.min(Math.max(left,total*.22),total*.78);pc2.style.flex='0 0 '+left+'px';qc.style.flex='1 1 auto';});
+window.addEventListener('mouseup',()=>{drag=false;rs.classList.remove('dragging');document.body.style.cursor='';document.body.style.userSelect='';});
+let hlTip=null,selR=null;
+function colorPicker(x,y){if(hlTip)hlTip.remove();const colors=["lightgreen","yellow","lightskyblue","#ffb3b3"];const p=document.createElement('div');p.className='highlight-tooltip';p.style.cssText=`top:${y}px;left:${x}px;position:fixed;z-index:9999;display:flex;gap:4px;`;colors.forEach(c=>{const b=document.createElement('button');b.style.cssText=`background:${c};border:none;width:20px;height:20px;border-radius:50%;cursor:pointer;`;b.onclick=()=>{applyHL(c);p.remove();hlTip=null;};p.appendChild(b);});document.body.appendChild(p);hlTip=p;}
+function applyHL(color){if(!selR)return;try{const sp=document.createElement('span');sp.className='highlight';sp.style.backgroundColor=color;sp.appendChild(selR.extractContents());selR.insertNode(sp);selR=null;window.getSelection().removeAllRanges();sp.addEventListener('click',e=>{e.stopPropagation();if(hlTip){hlTip.remove();hlTip=null;}const t=document.createElement('div');t.className='highlight-tooltip';t.style.cssText=`top:${e.clientY}px;left:${e.clientX}px;position:fixed;z-index:9999;`;t.innerHTML='<button style="color:#fff;background:red;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;">Remove</button>';t.querySelector('button').onclick=()=>{const par=sp.parentNode;while(sp.firstChild)par.insertBefore(sp.firstChild,sp);par.removeChild(sp);par.normalize();t.remove();hlTip=null;};document.body.appendChild(t);hlTip=t;});}catch(e){selR=null;}}
+['passage-text','questions-container'].forEach(id=>{const node=document.getElementById(id);if(!node)return;node.addEventListener('mouseup',e=>{const sel=window.getSelection();if(!sel||!sel.toString().trim())return;if(!e.currentTarget.contains(sel.anchorNode))return;try{selR=sel.getRangeAt(0).cloneRange();const r=selR.getBoundingClientRect();colorPicker(r.left,r.top-44);}catch(err){selR=null;}});});
+document.addEventListener('mousedown',e=>{if(hlTip&&!hlTip.contains(e.target)){hlTip.remove();hlTip=null;window.getSelection().removeAllRanges();selR=null;}});
+document.addEventListener('DOMContentLoaded',()=>{updT();updateProg();});
+</script>
+<script src="/passages/test-progress-bridge.js"></script>
+</body>
+</html>
