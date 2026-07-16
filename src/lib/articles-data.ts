@@ -5617,25 +5617,32 @@ export const ARTICLES: Article[] = [
     date: "2026-06-05",
     description:
       "Vaccines and medicine are only half the battle. Controlling a pandemic also depends on human behaviour, social inequality, and how well scientists communicate what they know.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>When the history of the COVID pandemic is written, it will not only be a story of viruses and vaccines. It will also be a story of human behaviour, trust, and social inequality — factors that medical science alone cannot manage.</strong></p>
 
-      <h2>Why medicine is not enough</h2>
-      <p>Scientific research gave us new knowledge quickly, and the development of vaccines in record time was welcome news. Yet even with vaccines, success in controlling the virus continues to depend on how people behave. Science cannot beat a pandemic through medical fixes alone; social and behavioural science need a seat at the table too.</p>
+      <p><strong>When the story of the COVID pandemic is finally written, it will not be told through virology and vaccines alone. It will also be a story about human behaviour, trust, and inequality &mdash; the social forces that decide whether medical knowledge actually reaches and protects people.</strong></p>
 
-      <h2>Lessons from history</h2>
-      <p>The assumption that modern societies are simply ready to "follow the science" is not supported by the past. During the great flu pandemic of 1918–19, some cities did far better than others at containing a virus that killed close to 50 million people. Distrust of government and science undermined efforts to encourage mask-wearing, and many people not only refused to comply but protested against the rules.</p>
-      <p>The polio campaigns of the 1950s look like a success story, but the reality was messier. A national vaccine mandate lacked a clear federal plan, poor oversight of manufacturing made some children sick, and limited resources slowed the rollout. The resulting confusion created public distrust that took years to fade.</p>
+      <h2>Medicine cannot win alone</h2>
+      <p>Scientific research produced an extraordinary amount of new knowledge during the pandemic, and vaccines were developed in record time. Yet even the best vaccine only works if people are willing to take it, and even the clearest public-health advice only helps if people are willing to follow it. Controlling a virus therefore depends as much on how societies behave as on what laboratories discover. For that reason, medical science needs social and behavioural science working alongside it, not as an afterthought but as an equal partner at the table.</p>
 
-      <h2>Science as a social phenomenon</h2>
-      <p>The pandemic held up a mirror to society, reflecting the inequality we have allowed to harden over time. Understanding social reactions to scientific knowledge — and helping science become aware of its own biases — is exactly the work that social science can do.</p>
+      <h2>What anthropology reveals</h2>
+      <p>Anthropology has long studied social organisation, cultural meaning, and human behaviour. Close observation of how communities actually think and act shows that modern societies tolerate an enormous range of beliefs and responses. The comfortable assumption that people will simply "follow the science" is not supported by history, by fieldwork, or by our direct experience of how differently populations reacted to the same pandemic.</p>
 
-      <h2>Communicating uncertainty</h2>
-      <p>Science gains its authority through constant testing and revision, but to outsiders this can look like confusion. Early in the pandemic people were told to scrub surfaces rather than wear masks; later it became clear that airborne droplets were the main route of transmission. Scientists need to communicate not just what they know, but how they come to know it.</p>
+      <h2>Lessons we failed to learn</h2>
+      <p>The great influenza pandemic of 1918&ndash;19 should have taught us something. Some cities contained the virus far better than others, and a combination of distrust in government and distrust in science undermined efforts to promote mask-wearing. Many people not only refused to comply but organised public protests against mask rules &mdash; a pattern that would repeat itself a century later.</p>
+      <p>The polio campaigns of the 1950s look, on the surface, like a triumph of science and policy. The reality was closer to what we saw with COVID. When the vaccine was declared essential for every child, there was no coherent national plan to deliver it. Weak oversight of the manufacturing process left some children sick or dead, and limited resources slowed distribution until dedicated federal funding finally arrived. The confusion that resulted bred a public distrust that took years to fade.</p>
 
-      <h2>The threat of misinformation</h2>
-      <p>Human behaviour evolves as knowledge grows, but each of us interprets that knowledge in our own way. Because of the pervasive influence of social media, new findings are often overwhelmed by misinformation, conspiracy theories, and "alternative facts". For science to build a healthier and more just world, science and social science must work hand in hand.</p>
+      <h2>Science is a social phenomenon</h2>
+      <p>The pandemic held up a mirror to society, reflecting inequalities that had been allowed to harden over decades. Science does not float above the social world; it is shaped by social forces, interests, and blind spots. Social science can help in two directions at once: it can explain how communities react to scientific knowledge, and it can help science become more aware of its own biases.</p>
+
+      <h2>The problem of communication</h2>
+      <p>Science earns its authority precisely because it tests and revises itself constantly. To the public, however, that self-correction can look like confusion or indecision. Early in the pandemic people were told to scrub every surface rather than wear masks; only later did it become clear that airborne droplets were the dominant route of transmission. Scientists need to get better not just at sharing conclusions, but at explaining how those conclusions are reached and why they change.</p>
+
+      <h2>Fighting misinformation together</h2>
+      <p>Human behaviour evolves as knowledge grows, but each of us interprets new information through our own assumptions. Because social media is so pervasive, genuine findings are frequently drowned out by misinformation, giving easy access to conspiracy theories and "alternative facts". If scientific advances are to build not just new medicines but a healthier and fairer world, natural science and social science have to work hand in hand.</p>
+
+      <p><em>Based on an opinion article originally published by Scientific American.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -5744,27 +5751,37 @@ export const ARTICLES: Article[] = [
     date: "2026-06-07",
     description:
       "Scientists agree another pandemic is a matter of when, not if. Global surveillance, faster vaccines, and sustained investment in research are the keys to being ready.",
-    readingTime: 6,
+    readingTime: 4,
     content: `
-      <p><strong>Most scientists agree that we will face another pandemic — the question is when, not if. Whether the next crisis comes from a new virus or a drug-resistant bacterium, preparation must begin long before it arrives.</strong></p>
 
-      <h2>Where the next threat might come from</h2>
-      <p>The next pandemic could be caused by antibiotic-resistant bacteria that already exist, evading even our drugs of last resort. Or, like COVID-19, it could come from a virus spilling over from animals to humans. Every time a virus circulates among bats, rodents, livestock, or birds and then meets people, there is a chance it will jump species and begin spreading between humans.</p>
+      <p><strong>Wouldn't it be wonderful never to face another pandemic? Scientists are clear that we will &mdash; the only question is when, not if. Whether the next threat is a new virus or a drug-resistant bacterium, the time to prepare is now, long before it arrives.</strong></p>
 
-      <h2>Global surveillance</h2>
-      <p>International travel and trade connect countries and give diseases new ways to spread. Just as we have a weather service, governments should invest in a global virus surveillance network to scan for dangerous new pathogens and catch animal viruses before they cross into human populations. It is not only new pathogens we should fear, but new variants of existing viruses, which have already emerged in several countries.</p>
+      <h2>Never again &mdash; and yet</h2>
+      <p>Looking back on a devastating year, the natural response is "never again". Never again should so many lives be lost to a contagious virus, a toll that would once have seemed unthinkable. Never again should we endure repeated lockdowns, mass job losses, or children kept out of classrooms for months on end. But wishing is not preparing, and the scientific consensus is that another pandemic is coming.</p>
 
-      <h2>Building capacity everywhere</h2>
-      <p>Countries need genetic sequencing facilities to detect and track new strains and to judge whether booster shots are needed. Wealthier nations already have this infrastructure, but poorer ones often do not. International bodies such as the World Bank and the World Health Organization have a crucial role to play in funding and supporting outbreak detection worldwide.</p>
+      <h2>Where the next one may come from</h2>
+      <p>One possibility is a bacterium that resists even our antibiotics of last resort &mdash; such organisms already exist and could seed a future crisis. Another, as with COVID-19, is a virus spilling over from animals to humans. Early human infections with avian influenza at a poultry plant offered a glimpse of how close we live to such risks. Every time a virus circulates among bats, rodents, livestock, or birds and then meets people, there is a chance it will cross over and begin spreading between humans.</p>
 
-      <h2>Faster vaccines</h2>
-      <p>COVID-19 vaccines were developed at remarkable speed, but next time we will need to move even faster. Developing a vaccine is only half the battle: countries also need manufacturing capacity and coordination to create regional hubs for mass production and delivery.</p>
+      <h2>A global surveillance network</h2>
+      <p>International travel and trade knit the world together and give diseases new highways to spread along. Just as we maintain a weather service, governments should fund a global virus-surveillance network that scans continuously for dangerous new pathogens and identifies animal viruses before they reach human populations. And it is not only brand-new pathogens we must watch: new variants of existing viruses, which have already emerged in several countries, could prove just as dangerous.</p>
 
-      <h2>Don't forget the flu</h2>
-      <p>Seasonal flu causes an estimated 650,000 deaths every year, and a new pandemic strain could be disastrous. Rather than only building enough hospitals to treat the sick, governments should aim to suppress the spread of dangerous pathogens. A single-dose universal flu vaccine that protects against many strains would be a major step forward.</p>
+      <h2>Building capacity where it is missing</h2>
+      <p>To detect and track new strains &mdash; and to judge whether booster shots are needed &mdash; countries need genetic sequencing facilities. Wealthier nations already have this capability, but many poorer ones do not, and a threat anywhere is a threat everywhere. International institutions such as the World Bank and the World Health Organization have a crucial role in funding and providing the technical support that lets every country identify and sequence new viruses quickly.</p>
 
-      <h2>Invest now, not later</h2>
-      <p>The scientific leaps of the past few years can seem like magic, but they rest on decades of patient research. The importance of science has never been more obvious, and governments should be pouring resources into it rather than pulling back. Investing now is the only way to be truly ready when the next pandemic arrives.</p>
+      <h2>Vaccines: only half the battle</h2>
+      <p>COVID-19 vaccines were designed and manufactured at remarkable speed, but next time we will need to be quicker still. Developing a vaccine is only the first half of the task. As disputes over limited supplies showed, countries also need serious manufacturing capacity and the coordination to build regional hubs capable of mass production and delivery.</p>
+
+      <h2>The threat we already know</h2>
+      <p>These principles apply not only to novel viruses but to familiar ones. Seasonal flu already kills an estimated 650,000 people a year, mostly young children, pregnant women, and the elderly, and a genuinely new pandemic flu could be catastrophic. Rather than only building enough hospital capacity to treat the sick, governments should aim to suppress dangerous pathogens directly. A single-dose universal flu vaccine that protects against many strains would be a landmark, and early clinical trials of such a vaccine have already been completed.</p>
+
+      <h2>Treat every pathogen as a threat</h2>
+      <p>Throughout the crisis, commentators argued about whether the coronavirus was "just like the flu". That framing both underestimated COVID-19 and downplayed the danger of a future flu pandemic. The measures taken against COVID-19 also nearly eliminated seasonal flu one winter &mdash; proof of how much we can achieve when we choose to suppress a pathogen.</p>
+
+      <h2>Invest in science now</h2>
+      <p>The scientific leaps of the past few years can look like magic, but they rest on decades of patient research and training by countless scientists across many disciplines. The importance of science has never been more obvious. Rather than cutting research budgets, governments should be pouring resources into the field. That is the only way to be genuinely ready when the next pandemic arrives.</p>
+
+      <p><em>Based on an opinion article originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -5873,21 +5890,26 @@ export const ARTICLES: Article[] = [
     date: "2026-06-09",
     description:
       "Genetic evidence suggests an ancient human species, the Denisovans, once lived in Island Southeast Asia — even though their fossils have never been found there.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>Island Southeast Asia holds one of the richest records of ancient human relatives on Earth. New genetic research suggests another species — the mysterious Denisovans — may still be waiting to be discovered there.</strong></p>
 
-      <h2>A puzzling gap</h2>
-      <p>Denisovan fossils have only ever been found thousands of kilometres away, in caves in Siberia and on the Tibetan Plateau. Yet a study of the genomes of more than 400 living people found that the ancestors of people in Island Southeast Asia interbred with Denisovans. Curiously, the researchers found no sign of interbreeding with two species whose fossils we do have from the region: <em>Homo floresiensis</em> and <em>Homo luzonensis</em>.</p>
+      <p><strong>Island Southeast Asia holds one of the richest records of ancient human relatives anywhere on Earth. New genetic research suggests that another species &mdash; the mysterious Denisovans &mdash; may still be waiting to be discovered there, even though not a single Denisovan fossil has ever been found in the region.</strong></p>
+
+      <h2>A puzzle in the genes</h2>
+      <p>Denisovan fossils have only ever turned up thousands of kilometres away, in a cave in Siberia and on the Tibetan Plateau. Yet when researchers examined the genomes of more than 400 living people, including over 200 from Island Southeast Asia, they found clear evidence that the ancestors of people in the region interbred with Denisovans. Strikingly, they found no evidence of interbreeding with the two species whose fossils we actually do have from the area: <em>Homo floresiensis</em> from Flores and <em>Homo luzonensis</em> from Luzon.</p>
 
       <h2>An ancient melting pot</h2>
-      <p>Both of those small-statured species are thought to descend from <em>Homo erectus</em>, the first ancient human to leave Africa. When modern humans spread out of Africa around 70,000 years ago, they met and interbred with other groups already living across Eurasia — first Neanderthals, and later Denisovans. Today, the largest amounts of Denisovan ancestry are found in Island Southeast Asia and the former continent of Sahul, which included New Guinea and Australia.</p>
+      <p>Stone-tool evidence suggests that both of those small-bodied species descend from <em>Homo erectus</em> populations that reached their island homes hundreds of thousands of years ago. <em>H. erectus</em> was the first ancient human to leave Africa, arriving in Island Southeast Asia well over a million years ago. That means the ancestors of these island species split from our own lineage around two million years ago. Modern humans spread out of Africa far more recently, reaching the region roughly 70,000 to 50,000 years ago.</p>
+      <p>On that journey, our species met and mixed with other hominins already living across Eurasia. The first encounters were with Neanderthals, leaving a small but measurable trace of Neanderthal ancestry in everyone outside Africa today. Later encounters were with Denisovans &mdash; and, intriguingly, the largest amounts of Denisovan ancestry in people alive now are found precisely in Island Southeast Asia and the former continent of Sahul, which joined New Guinea and Australia.</p>
 
-      <h2>So where are the fossils?</h2>
-      <p>Two possibilities could reconcile the genetics with the missing bones. First, Denisovans may have mixed with modern humans in places where fossils have simply not yet been found, such as Sulawesi or Australia. Second, we may need to rethink fossils we have already discovered — perhaps Denisovans were far more varied in size and shape than we realised, and some have been labelled with a different name.</p>
+      <h2>So where are the bones?</h2>
+      <p>Two exciting possibilities could reconcile the genetic evidence with the missing fossils. The first is that Denisovans mixed with modern humans in parts of the region where hominin fossils simply have not been found yet &mdash; places such as Sulawesi, where very old stone tools have been discovered, or Australia. The second is more provocative: perhaps Denisovans were far more varied in body size and shape than we assumed, and some of their fossils have already been found but filed under a different name.</p>
 
       <h2>Hiding in plain sight</h2>
-      <p>If that second idea is correct, it would mean the Denisovans have been hiding in plain sight all along, disguised as <em>H. floresiensis</em>, <em>H. luzonensis</em>, or later forms of <em>H. erectus</em>. Solving the puzzle will take future archaeological, DNA, and protein studies — but for now, the possibilities are fascinating.</p>
+      <p>Because the earliest evidence of hominins in the region predates the split between modern humans and Denisovans, we cannot even be sure the area was continuously occupied. It is therefore possible that <em>H. floresiensis</em>, <em>H. luzonensis</em>, or later forms of <em>H. erectus</em> are more closely related to us than currently believed &mdash; and might even be the source of the Denisovan ancestry seen in the region today. If so, the Denisovans have been hiding in plain sight all along, disguised under other names. Settling the question will require future work in archaeology, DNA, and the study of ancient proteins, but for now the possibilities are genuinely thrilling.</p>
+
+      <p><em>Based on an article originally published by The Conversation.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -5996,24 +6018,31 @@ export const ARTICLES: Article[] = [
     date: "2026-06-11",
     description:
       "History is full of miracle 'cure-alls' that never worked. The search for a single wonder drug against Covid repeats an old human wish for a simpler world.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>Humans have always longed for a single cure that fixes everything. From medieval remedies to modern miracle drugs, the story of the panacea is a story about our wish for a simpler world.</strong></p>
+
+      <p><strong>Humans have always longed for a single remedy that cures everything. From medieval potions to modern miracle drugs, the story of the "panacea" is really a story about our wish for a simpler world &mdash; and about why that wish keeps letting us down.</strong></p>
 
       <h2>The oldest wish in medicine</h2>
-      <p>In the Middle Ages you could buy a remedy called theriac that supposedly cured epilepsy, indigestion, heart trouble, fevers, and more. It was completely useless, but it reflected a longstanding wish for a cure-all. No historian of medicine was surprised to see questionable remedies promoted for COVID-19, from zinc supplements to hydroxychloroquine. Panaceas appeal to our longing for a world where every problem can be solved with the push of a button.</p>
+      <p>In the Middle Ages you could buy a remedy called theriac, said to cure epilepsy, indigestion, heart trouble, swellings, and fevers of every kind. Its recipes were often secret and sometimes gruesome, and it was completely useless &mdash; but it captured a deep and lasting human desire for a cure-all. No historian of medicine was surprised, then, to see dubious remedies promoted for COVID-19, from zinc supplements to hydroxychloroquine. Panaceas appeal to our longing for a world where every problem can be solved at the push of a button or with a spoonful of sugar.</p>
 
-      <h2>Why some old remedies worked</h2>
-      <p>Medicine walks a fine line, because a few traditional remedies really did contain active ingredients. Aspirin was developed from willow bark, and the antimalarial drug artemisinin came from a traditional Chinese remedy. Even today, many drugs are found by informed trial and error, so it does not pay to rule out a candidate just because there is no obvious reason it should work.</p>
+      <h2>Why some old remedies actually worked</h2>
+      <p>Medicine has to walk a careful line, because a handful of traditional remedies did contain genuinely active ingredients. Aspirin grew out of an extract of willow bark, and the powerful antimalarial artemisinin was derived from a traditional Chinese remedy using sweet wormwood. Even today, despite all our efforts to design drugs rationally, many are still discovered by informed trial and error &mdash; testing many related compounds on a hunch. So it does not pay to dismiss a candidate simply because there is no obvious reason it should work.</p>
 
       <h2>Testing the hopefuls</h2>
-      <p>That is why trials of vitamin D and of ivermectin, an antiparasitic drug, were worth running. But careful studies found little or no clear benefit against Covid. A cure from such a common substance always sounded too good to be true, and there is little prospect that these drugs are the wonder cures some had hoped for.</p>
+      <p>That is why it was reasonable to test substances like vitamin D and ivermectin against COVID-19. A trial of vitamin D found no detectable benefit, though the sample may have been too small for firm conclusions; a cure from such a common substance always sounded a little too good to be true. Ivermectin, an antiparasitic drug with some antiviral and anti-inflammatory properties, was worth investigating too, since the body's own inflammatory overreaction causes much of COVID-19's worst damage. Early animal results looked promising, but careful human studies showed little clear benefit. A small trial hinted it might slightly reduce viral load, so researchers need not abandon it entirely &mdash; but there is little sign it is the near-miracle some had hoped for.</p>
+
+      <h2>One drug, many targets &mdash; but no magic</h2>
+      <p>Ivermectin's broad action recalls the versatility of antibiotics like penicillin before resistance spread. Such versatility shows that a single drug can hit several targets, but it is not the same as a panacea, and it carries costs. Antibiotics are indiscriminate, harming helpful gut bacteria along with harmful ones, and anti-cancer drugs are often blunt cell-killers that damage healthy tissue while attacking a tumour.</p>
 
       <h2>Most diseases need specific medicines</h2>
-      <p>The lesson is the one that physicians reached centuries ago: most diseases demand specific medicines. That is the whole basis of vaccines, which train the immune system against a particular pathogen. A single vaccine is unlikely to protect against all coronaviruses, let alone all viruses.</p>
+      <p>The truth is the one that physicians reached centuries ago when they challenged theriac: most diseases demand specific treatments. That is the entire logic of vaccines, which prepare the immune system against one particular pathogen by presenting a harmless version of it in advance. There is hope that COVID-19 vaccines can be updated to cover new variants, but it is doubtful any single vaccine could ever protect against all coronaviruses, let alone all viruses.</p>
 
       <h2>Looking inward</h2>
-      <p>If anything comes close to a modern panacea, it is a deeper understanding of our own immune system — probably the most complex part of the body after the brain — and the ability to guide it. There are no universal medicines out there in the world; for new health solutions, we may be wiser to look within.</p>
+      <p>If anything resembles a modern panacea, it is a deeper understanding of the immune system itself &mdash; probably the most complex part of the body after the brain &mdash; and the ability to guide it precisely. Even some cancers can be treated that way. There are no universal cures waiting to be found in the world outside; for the next generation of health breakthroughs, we may be wiser to look within.</p>
+
+      <p><em>Based on an opinion article originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -6122,24 +6151,31 @@ export const ARTICLES: Article[] = [
     date: "2026-06-13",
     description:
       "Early in the pandemic, France's response looked more competent than America's. In the vaccine race, the picture reversed — a story of strategy, risk, and 'vaccine nationalism'.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>For a while, careful, cautious Europe seemed to be handling the pandemic better than the United States. Then the race to vaccinate began, and the tables turned.</strong></p>
+
+      <p><strong>For much of the pandemic, cautious, well-governed Europe seemed to be handling the crisis better than the United States. Then the race to vaccinate began, and the picture reversed almost overnight.</strong></p>
 
       <h2>A reversal of fortune</h2>
-      <p>Written from France, this account describes watching American friends and family get vaccinated while the writer, a healthy 63-year-old, faced months of waiting. Pandemic competence had shifted from good daily governance to a global scramble for vaccines — and on that measure, the U.S. was clearly leading Europe.</p>
+      <p>Written from France, this account describes watching American relatives get vaccinated while the author, a healthy man in his early sixties, faced months of waiting under the official French calendar. Earlier in the pandemic he had felt sorry for friends and family in the United States, caught in a storm of science denial and angry resistance to basic measures like masks. But once success came to be measured by access to vaccines in a global race against a fast-mutating virus, the United States was clearly pulling ahead.</p>
 
-      <h2>Two different bets</h2>
-      <p>The European Union approached vaccine buying in its careful way: using the purchasing power of 446 million people to negotiate lower prices and holding drug companies responsible for any problems. The United States and Britain instead moved quickly, partnered with drug companies, set aside worries about legal liability, and secured first access to the finished product.</p>
+      <h2>Two very different bets</h2>
+      <p>The European Union approached vaccine purchasing in its characteristically careful way. It used the combined buying power of a bloc of 446 million people to negotiate lower prices, and it protected citizens by insisting that drug companies bear responsibility for any problems with vaccines rushed to market. The United States and Britain made the opposite bet: they moved fast, partnered aggressively with drug companies, set aside worries about legal liability, and secured first claim on the finished doses.</p>
 
-      <h2>Speed versus caution</h2>
-      <p>The faster approach paid off in the short term. America was soon awash with doses, vaccinating around two million people a day, while months into its campaign France had fully vaccinated only a small share of its population. Britain, too, was vaccinating at record speed.</p>
+      <h2>Speed pays off &mdash; for now</h2>
+      <p>In the short term, the Anglo-American gamble looked like the smarter one. The United States was soon awash with doses, vaccinating around two million people a day, while months into its own campaign France had fully vaccinated only a small fraction of its population. Britain was vaccinating at a similarly astonishing pace, with tens of millions receiving a first dose. The contrast fed a growing sense of envy and frustration across the Continent.</p>
+
+      <h2>The sting of unfairness</h2>
+      <p>That frustration was sharpened by a sense of injustice. Europe is itself a major vaccine producer &mdash; home to companies and manufacturing behind several of the leading shots &mdash; and it had exported tens of millions of doses to more than thirty countries even as it struggled to meet its own needs. Exasperated, the EU moved to restrict exports to countries with higher vaccination rates. The episode was especially bitter where doses produced in Europe were shipped abroad for finishing and then blocked from returning.</p>
 
       <h2>Vaccine nationalism</h2>
-      <p>The bitterness in Europe was sharpened by a sense of unfairness. Europe produces vaccines and had exported millions of doses abroad, even as it struggled to meet its own needs. Frustrated, the EU moved to restrict exports to countries with higher vaccination rates. The episode revealed how quickly the moral high ground of international cooperation can give way to an "our people first" approach in a global crisis.</p>
+      <p>What the year revealed, the author argues, is how quickly the moral high ground of international cooperation can give way to an "our people first" approach in a genuine crisis. Even with a new administration in Washington, the instinct to take care of one's own citizens first remained powerful, and the gap in vaccination rates between the United States and major European countries was stark.</p>
 
-      <h2>A race that must be won</h2>
-      <p>With more contagious variants spreading, hospitalisations and deaths were rising again in Europe. The writer argues that the race between the virus and vaccination is one the world can only win through cooperation — and appeals to the U.S. to step back from putting itself first.</p>
+      <h2>A race the world must win</h2>
+      <p>As more contagious and more dangerous variants spread, hospitalisations and deaths began rising again in Europe, threatening lasting damage to its economy and society. The race between the virus and vaccination, the author insists, is one that must be won not for any single country but for everyone &mdash; and winning it will require cooperation rather than a scramble in which the most powerful simply take what they can.</p>
+
+      <p><em>Based on an opinion article originally published by The Atlantic.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -6248,24 +6284,31 @@ export const ARTICLES: Article[] = [
     date: "2026-06-15",
     description:
       "The U.S. government spends over $500 billion a year buying goods and services. Using that purchasing power to demand clean products could push whole industries to go green.",
-    readingTime: 6,
+    readingTime: 4,
     content: `
-      <p><strong>Every year the U.S. federal government spends more than $500 billion buying goods and services — roughly the size of Sweden's entire economy. That makes it the single biggest consumer in the world, and it could use that power to drive industries toward sustainability.</strong></p>
+
+      <p><strong>Every year the United States federal government spends more than $500 billion buying goods and services &mdash; roughly the size of Sweden's entire economy. That makes it the single biggest consumer in the world, and it could use that vast purchasing power to push whole industries toward sustainability.</strong></p>
 
       <h2>How purchasing power works</h2>
-      <p>When the government spends money strategically, it can act as a powerful market leader. By awarding contracts to companies that meet green standards, it creates steady, reliable demand for climate-friendly products. Experts point to three areas where this could matter most: electric vehicles, clean energy, and greener construction materials.</p>
+      <p>When the government spends strategically, it can act as a powerful market leader, driving change across entire industries. Much of that power flows through contracts that private companies compete to win. By steering more of those contracts toward green products, the government can give climate-conscious producers something they badly need: steady, reliable demand from a powerful customer. A recent executive order encouraged federal agencies to become more environmentally conscious buyers, and experts point to three areas where the impact could be greatest &mdash; clean vehicles, clean energy, and greener construction materials.</p>
 
       <h2>Electric vehicles</h2>
-      <p>The government owns hundreds of thousands of vehicles, only a tiny fraction of them electric. Buying more would not transform the national fleet overnight, but it would give manufacturers a guaranteed customer and help build public trust. Charging stations installed at national parks, for example, would let visitors see electric vehicles as practical.</p>
+      <p>The government owns hundreds of thousands of vehicles, only a tiny share of them electric. Buying many more would not transform the national fleet overnight, but a guaranteed government customer helps private manufacturers expand and build confidence. The point is partly practical and partly psychological: when people see electric vehicles working reliably &mdash; for example with charging stations installed in national parks that visitors can also use &mdash; they come to see the technology as normal and dependable rather than risky.</p>
 
       <h2>More renewable energy</h2>
-      <p>The government can also buy power directly from low-carbon sources through "power purchase agreements," stimulating demand for wind, solar, and other clean energy. Federal buildings could even generate their own power with rooftop solar, and military bases could add renewables and better energy storage — cutting emissions while making operations more resilient.</p>
+      <p>The government can also spend its money more sustainably by buying more renewable power. Through arrangements known as "power purchase agreements", a large buyer such as the government can purchase electricity directly from low-carbon sources, from wind farms to nuclear plants. Federal buildings could generate their own clean energy with rooftop solar, becoming more self-sufficient, and military bases could add renewables and better energy storage. On bases, that would cut emissions while also making operations more resilient &mdash; a lesson the military learned when solar power reduced the dangerous job of trucking fuel to the front line.</p>
 
-      <h2>Cleaner buildings and materials</h2>
-      <p>Non-residential buildings account for a large share of national energy use, and the government leases hundreds of millions of square feet of space. Making those buildings more efficient — and demanding low-carbon cement and steel for construction — could cut emissions across heavy industry, since a fifth of the iron and steel bought in the U.S. is paid for with taxpayer money.</p>
+      <h2>More efficient buildings</h2>
+      <p>Non-residential buildings account for a large share of national energy use, and the government leases hundreds of millions of square feet of space across thousands of buildings, only a few dozen of them certified as sustainable. Reports have outlined how federal buildings could cut their emissions: generating power on site, phasing out old refrigeration equipment, sending less waste to landfill, buying carbon offsets, and educating employees about their energy habits. Some proposals go further, recommending "smart surfaces", reduced food waste, and more plant-based meals in government cafeterias.</p>
+
+      <h2>Cleaner materials for building</h2>
+      <p>Heavy industry &mdash; cement, steel, chemicals, and other goods &mdash; produces a large and growing share of emissions. Cement production alone releases enormous quantities of carbon dioxide, and governments spend heavily on cement for buildings and highways. Around a fifth of the iron and steel bought in the country is paid for with taxpayer money. By setting a green threshold for the products it buys, the government could effectively require any company that wants its lucrative contracts to clean up its processes &mdash; a "buy clean" model applied by the biggest purchaser in the entire global economy.</p>
 
       <h2>Turning an order into reality</h2>
-      <p>The main obstacle is cost, because agencies are often required to buy the cheapest option available. Experts say real change will require clear priorities, honest tracking of progress, and a willingness to weigh a product's environmental impact against its price. Expect the shift to happen over years, not months — but as the world's biggest buyer, the government's choices could reshape entire markets.</p>
+      <p>The biggest obstacle is cost, because agencies are often required to buy the cheapest available option. Experts say real change will require clear priorities, honest systems to track progress, pilot programmes, and a willingness to weigh a product's whole life-cycle environmental impact against its price. Some advocates want the government to go further and use emergency powers to accelerate clean-energy technology. Whatever the tools, everyone agrees the shift will unfold over years rather than months &mdash; but as the world's largest buyer, the government's choices could reshape entire markets.</p>
+
+      <p><em>Based on an article originally published by National Geographic.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -6374,24 +6417,28 @@ export const ARTICLES: Article[] = [
     date: "2026-06-17",
     description:
       "As famous department stores close their doors, we lose more than a place to shop. We lose a physical, shared world that once offered comfort, escape, and a kind of dream space.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>Great department stores are vanishing from the high street. Their loss is not only economic — it is the loss of a certain kind of magic that online shopping cannot replace.</strong></p>
+
+      <p><strong>Great department stores are vanishing from the high street, and their loss is about far more than shopping. When these grand, physical worlds close their doors, we lose a particular kind of magic that online shopping cannot replace.</strong></p>
 
       <h2>A store in decline</h2>
-      <p>Thousands of shops disappeared from British high streets in a single year, but the struggles of one famous chain, John Lewis, felt especially significant. Founded in 1864 and owned by its own employees, it had long stood for solidity and comfort. Yet the pandemic pushed it into its first annual loss, and for the first time in decades it could not pay its staff a bonus.</p>
+      <p>Thousands of shops disappeared from British high streets in a single year, but the struggles of one famous chain felt especially symbolic. Founded in the nineteenth century and owned by its own employees &mdash; each of whom shares in the company's profits &mdash; it had long stood for solidity and reliability. Yet the pandemic hit city-centre retailers especially hard, pushing the company into the first annual loss in its history and forcing it, for the first time in decades, to withhold the staff bonus.</p>
 
-      <h2>A world in one building</h2>
-      <p>Part of the appeal of a department store is the illusion that everything you could ever need is contained within one reassuringly physical space. Where an online marketplace lists thousands of options for a set of bed sheets, a department store might offer just sixty-four. Life is broken into helpful sections — baby, school, home — while online shopping makes your choices frighteningly limitless.</p>
+      <h2>A whole world in one building</h2>
+      <p>Part of a department store's appeal is the comforting illusion that everything you could possibly need is contained within a single physical space. Where a giant online marketplace might list thousands of options for a set of bed sheets, a department store offers a manageable handful. Life is broken down into helpful sections &mdash; baby, school, home &mdash; while online shopping makes your choices frighteningly limitless. For many shoppers, walking through the doors brings a feeling of being "contained", of stepping into a place where everything will be all right and even an ordinary purchase feels reassuringly considered.</p>
 
       <h2>Comfort and class</h2>
-      <p>For many shoppers, these stores offered a feeling of being "contained" and safe. They also carried quiet signals of social class: aspirational but not intimidating, comfortable rather than dazzling. You might go to a grand luxury store to feel a little unworthy, the writer suggests, but you went to John Lewis to feel at home.</p>
+      <p>These stores also carried quiet signals of social class. For families who had climbed from the working class into the middle class, a shop like this was aspirational but not intimidating &mdash; comfortable rather than dazzling. You might visit a grand luxury store to feel bamboozled by desire and perhaps a little unworthy; you visited this one to feel at ease, comfortable enough to browse the greeting cards and then stop for a scone in the tea room.</p>
 
       <h2>A dream space for women</h2>
-      <p>When they first appeared in the late 18th century, department stores were among the only public spaces designed for the pleasure and convenience of women. With no admission requirements, any woman could walk in, browse, and experience a kind of luxury once reserved for the aristocracy. They functioned almost like social clubs — places to imagine another life.</p>
+      <p>When department stores first appeared in the late eighteenth century, they were among the very few public spaces designed for the pleasure and convenience of women. Later they installed women's lavatories &mdash; a genuine innovation at the time &mdash; which allowed women to spend a whole day out, alone, without attracting moral disapproval. They functioned almost like social clubs, open to anyone, with no requirement to buy. Their palatial architecture let any woman step in off the street and experience a luxury once reserved for the aristocracy; inside, for a while, she could imagine another life entirely.</p>
 
       <h2>What we lose online</h2>
-      <p>During the pandemic, dozens of shops closed every day, and many that shut temporarily may never reopen. As shoppers turn to the internet, the writer reflects that we lose something human: the comfort of other people, real and imagined, sharing the same physical space. Buying the same items online, she admits, just does not feel the same.</p>
+      <p>The security these stores represented was always partly an illusion, and just as the markers of a stable middle-class life &mdash; a steady job, a house, a set of matching towels &mdash; have become harder to attain, so the stores that symbolised that stability have grown less secure. During the pandemic dozens of shops closed every day, and many that shut temporarily may never reopen. As shoppers retreat to the internet, buying small things at odd hours, something human is lost: the comfort of other people, real and imagined, sharing the same physical space. Buying the same items online, the writer admits, simply does not feel the same.</p>
+
+      <p><em>Based on an opinion article originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -6500,21 +6547,28 @@ export const ARTICLES: Article[] = [
     date: "2026-06-19",
     description:
       "We teach children that hard work always brings success, and that a job is worth having only if it pays well. A closer look shows both ideas are myths worth questioning.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>We like to believe that hard work always leads to a good life, and we teach this to children. But underneath these values lie two myths that quietly blame people for outcomes they did not choose.</strong></p>
+
+      <p><strong>We like to believe that hard work always leads to a good life, and we teach that belief to children. But underneath these comforting values lie two myths &mdash; and both quietly blame people for outcomes they did not choose.</strong></p>
+
+      <h2>The stories we tell children</h2>
+      <p>The narratives that shape a culture are often subtle. We share a belief that hard work brings good outcomes: you go to school to get a job, and if you work hard you will have a good life, own a home, and achieve your dreams. We pass these ideas to children hoping they will grow up hard-working and ambitious. But hidden inside them are two assumptions worth questioning: that those who succeed simply deserve it, and that those without high-paying jobs have only themselves to blame.</p>
 
       <h2>Myth 1: Success comes only from effort</h2>
-      <p>This idea, rooted in the notion of meritocracy, sounds admirable: anyone can succeed if they try hard enough. But it has a dark side. When someone does not succeed, we tend to blame them for being lazy or lacking initiative — a mistake in logic. People may have lost jobs to a pandemic, faced systemic barriers, or struggled with mental health. In truth, one of the strongest predictors of financial success is not effort at all, but the wealth of the family you were born into.</p>
+      <p>This idea rests on the notion of meritocracy, a common feature of modern economic thinking. In theory it is admirable and aspirational: anyone can succeed and become their best self, and achievement depends on how hard you try. But it has a dark side. When someone does not succeed, we are quick to conclude that they must not have tried hard enough &mdash; a leap of logic that treats failure as proof of laziness. In reality, people lose jobs to events like a pandemic, or never had a fair chance in the first place because of systemic racism, gender inequality, natural disasters, or poorly designed policies. Many struggle with mental-health difficulties that hold them back. And among all the factors that shape financial success &mdash; education, nutrition, attention, culture &mdash; nothing quite matches the raw advantage of being born into a wealthy family. If we accept that a pandemic can derail someone's success, we should accept that other forces can too.</p>
 
-      <h2>Myth 2: You should feel ashamed of an unambitious job</h2>
-      <p>We also tell people that any job is good, and that they should always strive for something "better". Because humans want to fit in — a tendency known as conformity bias — we come to see some jobs as more prestigious than others, usually those that pay the most.</p>
+      <h2>Myth 2: An unambitious job is shameful</h2>
+      <p>We also tell people that having a job is good, and imply that any job is good enough &mdash; while simultaneously urging everyone to strive for something "better". Because humans are social and want to fit in, a tendency known as conformity bias, we adopt the judgements of those around us instead of reasoning for ourselves. That is why we come to see some jobs as more prestigious than others, and why we so often treat the money a job pays as the truest measure of its worth. High executive salaries appear in the news as implicitly positive; the value of the work itself goes unexamined.</p>
 
       <h2>Undervaluing essential work</h2>
-      <p>The flip side of that bias is that we undervalue low earners. Nurses, teachers, retail workers, and cleaners perform vital tasks yet are paid little, while high executive salaries are treated as clearly positive. The amount of training a job requires shapes this bias too: artists work long hours for low pay, but that matters little to those who prize earnings above all.</p>
+      <p>The flip side of that bias is the undervaluing of low earners. Nurses are vital frontline staff yet are paid far less than the doctors beside them. Teachers performed an enormous task moving education online and caring for the emotional needs of millions of children, and their pay is similarly modest. Casual, unskilled, and low-authority jobs carry little prestige even when they are described as essential. We are biased against retail workers and cleaners largely because of their low wages, since the argument that serving others makes a job inferior falls apart the moment we notice that pilots, doctors, and lawyers serve others too.</p>
 
       <h2>What actually makes a good job</h2>
-      <p>Having a prestigious, high-paying job is not what makes people satisfied. Studies show that job security, autonomy, and work-life balance matter far more. When we talk to children — and to ourselves — about what a good job is, we should speak less about wages and more about meaning, independence, and balance.</p>
+      <p>Yet a prestigious, high-paying job is not what makes people satisfied with their lives. Studies consistently show that job security, autonomy, and a healthy work-life balance matter far more. When we talk to children &mdash; and to ourselves &mdash; about what makes a job good, we should speak less about wages and earnings and more about how meaningful the work is, how much freedom it offers, and whether it leaves room for the rest of a life.</p>
+
+      <p><em>Based on an article originally published by The Conversation.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -6623,24 +6677,28 @@ export const ARTICLES: Article[] = [
     date: "2026-06-21",
     description:
       "A review of Nigel Townson's social history of British sport, exploring why sport holds such power over class, gender, identity, and the modern media.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>Around four billion people — over half the world's population — watch at least part of major events like the Olympic Games. But raw numbers do not get to the heart of why sport holds such social power in the modern world.</strong></p>
+
+      <p><strong>Around four billion people &mdash; over half the world's population &mdash; watch at least part of major events like the Olympic Games, and in Britain sport is one of the largest industries of all. But raw numbers do not get to the heart of why sport holds such power over modern life.</strong></p>
 
       <h2>More than a game</h2>
-      <p>Sport is a powerful social force. Friends and colleagues discuss it constantly, and it is one of the few topics acceptable when starting a conversation with strangers. Its language has even passed into everyday life: we talk about "team players" in situations that have nothing to do with sport, and the word "goal", meaning an objective, grew out of its sporting sense.</p>
+      <p>Sport is a powerful social force in Britain, as in many other cultures. Friends and colleagues discuss it constantly, and it is one of the few subjects that feels acceptable when striking up a conversation with a stranger. Its language has even seeped into everyday speech: we describe "team players" in situations that have nothing to do with sport, and the word "goal", meaning an objective, almost certainly grew out of its sporting sense.</p>
 
       <h2>In groups and out groups</h2>
-      <p>Nigel Townson's <em>The British at Play</em> examines the links between sport and social class, gender, violence, and national identity. It shows how sport creates "in groups", most obviously the supporters of a football team, who define themselves by loyalty to their own side and opposition to others. In an extreme form, this leads to hooliganism — and the book argues that sensational media coverage helps create the very climate of panic in which such trouble occurs.</p>
+      <p>Nigel Townson's <em>The British at Play</em>, a social history of British sport from 1600 to the present, sets out to explain sport's importance by examining its links to social class, gender, violence, commercialism, race, and national identity. It explains these complex issues clearly. One striking example is the way sport creates "in groups", most obviously the supporters of a football club, who define themselves by loyalty to their own side and opposition to everyone else. In its extreme form this rivalry becomes hooliganism, and the book argues persuasively that sensational media coverage helps create the very climate of panic in which such trouble breaks out.</p>
 
       <h2>Changing roles</h2>
-      <p>Several of the book's themes reflect wider social change. Women are entering fields once closed to them — as commentators, producers, and editors of sports coverage. This greater visibility highlights the weakening of the old view that sport is mainly for men.</p>
+      <p>Several of the book's themes reflect wider social change. Women are entering fields that would have been closed to them only a generation ago &mdash; as commentators, as producers of radio and television sport, and as editors of sports magazines. This growing visibility of women highlights the weakening of the old assumption that sport is mainly a male concern.</p>
 
       <h2>The perfect medium for advertisers</h2>
-      <p>The global health-and-fitness boom has been driven partly by our wish for an "ideal" body shape, an image that sport constantly promotes. Because sport reaches viewers through strong images rather than words, it is the perfect medium for advertisers. So sport becomes big money: TV companies depend on it, and football clubs turn into businesses that sell merchandise and shares.</p>
+      <p>The global health-and-fitness boom has been driven partly by a growing desire for a "perfect" body, a desire encouraged by sport's constant emphasis on idealised male and female physiques. Because sport communicates through powerful images rather than words, reaching directly to the emotions of the viewer, it is the perfect medium for advertisers. So sport becomes big money, attracting ever more commercial investment: some television companies depend on it for survival, and football clubs turn themselves into businesses that sell merchandise and float shares on the stock market.</p>
 
       <h2>The missing question</h2>
-      <p>The reviewer praises the book but offers one criticism: despite its title, it never asks the most basic question of all — why do people actually play? Its real power, the reviewer argues, rests on the psychological and physical joy of sport, the way it involves the whole person and allows us, simply, to play.</p>
+      <p>The reviewer judges the book an excellent and valuable work, but offers one criticism: despite its title, it is not really about play. It never asks the most basic question of all &mdash; why do people take part in sport, and why is it so popular? For the reviewer, the book does not fully transmit the power, energy, passion, and joy of sport. Its social force ultimately rests on that deep psychological and physical appeal: the way sport involves the whole person, and the way it lets us, quite simply, play.</p>
+
+      <p><em>Based on a review of Nigel Townson's "The British at Play".</em></p>
+    
     `,
     vocabulary: [
       {
@@ -6751,19 +6809,23 @@ export const ARTICLES: Article[] = [
       "Autism appears in strikingly varied ways. Truly embracing neurodiversity means valuing autistic people's talents while also supporting those who need the most care.",
     readingTime: 4,
     content: `
-      <p><strong>Autism affects social interaction, but it appears in strikingly varied ways in each individual. Recognising this diversity means valuing autistic people's talents while also supporting those who need the most care.</strong></p>
+
+      <p><strong>Autism affects social interaction, but it shows up in strikingly varied ways in each individual. Truly recognising that diversity means valuing autistic people's talents while also supporting those who need the most care &mdash; and valuing them as people, not only as workers.</strong></p>
 
       <h2>A difference, not only a disability</h2>
-      <p>A senior naval commander recently explained that he believed his autism made him a better officer, giving him deep focus and calm under enormous pressure. Some autistic people require full-time support; others regard their condition as a difference rather than a disability, pointing to strengths such as concentration and resistance to peer pressure. Ignoring people with the condition wastes talent and risks the "groupthink" that comes from hiring only people whose minds work the same way.</p>
+      <p>A senior naval commander recently explained that he believed his autism had made him a better officer, giving him deep focus and steadiness under enormous pressure &mdash; the kind of pressure involved in commanding a nuclear submarine, where a single mistake could be fatal for everyone aboard. Autism manifests differently in every person. Some autistic people require full-time support and care; others regard the condition as a difference rather than a disability, pointing to strengths such as intense concentration and resistance to peer pressure. One influential argument holds that "hyper-systemising" minds, which focus on precision, detail, and systems, have helped drive the development of civilisation. Ignoring people with the condition wastes talent and invites the groupthink that comes from hiring only people whose minds work the same way.</p>
 
       <h2>The cost of narrow vision</h2>
-      <p>The greatest costs of that narrow vision are borne by autistic people themselves. New research suggests that more children are autistic than previously thought — around one in 57 — reflecting a global rise thought to be due mainly to better recognition. Yet only about one in five autistic adults is employed. Changing that requires not just recognising abilities, but adapting workplaces, practices, and expectations.</p>
+      <p>The heaviest costs of that narrow vision fall on autistic people themselves. New research suggests more children are autistic than previously thought &mdash; around one in fifty-seven &mdash; reflecting a global rise attributed largely to better recognition rather than a true increase. Only about a third have learning disabilities, but many more struggle at school, and only around one in five autistic adults is in employment. Changing that will require not only recognising abilities but adapting workplaces, practices, and expectations to fit a wider range of minds.</p>
 
       <h2>Value beyond usefulness</h2>
-      <p>Autistic people should not be valued only when they are seen as "productive". The pandemic showed how far we still are from true acceptance: some autistic people were placed under blanket "do not resuscitate" orders without consent, and many lost the social care their families relied on. Younger people with learning disabilities often waited far longer for vaccination despite higher risks.</p>
+      <p>Autistic people should not be valued only when they are seen as "productive". The pandemic showed how far society still is from truly accepting neurodiversity. Some autistic people were placed under blanket "do not resuscitate" orders without their knowledge or consent, a practice found to have led to potentially avoidable deaths. Essential social care that many families relied on vanished. While elderly people in care homes were prioritised for vaccination, younger people with learning disabilities &mdash; some of them autistic &mdash; often waited far longer, despite evidence that their death rate was much higher. Research from before the pandemic suggested most autistic adults were not getting the support they needed, and further service cuts loom as council budgets tighten.</p>
 
       <h2>The real meaning of neurodiversity</h2>
-      <p>Embracing neurodiversity must mean more than celebrating those who can thrive in a world built for neurotypical people. It must also mean supporting those who are severely affected. Autistic people are valuable not because their autism can be useful to society, but simply because they are people.</p>
+      <p>Embracing neurodiversity must mean more than celebrating those who can thrive even in a world designed by and for neurotypical people. It must also mean genuinely supporting those who are severely affected. Autistic people are valuable not because their autism can be made useful to society &mdash; improving a company's performance or advancing science &mdash; but, quite simply, because they are people.</p>
+
+      <p><em>Based on an editorial originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -6872,24 +6934,31 @@ export const ARTICLES: Article[] = [
     date: "2026-06-25",
     description:
       "A vital vaccine, an extremely rare possible side effect, and an almost impossible communication problem: how do regulators tell the truth without frightening people away?",
-    readingTime: 6,
+    readingTime: 4,
     content: `
-      <p><strong>The AstraZeneca vaccine was one of the most important tools against COVID-19, central to a plan to deliver billions of doses worldwide. That is exactly why a wave of worrying news put regulators in an almost impossible position.</strong></p>
+
+      <p><strong>The AstraZeneca vaccine was one of the most important tools against COVID-19, central to a plan to deliver billions of doses to poorer nations. That is exactly why a wave of frightening news placed regulators in an almost impossible position.</strong></p>
 
       <h2>A sudden pause</h2>
-      <p>Regulators in more than 20 European countries briefly suspended the vaccine after scattered reports of blood clots. Days later, experts recommended continuing its use, concluding the benefits far outweighed the risks. Many commentators called the pause harmful, noting that the number of clots was actually lower than you would expect in the general population.</p>
+      <p>As one of the first vaccines available and cheap enough to distribute on a massive scale, the AstraZeneca shot had the power to change the near-term course of the pandemic. Then regulators in more than twenty European countries suspended its use after scattered reports of blood clots. Within days, an expert committee recommended continuing the rollout, concluding that with cases surging and thousands dying each day, the benefits far outweighed any known or potential risks. Many commentators condemned the pause as reckless, noting that the number of clots reported was actually lower than you would expect in the general population.</p>
 
       <h2>A rarer, stranger problem</h2>
-      <p>But the real issue was more specific than "blood clots". A small number of previously healthy people had developed an unusual combination: clots throughout the body together with low levels of platelets, the cells that help blood clot. Regulators faced the possibility — still unproven — that perhaps one in a million vaccinated people could suffer a serious reaction, even as more than a million doses were given each day.</p>
+      <p>But the real concern was more specific than the phrase "blood clots" suggested. A small number of previously healthy people had developed an unusual and seemingly contradictory combination: clots forming throughout the body alongside unusually low levels of platelets, the cells that normally help blood to clot. Researchers even gave the syndrome a name. Regulators were thus confronting the possibility &mdash; still unproven &mdash; that perhaps one in a million vaccinated people might suffer a serious, potentially fatal reaction, even as more than a million doses were being given each day in Europe alone.</p>
 
       <h2>An impossible balance</h2>
-      <p>Anything the regulators said risked reducing trust in vaccination and thus increasing the pandemic's toll. Yet staying silent about a possible reaction could make the eventual damage worse. Given the huge numbers of lives the vaccine was saving, the balance of costs and benefits clearly favoured continued use — but authorities could not simply look the other way, because early diagnosis of the rare condition could save lives.</p>
+      <p>This was a nightmare scenario for public-health communication. Almost anything regulators said risked reducing trust in vaccination and so increasing the pandemic's toll. Yet staying silent about a possible reaction could make the eventual damage far worse, feeding the fearmongering that would inevitably grow. The overall calculation was not really in doubt: given how fast the virus was spreading, the vaccine would save vastly more lives per million doses than it could ever cost. But authorities could not simply look away, because early diagnosis of the rare condition could itself save lives &mdash; the standard treatment for one kind of clot could actually be dangerous for patients with this particular syndrome.</p>
+
+      <h2>Acting on the evidence</h2>
+      <p>Different countries responded in different ways as investigations continued. Some identified a small number of cases and deaths among millions of injections and described them as a genuine, if rare, vaccine reaction. Because most cases involved people under fifty, several countries limited the vaccine to older adults to reduce the risk. Regulators added clear warnings to the vaccine's information leaflet, urging people to seek medical help if they developed specific symptoms in the days after vaccination. Alerting people that way could save lives &mdash; but it might also frighten some away from being vaccinated at all.</p>
 
       <h2>The long game of trust</h2>
-      <p>Some countries limited the vaccine to older people, since most cases involved those under 50. Regulators added clear warnings about symptoms to watch for. Communicating about very rare reactions is a long game: the hardest challenge comes later, when the eager have been vaccinated and it is time to persuade the hesitant.</p>
+      <p>It is reassuring that so few safety problems have emerged from COVID-19 vaccination worldwide; the appearance of a possible issue with one vaccine is itself a rare exception. There are clear precedents for communicating honestly about very rare reactions, such as the tiny risk of a nerve disorder linked to ordinary flu shots, which health authorities do not hide. Communicating about such rare events is a long game, and the hardest challenge comes later &mdash; once the eager have been vaccinated and it is time to persuade those who hesitate.</p>
 
       <h2>Honesty over easy answers</h2>
-      <p>There are precedents for handling rare vaccine reactions honestly, such as the tiny risk of a nerve disorder linked to ordinary flu shots. The writer argues that European regulators were not being stupid or political. They faced a genuine conundrum, and transparency — not denial — is what preserves public confidence when it is needed most.</p>
+      <p>The temptation is to imagine that regulators were simply being foolish or political. In fact they faced a genuine and painful dilemma, weighing an unproven but possibly fatal risk against the danger of undermining trust. Had they reacted far more cautiously and said nothing until hundreds of cases had accumulated, more people would have been vaccinated in the meantime &mdash; but the eventual collapse of confidence in the safety-monitoring system could have been far worse. Transparency, not denial, is what preserves public confidence at the moment it is needed most.</p>
+
+      <p><em>Based on an article originally published by The Atlantic.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7000,16 +7069,20 @@ export const ARTICLES: Article[] = [
       "Fashion has long been driven by the restless engine of buying more. But a quiet shift toward mending, longevity, and keepsakes suggests that lasting value may be coming back.",
     readingTime: 4,
     content: `
-      <p><strong>Much fashion writing is really just a shopping list dressed up in adjectives, driven by the restless engine of acquisition. Yet the writer senses the ground shifting toward something more durable: the idea that clothes should last.</strong></p>
+
+      <p><strong>Much fashion writing is really just a shopping list dressed up in adjectives, its restless engine driven by the urge to acquire. Yet the ground may be shifting toward something more durable: the quietly radical idea that clothes should last.</strong></p>
 
       <h2>Longevity over novelty</h2>
-      <p>The most precious item in your wardrobe is rarely the expensive dress you bought last week. It is more likely the hand-stitched shirt a grandmother made decades ago. New books and documentaries celebrate mending and the stories held in old clothes rather than new ones. Fashion, the writer predicts, will soon have to consider longevity as well as novelty — finding creative ways to follow the idea that "elegance is refusal".</p>
+      <p>The single most precious item in a wardrobe is rarely the expensive dress bought only last week. It is more often something like a square-cut, boldly patterned shirt that a grandmother once stitched by hand &mdash; an object rich with memory rather than novelty. There are signs that fashion is beginning to sense this. New books champion mending and caring for even the humblest fabrics, and documentaries weave powerful stories out of old coats rather than new ones. The writer's strong hunch is that fashion will soon have little choice but to value longevity alongside novelty, finding creative ways to follow the idea that "elegance is refusal".</p>
 
       <h2>In defence of bold taste</h2>
-      <p>The essay drifts into a memory of interviewing a famously opinionated writer who collected garish, kitsch objects. When the writer once dismissed them as "hideous", he corrected her: bad taste, he insisted, is perfectly acceptable. It is <em>no</em> taste — bland, timid, and colourless — that is truly unforgivable.</p>
+      <p>The essay drifts into a memory of interviewing a famously opinionated writer and film-maker in his flat, where she was shown his collection of garish coloured-glass night lights shaped like fish. When she rudely dismissed them as "hideous", he corrected her. Bad taste, he insisted, is perfectly acceptable; what is truly unforgivable is <em>no</em> taste at all &mdash; the bland, timid, colourless quality he called "beige insipidity and mimsy coyness".</p>
 
       <h2>A talisman of hope</h2>
-      <p>Finally, the writer describes spending her modest lockdown savings on a keepsake: a "lover's eye" ring, a kind of jewellery popular in the late 18th century, when a tiny painting of a loved one's eye helped separated couples feel close. The ring, she says, makes surprisingly good company — a small, lasting object that reassures her she will soon be able to embrace the people she has missed.</p>
+      <p>Finally, the writer describes spending her modest lockdown savings on a keepsake meant to mark these strange months: a "lover's eye" ring. Such jewellery was fashionable in the late eighteenth century, when a tiny painting of a loved one's eye allowed separated couples to feel close to one another. Beautiful and oddly companionable, the ring reassures her, as she works, that it will not be long before she can once again put her arms around the people she has missed &mdash; a small, lasting object standing in for everything a passing trend cannot hold.</p>
+
+      <p><em>Based on an opinion column originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7118,24 +7191,31 @@ export const ARTICLES: Article[] = [
     date: "2026-06-29",
     description:
       "A comet from beyond our solar system drifted alone for hundreds of millions of years before grazing our sun. Its pristine surface revealed just how profound its isolation had been.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>In 2019 an amateur astronomer discovered a comet unlike any other in our solar system: it was not orbiting the sun at all. It had drifted in from interstellar space, and the story its surface told was a strangely lonely one.</strong></p>
+
+      <p><strong>In 2019 an amateur astronomer discovered a comet unlike any other in our solar system: it was not orbiting the sun at all. It had drifted in from interstellar space &mdash; and the story its surface told was a strangely lonely one.</strong></p>
 
       <h2>A visitor from far away</h2>
-      <p>The comet, later named Borisov after its discoverer, had been travelling alone through the space between stars until it entered our solar system and grazed past the sun. Warmed for the first time in who knows how long, its ice thawed slightly, releasing a glowing cloud of dust that powerful telescopes could study.</p>
+      <p>The object, later named Borisov after its discoverer, had been travelling alone through the space between stars, following its own path, until it entered our solar system and grazed past the sun. Warmed by a star for the first time in who knows how long, its ice thawed just slightly, releasing a fuzzy glow of once-frozen dust that some of Earth's most powerful telescopes were able to capture and study from afar.</p>
 
       <h2>The mark of loneliness</h2>
-      <p>By analysing that dust, researchers learned about the comet's composition and origins. One finding was rather melancholy: Borisov is one of the most pristine comets ever observed. Its surface showed almost no sign of a previous encounter with a star. To be so unblemished, astronomers realised, it must have been travelling utterly alone for an extraordinarily long time.</p>
+      <p>By analysing those dust particles, researchers pieced together the comet's composition, its origins, and its long journey. One finding was quietly melancholy. Borisov turned out to be one of the most pristine comets ever observed &mdash; its surface showed almost no sign of a previous close encounter with any star. To remain so unblemished, astronomers realised, the comet must have travelled utterly alone for an extraordinarily long time. Just as wind slowly erodes a mountain, repeated passes near stars leave their mark on a comet, and Borisov carried almost none.</p>
 
       <h2>Clues in the dust</h2>
-      <p>The cloud of particles around the comet, called a coma, carries rich information about the planetary system it came from. Evidence suggests Borisov formed close to its parent star before being flung to the outer edges of its system, perhaps by the gravity of giant planets like our own Jupiter and Saturn.</p>
+      <p>The shimmering cloud of particles surrounding the comet, known as a coma, carries rich information about the planetary system it came from. Evidence suggests Borisov formed close to its parent star before being flung out toward the cold edges of its system, gathering different materials along the way. It may owe its makeup to the influence of giant planets, which are known for stirring things up with their gravity &mdash; perhaps Borisov once shared a home with its own versions of Jupiter and Saturn.</p>
+
+      <h2>A different kind of visitor</h2>
+      <p>Borisov was actually less mysterious than the first known interstellar visitor, detected two years earlier, which behaved more like an asteroid and whose very shape astronomers still debate. Current theory suggests that icy comets near the edge of a young planetary system can be jostled by big planets and hurled into the vast emptiness between stars; our own solar system probably ejected a few comets of its own in its chaotic early days. With new observatories and dedicated spacecraft on the way, astronomers expect to catch many more such travellers in the years ahead.</p>
 
       <h2>Almost certainly alone forever</h2>
-      <p>As Borisov neared Jupiter, a telescope caught a piece of it breaking off — so it will not leave our solar system exactly as it arrived. But it is extremely unlikely ever to pass close to another star. The distances between stars are so vast that even if two galaxies collided, almost no stars would ever touch. Borisov coasted alone for hundreds of millions of years to reach us, and for it, this encounter may be the only one it ever has.</p>
+      <p>As Borisov neared Jupiter, a space telescope caught a fragment breaking away, so the comet will not leave our solar system exactly as it arrived; it now bears a small mark of its visit. But it is extremely unlikely ever to pass near another star. The distances are simply too vast &mdash; so vast that if two galaxies collided, almost no individual stars would ever touch. Borisov coasted alone for hundreds of millions of years, perhaps billions, to reach us, and for it this brief encounter with our sun may be the only one it ever has.</p>
 
       <h2>A glimpse of another home</h2>
-      <p>For us, the fleeting visit was illuminating. Our interstellar guest carried evidence of its distant birthplace, where a star once ignited and left just enough material behind to form planets and moons. Through a chance encounter with a comet like Borisov, we can glimpse how alien worlds might resemble our own.</p>
+      <p>For us, the fleeting visit was illuminating. Our interstellar guest carried evidence of its distant birthplace, where a star once ignited and left just enough material behind to build planets and moons. That process has unfolded countless times across the universe, scattering islands of clustered matter far from one another. Through a chance meeting with a comet like Borisov, we catch a glimpse of how those alien worlds might resemble our own.</p>
+
+      <p><em>Based on an article originally published by The Atlantic.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7244,24 +7324,28 @@ export const ARTICLES: Article[] = [
     date: "2026-07-01",
     description:
       "Proof of vaccination could help reopen society, but it raises hard questions about discrimination, privacy, and freedom. The answer lies in careful design, not rigid ideology.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>Could proof of vaccination or a negative test help reopen shops, workplaces, and public life? The idea is tempting, but it raises deep practical and ethical questions that must be handled with care.</strong></p>
+
+      <p><strong>Could proof of vaccination or a negative test help reopen shops, workplaces, and public life? The idea is tempting, but it raises deep practical and ethical questions &mdash; a tool to be handled with real care.</strong></p>
 
       <h2>A tempting shortcut</h2>
-      <p>As lockdowns dragged on and public patience wore thin, governments began to ask whether a vaccination certificate could speed up the revival of social and economic activity. What was once dismissed became, cautiously, a subject for serious review.</p>
+      <p>As lockdowns dragged on and public patience wore thin, governments began to ask whether a vaccination or testing certificate could speed the revival of social and economic activity. The idea had been dismissed when first raised, but as pressure grew to ease restrictions faster, it was treated more cautiously &mdash; not ruled out, but sent for careful official review, with leaders acknowledging that it raised deep and complex issues.</p>
 
       <h2>Practical and ethical complexities</h2>
-      <p>The problems are real. It is unclear what legal basis would allow services to be withheld from someone unable — or unwilling — to prove vaccination, which could amount to unlawful discrimination. There are worries about employers abusing such power, about fraud, and about the privacy and security of an official register of people's medical status.</p>
+      <p>The problems are both practical and ethical. It is unclear what legal basis would allow public or private services to be withheld from someone unable &mdash; or simply unwilling &mdash; to prove vaccination, and doing so could amount to unlawful discrimination. There are worries about employers demanding certification from their workforce, about the potential abuse of that power, and about fraud. An official register of who has been immunised also raises serious questions about privacy and data security.</p>
 
       <h2>A false sense of safety</h2>
-      <p>There is also the hazard that certificate holders might relax good hygiene, wrongly believing themselves untouchable. No vaccine is 100% effective, and protection against serious illness does not necessarily stop transmission. Issuing people a "licence to mingle" could backfire if it means the collective guard drops.</p>
+      <p>There is a further hazard: that certificate holders might relax good hygiene, wrongly imagining themselves untouchable and no longer obliged to protect others. No vaccine is completely effective, protection against serious illness does not necessarily stop transmission, and resistant strains might yet evolve. Issuing people a "licence to mingle" could backfire badly if it means the collective guard drops just when caution is still needed.</p>
 
       <h2>The prize on the other side</h2>
-      <p>Against those risks stands a real prize: restored activity, saved jobs, and improved mental wellbeing. Since the goal is to live with the virus rather than eliminate it, some system for showing vaccination or a negative test seems almost inevitable — such rules are already built into international travel.</p>
+      <p>Against those risks stands a real prize: restored social and economic life, with jobs saved and mental wellbeing revived. Since governments are not trying to eliminate the virus entirely, societies will have to learn to live with it &mdash; constantly weighing risk and adjusting behaviour. Vaccination and testing are the two most important tools for that, so some system for showing that a person has been vaccinated or has tested negative seems almost inevitable. Such requirements are, after all, already built into international travel.</p>
 
       <h2>Design, not dogma</h2>
-      <p>There is a big difference between passports for foreign travel and a domestic licence to shop or work, which would be unprecedented. But the complexity of an idea is not a reason to reject it. A badly built system could be dangerous; a well-designed one, with the right legal safeguards, could be immensely valuable. The key measures are careful design and competent administration — not rigid ideology on either side.</p>
+      <p>There is an important difference between a vaccine "passport" for foreign travel, a familiar idea, and a domestic licence to shop or work, which would be genuinely unprecedented and is already resisted by anti-lockdown campaigners. But the complexity of an idea is not, by itself, a reason to reject it. The terms of the debate should not be dictated by ideological factions before the evidence has been weighed, and the angry culture war over face coverings offers a warning of how not to argue about such things. Every part of the pandemic response involves a trade-off between individual freedom and collective control. A badly built certificate system could be counterproductive and even dangerous; a well-designed one, with the right legal safeguards, could be immensely valuable. The real tests are careful design and competent administration &mdash; not rigid dogma on either side.</p>
+
+      <p><em>Based on an editorial originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7372,19 +7456,23 @@ export const ARTICLES: Article[] = [
       "A warm, comic column about family life after lockdown — teenagers, mornings, and the suspicion that the breakdown in discipline is really the parent's own.",
     readingTime: 4,
     content: `
-      <p><strong>In this affectionate, comic column, a writer pokes fun at a government claim that children lost their discipline during lockdown — and gradually admits that the only discipline that has really broken down might be her own.</strong></p>
+
+      <p><strong>In this affectionate, comic column, a writer pokes fun at the claim that children lost their discipline during lockdown &mdash; and slowly admits that the only discipline that has really broken down might be her own.</strong></p>
 
       <h2>A claim that doesn't add up</h2>
-      <p>The writer explains that she now follows the news mostly through how upset people sound on radio phone-ins. That is how she learns of a minister's belief that children have lost their discipline over lockdown — a claim teachers everywhere reject. Far from being unruly, they say, pupils have been on exquisite behaviour, so happy to be out of the house that they seem to want to earn their good fortune with lovely manners.</p>
+      <p>The writer confesses that she has largely given up on the news, following dogs on social media instead and reconstructing what a minister must have said from how upset callers sound on radio phone-ins. That is how she learns of an education secretary's belief that children have lost their discipline over lockdown &mdash; a claim that teachers everywhere reject. Far from being unruly, they report, pupils have been on exquisite behaviour, apparently so happy to be out of the house that they feel they must earn their good fortune with lovely manners. People who actually know young children, she notes, tend to be extravagantly fond of them.</p>
 
       <h2>Teenagers are another story</h2>
-      <p>Secondary-school children, she admits, are harder to read. She spends her days on elaborate theories about why they find her so annoying and why they hate mornings. Is it the effect of a strange year, or simply ordinary adolescence? A gently absurd conversation about carrying emergency cash — with children baffled that ticket machines exist — captures the comic gap between generations.</p>
+      <p>Secondary-school children, she admits, are harder to read. She spends her days on elaborate theories about why they find her so annoying and why they hate mornings so much &mdash; is it the strange effects of the past year, or simply ordinary adolescence? A gently absurd exchange about carrying emergency cash, in which her children are baffled that ticket machines exist at all, captures the comic gulf between the generations. When they sleep late after a day of fresh air and socialising, she finds herself pacing around their beds, checking they are still breathing, exactly as she did when they were babies.</p>
 
       <h2>The empathy of children</h2>
-      <p>The real warmth of the piece comes from her son, whose empathy she has admired since he was barely able to talk. When she nervously warns him never to joke about death, he gives her a sympathetic look that silently asks whether lockdown, and too much time on her phone, might be getting to her.</p>
+      <p>The real warmth of the piece comes from her son, whose empathy she has admired since he was barely able to talk. When she nervously warns him never to joke about death, he gives her a sympathetic, quizzical look that silently asks whether lockdown &mdash; and perhaps too much time on her phone &mdash; might be getting to her. It is, she realises, exactly the kind of thing she is forever saying to him, now turned gently back on herself.</p>
 
       <h2>The real conclusion</h2>
-      <p>The column ends with a neat comic twist. Discipline, the writer concludes, really has broken down over the past year — but mainly hers, not the children's.</p>
+      <p>The column ends with a neat comic twist. Discipline, the writer concludes, really has broken down over the past year &mdash; but mainly hers, not the children's.</p>
+
+      <p><em>Based on an opinion column originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7493,24 +7581,31 @@ export const ARTICLES: Article[] = [
     date: "2026-07-05",
     description:
       "As shops reopen, crowds return to a high street transformed by a deeper crisis. The retail crash is less about the pandemic than about decades of economic change.",
-    readingTime: 6,
+    readingTime: 4,
     content: `
-      <p><strong>As shops reopen and crowds return, the high street may look revived. But the retail crash is much more than a pandemic story — it is the acceleration of a transformation that has been under way for a decade.</strong></p>
+
+      <p><strong>As shops reopen and crowds return, the high street may look revived. But the retail crash is much more than a pandemic story &mdash; it is the acceleration of a transformation that has been under way for the best part of a decade.</strong></p>
 
       <h2>A melancholy homecoming</h2>
-      <p>Britain lost around 17,500 chain outlets in a single year, with more closures following and job losses running at hundreds every working day. Some forecasters predict tens of thousands of vacant shops. Yet many analysts see this not simply as a disaster but as a long-overdue reckoning: the country, they argue, had simply built too many shops.</p>
+      <p>The return of shoppers to reopened high streets will be celebrated as a moment of collective joy. Yet what people find may be quietly melancholy. Britain is reckoned to have lost around 17,500 chain outlets in a single year, with more than a thousand further closures announced in the following weeks and job losses running at hundreds every working day. As emergency support schemes wind down, some forecasters expect tens of thousands of empty shops. Many analysts see this not simply as a disaster but as a long-overdue reckoning: after years in which shop numbers kept rising even as online spending grew, the country, they argue, had simply built too many shops.</p>
 
       <h2>Empires collapse</h2>
-      <p>Familiar names have vanished. When one major fashion empire imploded, it took a string of well-known brands with it, and the end of a famous department store chain left more than a hundred towns without a fixture of middle-market shopping — not only in big cities but in smaller towns that can least afford the loss.</p>
+      <p>Familiar names have vanished. When one major fashion empire imploded, it took with it a string of brands that had once seemed to fill entire streets. An even larger gap was left by the end of a famous department-store chain that had long stood for democratic, middle-market shopping, as it vacated all of its stores &mdash; not only in big cities but in smaller towns that can least afford the loss.</p>
 
       <h2>Winners and losers</h2>
-      <p>Smaller cities often lack the advantages that help big urban centres survive: large universities, thriving creative industries, and investors drawn to repurposed spaces. For these places, losing shops is a blow to local economies and to collective self-esteem, as aspirational stores give way to discount chains.</p>
+      <p>Smaller cities and large towns often lack the advantages that help bigger urban centres survive: large universities, thriving creative industries, and the kind of investors drawn to repurposed spaces and salvaged decor. For these places, the loss of shops &mdash; in town centres and in the retail parks that ring them &mdash; is a heavy blow to local economies and to a community's collective sense of self-esteem. As alluring chains withdraw, discount stores expand to take their place, and the aspirational shine of the town centre dims.</p>
 
       <h2>A Great British mistake</h2>
-      <p>From the 1980s onward, retail was promoted as a way to fill the gaps left by closed-down industries — sometimes literally, with retail parks built on former mines and factories. There was always something precarious about people working in shops to earn money to spend in other shops, a structure that risked toppling in on itself.</p>
+      <p>All this highlights a longer error whose consequences have rippled through politics for years. From the 1980s onward, retail was promoted as a way to fill the gaps left by shut-down industries, sometimes with grim symbolism &mdash; the site of a colliery central to the miners' strike is now a vast retail park. There was always something precarious about a model in which people worked in shops to earn money to spend in other shops, a structure that risked toppling in on itself, as it partly did after the financial crash.</p>
 
       <h2>Rethinking the town centre</h2>
-      <p>Now "deindustrialisation" is being followed by "deretailing". Some towns are responding with imagination: converting empty department stores into university lecture halls, planning community-owned high streets, or even replacing shops with parks. What runs through these projects is a shared effort to shrink and rationalise old shopping districts and push toward a future beyond simply buying and selling things.</p>
+      <p>Now "deindustrialisation" is being followed by "deretailing", with potentially large consequences. One glimpse of a possible future can be seen abroad, where a giant online retailer buys up shopping malls and converts them into distribution centres &mdash; workplaces that are themselves at the frontier of replacing human workers with robots. But there are more hopeful experiments closer to home. Some towns are converting empty department stores into university lecture halls and training spaces, others are pursuing community-owned high streets built around local involvement, and one council has responded to decline by demolishing one side of its high street and replacing it with a park. What runs through these projects is a shared effort to shrink and rationalise old shopping districts and to push, tentatively, toward an economic future beyond simply buying and selling things.</p>
+
+      <h2>The bigger question</h2>
+      <p>Ultimately the retail crash is a symptom of far larger issues across the whole economy &mdash; issues that demand big answers, from reviving manufacturing through a green industrial programme to building new technical universities in the places that would most benefit. As trade returns to high streets whose decline is turning critical, that is what deserves attention: a future that is already arriving, and the hard question of what it means for the most basic aspects of how we live and work.</p>
+
+      <p><em>Based on an opinion article originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7619,24 +7714,28 @@ export const ARTICLES: Article[] = [
     date: "2026-07-07",
     description:
       "The psychologist Steven Pinker argues that, despite the headlines, life is getting better. A writer weighs that data-driven optimism against his own doubts about the future.",
-    readingTime: 6,
+    readingTime: 4,
     content: `
-      <p><strong>The psychologist Steven Pinker irritates many intellectuals, yet his central claim is bracing: contrary to what the daily headlines suggest, the world is getting better and better. A doubtful admirer set out to test that optimism.</strong></p>
+
+      <p><strong>The psychologist Steven Pinker irritates many of his fellow intellectuals, yet his central claim is bracing: contrary to what the daily headlines suggest, the world has been getting better and better. A doubtful admirer set out to test that optimism.</strong></p>
 
       <h2>An upbeat message</h2>
-      <p>Seeking encouragement during a grim season, the writer invited Pinker to give his school a "pep talk". In his book <em>Enlightenment Now</em>, Pinker argues that we should be grateful to live in our era — the best, despite recent setbacks, in our long and troubled history. It was exactly the message his students and colleagues seemed to need.</p>
+      <p>Seeking someone to give his school a "pep talk" during a grim, plague-wracked season, the writer thought of Pinker &mdash; a scholar who packages big ideas and vast research in lively prose, and who, for all his combativeness on the page, is warm in person. In his book <em>Enlightenment Now</em>, Pinker argues that, whatever we might infer from the news, we should be grateful to live in our era, the best in our long and troubled history despite recent setbacks. It was exactly the message the writer's students and colleagues seemed to need.</p>
 
       <h2>The graphs of progress</h2>
-      <p>Pinker presented charts showing rises in good things — income, longevity, literacy, democracy, civil rights, leisure — and falls in bad things: poverty, infant mortality, famine, torture, war, and racist attitudes. Together, he argues, they show we are wealthier, healthier, freer, more peaceful, and kinder than ever before, not by a little but by a lot.</p>
+      <p>Some of the writer's friends groaned, complaining about Pinker's reliance on statistics and his fondness for capitalism; few, he notes, had actually read the book. In a filmed conversation, Pinker presented graph after graph documenting what he calls improvements in human flourishing. Some track rises in good things &mdash; income, longevity, nourishment, safety, literacy, democracy, civil rights, leisure, and happiness. Others track declines in bad things &mdash; poverty, infant mortality, famine, torture, capital punishment, war, homicide, and racist attitudes. Together, he argues, they show that we are wealthier, healthier, freer, more peaceful, smarter, and kinder than ever before, and not by a little but by a lot.</p>
 
       <h2>Not a naive optimist</h2>
-      <p>Pinker does not claim we live in the best of all possible worlds. He recognises that the goods of modern life are unequally shared and that poverty, disease, and violence endure. His point is that we have advanced against these ancient miseries — and can advance further if we resist fatalism, tribalism, and revolutionary fanaticism. He calls himself a kind of "conservative progressive", wanting to preserve the institutions, like science and democracy, that have helped humanity flourish.</p>
+      <p>Pinker is not claiming we live in the best of all possible worlds. He recognises that the goods of modern life are unequally shared and that poverty, disease, tyranny, violence, and ignorance endure. His point is that we have advanced against these ancient sources of misery and can advance further, provided we do not surrender to fatalism, tribalism, or revolutionary fanaticism. He describes himself as a kind of conservative progressive: he wants to preserve the practices and institutions &mdash; notably science, democracy, and capitalism &mdash; that have contributed to human flourishing, and to keep doing what has been working.</p>
 
       <h2>Setbacks and limits</h2>
-      <p>Progress, Pinker admits, is neither steady nor inevitable; there are reversals. He calls climate change perhaps the biggest problem in human history and favours carbon taxes and cleaner energy over abolishing capitalism. Yet his faith in progress is not absolute: drawing on a "tragic" view of human nature, he says we will never entirely eliminate pollution, prejudice, or violence.</p>
+      <p>Progress, Pinker admits, is neither steady nor inevitable; there are reversals. Anticipating questions about COVID-19, he pointed out that the sharpest dip in twentieth-century life expectancy came not from the world wars but from the 1918 influenza, after which longevity resumed its climb &mdash; as it would again. He calls climate change perhaps the biggest problem in human history, favouring carbon taxes that do not unduly burden the poor and cheaper, cleaner energy over any attempt to abolish capitalism or return to a pre-technological past. Yet his faith in progress is far from absolute. Drawing on what he calls a "tragic" view of human nature, he holds that our evolutionary inheritance makes us partly selfish and aggressive, and that we will never entirely eliminate pollution, prejudice, or violence.</p>
 
       <h2>Doubt and hope</h2>
-      <p>The writer shares much of Pinker's outlook but keeps his doubts. He worries, with a historian friend, that industrial civilisation may not be sustainable, and sees democracy itself as a fragile, sometimes destabilising force. Still, another part of him hopes an age-old dream might be within reach: if the decline of war continues, perhaps humanity could end war for good. That would not be utopia — we would still grow old, grieve, and quarrel — but, as Pinker says, it would be pretty good.</p>
+      <p>The writer shares much of this outlook but keeps his own doubts. He worries, alongside a historian friend, that an industrial civilisation committed to endless growth may not be sustainable, and he sees democracy itself as a sometimes destabilising force that gives us the freedom to make even catastrophic mistakes. And yet another part of him hopes an age-old dream might be within reach. The world still spends enormous sums on defence; if the unsteady decline of war between nations continues, perhaps humanity could learn to end war altogether and divert that money toward cleaning up the planet and raising living standards. That would not be utopia &mdash; we would still grieve, grow old, and torment one another &mdash; but, as Pinker says, it would be pretty good.</p>
+
+      <p><em>Based on an article originally published by Scientific American.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7745,24 +7844,28 @@ export const ARTICLES: Article[] = [
     date: "2026-07-09",
     description:
       "New research finds that girls as young as eight already ask for less than boys when negotiating with a man — a sign that the wage gap begins long before the first job.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>Children are natural negotiators, turning five more minutes at the playground into ten. New research suggests these childhood negotiations may share a surprising feature with adult ones: girls tend to ask for less than boys.</strong></p>
+
+      <p><strong>Children are natural negotiators, skilled at turning five more minutes at the playground into ten. New research suggests these childhood negotiations may share a surprising feature with adult ones: girls tend to ask for less than boys.</strong></p>
 
       <h2>The adult wage gap</h2>
-      <p>When a woman starts a job today, she is likely to earn markedly less than a man in the same position. One driving force behind this gap is that women tend to negotiate less than men — but only in certain situations. When negotiating with a woman, men and women ask for about the same. When negotiating with a man, a gap appears, and women ask for, and get, less.</p>
+      <p>A great deal is known about the gender wage gap in adulthood. When a woman starts a job today, she is likely to earn markedly less than a man beginning in the same position. Less widely understood is that one driving force behind this gap is that women tend to negotiate less than men &mdash; but only in certain contexts. When negotiating with a woman, men and women ask for roughly the same amount. When negotiating with a man, however, a gap opens up, and women ask for, and therefore receive, less.</p>
 
       <h2>Testing it in children</h2>
-      <p>Researchers wondered whether this pattern emerges late, after young adults absorb social norms, or whether it is rooted earlier in childhood. To find out, they gave children aged four to nine the chance to negotiate for a bonus of stickers with either a woman or a man. The children kept their requests modest — no one asked for a million.</p>
+      <p>The researchers, both developmental scientists, wondered whether this pattern emerges late, once young adults have absorbed complex ideas about gender and negotiation, or whether it is rooted much earlier in childhood. To find out, they gave children aged four to nine the chance to negotiate for a bonus. The children first earned a small reward in an unrelated game &mdash; a kind of base salary &mdash; and were then offered the chance to negotiate for extra stickers with either a woman or a man. Reassuringly, no child demanded a million; requests stayed in a modest range.</p>
 
       <h2>A gap by age eight</h2>
-      <p>The results were striking. By the age of eight, girls were already asking for fewer stickers than boys when negotiating with a man — about two fewer. When the person offering the stickers was a woman, no gap appeared. In other words, the same pattern seen in adult women shows up in girls by around third grade.</p>
+      <p>The researchers expected that girls, like adult women, would negotiate less than boys, and that the difference would be sharpest when the other person was a man &mdash; and they turned out to be mostly right. By the age of eight, girls were already asking for fewer stickers than boys when negotiating with a man, roughly two fewer. When the person offering the stickers was a woman, no such gap appeared. In other words, by around third grade, children already show the same gender gap in negotiation seen in adults. If it exists this early, it is little wonder the gap is so pronounced by the time women enter the workforce.</p>
 
       <h2>What are we teaching?</h2>
-      <p>The findings raise uncomfortable questions. What are we teaching girls, openly or subtly, that leads them to ask for less from a man than from a woman? Or are adults treating girls differently, reacting less warmly when girls make larger requests? The researchers cannot yet answer, but they argue the questions deserve attention.</p>
+      <p>The findings raise uncomfortable questions that the researchers cannot yet answer. What are we teaching girls, implicitly or explicitly, that leads them to expect less from a man than from a woman? Is negotiating with a man seen as less acceptable, or a man's time and resources treated as more valuable? Or is it that adults respond differently to girls, reacting less warmly when a girl makes a larger request? The point, the authors argue, is that these questions deserve serious attention even before we can resolve them.</p>
 
       <h2>Starting earlier</h2>
-      <p>The push for negotiation classes and workplace equality is vital, the authors argue, but it may start too late. These patterns are the gradual accumulation of childhood experiences, not something that appears with a first job. Teaching all children to advocate for themselves — and paying attention to how we respond to daughters and sons — could help close the gap before it opens.</p>
+      <p>The push for negotiation classes for adults and for equality in the workplace is essential, the researchers write, but it may begin too late. These patterns do not appear suddenly when a young woman lands her first job; they are the gradual accumulation of experiences throughout childhood and adolescence. We might borrow lessons from adult negotiation workshops &mdash; helping girls think clearly about what they want before entering a negotiation, and even building negotiation training into the school curriculum. Parents, too, could pay attention to how they respond to the requests of daughters and sons. Knowing that the gap opens so early gives us a valuable chance to look hard at how we raise children, and to teach them that they deserve equal treatment regardless of gender.</p>
+
+      <p><em>Based on an article originally published by Scientific American.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7871,24 +7974,28 @@ export const ARTICLES: Article[] = [
     date: "2026-07-11",
     description:
       "Why do we crave the touch of others? The answer lies in our evolution, our skin, and a special set of nerves that turn a gentle hug into calm and comfort.",
-    readingTime: 5,
+    readingTime: 4,
     content: `
-      <p><strong>During the pandemic, one of the things people missed most was a simple hug. To understand why we crave the touch of others, we need to look at our evolution, our social history, and our skin.</strong></p>
+
+      <p><strong>During the pandemic, one of the things people missed most was something remarkably simple: a hug. To understand why we crave the touch of others, we need to look to our evolution, our social history, and our skin.</strong></p>
 
       <h2>Born to be held</h2>
-      <p>Humans are born helpless, relying on others to feed, warm, and comfort us. Like all mammals, we are innately predisposed to seek physical contact for survival. Skin-to-skin contact between a mother and infant helps regulate the baby's heart and breathing, lowers stress hormones, and shapes the developing brain. Touch signals to a baby that support is near and it is safe.</p>
+      <p>Humans are born helpless, dependent on others to feed us, keep us warm, and comfort us when we are distressed. Like all mammals, we are innately predisposed to seek physical contact to help ensure our survival. Touch plays a central role in early nurturing: skin-to-skin contact between a mother and her infant helps regulate the baby's heart and breathing, lowers stress hormones, promotes growth, and shapes the developing brain. The more reliable and sensitive that early care, the greater the benefit to a child's health and wellbeing later in life. Touch signals to a baby that support is available and that it is safe.</p>
 
       <h2>Touch across a lifetime</h2>
-      <p>As we grow older, touch keeps playing a role in forming and maintaining relationships. When we are distressed, we return to those early experiences, relying on non-verbal comfort such as holding hands, hugs, and caresses. These rewarding sensations are rooted in the skin, which is filled with sensory receptors that tell us what is happening on our body's surface.</p>
+      <p>As we grow older, touch continues to play a part in forming and maintaining our relationships. When we are distressed, we tend to fall back on those earliest experiences, seeking non-verbal reassurance through handholding, hugs, and caresses. The comforting, rewarding power of touch is rooted in the skin, which is filled with a variety of sensory receptors that tell us what is happening on the surface of the body &mdash; the tickle of a fly, the sting of a stubbed toe, the warmth of the sun, the squeeze of a hand.</p>
 
       <h2>A special kind of nerve</h2>
-      <p>For a long time, scientists studying touch focused on the nerves in our hands and fingers that help us explore surfaces and textures. But researchers have become increasingly interested in a different set of touch-sensitive nerves in areas like the back. These respond most to skin temperature and gentle, slow stroking — exactly the speed people naturally use when caressing an infant or a partner.</p>
+      <p>For a long time, scientists studying touch focused on the sensory nerves, densely packed in the hands and fingers, that let us explore surfaces and textures and send rapid signals to the brain. More recently, researchers have grown interested in a different set of touch-sensitive nerves in core regions of the body, such as the back. These nerves respond most strongly to skin temperature and to gentle, slow stroking &mdash; and observations show that when people caress an infant or a partner, they instinctively use exactly the slow speeds these fibres prefer. That kind of touch feels pleasant, and it calms and soothes us physically, slowing the heart and buffering against stress.</p>
 
       <h2>The chemistry of comfort</h2>
-      <p>When stimulated, these nerves send signals to the emotional regions of the brain, releasing a cascade of neurochemicals. One of the most notable is oxytocin, a hormone released by gentle skin contact such as hugs. Oxytocin plays a role in social bonding, reduces stress, and increases our tolerance to pain — but only when the touch is actually wanted.</p>
+      <p>When these nerves are stimulated, they send signals through the spinal cord to the emotional centres of the brain, triggering a cascade of neurochemicals. Among the most notable is oxytocin, a hormone released by low-intensity skin contact such as a hug. Oxytocin plays important roles in social bonding, can reduce stress, and can even increase our tolerance to pain. Crucially, its release is context-dependent: only when a hug is actually wanted are its comforting, rewarding effects felt, and when touch is desired, both people in the exchange share the benefit.</p>
 
       <h2>Not only human</h2>
-      <p>Those comforting partners do not have to be human: oxytocin rises in both a dog and its owner when the animal is stroked, which may partly explain the rise in pet ownership during lockdown. Deprived of touch, many people felt lonely and distressed. Released from restrictions, the writer suggests, we will quickly return to hugging — perhaps appreciating it a little more than before.</p>
+      <p>Those partners need not even be human. Oxytocin levels rise in both a dog and its owner when the animal is stroked and petted &mdash; which may partly explain why, starved of touch during lockdown, so many people took to keeping pets. Over the past year, restrictions took a real toll on wellbeing, forcing us to suppress an instinct, refined over millions of years of evolution, to use touch to calm, soothe, and show that we care. Released from those restrictions, the writer suggests, we will quickly return to the behaviours we are built for &mdash; perhaps appreciating them a little more than we did before.</p>
+
+      <p><em>Based on an opinion article originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
@@ -7999,19 +8106,23 @@ export const ARTICLES: Article[] = [
       "As life reopens on a system of advance bookings, a self-confessed disorganised writer mourns the slow death of spontaneity in the modern city.",
     readingTime: 4,
     content: `
-      <p><strong>As lockdown ends and life reopens, everything must be booked in advance. For a self-confessed disorganised person, this is not liberation but a quiet defeat — a victory for the enemies of spontaneity.</strong></p>
+
+      <p><strong>As lockdown ends and life reopens on a system of advance bookings, one self-confessed disorganised writer feels not liberation but a quiet defeat &mdash; a victory for the enemies of spontaneity.</strong></p>
 
       <h2>Barred from the fun</h2>
-      <p>The writer confesses he feels no excitement about reopening. He has no plans, and everywhere is already fully booked. This represents a triumph for his ideological enemies: the highly organised go-getters with stable incomes who have the foresight to plan things in advance. His own brain, he jokes, simply does not work that way — he once spent a whole year of university with a broken tooth because he could not get round to booking a dentist.</p>
+      <p>The writer confesses that he feels no excitement about reopening. He has made no plans, and everywhere seems already to be fully booked, which he casts as a crushing triumph for his ideological enemies: the highly organised go-getters with stable incomes and orderly lives who have the foresight to plan things in advance. His own brain, he jokes, simply does not work that way &mdash; he once spent an entire year of university with a broken front tooth because he could never get around to booking a dentist, then broke the repaired tooth again within minutes on a sweet.</p>
 
       <h2>The death of spontaneity</h2>
-      <p>Beyond his comic resentment lies a real worry: the death of spontaneity. Deciding to duck into a pub for a solo pint used to be an act of carefree whimsy. When you must book a table, drinking alone starts to feel deliberate and even shameful, and asking for "a table for one" becomes an affront to human dignity. Spontaneity, he argues, is a large part of what makes going out pleasurable.</p>
+      <p>Beyond the comic resentment lies a real worry: the slow death of spontaneity. Deciding on impulse to duck into a pub for a solo pint used to be an act of carefree whimsy. Once you must book a table, drinking alone begins to feel deliberate and even faintly shameful, and having to ask for "a table for one" comes to feel like an affront to human dignity. Spontaneity, he argues, is a large part of what makes going out pleasurable in the first place &mdash; the freedom to head into the city at night and be surprised by where you end up.</p>
 
       <h2>A city that plans ahead</h2>
-      <p>He fears this shift is not temporary. For years, it has become harder to do anything in the city without planning ahead, as spontaneous nightlife gives way to monthly events in ever more distant places. A more organised, "infantilising" culture has emerged — axe-throwing, escape rooms, themed brunches — the commodified "experience" model of socialising that you cannot simply wander into.</p>
+      <p>He fears the shift is not temporary. For as long as he has lived in the city, it has become steadily harder to do anything without planning ahead, as spontaneous nightlife gives way to monthly or quarterly events in ever more distant, peripheral places. Amid widespread venue closures, a more organised and, he suggests, infantilising culture has emerged &mdash; axe-throwing, escape rooms, themed brunches &mdash; the commodified "experience" model of socialising, made up of events you generally cannot simply wander into.</p>
 
       <h2>Room for the wanderers</h2>
-      <p>Perhaps, he hopes, some venues will still cater to the wanderers, keeping a few tables for walk-ins while others become quasi-restaurants. Eventually, he trusts, a degree of spontaneity will return to city life. Until then, for those who like to be surprised by where the night takes them, lockdown will not really feel over.</p>
+      <p>Perhaps, he hopes, some venues will still cater to the wanderers, keeping a few tables free for walk-ins while others commit fully to becoming quasi-restaurants. At some point, he trusts, a degree of spontaneity will return to city life, and people who like the pub will go to the pub while those who prefer something else go elsewhere. Until then, for anyone who likes to be surprised by where the night takes them, lockdown will not really feel over.</p>
+
+      <p><em>Based on an opinion column originally published by The Guardian.</em></p>
+    
     `,
     vocabulary: [
       {
