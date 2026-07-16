@@ -15,6 +15,127 @@ export type Passage = {
 
 export const PASSAGES: Passage[] = [
   // Newest tests first — add new tests at the TOP of this list.
+  // 30-day reading challenge – Days 18–30
+  {
+    id: "day18-p2-lapis-lazuli",
+    title: "Day 18 – Lapis Lazuli",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "An academic passage on the history, composition and uses of lapis lazuli — from ancient jewellery to the pigment ultramarine — with paragraph-matching, True/False/Not Given and list-selection questions.",
+    htmlFile: "/passages/Day_18_P2_Lapis_Lazuli.html",
+    isNew: true,
+  },
+  {
+    id: "day19-p1-british-at-play",
+    title: "Day 19 – The British at Play",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "A review of Nigel Townson's social history of British sport, exploring sport's links to class, gender, violence and commercialism — with summary completion and sentence-ending questions.",
+    htmlFile: "/passages/Day_19_P1_British_at_Play.html",
+    isNew: true,
+  },
+  {
+    id: "day20-p3-strange-world-of-sight",
+    title: "Day 20 – The Strange World of Sight",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Richard Gregory explores how perception depends on memory and expectation, drawing on cases of people who gained sight as adults — with multiple choice, Yes/No/Not Given and summary questions.",
+    htmlFile: "/passages/Day_20_P3_The_Strange_World_of_Sight.html",
+    isNew: true,
+  },
+  {
+    id: "day21-p1-how-consumers-decide",
+    title: "Day 21 – How Consumers Decide",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "Research into heuristic and systematic processing and the crucial role of product packaging in consumer choice — with True/False/Not Given, multiple choice and summary completion.",
+    htmlFile: "/passages/Day_21_P1_How_Consumers_Decide.html",
+    isNew: true,
+  },
+  {
+    id: "day22-p2-practical-intelligence",
+    title: "Day 22 – Practical Intelligence Lends a Hand",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "Professor Sternberg's research on practical intelligence and its inverse relationship with academic intelligence — with multiple choice and classification questions.",
+    htmlFile: "/passages/Day_22_P2_Practical_Intelligence.html",
+    isNew: true,
+  },
+  {
+    id: "day23-p2-sports-science",
+    title: "Day 23 – Sports Science",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "How biomechanics, physiology, psychology and technology help Olympic athletes perform — with paragraph-matching, people-matching and diagram-labelling questions (Questions 17–29).",
+    htmlFile: "/passages/Day_23_P2_Sports_Science.html",
+    isNew: true,
+  },
+  {
+    id: "day24-p1-giant-panda",
+    title: "Day 24 – The Giant Panda",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "How DNA testing settled what a panda is, and how the giant panda and spectacled bear compare — with classification and sentence-completion questions.",
+    htmlFile: "/passages/Day_24_P1_The_Giant_Panda.html",
+    isNew: true,
+  },
+  {
+    id: "day25-p3-ingenuity-gap",
+    title: "Day 25 – The Ingenuity Gap",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Thomas Homer-Dixon on society's growing need for 'ingenuity' and why its supply may fall short — with sentence-endings, multiple choice and Yes/No/Not Given questions.",
+    htmlFile: "/passages/Day_25_P3_The_Ingenuity_Gap.html",
+    isNew: true,
+  },
+  {
+    id: "day26-p3-benefits-of-being-bilingual",
+    title: "Day 26 – The Benefits of Being Bilingual",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Research on the cognitive, neurological and lifelong benefits of bilingualism — with table completion, Yes/No/Not Given and paragraph-matching questions.",
+    htmlFile: "/passages/Day_26_P3_Benefits_of_Being_Bilingual.html",
+    isNew: true,
+  },
+  {
+    id: "day28-p1-experience-versus-speed",
+    title: "Day 28 – Experience versus Speed",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "How the ageing brain compensates for slower processing with accuracy and experience — with multiple choice, sentence-ending and summary completion questions.",
+    htmlFile: "/passages/Day_28_P1_Experience_versus_Speed.html",
+    isNew: true,
+  },
+  {
+    id: "day29-p2-robotic-crop-breeding",
+    title: "Day 29 – Robotic Approach to Crop Breeding",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "A robot that identifies drought-tolerant sunflowers by measuring leaf temperature and transpiration efficiency — with sentence-completion and paragraph-matching questions.",
+    htmlFile: "/passages/Day_29_P2_Robotic_Crop_Breeding.html",
+    isNew: true,
+  },
+  {
+    id: "day30-p3-mother-tongue-in-education",
+    title: "Day 30 – The Significant Role of Mother Tongue in Education",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Why developing children's mother tongue supports, rather than hinders, their education in the majority language — with multiple choice, summary (word bank) and Yes/No/Not Given questions.",
+    htmlFile: "/passages/Day_30_P3_Mother_Tongue_in_Education.html",
+    isNew: true,
+  },
   // Volume 11 – Test 1 (Premium)
   {
     id: "vol11-t1-r1",
