@@ -18,7 +18,7 @@ export const PASSAGES: Passage[] = [
   // 30-day reading challenge – Days 1–17
   {
     id: "day1-p1-what-lucy-taught-us",
-    title: "Day 1 – What Lucy Taught Us",
+    title: "What Lucy Taught Us",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -28,7 +28,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day2-p2-banff-national-park",
-    title: "Day 2 – Banff National Park",
+    title: "Banff National Park",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -38,7 +38,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day3-p3-kinesics",
-    title: "Day 3 – Kinesics",
+    title: "Kinesics",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -48,7 +48,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day4-p1-exploration-through-the-ages",
-    title: "Day 4 – Exploration Through the Ages",
+    title: "Exploration Through the Ages",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -58,7 +58,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day5-p2-demystifying-our-dreamworld",
-    title: "Day 5 – Demystifying Our Dreamworld",
+    title: "Demystifying Our Dreamworld",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -68,7 +68,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day6-p3-unlocking-the-mystery-of-dreams",
-    title: "Day 6 – Unlocking the Mystery of Dreams",
+    title: "Unlocking the Mystery of Dreams",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -78,7 +78,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day7-p1-moving-continents",
-    title: "Day 7 – Moving Continents",
+    title: "Moving Continents",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -88,7 +88,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day8-p2-how-rational-are-we-assessing-risks",
-    title: "Day 8 – How Rational Are We When We Assess Risks?",
+    title: "How Rational Are We When We Assess Risks?",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -98,7 +98,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day9-p3-you-are-what-you-speak",
-    title: "Day 9 – You Are What You Speak",
+    title: "You Are What You Speak",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -108,7 +108,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day10-p1-endangered-chocolate",
-    title: "Day 10 – Endangered Chocolate",
+    title: "Endangered Chocolate",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -118,7 +118,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day11-p2-what-is-personality",
-    title: "Day 11 – What Is Personality?",
+    title: "What Is Personality?",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -128,7 +128,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day12-p3-playing-psychological-games",
-    title: "Day 12 – Playing Psychological Games",
+    title: "Playing Psychological Games",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -138,7 +138,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day13-p1-history-of-the-biro",
-    title: "Day 13 – The History of the Biro",
+    title: "The History of the Biro",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -148,7 +148,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day14-p2-poppyseed-sandwich-company",
-    title: "Day 14 – Business Case Study: Poppyseed Sandwich Company",
+    title: "Business Case Study: Poppyseed Sandwich Company",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -158,7 +158,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day15-p3-dressed-to-dazzle",
-    title: "Day 15 – Dressed to Dazzle",
+    title: "Dressed to Dazzle",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -168,7 +168,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day16-p2-jumping-spiders",
-    title: "Day 16 – Jumping Spiders",
+    title: "Jumping Spiders",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -178,7 +178,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day17-p2-crisis-in-advertising",
-    title: "Day 17 – The Crisis in Advertising",
+    title: "The Crisis in Advertising",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -189,7 +189,7 @@ export const PASSAGES: Passage[] = [
   // 30-day reading challenge – Days 18–30
   {
     id: "day18-p2-lapis-lazuli",
-    title: "Day 18 – Lapis Lazuli",
+    title: "Lapis Lazuli",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -199,7 +199,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day19-p1-british-at-play",
-    title: "Day 19 – The British at Play",
+    title: "The British at Play",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -209,7 +209,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day20-p3-strange-world-of-sight",
-    title: "Day 20 – The Strange World of Sight",
+    title: "The Strange World of Sight",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -219,7 +219,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day21-p1-how-consumers-decide",
-    title: "Day 21 – How Consumers Decide",
+    title: "How Consumers Decide",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -229,7 +229,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day22-p2-practical-intelligence",
-    title: "Day 22 – Practical Intelligence Lends a Hand",
+    title: "Practical Intelligence Lends a Hand",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -239,7 +239,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day23-p2-sports-science",
-    title: "Day 23 – Sports Science",
+    title: "Sports Science",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -249,7 +249,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day24-p1-giant-panda",
-    title: "Day 24 – The Giant Panda",
+    title: "The Giant Panda",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -259,7 +259,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day25-p3-ingenuity-gap",
-    title: "Day 25 – The Ingenuity Gap",
+    title: "The Ingenuity Gap",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -269,7 +269,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day26-p3-benefits-of-being-bilingual",
-    title: "Day 26 – The Benefits of Being Bilingual",
+    title: "The Benefits of Being Bilingual",
     passageNumber: 3,
     isPremium: false,
     description:
@@ -279,7 +279,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day28-p1-experience-versus-speed",
-    title: "Day 28 – Experience versus Speed",
+    title: "Experience versus Speed",
     passageNumber: 1,
     isPremium: false,
     description:
@@ -289,7 +289,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day29-p2-robotic-crop-breeding",
-    title: "Day 29 – Robotic Approach to Crop Breeding",
+    title: "Robotic Approach to Crop Breeding",
     passageNumber: 2,
     isPremium: false,
     description:
@@ -299,7 +299,7 @@ export const PASSAGES: Passage[] = [
   },
   {
     id: "day30-p3-mother-tongue-in-education",
-    title: "Day 30 – The Significant Role of Mother Tongue in Education",
+    title: "The Significant Role of Mother Tongue in Education",
     passageNumber: 3,
     isPremium: false,
     description:
