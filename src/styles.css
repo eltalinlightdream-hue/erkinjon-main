@@ -807,3 +807,85 @@ html {
     opacity: 1 !important;
   }
 }
+
+/* ─── CURSOR GLOW BACKGROUND ───────────────────────────────────────
+   Ambient, blurred colour orbs that drift toward the cursor. Sits
+   behind all page content on every route (mounted once in __root).
+   Colours are drawn from the atelier palette and flip with the theme.
+   Motion is JS-driven (parallax) plus a slow idle float; both are
+   suppressed for reduced-motion users and coarse-pointer devices. */
+
+:root {
+  /* rgb triplets so the blob can own its own alpha */
+  --glow-1: 200 85 61;    /* terracotta   */
+  --glow-2: 92 107 71;    /* olive        */
+  --glow-3: 168 116 44;   /* ochre        */
+  --glow-4: 126 154 171;  /* muted sky    */
+  --glow-5: 209 114 87;   /* soft coral   */
+  --glow-alpha: 0.30;
+  --glow-blur: 80px;
+}
+
+.dark {
+  --glow-1: 216 105 78;
+  --glow-2: 147 161 114;
+  --glow-3: 210 162 76;
+  --glow-4: 126 154 171;
+  --glow-5: 235 162 143;
+  --glow-alpha: 0.42;
+  --glow-blur: 90px;
+}
+
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* isolate the layer's paints from the rest of the page */
+  contain: layout paint style;
+}
+
+.cursor-glow__layer {
+  position: absolute;
+  inset: 0;
+  /* JS writes --px / --py (-0.5 … 0.5); the blobs read them for parallax. */
+}
+
+/* Wrapper owns the pointer parallax (transform written inline from JS). */
+.cursor-glow__blob {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  will-change: transform;
+}
+
+/* Inner orb owns the colour, blur, and the slow idle float — kept on a
+   separate element so its keyframe transform never fights the parallax. */
+.cursor-glow__orb {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(var(--glow-blur));
+  opacity: var(--glow-alpha);
+  will-change: transform;
+  animation: glowFloat 18s ease-in-out infinite;
+}
+
+@keyframes glowFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -4%, 0) scale(1.06);
+  }
+}
+
+/* Coarse pointers (touch) have no cursor to follow — keep the calm
+   idle float but drop the parallax listener cost (handled in JS). */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow__orb {
+    animation: none !important;
+  }
+}
