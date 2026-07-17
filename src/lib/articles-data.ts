@@ -56,6 +56,177 @@ export interface Article {
 }
 
 export const ARTICLES: Article[] = [
+  // ─── FEATURED (pinned to top) ────────────────────────────────────
+  {
+    id: "a45",
+    slug: "what-is-journalism-for",
+    title: "What is journalism for? The short answer: truth",
+    category: "Reading",
+    topic: "Society",
+    difficulty: "Advanced",
+    coverImage:
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80",
+    date: "2026-07-15",
+    description:
+      "Clive Myrie asks what the media is really for in a democracy — weighing profit against public trust, and contrasting tough UK broadcast impartiality rules with a US media free-for-all that helped fuel public distrust.",
+    readingTime: 6,
+    content: `
+      <p>Who, what, where, when and why? Five questions that are at the heart of our trade. Answer those questions in relation to any news story, and we’re doing our jobs as journalists. They underpin everything we do, what we write in a newspaper or online, what we say on TV or on the radio.</p>
+
+      <p>It feels to me, however, that we sometimes need to ask one of those questions of ourselves: why? It doesn’t have to be every day or all the time, but given the power we have, it’s important. What is the point of the media in a democracy? What are we here for? We can influence massive societal changes. Indirectly we even wield political power, able to influence policy, perhaps even able to help change governments. And with power as we’re all well aware, comes great responsibility. Former Sunday Times editor Harold Evans understood this down to the marrow in his bones, and he chose throughout his storied career to leverage that power for the greater good of society.</p>
+
+      <p>But who should police this? Is it enough to let the industry itself be the gatekeeper of how far a broadcaster or newspaper should go in trying to make a profit or build an audience? Or are independent regulators the only way to ensure media companies use the power they have wisely?</p>
+
+      <p>Contrast the situation here in the UK, where there is a robust and for some choking regulatory framework with the US, where oversight in one crucial respect is nonexistent: the requirement to fairly represent the views of opposing sides in news and current affairs broadcasts. Could that lack of a check on how America does news actually imperil democracy itself?</p>
+
+      <p>In 2009, James Murdoch, son of Fox News’s founder, Rupert, gave a speech at the Edinburgh International Television Festival. His MacTaggart lecture made it clear what he believed the role of the media was in a democracy. Making money was the starting point from which everything else flowed: all the good, benign stuff – creativity, public trust and news coverage that was truly independent and challenged the consensus. His exact words were: “The only reliable, durable, and perpetual guarantor of independence is profit.”</p>
+
+      <p>It follows, then, and James Murdoch agreed that the only regulator should be the market. If the public doesn’t like your product, it will go someplace else. It’s the public that will keep you on the straight and narrow. There is no need for a regulator invested with powers by statute.</p>
+
+      <p>Harry Evans didn’t agree with statutory regulation, in his case for newspapers. As he told a BBC interview: “When you start writing the law … between the sentences, between the commas, a whole scandal may escape because of a well-meaning intent to protect somebody, or someone’s interest.”</p>
+
+      <p>But Evans did firmly believe in powerful independent regulation with teeth, even though it wasn’t backed by statute, because maintaining public trust in the press was vital. He called for press regulation that was tough and that went beyond what many in Fleet Street wanted. After the Leveson inquiry into press standards, he supported proposals for a regulator which would be wholly independent of commercial interests and the publishers of newspapers. “It must be committed only to enhancing the standards of the British press,” he said, “and restoring public confidence. It is a necessary condition of the freedom of the press to act in the public interest.”</p>
+
+      <p>Broadcasters in the UK are forced to be fair and impartial in their news coverage, in order to hold a licence. The rules come under section 5 of the regulator Ofcom’s codes covering due impartiality, accuracy and opinions. Similar rules did exist in America, but they were thrown out more than 30 years ago, when Ronald Reagan was president, and attempts since to revive the legislation have always stalled on the altar of the first amendment, the right to free speech.</p>
+
+      <p>So in the US you can say what you like within the law – your opinion is protected and you can use all your power and might to beam that opinion right across the land, without giving any counter-arguments, without reporting the opposing point of view. Opinion can be dressed up as news.</p>
+
+      <p>The storming of the US Capitol on 6 January this year shamed America, but was partly the logical conclusion of a toxic media environment with no rules, promoting public distrust. It was one consequence of a media free-for-all and was years in the making. And where there is a void of fact and truth and public trust, conspiracy theories can live and breed.</p>
+
+      <p>I travelled round this country during the 2019 election campaign – from County Durham to Southampton, Enniskillen to Pembrokeshire, and I came across people on the right who’d be very happy to get their news from a UK equivalent of Fox News, and some on the left who’d be very happy to watch a British equivalent of MSNBC.</p>
+
+      <p>It’s in this atmosphere that two new TV channels are coming onstream. GB News, under the leadership of the brilliant Andrew Neil, and a new venture backed by Rupert Murdoch. The New York Times quotes Neil as saying British news broadcasting is pretty much a one-party state. “They all come at stories from various shades of left,” he says. “GB News would come from the centre, perhaps the centre right, not the hard-right approach of Fox. GB News will offer diverse voices and stick to the facts,” he says.</p>
+
+      <p>He is too good a journalist, with a reputation to protect, to want to be associated with a news channel that peddles conspiracy theories and propaganda. And in any case, Ofcom, the regulator, is watching. Impartiality rules and strong regulation are the bulwark against the disaster of the American media jungle being replicated here, with its attendant detrimental effects on democracy. But with the perception of impartiality often being in the eyes and ears of the beholder, one Conservative MP, Steve Baker, influential in the Brexit vote and frequently interviewed about his views on the subject, believes Ofcom itself needs reform.</p>
+
+      <p>When James Murdoch posed the “why” question in 2009, as chairman of BSkyB, he stressed the importance of a media company making money, untrammelled by regulation – that a better-informed society would flow from the market.</p>
+
+      <p>But more than a decade later, when asked the same question, he’s come to a very different conclusion.</p>
+
+      <p>He’s now attacking the US media for the current “toxic politics” threatening American democracy, and said in an interview with the Financial Times that proprietors are as culpable as politicians, who “know the truth but choose instead to propagate lies”.</p>
+
+      <p>Harold Evans would probably never have thought there would be a day when a senior member of the Murdoch family would sound as if he agreed with him, not just about the purpose of the media but how it should be achieved. That there might actually be a point to independent regulators, because a clear and transparent set of rules and guidelines that everyone can follow and everyone can see increases public trust.</p>
+
+      <p>I’ll leave you with the words contained within the fairness doctrine, now consigned to history in America, but alive and well for many years to come, we all hope, in the regulations of Ofcom. Evans would no doubt agree.</p>
+
+      <p>Licensees must not use their stations “for the private interest, whims or caprices of licensees, but in a manner which will serve the community generally as a whole. Broadcasters must provide adequate coverage of public issues, and ensure that coverage fairly represents opposing views.”</p>
+
+      <p>The maintenance of democracy and a just and fair society. That is why we do what we do.</p>
+    `,
+    vocabulary: [
+      {
+        word: "gatekeeper",
+        wordType: "noun",
+        definition: "a person or body that controls what is allowed through or made public",
+        example: "Should the industry be the gatekeeper of its own standards?",
+      },
+      {
+        word: "regulatory framework",
+        wordType: "noun phrase",
+        definition: "the set of rules and bodies that govern how an industry may operate",
+        example: "The UK has a robust regulatory framework for broadcasters.",
+      },
+      {
+        word: "oversight",
+        wordType: "noun",
+        definition: "the act of watching over and checking something to keep it accountable",
+        example: "In the US, oversight of impartiality in the news is nonexistent.",
+      },
+      {
+        word: "statutory regulation",
+        wordType: "noun phrase",
+        definition: "regulation created and backed by law passed by a legislature",
+        example: "Harry Evans did not agree with statutory regulation of newspapers.",
+      },
+      {
+        word: "impartiality",
+        wordType: "noun",
+        definition: "the quality of treating all sides fairly and without bias",
+        example: "Ofcom’s codes cover due impartiality, accuracy and opinions.",
+      },
+      {
+        word: "consensus",
+        wordType: "noun",
+        definition: "a general agreement shared by most people",
+        example: "Truly independent coverage sometimes challenged the consensus.",
+      },
+      {
+        word: "bulwark",
+        wordType: "noun",
+        definition: "a strong defence or protection against something harmful",
+        example: "Strong regulation is the bulwark against a media free-for-all.",
+      },
+      {
+        word: "untrammelled",
+        wordType: "adjective",
+        definition: "not limited or restricted by anything",
+        example: "He argued for a media company making money, untrammelled by regulation.",
+      },
+      {
+        word: "culpable",
+        wordType: "adjective",
+        definition: "deserving blame for having done something wrong",
+        example: "He said proprietors are as culpable as the politicians who lie.",
+      },
+      {
+        word: "propagate",
+        wordType: "verb",
+        definition: "to spread an idea, belief, or piece of information widely",
+        example: "Some choose to propagate lies rather than tell the truth.",
+      },
+      {
+        word: "caprices",
+        wordType: "noun",
+        definition: "sudden and unexplained changes of mood or behaviour; whims",
+        example: "Stations must not be used for the whims or caprices of licensees.",
+      },
+      {
+        word: "fairness doctrine",
+        wordType: "noun phrase",
+        definition:
+          "a former US rule requiring broadcasters to cover public issues and represent opposing views",
+        example: "The fairness doctrine is now consigned to history in America.",
+      },
+    ],
+    pronunciation: [
+      {
+        word: "impartiality",
+        ipa: "/im-par-shee-AL-uh-tee/",
+        syllables: "im-par-ti-al-i-ty",
+        tip: "Stress AL.",
+      },
+      {
+        word: "statutory",
+        ipa: "/STAT-choo-tuh-ree/",
+        syllables: "stat-u-to-ry",
+        tip: "Stress STAT.",
+      },
+      {
+        word: "bulwark",
+        ipa: "/BUUL-werk/",
+        syllables: "bul-wark",
+        tip: "Stress BUUL; second syllable sounds like ‘werk’.",
+      },
+      {
+        word: "untrammelled",
+        ipa: "/un-TRAM-uhld/",
+        syllables: "un-tram-melled",
+        tip: "Stress TRAM.",
+      },
+      {
+        word: "culpable",
+        ipa: "/KUHL-puh-buhl/",
+        syllables: "cul-pa-ble",
+        tip: "Stress KUHL.",
+      },
+      {
+        word: "consensus",
+        ipa: "/kuhn-SEN-suhs/",
+        syllables: "con-sen-sus",
+        tip: "Stress SEN.",
+      },
+    ],
+  },
   // ─── BEGINNER (A2) articles ──────────────────────────────────────
   {
     id: "b1",
