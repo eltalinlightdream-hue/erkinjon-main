@@ -55,8 +55,8 @@ function Reading() {
     else setFilter("all");
   }, [passageParam]);
 
-  const { profile, deviceConflict, user } = useAuth();
-  const isPremium = !!profile?.is_premium && !deviceConflict;
+  const { profile, user } = useAuth();
+  const isPremium = !!profile?.is_premium;
   const { overrides } = useContentOverrides();
   const navigate = useNavigate();
 

@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Check, Crown, Send, Lock, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/use-auth";
-import { getDeviceFingerprint } from "@/lib/fingerprint";
 import { redeemActivationCode } from "@/lib/premium.functions";
 
 export const Route = createFileRoute("/premium")({
@@ -50,7 +49,7 @@ function Premium() {
     if (!code.trim()) return;
     setBusy(true);
     try {
-      await redeem({ data: { code: code.trim(), deviceFingerprint: getDeviceFingerprint() } });
+      await redeem({ data: { code: code.trim() } });
       toast.success("Premium activated! Welcome aboard.");
       setCode("");
       await refreshProfile();

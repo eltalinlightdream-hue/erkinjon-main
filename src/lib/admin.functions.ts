@@ -26,8 +26,6 @@ export interface AdminStudent {
   created_at: string;
   last_sign_in_at: string | null;
   email_confirmed: boolean;
-  device_bound: boolean;
-  device_last_seen: string | null;
 }
 
 export interface AdminCode {
@@ -71,8 +69,6 @@ export const adminListStudents = createServerFn({ method: "POST" })
           created_at: p.created_at,
           last_sign_in_at: authUser?.last_sign_in_at ?? null,
           email_confirmed: Boolean(authUser?.email_confirmed_at),
-          device_bound: Boolean(p.device_fingerprint),
-          device_last_seen: p.device_last_seen,
         };
       })
       .sort((a, b) => (a.created_at < b.created_at ? 1 : -1));
@@ -91,27 +87,12 @@ export const adminSetPremium = createServerFn({ method: "POST" })
       .update({
         is_premium: data.premium,
         activated_at: data.premium ? new Date().toISOString() : null,
-        // Unbinding the device on downgrade lets a re-activated student
-        // start fresh on whichever device they use next.
-        ...(data.premium ? {} : { device_fingerprint: null, device_last_seen: null }),
       })
       .eq("id", data.userId)
       .select("is_premium, activated_at")
       .single();
     if (error) throw new Error("Could not update premium status.");
     return { ok: true, is_premium: updated.is_premium, activated_at: updated.activated_at };
-  });
-
-export const adminResetStudentDevice = createServerFn({ method: "POST" })
-  .middleware([requireAdmin])
-  .inputValidator(z.object({ userId: z.string().uuid() }).parse)
-  .handler(async ({ data }) => {
-    const { error } = await supabaseAdmin
-      .from("profiles")
-      .update({ device_fingerprint: null, device_last_seen: null })
-      .eq("id", data.userId);
-    if (error) throw new Error("Could not reset the device binding.");
-    return { ok: true };
   });
 
 export const adminUpdateStudentName = createServerFn({ method: "POST" })

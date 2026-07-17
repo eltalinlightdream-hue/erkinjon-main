@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 
 export function PremiumGate({ children, label = "Premium content" }: { children: ReactNode; label?: string }) {
-  const { profile, deviceConflict, user } = useAuth();
-  const unlocked = !!profile?.is_premium && !deviceConflict;
+  const { profile, user } = useAuth();
+  const unlocked = !!profile?.is_premium;
   if (unlocked) return <>{children}</>;
   return (
     <div className="relative rounded-2xl border border-border overflow-hidden">
