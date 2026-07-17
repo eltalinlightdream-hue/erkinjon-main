@@ -9,7 +9,6 @@ export const redeemActivationCode = createServerFn({ method: "POST" })
     z
       .object({
         code: z.string().min(4).max(64).regex(/^[A-Za-z0-9_-]+$/),
-        deviceFingerprint: z.string().min(8).max(128),
       })
       .parse(input),
   )
@@ -48,28 +47,9 @@ export const redeemActivationCode = createServerFn({ method: "POST" })
       .update({
         is_premium: true,
         activated_at: now,
-        device_fingerprint: data.deviceFingerprint,
       })
       .eq("id", userId);
     if (profErr) throw new Error("Premium activated, but profile update failed.");
 
-    return { ok: true };
-  });
-
-export const resetDevice = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator((input) =>
-    z.object({ deviceFingerprint: z.string().min(8).max(128) }).parse(input),
-  )
-  .handler(async ({ data, context }) => {
-    // Allow a user to rebind to their CURRENT device (clears the stored fingerprint
-    // and sets it to the device that's making this request).
-    const { error } = await supabaseAdmin
-      .from("profiles")
-      .update({
-        device_fingerprint: data.deviceFingerprint,
-      })
-      .eq("id", context.userId);
-    if (error) throw new Error("Could not reset device binding.");
     return { ok: true };
   });

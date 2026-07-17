@@ -61,7 +61,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     [],
   );
 
-  const { user, profile, signOut, deviceConflict } = useAuth();
+  const { user, profile, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const loc = useLocation();
   const { data: due } = useQuery({
@@ -700,15 +700,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </div>
         )}
       </header>
-
-      {deviceConflict && (
-        <div className="bg-destructive/10 border-b border-destructive/30 text-destructive">
-          <div className="container mx-auto px-4 py-3 text-sm font-medium">
-            This premium account is active on another device. Please log out from your other device
-            first, or contact the teacher to reset.
-          </div>
-        </div>
-      )}
 
       <main className="flex-1">{children}</main>
 

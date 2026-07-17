@@ -3,10 +3,10 @@ import { Crown, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 
-/** True only when the signed-in user has active, device-valid Premium. */
+/** True only when the signed-in user has active Premium. */
 export function useIsPremium(): boolean {
-  const { profile, deviceConflict } = useAuth();
-  return !!profile?.is_premium && !deviceConflict;
+  const { profile } = useAuth();
+  return !!profile?.is_premium;
 }
 
 /**

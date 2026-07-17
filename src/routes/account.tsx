@@ -11,8 +11,6 @@ import {
   Crown,
   LogOut,
   User as UserIcon,
-  Smartphone,
-  AlertTriangle,
   Calendar,
   Loader2,
   BookOpen,
@@ -28,8 +26,6 @@ import {
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
-import { getDeviceFingerprint } from "@/lib/fingerprint";
-import { resetDevice } from "@/lib/premium.functions";
 import { ensureUserProfile } from "@/lib/auth.functions";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -132,11 +128,9 @@ function ActivityHeatmap({ results }: { results: TestResult[] }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 function Account() {
-  const { user, profile, loading, signOut, refreshProfile, deviceConflict } = useAuth();
+  const { user, profile, loading, signOut, refreshProfile } = useAuth();
   const navigate = useNavigate();
-  const resetFn = useServerFn(resetDevice);
   const ensureProfile = useServerFn(ensureUserProfile);
-  const [busy, setBusy] = useState(false);
 
   // Password change
   const [showPwForm, setShowPwForm] = useState(false);
@@ -254,20 +248,7 @@ function Account() {
     );
   }
 
-  const onResetDevice = async () => {
-    setBusy(true);
-    try {
-      await resetFn({ data: { deviceFingerprint: getDeviceFingerprint() } });
-      toast.success("This device is now bound to your account.");
-      await refreshProfile();
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Could not reset device.");
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const initials = (profile?.full_name || user.email || "?")
+  const initials =(profile?.full_name || user.email || "?")
     .split(" ")
     .map((s) => s[0])
     .slice(0, 2)
@@ -442,49 +423,6 @@ function Account() {
             )}
           </Card>
         </div>
-
-        {/* Device binding */}
-        {profile?.is_premium && (
-          <Card className={`p-6 ${deviceConflict ? "border-destructive/40 bg-destructive/5" : ""}`}>
-            <div className="flex items-start gap-3 mb-3">
-              <span
-                className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${deviceConflict ? "bg-destructive/15" : "bg-sage/15"}`}
-              >
-                {deviceConflict ? (
-                  <AlertTriangle className="w-5 h-5 text-destructive" />
-                ) : (
-                  <Smartphone className="w-5 h-5 text-sage" />
-                )}
-              </span>
-              <div className="flex-1">
-                <h2 className="font-serif text-xl font-semibold">Connected Device</h2>
-                <p className="text-sm text-muted-foreground">
-                  Premium accounts are limited to one device.
-                </p>
-              </div>
-            </div>
-            {deviceConflict ? (
-              <>
-                <p className="text-sm mb-4">
-                  This account is bound to a different device. If this is your new device, you can
-                  rebind it below.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Button onClick={onResetDevice} disabled={busy} variant="destructive">
-                    {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : "Bind to this device"}
-                  </Button>
-                  <a href="https://t.me/augustus_at" target="_blank" rel="noreferrer">
-                    <Button variant="outline">Contact teacher</Button>
-                  </a>
-                </div>
-              </>
-            ) : (
-              <p className="text-sm text-muted-foreground">
-                ✅ This device (current) — bound to your premium account.
-              </p>
-            )}
-          </Card>
-        )}
 
         {/* Stats */}
         <div>
