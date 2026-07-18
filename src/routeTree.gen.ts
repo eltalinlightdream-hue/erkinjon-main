@@ -28,6 +28,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
 import { Route as SpeakingWrittenSamplesRouteImport } from './routes/speaking_.written-samples'
 import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
+import { Route as SpeakingTipsChunksRouteImport } from './routes/speaking_.tips-chunks'
 import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
 import { Route as JapaneseTopicsRouteImport } from './routes/japanese_.topics'
 import { Route as JapaneseGrammarRouteImport } from './routes/japanese_.grammar'
@@ -132,6 +133,11 @@ const SpeakingTopicsExplainedRoute = SpeakingTopicsExplainedRouteImport.update({
   path: '/speaking/topics-explained',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SpeakingTipsChunksRoute = SpeakingTipsChunksRouteImport.update({
+  id: '/speaking_/tips-chunks',
+  path: '/speaking/tips-chunks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
   id: '/speaking_/pronunciation',
   path: '/speaking/pronunciation',
@@ -195,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/japanese/grammar': typeof JapaneseGrammarRoute
   '/japanese/topics': typeof JapaneseTopicsRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking/tips-chunks': typeof SpeakingTipsChunksRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
@@ -224,6 +231,7 @@ export interface FileRoutesByTo {
   '/japanese/grammar': typeof JapaneseGrammarRoute
   '/japanese/topics': typeof JapaneseTopicsRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking/tips-chunks': typeof SpeakingTipsChunksRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
@@ -254,6 +262,7 @@ export interface FileRoutesById {
   '/japanese_/grammar': typeof JapaneseGrammarRoute
   '/japanese_/topics': typeof JapaneseTopicsRoute
   '/speaking_/pronunciation': typeof SpeakingPronunciationRoute
+  '/speaking_/tips-chunks': typeof SpeakingTipsChunksRoute
   '/speaking_/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking_/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
@@ -285,6 +294,7 @@ export interface FileRouteTypes {
     | '/japanese/grammar'
     | '/japanese/topics'
     | '/speaking/pronunciation'
+    | '/speaking/tips-chunks'
     | '/speaking/topics-explained'
     | '/speaking/written-samples'
     | '/writing/$taskId'
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/japanese/grammar'
     | '/japanese/topics'
     | '/speaking/pronunciation'
+    | '/speaking/tips-chunks'
     | '/speaking/topics-explained'
     | '/speaking/written-samples'
     | '/writing/$taskId'
@@ -343,6 +354,7 @@ export interface FileRouteTypes {
     | '/japanese_/grammar'
     | '/japanese_/topics'
     | '/speaking_/pronunciation'
+    | '/speaking_/tips-chunks'
     | '/speaking_/topics-explained'
     | '/speaking_/written-samples'
     | '/writing/$taskId'
@@ -373,6 +385,7 @@ export interface RootRouteChildren {
   JapaneseGrammarRoute: typeof JapaneseGrammarRoute
   JapaneseTopicsRoute: typeof JapaneseTopicsRoute
   SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
+  SpeakingTipsChunksRoute: typeof SpeakingTipsChunksRoute
   SpeakingTopicsExplainedRoute: typeof SpeakingTopicsExplainedRoute
   SpeakingWrittenSamplesRoute: typeof SpeakingWrittenSamplesRoute
   WritingEssayIdRoute: typeof WritingEssayIdRoute
@@ -514,6 +527,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpeakingTopicsExplainedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/speaking_/tips-chunks': {
+      id: '/speaking_/tips-chunks'
+      path: '/speaking/tips-chunks'
+      fullPath: '/speaking/tips-chunks'
+      preLoaderRoute: typeof SpeakingTipsChunksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/speaking_/pronunciation': {
       id: '/speaking_/pronunciation'
       path: '/speaking/pronunciation'
@@ -618,6 +638,7 @@ const rootRouteChildren: RootRouteChildren = {
   JapaneseGrammarRoute: JapaneseGrammarRoute,
   JapaneseTopicsRoute: JapaneseTopicsRoute,
   SpeakingPronunciationRoute: SpeakingPronunciationRoute,
+  SpeakingTipsChunksRoute: SpeakingTipsChunksRoute,
   SpeakingTopicsExplainedRoute: SpeakingTopicsExplainedRoute,
   SpeakingWrittenSamplesRoute: SpeakingWrittenSamplesRoute,
   WritingEssayIdRoute: WritingEssayIdRoute,

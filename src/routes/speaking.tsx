@@ -2,14 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
 import { Card } from "@/components/ui/card";
-import { Mic2, Lightbulb, FileText, ArrowRight } from "lucide-react";
+import { Mic2, Lightbulb, FileText, Quote, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/speaking")({
   head: () => ({
     meta: [
       { title: "IELTS Speaking Practice | Abduraimov Erkinjon" },
-      { name: "description", content: "Speaking practice sections: Pronunciation, Topics Explained, and Written Samples." },
+      { name: "description", content: "Speaking practice sections: Pronunciation, Topics Explained, Written Samples, and Tips & Chunks." },
     ],
   }),
   component: Speaking,
@@ -45,6 +45,13 @@ const SECTIONS: SpeakingSection[] = [
     icon: FileText,
     desc: "Model answers for Part 1, 2 & 3 with the key language explained",
     tint: "bg-sage/15 text-sage",
+  },
+  {
+    to: "/speaking/tips-chunks",
+    title: "Tips & Chunks",
+    icon: Quote,
+    desc: "Discourse markers, vocabulary patterns and go-to language chunks for speaking",
+    tint: "bg-primary/15 text-primary",
   },
 ];
 
