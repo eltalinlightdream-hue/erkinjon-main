@@ -822,8 +822,9 @@ html {
   --glow-3: 168 116 44;   /* ochre        */
   --glow-4: 126 154 171;  /* muted sky    */
   --glow-5: 209 114 87;   /* soft coral   */
-  --glow-alpha: 0.40;
-  --glow-blur: 80px;
+  --glow-6: 138 94 168;   /* dusty violet */
+  --glow-alpha: 0.55;
+  --glow-blur: 55px;
 }
 
 .dark {
@@ -832,8 +833,9 @@ html {
   --glow-3: 210 162 76;
   --glow-4: 126 154 171;
   --glow-5: 235 162 143;
-  --glow-alpha: 0.52;
-  --glow-blur: 90px;
+  --glow-6: 176 130 214;
+  --glow-alpha: 0.60;
+  --glow-blur: 62px;
 }
 
 .cursor-glow {
@@ -859,8 +861,8 @@ html {
 /* Wrapper owns the pointer parallax (transform written inline from JS). */
 .cursor-glow__blob {
   position: absolute;
-  width: 46vmax;
-  height: 46vmax;
+  width: 30vmax;
+  height: 30vmax;
   will-change: transform;
 }
 
