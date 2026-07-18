@@ -1562,7 +1562,7 @@ export const HTML_TASKS: HtmlTask[] = [
     type: "Bar Chart",
     title: "Films Released and Cinema Ticket Sales",
     description: "The graphs below show the total percentage of films released and the total percentage of ticket sales in 1996 and 2006 in a country.",
-    image: "/writing-images/task1_52.svg",
+    image: "/writing-images/task1_52.jpg",
     htmlFile: "/passages/task1_52.html",
     minWords: 150,
     timeMinutes: 20,
