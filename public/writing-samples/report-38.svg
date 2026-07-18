@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Arial, Helvetica, sans-serif">
+  <rect width="760" height="360" fill="#ffffff"/>
+  <text x="195" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">Percentage of films released</text>
+  <line x1="70" y1="46" x2="70" y2="300" stroke="#333" stroke-width="1"/>
+  <line x1="70" y1="300" x2="320" y2="300" stroke="#333" stroke-width="1"/>
+  <text x="62" y="304.0" text-anchor="end" font-size="11" fill="#555">0</text>
+  <line x1="70" y1="271.8" x2="320" y2="271.8" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="275.8" text-anchor="end" font-size="11" fill="#555">5</text>
+  <line x1="70" y1="243.6" x2="320" y2="243.6" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="247.6" text-anchor="end" font-size="11" fill="#555">10</text>
+  <line x1="70" y1="215.3" x2="320" y2="215.3" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="219.3" text-anchor="end" font-size="11" fill="#555">15</text>
+  <line x1="70" y1="187.1" x2="320" y2="187.1" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="191.1" text-anchor="end" font-size="11" fill="#555">20</text>
+  <line x1="70" y1="158.9" x2="320" y2="158.9" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="162.9" text-anchor="end" font-size="11" fill="#555">25</text>
+  <line x1="70" y1="130.7" x2="320" y2="130.7" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="134.7" text-anchor="end" font-size="11" fill="#555">30</text>
+  <line x1="70" y1="102.4" x2="320" y2="102.4" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="106.4" text-anchor="end" font-size="11" fill="#555">35</text>
+  <line x1="70" y1="74.2" x2="320" y2="74.2" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="78.2" text-anchor="end" font-size="11" fill="#555">40</text>
+  <line x1="70" y1="46.0" x2="320" y2="46.0" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="62" y="50.0" text-anchor="end" font-size="11" fill="#555">45</text>
+  <text x="36" y="173.0" text-anchor="middle" font-size="11" fill="#555" transform="rotate(-90 36 173.0)">percentage</text>
+  <rect x="79.3" y="153.2" width="20" height="146.8" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="103.3" y="102.4" width="20" height="197.6" fill="#1a1a1a"/>
+  <text x="101.3" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Drama</text>
+  <rect x="141.8" y="187.1" width="20" height="112.9" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="165.8" y="158.9" width="20" height="141.1" fill="#1a1a1a"/>
+  <text x="163.8" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Comedy</text>
+  <rect x="204.3" y="229.4" width="20" height="70.6" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="228.3" y="209.7" width="20" height="90.3" fill="#1a1a1a"/>
+  <text x="226.3" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Fantasy</text>
+  <rect x="266.8" y="260.5" width="20" height="39.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="290.8" y="260.5" width="20" height="39.5" fill="#1a1a1a"/>
+  <text x="288.8" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Romance</text>
+  <rect x="125" y="329" width="13" height="13" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="143" y="339" font-size="11" fill="#1a1a1a">1996</text>
+  <rect x="195" y="329" width="13" height="13" fill="#1a1a1a"/>
+  <text x="213" y="339" font-size="11" fill="#1a1a1a">2006</text>
+  <text x="555" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">Percentage of cinema ticket sales</text>
+  <line x1="430" y1="46" x2="430" y2="300" stroke="#333" stroke-width="1"/>
+  <line x1="430" y1="300" x2="680" y2="300" stroke="#333" stroke-width="1"/>
+  <text x="422" y="304.0" text-anchor="end" font-size="11" fill="#555">0</text>
+  <line x1="430" y1="249.2" x2="680" y2="249.2" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="422" y="253.2" text-anchor="end" font-size="11" fill="#555">5</text>
+  <line x1="430" y1="198.4" x2="680" y2="198.4" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="422" y="202.4" text-anchor="end" font-size="11" fill="#555">10</text>
+  <line x1="430" y1="147.6" x2="680" y2="147.6" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="422" y="151.6" text-anchor="end" font-size="11" fill="#555">15</text>
+  <line x1="430" y1="96.8" x2="680" y2="96.8" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="422" y="100.8" text-anchor="end" font-size="11" fill="#555">20</text>
+  <line x1="430" y1="46.0" x2="680" y2="46.0" stroke="#e2e2e2" stroke-width="1"/>
+  <text x="422" y="50.0" text-anchor="end" font-size="11" fill="#555">25</text>
+  <text x="396" y="173.0" text-anchor="middle" font-size="11" fill="#555" transform="rotate(-90 396 173.0)">percentage</text>
+  <rect x="439.3" y="137.4" width="20" height="162.6" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="463.3" y="127.3" width="20" height="172.7" fill="#1a1a1a"/>
+  <text x="461.3" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Drama</text>
+  <rect x="501.8" y="96.8" width="20" height="203.2" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="525.8" y="66.3" width="20" height="233.7" fill="#1a1a1a"/>
+  <text x="523.8" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Comedy</text>
+  <rect x="564.3" y="269.5" width="20" height="30.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="588.3" y="228.9" width="20" height="71.1" fill="#1a1a1a"/>
+  <text x="586.3" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Fantasy</text>
+  <rect x="626.8" y="249.2" width="20" height="50.8" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="650.8" y="279.7" width="20" height="20.3" fill="#1a1a1a"/>
+  <text x="648.8" y="318" text-anchor="middle" font-size="12" fill="#1a1a1a">Romance</text>
+  <rect x="485" y="329" width="13" height="13" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="503" y="339" font-size="11" fill="#1a1a1a">1996</text>
+  <rect x="555" y="329" width="13" height="13" fill="#1a1a1a"/>
+  <text x="573" y="339" font-size="11" fill="#1a1a1a">2006</text>
+</svg>
