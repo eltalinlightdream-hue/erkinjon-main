@@ -822,7 +822,7 @@ html {
   --glow-3: 168 116 44;   /* ochre        */
   --glow-4: 126 154 171;  /* muted sky    */
   --glow-5: 209 114 87;   /* soft coral   */
-  --glow-alpha: 0.30;
+  --glow-alpha: 0.40;
   --glow-blur: 80px;
 }
 
@@ -832,14 +832,18 @@ html {
   --glow-3: 210 162 76;
   --glow-4: 126 154 171;
   --glow-5: 235 162 143;
-  --glow-alpha: 0.42;
+  --glow-alpha: 0.52;
   --glow-blur: 90px;
 }
 
 .cursor-glow {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  /* Sit ABOVE the body's opaque background but BELOW page content.
+     `body > *` puts content at z-index 1 and the paper-grain ::before at
+     0, so 0 keeps the orbs visible over the ivory canvas and behind the
+     UI. (z-index:-1 hid them behind the body background entirely.) */
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
   /* isolate the layer's paints from the rest of the page */
