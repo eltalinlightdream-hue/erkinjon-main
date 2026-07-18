@@ -12,14 +12,16 @@ import { useEffect, useRef } from "react";
  * user prefers reduced motion or the device has no fine pointer.
  */
 
-// Each blob: base position (%) and a parallax depth. Deeper (larger) values
-// move further with the cursor, giving the field a sense of layering.
+// Each blob: base position (%) and a parallax depth (px it travels with the
+// cursor). Deeper values move further, giving the field a layered feel and
+// a clearly cursor-reactive read.
 const BLOBS = [
-  { varName: "--glow-1", top: "-8%", left: "-6%", depth: 90 },
-  { varName: "--glow-2", top: "12%", left: "58%", depth: 55 },
-  { varName: "--glow-3", top: "52%", left: "8%", depth: 70 },
-  { varName: "--glow-4", top: "60%", left: "62%", depth: 40 },
-  { varName: "--glow-5", top: "28%", left: "30%", depth: 110 },
+  { varName: "--glow-1", top: "-12%", left: "-8%", depth: 190 },
+  { varName: "--glow-2", top: "4%", left: "60%", depth: 140 },
+  { varName: "--glow-3", top: "54%", left: "2%", depth: 170 },
+  { varName: "--glow-4", top: "60%", left: "64%", depth: 120 },
+  { varName: "--glow-5", top: "28%", left: "34%", depth: 260 },
+  { varName: "--glow-6", top: "-8%", left: "38%", depth: 210 },
 ] as const;
 
 export function CursorGlowBackground() {
@@ -79,7 +81,7 @@ export function CursorGlowBackground() {
             <div
               className="cursor-glow__orb"
               style={{
-                background: `radial-gradient(circle at center, rgb(var(${blob.varName}) / 1) 0%, rgb(var(${blob.varName}) / 0) 70%)`,
+                background: `radial-gradient(circle at center, rgb(var(${blob.varName}) / 1) 0%, rgb(var(${blob.varName}) / 0) 62%)`,
                 // Stagger the idle float so the orbs never pulse in unison.
                 animationDelay: `${i * -2.6}s`,
               }}
