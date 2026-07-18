@@ -808,23 +808,24 @@ html {
   }
 }
 
-/* ─── CURSOR GLOW BACKGROUND ───────────────────────────────────────
-   Ambient, blurred colour orbs that drift toward the cursor. Sits
-   behind all page content on every route (mounted once in __root).
+/* ─── CURSOR BUBBLE BACKGROUND ─────────────────────────────────────
+   Ambient field of soft colour bubbles that drift toward the cursor.
+   Sits behind all page content on every route (mounted once in __root).
    Colours are drawn from the atelier palette and flip with the theme.
    Motion is JS-driven (parallax) plus a slow idle float; both are
    suppressed for reduced-motion users and coarse-pointer devices. */
 
 :root {
-  /* rgb triplets so the blob can own its own alpha */
+  /* rgb triplets so each bubble can own its own alpha */
   --glow-1: 200 85 61;    /* terracotta   */
   --glow-2: 92 107 71;    /* olive        */
   --glow-3: 168 116 44;   /* ochre        */
   --glow-4: 126 154 171;  /* muted sky    */
   --glow-5: 209 114 87;   /* soft coral   */
   --glow-6: 138 94 168;   /* dusty violet */
-  --glow-alpha: 0.55;
-  --glow-blur: 55px;
+  --glow-alpha: 0.70;
+  /* light blur only — keeps a defined bubble edge, not a cloud */
+  --glow-blur: 8px;
 }
 
 .dark {
@@ -834,8 +835,8 @@ html {
   --glow-4: 126 154 171;
   --glow-5: 235 162 143;
   --glow-6: 176 130 214;
-  --glow-alpha: 0.60;
-  --glow-blur: 62px;
+  --glow-alpha: 0.78;
+  --glow-blur: 9px;
 }
 
 .cursor-glow {
@@ -858,17 +859,17 @@ html {
   /* JS writes --px / --py (-0.5 … 0.5); the blobs read them for parallax. */
 }
 
-/* Wrapper owns the pointer parallax (transform written inline from JS). */
-.cursor-glow__blob {
+/* Wrapper owns the pointer parallax (transform + size written inline). */
+.cursor-glow__bubble {
   position: absolute;
-  width: 30vmax;
-  height: 30vmax;
   will-change: transform;
 }
 
-/* Inner orb owns the colour, blur, and the slow idle float — kept on a
-   separate element so its keyframe transform never fights the parallax. */
+/* Inner orb owns the colour, gentle blur, and the slow idle float — kept
+   on a separate element so its keyframe transform never fights the
+   parallax. Light blur preserves a visible bubble edge. */
 .cursor-glow__orb {
+  display: block;
   width: 100%;
   height: 100%;
   border-radius: 50%;
