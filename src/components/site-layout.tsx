@@ -257,6 +257,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                             >
                               Written Samples
                             </Link>
+                            <Link
+                              to="/speaking/tips-chunks"
+                              className={dropdownItem(isActive("/speaking/tips-chunks"))}
+                            >
+                              Tips &amp; Chunks
+                            </Link>
                             <div className="h-px bg-[var(--nav-border)] mx-4 my-1.5" />
                             {([1, 2, 3] as const).map((p) => (
                               <Link
@@ -550,6 +556,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   >
                     Written Samples
                   </Link>
+                  <Link
+                    to="/speaking/tips-chunks"
+                    onClick={() => setOpen(false)}
+                    className="py-1.5 text-[13px] text-muted-foreground hover:text-foreground"
+                  >
+                    Tips &amp; Chunks
+                  </Link>
                   <div className="pl-4 flex flex-col border-l border-primary/10 ml-1 mb-0.5">
                     {([1, 2, 3] as const).map((p) => (
                       <Link
@@ -764,6 +777,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Vocabulary
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/speaking/tips-chunks"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Speaking Tips &amp; Chunks
                 </Link>
               </li>
               <li>
