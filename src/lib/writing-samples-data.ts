@@ -855,6 +855,31 @@ export const WRITING_SAMPLES: WritingSample[] = [
       { word: "throughout", definition: "during the whole period" },
     ],
   },
+  {
+    id: "t1-38",
+    reportNumber: 38,
+    task: 1 as const,
+    chartType: "Bar Charts",
+    question:
+      "The graphs below show the total percentage of films released and the total percentage of ticket sales in 1996 and 2006 in a country.",
+    wordCount: 296,
+    coverImage: "/writing-samples/report-38.svg",
+    content: `<p>The report outlines comparisons and changes in terms of releases and ticket sales of four types of films - drama, comedy, fantasy, and romance - over a decade (from 1996 to 2006) in one country. Overall, films in the drama genre appeared to be the most produced, with romance films reversing this trend, while there was a general increase in release percentage across all genres but the latter. Conversely, by far the largest percentage of ticket sales accounted for the comedy genre consistently, whereas romance repeatedly lagged behind.</p>
+<p>With regard to the percentage of films released, 1996 was the year when the most produced films were drama types, making up around 25% — this was up 10 percentage points in 2006. Another highly released genre was comedy, accounting for 20% and 25% in 1996 and 2006 respectively, while fantasy films ranked third, with a margin of 3 percentage points between 1996 and 2006 on an upward trend (13% vs 16%). However, it was only romance films that remained unchanged in terms of releases over the period, placing last at 7%.</p>
+<p>Ironically, comedy topped the list in the ranking of most ticket sales, where around 20% of the total sales in 1996 were comedy films, with a 3-percentage-point jump in 2006. The next most-sold genre was drama, though with a negligible increase from 16% to 17% over the period. Other genres followed with a significant margin, as fantasy, selling only around 3% of total tickets in 1996, surged by 5% in 2006. Meanwhile, romance ticket sales reversed this trend, falling from 5% of total sales in 1996 to a mere 2% in 2006.</p>`,
+    vocabulary: [
+      { word: "outlines comparisons and changes", definition: "describes similarities, differences, and how figures moved over time" },
+      { word: "the most produced", definition: "made or released in the greatest quantity" },
+      { word: "reversing this trend", definition: "showing the opposite pattern to the one just described" },
+      { word: "a general increase", definition: "an overall rise across most or all categories" },
+      { word: "by far the largest percentage", definition: "a share much bigger than all the others" },
+      { word: "lagged behind", definition: "stayed lower than the other categories" },
+      { word: "on an upward trend", definition: "generally increasing over the period" },
+      { word: "remained unchanged", definition: "stayed the same, with no change" },
+      { word: "topped the list", definition: "was in first place" },
+      { word: "a negligible increase", definition: "a very small, barely noticeable rise" },
+    ],
+  },
 ];
 
 export function findWritingSample(id: string): WritingSample | undefined {
