@@ -1,111 +1,218 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Ambient field of soft colour bubbles that drift toward the pointer.
- * Rendered once (in the root route) as a fixed, behind-content layer so the
- * effect is present on every page. Bubble colours come from the atelier
- * palette via CSS variables and flip automatically with the light/dark theme.
+ * Ambient particle-network background: a field of small colour dots that
+ * drift slowly, link to nearby dots with faint lines, and react to the
+ * cursor (nearby dots grow and connect to the pointer). Rendered once in
+ * the root route as a fixed, behind-content canvas so it appears on every
+ * page. Self-contained (no external particle library) and drawn on a single
+ * <canvas> for performance.
  *
- * Each bubble is a defined translucent disc with a light sheen and only a
- * gentle blur — visible as a bubble, not a diffuse cloud. Motion is
- * compositor-friendly (transform only): a single rAF loop eases a parallax
- * offset toward the pointer, and a slow idle float keeps the field alive.
- * The loop, listener, and float are all skipped for reduced-motion users
- * and coarse-pointer (touch) devices.
+ * Motion, links, and pointer interaction are all disabled for reduced-motion
+ * users; pointer interaction is also skipped on coarse-pointer (touch)
+ * devices, where the dots simply drift.
  */
 
-// A bubble: colour token, diameter (px), base position (%), parallax depth
-// (px it travels with the cursor), and a float duration for variety. Fixed
-// list so server and client render identically (no hydration mismatch).
-const BUBBLES = [
-  { c: "--glow-1", size: 230, top: "6%", left: "5%", depth: 130, dur: 20 },
-  { c: "--glow-5", size: 140, top: "16%", left: "78%", depth: 190, dur: 17 },
-  { c: "--glow-3", size: 190, top: "60%", left: "10%", depth: 150, dur: 23 },
-  { c: "--glow-2", size: 110, top: "72%", left: "58%", depth: 210, dur: 16 },
-  { c: "--glow-6", size: 170, top: "34%", left: "40%", depth: 250, dur: 21 },
-  { c: "--glow-4", size: 90, top: "12%", left: "50%", depth: 170, dur: 15 },
-  { c: "--glow-1", size: 70, top: "82%", left: "86%", depth: 230, dur: 14 },
-  { c: "--glow-5", size: 120, top: "48%", left: "88%", depth: 150, dur: 19 },
-  { c: "--glow-3", size: 80, top: "26%", left: "22%", depth: 260, dur: 18 },
-  { c: "--glow-2", size: 210, top: "2%", left: "34%", depth: 110, dur: 24 },
-  { c: "--glow-6", size: 100, top: "86%", left: "34%", depth: 200, dur: 16 },
-  { c: "--glow-4", size: 130, top: "56%", left: "70%", depth: 180, dur: 20 },
-  { c: "--glow-1", size: 95, top: "40%", left: "6%", depth: 220, dur: 17 },
-  { c: "--glow-5", size: 150, top: "88%", left: "64%", depth: 140, dur: 22 },
-  { c: "--glow-3", size: 60, top: "50%", left: "48%", depth: 280, dur: 13 },
-  { c: "--glow-6", size: 115, top: "20%", left: "63%", depth: 160, dur: 19 },
-] as const;
+type Dot = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  r: number;
+  color: [number, number, number];
+};
+
+// Palette per theme — warm terracotta/coral/ochre plus a cool blue and
+// violet so the field reads as "different colours" like the reference.
+const PALETTE_LIGHT: [number, number, number][] = [
+  [200, 85, 61], // terracotta
+  [209, 114, 87], // coral
+  [168, 116, 44], // ochre
+  [92, 107, 71], // olive
+  [70, 110, 190], // blue
+  [138, 94, 168], // violet
+];
+const PALETTE_DARK: [number, number, number][] = [
+  [216, 105, 78],
+  [235, 162, 143],
+  [210, 162, 76],
+  [147, 161, 114],
+  [120, 150, 230],
+  [176, 130, 214],
+];
+
+const LINK_DIST = 130; // px — dots closer than this get linked
+const CURSOR_DIST = 190; // px — cursor influence radius
+const DENSITY = 15000; // one dot per this many css px² (lower = more dots)
+const MIN_DOTS = 34;
+const MAX_DOTS = 130;
 
 export function CursorGlowBackground() {
-  const layerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const layer = layerRef.current;
-    if (!layer) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const finePointer = window.matchMedia("(pointer: fine)");
-    if (reduceMotion.matches || !finePointer.matches) return;
+    const interactive = finePointer.matches && !reduceMotion.matches;
 
-    // target = where the pointer is; current = eased value we render.
-    const target = { x: 0, y: 0 };
-    const current = { x: 0, y: 0 };
+    let width = 0;
+    let height = 0;
+    let dots: Dot[] = [];
+    let isDark = document.documentElement.classList.contains("dark");
+    const pointer = { x: -9999, y: -9999, active: false };
+
+    const palette = () => (isDark ? PALETTE_DARK : PALETTE_LIGHT);
+
+    const makeDots = () => {
+      const count = Math.max(
+        MIN_DOTS,
+        Math.min(MAX_DOTS, Math.round((width * height) / DENSITY)),
+      );
+      const pal = palette();
+      dots = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: 1.1 + Math.random() * 1.7,
+        color: pal[Math.floor(Math.random() * pal.length)],
+      }));
+    };
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      makeDots();
+    };
+
+    const lineRGB = () => (isDark ? "220, 205, 185" : "120, 96, 82");
+
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+      const link = lineRGB();
+
+      // Links between nearby dots.
+      for (let i = 0; i < dots.length; i++) {
+        const a = dots[i];
+        for (let j = i + 1; j < dots.length; j++) {
+          const b = dots[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d = Math.hypot(dx, dy);
+          if (d < LINK_DIST) {
+            const alpha = (1 - d / LINK_DIST) * 0.22;
+            ctx.strokeStyle = `rgba(${link}, ${alpha.toFixed(3)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Dots, plus cursor links / grow.
+      for (const dot of dots) {
+        let r = dot.r;
+        if (pointer.active) {
+          const dx = dot.x - pointer.x;
+          const dy = dot.y - pointer.y;
+          const d = Math.hypot(dx, dy);
+          if (d < CURSOR_DIST) {
+            const t = 1 - d / CURSOR_DIST;
+            r = dot.r + t * 2.2; // grow near the cursor
+            ctx.strokeStyle = `rgba(${link}, ${(t * 0.35).toFixed(3)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(dot.x, dot.y);
+            ctx.lineTo(pointer.x, pointer.y);
+            ctx.stroke();
+          }
+        }
+        const [cr, cg, cb] = dot.color;
+        ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, 0.9)`;
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    const step = () => {
+      for (const dot of dots) {
+        dot.x += dot.vx;
+        dot.y += dot.vy;
+        if (dot.x < 0 || dot.x > width) dot.vx *= -1;
+        if (dot.y < 0 || dot.y > height) dot.vy *= -1;
+        dot.x = Math.max(0, Math.min(width, dot.x));
+        dot.y = Math.max(0, Math.min(height, dot.y));
+      }
+      draw();
+    };
+
     let frame = 0;
+    const loop = () => {
+      step();
+      frame = requestAnimationFrame(loop);
+    };
 
     const onPointerMove = (e: PointerEvent) => {
-      // Normalise to roughly -0.5 … 0.5 around the viewport centre.
-      target.x = e.clientX / window.innerWidth - 0.5;
-      target.y = e.clientY / window.innerHeight - 0.5;
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+      pointer.active = true;
+    };
+    const onPointerLeave = () => {
+      pointer.active = false;
     };
 
-    const tick = () => {
-      // Critically-damped-ish easing toward the pointer.
-      current.x += (target.x - current.x) * 0.06;
-      current.y += (target.y - current.y) * 0.06;
-      layer.style.setProperty("--px", current.x.toFixed(4));
-      layer.style.setProperty("--py", current.y.toFixed(4));
-      frame = requestAnimationFrame(tick);
-    };
+    const themeObserver = new MutationObserver(() => {
+      const nowDark = document.documentElement.classList.contains("dark");
+      if (nowDark !== isDark) {
+        isDark = nowDark;
+        const pal = palette();
+        for (const dot of dots) dot.color = pal[Math.floor(Math.random() * pal.length)];
+        if (reduceMotion.matches) draw();
+      }
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
-    frame = requestAnimationFrame(tick);
+    resize();
+    window.addEventListener("resize", resize);
+    if (interactive) {
+      window.addEventListener("pointermove", onPointerMove, { passive: true });
+      window.addEventListener("pointerout", onPointerLeave, { passive: true });
+    }
+
+    if (reduceMotion.matches) {
+      draw(); // static field, no animation
+    } else {
+      frame = requestAnimationFrame(loop);
+    }
 
     return () => {
       cancelAnimationFrame(frame);
+      window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerout", onPointerLeave);
+      themeObserver.disconnect();
     };
   }, []);
 
   return (
     <div className="cursor-glow" aria-hidden="true">
-      <div ref={layerRef} className="cursor-glow__layer">
-        {BUBBLES.map((b, i) => (
-          <div
-            key={`${b.c}-${i}`}
-            className="cursor-glow__bubble"
-            style={{
-              top: b.top,
-              left: b.left,
-              width: `${b.size}px`,
-              height: `${b.size}px`,
-              // Parallax: shift opposite the pointer, scaled by this bubble's depth.
-              transform: `translate3d(calc(var(--px, 0) * ${-b.depth}px), calc(var(--py, 0) * ${-b.depth}px), 0)`,
-            }}
-          >
-            <span
-              className="cursor-glow__orb"
-              style={{
-                // Off-centre highlight → a glossy "bubble" read, with a
-                // defined edge that fades out only near the rim.
-                background: `radial-gradient(circle at 32% 28%, rgb(var(${b.c}) / 0.95) 0%, rgb(var(${b.c}) / 0.6) 45%, rgb(var(${b.c}) / 0.28) 78%, rgb(var(${b.c}) / 0) 100%)`,
-                boxShadow: `0 0 30px rgb(var(${b.c}) / 0.35), inset 0 0 24px rgb(var(${b.c}) / 0.25)`,
-                animationDuration: `${b.dur}s`,
-                animationDelay: `${i * -1.7}s`,
-              }}
-            />
-          </div>
-        ))}
-      </div>
+      <canvas ref={canvasRef} className="cursor-glow__canvas" />
     </div>
   );
 }
