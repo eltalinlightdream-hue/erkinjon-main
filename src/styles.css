@@ -808,91 +808,25 @@ html {
   }
 }
 
-/* ─── CURSOR BUBBLE BACKGROUND ─────────────────────────────────────
-   Ambient field of soft colour bubbles that drift toward the cursor.
-   Sits behind all page content on every route (mounted once in __root).
-   Colours are drawn from the atelier palette and flip with the theme.
-   Motion is JS-driven (parallax) plus a slow idle float; both are
-   suppressed for reduced-motion users and coarse-pointer devices. */
-
-:root {
-  /* rgb triplets so each bubble can own its own alpha */
-  --glow-1: 200 85 61;    /* terracotta   */
-  --glow-2: 92 107 71;    /* olive        */
-  --glow-3: 168 116 44;   /* ochre        */
-  --glow-4: 126 154 171;  /* muted sky    */
-  --glow-5: 209 114 87;   /* soft coral   */
-  --glow-6: 138 94 168;   /* dusty violet */
-  --glow-alpha: 0.70;
-  /* light blur only — keeps a defined bubble edge, not a cloud */
-  --glow-blur: 8px;
-}
-
-.dark {
-  --glow-1: 216 105 78;
-  --glow-2: 147 161 114;
-  --glow-3: 210 162 76;
-  --glow-4: 126 154 171;
-  --glow-5: 235 162 143;
-  --glow-6: 176 130 214;
-  --glow-alpha: 0.78;
-  --glow-blur: 9px;
-}
+/* ─── CURSOR PARTICLE BACKGROUND ───────────────────────────────────
+   Ambient particle network: small colour dots that drift, link to their
+   neighbours, and react to the cursor. Rendered once (in __root) on a
+   single fixed <canvas> behind page content, on every route. All drawing,
+   motion, and pointer handling live in cursor-glow-background.tsx. */
 
 .cursor-glow {
   position: fixed;
   inset: 0;
   /* Sit ABOVE the body's opaque background but BELOW page content.
      `body > *` puts content at z-index 1 and the paper-grain ::before at
-     0, so 0 keeps the orbs visible over the ivory canvas and behind the
-     UI. (z-index:-1 hid them behind the body background entirely.) */
+     0, so 0 keeps the dots visible over the ivory canvas and behind the
+     UI. (z-index:-1 would hide them behind the body background.) */
   z-index: 0;
-  overflow: hidden;
   pointer-events: none;
-  /* isolate the layer's paints from the rest of the page */
-  contain: layout paint style;
 }
 
-.cursor-glow__layer {
-  position: absolute;
-  inset: 0;
-  /* JS writes --px / --py (-0.5 … 0.5); the blobs read them for parallax. */
-}
-
-/* Wrapper owns the pointer parallax (transform + size written inline). */
-.cursor-glow__bubble {
-  position: absolute;
-  will-change: transform;
-}
-
-/* Inner orb owns the colour, gentle blur, and the slow idle float — kept
-   on a separate element so its keyframe transform never fights the
-   parallax. Light blur preserves a visible bubble edge. */
-.cursor-glow__orb {
+.cursor-glow__canvas {
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  filter: blur(var(--glow-blur));
-  opacity: var(--glow-alpha);
-  will-change: transform;
-  animation: glowFloat 18s ease-in-out infinite;
-}
-
-@keyframes glowFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -4%, 0) scale(1.06);
-  }
-}
-
-/* Coarse pointers (touch) have no cursor to follow — keep the calm
-   idle float but drop the parallax listener cost (handled in JS). */
-@media (prefers-reduced-motion: reduce) {
-  .cursor-glow__orb {
-    animation: none !important;
-  }
 }
