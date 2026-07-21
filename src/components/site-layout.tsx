@@ -32,6 +32,64 @@ const PRACTICE_LINKS = [
   { to: "/speaking" as const, label: "Speaking" },
 ];
 
+// Writing sub-menu entries beyond Task 1 / Task 2 — shared by the desktop
+// flyout and the mobile menu so both stay in sync. Each maps to /writing?task=…
+const WRITING_EXTRAS = [
+  { key: "t1-chunks", label: "Task 1 Chunks" },
+  { key: "t1-samples", label: "Task 1 Samples" },
+  { key: "t2-samples", label: "Task 2 Samples" },
+] as const;
+
+// Footer ("bottom menu bar") feature/service columns — main features plus key
+// sub-pages, so every surface is reachable from the bottom of any page.
+type FooterLink = {
+  to: string;
+  search?: Record<string, string>;
+  label: string;
+  accent?: boolean;
+};
+const FOOTER_SECTIONS: { heading: string; links: FooterLink[] }[] = [
+  {
+    heading: "Practice",
+    links: PRACTICE_LINKS.map((l) => ({ to: l.to, label: l.label })),
+  },
+  {
+    heading: "Writing",
+    links: [
+      { to: "/writing", search: { task: "t1-chunks" }, label: "Task 1 Chunks" },
+      { to: "/writing", search: { task: "t1-samples" }, label: "Task 1 Samples" },
+      { to: "/writing", search: { task: "t2-samples" }, label: "Task 2 Samples" },
+    ],
+  },
+  {
+    heading: "Speaking",
+    links: [
+      { to: "/speaking/pronunciation", label: "Pronunciation" },
+      { to: "/speaking/topics-explained", label: "Topics Explained" },
+      { to: "/speaking/written-samples", label: "Written Samples" },
+      { to: "/speaking/tips-chunks", label: "Tips & Chunks" },
+    ],
+  },
+  {
+    heading: "Japanese",
+    links: [
+      { to: "/japanese/alphabet", label: "Alphabet" },
+      { to: "/japanese/topics", label: "Topics & Phrases" },
+      { to: "/japanese/grammar", label: "Grammar" },
+    ],
+  },
+  {
+    heading: "Explore",
+    links: [
+      { to: "/videos", label: "Video Lessons" },
+      { to: "/articles", label: "Articles" },
+      { to: "/vocabulary", label: "Vocabulary" },
+      { to: "/contact-about", label: "Contact & About" },
+      { to: "/premium", label: "Premium", accent: true },
+    ],
+  },
+];
+
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [practiceOpen, setPracticeOpen] = useState(false);
@@ -208,14 +266,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                               </Link>
                             ))}
                             <div className="h-px bg-[var(--nav-border)] mx-4 my-1.5" />
-                            {(["t1-samples", "t2-samples"] as const).map((key) => (
+                            {WRITING_EXTRAS.map(({ key, label }) => (
                               <Link
                                 key={key}
                                 to="/writing"
                                 search={{ task: key } as any}
                                 className={dropdownItem(false)}
                               >
-                                {key === "t1-samples" ? "Task 1 Samples" : "Task 2 Samples"}
+                                {label}
                               </Link>
                             ))}
                           </div>
@@ -515,7 +573,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                       Task {n}
                     </Link>
                   ))}
-                  {(["t1-samples", "t2-samples"] as const).map((key) => (
+                  {WRITING_EXTRAS.map(({ key, label }) => (
                     <Link
                       key={key}
                       to="/writing"
@@ -523,7 +581,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                       onClick={() => setOpen(false)}
                       className="py-1.5 text-[13px] text-muted-foreground hover:text-foreground"
                     >
-                      {key === "t1-samples" ? "Task 1 Samples" : "Task 2 Samples"}
+                      {label}
                     </Link>
                   ))}
                 </div>
@@ -717,10 +775,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main className="flex-1">{children}</main>
 
       {/* ─── FOOTER ─────────────────────────────────────────────── */}
-      <footer className="border-t border-border bg-card/60 mt-20">
-        <div className="container mx-auto px-4 py-16 grid gap-12 md:grid-cols-12">
+      <footer className="border-t border-border bg-[var(--footer-bg)] mt-20">
+        <div className="container mx-auto px-4 py-16 grid gap-12 lg:grid-cols-12">
           {/* Brand */}
-          <div className="md:col-span-5">
+          <div className="lg:col-span-3">
             <div className="flex items-center gap-2.5 mb-5">
               <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
                 <GrassBlock size={18} />
@@ -735,114 +793,61 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </p>
           </div>
 
-          {/* Explore */}
-          <div className="md:col-span-2">
-            <h4 className="eyebrow text-foreground/70 mb-5">Explore</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  to="/practice"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Practice
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/videos"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Video Lessons
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/articles"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Articles
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/japanese"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Japanese
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/vocabulary"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Vocabulary
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/speaking/tips-chunks"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Speaking Tips &amp; Chunks
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/premium"
-                  className="text-[var(--ochre)] hover:text-[var(--ochre-deep)] transition-colors font-medium"
-                >
-                  Premium
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Feature/service columns + Connect */}
+          <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10">
+            {FOOTER_SECTIONS.map((section) => (
+              <div key={section.heading}>
+                <h4 className="eyebrow text-foreground/70 mb-5">{section.heading}</h4>
+                <ul className="space-y-3 text-sm">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        to={link.to as any}
+                        search={link.search as any}
+                        className={cn(
+                          "transition-colors",
+                          link.accent
+                            ? "text-[var(--ochre)] hover:text-[var(--ochre-deep)] font-medium"
+                            : "text-muted-foreground hover:text-primary",
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
 
-          {/* Practice */}
-          <div className="md:col-span-2">
-            <h4 className="eyebrow text-foreground/70 mb-5">Practice</h4>
-            <ul className="space-y-3 text-sm">
-              {PRACTICE_LINKS.map((l) => (
-                <li key={l.to}>
-                  <Link
-                    to={l.to}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Connect */}
-          <div className="md:col-span-3">
-            <h4 className="eyebrow text-foreground/70 mb-5">Connect</h4>
-            <div className="flex flex-col gap-3 text-sm">
-              <a
-                href="https://www.youtube.com/@erkinjon_writes"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Youtube className="w-4 h-4" /> YouTube Channel
-              </a>
-              <a
-                href="https://t.me/augustus_flores"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Send className="w-4 h-4" /> Telegram Channel
-              </a>
-              <a
-                href="https://t.me/augustus_at"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" /> Personal Telegram
-              </a>
+            {/* Connect */}
+            <div>
+              <h4 className="eyebrow text-foreground/70 mb-5">Connect</h4>
+              <div className="flex flex-col gap-3 text-sm">
+                <a
+                  href="https://www.youtube.com/@erkinjon_writes"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Youtube className="w-4 h-4" /> YouTube
+                </a>
+                <a
+                  href="https://t.me/augustus_flores"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Send className="w-4 h-4" /> Telegram
+                </a>
+                <a
+                  href="https://t.me/augustus_at"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" /> Personal
+                </a>
+              </div>
             </div>
           </div>
         </div>
