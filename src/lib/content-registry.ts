@@ -86,6 +86,16 @@ const writingEssayItems: ContentRegistryItem[] = WRITING_ESSAYS.map((e) => ({
   defaultIsPremium: !isFreeWritingEssay(e.id),
 }));
 
+/* The Task 1 sentence-structures & chunks section is gated as a single unit
+   (premium by default), so it appears in the registry as one toggle. */
+const writingChunksItem: ContentRegistryItem = {
+  contentId: writingContentId.chunks,
+  section: "writing",
+  label: "Task 1 sentence structures & chunks",
+  group: "Task 1 · Chunks",
+  defaultIsPremium: true,
+};
+
 const speakingItems: ContentRegistryItem[] = SPEAKING_TOPICS.map((t) => ({
   contentId: t.id,
   section: "speaking",
@@ -100,7 +110,12 @@ export const CONTENT_REGISTRY: ContentRegistrySection[] = [
   {
     section: "writing",
     label: "Writing",
-    items: [...writingSimulatorItems, ...writingSampleItems, ...writingEssayItems],
+    items: [
+      ...writingSimulatorItems,
+      ...writingSampleItems,
+      ...writingEssayItems,
+      writingChunksItem,
+    ],
   },
   { section: "speaking", label: "Speaking", items: speakingItems },
 ];

@@ -118,4 +118,6 @@ export const writingContentId = {
   simulator: (id: string): string => `sim:${id}`,
   sample: (id: string): string => `sample:${id}`,
   essay: (id: string): string => `essay:${id}`,
+  /** The Task 1 sentence-structures & chunks section (gated as a whole). */
+  chunks: "chunks:task1",
 } as const;
