@@ -15,10 +15,9 @@ export function useIsPremium(): boolean {
  * (or sign-in first, if they have no account yet).
  */
 export function PremiumCardOverlay({ label = "Premium content" }: { label?: string }) {
-  const { user } = useAuth();
   return (
     <Link
-      to={user ? "/premium" : "/auth"}
+      to="/premium"
       aria-label="Unlock with Premium"
       className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-5 py-6 rounded-[inherit] backdrop-blur-[3px] bg-background/75 transition-colors hover:bg-background/85"
     >
@@ -41,7 +40,6 @@ export function PremiumCardOverlay({ label = "Premium content" }: { label?: stri
  * a Premium item directly by URL.
  */
 export function PremiumRequired({ title = "This is Premium content" }: { title?: string }) {
-  const { user } = useAuth();
   return (
     <section className="container mx-auto px-4 py-20 max-w-lg text-center">
       <span className="w-16 h-16 rounded-2xl bg-gradient-primary inline-flex items-center justify-center shadow-warm mb-6">
@@ -53,9 +51,9 @@ export function PremiumRequired({ title = "This is Premium content" }: { title?:
         answer, sample and practice test — with one-time Premium access.
       </p>
       <div className="flex items-center justify-center gap-3 flex-wrap">
-        <Link to={user ? "/premium" : "/auth"}>
+        <Link to="/premium">
           <Button className="bg-gradient-primary text-white font-mono text-xs tracking-wider">
-            <Crown className="w-4 h-4 mr-1.5" /> {user ? "Become Premium" : "Sign in first"}
+            <Crown className="w-4 h-4 mr-1.5" /> Become Premium
           </Button>
         </Link>
       </div>

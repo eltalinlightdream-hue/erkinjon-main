@@ -77,37 +77,42 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Abduraimov Erkinjon - IELTS practise materials." },
+      // Canonical site title — kept identical across <title>, og:title and
+      // twitter:title. "Practice" is the noun spelling (not British "practise").
+      { title: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
       {
         name: "description",
         content:
           "Free IELTS materials, online practice, and premium lessons from an experienced teacher in Uzbekistan.",
       },
       { name: "author", content: "Abduraimov Erkinjon" },
-      { property: "og:title", content: "Abduraimov Erkinjon - IELTS practise materials." },
+      { property: "og:title", content: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
       {
         property: "og:description",
         content:
           "Free IELTS materials, online practice, and premium lessons from an experienced teacher in Uzbekistan.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Abduraimov Erkinjon - IELTS practise materials." },
+      { name: "twitter:card", content: "summary_large_image" },
+      // TODO(owner): replace with your own X/Twitter handle (was the Lovable
+      // builder default "@Lovable"). Leave blank if you don't have one.
+      { name: "twitter:site", content: "@your_handle_here" },
+      { name: "twitter:title", content: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
       {
         name: "twitter:description",
         content:
           "Free IELTS materials, online practice, and premium lessons from an experienced teacher in Uzbekistan.",
       },
+      // TODO(owner): add a real 1200×630 share image at public/og-image.png
+      // (currently a placeholder path). This replaces the old Lovable preview
+      // screenshot that used to be served from a lovable.app R2 bucket.
       {
         property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/80f3eab0-376e-4f79-8566-c15d6ecdcccf/id-preview-b800bf81--c2a913cd-4177-4c3b-9192-9a979cbb46e1.lovable.app-1778940988818.png",
+        content: "/og-image.png",
       },
       {
         name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/80f3eab0-376e-4f79-8566-c15d6ecdcccf/id-preview-b800bf81--c2a913cd-4177-4c3b-9192-9a979cbb46e1.lovable.app-1778940988818.png",
+        content: "/og-image.png",
       },
     ],
     links: [

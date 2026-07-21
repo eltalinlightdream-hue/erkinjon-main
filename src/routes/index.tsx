@@ -85,9 +85,9 @@ const FEATURES = [
   {
     n: "02",
     title: "Free Materials",
-    body: "Tips, model answers and downloadable PDFs across Listening, Reading, Writing and Speaking. A growing library, free from the first page.",
+    body: "Tips, model answers and guided practice across Listening, Reading, Writing and Speaking — a growing collection you can start using free from the very first visit.",
     to: "/practice" as const,
-    cta: "Browse the library",
+    cta: "Explore the practice hub",
     icon: BookOpen,
     tag: "Always free",
   },
@@ -118,6 +118,32 @@ const FEATURES = [
     icon: Crown,
     tag: "Full access",
     premium: true,
+  },
+];
+
+/*
+  TODO(owner): replace these placeholders with REAL student testimonials.
+  Do not invent names, scores, or quotes — fill in only genuine ones you have
+  permission to publish, or delete entries you can't fill yet. The section is
+  wired up and styled; it just needs true content.
+*/
+const TESTIMONIALS = [
+  {
+    name: "Student name",
+    score: "Band —",
+    quote:
+      "Add a real student quote here — what changed in their study, what finally clicked, and the result they got.",
+  },
+  {
+    name: "Student name",
+    score: "Band —",
+    quote:
+      "Add a second genuine testimonial once you have the student's permission to publish it.",
+  },
+  {
+    name: "Student name",
+    score: "Band —",
+    quote: "A third short, specific quote keeps the section balanced — keep them honest.",
   },
 ];
 
@@ -162,7 +188,7 @@ function Index() {
                 className="ink-bleed flex flex-col sm:flex-row gap-3"
                 style={{ animationDelay: "0.5s" }}
               >
-                <Link to="/reading">
+                <Link to="/practice">
                   <Button size="lg" className="px-8 text-sm">
                     Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
                   </Button>
@@ -179,10 +205,17 @@ function Index() {
                 className="ink-bleed mt-12 flex items-center gap-6 md:gap-10"
                 style={{ animationDelay: "0.65s" }}
               >
+                {/*
+                  TODO(owner): the first stat is real. Replace the two
+                  placeholders below with genuine proof numbers when you have
+                  them — e.g. students taught, average band improvement, pass
+                  rate. Do NOT invent figures; leave the placeholder text until
+                  you can fill in a real one, or delete the entry.
+                */}
                 {[
                   { value: "8.0", label: "Teacher's IELTS band" },
-                  { value: "4", label: "Core skills covered" },
-                  { value: "Free", label: "To start, always" },
+                  { value: "—", label: "Students taught (add real number)" },
+                  { value: "—", label: "Avg. band improvement (add real number)" },
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-6 md:gap-10">
                     {i > 0 && <div className="w-px h-10 bg-border" aria-hidden="true" />}
@@ -328,6 +361,39 @@ function Index() {
         </Reveal>
       </section>
 
+      {/* ─── STUDENT TESTIMONIALS (placeholder — see TESTIMONIALS above) ─ */}
+      <section className="container mx-auto px-4 pb-20 max-w-5xl">
+        <Reveal className="text-center max-w-xl mx-auto mb-12">
+          <p className="eyebrow text-secondary mb-4">In their words</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+            What students say
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            Real results from real learners — added as students share them.
+          </p>
+        </Reveal>
+        <div className="grid gap-5 md:grid-cols-3">
+          {TESTIMONIALS.map((t, i) => (
+            <Reveal
+              as="figure"
+              key={i}
+              delay={i * 80}
+              className="bento-card p-7 flex flex-col h-full"
+            >
+              <blockquote className="font-serif italic text-lg text-foreground/90 leading-snug flex-1">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-6 flex items-center justify-between">
+                <span className="text-sm font-medium text-foreground">{t.name}</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full bg-[var(--olive-wash)] text-[var(--olive-deep)]">
+                  {t.score}
+                </span>
+              </figcaption>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* ─── CLOSING CTA ───────────────────────────────────────────── */}
       <section className="container mx-auto px-4 pb-24 max-w-5xl">
         <Reveal className="relative overflow-hidden rounded-3xl bg-[var(--surface-dark)] shadow-warm px-8 py-14 md:px-16 text-center">
@@ -346,7 +412,7 @@ function Index() {
               study programme.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/reading">
+              <Link to="/practice">
                 <Button size="lg" className="px-8 text-sm">
                   Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
                 </Button>

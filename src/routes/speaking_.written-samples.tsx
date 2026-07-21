@@ -6,6 +6,7 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
+  ChevronRight,
   Lightbulb,
   MessageSquareQuote,
 } from "lucide-react";
@@ -180,7 +181,11 @@ function TopicView({ topic }: { topic: SpeakingTopic }) {
                 key={point}
                 className="text-sm text-foreground/90 font-mono flex items-start gap-2"
               >
-                <span className="text-primary mt-0.5">▸</span> {point}
+                <ChevronRight
+                  className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0"
+                  aria-hidden="true"
+                />{" "}
+                {point}
               </li>
             ))}
           </ul>

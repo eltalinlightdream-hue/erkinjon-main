@@ -281,7 +281,7 @@ function Reading() {
                   )}
 
                   {locked ? (
-                    <Link to={user ? "/premium" : "/auth"}>
+                    <Link to="/premium">
                       <Button size="sm" className="w-full bg-gradient-gold text-primary-foreground">
                         <Crown className="w-4 h-4 mr-1" /> Unlock with Premium
                       </Button>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 
 export function PremiumGate({ children, label = "Premium content" }: { children: ReactNode; label?: string }) {
-  const { profile, user } = useAuth();
+  const { profile } = useAuth();
   const unlocked = !!profile?.is_premium;
   if (unlocked) return <>{children}</>;
   return (
@@ -25,7 +25,7 @@ export function PremiumGate({ children, label = "Premium content" }: { children:
         <p className="font-mono text-[11px] text-muted-foreground mb-5 max-w-xs leading-relaxed tracking-wide">
           Unlock model answers, PDFs, video attachments and more with Premium Access.
         </p>
-        <Link to={user ? "/premium" : "/auth"}>
+        <Link to="/premium">
           <Button
             size="sm"
             className="bg-gradient-primary text-white font-mono text-[11px] tracking-wider active:scale-95 transition-all"
