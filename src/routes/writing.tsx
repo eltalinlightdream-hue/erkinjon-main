@@ -20,7 +20,7 @@ import {
   writingContentId,
 } from "@/lib/premium-content";
 import { useContentOverrides } from "@/hooks/use-content-overrides";
-import { HTML_TASKS } from "@/lib/writing-simulators-data";
+import { HTML_TASKS, type HtmlTask } from "@/lib/writing-simulators-data";
 import { TASK1_STRUCTURES } from "@/lib/task1-structures-data";
 import { Task1ChunksSection } from "@/components/task1-chunks-section";
 
@@ -64,6 +64,9 @@ const SAMPLE_TOTALS = {
 };
 
 
+/* Controlled vocabulary for card `type` tags. The filter bars below use the
+   exact same set, and every card in writing-simulators-data.ts is normalised
+   to one of these values, so filtering is an exact match (see matchesType). */
 const TASK1_FILTERS = [
   "All",
   "Line Graph",
@@ -71,18 +74,35 @@ const TASK1_FILTERS = [
   "Table",
   "Pie Chart",
   "Map",
-  "Diagram",
-  "Graph",
   "Process",
+  "Diagram",
+  "Mixed",
 ] as const;
 const TASK2_FILTERS = [
   "All",
   "Agree/Disagree",
-  "Advantages/Disadvantages",
   "Discussion",
+  "Advantages/Disadvantages",
   "Problem/Solution",
+  "Positive/Negative Development",
   "Direct Question",
+  "Two-Part Question",
 ] as const;
+
+/* How many cards to reveal at a time in the (large) Premium group. */
+const PREMIUM_PAGE_SIZE = 9;
+
+/* "New" is only meaningful when it marks a genuinely recent handful. The data
+   flags ~60 items isNew, so cap the badge to the first few (in list order) of
+   each task. Adjust the limit — or drop isNew flags in the data — to taste. */
+const NEW_BADGE_LIMIT_PER_TASK = 4;
+const genuinelyNewIds = new Set(
+  ([1, 2] as const).flatMap((t) =>
+    HTML_TASKS.filter((x) => x.task === t && x.isNew)
+      .slice(0, NEW_BADGE_LIMIT_PER_TASK)
+      .map((x) => x.id),
+  ),
+);
 
 type TabType = 1 | 2 | "t1-samples" | "t1-chunks" | "t2-samples";
 
@@ -106,7 +126,13 @@ function Writing() {
   });
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
+  const [premiumVisible, setPremiumVisible] = useState(PREMIUM_PAGE_SIZE);
   const [progress, setProgress] = useState<Record<string, { status: WritingStatus }>>({});
+
+  // Reset the Premium "Show more" paging whenever the visible set changes.
+  useEffect(() => {
+    setPremiumVisible(PREMIUM_PAGE_SIZE);
+  }, [tab, search, typeFilter]);
 
   useEffect(() => {
     if (taskParam === "t1-samples") setTab("t1-samples");
@@ -138,8 +164,9 @@ function Writing() {
 
   const matchesSearch = (title: string) =>
     !search.trim() || title.toLowerCase().includes(search.trim().toLowerCase());
-  const matchesType = (type: string) =>
-    typeFilter === "All" || type.toLowerCase().includes(typeFilter.toLowerCase());
+  // Exact match against the controlled vocabulary — every card's `type` is
+  // normalised to one of the filter values, so no fuzzy substring matching.
+  const matchesType = (type: string) => typeFilter === "All" || type === typeFilter;
 
   const practiceTask = tab === 1 || tab === 2 ? tab : 1;
   const visibleHtml = HTML_TASKS.filter(
@@ -149,6 +176,84 @@ function Writing() {
     (t) => t.task === practiceTask && matchesSearch(t.title) && matchesType(t.type),
   );
   const hasResults = visibleHtml.length > 0 || visibleTasks.length > 0;
+
+  // Split the simulators into Free vs Premium so the two groups render as
+  // distinct sections instead of an interleaved list. Free items stay small,
+  // the Premium group is paginated via "Show more".
+  const htmlWithLock = visibleHtml.map((task) => ({
+    task,
+    locked:
+      effectiveIsPremium(
+        "writing",
+        writingContentId.simulator(task.id),
+        !isFreeWritingSimulator(task.id),
+        overrides,
+      ) && !isPremium,
+  }));
+  const freeHtml = htmlWithLock.filter((x) => !x.locked);
+  const premiumHtml = htmlWithLock.filter((x) => x.locked);
+  const shownPremiumHtml = premiumHtml.slice(0, premiumVisible);
+
+  const renderHtmlCard = ({ task, locked }: { task: HtmlTask; locked: boolean }) => {
+    const isGenuinelyNew = genuinelyNewIds.has(task.id);
+    const card = (
+      <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1 cursor-pointer">
+        <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
+          {task.image ? (
+            <img
+              src={task.image}
+              alt={task.title}
+              className="w-full h-full object-cover rounded-lg border border-border/60"
+              loading="lazy"
+            />
+          ) : (
+            <div className="font-serif text-4xl text-muted-foreground/70">Task {task.task}</div>
+          )}
+          <span
+            className="absolute top-3 right-3 bg-card/90 text-foreground rounded-full p-1.5 shadow-card"
+            aria-label="Opens the full practice simulator in a new tab"
+          >
+            <ExternalLink className="w-3 h-3" />
+          </span>
+        </div>
+        <div className="p-5 flex flex-col flex-1">
+          <div className="flex items-center gap-2 mb-2">
+            <Badge variant="secondary" className="bg-accent text-foreground">
+              {task.type}
+            </Badge>
+            {isGenuinelyNew && <Badge>New</Badge>}
+          </div>
+          <h3 className="font-serif text-lg font-semibold leading-snug mb-2">{task.title}</h3>
+          <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
+        </div>
+      </Card>
+    );
+
+    if (locked) {
+      return (
+        <div key={task.id} className="relative rounded-xl overflow-hidden h-full">
+          <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">{card}</div>
+          <PremiumCardOverlay />
+        </div>
+      );
+    }
+
+    return (
+      <button
+        key={task.id}
+        onClick={() => {
+          if (!user) {
+            void navigate({ to: "/auth" });
+            return;
+          }
+          window.open(task.htmlFile, "_blank");
+        }}
+        className="block text-left"
+      >
+        {card}
+      </button>
+    );
+  };
 
   const sampleTask = tab === "t1-samples" ? 1 : 2;
   const visibleSamples = WRITING_SAMPLES.filter((s) => s.task === sampleTask);
@@ -250,7 +355,7 @@ function Writing() {
           </div>
         )}
 
-        {/* Practice tasks grid */}
+        {/* Practice tasks grid — Free items first, then a paginated Premium group */}
         {isPracticeTab && (
           <>
             {!hasResults && (
@@ -258,132 +363,104 @@ function Writing() {
                 No results found.
               </p>
             )}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {visibleHtml.map((task) => {
-                const locked =
-                  effectiveIsPremium(
-                    "writing",
-                    writingContentId.simulator(task.id),
-                    !isFreeWritingSimulator(task.id),
-                    overrides,
-                  ) && !isPremium;
-                const card = (
-                  <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1 cursor-pointer">
-                    <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
-                      {task.image ? (
-                        <img
-                          src={task.image}
-                          alt={task.title}
-                          className="w-full h-full object-cover rounded-lg border border-border/60"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="font-serif text-4xl text-muted-foreground/70">
-                          Task {task.task}
-                        </div>
-                      )}
-                      <span className="absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[var(--badge-neutral-bg)] text-[var(--badge-neutral-fg)] shadow-card">
-                        Not started
-                      </span>
-                      <span className="absolute top-3 right-3 bg-card/90 text-foreground rounded-full p-1.5 shadow-card">
-                        <ExternalLink className="w-3 h-3" />
-                      </span>
-                    </div>
-                    <div className="p-5 flex flex-col flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Badge variant="secondary" className="bg-accent text-foreground">
-                          {task.type}
-                        </Badge>
-                        {task.isNew && <Badge>New</Badge>}
-                      </div>
-                      <h3 className="font-serif text-lg font-semibold leading-snug mb-2">
-                        {task.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
-                      <p className="text-xs text-muted-foreground mt-3 inline-flex items-center gap-1">
-                        <ExternalLink className="w-3 h-3" /> Opens full practice simulator
-                      </p>
-                    </div>
-                  </Card>
-                );
 
-                if (locked) {
+            {freeHtml.length > 0 && (
+              <div className="mb-14">
+                <div className="flex items-baseline gap-3 mb-5">
+                  <h2 className="eyebrow text-[var(--olive-deep)]">Free to practise</h2>
+                  <span className="font-mono text-[11px] text-muted-foreground">
+                    {freeHtml.length} {freeHtml.length === 1 ? "task" : "tasks"}
+                  </span>
+                  <span className="h-px flex-1 bg-border" aria-hidden="true" />
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {freeHtml.map(renderHtmlCard)}
+                </div>
+              </div>
+            )}
+
+            {premiumHtml.length > 0 && (
+              <div>
+                <div className="flex items-baseline gap-3 mb-5">
+                  <h2 className="eyebrow text-[var(--ochre-deep)]">Premium</h2>
+                  <span className="font-mono text-[11px] text-muted-foreground">
+                    {premiumHtml.length} {premiumHtml.length === 1 ? "task" : "tasks"}
+                  </span>
+                  <span className="h-px flex-1 bg-border" aria-hidden="true" />
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {shownPremiumHtml.map(renderHtmlCard)}
+                </div>
+                {premiumVisible < premiumHtml.length && (
+                  <div className="flex justify-center mt-8">
+                    <Button
+                      variant="outline"
+                      className="font-mono text-xs tracking-wide"
+                      onClick={() => setPremiumVisible((v) => v + PREMIUM_PAGE_SIZE)}
+                    >
+                      Show more ({premiumHtml.length - premiumVisible} more)
+                    </Button>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {visibleTasks.length > 0 && (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+                {visibleTasks.map((task) => {
+                  const status = progress[task.id]?.status ?? "not_started";
+                  const meta = STATUS_META[status];
                   return (
-                    <div key={task.id} className="relative rounded-xl overflow-hidden h-full">
-                      <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
-                        {card}
-                      </div>
-                      <PremiumCardOverlay />
-                    </div>
-                  );
-                }
-
-                return (
-                  <button
-                    key={task.id}
-                    onClick={() => {
-                      if (!user) {
-                        void navigate({ to: "/auth" });
-                        return;
-                      }
-                      window.open(task.htmlFile, "_blank");
-                    }}
-                    className="block text-left"
-                  >
-                    {card}
-                  </button>
-                );
-              })}
-              {visibleTasks.map((task) => {
-                const status = progress[task.id]?.status ?? "not_started";
-                const meta = STATUS_META[status];
-                return (
-                  <Link
-                    key={task.id}
-                    to="/writing/$taskId"
-                    params={{ taskId: task.id }}
-                    className="block"
-                  >
-                    <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
-                      <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
-                        {task.image ? (
-                          <img
-                            src={task.image}
-                            alt={task.title}
-                            className="w-full h-full object-cover rounded-lg border border-border/60"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="font-serif text-4xl text-muted-foreground/70">
-                            Task {task.task}
-                          </div>
-                        )}
-                        <span
-                          className={cn(
-                            "absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-0.5 rounded-full border shadow-card",
-                            meta.className,
+                    <Link
+                      key={task.id}
+                      to="/writing/$taskId"
+                      params={{ taskId: task.id }}
+                      className="block"
+                    >
+                      <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
+                        <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
+                          {task.image ? (
+                            <img
+                              src={task.image}
+                              alt={task.title}
+                              className="w-full h-full object-cover rounded-lg border border-border/60"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <div className="font-serif text-4xl text-muted-foreground/70">
+                              Task {task.task}
+                            </div>
                           )}
-                        >
-                          {meta.label}
-                        </span>
-                      </div>
-                      <div className="p-5 flex flex-col flex-1">
-                        <Badge
-                          variant="secondary"
-                          className="self-start mb-2 bg-accent text-foreground"
-                        >
-                          {task.type}
-                        </Badge>
-                        <h3 className="font-serif text-lg font-semibold leading-snug mb-2">
-                          {task.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
-                      </div>
-                    </Card>
-                  </Link>
-                );
-              })}
-            </div>
+                          {/* Status badge only when it isn't the default "not started". */}
+                          {status !== "not_started" && (
+                            <span
+                              className={cn(
+                                "absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-0.5 rounded-full border shadow-card",
+                                meta.className,
+                              )}
+                            >
+                              {meta.label}
+                            </span>
+                          )}
+                        </div>
+                        <div className="p-5 flex flex-col flex-1">
+                          <Badge
+                            variant="secondary"
+                            className="self-start mb-2 bg-accent text-foreground"
+                          >
+                            {task.type}
+                          </Badge>
+                          <h3 className="font-serif text-lg font-semibold leading-snug mb-2">
+                            {task.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground flex-1">{task.description}</p>
+                        </div>
+                      </Card>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </>
         )}
 

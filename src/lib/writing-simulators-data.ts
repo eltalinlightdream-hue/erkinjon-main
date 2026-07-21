@@ -35,7 +35,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "cam20-t2-task1",
     task: 1,
-    type: "Maps / Plans",
+    type: "Map",
     title: "Cambridge 20 Test 2 – Writing Task 1",
     description: "Cambridge IELTS 20 Test 2 Writing Task 1: describe the floor plans of a library in 2005 and 2023.",
     image: "/writing-images/cam20_test2_task.jpeg",
@@ -100,10 +100,9 @@ export const HTML_TASKS: HtmlTask[] = [
     id: "html-t1-unemployment-levels-in-ireland",
     task: 1,
     type: "Line Graph",
-    title:
-      "The graph below shows unemployment levels in Ireland and the number of people leaving the country between 1988 and 2008.",
+    title: "Unemployment and Emigration in Ireland",
     description:
-      "The charts below show the number of tourists to Australia and the types of travels between 1995 and 2005.",
+      "The graph below shows unemployment levels in Ireland and the number of people leaving the country between 1988 and 2008.",
     image: "/writing-images/task1_11.jpg",
     htmlFile: "/passages/task1_11.html",
   },
@@ -120,7 +119,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-uk-steel-industry",
     task: 1,
-    type: "Line Graphs",
+    type: "Line Graph",
     title: "UK Steel Industry",
     description:
       "The line graphs show changes in UK steel demand, production, imports and employment from 1970 to 2000.",
@@ -130,7 +129,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-uk-steel-employment",
     task: 1,
-    type: "Mixed Graphs",
+    type: "Mixed",
     title: "Value Changes and Employment in the UK Steel Industry",
     description:
       "The charts illustrate value changes and employment status in the UK steel industry between 1970 and 2000.",
@@ -170,7 +169,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-aluminium-recycling",
     task: 1,
-    type: "Process Diagram",
+    type: "Process",
     title: "Recycling Aluminium Drink Cans",
     description:
       "The diagram shows the stages in the recycling of aluminium drink cans over a six-week process.",
@@ -190,7 +189,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-films-and-ticket-sales",
     task: 1,
-    type: "Bar Charts",
+    type: "Bar Chart",
     title: "Films Released and Cinema Ticket Sales",
     description:
       "The charts show the percentages of films released and cinema ticket sales by genre in 1996 and 2000.",
@@ -212,14 +211,14 @@ export const HTML_TASKS: HtmlTask[] = [
     task: 1,
     type: "Bar Chart",
     title: "Noise Pollution Effects",
-    description: "The chart shows the number of people effected by noise pollution.",
+    description: "The chart shows the number of people affected by noise pollution.",
     image: "/writing-images/task_14.jpg",
     htmlFile: "/passages/task1_14.html",
   },
   {
     id: "html-t1-american-japanese-office",
     task: 1,
-    type: "Map",
+    type: "Diagram",
     title: "American and Japanese Office",
     description: "The diagrams below show a typical American and a Japanese office.",
     image: "/writing-images/task1_15.jpg",
@@ -278,7 +277,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-tourism-jobs-uk",
     task: 1,
-    type: "Chart",
+    type: "Bar Chart",
     title: "Tourism Jobs in a UK City",
     description:
       "The chart below shows the number of jobs in tourism-related industry in one UK city between 1989 and 2009.",
@@ -298,7 +297,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-spending-categories-australia",
     task: 1,
-    type: "Graph",
+    type: "Line Graph",
     title: "Spending Categories in Australia",
     description:
       "The graph below shows the percentage of total spending in five different categories from 1970 to 2010 in one city in Australia.",
@@ -557,7 +556,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_13",
     task: 2,
-    type: "Cause/Effect/Solution",
+    type: "Problem/Solution",
     title: "Unhealthy Eating Habits and Obesity",
     description:
       "A Task 2 cause-and-solution essay about unhealthy eating habits, obesity, and ways to improve diets.",
@@ -626,7 +625,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_18",
     task: 2,
-    type: "Cause/Effect/Solution",
+    type: "Problem/Solution",
     title: "Fewer Students Choosing Science",
     description:
       "A Task 2 cause-and-effect essay about why fewer students choose science subjects and how this affects society.",
@@ -682,7 +681,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_22",
     task: 2,
-    type: "Cause/Effect/Solution",
+    type: "Problem/Solution",
     title: "Problems of Growing Major Cities",
     description:
       "A Task 2 problem-and-solution essay about the challenges caused by the growth of major cities.",
@@ -724,7 +723,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_25",
     task: 2,
-    type: "Cause/Effect/Solution",
+    type: "Problem/Solution",
     title: "Exercise and Older People",
     description:
       "A Task 2 cause-and-solution essay about why elderly people may not exercise enough and how to encourage them.",
@@ -891,7 +890,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_37",
     task: 2,
-    type: "Problems/Solutions",
+    type: "Problem/Solution",
     title: "Elderly Loneliness and Poor Health",
     description:
       "A Task 2 essay examining the causes of loneliness and poor health among elderly people and possible solutions.",
@@ -989,7 +988,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_44",
     task: 2,
-    type: "Causes/Problems",
+    type: "Problem/Solution",
     title: "The Throwaway Culture",
     description:
       "A Task 2 essay about why people today throw away broken items instead of repairing them, and the problems this causes.",
@@ -1017,7 +1016,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_46",
     task: 2,
-    type: "Causes/Solutions",
+    type: "Problem/Solution",
     title: "Unhealthy Lifestyles",
     description:
       "A Task 2 essay about why people continue unhealthy activities despite knowing the risks, and how to address this.",
@@ -1073,7 +1072,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "task2_50",
     task: 2,
-    type: "Positive/Negative",
+    type: "Positive/Negative Development",
     title: "Spending on Looking Younger",
     description:
       "A Task 2 essay about why people spend money to look younger and whether this is a positive or negative development.",
@@ -1221,7 +1220,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-australian-zoo-1990-vs-now",
     task: 1,
-    type: "Maps / Plans",
+    type: "Map",
     title: "Australian Zoo: 1990 vs Now",
     description: "The maps below show an Australian zoo in 1990 and now.",
     image: "/writing-images/task1_26.jpg",
@@ -1299,7 +1298,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-bridgetown-1700-vs-2000",
     task: 1,
-    type: "Maps / Plans",
+    type: "Map",
     title: "Bridgetown: 1700 vs 2000",
     description: "The diagrams below show the changes of a town called Bridgetown in 1700 and 2000.",
     image: "/writing-images/task1_32.jpg",
@@ -1338,7 +1337,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-ryemouth-village-1995-vs-present",
     task: 1,
-    type: "Maps / Plans",
+    type: "Map",
     title: "Ryemouth Village: 1995 vs Present",
     description: "The maps show the village of Ryemouth between 1995 and present.",
     image: "/writing-images/task1_35.jpg",
@@ -1377,7 +1376,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-walton-museum-south-wing-redevelopment",
     task: 1,
-    type: "Maps / Plans",
+    type: "Map",
     title: "Walton Museum South Wing Redevelopment",
     description: "The plans below show the South Wing of Walton Museum in 2008 and in 2012 after it was redeveloped.",
     image: "/writing-images/task1_38.jpg",
@@ -1403,7 +1402,7 @@ export const HTML_TASKS: HtmlTask[] = [
   {
     id: "html-t1-village-development-1910-vs-2010",
     task: 1,
-    type: "Maps / Plans",
+    type: "Map",
     title: "Village Development: 1910 vs 2010",
     description: "The maps below show part of a village in 1910, and the same part of that village in 2010.",
     image: "/writing-images/task1_40.jpg",
