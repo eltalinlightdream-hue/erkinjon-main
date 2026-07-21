@@ -21,6 +21,8 @@ import {
 } from "@/lib/premium-content";
 import { useContentOverrides } from "@/hooks/use-content-overrides";
 import { HTML_TASKS } from "@/lib/writing-simulators-data";
+import { TASK1_STRUCTURES } from "@/lib/task1-structures-data";
+import { Task1ChunksSection } from "@/components/task1-chunks-section";
 
 export const Route = createFileRoute("/writing")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -82,7 +84,13 @@ const TASK2_FILTERS = [
   "Direct Question",
 ] as const;
 
-type TabType = 1 | 2 | "t1-samples" | "t2-samples";
+type TabType = 1 | 2 | "t1-samples" | "t1-chunks" | "t2-samples";
+
+const SECONDARY_TABS: { key: "t1-samples" | "t1-chunks" | "t2-samples"; label: string; count: number }[] = [
+  { key: "t1-samples", label: "Task 1 Samples", count: SAMPLE_TOTALS["t1-samples"] },
+  { key: "t1-chunks", label: "Task 1 Chunks", count: TASK1_STRUCTURES.length },
+  { key: "t2-samples", label: "Task 2 Samples", count: SAMPLE_TOTALS["t2-samples"] },
+];
 
 function Writing() {
   const { task: taskParam } = Route.useSearch();
@@ -92,6 +100,7 @@ function Writing() {
   const navigate = useNavigate();
   const [tab, setTab] = useState<TabType>(() => {
     if (taskParam === "t1-samples") return "t1-samples";
+    if (taskParam === "t1-chunks") return "t1-chunks";
     if (taskParam === "t2-samples") return "t2-samples";
     return taskParam === "2" ? 2 : 1;
   });
@@ -101,6 +110,7 @@ function Writing() {
 
   useEffect(() => {
     if (taskParam === "t1-samples") setTab("t1-samples");
+    else if (taskParam === "t1-chunks") setTab("t1-chunks");
     else if (taskParam === "t2-samples") setTab("t2-samples");
     else if (taskParam === "2") setTab(2);
     else if (taskParam === "1") setTab(1);
@@ -190,7 +200,7 @@ function Writing() {
               </span>
             </button>
           ))}
-          {(["t1-samples", "t2-samples"] as const).map((key) => (
+          {SECONDARY_TABS.map(({ key, label, count }) => (
             <button
               key={key}
               onClick={() => handleTabChange(key)}
@@ -201,9 +211,9 @@ function Writing() {
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              {key === "t1-samples" ? "Task 1 Samples" : "Task 2 Samples"}
+              {label}
               <span className="ml-1.5 font-mono text-[10px] font-normal opacity-55 tracking-normal normal-case">
-                ({SAMPLE_TOTALS[key]})
+                ({count})
               </span>
             </button>
           ))}
@@ -440,6 +450,9 @@ function Writing() {
             })}
           </div>
         )}
+
+        {/* Task 1 sentence structures & language chunks */}
+        {tab === "t1-chunks" && <Task1ChunksSection />}
 
         {tab === "t2-samples" && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
