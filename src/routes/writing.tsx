@@ -153,6 +153,9 @@ function Writing() {
   const sampleTask = tab === "t1-samples" ? 1 : 2;
   const visibleSamples = WRITING_SAMPLES.filter((s) => s.task === sampleTask);
 
+  const chunksLocked =
+    effectiveIsPremium("writing", writingContentId.chunks, true, overrides) && !isPremium;
+
   return (
     <SiteLayout>
       <section className="container mx-auto px-4 py-12 max-w-6xl relative">
@@ -451,8 +454,18 @@ function Writing() {
           </div>
         )}
 
-        {/* Task 1 sentence structures & language chunks */}
-        {tab === "t1-chunks" && <Task1ChunksSection />}
+        {/* Task 1 sentence structures & language chunks (premium section) */}
+        {tab === "t1-chunks" &&
+          (chunksLocked ? (
+            <div className="relative overflow-hidden rounded-xl">
+              <div className="pointer-events-none max-h-[560px] select-none overflow-hidden opacity-60 blur-[3px]">
+                <Task1ChunksSection />
+              </div>
+              <PremiumCardOverlay label="Task 1 Chunks — Premium" />
+            </div>
+          ) : (
+            <Task1ChunksSection />
+          ))}
 
         {tab === "t2-samples" && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
