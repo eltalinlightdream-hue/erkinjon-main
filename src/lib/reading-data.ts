@@ -15,6 +15,16 @@ export type Passage = {
 
 export const PASSAGES: Passage[] = [
   // Newest tests first — add new tests at the TOP of this list.
+  {
+    id: "p1-jethro-tull-seed-drill",
+    title: "Jethro Tull – Inventor of the Seed Drill",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "The English gentleman farmer who revolutionised agriculture by inventing the seed drill — with diagram labelling, note completion and True/False/Not Given questions.",
+    htmlFile: "/passages/Passage_1_Jethro_Tull_Seed_Drill.html",
+    isNew: true,
+  },
   // 30-day reading challenge – Days 1–17
   {
     id: "day1-p1-what-lucy-taught-us",
