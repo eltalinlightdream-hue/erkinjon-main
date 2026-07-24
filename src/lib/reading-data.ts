@@ -15,6 +15,67 @@ export type Passage = {
 
 export const PASSAGES: Passage[] = [
   // Newest tests first — add new tests at the TOP of this list.
+  // === Batch 2: reading tests reconstructed from source PDFs ===
+  {
+    id: "new-the-pyramid-of-cestius",
+    title: "The Pyramid of Cestius",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "The 2000-year-old Roman pyramid restored by archaeologists — with True/False/Not Given and note-completion questions.",
+    htmlFile: "/passages/NEW_the_pyramid_of_cestius.html",
+  },
+  {
+    id: "new-why-do-singers-lose-their-voices",
+    title: "Why Do Singers Lose Their Voices?",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How vocal-cord damage cuts short singers' careers — with section-matching, sentence completion and match-the-person questions.",
+    htmlFile: "/passages/NEW_why_do_singers_lose_their_voices.html",
+  },
+  {
+    id: "new-the-fashion-industry",
+    title: "The Fashion Industry",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "The global business of making and selling clothes — with paragraph-heading matching, summary completion and multiple-selection questions.",
+    htmlFile: "/passages/NEW_the_fashion_industry.html",
+  },
+  {
+    id: "new-the-development-of-television-in-britain",
+    title: "The Development of Television and Its Introduction in Britain",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "The race between mechanical and electronic television and its arrival in Britain — with section-matching, researcher-matching and sentence completion.",
+    htmlFile: "/passages/NEW_the_development_of_television_and_its_introduction_in_britai.html",
+  },
+  {
+    id: "new-how-the-petri-dish-supports-scientific-advances",
+    title: "How the Petri Dish Supports Scientific Advances",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How a simple Petri dish still drives cutting-edge Cambridge research — with section-matching, match-the-person and summary completion.",
+    htmlFile: "/passages/NEW_how_the_petri_dish_supports_scientific_advances.html",
+  },
+  {
+    id: "new-creative-problem-solving",
+    title: "Creative Problem-Solving",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "What neuroscience reveals about insight and puzzle-solving — with section-matching, match-the-researcher and summary completion.",
+    htmlFile: "/passages/NEW_creative_problem_solving.html",
+  },
   // === Batch import: 34 IELTS Reading practice tests (converted from source HTML) ===
   {
     id: "new-conquering-the-south-pole",
