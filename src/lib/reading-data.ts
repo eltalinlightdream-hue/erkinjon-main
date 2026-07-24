@@ -15,6 +15,47 @@ export type Passage = {
 
 export const PASSAGES: Passage[] = [
   // Newest tests first — add new tests at the TOP of this list.
+  // === Batch 4: reading tests reconstructed from scanned PDFs via OCR ===
+  {
+    id: "new-youth-homelessness",
+    title: "Youth Homelessness",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "The difficulty of measuring youth homelessness in Britain and the models used to explain it — with multiple choice, a word-bank summary and Yes/No/Not Given.",
+    htmlFile: "/passages/NEW_youth_homelessness.html",
+  },
+  {
+    id: "new-the-nuisance-of-noise",
+    title: "The Nuisance of Noise",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "A history of humanity's struggle against unwanted noise, from Hippocrates to noise-cancelling headphones — with section matching, multiple-selection and sentence completion.",
+    htmlFile: "/passages/NEW_the_nuisance_of_noise.html",
+  },
+  {
+    id: "new-what-would-happen-if-all-trees-disappeared",
+    title: "What Would Happen If All the World's Trees Disappeared?",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How the loss of all forests would reshape climate, oceans and human life — with paragraph matching, match-the-researcher and summary completion.",
+    htmlFile: "/passages/NEW_what_would_happen_if_all_the_worlds_trees_disappeared.html",
+  },
+  {
+    id: "new-redesigning-the-cleveland-museum-of-art",
+    title: "Redesigning the Cleveland Museum of Art",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How a $320m renovation rethought the museum around 'cultural parity' — with multiple choice, Yes/No/Not Given and a word-bank summary.",
+    htmlFile: "/passages/NEW_redesigning_the_cleveland_museum_of_art.html",
+  },
   // === Batch 3: reading tests reconstructed from source PDFs ===
   {
     id: "new-the-women-scientists-of-bologna",
