@@ -1352,6 +1352,32 @@ export const WRITING_ESSAYS: WritingEssay[] = [
       { word: "Ensure higher employee retention", definition: "help keep staff in the company longer" },
     ],
   },
+  {
+    id: "t2-21",
+    testNumber: 21,
+    task: 2 as const,
+    question:
+      "Consumers are faced with increasing numbers of advertisements from competing companies. To what extent do you think consumers are influenced by advertisements? What measures can be taken to protect them?",
+    wordCount: 493,
+    content: `<p>It is argued that advertisements have surrounded our lives profoundly, mainly due to the influence of competing companies. I strongly believe that they have a huge impact on our daily lives, and this can be tackled through a number of ways.</p>
+<p>Admittedly, advertising affects our lives to a great extent. Firstly, people might buy something that they do not actually need because of advertising. Most adverts try to show a perfect lifestyle—happy actors, famous faces, and beautiful images—all of which can lead to the perception that buying a particular product can make a person happy. Therefore, many people are encouraged to purchase things that may be unnecessary for them. We can see long queues outside Apple stores whenever a new iPhone is released, as people try to buy one just to keep up with the trend, for instance.</p>
+<p>Another argument in favor is that adverts oftentimes target vulnerable groups, particularly young children. It is true that most adverts are broadcast on TV during busy hours, when people have breakfast, lunch, and dinner, and there are more adverts at the weekend than during the week. What might seem like a simple coincidence is actually a cunning strategy devised by big marketing companies. They not only target adults who are free during these hours, but also their children—the group that is most easily influenced. As a result, children ask their parents to buy advertised products; for instance, fast-food companies often give away a free toy with a meal because children cannot tell whether the advert is true or not.</p>
+<p>There are several practical solutions to deter the increasing influence of advertising. One of the best ways is for governments to impose stricter rules on marketing companies. In this case, it will not be companies that control themselves, but governments, which is actually a great benefit since it can help reduce the amount of advertising aimed at children and advertisements that make false claims. This can be an easy step for most countries since most of them already have advertising watchdogs. Sweden is a good illustration of a country that has introduced such bans on advertising: it prohibits advertising aimed at children under the age of 12.</p>
+<p>Furthermore, there should be a limit on collecting personal data. Since marketing companies, especially social media platforms, use this type of information to target certain groups of people, consumers are unwillingly encouraged to purchase things. Ironically, almost all social media platforms require users to provide their personal information, and they often use users' interests—for example, their favorite sports, pages, and the type of media they follow—to show them adverts. This strategy works successfully because online shopping has become really popular in recent years. However, this type of regulation can be difficult to introduce due to resistance from big tech firms.</p>
+<p>In conclusion, most adverts are aimed at children, and they encourage impulse buying, which is why I believe they have a huge impact on our lives. Meanwhile, governments can restrict such adverts, and the use of personal data should be limited too.</p>`,
+    vocabulary: [
+      { word: "Surrounded our lives profoundly", definition: "deeply filled or dominated everyday life" },
+      { word: "To a great extent", definition: "to a large or considerable degree" },
+      { word: "Keep up with the trend", definition: "to stay fashionable or current with what is popular" },
+      { word: "Target vulnerable groups", definition: "to aim at people who are easily harmed or influenced" },
+      { word: "A cunning strategy", definition: "a clever and slightly dishonest plan" },
+      { word: "Impose stricter rules", definition: "to introduce and enforce tougher regulations" },
+      { word: "Advertising watchdogs", definition: "organizations that monitor and control advertising" },
+      { word: "Make false claims", definition: "to state things that are untrue or misleading" },
+      { word: "Impulse buying", definition: "buying things suddenly without planning" },
+      { word: "Resistance from big tech firms", definition: "opposition from large technology companies" },
+    ],
+  },
 ];
 
 export function findWritingEssay(id: string): WritingEssay | undefined {
