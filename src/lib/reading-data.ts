@@ -15,6 +15,57 @@ export type Passage = {
 
 export const PASSAGES: Passage[] = [
   // Newest tests first — add new tests at the TOP of this list.
+  // === Batch 5: individual tests split from multi-passage "marathon" mocks ===
+  {
+    id: "new-the-development-of-the-silk-industry",
+    title: "The Development of the Silk Industry",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How silk production spread from ancient China across the world — with note completion, sentence completion and True/False/Not Given.",
+    htmlFile: "/passages/NEW_the_development_of_the_silk_industry.html",
+  },
+  {
+    id: "new-walking-and-shoes-eighteenth-century-london",
+    title: "Walking and Shoes in Eighteenth-Century London",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How improved streets turned walking into a fashionable pastime, and reshaped footwear — with section matching, sentence completion and multiple choice.",
+    htmlFile: "/passages/NEW_walking_and_shoes_in_eighteenth_century_london.html",
+  },
+  {
+    id: "new-the-discovery-of-a-baby-mammoth",
+    title: "The Discovery of a Baby Mammoth",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "The near-perfect frozen mammoth found in Siberia and what it reveals about a vanished species — with a mix of IELTS question types.",
+    htmlFile: "/passages/NEW_the_discovery_of_a_baby_mammoth.html",
+  },
+  {
+    id: "new-mercator-the-map-maker",
+    title: "Mercator – The Map Maker",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "The life of the cartographer whose projection reshaped how we picture the world — with True/False/Not Given and note completion.",
+    htmlFile: "/passages/NEW_mercator_the_map_maker.html",
+  },
+  {
+    id: "new-what-makes-a-musical-expert",
+    title: "What Makes a Musical Expert?",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "Whether musical expertise is innate or learned, and how it can be measured — with a range of IELTS question types.",
+    htmlFile: "/passages/NEW_what_makes_a_musical_expert.html",
+  },
   // === Batch 4: reading tests reconstructed from scanned PDFs via OCR ===
   {
     id: "new-youth-homelessness",
