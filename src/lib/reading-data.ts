@@ -15,6 +15,347 @@ export type Passage = {
 
 export const PASSAGES: Passage[] = [
   // Newest tests first — add new tests at the TOP of this list.
+  // === Batch import: 34 IELTS Reading practice tests (converted from source HTML) ===
+  {
+    id: "new-conquering-the-south-pole",
+    title: "Conquering the South Pole",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_conquering_the_south_pole.html",
+  },
+  {
+    id: "new-sydney-opera-house",
+    title: "Sydney Opera House",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_sydney_opera_house.html",
+  },
+  {
+    id: "new-the-origins-of-tennis",
+    title: "The origins of tennis",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_origins_of_tennis.html",
+  },
+  {
+    id: "new-traditional-farming-in-zambias-luapula-province",
+    title: "Traditional Farming in Zambia's Luapula Province",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (12 questions) covering note/summary completion, True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_traditional_farming_in_zambias_luapula_province.html",
+  },
+  {
+    id: "new-the-history-of-the-picnic",
+    title: "The history of the picnic",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_history_of_the_picnic.html",
+  },
+  {
+    id: "new-in-deep-water",
+    title: "In Deep Water",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_in_deep_water.html",
+  },
+  {
+    id: "new-transport-and-transport-systems-during-the-roman-empire",
+    title: "Transport and transport systems during the Roman Empire",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_transport_and_transport_systems_during_the_roman_empire.html",
+  },
+  {
+    id: "new-the-tuatara-of-new-zealand",
+    title: "The Tuatara of New Zealand",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_tuatara_of_new_zealand.html",
+  },
+  {
+    id: "new-investing-in-the-future",
+    title: "Investing in the Future",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_investing_in_the_future.html",
+  },
+  {
+    id: "new-socotra-island",
+    title: "Socotra Island",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_socotra_island.html",
+  },
+  {
+    id: "new-steam-across-the-water",
+    title: "Steam across the water",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering note/summary completion, True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_steam_across_the_water.html",
+  },
+  {
+    id: "new-the-development-of-art-appreciation-in-melbourne-australia",
+    title: "The development of art appreciation in Melbourne, Australia",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_development_of_art_appreciation_in_melbourne_australia.html",
+  },
+  {
+    id: "new-flying-the-coast",
+    title: "Flying the Coast",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_flying_the_coast.html",
+  },
+  {
+    id: "new-museums-and-family-visitors-in-australia",
+    title: "Museums and family visitors in Australia",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering note/summary completion, True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_museums_and_family_visitors_in_australia.html",
+  },
+  {
+    id: "new-the-origin-of-paper",
+    title: "The Origin of Paper",
+    passageNumber: 1,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 1 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_origin_of_paper.html",
+  },
+  {
+    id: "new-born-to-trade",
+    title: "Born to Trade",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering matching, True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_born_to_trade.html",
+  },
+  {
+    id: "new-flood-control-in-the-usa",
+    title: "Flood control in the USA",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (11 questions) covering matching, note/summary completion.",
+    htmlFile: "/passages/NEW_flood_control_in_the_usa.html",
+  },
+  {
+    id: "new-healthy-buildings-productive-people",
+    title: "Healthy buildings, productive people",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering matching, True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_healthy_buildings_productive_people.html",
+  },
+  {
+    id: "new-public-art-programs-research-update",
+    title: "Public Art Programs: Research Update",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering matching, True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_public_art_programs_research_update.html",
+  },
+  {
+    id: "new-the-role-of-error-in-the-learning-process",
+    title: "The role of error in the learning process",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_role_of_error_in_the_learning_process.html",
+  },
+  {
+    id: "new-nanotechnology-the-science-of-the-very-small",
+    title: "Nanotechnology: the science of the very small",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering note/summary completion, True/False/Not Given & multiple-choice, multiple-selection.",
+    htmlFile: "/passages/NEW_nanotechnology_the_science_of_the_very_small.html",
+  },
+  {
+    id: "new-can-a-global-database-of-fossils-help-us-predict-the-future-",
+    title: "Can a global database of fossils help us predict the future of biodiversity on Earth?",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering matching, multiple-selection, True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_can_a_global_database_of_fossils_help_us_predict_the_future_.html",
+  },
+  {
+    id: "new-babies-cry-in-their-mother-tongue",
+    title: "Babies cry in their mother tongue",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_babies_cry_in_their_mother_tongue.html",
+  },
+  {
+    id: "new-homo-ergaster",
+    title: "Homo ergaster",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (11 questions) covering matching, note/summary completion.",
+    htmlFile: "/passages/NEW_homo_ergaster.html",
+  },
+  {
+    id: "new-why-dont-we-sleep",
+    title: "Why don't we sleep?",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 2 practice test (13 questions) covering note/summary completion, True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_why_dont_we_sleep.html",
+  },
+  {
+    id: "new-all-in-the-family",
+    title: "All in the family",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (14 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_all_in_the_family.html",
+  },
+  {
+    id: "new-architecture-in-britain",
+    title: "Architecture in Britain",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (14 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_architecture_in_britain.html",
+  },
+  {
+    id: "new-marine-mammals-exhibit-their-ingenuity",
+    title: "Marine mammals exhibit their ingenuity",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (14 questions) covering True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_marine_mammals_exhibit_their_ingenuity.html",
+  },
+  {
+    id: "new-when-people-are-deaf-to-music",
+    title: "When people are 'deaf' to music",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (9 questions) covering True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_when_people_are_deaf_to_music.html",
+  },
+  {
+    id: "new-rebranding-art-museums",
+    title: "Rebranding art museums",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (14 questions) covering True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_rebranding_art_museums.html",
+  },
+  {
+    id: "new-songs-of-ourselves",
+    title: "Songs of ourselves",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (14 questions) covering matching, True/False/Not Given & multiple-choice.",
+    htmlFile: "/passages/NEW_songs_of_ourselves.html",
+  },
+  {
+    id: "new-tasmanias-museum-of-old-and-new-art",
+    title: "Tasmania's Museum of Old and New Art",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (14 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_tasmanias_museum_of_old_and_new_art.html",
+  },
+  {
+    id: "new-the-art-of-deception",
+    title: "The art of deception",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (9 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_art_of_deception.html",
+  },
+  {
+    id: "new-the-long-road-to-artificial-intelligence",
+    title: "The Long Road to Artificial Intelligence",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "IELTS Academic Reading — Passage 3 practice test (14 questions) covering True/False/Not Given & multiple-choice, note/summary completion.",
+    htmlFile: "/passages/NEW_the_long_road_to_artificial_intelligence.html",
+  },
   {
     id: "p1-jethro-tull-seed-drill",
     title: "Jethro Tull – Inventor of the Seed Drill",
