@@ -15,6 +15,77 @@ export type Passage = {
 
 export const PASSAGES: Passage[] = [
   // Newest tests first — add new tests at the TOP of this list.
+  // === Batch 3: reading tests reconstructed from source PDFs ===
+  {
+    id: "new-the-women-scientists-of-bologna",
+    title: "The Women Scientists of Bologna",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How 18th-century Italy uniquely opened university science to women — with paragraph matching, summary completion and match-the-scholar questions.",
+    htmlFile: "/passages/NEW_the_women_scientists_of_bologna.html",
+  },
+  {
+    id: "new-is-artificial-intelligence-a-threat",
+    title: "Is Artificial Intelligence a Threat?",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "Gary Marcus weighs whether advanced AI should worry us — with multiple choice, Yes/No/Not Given and a word-bank summary.",
+    htmlFile: "/passages/NEW_is_artificial_intelligence_a_threat.html",
+  },
+  {
+    id: "new-thinking-for-themselves",
+    title: "Thinking for Themselves",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "Insights into animal intelligence, from Alex the parrot to tool-making crows — with sentence-ending matching, multiple choice and Yes/No/Not Given.",
+    htmlFile: "/passages/NEW_thinking_for_themselves.html",
+  },
+  {
+    id: "new-translating-a-key-to-international-understanding",
+    title: "Translating: A Key to International Understanding?",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "What makes translation so complex, and the many forms it takes — with paragraph matching, summary completion, feature matching and multiple-selection.",
+    htmlFile: "/passages/NEW_translating_a_key_to_international_understanding.html",
+  },
+  {
+    id: "new-the-economic-effect-of-climate",
+    title: "The Economic Effect of Climate",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "William Masters's research linking frost, latitude and national wealth — with paragraph-heading matching and sentence completion.",
+    htmlFile: "/passages/NEW_the_economic_effect_of_climate.html",
+  },
+  {
+    id: "new-the-future-of-food-packaging",
+    title: "The Future of Food Packaging",
+    passageNumber: 2,
+    isPremium: true,
+    isNew: true,
+    description:
+      "Edible, nonstick, self-dissolving and compressed packaging innovations — with heading matching, company matching and sentence completion.",
+    htmlFile: "/passages/NEW_the_future_of_food_packaging.html",
+  },
+  {
+    id: "new-risk-taking",
+    title: "Risk Taking",
+    passageNumber: 3,
+    isPremium: true,
+    isNew: true,
+    description:
+      "How individuals and institutions weigh loss against gain when facing risk — with sentence-ending matching, paragraph matching and multiple choice.",
+    htmlFile: "/passages/NEW_risk_taking.html",
+  },
   // === Batch 2: reading tests reconstructed from source PDFs ===
   {
     id: "new-the-pyramid-of-cestius",
