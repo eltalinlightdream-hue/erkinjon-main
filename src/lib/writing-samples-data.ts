@@ -1378,6 +1378,169 @@ export const WRITING_ESSAYS: WritingEssay[] = [
       { word: "Resistance from big tech firms", definition: "opposition from large technology companies" },
     ],
   },
+  {
+    id: "t2-22",
+    testNumber: 22,
+    task: 2 as const,
+    question:
+      "Some educationalists think that international exchange visits will benefit teenagers at school. Do the advantages outweigh the disadvantages?",
+    wordCount: 319,
+    content: `<p>Educational exchange programmes are advocated by educators and specialists in this field, and are thought to be of great importance for school-aged teenagers due to the opportunity they offer to develop linguistic competence. However, these programmes can actually harm young students by creating social difficulties.</p>
+<p>One of the main benefits of overseas exchange programmes, cited by professionals in education, is the opportunity to enhance language skills. It is oftentimes challenging to attain a near-native level of proficiency in speaking and writing, as the conditions to hone these skills are rarely available domestically, which is why specialised language schools might specifically opt to provide overseas programmes for their students. This can provide the necessary environment, most importantly the day-to-day use of the language with native speakers. Around the world, thousands of language schools, for instance, offer three-to-four-month exchange programmes abroad so that their students can reach a native-like level, and in many cases this even proves to be effective.</p>
+<p>Nevertheless, it seems that there are far greater drawbacks to such programmes. Students who participate in them often report experiencing 'bullying' from local peers. It is natural for school-aged children to be curious about, or afraid of, those who appear noticeably unfamiliar to them. This means that students on exchange programmes might be bullied simply for standing out, which can leave long-lasting unpleasant memories. Afterwards, students might lose their interest in returning to the country, or adopt a rather negative impression of it because of some childhood bullying — a behaviour that is not uncommon at this developmental stage. Such incorrect impressions can negatively affect the host country's international reputation in the long term, for instance.</p>
+<p>In conclusion, linguistic development is the most notable benefit of overseas programmes, whilst these programmes might not serve young learners well because of the social pressure exerted by local students, which can leave long-term effects. Therefore, I would argue that they are counterproductive educational endeavours.</p>`,
+    vocabulary: [
+      { word: "Advocated by", definition: "publicly supported or recommended by" },
+      { word: "Linguistic competence", definition: "a person's ability to use a language effectively" },
+      { word: "Hone these skills", definition: "to sharpen or improve abilities through practice" },
+      { word: "Near-native level of proficiency", definition: "a standard of language ability close to that of a native speaker" },
+      { word: "Stand out", definition: "to be noticeably different from others" },
+      { word: "Long-lasting", definition: "continuing for a long period of time" },
+      { word: "Developmental stage", definition: "a particular period in a child's growth" },
+      { word: "Counterproductive", definition: "having the opposite of the intended effect" },
+    ],
+  },
+  {
+    id: "t2-23",
+    testNumber: 23,
+    task: 2 as const,
+    question:
+      "The differences between countries are becoming less and less evident. People around the world wear the same fashions, watch the same TV channels, use the same brands and have similar eating habits. Do you think that the advantages of this trend outweigh the disadvantages?",
+    wordCount: 342,
+    content: `<p>Homogenisation has had a significant impact on the world today, and it is argued that the life choices of people — eating, sports, fashion, and entertainment — are becoming increasingly similar. This trend can bring about increased interconnectedness between nations, yet I assert that homogenisation is rather unfavourable in terms of cultural uniqueness and the disproportionate dominance of some global brands.</p>
+<p>One of the main benefits of the trend is its ability to bring different nations together. It promotes unity and interconnectedness, as people from various countries can find common ground and understand each other better. This can lead to increased empathy, understanding, and cooperation — traits that are critical for the improvement of societies. Racism, for instance, can be successfully reduced with the help of increased interaction and mutual understanding between people.</p>
+<p>However, there are far more serious disadvantages to homogenisation. It can lead to the loss of unique cultures. As people around the world tend to adopt similar habits — for instance, wearing the same clothes or celebrating the same holidays — some traditions and customs can be forgotten over time. This thus creates a world where everything is the same, stripping the colour from societies. What makes a culture unique has always been its original traditional activities, yet homogenisation can bring this to a halt, having detrimental effects on the preservation of cultural heritage and diversity.</p>
+<p>Another area that can suffer from this shift, unexpectedly, is the economy — to be precise, local businesses. When people start to show an increased interest in global brands, these companies may open branches in different parts of the world due to rising demand. Local businesses and shops might suffer, as their sales can drop and they may be unable to compete with these mainstream companies. A decline in employment might be a clear outcome of this, for instance.</p>
+<p>In conclusion, the adoption of similar habits around the world might be beneficial in uniting nations; however, it exerts pressure on cultures and local economies. This shift, therefore, presents far greater downsides than benefits.</p>`,
+    vocabulary: [
+      { word: "Homogenisation", definition: "the process of making things uniform or similar" },
+      { word: "Interconnectedness", definition: "the state of being closely connected with others" },
+      { word: "Find common ground", definition: "to reach agreement or shared understanding" },
+      { word: "Cultural heritage", definition: "the traditions and customs passed down through generations" },
+      { word: "Bring (something) to a halt", definition: "to cause something to stop" },
+      { word: "Mainstream companies", definition: "large, dominant firms widely used by the public" },
+      { word: "Detrimental effects", definition: "harmful or damaging results" },
+      { word: "Disproportionate dominance", definition: "control that is unfairly large or excessive" },
+    ],
+  },
+  {
+    id: "t2-24",
+    testNumber: 24,
+    task: 2 as const,
+    question:
+      "In today's world of advanced science and technology, we still greatly value our artists such as musicians, painters and writers. What can the arts tell us about life that science and technology cannot?",
+    wordCount: 341,
+    content: `<p>Artists — musicians, painters, and writers — are still of great importance in the current era of advanced technology and science. There are several gaps that only the arts can fill, such as the inner self and cultural identity.</p>
+<p>Of course, with the help of technology, our lives have greatly improved. At present, we can cure diseases, connect continents, communicate over great distances, and even unlock the secrets of the cosmos, removing many obstacles from our lives.</p>
+<p>That said, there are things that laboratories and algorithms cannot reach, whereas the arts can. Inner life is one such area — a cardiologist can measure a heartbeat, but no instrument can measure heartbreak. The arts do this job by speaking directly to the human soul through music, paintings and novels, touching places that science cannot reach. People suffering from inner struggles, for instance, can find motivation through the arts and pursue their ambitions.</p>
+<p>Furthermore, beyond emotion, the arts carry a moral weight that science avoids. The arts may be able to shift opinions and change communities, and have long been civilisation's moral compass. They teach us to feel the consequences of certain choices, which is often far more persuasive than any statistic. For example, a person can change their attitude simply by reading a single book — something no algorithm could accomplish.</p>
+<p>The preservation of cultural identity is another intrinsic quality of the arts. A whole nation's music, stories and paintings carry the memory of who its people are — their struggles, humour, spirituality, and values. Regardless of how advanced a nation is, stripping away its arts means stripping away its soul.</p>
+<p>In conclusion, while science and technology have granted humanity remarkable tools to improve the physical quality of life, they remain silent on its deeper meaning. It is the arts — through a melody, a novel, or a painting — that answer the questions science cannot ask: Who are we? What do we feel? How should we live? A society without art may be efficient, but it will never be truly alive.</p>`,
+    vocabulary: [
+      { word: "Unlock the secrets of the cosmos", definition: "to discover the mysteries of the universe" },
+      { word: "Moral compass", definition: "a sense of what is right and wrong that guides behaviour" },
+      { word: "Intrinsic quality", definition: "an essential, natural characteristic of something" },
+      { word: "Cultural identity", definition: "the sense of belonging to a particular culture" },
+      { word: "Inner struggles", definition: "emotional or psychological difficulties within a person" },
+      { word: "Far more persuasive", definition: "much more convincing" },
+      { word: "Remain silent on", definition: "to give no answer or information about something" },
+      { word: "Strip away", definition: "to remove something completely" },
+    ],
+  },
+  {
+    id: "t2-25",
+    testNumber: 25,
+    task: 2 as const,
+    question:
+      "In many cities, planners tend to arrange shops, schools, offices and homes in specific areas and separate them from each other. Do you think the advantages of this policy outweigh the disadvantages?",
+    wordCount: 310,
+    content: `<p>Urban planners have a tendency to position public facilities such as shops, offices, homes and schools in separate locations so as to reduce travelling distances. However, this approach can also produce some noticeable downsides, which are far more significant than its benefits.</p>
+<p>The separate arrangement of public facilities can shorten the daily commute of city dwellers. Every day, thousands of city dwellers may travel long distances through traffic jams to reach their destinations when parks, supermarkets and offices are situated in one large section of the city, which is why distributing facilities across different urban regions can help to mitigate this issue. Some developed nations have, for instance, already experimented with this particular approach before, yielding measurable improvements in their communities.</p>
+<p>Nevertheless, this distribution of facilities can present several challenges for city residents. While governments try to construct public facilities across the city, it can incur high maintenance and construction costs, mainly because maintaining and funding smaller facilities across different areas is far more expensive than doing so in one large building. Massive supermarkets, therefore, are quite popular in densely populated urban areas around the world, as they tend to combine various facilities within one building, thereby offering a hassle-free shopping experience.</p>
+<p>Monitoring and regulating separately located public amenities can be a huge obstacle for city authorities. Managing a single large building that houses several public facilities can be relatively straightforward, yet overseeing safety and performance problems may prove to be difficult if facilities are scattered across the city. This increases the chances of poor management across the various facilities, allowing problems to remain unnoticed.</p>
+<p>To conclude, arranging public facilities in different areas of a city can lessen commuting issues, but this does not mean that it is entirely a positive change, since issues such as high maintenance and construction costs, along with poor management, seem to be far greater.</p>`,
+    vocabulary: [
+      { word: "Public facilities", definition: "shared services such as shops, schools and parks" },
+      { word: "City dwellers", definition: "people who live in a city" },
+      { word: "Mitigate this issue", definition: "to reduce the seriousness of a problem" },
+      { word: "Densely populated", definition: "having a large number of people in a small area" },
+      { word: "Hassle-free", definition: "without difficulty or trouble" },
+      { word: "Incur costs", definition: "to become subject to expenses" },
+      { word: "Scattered across", definition: "spread out over a wide area" },
+      { word: "Measurable improvements", definition: "progress that can be observed and quantified" },
+    ],
+  },
+  {
+    id: "t2-26",
+    testNumber: 26,
+    task: 2 as const,
+    question:
+      "Today, many people spend less and less time at home. What are the reasons for this? What are the effects of this on individuals and on society?",
+    wordCount: 396,
+    content: `<p>Technology has introduced major changes in how people tend to spend their time, as well as affecting other aspects of life, and it is argued that the amount of time spent at home is declining significantly. The pressures of modern life and a wider range of outdoor entertainment are the main triggers of this trend, and while it affects family bonds negatively, it does benefit the country's economy.</p>
+<p>One of the most apparent factors driving this trend is the pressure that modern life places on people. Take work demands in today's fast-paced world as an example. People face increased work pressures, and as a result, they may be forced to spend more time at work in order to meet these demands. In addition, longer commuting times compel individuals to spend more hours away from home, and this reduces the time available for home-based activities. There have also been a number of changes in people's lifestyles in the modern world, as social engagement with different people, along with the convenience of urban amenities, can contribute to less time spent at home.</p>
+<p>Secondly, the increased number of entertainment facilities also plays a part in this shift. Nowadays, the entertainment industry offers people various opportunities to spend quality time, such as cafés, restaurants, cinemas and clubs, all of which attract more and more people. Moreover, it is now easier to travel overseas compared to the past, and many individuals take short holidays abroad.</p>
+<p>There are a number of areas that are affected by the decreased time people spend at home, one of which is family bonds. To be precise, relationships between family members can weaken due to this shift in their lives. This may give rise to conflicts, a lack of trust, and weaker mutual understanding among them. Over time, these situations can lead to serious problems within a family, such as divorce between parents.</p>
+<p>The well-being of people can also be affected by excessive time spent at work and outside the home. Continuous fatigue and tiredness can result in a decline in productivity, along with the neglect of household responsibilities, all of which can eventually lead to burnout and poor health in the long run.</p>
+<p>In conclusion, while long commutes and work hours are the primary reasons for the trend, these directly contribute to poor health and strained family relationships, which can be detrimental to individuals' personal lives.</p>`,
+    vocabulary: [
+      { word: "Fast-paced world", definition: "a lifestyle or environment full of rapid activity" },
+      { word: "Commuting times", definition: "the time spent travelling to and from work" },
+      { word: "Home-based activities", definition: "things people do at home" },
+      { word: "Urban amenities", definition: "useful facilities available in a city" },
+      { word: "Family bonds", definition: "the emotional connections between family members" },
+      { word: "Give rise to", definition: "to cause or produce something" },
+      { word: "Burnout", definition: "extreme exhaustion caused by prolonged stress" },
+      { word: "Detrimental to", definition: "harmful or damaging to" },
+    ],
+  },
+  {
+    id: "t2-27",
+    testNumber: 27,
+    task: 2 as const,
+    question:
+      "Water pollution has been an increasing problem over the last few years. What causes water pollution? How can we prevent this problem?",
+    wordCount: 454,
+    content: `<p>As of today, there have been increasing concerns about water pollution, since it is becoming a common issue. While the poorly controlled use and distribution of this resource are the main driving factors behind the issue, there are, of course, a few initiatives to mitigate it.</p>
+<p>There are a number of reasons why water pollution has become a huge concern, among which poor control over its consumption in both urban and rural areas is the most likely explanation. In these settings, most people may neglect, or even be unaware of, the importance of this resource, and they may waste water by not being careful about how they consume it. Long showers, washing cars with a hose, over-watering gardens and leaving taps running, to name just a few, all contribute to the problem. In the long term, this can indeed lead to detrimental issues such as water shortages, higher water bills and environmental damage, placing a burden on both city and country dwellers in places where it was once abundant.</p>
+<p>Another factor that triggers water pollution is the poor distribution of the resource across regions, especially in the countryside, where water is mostly used for irrigation. In these types of settings, water is used mainly for agricultural purposes, and it oftentimes causes water pollution, as it becomes contaminated by the pesticides farmers use on their fields, making the water unsafe to drink. Moreover, the amount of water directed to the fields is sometimes poorly controlled. Once the drier seasons arrive, most of the fields are left without a sufficient amount of water, which results in the loss of crops and profit for the farmers.</p>
+<p>These issues, however, can be addressed with the right measures. One such effective deterrent against water pollution is to raise public awareness of the importance of water. Undeniably, it is the essential resource on Earth that all living creatures depend on, so ensuring its long-term availability is crucial, which can be done by funding public lectures or teaching younger generations about it in educational institutions. This initiative is important because, when people are united and well-informed, they can accomplish great things, and even a small step towards preserving water resources can make a difference.</p>
+<p>Implementing tiered tariffs on water consumption can also help. After a certain amount of consumption, water bills can be increased to limit consumption and encourage individuals to use less water, which can significantly reduce wastage, as people tend to become far more cautious when financial matters are involved. Studies also show, for instance, that most wasted water stems from household use.</p>
+<p>In conclusion, although uncontrolled water usage and unwise distribution are the main triggers of water pollution, the problem can be remedied through the initiatives mentioned above.</p>`,
+    vocabulary: [
+      { word: "Driving factors", definition: "the main causes behind something" },
+      { word: "Raise public awareness", definition: "to increase people's knowledge of an issue" },
+      { word: "Long-term availability", definition: "the state of remaining accessible over time" },
+      { word: "Contaminated by", definition: "made impure or polluted by a harmful substance" },
+      { word: "Irrigation", definition: "supplying water to land or crops for farming" },
+      { word: "Tiered tariffs", definition: "charges that increase in steps according to use" },
+      { word: "Reduce wastage", definition: "to cut down on the amount wasted" },
+      { word: "Abundant", definition: "existing in large quantities; plentiful" },
+    ],
+  },
+  {
+    id: "t2-28",
+    testNumber: 28,
+    task: 2 as const,
+    question:
+      "Some people think that one of the best ways to solve environmental problems is to increase the cost of fuels for cars and other vehicles. To what extent do you agree or disagree?",
+    wordCount: 353,
+    content: `<p>Taking the right approach to mitigating environmental issues comprises various measures, among which increasing the price of fuel for transport is oftentimes considered the most effective one. While I acknowledge that it brings about several advantages, I mostly disagree with this view for two reasons.</p>
+<p>Admittedly, there are a number of benefits to raising fuel prices. One of these is surely the reduction in air pollution. As far as damage to the environment is concerned, the most widespread form of pollution is air pollution, which in most cases comes from the carbon dioxide produced by cars. Once the number of cars on the roads declines because of increased fuel prices, the air can become cleaner, as it did, for instance, during the COVID-19 pandemic. During that period, the volume of traffic was greatly reduced, resulting in lower carbon dioxide emissions. Therefore, a high cost of fuel can offer a way to deal with environmental problems.</p>
+<p>However, this would not solve the problem alone, since there are other pollutants that affect nature negatively. Increasing the cost of fuel, on the other hand, can lead to several major problems in society. One apparent example is economic slowdown and inflation. Rising fuel prices may increase production and transportation costs in a way that leads to higher prices for goods and services, which can place a financial strain on both businesses and citizens. This increased inflation can reduce people's purchasing power, which can eventually slow down the country's economic growth.</p>
+<p>Furthermore, a rise in poverty levels within a society is another area affected by high fuel prices. Due to their limited resources, higher fuel prices can place a greater financial burden on low-income families, where most of the income is spent on basic necessities such as daily household items and food, and this kind of change can put even greater pressure on their lives. It can also push borderline households below the poverty line, resulting in weaker socio-economic conditions in society.</p>
+<p>In conclusion, although high fuel prices can help to tackle environmental issues, I firmly believe that the approach is far more negative, especially in economic terms.</p>`,
+    vocabulary: [
+      { word: "Mitigating environmental issues", definition: "reducing the severity of environmental problems" },
+      { word: "Carbon dioxide emissions", definition: "the release of CO₂ gas, mainly from burning fuel" },
+      { word: "Financial strain", definition: "pressure caused by a lack of money" },
+      { word: "Purchasing power", definition: "the amount of goods people can afford to buy" },
+      { word: "Economic slowdown", definition: "a reduction in the rate of economic growth" },
+      { word: "Basic necessities", definition: "essential items needed for daily life" },
+      { word: "Below the poverty line", definition: "having an income too low to meet basic needs" },
+      { word: "Socio-economic conditions", definition: "the social and economic circumstances of a group" },
+    ],
+  },
 ];
 
 export function findWritingEssay(id: string): WritingEssay | undefined {
