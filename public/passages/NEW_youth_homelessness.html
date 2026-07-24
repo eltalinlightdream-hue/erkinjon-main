@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>Youth Homelessness – IELTS</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+
+:root{--bg-color:#fff;--text-color:#000;--passage-bg:#fff;--questions-bg:#fff;--border-color:#d5d5d5;--highlight-color:#fef08a;--header-bg:#fff;--header-text:#000;--button-hover:#e4e4e4;--progress-complete:#21aa74;--timer-text:#000;--footer-bg:#fff;--cdi-font-size:16px;--cdi-line-height:1.5;}
+body.night-mode{--bg-color:#1a1a2e;--text-color:#e4e6eb;--passage-bg:#16213e;--questions-bg:#16213e;--border-color:#3a3f4b;--highlight-color:#6b5c10;--header-bg:#16213e;--header-text:#e4e6eb;--footer-bg:#16213e;--timer-text:#e4e6eb;--button-hover:#2a3550;--progress-complete:#81c995;}
+*{margin:0;padding:0;box-sizing:border-box;transition:background-color .3s,color .3s;}
+html,body{height:100%;font-family:Arial,sans-serif;background:var(--bg-color);color:var(--text-color);overflow:hidden;display:flex;flex-direction:column;font-size:16px;}
+header{height:56px;min-height:56px;padding:0 14px;background:var(--header-bg);border-bottom:1px solid var(--border-color);position:relative;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:50;}
+.cdi-left-brand{display:flex;align-items:center;gap:12px;min-width:220px;}
+.ielts-logo{font-size:40px;font-weight:900;letter-spacing:-2px;color:#e31837;line-height:1;font-family:Arial Black,Arial,sans-serif;}
+.ielts-logo::after{content:'™';font-size:9px;vertical-align:top;color:#e31837;}
+.test-taker{font-size:15px;font-weight:700;color:var(--header-text);}
+.cdi-center-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.social-link.telegram{background:#0088cc;color:#fff;border-radius:22px;padding:6px 18px;font-size:15px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;}
+.social-link.telegram:hover{background:#007bb5;}
+.header-controls{margin-left:auto;display:flex;align-items:center;gap:14px;}
+.timer-container{color:var(--timer-text);font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.hbtn{background:transparent;border:0;color:var(--header-text);width:34px;height:34px;padding:0;font-size:20px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px;}
+.hbtn:hover{background:var(--button-hover);}
+.display-panel{position:fixed;top:56px;right:0;width:min(300px,100vw);background:var(--questions-bg);border-left:1px solid var(--border-color);box-shadow:-4px 0 16px rgba(0,0,0,.15);padding:16px;z-index:2000;display:none;color:var(--text-color);}
+.display-panel.open{display:block;}
+.display-panel h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;}
+.display-panel label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px;}
+.display-panel input[type=range]{width:100%;accent-color:#2a6c96;}
+.theme-row{display:flex;gap:8px;margin-top:12px;}
+.theme-row button{border:1px solid var(--border-color);background:var(--questions-bg);color:var(--text-color);border-radius:6px;padding:6px 10px;cursor:pointer;}
+.cdi-part-header{margin:14px 14px 0;padding:10px 18px;background:rgb(241,242,236);border:1px solid var(--border-color);flex-shrink:0;}
+body.night-mode .cdi-part-header{background:#1f2b47;border-color:#3a3f4b;}
+.cdi-part-header p{margin:0;font-size:15px;line-height:1.4;color:var(--text-color);}
+main{display:flex;flex:1;min-height:0;margin-top:14px;overflow:hidden;}
+.passage-container,.questions-container{height:100%;overflow-y:auto;padding:22px 26px 70px;background:var(--passage-bg);color:var(--text-color);min-width:200px;font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.questions-container{background:var(--questions-bg);}
+.passage-title{font-size:18px;font-weight:700;margin:0 0 6px;text-align:center;color:var(--text-color);}
+.passage-subtitle{font-style:italic;font-size:15px;text-align:center;margin:0 0 16px;color:var(--text-color);}
+.passage-text p{margin:0 0 14px;color:var(--text-color);font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);}
+.passage-text::after{content:'';display:block;clear:both;}
+.passage-figure{float:right;width:230px;max-width:45%;margin:0 0 12px 18px;shape-outside:margin-box;}
+.passage-figure img{width:100%;height:auto;display:block;border:1px solid var(--border-color);border-radius:6px;}
+.diagram-figure{margin:6px 0 16px;text-align:center;}
+.diagram-figure img{max-width:100%;height:auto;border:1px solid var(--border-color);border-radius:6px;}
+.sec-title{font-size:16px;font-weight:700;margin:0 0 10px;color:var(--text-color);}
+.instructions{font-size:15px;margin:0 0 14px;color:var(--text-color);}
+.question{margin:0 0 22px;}
+.q-title{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.q-num{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:15px;font-weight:700;flex-shrink:0;}
+.question.answered .q-num{background:rgba(33,170,116,0.12);}
+.q-text{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.mcq-options{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
+.mcq-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border-color);border-radius:7px;background:var(--questions-bg);cursor:pointer;font-size:var(--cdi-font-size);color:var(--text-color);}
+.mcq-option input{transform:scale(1.1);flex-shrink:0;}
+.text-input{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:28px;padding:3px 8px;font-family:Arial,sans-serif;}
+.notes-box{border:1px solid var(--border-color);border-radius:6px;padding:14px 18px;margin-bottom:16px;background:var(--questions-bg);}
+.notes-box p,.notes-box li{font-size:var(--cdi-font-size);line-height:var(--cdi-line-height);color:var(--text-color);}
+.notes-box .nb-title{text-align:center;font-weight:700;margin-bottom:10px;}
+.notes-box .nb-head{font-weight:700;margin:12px 0 4px;}
+.notes-box .nb-line{margin:5px 0;padding-left:14px;position:relative;}
+.cdi-resizer{width:16px;flex:0 0 16px;background:transparent;cursor:col-resize;position:relative;display:flex;align-items:center;justify-content:center;z-index:5;}
+.cdi-resizer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-color);transform:translateX(-50%);}
+.cdi-resizer-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border:1.6px solid #535353;background:#f9f9f9;color:#535353;display:flex;align-items:center;justify-content:center;font-size:15px;pointer-events:none;}
+body.night-mode .cdi-resizer-handle{background:#1f2b47;color:#b0b3b8;border-color:#3a3f4b;}
+.cdi-resizer:hover::before,.cdi-resizer.dragging::before{background:#2a6c96;}
+.cdi-resizer:hover .cdi-resizer-handle,.cdi-resizer.dragging .cdi-resizer-handle{color:#2a6c96;border-color:#2a6c96;}
+footer{height:60px;background:var(--footer-bg);border-top:1px solid var(--border-color);padding:0;display:flex;align-items:stretch;flex-shrink:0;}
+.progress-container{display:flex;align-items:stretch;overflow-x:auto;flex:1;padding:0 14px;}
+.progress-item{width:38px;height:100%;background:transparent;color:var(--text-color);border:1.6px solid transparent;display:inline-flex;align-items:center;justify-content:center;font-size:15px;position:relative;cursor:pointer;}
+.progress-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#d7d7d7;}
+.progress-item.completed{color:#2a6c96;}.progress-item.completed::before{background:#21aa74;}
+.action-buttons{display:flex;align-items:stretch;}
+.btn-secondary,.btn-primary{height:100%;border-radius:0;padding:0 24px;background:#efefef;color:#535353;border:0;border-left:1px solid var(--border-color);font-size:15px;cursor:pointer;}
+.btn-secondary:hover,.btn-primary:hover{background:#e4e4e4;}
+.feedback-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:3000;display:none;justify-content:center;align-items:center;}
+.feedback-container{background:var(--passage-bg);width:90%;max-width:880px;height:88%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.3);display:flex;flex-direction:column;}
+.feedback-header{padding:18px 20px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;}
+.feedback-title{font-size:20px;font-weight:700;color:var(--text-color);display:flex;align-items:center;gap:10px;}
+.score-display{font-size:22px;font-weight:700;margin-left:8px;}
+#close-feedback{font-size:22px;background:none;border:none;color:var(--text-color);cursor:pointer;}
+.feedback-body{padding:18px;overflow-y:auto;}
+.feedback-item{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border-color);}
+.feedback-question{font-weight:700;margin-bottom:5px;font-size:15px;color:var(--text-color);}
+.feedback-answer{font-size:14px;padding:7px 11px;border-radius:4px;}
+.feedback-answer.correct{background:rgba(40,167,69,.1);color:#155724;}
+.feedback-answer.incorrect{background:rgba(220,53,69,.1);color:#721c24;}
+body.night-mode .feedback-answer.correct{color:#81c995;background:rgba(40,167,69,.15);}
+body.night-mode .feedback-answer.incorrect{color:#f5a0a8;background:rgba(220,53,69,.15);}
+.highlight{background-color:var(--highlight-color);cursor:pointer;}
+.highlight-tooltip{position:fixed;background:#333;color:#fff;padding:5px 10px;border-radius:4px;font-size:13px;z-index:9999;display:flex;align-items:center;gap:5px;}
+.inline-correct{color:#28a745;font-weight:700;margin-left:8px;font-size:14px;}
+.inline-wrong{color:#dc3545;font-weight:600;margin-left:8px;font-size:13px;}
+.test-locked input,.test-locked select{pointer-events:none;opacity:.85;}
+.test-locked .mcq-option{cursor:default;}
+
+/* ---- compat: source question classes ---- */
+.question-rubric h3,.section-title{font-size:16px;font-weight:700;margin:18px 0 10px;color:var(--text-color);}
+.question-rubric p,.instructions{font-size:15px;margin:0 0 12px;color:var(--text-color);}
+.question-group{margin:0 0 8px;}
+.question-content{margin-bottom:8px;}
+.dropdown-question-row{display:flex;flex-direction:column;gap:8px;margin:0 0 18px;}
+.dropdown-question-row>p,.question-item p{margin:0 0 6px;color:var(--text-color);}
+.question-number{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border:1.6px solid rgb(65,143,198);border-radius:3px;background:transparent;color:var(--text-color);font-size:14px;font-weight:700;margin-right:8px;flex-shrink:0;}
+.question.answered .question-number,.answered .question-number{background:rgba(33,170,116,0.12);}
+.true-false-option{margin:0 0 16px;}
+.true-false-option p{margin:0 0 6px;color:var(--text-color);}
+select,.sel,.select-answer,.short-answer,.summary-input,input[type=text]{border:1px solid var(--border-color);border-radius:3px;background:var(--questions-bg);color:var(--text-color);font-size:var(--cdi-font-size);min-height:30px;padding:4px 8px;font-family:Arial,sans-serif;max-width:100%;}
+.summary-input{min-width:120px;text-align:center;}
+.question-item{margin:12px 0;}
+@media(max-width:900px){.test-taker{display:none;}.cdi-center-brand{position:static;transform:none;margin-left:6px;}.cdi-resizer{display:none!important;}main{flex-direction:column;}.passage-container,.questions-container{width:100%!important;flex:none!important;height:50%!important;}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="cdi-left-brand"><span class="ielts-logo">IELTS</span><span class="test-taker">Test taker ID</span></div>
+  <div class="cdi-center-brand"><a class="social-link telegram" href="https://t.me/augustus_flores" target="_blank"><i class="fab fa-telegram-plane"></i><span>Abduraimov Erkinjon</span></a></div>
+  <div class="header-controls">
+    <div class="timer-container"><i class="fas fa-clock"></i><span id="timer">20:00</span></div>
+    <button class="hbtn" id="start-timer"><i class="fas fa-play"></i></button>
+    <button class="hbtn" id="pause-timer"><i class="fas fa-pause"></i></button>
+    <button class="hbtn" id="reset-timer"><i class="fas fa-redo"></i></button>
+    <button class="hbtn" id="fullscreen-toggle"><i class="fas fa-expand"></i></button>
+    <button class="hbtn" id="night-mode-toggle"><i class="fas fa-moon"></i></button>
+    <button class="hbtn" id="display-menu-toggle"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+<div class="display-panel" id="display-panel">
+  <h3>Display options</h3>
+  <label>Text size</label><input id="font-size-range" type="range" min="14" max="22" value="16"/>
+  <label>Line spacing</label><input id="line-height-range" type="range" min="140" max="190" value="150"/>
+  <div class="theme-row"><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
+</div>
+<div class="cdi-part-header"><p><strong>Reading Passage 3</strong></p><p>You should spend about 20 minutes on Questions 33–46, which are based on Reading Passage 3 below.</p></div><main>
+  <div class="passage-container" id="passage-container">
+    <div class="passage-title">Youth Homelessness</div>
+    <div class="passage-subtitle">A look at the problems in assessing the scale of homelessness among young people in Britain, and the explanations that have been put forward to account for it</div>
+
+    <div class="passage-text" id="passage-text">
+<p>Youth homelessness did not emerge as a public problem in Britain until the second half of the 20th century. In 1975, a television programme called Johnny Go Home shocked the public by showing the risks faced by a runaway child in London, and placed the problem of youth homelessness firmly on the public agenda, although policy initiatives were not forthcoming. Behind the rise in homelessness among young people were the problems of youth unemployment, a reduction in state benefits, and a shortage of suitable housing.</p>
+<p>Government responses to youth homelessness generally involve encouraging voluntary agencies to set up schemes. The proportions of young people affected vary from region to region, as do the underlying economic structures, making comparison difficult. However, homeless youngsters all over Britain face many of the same risks as they move between relatives, institutions and the street.</p>
+<p>Statistics are an integral part of accounts of social issues, whether they be in the press or in the reports of agencies and academic commentators. The reaction of policy makers to a social problem also depends largely on the number of people it is thought to affect. However, there are very few agreed statistics on homelessness.</p>
+<p>One reason for this is that there are a number of practical difficulties with measuring it. Young people who are staying temporarily with friends, for example, may not contact homelessness agencies, so their housing problem goes unrecorded. In addition, some may be homeless for just a night or two, others for months or years.</p>
+<p>There is also no globally accepted definition of homelessness. For example, in Britain someone is deemed homeless by a local authority if they have no accommodation that they are entitled to occupy, but they must also fulfil a number of other criteria: they must have a local connection of some sort, they must not be intentionally homeless, and they must show that they are in 'priority need' of accommodation. Official statistics therefore exclude large numbers of homeless people.</p>
+<p>Explanations of the causes of youth homelessness also vary considerably. Structural explanations account for youth homelessness by reference to societal structures, such as changes in the housing market. This is crucial since, by definition, homelessness is a housing issue. In particular, there has been a substantial decline in rented housing in recent years. The economic power of young people is also significant. Both unemployment and low pay are frequently viewed as being integral to homelessness and both factors affect young people in Britain. However, unemployment is not directly the issue — rather it is a question of the subsequent low income that unemployment incurs. As such, the state benefit system is also seen to be fundamental to the rise in youth homelessness, because young people's benefits have been heavily restricted in a number of ways. As a result, many young people may be heavily in debt.</p>
+<p>These various difficulties have been further compounded by a number of demographic changes, such as the expanding number of single-person households. Consequently, while there has been a huge reduction in the supply of affordable accommodation, there has been an increase in the demand for such housing.</p>
+<p>However, the problem of youth homelessness is often explained in more personal terms, which relate it to the individual behaviours of homeless people. A wide variety of such personal factors are often introduced to help explain youth homelessness, such as leaving home, mental illness, crime, and drug abuse, although there is usually disagreement over how these factors should be interpreted.</p>
+<p>Four approaches can be taken towards the explanation of youth homelessness. One is the 'political' model, which sees homelessness as stemming primarily from the way society is organised. This is a view widely adopted in academic circles, but there are also a number of criticisms that can be made of it. Firstly, only by looking in detail at the individual features of the situation is it possible to assess the impact of these structural features on the homeless and to identify appropriate provision. In addition, this approach tends to treat young homeless people as powerless victims, which patronises them and ignores the fact that they are still capable of self-determination.</p>
+<p>The 'individual culpability' model sees homelessness as having little or nothing to do with societal structures but as resulting from the individual behaviour of young homeless people themselves. Young homeless people, it is argued, do not have to leave home. As individuals in a free society they are accountable to themselves for their decisions. The advantage of this perspective is that it gives some credibility to the self-determination of young homeless people. However, because such an approach allocates blame to an individual, it also carries punitive implications.</p>
+<p>In the 'pathology' model, the individual's situation is perceived to be a consequence of personality disorders that may result from early childhood experiences. According to this model, young homeless people have specific problems and they therefore require specialist support. This approach can present a misleading picture of the young homeless — many of whom have no problems other than one of accommodation.</p>
+<p>Finally, according to the 'child' model, young people become homeless because they are simply too immature to cope with life. However, there is evidence to suggest that many homeless youngsters show considerable resilience and maturity in learning to cope with and survive homelessness.</p>
+</div>
+  </div>
+  <div class="cdi-resizer" id="cdi-resizer"><div class="cdi-resizer-handle">↔</div></div>
+  <div class="questions-container" id="questions-container">
+<div class="question"><div class="question-rubric"><h3>Questions 33 – 37</h3><p>Choose the correct letter, <strong>A, B, C or D</strong>.</p></div><div class="question-content"><div class="question-item"><p><span class="question-number">33</span> How did the TV programme Johnny Go Home affect attitudes to youth homelessness in Britain?</p><div class="mcq-options"><label class="mcq-option"><input type="radio" name="q33" value="A"> <span><strong>A</strong>&nbsp;&nbsp;It raised awareness of the issue on a wide scale.</span></label><label class="mcq-option"><input type="radio" name="q33" value="B"> <span><strong>B</strong>&nbsp;&nbsp;It led to official measures to deal with the situation.</span></label><label class="mcq-option"><input type="radio" name="q33" value="C"> <span><strong>C</strong>&nbsp;&nbsp;It discouraged many young people from leaving home.</span></label><label class="mcq-option"><input type="radio" name="q33" value="D"> <span><strong>D</strong>&nbsp;&nbsp;It made people aware of the real causes of the problem.</span></label></div></div>
+<div class="question-item"><p><span class="question-number">34</span> Comparison of homelessness in different regions is difficult, partly because of variations in</p><div class="mcq-options"><label class="mcq-option"><input type="radio" name="q34" value="A"> <span><strong>A</strong>&nbsp;&nbsp;the places homeless children go to.</span></label><label class="mcq-option"><input type="radio" name="q34" value="B"> <span><strong>B</strong>&nbsp;&nbsp;government responses.</span></label><label class="mcq-option"><input type="radio" name="q34" value="C"> <span><strong>C</strong>&nbsp;&nbsp;economic structures.</span></label><label class="mcq-option"><input type="radio" name="q34" value="D"> <span><strong>D</strong>&nbsp;&nbsp;the work done by voluntary agencies.</span></label></div></div>
+<div class="question-item"><p><span class="question-number">35</span> Why is the lack of agreed statistics on homelessness a problem?</p><div class="mcq-options"><label class="mcq-option"><input type="radio" name="q35" value="A"> <span><strong>A</strong>&nbsp;&nbsp;Accounts of the problem by the press are ineffective.</span></label><label class="mcq-option"><input type="radio" name="q35" value="B"> <span><strong>B</strong>&nbsp;&nbsp;Policy makers may not respond appropriately to the situation.</span></label><label class="mcq-option"><input type="radio" name="q35" value="C"> <span><strong>C</strong>&nbsp;&nbsp;Academic commentary on the issue becomes unclear.</span></label><label class="mcq-option"><input type="radio" name="q35" value="D"> <span><strong>D</strong>&nbsp;&nbsp;Agencies may not be able to provide funding.</span></label></div></div>
+<div class="question-item"><p><span class="question-number">36</span> The lack of statistics on homelessness may partly be caused by</p><div class="mcq-options"><label class="mcq-option"><input type="radio" name="q36" value="A"> <span><strong>A</strong>&nbsp;&nbsp;disagreement over the type of data needed.</span></label><label class="mcq-option"><input type="radio" name="q36" value="B"> <span><strong>B</strong>&nbsp;&nbsp;reluctance of the homeless to identify themselves.</span></label><label class="mcq-option"><input type="radio" name="q36" value="C"> <span><strong>C</strong>&nbsp;&nbsp;lack of time to carry out surveys.</span></label><label class="mcq-option"><input type="radio" name="q36" value="D"> <span><strong>D</strong>&nbsp;&nbsp;difficulty in identifying the homeless.</span></label></div></div>
+<div class="question-item"><p><span class="question-number">37</span> The writer describes the criteria for classifying someone as homeless in Britain to illustrate</p><div class="mcq-options"><label class="mcq-option"><input type="radio" name="q37" value="A"> <span><strong>A</strong>&nbsp;&nbsp;the different ways of collecting statistics.</span></label><label class="mcq-option"><input type="radio" name="q37" value="B"> <span><strong>B</strong>&nbsp;&nbsp;the fact that too many people are defined as homeless.</span></label><label class="mcq-option"><input type="radio" name="q37" value="C"> <span><strong>C</strong>&nbsp;&nbsp;the variation there is in different parts of the country.</span></label><label class="mcq-option"><input type="radio" name="q37" value="D"> <span><strong>D</strong>&nbsp;&nbsp;the fact that official statistics may be misleading.</span></label></div></div></div></div>
+<div class="question"><div class="question-rubric"><h3>Questions 38 – 42</h3><p>Complete the summary using the list of words and phrases, <strong>A–J</strong>, below.</p></div><div class="question-content"><div class="notes-box"><div class="notes-box"><p class="nb-line"><strong>A</strong>&nbsp;&nbsp;demographic explanations</p><p class="nb-line"><strong>B</strong>&nbsp;&nbsp;government support</p><p class="nb-line"><strong>C</strong>&nbsp;&nbsp;bank loans</p><p class="nb-line"><strong>D</strong>&nbsp;&nbsp;solutions</p><p class="nb-line"><strong>E</strong>&nbsp;&nbsp;money owed</p><p class="nb-line"><strong>F</strong>&nbsp;&nbsp;economic explanations</p><p class="nb-line"><strong>G</strong>&nbsp;&nbsp;personal explanations</p><p class="nb-line"><strong>H</strong>&nbsp;&nbsp;structural explanations</p><p class="nb-line"><strong>I</strong>&nbsp;&nbsp;income</p><p class="nb-line"><strong>J</strong>&nbsp;&nbsp;property to rent</p></div><p class="nb-title">Explanations for youth homelessness</p>
+       <p class="nb-line">There are various explanations for youth homelessness. Firstly, the reduction in <select id="q38" name="q38"><option value="">--</option><option value="A">A  —  demographic explanations</option><option value="B">B  —  government support</option><option value="C">C  —  bank loans</option><option value="D">D  —  solutions</option><option value="E">E  —  money owed</option><option value="F">F  —  economic explanations</option><option value="G">G  —  personal explanations</option><option value="H">H  —  structural explanations</option><option value="I">I  —  income</option><option value="J">J  —  property to rent</option></select> was caused by changes in the housing market and is one of a number of <select id="q39" name="q39"><option value="">--</option><option value="A">A  —  demographic explanations</option><option value="B">B  —  government support</option><option value="C">C  —  bank loans</option><option value="D">D  —  solutions</option><option value="E">E  —  money owed</option><option value="F">F  —  economic explanations</option><option value="G">G  —  personal explanations</option><option value="H">H  —  structural explanations</option><option value="I">I  —  income</option><option value="J">J  —  property to rent</option></select> for youth homelessness. There may also be <select id="q40" name="q40"><option value="">--</option><option value="A">A  —  demographic explanations</option><option value="B">B  —  government support</option><option value="C">C  —  bank loans</option><option value="D">D  —  solutions</option><option value="E">E  —  money owed</option><option value="F">F  —  economic explanations</option><option value="G">G  —  personal explanations</option><option value="H">H  —  structural explanations</option><option value="I">I  —  income</option><option value="J">J  —  property to rent</option></select> for developments, such as the increased demand for single-person accommodation. Thirdly, some young people may find it difficult to get state benefits, and do not have jobs. These are <select id="q41" name="q41"><option value="">--</option><option value="A">A  —  demographic explanations</option><option value="B">B  —  government support</option><option value="C">C  —  bank loans</option><option value="D">D  —  solutions</option><option value="E">E  —  money owed</option><option value="F">F  —  economic explanations</option><option value="G">G  —  personal explanations</option><option value="H">H  —  structural explanations</option><option value="I">I  —  income</option><option value="J">J  —  property to rent</option></select> for homelessness. Lastly, factors such as crime and mental illness are examples of <select id="q42" name="q42"><option value="">--</option><option value="A">A  —  demographic explanations</option><option value="B">B  —  government support</option><option value="C">C  —  bank loans</option><option value="D">D  —  solutions</option><option value="E">E  —  money owed</option><option value="F">F  —  economic explanations</option><option value="G">G  —  personal explanations</option><option value="H">H  —  structural explanations</option><option value="I">I  —  income</option><option value="J">J  —  property to rent</option></select>.</p></div></div></div>
+<div class="question"><div class="question-rubric"><h3>Questions 43 – 46</h3><p>Do the following statements agree with the claims of the writer in Reading Passage 3?</p><p>Write <strong>YES</strong> if the statement agrees with the views of the writer, <strong>NO</strong> if the statement contradicts the views of the writer, or <strong>NOT GIVEN</strong> if it is impossible to say what the writer thinks about this.</p></div><div class="question-content"><div class="dropdown-question-row"><p><span class="question-number">43</span> The 'political' model is unpopular among academics.</p><select id="q43" name="q43"><option value="">--</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="dropdown-question-row"><p><span class="question-number">44</span> The 'political' model may lead to young homeless people being regarded as having hardly any control over their lives.</p><select id="q44" name="q44"><option value="">--</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="dropdown-question-row"><p><span class="question-number">45</span> The disadvantages of the 'individual culpability' model far outweigh the advantages.</p><select id="q45" name="q45"><option value="">--</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option></select></div>
+<div class="dropdown-question-row"><p><span class="question-number">46</span> The 'child' model is an accurate representation of the situation of many young homeless people.</p><select id="q46" name="q46"><option value="">--</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option></select></div></div></div>
+    <div style="height:28px"></div>
+  </div>
+</main>
+<footer>
+  <div class="progress-container" id="progress-container"></div>
+  <div class="action-buttons">
+    <button class="btn-secondary" id="reset-btn">Reset Answers</button>
+    <button class="btn-primary" id="submit-btn">Submit Answers</button>
+  </div>
+</footer>
+<div class="feedback-overlay" id="feedback-overlay">
+  <div class="feedback-container">
+    <div class="feedback-header">
+      <div class="feedback-title"><i class="fas fa-chart-bar"></i> Results <span class="score-display" id="score-display">0/0</span></div>
+      <button id="close-feedback"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="feedback-body" id="feedback-body"></div>
+  </div>
+</div>
+
+<script>
+const CA = {"33":"A","34":"C","35":"B","36":"D","37":"D","38":"J","39":"H","40":"A","41":"F","42":"G","43":"NO","44":"YES","45":"NOT GIVEN","46":"NO"};
+const KEYS = Object.keys(CA).sort((a,b)=>parseInt(a,10)-parseInt(b,10));
+function norm(s){return String(s==null?'':s).toLowerCase().trim().replace(/[’']/g,"'").replace(/\s+/g,' ').replace(/[.,;:]+$/,'');}
+function ansList(q){return Array.isArray(CA[q])?CA[q]:[CA[q]];}
+function isOk(q,v){if(v==='')return false;return ansList(q).some(a=>norm(a)===norm(v));}
+function dispAns(q){return ansList(q).join(' / ');}
+function groupNameFor(q){q=String(q);let name=null;document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(m&&parseInt(m[1])<=parseInt(q)&&parseInt(q)<=parseInt(m[2]))name=cb.name;});return name;}
+function getVal(q){
+  const checked=document.querySelectorAll('input[name="q'+q+'"]:checked');
+  if(checked.length){return Array.from(checked).map(e=>e.value).join('');}
+  let el=document.querySelector('input[name="q'+q+'"], textarea[name="q'+q+'"], select[name="q'+q+'"]');
+  if(el) return (el.value||'').trim();
+  el=document.querySelector('#q'+q+' select, #q'+q+' input, #q'+q+' textarea');
+  if(el) return (el.value||'').trim();
+  el=document.querySelector('.drop-zone[data-qnum="'+q+'"]');
+  if(el) return (el.dataset.answer||'').trim();
+  const gn=groupNameFor(q);
+  if(gn){return Array.from(document.querySelectorAll('input[name="'+gn+'"]:checked')).map(e=>e.value).join(', ');}
+  return '';
+}
+function qContainer(q){
+  let el=document.querySelector('[data-q="'+q+'"]');
+  if(el) return el;
+  el=document.querySelector('input[name="q'+q+'"], textarea[name="q'+q+'"], select[name="q'+q+'"]');
+  if(el) return el.closest('.dropdown-question-row, .true-false-option, .question, .question-item, li, p')||el.parentElement;
+  el=document.getElementById('q'+q);
+  if(el) return el.closest('.dropdown-question-row, .true-false-option, .question, .question-item')||el;
+  const gn=groupNameFor(q);
+  if(gn){const cb=document.querySelector('input[name="'+gn+'"]');if(cb)return cb.closest('.question, .question-item')||cb.parentElement;}
+  return null;
+}
+function groupVerdicts(){
+  const v={},seen={};
+  document.querySelectorAll('input[type=checkbox][name]').forEach(cb=>{
+    const m=cb.name.match(/^q(\d+)[-_](\d+)$/);if(!m||seen[cb.name])return;seen[cb.name]=1;
+    const lo=parseInt(m[1]),hi=parseInt(m[2]),qs=[];for(let q=lo;q<=hi;q++)qs.push(String(q));
+    const checked=Array.from(document.querySelectorAll('input[name="'+cb.name+'"]:checked')).map(e=>e.value);
+    const correct=qs.map(q=>CA[q]);const cn=correct.map(norm);const used={};let nC=0;
+    checked.forEach(val=>{const nv=norm(val);const idx=cn.indexOf(nv);if(idx>-1&&!used[idx]){used[idx]=1;nC++;}});
+    qs.forEach((q,i)=>{v[q]={ok:i<nC,user:checked.join(', ')||'(none)',correct:correct.join(', ')};});
+  });
+  return v;
+}
+const pc=document.getElementById('progress-container');
+KEYS.forEach(q=>{const d=document.createElement('div');d.className='progress-item';d.textContent=q;d.dataset.qid=q;d.addEventListener('click',()=>{const t=document.querySelector('[name="q'+q+'"], #q'+q+', [data-q="'+q+'"], .drop-zone[data-qnum="'+q+'"]');if(t)t.scrollIntoView({behavior:'smooth',block:'center'});});pc.appendChild(d);});
+function updateProg(){KEYS.forEach(q=>{const ans=getVal(q)!=='';const item=document.querySelector('.progress-item[data-qid="'+q+'"]');if(item)item.classList.toggle('completed',ans);const c=qContainer(q);if(c&&c.classList)c.classList.toggle('answered',ans);});}
+document.addEventListener('change',updateProg);document.addEventListener('input',updateProg);
+let submitted=false;
+function lockAll(){submitted=true;document.body.classList.add('test-locked');document.querySelectorAll('input,select,textarea').forEach(e=>e.disabled=true);const r=document.getElementById('reset-btn');r.disabled=true;r.style.opacity='.4';}
+function verdict(q,gv){if(gv[q])return{ok:gv[q].ok,user:gv[q].user,disp:gv[q].correct};const user=getVal(q);return{ok:isOk(q,user),user:user||'(none)',disp:dispAns(q)};}
+function showInline(gv){
+  document.querySelectorAll('.inline-correct,.inline-wrong').forEach(e=>e.remove());
+  KEYS.forEach(q=>{const r=verdict(q,gv);const sp=document.createElement('span');sp.className=r.ok?'inline-correct':'inline-wrong';sp.style.cssText='display:block;margin-top:6px;';sp.textContent=r.ok?'✓':'Correct: '+r.disp;const c=qContainer(q);if(c)c.appendChild(sp);});
+}
+document.getElementById('submit-btn').addEventListener('click',function(){
+  if(submitted){document.getElementById('feedback-overlay').style.display='flex';return;}
+  const gv=groupVerdicts();let score=0,htmlOut='';
+  KEYS.forEach(q=>{const r=verdict(q,gv);if(r.ok)score++;htmlOut+='<div class="feedback-item"><div class="feedback-question">Q'+q+'</div><div class="feedback-answer '+(r.ok?'correct':'incorrect')+'">Your answer: '+r.user+'<br/>'+(r.ok?'✔ Correct':'✘ Incorrect – Correct: <strong>'+r.disp+'</strong>')+'</div></div>';});
+  document.getElementById('feedback-body').innerHTML=htmlOut;document.getElementById('score-display').textContent=score+'/'+KEYS.length;document.getElementById('feedback-overlay').style.display='flex';lockAll();showInline(gv);
+});
+document.getElementById('close-feedback').addEventListener('click',()=>document.getElementById('feedback-overlay').style.display='none');
+document.getElementById('reset-btn').addEventListener('click',()=>{if(submitted)return;document.querySelectorAll('input[type=text],textarea').forEach(e=>e.value='');document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(e=>e.checked=false);document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);updateProg();});
+let ti=null,tr=1200;function updT(){const m=Math.floor(tr/60).toString().padStart(2,'0'),s=(tr%60).toString().padStart(2,'0');document.getElementById('timer').textContent=m+':'+s;}
+document.getElementById('start-timer').addEventListener('click',()=>{if(ti)return;ti=setInterval(()=>{if(tr>0){tr--;updT();}else{clearInterval(ti);ti=null;alert('Time is up!');}},1000);});
+document.getElementById('pause-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;});
+document.getElementById('reset-timer').addEventListener('click',()=>{clearInterval(ti);ti=null;tr=1200;updT();});
+document.getElementById('night-mode-toggle').addEventListener('click',function(){document.body.classList.toggle('night-mode');const i=this.querySelector('i');i.classList.toggle('fa-moon');i.classList.toggle('fa-sun');});
+document.getElementById('fullscreen-toggle').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();});
+document.addEventListener('fullscreenchange',()=>{document.getElementById('fullscreen-toggle').innerHTML=document.fullscreenElement?'<i class="fas fa-compress"></i>':'<i class="fas fa-expand"></i>';});
+const dpanel=document.getElementById('display-panel'),dmenu=document.getElementById('display-menu-toggle');
+dmenu.addEventListener('click',e=>{e.stopPropagation();dpanel.classList.toggle('open');});
+document.addEventListener('click',e=>{if(dpanel.classList.contains('open')&&!dpanel.contains(e.target)&&!dmenu.contains(e.target))dpanel.classList.remove('open');});
+const fsr=document.getElementById('font-size-range'),lhr=document.getElementById('line-height-range');
+function applyDisp(){document.documentElement.style.setProperty('--cdi-font-size',(fsr?fsr.value:16)+'px');document.documentElement.style.setProperty('--cdi-line-height',lhr?(Number(lhr.value)/100):1.5);}
+fsr.addEventListener('input',applyDisp);lhr.addEventListener('input',applyDisp);
+document.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>{b.dataset.themeChoice==='dark'?document.body.classList.add('night-mode'):document.body.classList.remove('night-mode');}));
+const pc2=document.getElementById('passage-container'),qc=document.getElementById('questions-container'),rs=document.getElementById('cdi-resizer');
+pc2.style.flex='0 0 50%';qc.style.flex='1 1 auto';let drag=false;
+rs.addEventListener('mousedown',e=>{if(window.innerWidth<=900)return;drag=true;rs.classList.add('dragging');document.body.style.cursor='col-resize';document.body.style.userSelect='none';e.preventDefault();});
+window.addEventListener('mousemove',e=>{if(!drag)return;const main=rs.parentElement,rect=main.getBoundingClientRect(),total=rect.width-rs.offsetWidth;let left=e.clientX-rect.left;left=Math.min(Math.max(left,total*.22),total*.78);pc2.style.flex='0 0 '+left+'px';qc.style.flex='1 1 auto';});
+window.addEventListener('mouseup',()=>{drag=false;rs.classList.remove('dragging');document.body.style.cursor='';document.body.style.userSelect='';});
+let hlTip=null,selR=null;
+function colorPicker(x,y){if(hlTip)hlTip.remove();const colors=["lightgreen","yellow","lightskyblue","#ffb3b3"];const p=document.createElement('div');p.className='highlight-tooltip';p.style.cssText=`top:${y}px;left:${x}px;position:fixed;z-index:9999;display:flex;gap:4px;`;colors.forEach(c=>{const b=document.createElement('button');b.style.cssText=`background:${c};border:none;width:20px;height:20px;border-radius:50%;cursor:pointer;`;b.onclick=()=>{applyHL(c);p.remove();hlTip=null;};p.appendChild(b);});document.body.appendChild(p);hlTip=p;}
+function applyHL(color){if(!selR)return;try{const sp=document.createElement('span');sp.className='highlight';sp.style.backgroundColor=color;sp.appendChild(selR.extractContents());selR.insertNode(sp);selR=null;window.getSelection().removeAllRanges();sp.addEventListener('click',e=>{e.stopPropagation();if(hlTip){hlTip.remove();hlTip=null;}const t=document.createElement('div');t.className='highlight-tooltip';t.style.cssText=`top:${e.clientY}px;left:${e.clientX}px;position:fixed;z-index:9999;`;t.innerHTML='<button style="color:#fff;background:red;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;">Remove</button>';t.querySelector('button').onclick=()=>{const par=sp.parentNode;while(sp.firstChild)par.insertBefore(sp.firstChild,sp);par.removeChild(sp);par.normalize();t.remove();hlTip=null;};document.body.appendChild(t);hlTip=t;});}catch(e){selR=null;}}
+['passage-text','questions-container'].forEach(id=>{const node=document.getElementById(id);if(!node)return;node.addEventListener('mouseup',e=>{const sel=window.getSelection();if(!sel||!sel.toString().trim())return;if(!e.currentTarget.contains(sel.anchorNode))return;try{selR=sel.getRangeAt(0).cloneRange();const r=selR.getBoundingClientRect();colorPicker(r.left,r.top-44);}catch(err){selR=null;}});});
+document.addEventListener('mousedown',e=>{if(hlTip&&!hlTip.contains(e.target)){hlTip.remove();hlTip=null;window.getSelection().removeAllRanges();selR=null;}});
+document.addEventListener('DOMContentLoaded',()=>{updT();updateProg();});
+</script>
+<script src="/passages/test-progress-bridge.js"></script>
+</body>
+</html>
