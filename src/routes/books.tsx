@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { BookOpen, ChevronLeft, ChevronRight, Maximize2, Loader2, ZoomIn, ZoomOut } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Loader2, ZoomIn, ZoomOut } from "lucide-react";
 
 export const Route = createFileRoute("/books")({
   head: () => ({
@@ -79,6 +79,49 @@ function loadPdfJs(): Promise<any> {
     document.body.appendChild(script);
   });
   return pdfjsLoadingPromise;
+}
+
+function BookCoverThumbnail({ file, title }: { file: string; title: string }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadPdfJs().then((pdfjsLib) => {
+      pdfjsLib.getDocument(file).promise.then((pdf: any) => {
+        if (cancelled) return;
+        pdf.getPage(1).then((page: any) => {
+          if (cancelled || !canvasRef.current || !containerRef.current) return;
+          const containerWidth = containerRef.current.clientWidth;
+          const baseViewport = page.getViewport({ scale: 1 });
+          const scale = containerWidth / baseViewport.width;
+          const viewport = page.getViewport({ scale });
+          const canvas = canvasRef.current;
+          const context = canvas.getContext("2d")!;
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          page.render({ canvasContext: context, viewport }).promise.then(() => {
+            if (!cancelled) setLoaded(true);
+          });
+        });
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [file]);
+
+  return (
+    <div ref={containerRef} className="w-full h-full flex items-center justify-center overflow-hidden">
+      {!loaded && <Loader2 className="w-6 h-6 text-muted-foreground animate-spin" />}
+      <canvas
+        ref={canvasRef}
+        aria-label={`${title} — first page preview`}
+        className={loaded ? "w-full h-auto" : "hidden"}
+      />
+    </div>
+  );
 }
 
 function PdfPageViewer({ book }: { book: Book }) {
@@ -238,7 +281,7 @@ function Books() {
                 {book.cover ? (
                   <img src={book.cover} alt={book.title} className="w-full h-full object-cover" />
                 ) : (
-                  <BookOpen className="w-12 h-12 text-muted-foreground" />
+                  <BookCoverThumbnail file={book.file} title={book.title} />
                 )}
               </div>
               <div className="p-4 flex flex-col gap-2 flex-1">
