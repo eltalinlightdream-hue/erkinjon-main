@@ -83,6 +83,7 @@ const FOOTER_SECTIONS: { heading: string; links: FooterLink[] }[] = [
     links: [
       { to: "/videos", label: "Video Lessons" },
       { to: "/articles", label: "Articles" },
+      { to: "/books", label: "Books by the Author" },
       { to: "/vocabulary", label: "Vocabulary" },
       { to: "/contact-about", label: "Contact & About" },
       { to: "/premium", label: "Premium", accent: true },
@@ -349,6 +350,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               className={navLink("/articles", "Articles", isActive("/articles"))}
             >
               Articles
+            </Link>
+            <Link to="/books" className={navLink("/books", "Books by the Author", isActive("/books"))}>
+              Books
             </Link>
             {/* Japanese dropdown — hub link + its sub-pages */}
             <div className="relative" {...makeHover(setJapaneseOpen, japaneseTimer)}>
@@ -659,6 +663,18 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 )}
               >
                 Articles
+              </Link>
+              <Link
+                to="/books"
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "py-2.5 px-3 rounded-lg text-sm font-medium transition-colors",
+                  isActive("/books")
+                    ? "text-primary bg-primary/5"
+                    : "text-[var(--nav-text)] hover:bg-[var(--nav-hover-bg)] hover:text-[var(--nav-text-hover)]",
+                )}
+              >
+                Books by the Author
               </Link>
               <Link
                 to="/vocabulary"
