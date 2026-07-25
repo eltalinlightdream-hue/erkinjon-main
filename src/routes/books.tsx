@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { BookOpen, Maximize2 } from "lucide-react";
+import { BookOpen, ChevronLeft, ChevronRight, Maximize2, Loader2 } from "lucide-react";
 
 export const Route = createFileRoute("/books")({
   head: () => ({
@@ -57,13 +57,134 @@ const BOOKS: Book[] = [
 ];
 // ────────────────────────────────────────────────────────────────────────
 
-function Books() {
-  const [openBook, setOpenBook] = useState<Book | null>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+const PDFJS_VERSION = "3.11.174";
+const PDFJS_SCRIPT_URL = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/pdf.min.js`;
+const PDFJS_WORKER_URL = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/pdf.worker.min.js`;
+
+// Loads the pdf.js library from a CDN once and reuses it after that —
+// no npm install needed, keeps package.json untouched.
+let pdfjsLoadingPromise: Promise<any> | null = null;
+function loadPdfJs(): Promise<any> {
+  if ((window as any).pdfjsLib) return Promise.resolve((window as any).pdfjsLib);
+  if (pdfjsLoadingPromise) return pdfjsLoadingPromise;
+  pdfjsLoadingPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = PDFJS_SCRIPT_URL;
+    script.onload = () => {
+      const lib = (window as any).pdfjsLib;
+      lib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_URL;
+      resolve(lib);
+    };
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
+  return pdfjsLoadingPromise;
+}
+
+function PdfPageViewer({ book }: { book: Book }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pdfDocRef = useRef<any>(null);
+  const [pageNum, setPageNum] = useState(1);
+  const [numPages, setNumPages] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  // Load the document whenever the book changes.
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setPageNum(1);
+    loadPdfJs().then((pdfjsLib) => {
+      pdfjsLib.getDocument(book.file).promise.then((pdf: any) => {
+        if (cancelled) return;
+        pdfDocRef.current = pdf;
+        setNumPages(pdf.numPages);
+        setLoading(false);
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [book.file]);
+
+  // Render the current page onto the canvas.
+  useEffect(() => {
+    if (!pdfDocRef.current || !canvasRef.current) return;
+    let cancelled = false;
+    pdfDocRef.current.getPage(pageNum).then((page: any) => {
+      if (cancelled || !canvasRef.current || !containerRef.current) return;
+      const containerWidth = containerRef.current.clientWidth;
+      const baseViewport = page.getViewport({ scale: 1 });
+      const scale = containerWidth / baseViewport.width;
+      const viewport = page.getViewport({ scale });
+      const canvas = canvasRef.current;
+      const context = canvas.getContext("2d")!;
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      page.render({ canvasContext: context, viewport });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [pageNum, loading]);
 
   const goFullscreen = () => {
-    iframeRef.current?.requestFullscreen?.();
+    containerRef.current?.requestFullscreen?.();
   };
+
+  return (
+    <div className="flex-1 flex flex-col min-h-0">
+      <div className="flex items-center justify-between gap-3 px-3 py-2 border-b bg-background/60">
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8"
+            disabled={pageNum <= 1}
+            onClick={() => setPageNum((p) => Math.max(1, p - 1))}
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </Button>
+          <span className="text-sm text-muted-foreground min-w-[90px] text-center">
+            Page {pageNum} of {numPages || "…"}
+          </span>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8"
+            disabled={pageNum >= numPages}
+            onClick={() => setPageNum((p) => Math.min(numPages, p + 1))}
+          >
+            <ChevronRight className="w-4 h-4" />
+          </Button>
+        </div>
+        <Button variant="outline" size="sm" onClick={goFullscreen} className="gap-1.5">
+          <Maximize2 className="w-3.5 h-3.5" />
+          Fullscreen
+        </Button>
+      </div>
+      <div
+        ref={containerRef}
+        className="flex-1 overflow-auto bg-muted/40 flex items-start justify-center p-4"
+        // Blocks the right-click "Save image as…" menu on the page canvas.
+        // Not foolproof, but removes the obvious download path.
+        onContextMenu={(e) => e.preventDefault()}
+      >
+        {loading ? (
+          <div className="flex items-center gap-2 text-muted-foreground mt-20">
+            <Loader2 className="w-5 h-5 animate-spin" />
+            Loading book…
+          </div>
+        ) : (
+          <canvas ref={canvasRef} className="shadow-lg max-w-full h-auto" />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Books() {
+  const [openBook, setOpenBook] = useState<Book | null>(null);
 
   return (
     <SiteLayout>
@@ -103,32 +224,10 @@ function Books() {
 
       <Dialog open={!!openBook} onOpenChange={(v) => !v && setOpenBook(null)}>
         <DialogContent className="max-w-[96vw] w-[96vw] h-[92vh] p-0 flex flex-col sm:max-w-[96vw]">
-          <DialogHeader className="p-3 border-b flex-row items-center justify-between space-y-0">
+          <DialogHeader className="p-3 border-b">
             <DialogTitle>{openBook?.title}</DialogTitle>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={goFullscreen}
-              className="gap-1.5 mr-8"
-            >
-              <Maximize2 className="w-3.5 h-3.5" />
-              Fullscreen
-            </Button>
           </DialogHeader>
-          {openBook && (
-            // Native browser PDF viewer: page-by-page navigation, zoom, and
-            // fullscreen all come built in with the toolbar shown. Note:
-            // showing the toolbar means the browser's own download icon is
-            // visible too — there is no fully download-proof way to show a
-            // PDF on the web, so this trades a bit of that friction for a
-            // much better reading experience.
-            <iframe
-              ref={iframeRef}
-              src={`${openBook.file}#view=FitH`}
-              title={openBook.title}
-              className="flex-1 w-full"
-            />
-          )}
+          {openBook && <PdfPageViewer book={openBook} />}
         </DialogContent>
       </Dialog>
     </SiteLayout>
