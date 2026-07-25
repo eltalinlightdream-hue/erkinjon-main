@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Maximize2 } from "lucide-react";
 
 export const Route = createFileRoute("/books")({
   head: () => ({
@@ -58,6 +59,11 @@ const BOOKS: Book[] = [
 
 function Books() {
   const [openBook, setOpenBook] = useState<Book | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  const goFullscreen = () => {
+    iframeRef.current?.requestFullscreen?.();
+  };
 
   return (
     <SiteLayout>
@@ -96,18 +102,29 @@ function Books() {
       </div>
 
       <Dialog open={!!openBook} onOpenChange={(v) => !v && setOpenBook(null)}>
-        <DialogContent className="max-w-4xl h-[85vh] p-0 flex flex-col">
-          <DialogHeader className="p-4 border-b">
+        <DialogContent className="max-w-[96vw] w-[96vw] h-[92vh] p-0 flex flex-col sm:max-w-[96vw]">
+          <DialogHeader className="p-3 border-b flex-row items-center justify-between space-y-0">
             <DialogTitle>{openBook?.title}</DialogTitle>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={goFullscreen}
+              className="gap-1.5 mr-8"
+            >
+              <Maximize2 className="w-3.5 h-3.5" />
+              Fullscreen
+            </Button>
           </DialogHeader>
           {openBook && (
-            // Opens the PDF's built-in browser viewer, first page first.
-            // Note: this discourages download (no visible link to the raw
-            // file) but a determined visitor can still save a PDF rendered
-            // in-browser — there is no fully download-proof way to show a
-            // PDF on the web.
+            // Native browser PDF viewer: page-by-page navigation, zoom, and
+            // fullscreen all come built in with the toolbar shown. Note:
+            // showing the toolbar means the browser's own download icon is
+            // visible too — there is no fully download-proof way to show a
+            // PDF on the web, so this trades a bit of that friction for a
+            // much better reading experience.
             <iframe
-              src={`${openBook.file}#toolbar=0&navpanes=0`}
+              ref={iframeRef}
+              src={`${openBook.file}#view=FitH`}
               title={openBook.title}
               className="flex-1 w-full"
             />
