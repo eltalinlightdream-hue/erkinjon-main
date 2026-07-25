@@ -31,23 +31,26 @@ type Book = {
 const BOOKS: Book[] = [
   {
     id: "book-1",
-    title: "Book Title Goes Here",
-    description: "One or two sentences about what this book covers.",
-    skill: "Reading",
+    title: "Writing Task 1 Report Collection",
+    description:
+      "A set of IELTS Writing Task 1 model reports covering line graphs, bar charts, transport and employment data, and more — full sample reports with analysis.",
+    skill: "Writing",
     file: "/books%20and%20sources/project%200.1.pdf",
   },
   {
     id: "book-2",
-    title: "Book Title Goes Here",
-    description: "One or two sentences about what this book covers.",
+    title: "Essays and Reports Collection",
+    description:
+      "A combined collection of IELTS Writing Task 1 reports and Task 2 essays across many full practice tests — bar charts, maps, processes, and opinion essays.",
     skill: "Writing",
     file: "/books%20and%20sources/project%200.2.pdf",
   },
   {
     id: "book-3",
-    title: "Book Title Goes Here",
-    description: "One or two sentences about what this book covers.",
-    skill: "Speaking",
+    title: "IELTS Writing Task 1 — Model Report Workbook",
+    description:
+      "Twenty-eight band-ready reports — line, bar, pie, table, map & process — each paired with collocations, sentence frames, and guided writing practice.",
+    skill: "Writing",
     file: "/books%20and%20sources/project%200.32.pdf",
   },
 ];
