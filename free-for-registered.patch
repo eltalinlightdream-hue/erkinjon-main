@@ -1,0 +1,549 @@
+diff --git a/src/components/premium-gate.tsx b/src/components/premium-gate.tsx
+index 622f407..ac67e5b 100644
+--- a/src/components/premium-gate.tsx
++++ b/src/components/premium-gate.tsx
+@@ -4,9 +4,9 @@ import { Crown } from "lucide-react";
+ import { Button } from "@/components/ui/button";
+ import { useAuth } from "@/hooks/use-auth";
+ 
+-export function PremiumGate({ children, label = "Premium content" }: { children: ReactNode; label?: string }) {
+-  const { profile } = useAuth();
+-  const unlocked = !!profile?.is_premium;
++export function PremiumGate({ children, label = "Free with an account" }: { children: ReactNode; label?: string }) {
++  const { user } = useAuth();
++  const unlocked = !!user;
+   if (unlocked) return <>{children}</>;
+   return (
+     <div className="relative rounded-2xl border border-border overflow-hidden">
+@@ -23,14 +23,14 @@ export function PremiumGate({ children, label = "Premium content" }: { children:
+         </span>
+         <p className="font-serif text-lg font-semibold mb-1">{label}</p>
+         <p className="font-mono text-[11px] text-muted-foreground mb-5 max-w-xs leading-relaxed tracking-wide">
+-          Unlock model answers, PDFs, video attachments and more with Premium Access.
++          Sign in or create a free account to unlock model answers, PDFs, video attachments and more.
+         </p>
+-        <Link to="/premium">
++        <Link to="/auth">
+           <Button
+             size="sm"
+             className="bg-gradient-primary text-white font-mono text-[11px] tracking-wider active:scale-95 transition-all"
+           >
+-            <Crown className="w-3.5 h-3.5 mr-1.5" /> Unlock with Premium
++            <Crown className="w-3.5 h-3.5 mr-1.5" /> Sign in to unlock
+           </Button>
+         </Link>
+       </div>
+diff --git a/src/components/premium-lock.tsx b/src/components/premium-lock.tsx
+index 4a05dda..f4b9cc8 100644
+--- a/src/components/premium-lock.tsx
++++ b/src/components/premium-lock.tsx
+@@ -3,10 +3,10 @@ import { Crown, Lock } from "lucide-react";
+ import { Button } from "@/components/ui/button";
+ import { useAuth } from "@/hooks/use-auth";
+ 
+-/** True only when the signed-in user has active Premium. */
++/** All content is free for registered students: true whenever a user is signed in. */
+ export function useIsPremium(): boolean {
+-  const { profile } = useAuth();
+-  return !!profile?.is_premium;
++  const { user } = useAuth();
++  return !!user;
+ }
+ 
+ /**
+@@ -14,11 +14,11 @@ export function useIsPremium(): boolean {
+  * with `position: relative`; tapping it sends the student to Premium
+  * (or sign-in first, if they have no account yet).
+  */
+-export function PremiumCardOverlay({ label = "Premium content" }: { label?: string }) {
++export function PremiumCardOverlay({ label = "Free with an account" }: { label?: string }) {
+   return (
+     <Link
+-      to="/premium"
+-      aria-label="Unlock with Premium"
++      to="/auth"
++      aria-label="Sign in to unlock"
+       className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-5 py-6 rounded-[inherit] backdrop-blur-[3px] bg-background/75 transition-colors hover:bg-background/85"
+     >
+       <span className="w-12 h-12 rounded-2xl bg-gradient-primary inline-flex items-center justify-center shadow-warm mb-3">
+@@ -26,10 +26,10 @@ export function PremiumCardOverlay({ label = "Premium content" }: { label?: stri
+       </span>
+       <p className="font-serif text-base font-semibold mb-1">{label}</p>
+       <p className="font-mono text-[10px] text-muted-foreground mb-3 max-w-[210px] leading-relaxed tracking-wide">
+-        Become a Premium member to open this.
++        Sign in or create a free account to open this.
+       </p>
+       <span className="inline-flex items-center gap-1.5 rounded-md bg-gradient-primary text-white font-mono text-[11px] tracking-wider px-3 py-1.5">
+-        <Crown className="w-3.5 h-3.5" /> Unlock with Premium
++        <Crown className="w-3.5 h-3.5" /> Sign in to unlock
+       </span>
+     </Link>
+   );
+@@ -39,7 +39,7 @@ export function PremiumCardOverlay({ label = "Premium content" }: { label?: stri
+  * Full-width notice used to guard a detail route when a student opens
+  * a Premium item directly by URL.
+  */
+-export function PremiumRequired({ title = "This is Premium content" }: { title?: string }) {
++export function PremiumRequired({ title = "Sign in to view this content" }: { title?: string }) {
+   return (
+     <section className="container mx-auto px-4 py-20 max-w-lg text-center">
+       <span className="w-16 h-16 rounded-2xl bg-gradient-primary inline-flex items-center justify-center shadow-warm mb-6">
+@@ -47,13 +47,13 @@ export function PremiumRequired({ title = "This is Premium content" }: { title?:
+       </span>
+       <h1 className="font-serif text-2xl font-semibold mb-3">{title}</h1>
+       <p className="text-muted-foreground mb-8 leading-relaxed">
+-        This material is only available to Premium members. Unlock the full library — every model
+-        answer, sample and practice test — with one-time Premium access.
++        This material is free for registered students. Sign in or create a free account to unlock the
++        full library — every model answer, sample and practice test.
+       </p>
+       <div className="flex items-center justify-center gap-3 flex-wrap">
+-        <Link to="/premium">
++        <Link to="/auth">
+           <Button className="bg-gradient-primary text-white font-mono text-xs tracking-wider">
+-            <Crown className="w-4 h-4 mr-1.5" /> Become Premium
++            <Crown className="w-4 h-4 mr-1.5" /> Sign in / Register
+           </Button>
+         </Link>
+       </div>
+diff --git a/src/components/site-layout.tsx b/src/components/site-layout.tsx
+index 375586b..0920833 100644
+--- a/src/components/site-layout.tsx
++++ b/src/components/site-layout.tsx
+@@ -86,7 +86,6 @@ const FOOTER_SECTIONS: { heading: string; links: FooterLink[] }[] = [
+       { to: "/books", label: "Books by the Author" },
+       { to: "/vocabulary", label: "Vocabulary" },
+       { to: "/contact-about", label: "Contact & About" },
+-      { to: "/premium", label: "Premium", accent: true },
+     ],
+   },
+ ];
+@@ -120,7 +119,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
+     [],
+   );
+ 
+-  const { user, profile, signOut } = useAuth();
++  const { user, signOut } = useAuth();
+   const { theme, toggleTheme } = useTheme();
+   const loc = useLocation();
+   const { data: due } = useQuery({
+@@ -434,11 +433,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
+             )}
+             {user ? (
+               <>
+-                {profile?.is_premium && (
+-                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--ochre-deep)] bg-[var(--ochre-wash)] px-2.5 py-1 rounded-full border border-[var(--ochre)]/30">
+-                    <Crown className="w-3 h-3" /> Premium
+-                  </span>
+-                )}
++                <span className="inline-flex items-center gap-1 text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--ochre-deep)] bg-[var(--ochre-wash)] px-2.5 py-1 rounded-full border border-[var(--ochre)]/30">
++                  <Crown className="w-3 h-3" /> Member
++                </span>
+                 {isAdminEmail(user.email) && (
+                   <Link to="/admin">
+                     <Button
+@@ -479,9 +476,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
+                     Sign In
+                   </Button>
+                 </Link>
+-                <Link to="/premium">
++                <Link to="/auth">
+                   <Button size="sm" className="h-8 text-xs">
+-                    Go Premium
++                    Register Free
+                   </Button>
+                 </Link>
+               </>
+@@ -777,8 +774,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
+                         Sign In
+                       </Button>
+                     </Link>
+-                    <Link to="/premium" onClick={() => setOpen(false)}>
+-                      <Button className="w-full text-sm">Go Premium</Button>
++                    <Link to="/auth" onClick={() => setOpen(false)}>
++                      <Button className="w-full text-sm">Register Free</Button>
+                     </Link>
+                   </>
+                 )}
+diff --git a/src/routes/account.tsx b/src/routes/account.tsx
+index 1cb4997..d09cc34 100644
+--- a/src/routes/account.tsx
++++ b/src/routes/account.tsx
+@@ -11,14 +11,12 @@ import {
+   Crown,
+   LogOut,
+   User as UserIcon,
+-  Calendar,
+   Loader2,
+   BookOpen,
+   BarChart2,
+   Flame,
+   Trophy,
+   Lock,
+-  Send,
+   Eye,
+   EyeOff,
+   CheckCircle2,
+@@ -255,10 +253,6 @@ function Account() {
+     .join("")
+     .toUpperCase();
+ 
+-  const activated = profile?.activated_at
+-    ? new Date(profile.activated_at).toLocaleDateString()
+-    : null;
+-
+   // Stats computed
+   const weekStart = getWeekStart();
+   const day15 = daysAgo(15);
+@@ -314,44 +308,16 @@ function Account() {
+         {/* Row 1: Membership + Profile */}
+         <div className="grid md:grid-cols-2 gap-5">
+           {/* Membership */}
+-          <Card
+-            className={`p-6 ${profile?.is_premium ? "bg-gradient-warm border-[#C07850]/20" : ""}`}
+-          >
++          <Card className="p-6 bg-gradient-warm border-[#C07850]/20">
+             <div className="flex items-center justify-between mb-3">
+               <h2 className="font-serif text-xl font-semibold">Membership</h2>
+-              {profile?.is_premium ? (
+-                <Badge className="bg-gold/15 text-gold border-gold/30">
+-                  <Crown className="w-3 h-3 mr-1" /> Premium
+-                </Badge>
+-              ) : (
+-                <Badge variant="secondary" className="bg-accent">
+-                  Free
+-                </Badge>
+-              )}
++              <Badge className="bg-gold/15 text-gold border-gold/30">
++                <Crown className="w-3 h-3 mr-1" /> Member
++              </Badge>
+             </div>
+-            {profile?.is_premium ? (
+-              <>
+-                <p className="text-sm text-muted-foreground mb-2">
+-                  You have full access to all premium materials.
+-                </p>
+-                {activated && (
+-                  <p className="text-xs text-muted-foreground inline-flex items-center gap-1.5">
+-                    <Calendar className="w-3 h-3" /> Activated on {activated}
+-                  </p>
+-                )}
+-              </>
+-            ) : (
+-              <>
+-                <p className="text-sm text-muted-foreground mb-4">
+-                  Upgrade to unlock model answers, PDFs and worksheets.
+-                </p>
+-                <a href="https://t.me/augustus_at" target="_blank" rel="noreferrer">
+-                  <Button className="bg-gradient-gold text-primary-foreground w-full">
+-                    <Send className="w-4 h-4 mr-2" /> Contact to Upgrade
+-                  </Button>
+-                </a>
+-              </>
+-            )}
++            <p className="text-sm text-muted-foreground">
++              You have full access to all materials — free for every registered student.
++            </p>
+           </Card>
+ 
+           {/* Profile + Password */}
+diff --git a/src/routes/index.tsx b/src/routes/index.tsx
+index 2b093c6..57ece68 100644
+--- a/src/routes/index.tsx
++++ b/src/routes/index.tsx
+@@ -111,12 +111,12 @@ const FEATURES = [
+   },
+   {
+     n: "05",
+-    title: "Premium Membership",
+-    body: "Model answers, premium PDFs and exclusive video lessons — the full atelier, opened. For students who want every advantage on exam day.",
+-    to: "/premium" as const,
+-    cta: "Unlock Premium",
++    title: "Free Student Account",
++    body: "Model answers, PDFs and every practice test — the full library, free for every registered student. Create an account and everything opens.",
++    to: "/auth" as const,
++    cta: "Create free account",
+     icon: Crown,
+-    tag: "Full access",
++    tag: "Free with account",
+     premium: true,
+   },
+ ];
+@@ -193,9 +193,9 @@ function Index() {
+                     Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
+                   </Button>
+                 </Link>
+-                <Link to="/premium">
++                <Link to="/auth">
+                   <Button size="lg" variant="outline" className="px-8 text-sm">
+-                    Get Premium Access
++                    Create Free Account
+                   </Button>
+                 </Link>
+               </div>
+@@ -408,7 +408,7 @@ function Index() {
+               Ready when you are.
+             </h2>
+             <p className="text-[var(--on-dark-muted)] max-w-md mx-auto leading-relaxed mb-8">
+-              Open a practice passage now — no account needed — or join Premium for the complete
++              Open a practice passage now — or register for free to unlock the complete
+               study programme.
+             </p>
+             <div className="flex flex-col sm:flex-row gap-3 justify-center">
+@@ -417,13 +417,13 @@ function Index() {
+                   Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
+                 </Button>
+               </Link>
+-              <Link to="/premium">
++              <Link to="/auth">
+                 <Button
+                   size="lg"
+                   variant="outline"
+                   className="px-8 text-sm border-[var(--on-dark)]/25 bg-transparent text-[var(--on-dark)] hover:border-[var(--on-dark)]/50 hover:text-[var(--on-dark)]"
+                 >
+-                  Get Premium Access
++                  Create Free Account
+                 </Button>
+               </Link>
+             </div>
+diff --git a/src/routes/listening.tsx b/src/routes/listening.tsx
+index c60714e..007b4aa 100644
+--- a/src/routes/listening.tsx
++++ b/src/routes/listening.tsx
+@@ -43,8 +43,8 @@ const FILTERS = [
+ function Listening() {
+   const [filter, setFilter] = useState<"all" | "full" | "1" | "2" | "3" | "4">("all");
+   const [statusFilter, setStatusFilter] = useState<"all" | ProgressStatus>("all");
+-  const { profile, user } = useAuth();
+-  const isPremium = !!profile?.is_premium;
++  const { user } = useAuth();
++  const isPremium = !!user; // all content is free for registered students
+   const { overrides } = useContentOverrides();
+   const navigate = useNavigate();
+ 
+@@ -212,9 +212,9 @@ function Listening() {
+                   )}
+ 
+                   {locked ? (
+-                    <Link to="/premium">
++                    <Link to="/auth">
+                       <Button size="sm" className="w-full bg-gradient-gold text-primary-foreground">
+-                        <Crown className="w-4 h-4 mr-1" /> Unlock with Premium
++                        <Crown className="w-4 h-4 mr-1" /> Sign in to unlock
+                       </Button>
+                     </Link>
+                   ) : isFinished ? (
+diff --git a/src/routes/premium.tsx b/src/routes/premium.tsx
+index ecfd77e..3122c22 100644
+--- a/src/routes/premium.tsx
++++ b/src/routes/premium.tsx
+@@ -1,176 +1,9 @@
+-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+-import { useState } from "react";
+-import { useServerFn } from "@tanstack/react-start";
+-import { SiteLayout } from "@/components/site-layout";
+-import { Reveal } from "@/components/reveal";
+-import { Button } from "@/components/ui/button";
+-import { Input } from "@/components/ui/input";
+-import { Check, Crown, Send, Lock, Loader2 } from "lucide-react";
+-import { toast } from "sonner";
+-import { useAuth } from "@/hooks/use-auth";
+-import { redeemActivationCode } from "@/lib/premium.functions";
++import { createFileRoute, redirect } from "@tanstack/react-router";
+ 
++// Premium has been retired: all content is free for registered students.
++// Keep the route so old links and bookmarks still work.
+ export const Route = createFileRoute("/premium")({
+-  head: () => ({
+-    meta: [
+-      { title: "Premium Access — Abduraimov Erkinjon" },
+-      { name: "description", content: "Unlock all model answers, premium PDFs, video attachments and 1-on-1 feedback channels." },
+-      { property: "og:title", content: "Premium IELTS Access" },
+-      { property: "og:description", content: "Unlock all premium IELTS materials and lessons." },
+-    ],
+-  }),
+-  component: Premium,
++  beforeLoad: () => {
++    throw redirect({ to: "/practice" });
++  },
+ });
+-
+-const FEATURES = [
+-  "Full library of Band 8.0+ model answers (Writing Task 1 & 2)",
+-  "Speaking Part 1, 2, 3 model answers with audio cues",
+-  "Premium PDFs: vocabulary lists, grammar packs, exam strategies",
+-  "Attached worksheets on every video lesson",
+-  "Priority replies on Telegram",
+-  "Lifetime access — no monthly fee",
+-];
+-
+-function Premium() {
+-  const { user, profile, refreshProfile } = useAuth();
+-  const navigate = useNavigate();
+-  const redeem = useServerFn(redeemActivationCode);
+-  const [code, setCode] = useState("");
+-  const [busy, setBusy] = useState(false);
+-
+-  const isPremium = !!profile?.is_premium;
+-
+-  const onRedeem = async (e: React.FormEvent) => {
+-    e.preventDefault();
+-    if (!user) {
+-      navigate({ to: "/auth" });
+-      return;
+-    }
+-    if (!code.trim()) return;
+-    setBusy(true);
+-    try {
+-      await redeem({ data: { code: code.trim() } });
+-      toast.success("Premium activated! Welcome aboard.");
+-      setCode("");
+-      await refreshProfile();
+-      navigate({ to: "/account" });
+-    } catch (err) {
+-      const msg = err instanceof Error ? err.message : "Could not redeem code.";
+-      toast.error(msg);
+-    } finally {
+-      setBusy(false);
+-    }
+-  };
+-
+-  return (
+-    <SiteLayout>
+-      {/* Hero */}
+-      <div className="relative overflow-hidden border-b border-border/40 bg-gradient-warm">
+-        <div className="absolute top-0 right-0 w-[500px] h-[300px] rounded-full opacity-20 blur-[100px] pointer-events-none"
+-          style={{ background: "radial-gradient(circle, var(--terracotta) 0%, transparent 70%)" }} />
+-        <div className="ink-bleed container mx-auto px-4 py-16 max-w-4xl text-center">
+-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--terracotta)]/10 border border-[var(--terracotta)]/25 font-mono text-[11px] tracking-widest text-[var(--terracotta)] mb-6">
+-            <Crown className="w-3.5 h-3.5" /> Premium Access
+-          </span>
+-          <h1 className="text-4xl md:text-5xl font-bold mb-3">Go from Band 6 to Band 7+</h1>
+-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+-            One-time payment. Lifetime access. All my premium IELTS material in one place.
+-          </p>
+-        </div>
+-      </div>
+-
+-      <section className="container mx-auto px-4 py-14 max-w-4xl">
+-        <Reveal className="grid md:grid-cols-[1.2fr,1fr] gap-6">
+-
+-          {/* Features card */}
+-          <div className="bento-card rounded-3xl overflow-hidden">
+-            <div className="h-[3px]" style={{ background: "linear-gradient(90deg, var(--terracotta) 0%, var(--ochre) 50%, var(--terracotta-deep) 100%)" }} />
+-            <div className="p-8">
+-              <h2 className="font-serif text-2xl font-semibold mb-1">What you get</h2>
+-              <p className="text-sm text-muted-foreground mb-6">Everything below, unlocked instantly.</p>
+-              <ul className="space-y-3.5 mb-8">
+-                {FEATURES.map((f) => (
+-                  <li key={f} className="flex items-start gap-3 text-sm">
+-                    <span className="w-5 h-5 rounded-full bg-secondary/12 flex items-center justify-center flex-shrink-0 mt-0.5">
+-                      <Check className="w-3 h-3 text-secondary" />
+-                    </span>
+-                    <span className="leading-relaxed">{f}</span>
+-                  </li>
+-                ))}
+-              </ul>
+-              <div className="pt-6 border-t border-border/60">
+-                <div className="flex items-baseline gap-2.5 mb-1">
+-                  <span className="text-4xl font-bold font-serif">40,000 UZS</span>
+-                  <span className="text-sm text-muted-foreground line-through">50,000</span>
+-                </div>
+-                <p className="font-mono text-[11px] text-muted-foreground tracking-wide">One-time payment · Lifetime access · One device per account</p>
+-              </div>
+-            </div>
+-          </div>
+-
+-          {/* Action card */}
+-          <div className="bento-card rounded-3xl p-8">
+-            {isPremium ? (
+-              <div className="text-center py-6">
+-                <span className="w-16 h-16 rounded-2xl bg-gradient-primary inline-flex items-center justify-center mb-5 shadow-warm">
+-                  <Crown className="w-7 h-7 text-white" />
+-                </span>
+-                <h3 className="font-serif text-xl font-semibold mb-2">You're Premium 🎉</h3>
+-                <p className="text-sm text-muted-foreground mb-6">Enjoy full access to every model answer, PDF and worksheet.</p>
+-                <Link to="/account">
+-                  <Button variant="outline" className="w-full font-mono text-xs tracking-wide">Go to my account</Button>
+-                </Link>
+-              </div>
+-            ) : (
+-              <>
+-                <h3 className="font-serif text-xl font-semibold mb-1">Step 1 — Pay via Telegram</h3>
+-                <p className="text-sm text-muted-foreground mb-5">
+-                  Message me on Telegram to pay (Payme / Click / cash). I'll send you a personal activation code right after.
+-                </p>
+-                <a href="https://t.me/augustus_flores" target="_blank" rel="noreferrer">
+-                  <Button className="w-full bg-[#229ED9] hover:bg-[#229ED9]/90 text-white mb-7 font-mono text-xs tracking-wide active:scale-95 transition-all">
+-                    <Send className="w-4 h-4 mr-2" /> Message on Telegram
+-                  </Button>
+-                </a>
+-
+-                <h3 className="font-serif text-xl font-semibold mb-1">Step 2 — Redeem your code</h3>
+-                <p className="text-sm text-muted-foreground mb-5">
+-                  Already have a code? Enter it below to unlock instantly.
+-                </p>
+-                <form onSubmit={onRedeem} className="space-y-3">
+-                  <Input
+-                    value={code}
+-                    onChange={(e) => setCode(e.target.value.toUpperCase())}
+-                    placeholder="ABCD-1234"
+-                    className="font-mono tracking-widest uppercase text-center text-lg h-12 border-border/60 focus:border-primary bg-background"
+-                    autoComplete="off"
+-                  />
+-                  <Button
+-                    type="submit"
+-                    disabled={busy || !code.trim()}
+-                    className="w-full bg-gradient-primary text-white font-mono text-xs tracking-wide h-11 active:scale-95 transition-all"
+-                  >
+-                    {busy
+-                      ? <Loader2 className="w-4 h-4 animate-spin" />
+-                      : <><Lock className="w-4 h-4 mr-2" /> {user ? "Activate Premium" : "Sign in to activate"}</>
+-                    }
+-                  </Button>
+-                </form>
+-                {!user && (
+-                  <p className="font-mono text-[11px] text-muted-foreground mt-4 text-center tracking-wide">
+-                    You need an account first.{" "}
+-                    <Link to="/auth" className="text-secondary font-semibold hover:underline">Create one →</Link>
+-                  </p>
+-                )}
+-              </>
+-            )}
+-          </div>
+-        </Reveal>
+-
+-        <p className="font-mono text-[11px] text-muted-foreground text-center mt-8 max-w-xl mx-auto tracking-wide leading-relaxed">
+-          Each activation code binds your account to a single device. If you change devices, contact me on Telegram and I'll reset it for you within 24 hours.
+-        </p>
+-      </section>
+-    </SiteLayout>
+-  );
+-}
+diff --git a/src/routes/reading.tsx b/src/routes/reading.tsx
+index 5aa439f..048518e 100644
+--- a/src/routes/reading.tsx
++++ b/src/routes/reading.tsx
+@@ -55,8 +55,8 @@ function Reading() {
+     else setFilter("all");
+   }, [passageParam]);
+ 
+-  const { profile, user } = useAuth();
+-  const isPremium = !!profile?.is_premium;
++  const { user } = useAuth();
++  const isPremium = !!user; // all content is free for registered students
+   const { overrides } = useContentOverrides();
+   const navigate = useNavigate();
+ 
+@@ -281,9 +281,9 @@ function Reading() {
+                   )}
+ 
+                   {locked ? (
+-                    <Link to="/premium">
++                    <Link to="/auth">
+                       <Button size="sm" className="w-full bg-gradient-gold text-primary-foreground">
+-                        <Crown className="w-4 h-4 mr-1" /> Unlock with Premium
++                        <Crown className="w-4 h-4 mr-1" /> Sign in to unlock
+                       </Button>
+                     </Link>
+                   ) : isFinished ? (
