@@ -15,11 +15,11 @@ import { Route as VideosRouteImport } from './routes/videos'
 import { Route as SpeakingRouteImport } from './routes/speaking'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ReadingRouteImport } from './routes/reading'
-import { Route as PremiumRouteImport } from './routes/premium'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as ListeningRouteImport } from './routes/listening'
 import { Route as JapaneseRouteImport } from './routes/japanese'
 import { Route as ContactAboutRouteImport } from './routes/contact-about'
+import { Route as BooksRouteImport } from './routes/books'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -68,11 +68,6 @@ const ReadingRoute = ReadingRouteImport.update({
   path: '/reading',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PremiumRoute = PremiumRouteImport.update({
-  id: '/premium',
-  path: '/premium',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PracticeRoute = PracticeRouteImport.update({
   id: '/practice',
   path: '/practice',
@@ -91,6 +86,11 @@ const JapaneseRoute = JapaneseRouteImport.update({
 const ContactAboutRoute = ContactAboutRouteImport.update({
   id: '/contact-about',
   path: '/contact-about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BooksRoute = BooksRouteImport.update({
+  id: '/books',
+  path: '/books',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -185,11 +185,11 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/articles': typeof ArticlesRoute
   '/auth': typeof AuthRoute
+  '/books': typeof BooksRoute
   '/contact-about': typeof ContactAboutRoute
   '/japanese': typeof JapaneseRoute
   '/listening': typeof ListeningRoute
   '/practice': typeof PracticeRoute
-  '/premium': typeof PremiumRoute
   '/reading': typeof ReadingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/speaking': typeof SpeakingRoute
@@ -215,11 +215,11 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/articles': typeof ArticlesRoute
   '/auth': typeof AuthRoute
+  '/books': typeof BooksRoute
   '/contact-about': typeof ContactAboutRoute
   '/japanese': typeof JapaneseRoute
   '/listening': typeof ListeningRoute
   '/practice': typeof PracticeRoute
-  '/premium': typeof PremiumRoute
   '/reading': typeof ReadingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/speaking': typeof SpeakingRoute
@@ -246,11 +246,11 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/articles': typeof ArticlesRoute
   '/auth': typeof AuthRoute
+  '/books': typeof BooksRoute
   '/contact-about': typeof ContactAboutRoute
   '/japanese': typeof JapaneseRoute
   '/listening': typeof ListeningRoute
   '/practice': typeof PracticeRoute
-  '/premium': typeof PremiumRoute
   '/reading': typeof ReadingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/speaking': typeof SpeakingRoute
@@ -278,11 +278,11 @@ export interface FileRouteTypes {
     | '/admin'
     | '/articles'
     | '/auth'
+    | '/books'
     | '/contact-about'
     | '/japanese'
     | '/listening'
     | '/practice'
-    | '/premium'
     | '/reading'
     | '/reset-password'
     | '/speaking'
@@ -308,11 +308,11 @@ export interface FileRouteTypes {
     | '/admin'
     | '/articles'
     | '/auth'
+    | '/books'
     | '/contact-about'
     | '/japanese'
     | '/listening'
     | '/practice'
-    | '/premium'
     | '/reading'
     | '/reset-password'
     | '/speaking'
@@ -338,11 +338,11 @@ export interface FileRouteTypes {
     | '/admin'
     | '/articles'
     | '/auth'
+    | '/books'
     | '/contact-about'
     | '/japanese'
     | '/listening'
     | '/practice'
-    | '/premium'
     | '/reading'
     | '/reset-password'
     | '/speaking'
@@ -369,11 +369,11 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRoute
   ArticlesRoute: typeof ArticlesRoute
   AuthRoute: typeof AuthRoute
+  BooksRoute: typeof BooksRoute
   ContactAboutRoute: typeof ContactAboutRoute
   JapaneseRoute: typeof JapaneseRoute
   ListeningRoute: typeof ListeningRoute
   PracticeRoute: typeof PracticeRoute
-  PremiumRoute: typeof PremiumRoute
   ReadingRoute: typeof ReadingRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SpeakingRoute: typeof SpeakingRoute
@@ -436,13 +436,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReadingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/premium': {
-      id: '/premium'
-      path: '/premium'
-      fullPath: '/premium'
-      preLoaderRoute: typeof PremiumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/practice': {
       id: '/practice'
       path: '/practice'
@@ -469,6 +462,13 @@ declare module '@tanstack/react-router' {
       path: '/contact-about'
       fullPath: '/contact-about'
       preLoaderRoute: typeof ContactAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/books': {
+      id: '/books'
+      path: '/books'
+      fullPath: '/books'
+      preLoaderRoute: typeof BooksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -622,11 +622,11 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRoute,
   ArticlesRoute: ArticlesRoute,
   AuthRoute: AuthRoute,
+  BooksRoute: BooksRoute,
   ContactAboutRoute: ContactAboutRoute,
   JapaneseRoute: JapaneseRoute,
   ListeningRoute: ListeningRoute,
   PracticeRoute: PracticeRoute,
-  PremiumRoute: PremiumRoute,
   ReadingRoute: ReadingRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SpeakingRoute: SpeakingRoute,

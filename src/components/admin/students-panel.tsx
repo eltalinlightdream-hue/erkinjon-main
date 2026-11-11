@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import {
-  Crown,
   Loader2,
   MailWarning,
   MoreHorizontal,
@@ -40,23 +39,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { cn } from "@/lib/utils";
 import { isAdminEmail } from "@/lib/admin-config";
 import {
   adminDeleteStudent,
-  adminSetPremium,
   adminUpdateStudentName,
   type AdminStudent,
 } from "@/lib/admin.functions";
 import { formatDate, formatRelative } from "./admin-format";
-
-type StatusFilter = "all" | "premium" | "free";
-
-const FILTERS: { value: StatusFilter; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "premium", label: "Premium" },
-  { value: "free", label: "Free" },
-];
 
 interface StudentsPanelProps {
   students: AdminStudent[];
@@ -65,12 +54,10 @@ interface StudentsPanelProps {
 }
 
 export function StudentsPanel({ students, isLoading, onReload }: StudentsPanelProps) {
-  const setPremiumFn = useServerFn(adminSetPremium);
   const updateNameFn = useServerFn(adminUpdateStudentName);
   const deleteStudentFn = useServerFn(adminDeleteStudent);
 
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState<StatusFilter>("all");
   const [busyId, setBusyId] = useState<string | null>(null);
   const [editing, setEditing] = useState<AdminStudent | null>(null);
   const [editName, setEditName] = useState("");
@@ -79,14 +66,12 @@ export function StudentsPanel({ students, isLoading, onReload }: StudentsPanelPr
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
     return students.filter((student) => {
-      if (filter === "premium" && !student.is_premium) return false;
-      if (filter === "free" && student.is_premium) return false;
       if (!query) return true;
       return [student.email, student.full_name]
         .filter(Boolean)
         .some((value) => value!.toLowerCase().includes(query));
     });
-  }, [students, search, filter]);
+  }, [students, search]);
 
   async function runAction(
     studentId: string,
@@ -104,15 +89,6 @@ export function StudentsPanel({ students, isLoading, onReload }: StudentsPanelPr
       setBusyId(null);
     }
   }
-
-  const togglePremium = (student: AdminStudent) =>
-    runAction(
-      student.id,
-      () => setPremiumFn({ data: { userId: student.id, premium: !student.is_premium } }),
-      !student.is_premium
-        ? `Premium turned on for ${student.email ?? "student"}.`
-        : `Premium turned off for ${student.email ?? "student"}.`,
-    );
 
   async function saveName() {
     if (!editing) return;
@@ -148,23 +124,6 @@ export function StudentsPanel({ students, isLoading, onReload }: StudentsPanelPr
             className="pl-9"
           />
         </div>
-        <div className="flex rounded-xl border border-border p-1 gap-1">
-          {FILTERS.map((option) => (
-            <button
-              key={option.value}
-              type="button"
-              onClick={() => setFilter(option.value)}
-              className={cn(
-                "px-3 py-1.5 rounded-lg font-mono text-[11px] tracking-wide transition-colors",
-                filter === option.value
-                  ? "bg-gradient-primary text-white shadow-soft"
-                  : "text-muted-foreground hover:bg-accent",
-              )}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
       </div>
 
       {isLoading ? (
@@ -178,8 +137,11 @@ export function StudentsPanel({ students, isLoading, onReload }: StudentsPanelPr
               <tr className="border-b border-border text-left text-muted-foreground">
                 <th className="py-3 pr-4 font-medium">Student</th>
                 <th className="py-3 pr-4 font-medium">Status</th>
+                <th className="py-3 pr-4 font-medium">Tests</th>
+                <th className="py-3 pr-4 font-medium">Avg band</th>
+                <th className="py-3 pr-4 font-medium">Words saved</th>
                 <th className="py-3 pr-4 font-medium">Last sign-in</th>
-                <th className="py-3 pr-4 font-medium">Activated</th>
+                <th className="py-3 pr-4 font-medium">Joined</th>
                 <th className="py-3 text-right font-medium">Actions</th>
               </tr>
             </thead>
@@ -209,41 +171,34 @@ export function StudentsPanel({ students, isLoading, onReload }: StudentsPanelPr
                         <Badge className="bg-gradient-primary text-white border-transparent">
                           <ShieldCheck className="w-3 h-3 mr-1" /> Owner
                         </Badge>
-                      ) : student.is_premium ? (
-                        <Badge className="bg-gold/15 text-gold border-gold/30">
-                          <Crown className="w-3 h-3 mr-1" /> Premium
-                        </Badge>
                       ) : (
                         <Badge variant="secondary" className="bg-accent">
-                          Free
+                          Student
                         </Badge>
                       )}
+                    </td>
+                    <td className="py-3 pr-4 whitespace-nowrap">
+                      <span className="font-medium">{student.tests_total}</span>
+                      {student.tests_week > 0 && (
+                        <span className="text-xs text-muted-foreground ml-1.5">
+                          +{student.tests_week} this week
+                        </span>
+                      )}
+                    </td>
+                    <td className="py-3 pr-4 text-muted-foreground whitespace-nowrap">
+                      {student.avg_band !== null ? student.avg_band.toFixed(1) : "—"}
+                    </td>
+                    <td className="py-3 pr-4 text-muted-foreground whitespace-nowrap">
+                      {student.words_total}
                     </td>
                     <td className="py-3 pr-4 text-muted-foreground whitespace-nowrap">
                       {formatRelative(student.last_sign_in_at)}
                     </td>
                     <td className="py-3 pr-4 text-muted-foreground whitespace-nowrap">
-                      {formatDate(student.activated_at)}
+                      {formatDate(student.created_at)}
                     </td>
                     <td className="py-3 text-right">
                       <div className="inline-flex items-center gap-2">
-                        {!isOwner && (
-                          <Button
-                            size="sm"
-                            variant={student.is_premium ? "outline" : "default"}
-                            onClick={() => togglePremium(student)}
-                            disabled={isBusy}
-                            className="min-w-20"
-                          >
-                            {isBusy ? (
-                              <Loader2 className="w-4 h-4 animate-spin" />
-                            ) : student.is_premium ? (
-                              "Turn off"
-                            ) : (
-                              "Turn on"
-                            )}
-                          </Button>
-                        )}
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <Button

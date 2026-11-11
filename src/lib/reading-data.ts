@@ -1,6 +1,5 @@
 /* Reading passage catalogue.
-   Extracted from the route so the data can be shared with the admin
-   content registry (src/lib/content-registry.ts) as well as the page. */
+   Extracted from the route so the data can be shared across pages. */
 
 export type Passage = {
   id: string;

@@ -5,12 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Youtube, Send, MapPin, Award, PenLine, MessageCircle, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/contact-about")({
-  head: () => ({ meta: [
-    { title: "Contact & About — Abduraimov Erkinjon" },
-    { name: "description", content: "Meet Erkinjon and choose the best way to get in touch — YouTube, Telegram channel, or personal Telegram." },
-    { property: "og:title", content: "Contact & About — Abduraimov Erkinjon" },
-    { property: "og:description", content: "IELTS Band 8.0 teacher from Fergana, Uzbekistan." },
-  ]}),
+  head: () => ({
+    meta: [
+      { title: "Contact & About — Abduraimov Erkinjon" },
+      {
+        name: "description",
+        content:
+          "Meet Erkinjon and choose the best way to get in touch — YouTube, Telegram channel, or personal Telegram.",
+      },
+      { property: "og:title", content: "Contact & About — Abduraimov Erkinjon" },
+      { property: "og:description", content: "IELTS Band 8.0 teacher from Fergana, Uzbekistan." },
+    ],
+  }),
   component: ContactAbout,
 });
 
@@ -35,7 +41,7 @@ const CONTACTS = [
   },
   {
     title: "Personal Telegram",
-    desc: "Premium subscriptions, course questions, personal enquiries.",
+    desc: "Course questions, feedback, personal enquiries.",
     label: "Message Me",
     href: "https://t.me/augustus_at",
     icon: MessageCircle,
@@ -50,7 +56,9 @@ function ContactAbout() {
       <section className="container mx-auto px-4 py-16 max-w-5xl">
         <div className="ink-bleed text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">Contact &amp; About</h1>
-          <p className="text-lg text-muted-foreground">A little about me, and the easiest ways to get in touch.</p>
+          <p className="text-lg text-muted-foreground">
+            A little about me, and the easiest ways to get in touch.
+          </p>
         </div>
 
         {/* About */}
@@ -69,12 +77,20 @@ function ContactAbout() {
             </div>
             <h2 className="text-2xl font-bold">Hi, I'm Erkinjon 👋</h2>
             <p className="text-muted-foreground leading-relaxed">
-              I'm an English teacher at a private educational center in the Fergana region of Uzbekistan. I scored a Band 8.0 overall on IELTS — including a Band 8 in Writing with no criterion below 8 — and I've spent years helping Uzbek students reach their own target scores.
+              I'm an English teacher at a private educational center in the Fergana region of
+              Uzbekistan. I scored a Band 8.0 overall on IELTS — including a Band 8 in Writing with
+              no criterion below 8 — and I've spent years helping Uzbek students reach their own
+              target scores.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              My teaching philosophy is simple: real practice beats endless theory. Every lesson I make — free or premium — is built around the actual question types and band descriptors used by examiners. No shortcuts, no magic tricks, just structured work that pays off.
+              My teaching philosophy is simple: real practice beats endless theory. Every lesson I
+              make — all of it free — is built around the actual question types and band descriptors
+              used by examiners. No shortcuts, no magic tricks, just structured work that pays off.
             </p>
-            <p className="text-muted-foreground leading-relaxed italic border-l-2 pl-4" style={{ borderColor: "#FFD9A8" }}>
+            <p
+              className="text-muted-foreground leading-relaxed italic border-l-2 pl-4"
+              style={{ borderColor: "#FFD9A8" }}
+            >
               "If you can explain it simply, you understand it well enough to teach it."
             </p>
           </div>
@@ -90,13 +106,19 @@ function ContactAbout() {
           {CONTACTS.map((c, i) => (
             <Reveal key={c.title} className="h-full" delay={(i % 3) * 80}>
               <div className="bento-card rounded-3xl p-8 flex flex-col group h-full">
-                <span className={`w-14 h-14 rounded-2xl ${c.tint} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-active:scale-110`}>
+                <span
+                  className={`w-14 h-14 rounded-2xl ${c.tint} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-active:scale-110`}
+                >
                   <c.icon className="w-6 h-6" />
                 </span>
                 <h3 className="font-serif text-xl font-semibold mb-2">{c.title}</h3>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">{c.desc}</p>
+                <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">
+                  {c.desc}
+                </p>
                 <a href={c.href} target="_blank" rel="noreferrer">
-                  <Button className={`w-full ${c.btn} font-mono text-[11px] tracking-wide active:scale-95 transition-all`}>
+                  <Button
+                    className={`w-full ${c.btn} font-mono text-[11px] tracking-wide active:scale-95 transition-all`}
+                  >
                     {c.label} <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                   </Button>
                 </a>

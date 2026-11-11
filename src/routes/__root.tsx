@@ -83,14 +83,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Free IELTS materials, online practice, and premium lessons from an experienced teacher in Uzbekistan.",
+          "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
       },
       { name: "author", content: "Abduraimov Erkinjon" },
       { property: "og:title", content: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
       {
         property: "og:description",
         content:
-          "Free IELTS materials, online practice, and premium lessons from an experienced teacher in Uzbekistan.",
+          "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Free IELTS materials, online practice, and premium lessons from an experienced teacher in Uzbekistan.",
+          "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
       },
       // TODO(owner): add a real 1200×630 share image at public/og-image.png
       // (currently a placeholder path). This replaces the old Lovable preview

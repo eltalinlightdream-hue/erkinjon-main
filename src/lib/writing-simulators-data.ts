@@ -1,6 +1,5 @@
 /* Writing Task 1/2 HTML practice simulators.
-   Extracted from the route so the data can be shared with the admin
-   content registry (src/lib/content-registry.ts) as well as the page. */
+   Extracted from the route so the data can be shared across pages. */
 
 export type HtmlTask = {
   id: string;

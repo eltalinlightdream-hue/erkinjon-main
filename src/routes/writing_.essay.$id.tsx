@@ -5,9 +5,6 @@ import { ArrowLeft } from "lucide-react";
 import { findWritingEssay } from "@/lib/writing-samples-data";
 import { HighlightableContent } from "@/components/highlightable-content";
 import { cn } from "@/lib/utils";
-import { useIsPremium, PremiumRequired } from "@/components/premium-lock";
-import { isFreeWritingEssay, effectiveIsPremium, writingContentId } from "@/lib/premium-content";
-import { useContentOverrides } from "@/hooks/use-content-overrides";
 
 export const Route = createFileRoute("/writing_/essay/$id")({
   head: ({ params }) => {
@@ -25,8 +22,6 @@ export const Route = createFileRoute("/writing_/essay/$id")({
 function WritingEssayView() {
   const { id } = Route.useParams();
   const essay = findWritingEssay(id);
-  const isPremium = useIsPremium();
-  const { overrides } = useContentOverrides();
 
   if (!essay) {
     return (
@@ -41,20 +36,6 @@ function WritingEssayView() {
             ← Back to Task 2 Samples
           </Link>
         </div>
-      </SiteLayout>
-    );
-  }
-
-  const essayIsPremium = effectiveIsPremium(
-    "writing",
-    writingContentId.essay(essay.id),
-    !isFreeWritingEssay(essay.id),
-    overrides,
-  );
-  if (essayIsPremium && !isPremium) {
-    return (
-      <SiteLayout>
-        <PremiumRequired title="This Task 2 sample is Premium" />
       </SiteLayout>
     );
   }
