@@ -9,103 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WritingRouteImport } from './routes/writing'
-import { Route as VocabularyRouteImport } from './routes/vocabulary'
-import { Route as VideosRouteImport } from './routes/videos'
-import { Route as SpeakingRouteImport } from './routes/speaking'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as ReadingRouteImport } from './routes/reading'
-import { Route as PracticeRouteImport } from './routes/practice'
-import { Route as ListeningRouteImport } from './routes/listening'
-import { Route as JapaneseRouteImport } from './routes/japanese'
-import { Route as ContactAboutRouteImport } from './routes/contact-about'
-import { Route as BooksRouteImport } from './routes/books'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as ArticlesRouteImport } from './routes/articles'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
-import { Route as SpeakingWrittenSamplesRouteImport } from './routes/speaking_.written-samples'
-import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
-import { Route as SpeakingTipsChunksRouteImport } from './routes/speaking_.tips-chunks'
-import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
-import { Route as JapaneseTopicsRouteImport } from './routes/japanese_.topics'
-import { Route as JapaneseGrammarRouteImport } from './routes/japanese_.grammar'
-import { Route as JapaneseAlphabetRouteImport } from './routes/japanese_.alphabet'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ArticlesRouteImport } from './routes/articles'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BooksRouteImport } from './routes/books'
+import { Route as ContactAboutRouteImport } from './routes/contact-about'
+import { Route as JapaneseRouteImport } from './routes/japanese'
+import { Route as ListeningRouteImport } from './routes/listening'
+import { Route as PracticeRouteImport } from './routes/practice'
+import { Route as ReadingRouteImport } from './routes/reading'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as SpeakingRouteImport } from './routes/speaking'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as VocabularyRouteImport } from './routes/vocabulary'
+import { Route as WritingRouteImport } from './routes/writing'
 import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
-import { Route as WritingSampleIdRouteImport } from './routes/writing_.sample.$id'
-import { Route as WritingEssayIdRouteImport } from './routes/writing_.essay.$id'
+import { Route as JapaneseAlphabetRouteImport } from './routes/japanese_.alphabet'
+import { Route as JapaneseGrammarRouteImport } from './routes/japanese_.grammar'
+import { Route as JapaneseTopicsRouteImport } from './routes/japanese_.topics'
+import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
+import { Route as SpeakingTipsChunksRouteImport } from './routes/speaking_.tips-chunks'
+import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
+import { Route as SpeakingWrittenSamplesRouteImport } from './routes/speaking_.written-samples'
+import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
 import { Route as WritingTaskIdPracticeRouteImport } from './routes/writing.$taskId.practice'
+import { Route as WritingEssayIdRouteImport } from './routes/writing_.essay.$id'
+import { Route as WritingSampleIdRouteImport } from './routes/writing_.sample.$id'
 
-const WritingRoute = WritingRouteImport.update({
-  id: '/writing',
-  path: '/writing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VocabularyRoute = VocabularyRouteImport.update({
-  id: '/vocabulary',
-  path: '/vocabulary',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VideosRoute = VideosRouteImport.update({
-  id: '/videos',
-  path: '/videos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SpeakingRoute = SpeakingRouteImport.update({
-  id: '/speaking',
-  path: '/speaking',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReadingRoute = ReadingRouteImport.update({
-  id: '/reading',
-  path: '/reading',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PracticeRoute = PracticeRouteImport.update({
-  id: '/practice',
-  path: '/practice',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ListeningRoute = ListeningRouteImport.update({
-  id: '/listening',
-  path: '/listening',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const JapaneseRoute = JapaneseRouteImport.update({
-  id: '/japanese',
-  path: '/japanese',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactAboutRoute = ContactAboutRouteImport.update({
-  id: '/contact-about',
-  path: '/contact-about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BooksRoute = BooksRouteImport.update({
-  id: '/books',
-  path: '/books',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ArticlesRoute = ArticlesRouteImport.update({
-  id: '/articles',
-  path: '/articles',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccountRoute = AccountRouteImport.update({
@@ -113,49 +48,74 @@ const AccountRoute = AccountRouteImport.update({
   path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WritingTaskIdRoute = WritingTaskIdRouteImport.update({
-  id: '/$taskId',
-  path: '/$taskId',
-  getParentRoute: () => WritingRoute,
-} as any)
-const SpeakingWrittenSamplesRoute = SpeakingWrittenSamplesRouteImport.update({
-  id: '/speaking_/written-samples',
-  path: '/speaking/written-samples',
+const ArticlesRoute = ArticlesRouteImport.update({
+  id: '/articles',
+  path: '/articles',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SpeakingTopicsExplainedRoute = SpeakingTopicsExplainedRouteImport.update({
-  id: '/speaking_/topics-explained',
-  path: '/speaking/topics-explained',
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SpeakingTipsChunksRoute = SpeakingTipsChunksRouteImport.update({
-  id: '/speaking_/tips-chunks',
-  path: '/speaking/tips-chunks',
+const BooksRoute = BooksRouteImport.update({
+  id: '/books',
+  path: '/books',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
-  id: '/speaking_/pronunciation',
-  path: '/speaking/pronunciation',
+const ContactAboutRoute = ContactAboutRouteImport.update({
+  id: '/contact-about',
+  path: '/contact-about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const JapaneseTopicsRoute = JapaneseTopicsRouteImport.update({
-  id: '/japanese_/topics',
-  path: '/japanese/topics',
+const JapaneseRoute = JapaneseRouteImport.update({
+  id: '/japanese',
+  path: '/japanese',
   getParentRoute: () => rootRouteImport,
 } as any)
-const JapaneseGrammarRoute = JapaneseGrammarRouteImport.update({
-  id: '/japanese_/grammar',
-  path: '/japanese/grammar',
+const ListeningRoute = ListeningRouteImport.update({
+  id: '/listening',
+  path: '/listening',
   getParentRoute: () => rootRouteImport,
 } as any)
-const JapaneseAlphabetRoute = JapaneseAlphabetRouteImport.update({
-  id: '/japanese_/alphabet',
-  path: '/japanese/alphabet',
+const PracticeRoute = PracticeRouteImport.update({
+  id: '/practice',
+  path: '/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReadingRoute = ReadingRouteImport.update({
+  id: '/reading',
+  path: '/reading',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingRoute = SpeakingRouteImport.update({
+  id: '/speaking',
+  path: '/speaking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VocabularyRoute = VocabularyRouteImport.update({
+  id: '/vocabulary',
+  path: '/vocabulary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WritingRoute = WritingRouteImport.update({
+  id: '/writing',
+  path: '/writing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
@@ -163,20 +123,60 @@ const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
   path: '/articles/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WritingSampleIdRoute = WritingSampleIdRouteImport.update({
-  id: '/writing_/sample/$id',
-  path: '/writing/sample/$id',
+const JapaneseAlphabetRoute = JapaneseAlphabetRouteImport.update({
+  id: '/japanese_/alphabet',
+  path: '/japanese/alphabet',
   getParentRoute: () => rootRouteImport,
+} as any)
+const JapaneseGrammarRoute = JapaneseGrammarRouteImport.update({
+  id: '/japanese_/grammar',
+  path: '/japanese/grammar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JapaneseTopicsRoute = JapaneseTopicsRouteImport.update({
+  id: '/japanese_/topics',
+  path: '/japanese/topics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
+  id: '/speaking_/pronunciation',
+  path: '/speaking/pronunciation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingTipsChunksRoute = SpeakingTipsChunksRouteImport.update({
+  id: '/speaking_/tips-chunks',
+  path: '/speaking/tips-chunks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingTopicsExplainedRoute = SpeakingTopicsExplainedRouteImport.update({
+  id: '/speaking_/topics-explained',
+  path: '/speaking/topics-explained',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingWrittenSamplesRoute = SpeakingWrittenSamplesRouteImport.update({
+  id: '/speaking_/written-samples',
+  path: '/speaking/written-samples',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WritingTaskIdRoute = WritingTaskIdRouteImport.update({
+  id: '/$taskId',
+  path: '/$taskId',
+  getParentRoute: () => WritingRoute,
+} as any)
+const WritingTaskIdPracticeRoute = WritingTaskIdPracticeRouteImport.update({
+  id: '/practice',
+  path: '/practice',
+  getParentRoute: () => WritingTaskIdRoute,
 } as any)
 const WritingEssayIdRoute = WritingEssayIdRouteImport.update({
   id: '/writing_/essay/$id',
   path: '/writing/essay/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WritingTaskIdPracticeRoute = WritingTaskIdPracticeRouteImport.update({
-  id: '/practice',
-  path: '/practice',
-  getParentRoute: () => WritingTaskIdRoute,
+const WritingSampleIdRoute = WritingSampleIdRouteImport.update({
+  id: '/writing_/sample/$id',
+  path: '/writing/sample/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -394,102 +394,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/writing': {
-      id: '/writing'
-      path: '/writing'
-      fullPath: '/writing'
-      preLoaderRoute: typeof WritingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vocabulary': {
-      id: '/vocabulary'
-      path: '/vocabulary'
-      fullPath: '/vocabulary'
-      preLoaderRoute: typeof VocabularyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/videos': {
-      id: '/videos'
-      path: '/videos'
-      fullPath: '/videos'
-      preLoaderRoute: typeof VideosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/speaking': {
-      id: '/speaking'
-      path: '/speaking'
-      fullPath: '/speaking'
-      preLoaderRoute: typeof SpeakingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reading': {
-      id: '/reading'
-      path: '/reading'
-      fullPath: '/reading'
-      preLoaderRoute: typeof ReadingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/practice': {
-      id: '/practice'
-      path: '/practice'
-      fullPath: '/practice'
-      preLoaderRoute: typeof PracticeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/listening': {
-      id: '/listening'
-      path: '/listening'
-      fullPath: '/listening'
-      preLoaderRoute: typeof ListeningRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/japanese': {
-      id: '/japanese'
-      path: '/japanese'
-      fullPath: '/japanese'
-      preLoaderRoute: typeof JapaneseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact-about': {
-      id: '/contact-about'
-      path: '/contact-about'
-      fullPath: '/contact-about'
-      preLoaderRoute: typeof ContactAboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/books': {
-      id: '/books'
-      path: '/books'
-      fullPath: '/books'
-      preLoaderRoute: typeof BooksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/articles': {
-      id: '/articles'
-      path: '/articles'
-      fullPath: '/articles'
-      preLoaderRoute: typeof ArticlesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/account': {
@@ -499,67 +408,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/writing/$taskId': {
-      id: '/writing/$taskId'
-      path: '/$taskId'
-      fullPath: '/writing/$taskId'
-      preLoaderRoute: typeof WritingTaskIdRouteImport
-      parentRoute: typeof WritingRoute
-    }
-    '/speaking_/written-samples': {
-      id: '/speaking_/written-samples'
-      path: '/speaking/written-samples'
-      fullPath: '/speaking/written-samples'
-      preLoaderRoute: typeof SpeakingWrittenSamplesRouteImport
+    '/articles': {
+      id: '/articles'
+      path: '/articles'
+      fullPath: '/articles'
+      preLoaderRoute: typeof ArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/speaking_/topics-explained': {
-      id: '/speaking_/topics-explained'
-      path: '/speaking/topics-explained'
-      fullPath: '/speaking/topics-explained'
-      preLoaderRoute: typeof SpeakingTopicsExplainedRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/speaking_/tips-chunks': {
-      id: '/speaking_/tips-chunks'
-      path: '/speaking/tips-chunks'
-      fullPath: '/speaking/tips-chunks'
-      preLoaderRoute: typeof SpeakingTipsChunksRouteImport
+    '/books': {
+      id: '/books'
+      path: '/books'
+      fullPath: '/books'
+      preLoaderRoute: typeof BooksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/speaking_/pronunciation': {
-      id: '/speaking_/pronunciation'
-      path: '/speaking/pronunciation'
-      fullPath: '/speaking/pronunciation'
-      preLoaderRoute: typeof SpeakingPronunciationRouteImport
+    '/contact-about': {
+      id: '/contact-about'
+      path: '/contact-about'
+      fullPath: '/contact-about'
+      preLoaderRoute: typeof ContactAboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/japanese_/topics': {
-      id: '/japanese_/topics'
-      path: '/japanese/topics'
-      fullPath: '/japanese/topics'
-      preLoaderRoute: typeof JapaneseTopicsRouteImport
+    '/japanese': {
+      id: '/japanese'
+      path: '/japanese'
+      fullPath: '/japanese'
+      preLoaderRoute: typeof JapaneseRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/japanese_/grammar': {
-      id: '/japanese_/grammar'
-      path: '/japanese/grammar'
-      fullPath: '/japanese/grammar'
-      preLoaderRoute: typeof JapaneseGrammarRouteImport
+    '/listening': {
+      id: '/listening'
+      path: '/listening'
+      fullPath: '/listening'
+      preLoaderRoute: typeof ListeningRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/japanese_/alphabet': {
-      id: '/japanese_/alphabet'
-      path: '/japanese/alphabet'
-      fullPath: '/japanese/alphabet'
-      preLoaderRoute: typeof JapaneseAlphabetRouteImport
+    '/practice': {
+      id: '/practice'
+      path: '/practice'
+      fullPath: '/practice'
+      preLoaderRoute: typeof PracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reading': {
+      id: '/reading'
+      path: '/reading'
+      fullPath: '/reading'
+      preLoaderRoute: typeof ReadingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking': {
+      id: '/speaking'
+      path: '/speaking'
+      fullPath: '/speaking'
+      preLoaderRoute: typeof SpeakingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vocabulary': {
+      id: '/vocabulary'
+      path: '/vocabulary'
+      fullPath: '/vocabulary'
+      preLoaderRoute: typeof VocabularyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/writing': {
+      id: '/writing'
+      path: '/writing'
+      fullPath: '/writing'
+      preLoaderRoute: typeof WritingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles_/$slug': {
@@ -569,12 +513,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticlesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/writing_/sample/$id': {
-      id: '/writing_/sample/$id'
-      path: '/writing/sample/$id'
-      fullPath: '/writing/sample/$id'
-      preLoaderRoute: typeof WritingSampleIdRouteImport
+    '/japanese_/alphabet': {
+      id: '/japanese_/alphabet'
+      path: '/japanese/alphabet'
+      fullPath: '/japanese/alphabet'
+      preLoaderRoute: typeof JapaneseAlphabetRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/japanese_/grammar': {
+      id: '/japanese_/grammar'
+      path: '/japanese/grammar'
+      fullPath: '/japanese/grammar'
+      preLoaderRoute: typeof JapaneseGrammarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/japanese_/topics': {
+      id: '/japanese_/topics'
+      path: '/japanese/topics'
+      fullPath: '/japanese/topics'
+      preLoaderRoute: typeof JapaneseTopicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking_/pronunciation': {
+      id: '/speaking_/pronunciation'
+      path: '/speaking/pronunciation'
+      fullPath: '/speaking/pronunciation'
+      preLoaderRoute: typeof SpeakingPronunciationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking_/tips-chunks': {
+      id: '/speaking_/tips-chunks'
+      path: '/speaking/tips-chunks'
+      fullPath: '/speaking/tips-chunks'
+      preLoaderRoute: typeof SpeakingTipsChunksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking_/topics-explained': {
+      id: '/speaking_/topics-explained'
+      path: '/speaking/topics-explained'
+      fullPath: '/speaking/topics-explained'
+      preLoaderRoute: typeof SpeakingTopicsExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking_/written-samples': {
+      id: '/speaking_/written-samples'
+      path: '/speaking/written-samples'
+      fullPath: '/speaking/written-samples'
+      preLoaderRoute: typeof SpeakingWrittenSamplesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/writing/$taskId': {
+      id: '/writing/$taskId'
+      path: '/$taskId'
+      fullPath: '/writing/$taskId'
+      preLoaderRoute: typeof WritingTaskIdRouteImport
+      parentRoute: typeof WritingRoute
+    }
+    '/writing/$taskId/practice': {
+      id: '/writing/$taskId/practice'
+      path: '/practice'
+      fullPath: '/writing/$taskId/practice'
+      preLoaderRoute: typeof WritingTaskIdPracticeRouteImport
+      parentRoute: typeof WritingTaskIdRoute
     }
     '/writing_/essay/$id': {
       id: '/writing_/essay/$id'
@@ -583,12 +583,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WritingEssayIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/writing/$taskId/practice': {
-      id: '/writing/$taskId/practice'
-      path: '/practice'
-      fullPath: '/writing/$taskId/practice'
-      preLoaderRoute: typeof WritingTaskIdPracticeRouteImport
-      parentRoute: typeof WritingTaskIdRoute
+    '/writing_/sample/$id': {
+      id: '/writing_/sample/$id'
+      path: '/writing/sample/$id'
+      fullPath: '/writing/sample/$id'
+      preLoaderRoute: typeof WritingSampleIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
