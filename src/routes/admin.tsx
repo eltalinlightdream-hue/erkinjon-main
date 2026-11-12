@@ -2,25 +2,15 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { Activity, Crown, KeyRound, Library, Loader2, Shield, Users } from "lucide-react";
+import { Activity, ClipboardCheck, Loader2, Shield, Users } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { StudentsPanel } from "@/components/admin/students-panel";
-import { CodesPanel } from "@/components/admin/codes-panel";
-import { ContentPanel } from "@/components/admin/content-panel";
 import { isWithinDays } from "@/components/admin/admin-format";
 import { useAuth } from "@/hooks/use-auth";
 import { isAdminEmail } from "@/lib/admin-config";
-import {
-  adminListCodes,
-  adminListContentOverrides,
-  adminListStudents,
-  type AdminCode,
-  type AdminContentOverride,
-  type AdminStudent,
-} from "@/lib/admin.functions";
+import { adminListStudents, type AdminStudent } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({
@@ -38,38 +28,19 @@ function Admin() {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
   const listStudentsFn = useServerFn(adminListStudents);
-  const listCodesFn = useServerFn(adminListCodes);
-  const listOverridesFn = useServerFn(adminListContentOverrides);
 
   const [students, setStudents] = useState<AdminStudent[]>([]);
-  const [codes, setCodes] = useState<AdminCode[]>([]);
-  const [overrides, setOverrides] = useState<AdminContentOverride[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
 
   const isAdmin = isAdminEmail(user?.email);
 
   const loadAll = useCallback(async () => {
-    const [studentsResult, codesResult, overridesResult] = await Promise.allSettled([
-      listStudentsFn(),
-      listCodesFn(),
-      listOverridesFn(),
-    ]);
-    if (studentsResult.status === "fulfilled") {
-      setStudents(studentsResult.value);
-    } else {
+    try {
+      setStudents(await listStudentsFn());
+    } catch {
       toast.error("Could not load students.");
     }
-    if (codesResult.status === "fulfilled") {
-      setCodes(codesResult.value);
-    } else {
-      toast.error("Could not load activation codes.");
-    }
-    if (overridesResult.status === "fulfilled") {
-      setOverrides(overridesResult.value);
-    } else {
-      toast.error("Could not load content overrides.");
-    }
-  }, [listStudentsFn, listCodesFn, listOverridesFn]);
+  }, [listStudentsFn]);
 
   useEffect(() => {
     if (!loading && !user) navigate({ to: "/auth" });
@@ -108,11 +79,10 @@ function Admin() {
     );
   }
 
-  const premiumCount = students.filter((s) => s.is_premium).length;
   const activeCount = students.filter((s) =>
     isWithinDays(s.last_sign_in_at, ACTIVE_WINDOW_DAYS),
   ).length;
-  const availableCodes = codes.filter((c) => !c.used_by).length;
+  const testsThisWeek = students.reduce((sum, s) => sum + s.tests_week, 0);
 
   const stats = [
     {
@@ -122,21 +92,15 @@ function Admin() {
       iconClass: "bg-accent text-secondary",
     },
     {
-      label: "Premium students",
-      value: premiumCount,
-      icon: Crown,
-      iconClass: "bg-[#C07850]/10 text-[#C07850]",
-    },
-    {
       label: `Active last ${ACTIVE_WINDOW_DAYS} days`,
       value: activeCount,
       icon: Activity,
       iconClass: "bg-accent text-secondary",
     },
     {
-      label: "Codes available",
-      value: availableCodes,
-      icon: KeyRound,
+      label: "Tests taken this week",
+      value: testsThisWeek,
+      icon: ClipboardCheck,
       iconClass: "bg-gold/10 text-gold",
     },
   ];
@@ -151,7 +115,7 @@ function Admin() {
           <div className="flex-1">
             <h1 className="text-2xl md:text-3xl font-bold">Admin Panel</h1>
             <p className="font-mono text-xs text-muted-foreground tracking-wide mt-0.5">
-              Manage students, premium access and activation codes.
+              Manage students and follow their study progress.
             </p>
           </div>
           <Button
@@ -167,7 +131,7 @@ function Admin() {
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           {stats.map((stat) => (
             <div key={stat.label} className="bento-card rounded-2xl p-5 flex items-center gap-4">
               <span
@@ -185,28 +149,7 @@ function Admin() {
           ))}
         </div>
 
-        <Tabs defaultValue="students">
-          <TabsList className="mb-4">
-            <TabsTrigger value="students" className="font-mono text-xs tracking-wide">
-              <Users className="w-3.5 h-3.5 mr-1.5" /> Students
-            </TabsTrigger>
-            <TabsTrigger value="codes" className="font-mono text-xs tracking-wide">
-              <KeyRound className="w-3.5 h-3.5 mr-1.5" /> Activation codes
-            </TabsTrigger>
-            <TabsTrigger value="content" className="font-mono text-xs tracking-wide">
-              <Library className="w-3.5 h-3.5 mr-1.5" /> Content access
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="students">
-            <StudentsPanel students={students} isLoading={isLoadingData} onReload={loadAll} />
-          </TabsContent>
-          <TabsContent value="codes">
-            <CodesPanel codes={codes} isLoading={isLoadingData} onReload={loadAll} />
-          </TabsContent>
-          <TabsContent value="content">
-            <ContentPanel overrides={overrides} isLoading={isLoadingData} onReload={loadAll} />
-          </TabsContent>
-        </Tabs>
+        <StudentsPanel students={students} isLoading={isLoadingData} onReload={loadAll} />
       </section>
     </SiteLayout>
   );

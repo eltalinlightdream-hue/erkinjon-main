@@ -8,7 +8,6 @@ import {
   Send,
   LogOut,
   User as UserIcon,
-  Crown,
   ChevronDown,
   ChevronRight,
   BookOpen,
@@ -86,7 +85,6 @@ const FOOTER_SECTIONS: { heading: string; links: FooterLink[] }[] = [
       { to: "/books", label: "Books by the Author" },
       { to: "/vocabulary", label: "Vocabulary" },
       { to: "/contact-about", label: "Contact & About" },
-      { to: "/premium", label: "Premium", accent: true },
     ],
   },
 ];
@@ -120,7 +118,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     [],
   );
 
-  const { user, profile, signOut } = useAuth();
+  const { user, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const loc = useLocation();
   const { data: due } = useQuery({
@@ -351,7 +349,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             >
               Articles
             </Link>
-            <Link to="/books" className={navLink("/books", "Books by the Author", isActive("/books"))}>
+            <Link
+              to="/books"
+              className={navLink("/books", "Books by the Author", isActive("/books"))}
+            >
               Books
             </Link>
             {/* Japanese dropdown — hub link + its sub-pages */}
@@ -434,11 +435,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             )}
             {user ? (
               <>
-                {profile?.is_premium && (
-                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--ochre-deep)] bg-[var(--ochre-wash)] px-2.5 py-1 rounded-full border border-[var(--ochre)]/30">
-                    <Crown className="w-3 h-3" /> Premium
-                  </span>
-                )}
                 {isAdminEmail(user.email) && (
                   <Link to="/admin">
                     <Button
@@ -479,9 +475,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     Sign In
                   </Button>
                 </Link>
-                <Link to="/premium">
+                <Link to="/auth">
                   <Button size="sm" className="h-8 text-xs">
-                    Go Premium
+                    Join Free
                   </Button>
                 </Link>
               </>
@@ -777,8 +773,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                         Sign In
                       </Button>
                     </Link>
-                    <Link to="/premium" onClick={() => setOpen(false)}>
-                      <Button className="w-full text-sm">Go Premium</Button>
+                    <Link to="/auth" onClick={() => setOpen(false)}>
+                      <Button className="w-full text-sm">Join Free</Button>
                     </Link>
                   </>
                 )}
@@ -806,6 +802,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               Guided IELTS preparation from a Band 8.0 teacher in Fergana, Uzbekistan — patient
               lessons, honest feedback, real results.
+            </p>
+            <p className="mt-4 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--olive-deep)] bg-[var(--olive-wash)] px-3 py-1.5 rounded-full">
+              100% free — every lesson, test and sample
             </p>
           </div>
 

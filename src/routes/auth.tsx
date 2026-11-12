@@ -15,7 +15,10 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Sign In - Abduraimov Erkinjon" },
-      { name: "description", content: "Sign in or create your free account." },
+      {
+        name: "description",
+        content: "Sign in or create your free account — the whole site is 100% free.",
+      },
     ],
   }),
   component: AuthPage,
@@ -41,7 +44,7 @@ function AuthPage() {
           <p className="mt-1 text-sm text-muted-foreground">
             {mode === "forgot"
               ? "Reset your password"
-              : "Sign in or create an account to track your progress."}
+              : "Create a free account to track your progress — everything here is 100% free."}
           </p>
         </div>
 
@@ -78,7 +81,7 @@ function AuthPage() {
         </div>
 
         <p className="mt-6 text-center font-mono text-[11px] text-muted-foreground tracking-wide">
-          By signing up you agree to use this platform for personal IELTS practice.
+          No payment, no email confirmation — just a username, email and password.
         </p>
       </section>
     </SiteLayout>
@@ -257,13 +260,7 @@ function SocialButtons() {
   );
 }
 
-function SignInForm({
-  onForgot,
-  onReady,
-}: {
-  onForgot: () => void;
-  onReady: () => Promise<void>;
-}) {
+function SignInForm({ onForgot, onReady }: { onForgot: () => void; onReady: () => Promise<void> }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -302,11 +299,7 @@ function SignInForm({
       <div>
         <div className="flex items-center justify-between">
           <Label htmlFor="signin-password">Password</Label>
-          <button
-            type="button"
-            onClick={onForgot}
-            className="text-xs text-primary hover:underline"
-          >
+          <button type="button" onClick={onForgot} className="text-xs text-primary hover:underline">
             Forgot password?
           </button>
         </div>
@@ -346,7 +339,7 @@ function SignUpForm({ onReady }: { onReady: () => Promise<void> }) {
         }
         const cleanName = fullName.trim();
         if (!cleanName) {
-          toast.error("Please enter your full name.");
+          toast.error("Please enter a username.");
           return;
         }
         setLoading(true);
@@ -364,11 +357,7 @@ function SignUpForm({ onReady }: { onReady: () => Promise<void> }) {
         if (error) {
           setLoading(false);
           const msg = error.message.toLowerCase();
-          if (
-            msg.includes("already") ||
-            msg.includes("registered") ||
-            msg.includes("exists")
-          ) {
+          if (msg.includes("already") || msg.includes("registered") || msg.includes("exists")) {
             toast.error("An account with this email already exists. Please sign in.");
           } else {
             toast.error(friendlyAuthError(error));
@@ -411,12 +400,13 @@ function SignUpForm({ onReady }: { onReady: () => Promise<void> }) {
       }}
     >
       <div>
-        <Label htmlFor="signup-name">Full name</Label>
+        <Label htmlFor="signup-name">Username</Label>
         <Input
           id="signup-name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          autoComplete="name"
+          autoComplete="username"
+          maxLength={60}
           required
         />
       </div>
@@ -464,8 +454,8 @@ function ForgotPasswordForm({ onBack }: { onBack: () => void }) {
     return (
       <div className="space-y-4 text-center">
         <p className="text-sm">
-          If an account exists for <strong>{email}</strong>, a password reset link has
-          been sent. Please check your inbox.
+          If an account exists for <strong>{email}</strong>, a password reset link has been sent.
+          Please check your inbox.
         </p>
         <Button variant="outline" className="w-full" onClick={onBack}>
           Back to sign in
@@ -480,10 +470,9 @@ function ForgotPasswordForm({ onBack }: { onBack: () => void }) {
       onSubmit={async (event) => {
         event.preventDefault();
         setLoading(true);
-        const { error } = await supabase.auth.resetPasswordForEmail(
-          email.trim().toLowerCase(),
-          { redirectTo: `${window.location.origin}/reset-password` },
-        );
+        const { error } = await supabase.auth.resetPasswordForEmail(email.trim().toLowerCase(), {
+          redirectTo: `${window.location.origin}/reset-password`,
+        });
         setLoading(false);
         if (error) {
           toast.error(friendlyAuthError(error));

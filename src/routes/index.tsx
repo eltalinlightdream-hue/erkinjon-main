@@ -6,7 +6,7 @@ import {
   BookOpen,
   PenLine,
   Youtube,
-  Crown,
+  Heart,
   ArrowRight,
   Newspaper,
   Headphones,
@@ -20,13 +20,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Free IELTS materials, online practice, video lessons and premium guidance from a Band 8.0 teacher in Uzbekistan.",
+          "100% free IELTS materials, online practice and video lessons from a Band 8.0 teacher in Uzbekistan. No payment — just sign up and start.",
       },
     ],
   }),
   component: Index,
 });
-
 
 /* Decorative section divider: ── ❦ ── */
 function OrnamentDivider() {
@@ -111,13 +110,13 @@ const FEATURES = [
   },
   {
     n: "05",
-    title: "Premium Membership",
-    body: "Model answers, premium PDFs and exclusive video lessons — the full atelier, opened. For students who want every advantage on exam day.",
-    to: "/premium" as const,
-    cta: "Unlock Premium",
-    icon: Crown,
-    tag: "Full access",
-    premium: true,
+    title: "100% Free, Forever",
+    body: "Every model answer, PDF, practice test and video lesson on this site is completely free. No payments, no locked content — just create a free account and start studying.",
+    to: "/auth" as const,
+    cta: "Create your free account",
+    icon: Heart,
+    tag: "Everything included",
+    highlight: true,
   },
 ];
 
@@ -137,8 +136,7 @@ const TESTIMONIALS = [
   {
     name: "Student name",
     score: "Band —",
-    quote:
-      "Add a second genuine testimonial once you have the student's permission to publish it.",
+    quote: "Add a second genuine testimonial once you have the student's permission to publish it.",
   },
   {
     name: "Student name",
@@ -161,75 +159,72 @@ function Index() {
         <div className="relative container mx-auto px-4 pt-16 md:pt-24 pb-16 md:pb-24">
           {/* Editorial headline — full width */}
           <div className="max-w-4xl">
-              <p
-                className="ink-bleed eyebrow text-primary mb-6"
-                style={{ animationDelay: "0.05s" }}
-              >
-                Scuola d'inglese · IELTS preparation
-              </p>
+            <p className="ink-bleed eyebrow text-primary mb-6" style={{ animationDelay: "0.05s" }}>
+              Scuola d'inglese · IELTS preparation
+            </p>
 
-              <h1
-                className="ink-bleed font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Master IELTS with <em className="text-primary">guided practice</em>
-              </h1>
+            <h1
+              className="ink-bleed font-serif text-4xl md:text-6xl lg:text-7xl text-foreground mb-6"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Master IELTS with <em className="text-primary">guided practice</em>
+            </h1>
 
-              <p
-                className="ink-bleed text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mb-9"
-                style={{ animationDelay: "0.35s" }}
-              >
-                Friendly lessons, real exam strategies and structured practice — built for Uzbek
-                learners who want a real score jump, taught with the patience of a small studio
-                school.
-              </p>
+            <p
+              className="ink-bleed text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mb-9"
+              style={{ animationDelay: "0.35s" }}
+            >
+              Friendly lessons, real exam strategies and structured practice — built for Uzbek
+              learners who want a real score jump, taught with the patience of a small studio
+              school.
+            </p>
 
-              <div
-                className="ink-bleed flex flex-col sm:flex-row gap-3"
-                style={{ animationDelay: "0.5s" }}
-              >
-                <Link to="/practice">
-                  <Button size="lg" className="px-8 text-sm">
-                    Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
-                  </Button>
-                </Link>
-                <Link to="/premium">
-                  <Button size="lg" variant="outline" className="px-8 text-sm">
-                    Get Premium Access
-                  </Button>
-                </Link>
-              </div>
+            <div
+              className="ink-bleed flex flex-col sm:flex-row gap-3"
+              style={{ animationDelay: "0.5s" }}
+            >
+              <Link to="/practice">
+                <Button size="lg" className="px-8 text-sm">
+                  Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
+                </Button>
+              </Link>
+              <Link to="/auth">
+                <Button size="lg" variant="outline" className="px-8 text-sm">
+                  Create a Free Account
+                </Button>
+              </Link>
+            </div>
 
-              {/* Inline editorial stats with serif numerals */}
-              <div
-                className="ink-bleed mt-12 flex items-center gap-6 md:gap-10"
-                style={{ animationDelay: "0.65s" }}
-              >
-                {/*
+            {/* Inline editorial stats with serif numerals */}
+            <div
+              className="ink-bleed mt-12 flex items-center gap-6 md:gap-10"
+              style={{ animationDelay: "0.65s" }}
+            >
+              {/*
                   TODO(owner): the first stat is real. Replace the two
                   placeholders below with genuine proof numbers when you have
                   them — e.g. students taught, average band improvement, pass
                   rate. Do NOT invent figures; leave the placeholder text until
                   you can fill in a real one, or delete the entry.
                 */}
-                {[
-                  { value: "8.0", label: "Teacher's IELTS band" },
-                  { value: "—", label: "Students taught (add real number)" },
-                  { value: "—", label: "Avg. band improvement (add real number)" },
-                ].map((s, i) => (
-                  <div key={i} className="flex items-center gap-6 md:gap-10">
-                    {i > 0 && <div className="w-px h-10 bg-border" aria-hidden="true" />}
-                    <div>
-                      <div className="font-serif text-2xl md:text-3xl text-foreground leading-none mb-1.5">
-                        {s.value}
-                      </div>
-                      <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-                        {s.label}
-                      </div>
+              {[
+                { value: "8.0", label: "Teacher's IELTS band" },
+                { value: "—", label: "Students taught (add real number)" },
+                { value: "—", label: "Avg. band improvement (add real number)" },
+              ].map((s, i) => (
+                <div key={i} className="flex items-center gap-6 md:gap-10">
+                  {i > 0 && <div className="w-px h-10 bg-border" aria-hidden="true" />}
+                  <div>
+                    <div className="font-serif text-2xl md:text-3xl text-foreground leading-none mb-1.5">
+                      {s.value}
+                    </div>
+                    <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                      {s.label}
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -273,8 +268,8 @@ function Index() {
             Everything you need to reach <em className="text-primary">Band 7+</em>
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            From free strategy guides to premium model answers, every resource is built for the real
-            test.
+            Strategy guides, model answers, practice tests — every resource is built for the real
+            test, and all of it is 100% free.
           </p>
         </Reveal>
 
@@ -291,7 +286,7 @@ function Index() {
               <div className={`md:col-span-2 ${i % 2 === 1 ? "md:order-3 md:text-right" : ""}`}>
                 <span
                   className={`font-serif text-5xl md:text-6xl leading-none transition-colors duration-300 ${
-                    f.premium
+                    f.highlight
                       ? "text-[var(--ochre)]/50 group-hover:text-[var(--ochre)] group-active:text-[var(--ochre)]"
                       : "text-primary/30 group-hover:text-primary group-active:text-primary"
                   }`}
@@ -306,7 +301,7 @@ function Index() {
                   <h3 className="font-serif text-xl md:text-2xl text-foreground">{f.title}</h3>
                   <span
                     className={`hidden sm:inline-block text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full ${
-                      f.premium
+                      f.highlight
                         ? "bg-[var(--ochre-wash)] text-[var(--ochre-deep)]"
                         : "bg-[var(--olive-wash)] text-[var(--olive-deep)]"
                     }`}
@@ -320,7 +315,7 @@ function Index() {
                 <Link
                   to={f.to}
                   className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
-                    f.premium
+                    f.highlight
                       ? "text-[var(--ochre)] hover:text-[var(--ochre-deep)]"
                       : "text-primary hover:text-[var(--terracotta-deep)]"
                   }`}
@@ -338,7 +333,7 @@ function Index() {
               >
                 <div
                   className={`icon-tile w-24 h-24 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-card-hover group-active:-translate-y-1 group-active:shadow-card-hover ${
-                    f.premium ? "icon-tile-ochre" : "icon-tile-coral"
+                    f.highlight ? "icon-tile-ochre" : "icon-tile-coral"
                   }`}
                 >
                   <f.icon className="w-9 h-9" strokeWidth={1.5} />
@@ -408,8 +403,8 @@ function Index() {
               Ready when you are.
             </h2>
             <p className="text-[var(--on-dark-muted)] max-w-md mx-auto leading-relaxed mb-8">
-              Open a practice passage now — no account needed — or join Premium for the complete
-              study programme.
+              Open a practice passage now, or create a free account to unlock progress tracking.
+              Everything on this site is 100% free.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/practice">
@@ -417,13 +412,13 @@ function Index() {
                   Start Practising Free <ArrowRight className="ml-1 w-4 h-4" />
                 </Button>
               </Link>
-              <Link to="/premium">
+              <Link to="/auth">
                 <Button
                   size="lg"
                   variant="outline"
                   className="px-8 text-sm border-[var(--on-dark)]/25 bg-transparent text-[var(--on-dark)] hover:border-[var(--on-dark)]/50 hover:text-[var(--on-dark)]"
                 >
-                  Get Premium Access
+                  Create a Free Account
                 </Button>
               </Link>
             </div>

@@ -26,9 +26,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
-import { useIsPremium, PremiumCardOverlay, PremiumRequired } from "@/components/premium-lock";
-import { isFreeSpeakingTopic, effectiveIsPremium } from "@/lib/premium-content";
-import { useContentOverrides } from "@/hooks/use-content-overrides";
 
 type SamplesSearch = {
   topic?: string;
@@ -61,11 +58,6 @@ export const Route = createFileRoute("/speaking_/written-samples")({
 /* ── Topic card (index view) ─────────────────────────────────── */
 
 function TopicCard({ topic }: { topic: SpeakingTopic }) {
-  const isPremium = useIsPremium();
-  const { overrides } = useContentOverrides();
-  const locked =
-    effectiveIsPremium("speaking", topic.id, !isFreeSpeakingTopic(topic.id), overrides) &&
-    !isPremium;
   const count = topic.questions.length;
   const inner = (
     <div className="bento-card p-6 h-full flex flex-col cursor-pointer">
@@ -85,19 +77,6 @@ function TopicCard({ topic }: { topic: SpeakingTopic }) {
       </span>
     </div>
   );
-
-  if (locked) {
-    return (
-      <Reveal className="h-full">
-        <div className="relative rounded-2xl overflow-hidden h-full">
-          <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
-            {inner}
-          </div>
-          <PremiumCardOverlay label="Premium topic" />
-        </div>
-      </Reveal>
-    );
-  }
 
   return (
     <Reveal className="h-full">
@@ -379,30 +358,11 @@ function IndexView({ part }: { part?: 1 | 2 | 3 | "phrases" }) {
 function WrittenSamples() {
   const { topic: topicId, part } = Route.useSearch();
   const topic = topicId ? findSpeakingTopic(topicId) : undefined;
-  const isPremium = useIsPremium();
-  const { overrides } = useContentOverrides();
 
   // Scroll to top when switching between index and topic views
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [topicId]);
 
-  const topicLocked =
-    !!topic &&
-    effectiveIsPremium("speaking", topic.id, !isFreeSpeakingTopic(topic.id), overrides) &&
-    !isPremium;
-
-  return (
-    <SiteLayout>
-      {topic ? (
-        topicLocked ? (
-          <PremiumRequired title="This speaking topic is Premium" />
-        ) : (
-          <TopicView topic={topic} />
-        )
-      ) : (
-        <IndexView part={part} />
-      )}
-    </SiteLayout>
-  );
+  return <SiteLayout>{topic ? <TopicView topic={topic} /> : <IndexView part={part} />}</SiteLayout>;
 }

@@ -8,17 +8,14 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Crown,
   LogOut,
   User as UserIcon,
-  Calendar,
   Loader2,
   BookOpen,
   BarChart2,
   Flame,
   Trophy,
   Lock,
-  Send,
   Eye,
   EyeOff,
   CheckCircle2,
@@ -33,7 +30,7 @@ export const Route = createFileRoute("/account")({
   head: () => ({
     meta: [
       { title: "My Account — Abduraimov Erkinjon" },
-      { name: "description", content: "Manage your IELTS account, premium status, and progress." },
+      { name: "description", content: "Manage your IELTS account and track your progress." },
     ],
   }),
   component: Account,
@@ -248,16 +245,12 @@ function Account() {
     );
   }
 
-  const initials =(profile?.full_name || user.email || "?")
+  const initials = (profile?.full_name || user.email || "?")
     .split(" ")
     .map((s) => s[0])
     .slice(0, 2)
     .join("")
     .toUpperCase();
-
-  const activated = profile?.activated_at
-    ? new Date(profile.activated_at).toLocaleDateString()
-    : null;
 
   // Stats computed
   const weekStart = getWeekStart();
@@ -314,44 +307,17 @@ function Account() {
         {/* Row 1: Membership + Profile */}
         <div className="grid md:grid-cols-2 gap-5">
           {/* Membership */}
-          <Card
-            className={`p-6 ${profile?.is_premium ? "bg-gradient-warm border-[#C07850]/20" : ""}`}
-          >
+          <Card className="p-6">
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-serif text-xl font-semibold">Membership</h2>
-              {profile?.is_premium ? (
-                <Badge className="bg-gold/15 text-gold border-gold/30">
-                  <Crown className="w-3 h-3 mr-1" /> Premium
-                </Badge>
-              ) : (
-                <Badge variant="secondary" className="bg-accent">
-                  Free
-                </Badge>
-              )}
+              <Badge variant="secondary" className="bg-accent">
+                100% Free
+              </Badge>
             </div>
-            {profile?.is_premium ? (
-              <>
-                <p className="text-sm text-muted-foreground mb-2">
-                  You have full access to all premium materials.
-                </p>
-                {activated && (
-                  <p className="text-xs text-muted-foreground inline-flex items-center gap-1.5">
-                    <Calendar className="w-3 h-3" /> Activated on {activated}
-                  </p>
-                )}
-              </>
-            ) : (
-              <>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Upgrade to unlock model answers, PDFs and worksheets.
-                </p>
-                <a href="https://t.me/augustus_at" target="_blank" rel="noreferrer">
-                  <Button className="bg-gradient-gold text-primary-foreground w-full">
-                    <Send className="w-4 h-4 mr-2" /> Contact to Upgrade
-                  </Button>
-                </a>
-              </>
-            )}
+            <p className="text-sm text-muted-foreground">
+              Everything on this site is completely free — every model answer, PDF, practice test
+              and video lesson. Enjoy full access, forever.
+            </p>
           </Card>
 
           {/* Profile + Password */}

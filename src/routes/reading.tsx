@@ -6,8 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Lock, Crown, BookOpen, RotateCcw, Search, Clock } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { BookOpen, RotateCcw, Search, Clock } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
 import {
@@ -18,8 +17,6 @@ import {
 } from "@/hooks/use-test-status";
 import { TestProgressBadge, TestProgressSelect } from "@/components/test-progress-controls";
 import { SteveReading, McItem } from "@/components/minecraft-decorations";
-import { FREE_LIMITS, effectiveIsPremium } from "@/lib/premium-content";
-import { useContentOverrides } from "@/hooks/use-content-overrides";
 import { PASSAGES, type Passage } from "@/lib/reading-data";
 
 export const Route = createFileRoute("/reading")({
@@ -32,7 +29,6 @@ export const Route = createFileRoute("/reading")({
   component: Reading,
 });
 
-
 const FILTERS = [
   { v: "all", label: "All" },
   { v: "1", label: "Passage 1" },
@@ -42,10 +38,10 @@ const FILTERS = [
 
 function Reading() {
   const location = useLocation();
-  const passageParam = new URLSearchParams(location.search as Record<string, string>).get("passage") as "1" | "2" | "3" | null;
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]["v"]>(
-    () => passageParam ?? "all"
-  );
+  const passageParam = new URLSearchParams(location.search as Record<string, string>).get(
+    "passage",
+  ) as "1" | "2" | "3" | null;
+  const [filter, setFilter] = useState<(typeof FILTERS)[number]["v"]>(() => passageParam ?? "all");
   const [statusFilter, setStatusFilter] = useState<"all" | ProgressStatus>("all");
   const [search, setSearch] = useState("");
   const [active, setActive] = useState<Passage | null>(null);
@@ -55,20 +51,11 @@ function Reading() {
     else setFilter("all");
   }, [passageParam]);
 
-  const { profile, user } = useAuth();
-  const isPremium = !!profile?.is_premium;
-  const { overrides } = useContentOverrides();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const passageIds = PASSAGES.map((p) => p.id);
   const { statuses, statusFor, setTestStatus, resetTest } = useTestStatus(passageIds);
-
-  // The first few NON-premium passages stay free; explicitly premium tests are
-  // never free regardless of position, so new premium tests can sit at the top
-  // of the list without falling into the free slice.
-  const freePassageIds = new Set(
-    PASSAGES.filter((p) => !p.isPremium).slice(0, FREE_LIMITS.readingPassages).map((p) => p.id),
-  );
 
   // BUG FIX: the PASSAGES list contains entries that share the same title /
   // htmlFile (e.g. "The Bug Picture" appears twice), which made the search
@@ -144,8 +131,12 @@ function Reading() {
           <McItem item="crafting-table" size={32} opacity={1} />
         </div>
         <div className="ink-bleed mb-10">
-          <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">IELTS Reading Practice</h1>
-          <p className="text-muted-foreground mb-1">Filter by passage type and open any passage in a clean reader view.</p>
+          <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-3">
+            IELTS Reading Practice
+          </h1>
+          <p className="text-muted-foreground mb-1">
+            Filter by passage type and open any passage in a clean reader view.
+          </p>
           <p className="font-mono text-[11px] text-muted-foreground/70 tracking-wide italic">
             ⏱ Recommended time: Passage 1 &amp; 2 — 20 min &nbsp;|&nbsp; Passage 3 — 22 min
           </p>
@@ -211,13 +202,6 @@ function Reading() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((p) => {
-              const locked =
-                effectiveIsPremium(
-                  "reading",
-                  p.id,
-                  p.isPremium || !freePassageIds.has(p.id),
-                  overrides,
-                ) && !isPremium;
               const status = statuses[p.id];
               const progressStatus = statusFor(p.id);
               const isFinished = progressStatus === "finished";
@@ -226,7 +210,10 @@ function Reading() {
               return (
                 <Card
                   key={p.id}
-                  className={cn("p-6 flex flex-col relative overflow-hidden", progressMeta.cardClassName)}
+                  className={cn(
+                    "p-6 flex flex-col relative overflow-hidden",
+                    progressMeta.cardClassName,
+                  )}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex flex-wrap items-center gap-1.5">
@@ -236,25 +223,12 @@ function Reading() {
                       {p.isNew && <Badge>New</Badge>}
                       <TestProgressBadge status={progressStatus} detail={status} />
                     </div>
-                    {locked && <Lock className="w-4 h-4 text-muted-foreground shrink-0 mt-1" />}
                   </div>
 
-                  <h3
-                    className={cn(
-                      "font-serif text-xl font-semibold mb-2 leading-snug",
-                      locked && "blur-sm select-none",
-                    )}
-                  >
-                    {p.title}
-                  </h3>
+                  <h3 className="font-serif text-xl font-semibold mb-2 leading-snug">{p.title}</h3>
 
                   {p.description && (
-                    <p
-                      className={cn(
-                        "text-sm text-muted-foreground mb-4 flex-1 line-clamp-3",
-                        locked && "blur-sm select-none",
-                      )}
-                    >
+                    <p className="text-sm text-muted-foreground mb-4 flex-1 line-clamp-3">
                       {p.description}
                     </p>
                   )}
@@ -271,22 +245,14 @@ function Reading() {
                     </p>
                   )}
 
-                  {!locked && (
-                    <div className="mb-3">
-                      <TestProgressSelect
-                        value={progressStatus}
-                        onChange={(next) => setTestStatus(p.id, next)}
-                      />
-                    </div>
-                  )}
+                  <div className="mb-3">
+                    <TestProgressSelect
+                      value={progressStatus}
+                      onChange={(next) => setTestStatus(p.id, next)}
+                    />
+                  </div>
 
-                  {locked ? (
-                    <Link to="/premium">
-                      <Button size="sm" className="w-full bg-gradient-gold text-primary-foreground">
-                        <Crown className="w-4 h-4 mr-1" /> Unlock with Premium
-                      </Button>
-                    </Link>
-                  ) : isFinished ? (
+                  {isFinished ? (
                     <div className="flex gap-2">
                       <Button
                         size="sm"
@@ -306,9 +272,18 @@ function Reading() {
                       </Button>
                     </div>
                   ) : (
-                    <Button size="sm" variant="outline" className="w-full" onClick={() => handleOpen(p)}>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => handleOpen(p)}
+                    >
                       <BookOpen className="w-4 h-4 mr-1" />
-                      {progressStatus === "not_completed" ? "Continue Test" : p.htmlFile ? "Open Full Test" : "Open"}
+                      {progressStatus === "not_completed"
+                        ? "Continue Test"
+                        : p.htmlFile
+                          ? "Open Full Test"
+                          : "Open"}
                     </Button>
                   )}
                 </Card>

@@ -11,15 +11,6 @@ import { useEffect, useState } from "react";
 import { WRITING_TASKS, getAllWritingProgress, type WritingStatus } from "@/lib/writing-data";
 import { cn } from "@/lib/utils";
 import { SteveMining, McItem } from "@/components/minecraft-decorations";
-import { useIsPremium, PremiumCardOverlay } from "@/components/premium-lock";
-import {
-  isFreeWritingSample,
-  isFreeWritingEssay,
-  isFreeWritingSimulator,
-  effectiveIsPremium,
-  writingContentId,
-} from "@/lib/premium-content";
-import { useContentOverrides } from "@/hooks/use-content-overrides";
 import { HTML_TASKS, type HtmlTask } from "@/lib/writing-simulators-data";
 import { TASK1_STRUCTURES } from "@/lib/task1-structures-data";
 import { Task1ChunksSection } from "@/components/task1-chunks-section";
@@ -52,7 +43,6 @@ const STATUS_META: Record<WritingStatus, { label: string; className: string }> =
   },
 };
 
-
 const TASK_TOTALS: Record<1 | 2, number> = {
   1: [...HTML_TASKS, ...WRITING_TASKS].filter((t) => t.task === 1).length,
   2: [...HTML_TASKS, ...WRITING_TASKS].filter((t) => t.task === 2).length,
@@ -62,7 +52,6 @@ const SAMPLE_TOTALS = {
   "t1-samples": WRITING_SAMPLES.filter((s) => s.task === 1).length,
   "t2-samples": WRITING_ESSAYS.length,
 };
-
 
 /* Controlled vocabulary for card `type` tags. The filter bars below use the
    exact same set, and every card in writing-simulators-data.ts is normalised
@@ -89,8 +78,8 @@ const TASK2_FILTERS = [
   "Two-Part Question",
 ] as const;
 
-/* How many cards to reveal at a time in the (large) Premium group. */
-const PREMIUM_PAGE_SIZE = 9;
+/* How many simulator cards to reveal at a time. */
+const PAGE_SIZE = 18;
 
 /* "New" is only meaningful when it marks a genuinely recent handful. The data
    flags ~60 items isNew, so cap the badge to the first few (in list order) of
@@ -106,7 +95,11 @@ const genuinelyNewIds = new Set(
 
 type TabType = 1 | 2 | "t1-samples" | "t1-chunks" | "t2-samples";
 
-const SECONDARY_TABS: { key: "t1-samples" | "t1-chunks" | "t2-samples"; label: string; count: number }[] = [
+const SECONDARY_TABS: {
+  key: "t1-samples" | "t1-chunks" | "t2-samples";
+  label: string;
+  count: number;
+}[] = [
   { key: "t1-samples", label: "Task 1 Samples", count: SAMPLE_TOTALS["t1-samples"] },
   { key: "t1-chunks", label: "Task 1 Chunks", count: TASK1_STRUCTURES.length },
   { key: "t2-samples", label: "Task 2 Samples", count: SAMPLE_TOTALS["t2-samples"] },
@@ -115,8 +108,6 @@ const SECONDARY_TABS: { key: "t1-samples" | "t1-chunks" | "t2-samples"; label: s
 function Writing() {
   const { task: taskParam } = Route.useSearch();
   const { user } = useAuth();
-  const isPremium = useIsPremium();
-  const { overrides } = useContentOverrides();
   const navigate = useNavigate();
   const [tab, setTab] = useState<TabType>(() => {
     if (taskParam === "t1-samples") return "t1-samples";
@@ -126,12 +117,12 @@ function Writing() {
   });
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
-  const [premiumVisible, setPremiumVisible] = useState(PREMIUM_PAGE_SIZE);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [progress, setProgress] = useState<Record<string, { status: WritingStatus }>>({});
 
-  // Reset the Premium "Show more" paging whenever the visible set changes.
+  // Reset the "Show more" paging whenever the visible set changes.
   useEffect(() => {
-    setPremiumVisible(PREMIUM_PAGE_SIZE);
+    setVisibleCount(PAGE_SIZE);
   }, [tab, search, typeFilter]);
 
   useEffect(() => {
@@ -177,24 +168,10 @@ function Writing() {
   );
   const hasResults = visibleHtml.length > 0 || visibleTasks.length > 0;
 
-  // Split the simulators into Free vs Premium so the two groups render as
-  // distinct sections instead of an interleaved list. Free items stay small,
-  // the Premium group is paginated via "Show more".
-  const htmlWithLock = visibleHtml.map((task) => ({
-    task,
-    locked:
-      effectiveIsPremium(
-        "writing",
-        writingContentId.simulator(task.id),
-        !isFreeWritingSimulator(task.id),
-        overrides,
-      ) && !isPremium,
-  }));
-  const freeHtml = htmlWithLock.filter((x) => !x.locked);
-  const premiumHtml = htmlWithLock.filter((x) => x.locked);
-  const shownPremiumHtml = premiumHtml.slice(0, premiumVisible);
+  // Every simulator is free — the list is paginated via "Show more".
+  const shownHtml = visibleHtml.slice(0, visibleCount);
 
-  const renderHtmlCard = ({ task, locked }: { task: HtmlTask; locked: boolean }) => {
+  const renderHtmlCard = (task: HtmlTask) => {
     const isGenuinelyNew = genuinelyNewIds.has(task.id);
     const card = (
       <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1 cursor-pointer">
@@ -229,15 +206,6 @@ function Writing() {
       </Card>
     );
 
-    if (locked) {
-      return (
-        <div key={task.id} className="relative rounded-xl overflow-hidden h-full">
-          <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">{card}</div>
-          <PremiumCardOverlay />
-        </div>
-      );
-    }
-
     return (
       <button
         key={task.id}
@@ -258,9 +226,6 @@ function Writing() {
   const sampleTask = tab === "t1-samples" ? 1 : 2;
   const visibleSamples = WRITING_SAMPLES.filter((s) => s.task === sampleTask);
 
-  const chunksLocked =
-    effectiveIsPremium("writing", writingContentId.chunks, true, overrides) && !isPremium;
-
   return (
     <SiteLayout>
       <section className="container mx-auto px-4 py-12 max-w-6xl relative">
@@ -272,7 +237,9 @@ function Writing() {
         <div className="absolute top-10 right-28 pointer-events-none opacity-[0.06] hidden xl:block">
           <McItem item="sword" size={32} opacity={1} />
         </div>
-        <h1 className="ink-bleed font-serif text-3xl md:text-4xl text-foreground mb-8">IELTS Writing</h1>
+        <h1 className="ink-bleed font-serif text-3xl md:text-4xl text-foreground mb-8">
+          IELTS Writing
+        </h1>
 
         {/* Video banner */}
         <div className="relative overflow-hidden rounded-[0.875rem] px-8 py-6 mb-8 flex items-center justify-between gap-4 flex-wrap border border-border shadow-card bg-gradient-to-br from-[var(--terracotta-wash)] via-card to-[var(--olive-wash)]">
@@ -355,7 +322,7 @@ function Writing() {
           </div>
         )}
 
-        {/* Practice tasks grid — Free items first, then a paginated Premium group */}
+        {/* Practice tasks grid — all free, paginated via "Show more" */}
         {isPracticeTab && (
           <>
             {!hasResults && (
@@ -364,41 +331,26 @@ function Writing() {
               </p>
             )}
 
-            {freeHtml.length > 0 && (
+            {visibleHtml.length > 0 && (
               <div className="mb-14">
                 <div className="flex items-baseline gap-3 mb-5">
                   <h2 className="eyebrow text-[var(--olive-deep)]">Free to practise</h2>
                   <span className="font-mono text-[11px] text-muted-foreground">
-                    {freeHtml.length} {freeHtml.length === 1 ? "task" : "tasks"}
+                    {visibleHtml.length} {visibleHtml.length === 1 ? "task" : "tasks"}
                   </span>
                   <span className="h-px flex-1 bg-border" aria-hidden="true" />
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {freeHtml.map(renderHtmlCard)}
+                  {shownHtml.map(renderHtmlCard)}
                 </div>
-              </div>
-            )}
-
-            {premiumHtml.length > 0 && (
-              <div>
-                <div className="flex items-baseline gap-3 mb-5">
-                  <h2 className="eyebrow text-[var(--ochre-deep)]">Premium</h2>
-                  <span className="font-mono text-[11px] text-muted-foreground">
-                    {premiumHtml.length} {premiumHtml.length === 1 ? "task" : "tasks"}
-                  </span>
-                  <span className="h-px flex-1 bg-border" aria-hidden="true" />
-                </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {shownPremiumHtml.map(renderHtmlCard)}
-                </div>
-                {premiumVisible < premiumHtml.length && (
+                {visibleCount < visibleHtml.length && (
                   <div className="flex justify-center mt-8">
                     <Button
                       variant="outline"
                       className="font-mono text-xs tracking-wide"
-                      onClick={() => setPremiumVisible((v) => v + PREMIUM_PAGE_SIZE)}
+                      onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
                     >
-                      Show more ({premiumHtml.length - premiumVisible} more)
+                      Show more ({visibleHtml.length - visibleCount} more)
                     </Button>
                   </div>
                 )}
@@ -468,13 +420,6 @@ function Writing() {
         {tab === "t1-samples" && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {visibleSamples.map((sample) => {
-              const locked =
-                effectiveIsPremium(
-                  "writing",
-                  writingContentId.sample(sample.id),
-                  !isFreeWritingSample(sample.id),
-                  overrides,
-                ) && !isPremium;
               const card = (
                 <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
                   <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
@@ -511,17 +456,6 @@ function Writing() {
                 </Card>
               );
 
-              if (locked) {
-                return (
-                  <div key={sample.id} className="relative rounded-xl overflow-hidden h-full">
-                    <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
-                      {card}
-                    </div>
-                    <PremiumCardOverlay />
-                  </div>
-                );
-              }
-
               return (
                 <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
                   {card}
@@ -531,29 +465,12 @@ function Writing() {
           </div>
         )}
 
-        {/* Task 1 sentence structures & language chunks (premium section) */}
-        {tab === "t1-chunks" &&
-          (chunksLocked ? (
-            <div className="relative overflow-hidden rounded-xl">
-              <div className="pointer-events-none max-h-[560px] select-none overflow-hidden opacity-60 blur-[3px]">
-                <Task1ChunksSection />
-              </div>
-              <PremiumCardOverlay label="Task 1 Chunks — Premium" />
-            </div>
-          ) : (
-            <Task1ChunksSection />
-          ))}
+        {/* Task 1 sentence structures & language chunks */}
+        {tab === "t1-chunks" && <Task1ChunksSection />}
 
         {tab === "t2-samples" && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WRITING_ESSAYS.map((essay) => {
-              const locked =
-                effectiveIsPremium(
-                  "writing",
-                  writingContentId.essay(essay.id),
-                  !isFreeWritingEssay(essay.id),
-                  overrides,
-                ) && !isPremium;
               const card = (
                 <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
                   <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
@@ -580,17 +497,6 @@ function Writing() {
                   </div>
                 </Card>
               );
-
-              if (locked) {
-                return (
-                  <div key={essay.id} className="relative rounded-xl overflow-hidden h-full">
-                    <div className="pointer-events-none select-none blur-[2px] opacity-60 h-full">
-                      {card}
-                    </div>
-                    <PremiumCardOverlay />
-                  </div>
-                );
-              }
 
               return (
                 <Link key={essay.id} to="/writing/essay/$id" params={{ id: essay.id }}>
