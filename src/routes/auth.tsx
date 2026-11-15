@@ -120,11 +120,10 @@ function friendlyAuthError(error: { message?: string } | null): string {
 }
 
 /** OAuth-specific errors — most commonly the provider isn't enabled in Supabase yet. */
-function friendlyOAuthError(provider: "google" | "apple", error: { message?: string }): string {
+function friendlyOAuthError(error: { message?: string }): string {
   const msg = (error.message ?? "").toLowerCase();
   if (msg.includes("not enabled") || msg.includes("unsupported provider")) {
-    const name = provider === "google" ? "Google" : "Apple";
-    return `${name} sign-in isn't available yet. Please use email and password for now.`;
+    return "Google sign-in isn't available yet. Please use email and password for now.";
   }
   return friendlyAuthError(error);
 }
@@ -192,33 +191,25 @@ function GoogleIcon() {
   );
 }
 
-function AppleIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M16.36 12.78c.02 2.5 2.19 3.33 2.21 3.34-.02.06-.35 1.2-1.15 2.38-.69 1.02-1.41 2.04-2.54 2.06-1.11.02-1.47-.66-2.74-.66-1.27 0-1.66.64-2.71.68-1.09.04-1.92-1.1-2.62-2.12-1.43-2.08-2.52-5.87-1.05-8.43.73-1.27 2.03-2.07 3.45-2.09 1.07-.02 2.08.72 2.74.72.65 0 1.88-.89 3.17-.76.54.02 2.06.22 3.03 1.64-.08.05-1.81 1.06-1.79 3.16M14.3 4.15c.58-.7.97-1.68.86-2.65-.84.03-1.85.56-2.45 1.26-.54.62-1.01 1.61-.88 2.56.93.07 1.89-.47 2.47-1.17" />
-    </svg>
-  );
-}
-
-/** Google / Apple OAuth sign-in buttons. */
+/** Google OAuth sign-in button. (Apple is hidden until an Apple Developer account is set up.) */
 function SocialButtons() {
-  const [busy, setBusy] = useState<null | "google" | "apple">(null);
+  const [isBusy, setIsBusy] = useState(false);
 
-  const oauth = async (provider: "google" | "apple") => {
-    setBusy(provider);
+  const signInWithGoogle = async () => {
+    setIsBusy(true);
     try {
       const { error } = await supabase.auth.signInWithOAuth({
-        provider,
+        provider: "google",
         options: { redirectTo: `${window.location.origin}/account` },
       });
       if (error) {
-        toast.error(friendlyOAuthError(provider, error));
-        setBusy(null);
+        toast.error(friendlyOAuthError(error));
+        setIsBusy(false);
       }
       // On success the browser redirects to the provider, so nothing else runs here.
     } catch (e) {
       toast.error(friendlyAuthError(e instanceof Error ? e : { message: String(e) }));
-      setBusy(null);
+      setIsBusy(false);
     }
   };
 
@@ -228,31 +219,15 @@ function SocialButtons() {
         type="button"
         variant="outline"
         className="w-full gap-2"
-        disabled={busy !== null}
-        onClick={() => oauth("google")}
+        disabled={isBusy}
+        onClick={signInWithGoogle}
       >
-        {busy === "google" ? (
+        {isBusy ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
           <>
             <GoogleIcon />
             Continue with Google
-          </>
-        )}
-      </Button>
-      <Button
-        type="button"
-        variant="outline"
-        className="w-full gap-2"
-        disabled={busy !== null}
-        onClick={() => oauth("apple")}
-      >
-        {busy === "apple" ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
-        ) : (
-          <>
-            <AppleIcon />
-            Continue with Apple
           </>
         )}
       </Button>
