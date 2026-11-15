@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -120,6 +119,16 @@ function friendlyAuthError(error: { message?: string } | null): string {
   return error?.message || "Something went wrong. Please try again.";
 }
 
+/** OAuth-specific errors — most commonly the provider isn't enabled in Supabase yet. */
+function friendlyOAuthError(provider: "google" | "apple", error: { message?: string }): string {
+  const msg = (error.message ?? "").toLowerCase();
+  if (msg.includes("not enabled") || msg.includes("unsupported provider")) {
+    const name = provider === "google" ? "Google" : "Apple";
+    return `${name} sign-in isn't available yet. Please use email and password for now.`;
+  }
+  return friendlyAuthError(error);
+}
+
 /** Password field with a show/hide toggle. */
 function PasswordInput({
   id,
@@ -198,11 +207,12 @@ function SocialButtons() {
   const oauth = async (provider: "google" | "apple") => {
     setBusy(provider);
     try {
-      const result = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/account`,
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: { redirectTo: `${window.location.origin}/account` },
       });
-      if (result?.error) {
-        toast.error(friendlyAuthError(result.error));
+      if (error) {
+        toast.error(friendlyOAuthError(provider, error));
         setBusy(null);
       }
       // On success the browser redirects to the provider, so nothing else runs here.
