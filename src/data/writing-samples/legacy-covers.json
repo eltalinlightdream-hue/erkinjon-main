@@ -1,0 +1,410 @@
+{
+ "/writing-samples/report-1.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-1-thumb.webp",
+   "w": 480,
+   "h": 276
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-1-full.webp",
+   "w": 512,
+   "h": 294
+  }
+ },
+ "/writing-samples/report-10.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-10-thumb.webp",
+   "w": 480,
+   "h": 294
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-10-full.webp",
+   "w": 739,
+   "h": 453
+  }
+ },
+ "/writing-samples/report-11.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-11-thumb.webp",
+   "w": 480,
+   "h": 502
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-11-full.webp",
+   "w": 509,
+   "h": 532
+  }
+ },
+ "/writing-samples/report-12.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-12-thumb.webp",
+   "w": 480,
+   "h": 885
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-12-full.webp",
+   "w": 694,
+   "h": 1280
+  }
+ },
+ "/writing-samples/report-13.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-13-thumb.webp",
+   "w": 421,
+   "h": 512
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-13-full.webp",
+   "w": 421,
+   "h": 512
+  }
+ },
+ "/writing-samples/report-14.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-14-thumb.webp",
+   "w": 480,
+   "h": 266
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-14-full.webp",
+   "w": 638,
+   "h": 353
+  }
+ },
+ "/writing-samples/report-15.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-15-thumb.webp",
+   "w": 303,
+   "h": 374
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-15-full.webp",
+   "w": 303,
+   "h": 374
+  }
+ },
+ "/writing-samples/report-16.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-16-thumb.webp",
+   "w": 480,
+   "h": 380
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-16-full.webp",
+   "w": 836,
+   "h": 662
+  }
+ },
+ "/writing-samples/report-17.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-17-thumb.webp",
+   "w": 480,
+   "h": 263
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-17-full.webp",
+   "w": 990,
+   "h": 543
+  }
+ },
+ "/writing-samples/report-18.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-18-thumb.webp",
+   "w": 480,
+   "h": 323
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-18-full.webp",
+   "w": 953,
+   "h": 642
+  }
+ },
+ "/writing-samples/report-19.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-19-thumb.webp",
+   "w": 480,
+   "h": 284
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-19-full.webp",
+   "w": 817,
+   "h": 483
+  }
+ },
+ "/writing-samples/report-2.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-2-thumb.webp",
+   "w": 480,
+   "h": 277
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-2-full.webp",
+   "w": 512,
+   "h": 295
+  }
+ },
+ "/writing-samples/report-20.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-20-thumb.webp",
+   "w": 480,
+   "h": 304
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-20-full.webp",
+   "w": 812,
+   "h": 514
+  }
+ },
+ "/writing-samples/report-21.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-21-thumb.webp",
+   "w": 480,
+   "h": 312
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-21-full.webp",
+   "w": 1240,
+   "h": 806
+  }
+ },
+ "/writing-samples/report-22.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-22-thumb.webp",
+   "w": 480,
+   "h": 480
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-22-full.webp",
+   "w": 512,
+   "h": 512
+  }
+ },
+ "/writing-samples/report-23.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-23-thumb.webp",
+   "w": 480,
+   "h": 364
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-23-full.webp",
+   "w": 883,
+   "h": 669
+  }
+ },
+ "/writing-samples/report-24.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-24-thumb.webp",
+   "w": 480,
+   "h": 314
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-24-full.webp",
+   "w": 1280,
+   "h": 836
+  }
+ },
+ "/writing-samples/report-25.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-25-thumb.webp",
+   "w": 480,
+   "h": 549
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-25-full.webp",
+   "w": 1120,
+   "h": 1280
+  }
+ },
+ "/writing-samples/report-26.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-26-thumb.webp",
+   "w": 480,
+   "h": 284
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-26-full.webp",
+   "w": 1280,
+   "h": 757
+  }
+ },
+ "/writing-samples/report-27.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-27-thumb.webp",
+   "w": 480,
+   "h": 310
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-27-full.webp",
+   "w": 711,
+   "h": 459
+  }
+ },
+ "/writing-samples/report-28.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-28-thumb.webp",
+   "w": 480,
+   "h": 364
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-28-full.webp",
+   "w": 1280,
+   "h": 972
+  }
+ },
+ "/writing-samples/report-29.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-29-thumb.webp",
+   "w": 480,
+   "h": 444
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-29-full.webp",
+   "w": 1080,
+   "h": 998
+  }
+ },
+ "/writing-samples/report-3.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-3-thumb.webp",
+   "w": 480,
+   "h": 532
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-3-full.webp",
+   "w": 1080,
+   "h": 1198
+  }
+ },
+ "/writing-samples/report-30.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-30-thumb.webp",
+   "w": 480,
+   "h": 404
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-30-full.webp",
+   "w": 692,
+   "h": 582
+  }
+ },
+ "/writing-samples/report-31.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-31-thumb.webp",
+   "w": 480,
+   "h": 360
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-31-full.webp",
+   "w": 512,
+   "h": 384
+  }
+ },
+ "/writing-samples/report-32.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-32-thumb.webp",
+   "w": 480,
+   "h": 298
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-32-full.webp",
+   "w": 512,
+   "h": 318
+  }
+ },
+ "/writing-samples/report-33.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-33-thumb.webp",
+   "w": 480,
+   "h": 283
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-33-full.webp",
+   "w": 512,
+   "h": 302
+  }
+ },
+ "/writing-samples/report-34.png": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-34-thumb.webp",
+   "w": 480,
+   "h": 278
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-34-full.webp",
+   "w": 535,
+   "h": 310
+  }
+ },
+ "/writing-samples/report-4.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-4-thumb.webp",
+   "w": 480,
+   "h": 345
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-4-full.webp",
+   "w": 512,
+   "h": 368
+  }
+ },
+ "/writing-samples/report-5.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-5-thumb.webp",
+   "w": 447,
+   "h": 449
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-5-full.webp",
+   "w": 447,
+   "h": 449
+  }
+ },
+ "/writing-samples/report-6.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-6-thumb.webp",
+   "w": 423,
+   "h": 403
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-6-full.webp",
+   "w": 423,
+   "h": 403
+  }
+ },
+ "/writing-samples/report-7.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-7-thumb.webp",
+   "w": 352,
+   "h": 186
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-7-full.webp",
+   "w": 352,
+   "h": 186
+  }
+ },
+ "/writing-samples/report-8.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-8-thumb.webp",
+   "w": 286,
+   "h": 252
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-8-full.webp",
+   "w": 286,
+   "h": 252
+  }
+ },
+ "/writing-samples/report-9.jpeg": {
+  "thumb": {
+   "src": "/writing-samples/library/legacy-report-9-thumb.webp",
+   "w": 480,
+   "h": 442
+  },
+  "full": {
+   "src": "/writing-samples/library/legacy-report-9-full.webp",
+   "w": 512,
+   "h": 471
+  }
+ }
+}

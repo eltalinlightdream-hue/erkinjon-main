@@ -1,28 +1,80 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useAuth } from "@/hooks/use-auth";
-import { WRITING_SAMPLES, WRITING_ESSAYS } from "@/lib/writing-samples-data";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Youtube, ExternalLink, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { WRITING_TASKS, getAllWritingProgress, type WritingStatus } from "@/lib/writing-data";
 import { cn } from "@/lib/utils";
 import { SteveMining, McItem } from "@/components/minecraft-decorations";
 import { HTML_TASKS, type HtmlTask } from "@/lib/writing-simulators-data";
 import { TASK1_STRUCTURES } from "@/lib/task1-structures-data";
 import { Task1ChunksSection } from "@/components/task1-chunks-section";
+import {
+  SampleLibrary,
+  type SampleLibraryState,
+} from "@/components/writing-samples/sample-library";
+import { getWritingSampleTotals, listWritingSamples } from "@/lib/writing-samples.functions";
+import { SAMPLE_PAGE_SIZE, SAMPLE_MAX_LIMIT } from "@/lib/writing-samples-library";
+
+const SAMPLE_TABS = { "t1-samples": 1, "t2-samples": 2 } as const;
+
+function optionalString(value: unknown, max: number): string | undefined {
+  return typeof value === "string" && value.trim() ? value.trim().slice(0, max) : undefined;
+}
+
+interface WritingSearch {
+  task?: string;
+  q?: string;
+  type?: string;
+  page?: number;
+}
 
 export const Route = createFileRoute("/writing")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    task: (search.task as string | undefined) ?? undefined,
+  validateSearch: (search: Record<string, unknown>): WritingSearch => {
+    const page = Number(search.page);
+    return {
+      task: optionalString(search.task, 20),
+      q: optionalString(search.q, 120),
+      type: optionalString(search.type, 60),
+      page: Number.isInteger(page) && page > 1 ? page : undefined,
+    };
+  },
+  loaderDeps: ({ search }) => ({
+    task: search.task,
+    q: search.q,
+    type: search.type,
+    page: search.page,
   }),
+  staleTime: 5 * 60_000,
+  loader: async ({ deps }) => {
+    const sampleTask = SAMPLE_TABS[deps.task as keyof typeof SAMPLE_TABS];
+    const [totals, samples] = await Promise.all([
+      getWritingSampleTotals(),
+      sampleTask
+        ? listWritingSamples({
+            data: {
+              task: sampleTask,
+              q: deps.q,
+              type: deps.type,
+              limit: Math.min((deps.page ?? 1) * SAMPLE_PAGE_SIZE, SAMPLE_MAX_LIMIT),
+            },
+          })
+        : Promise.resolve(null),
+    ]);
+    return { totals, samples };
+  },
   head: () => ({
     meta: [
       { title: "IELTS Writing - Task 1 & Task 2 | Abduraimov Erkinjon" },
-      { name: "description", content: "IELTS Writing Task 1 and Task 2 practice." },
+      {
+        name: "description",
+        content:
+          "IELTS Writing Task 1 and Task 2 practice, plus a searchable library of hundreds of sample reports and essays by chart and essay type.",
+      },
     ],
   }),
   component: Writing,
@@ -46,11 +98,6 @@ const STATUS_META: Record<WritingStatus, { label: string; className: string }> =
 const TASK_TOTALS: Record<1 | 2, number> = {
   1: [...HTML_TASKS, ...WRITING_TASKS].filter((t) => t.task === 1).length,
   2: [...HTML_TASKS, ...WRITING_TASKS].filter((t) => t.task === 2).length,
-};
-
-const SAMPLE_TOTALS = {
-  "t1-samples": WRITING_SAMPLES.filter((s) => s.task === 1).length,
-  "t2-samples": WRITING_ESSAYS.length,
 };
 
 /* Controlled vocabulary for card `type` tags. The filter bars below use the
@@ -95,26 +142,30 @@ const genuinelyNewIds = new Set(
 
 type TabType = 1 | 2 | "t1-samples" | "t1-chunks" | "t2-samples";
 
-const SECONDARY_TABS: {
-  key: "t1-samples" | "t1-chunks" | "t2-samples";
-  label: string;
-  count: number;
-}[] = [
-  { key: "t1-samples", label: "Task 1 Samples", count: SAMPLE_TOTALS["t1-samples"] },
-  { key: "t1-chunks", label: "Task 1 Chunks", count: TASK1_STRUCTURES.length },
-  { key: "t2-samples", label: "Task 2 Samples", count: SAMPLE_TOTALS["t2-samples"] },
-];
+function tabFromParam(taskParam: string | undefined): TabType {
+  if (taskParam === "t1-samples") return "t1-samples";
+  if (taskParam === "t1-chunks") return "t1-chunks";
+  if (taskParam === "t2-samples") return "t2-samples";
+  return taskParam === "2" ? 2 : 1;
+}
 
 function Writing() {
-  const { task: taskParam } = Route.useSearch();
+  const searchParams = Route.useSearch();
+  const { task: taskParam } = searchParams;
+  const { totals, samples } = Route.useLoaderData();
+  const isLoaderPending = useRouterState({ select: (s) => s.status === "pending" });
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [tab, setTab] = useState<TabType>(() => {
-    if (taskParam === "t1-samples") return "t1-samples";
-    if (taskParam === "t1-chunks") return "t1-chunks";
-    if (taskParam === "t2-samples") return "t2-samples";
-    return taskParam === "2" ? 2 : 1;
-  });
+  const tab = tabFromParam(taskParam);
+  const secondaryTabs: {
+    key: "t1-samples" | "t1-chunks" | "t2-samples";
+    label: string;
+    count: number;
+  }[] = [
+    { key: "t1-samples", label: "Task 1 Samples", count: totals[1] },
+    { key: "t1-chunks", label: "Task 1 Chunks", count: TASK1_STRUCTURES.length },
+    { key: "t2-samples", label: "Task 2 Samples", count: totals[2] },
+  ];
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -124,14 +175,6 @@ function Writing() {
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
   }, [tab, search, typeFilter]);
-
-  useEffect(() => {
-    if (taskParam === "t1-samples") setTab("t1-samples");
-    else if (taskParam === "t1-chunks") setTab("t1-chunks");
-    else if (taskParam === "t2-samples") setTab("t2-samples");
-    else if (taskParam === "2") setTab(2);
-    else if (taskParam === "1") setTab(1);
-  }, [taskParam]);
 
   useEffect(() => {
     const refresh = () => setProgress(getAllWritingProgress());
@@ -145,10 +188,27 @@ function Writing() {
   }, []);
 
   const handleTabChange = (n: TabType) => {
-    setTab(n);
     setSearch("");
     setTypeFilter("All");
+    void navigate({
+      to: "/writing",
+      search: { task: String(n) },
+      replace: true,
+      resetScroll: false,
+    });
   };
+
+  const handleLibraryChange = useCallback(
+    (patch: SampleLibraryState) => {
+      void navigate({
+        to: "/writing",
+        search: (prev: WritingSearch) => ({ ...prev, ...patch }),
+        replace: true,
+        resetScroll: false,
+      });
+    },
+    [navigate],
+  );
 
   const isPracticeTab = tab === 1 || tab === 2;
   const activeFilters = tab === 1 ? TASK1_FILTERS : TASK2_FILTERS;
@@ -224,7 +284,11 @@ function Writing() {
   };
 
   const sampleTask = tab === "t1-samples" ? 1 : 2;
-  const visibleSamples = WRITING_SAMPLES.filter((s) => s.task === sampleTask);
+  const libraryState: SampleLibraryState = {
+    q: searchParams.q,
+    type: searchParams.type,
+    page: searchParams.page,
+  };
 
   return (
     <SiteLayout>
@@ -275,7 +339,7 @@ function Writing() {
               </span>
             </button>
           ))}
-          {SECONDARY_TABS.map(({ key, label, count }) => (
+          {secondaryTabs.map(({ key, label, count }) => (
             <button
               key={key}
               onClick={() => handleTabChange(key)}
@@ -416,96 +480,20 @@ function Writing() {
           </>
         )}
 
-        {/* Samples tabs */}
-        {tab === "t1-samples" && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {visibleSamples.map((sample) => {
-              const card = (
-                <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
-                  <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
-                    {sample.coverImage ? (
-                      <img
-                        src={sample.coverImage}
-                        alt={`Report ${sample.reportNumber}`}
-                        className="w-full h-full object-cover rounded-lg border border-border/60"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="font-serif text-4xl text-muted-foreground/70">
-                        R{sample.reportNumber}
-                      </div>
-                    )}
-                    <span className="absolute top-3 left-3 text-[11px] font-semibold bg-card/90 text-foreground px-2.5 py-0.5 rounded-full shadow-card">
-                      Report {sample.reportNumber}
-                    </span>
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <Badge
-                      variant="secondary"
-                      className="self-start mb-2 bg-accent text-foreground"
-                    >
-                      {sample.chartType}
-                    </Badge>
-                    <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">
-                      {sample.question}
-                    </p>
-                    <p className="font-mono text-[10px] text-muted-foreground tracking-wider">
-                      {sample.wordCount} words
-                    </p>
-                  </div>
-                </Card>
-              );
-
-              return (
-                <Link key={sample.id} to="/writing/sample/$id" params={{ id: sample.id }}>
-                  {card}
-                </Link>
-              );
-            })}
-          </div>
+        {/* Samples library (Task 1 + Task 2) — search, filters and paging live in the URL */}
+        {(tab === "t1-samples" || tab === "t2-samples") && (
+          <SampleLibrary
+            key={tab}
+            task={sampleTask}
+            result={samples}
+            state={libraryState}
+            isLoading={isLoaderPending}
+            onChange={handleLibraryChange}
+          />
         )}
 
         {/* Task 1 sentence structures & language chunks */}
         {tab === "t1-chunks" && <Task1ChunksSection />}
-
-        {tab === "t2-samples" && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {WRITING_ESSAYS.map((essay) => {
-              const card = (
-                <Card className="overflow-hidden h-full flex flex-col hover:-translate-y-1 active:-translate-y-1">
-                  <div className="relative aspect-[16/10] bg-[var(--paper-deep)] p-3 flex items-center justify-center">
-                    <div className="font-serif text-4xl text-muted-foreground/70">
-                      T{essay.testNumber}
-                    </div>
-                    <span className="absolute top-3 left-3 text-[11px] font-semibold bg-card/90 text-foreground px-2.5 py-0.5 rounded-full shadow-card">
-                      Test {essay.testNumber}
-                    </span>
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <Badge
-                      variant="secondary"
-                      className="self-start mb-2 bg-accent text-foreground"
-                    >
-                      Essay
-                    </Badge>
-                    <p className="text-sm text-foreground/80 leading-snug flex-1 line-clamp-3 mb-3">
-                      {essay.question}
-                    </p>
-                    <p className="font-mono text-[10px] text-muted-foreground tracking-wider">
-                      {essay.wordCount} words
-                    </p>
-                  </div>
-                </Card>
-              );
-
-              return (
-                <Link key={essay.id} to="/writing/essay/$id" params={{ id: essay.id }}>
-                  {card}
-                </Link>
-              );
-            })}
-          </div>
-        )}
       </section>
     </SiteLayout>
   );
