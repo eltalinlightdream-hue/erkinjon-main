@@ -167,6 +167,39 @@ export type Database = {
         }
         Relationships: []
       }
+      test_progress: {
+        Row: {
+          completed_at: string | null
+          id: string
+          score: number | null
+          status: string
+          test_id: string
+          total: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          id?: string
+          score?: number | null
+          status?: string
+          test_id: string
+          total?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          id?: string
+          score?: number | null
+          status?: string
+          test_id?: string
+          total?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       test_results: {
         Row: {
           band: number | null

@@ -3,6 +3,7 @@ import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { isAdminEmail } from "@/lib/admin-config";
+import { bandFromScore } from "@/lib/tests.functions";
 
 // Every admin function goes through this middleware: a valid session is not
 // enough, the JWT email must match the site owner. The database mirrors this
@@ -51,7 +52,10 @@ export const adminListStudents = createServerFn({ method: "POST" })
     ] = await Promise.all([
       supabaseAdmin.from("profiles").select("*"),
       supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
-      supabaseAdmin.from("test_results").select("user_id, band, score, total, completed_at"),
+      supabaseAdmin
+        .from("test_progress")
+        .select("user_id, score, total, completed_at, updated_at")
+        .eq("status", "finished"),
       supabaseAdmin.from("vocabulary_words").select("user_id"),
     ]);
     if (profErr) throw new Error("Could not load student profiles.");
@@ -86,14 +90,15 @@ export const adminListStudents = createServerFn({ method: "POST" })
     };
     for (const r of results ?? []) {
       const t = trackingFor(r.user_id);
+      const completedAt = r.completed_at ?? r.updated_at;
       t.testsTotal += 1;
-      if (r.completed_at >= weekAgo) t.testsWeek += 1;
-      const band = r.band ?? (r.total ? (r.score / r.total) * 9 : null);
+      if (completedAt >= weekAgo) t.testsWeek += 1;
+      const band = bandFromScore(r.score, r.total);
       if (band !== null) {
         t.bandSum += band;
         t.bandCount += 1;
       }
-      if (!t.lastTestAt || r.completed_at > t.lastTestAt) t.lastTestAt = r.completed_at;
+      if (!t.lastTestAt || completedAt > t.lastTestAt) t.lastTestAt = completedAt;
     }
     for (const w of words ?? []) {
       trackingFor(w.user_id).wordsTotal += 1;
