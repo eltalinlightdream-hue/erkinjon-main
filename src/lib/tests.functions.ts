@@ -53,10 +53,31 @@ function humanizeTestId(testId: string): string {
     .join(" ");
 }
 
-/** Rough band from a raw score — only available when the test recorded one. */
+/**
+ * IELTS band by share of correct answers — the same scale the full 40-question
+ * tests show students (e.g. 30/40 → 7, 39/40 → 9), applied proportionally to
+ * shorter part/passage tests.
+ */
+const BAND_THRESHOLDS: ReadonlyArray<readonly [minShare: number, band: number]> = [
+  [0.975, 9],
+  [0.925, 8.5],
+  [0.875, 8],
+  [0.825, 7.5],
+  [0.75, 7],
+  [0.675, 6.5],
+  [0.575, 6],
+  [0.475, 5.5],
+  [0.4, 5],
+  [0.3, 4.5],
+  [0.23, 4],
+];
+const MIN_BAND = 3.5;
+
+/** Estimated band from a raw score — only available when the test recorded one. */
 export function bandFromScore(score: number | null, total: number | null): number | null {
   if (score === null || !total) return null;
-  return Number(((score / total) * 9).toFixed(1));
+  const share = score / total;
+  return BAND_THRESHOLDS.find(([minShare]) => share >= minShare)?.[1] ?? MIN_BAND;
 }
 
 function averageBand(bands: Array<number | null>): number | null {
