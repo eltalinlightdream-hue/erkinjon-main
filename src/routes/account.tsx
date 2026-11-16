@@ -24,6 +24,12 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { ensureUserProfile } from "@/lib/auth.functions";
+import {
+  myFinishedTests,
+  weeklyLeaderboard,
+  type FinishedTest,
+  type LeaderboardRow,
+} from "@/lib/tests.functions";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/account")({
@@ -37,15 +43,6 @@ export const Route = createFileRoute("/account")({
 });
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-type TestResult = {
-  id: string;
-  passage_title: string;
-  score: number;
-  total: number;
-  band: number | null;
-  completed_at: string;
-};
-type LeaderboardEntry = { user_id: string; name: string; tests: number; avg_band: number };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function daysAgo(n: number) {
@@ -78,11 +75,11 @@ function bandColor(band: number) {
 }
 
 // ─── Activity Heatmap ────────────────────────────────────────────────────────
-function ActivityHeatmap({ results }: { results: TestResult[] }) {
+function ActivityHeatmap({ results }: { results: FinishedTest[] }) {
   const weeks = 15;
   const counts = new Map<string, number>();
   for (const r of results) {
-    const key = localDayKey(new Date(r.completed_at));
+    const key = localDayKey(new Date(r.completedAt));
     counts.set(key, (counts.get(key) ?? 0) + 1);
   }
   const days: { date: string; count: number }[] = [];
@@ -128,6 +125,8 @@ function Account() {
   const { user, profile, loading, signOut, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const ensureProfile = useServerFn(ensureUserProfile);
+  const fetchFinishedTests = useServerFn(myFinishedTests);
+  const fetchLeaderboard = useServerFn(weeklyLeaderboard);
 
   // Password change
   const [showPwForm, setShowPwForm] = useState(false);
@@ -138,8 +137,8 @@ function Account() {
   const [pwBusy, setPwBusy] = useState(false);
 
   // Stats
-  const [results, setResults] = useState<TestResult[]>([]);
-  const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
+  const [results, setResults] = useState<FinishedTest[]>([]);
+  const [leaderboard, setLeaderboard] = useState<LeaderboardRow[]>([]);
   const [vocabCount, setVocabCount] = useState(0);
   const [articlesRead, setArticlesRead] = useState(0);
   const [statsLoading, setStatsLoading] = useState(true);
@@ -170,43 +169,18 @@ function Account() {
       } catch {
         /* ignore */
       }
-      const [resR, vocR, lbR] = await Promise.all([
-        supabase
-          .from("test_results")
-          .select("*")
-          .eq("user_id", user!.id)
-          .order("completed_at", { ascending: false }),
+      // Independent loads: one failing shouldn't blank the others.
+      const [testsR, vocR, lbR] = await Promise.allSettled([
+        fetchFinishedTests(),
         supabase.from("vocabulary_words").select("id", { count: "exact" }).eq("user_id", user!.id),
-        supabase
-          .from("test_results")
-          .select("user_id, band, profiles(full_name)")
-          .gte("completed_at", getWeekStart()),
+        fetchLeaderboard({ data: { since: getWeekStart() } }),
       ]);
-      if (resR.data) setResults(resR.data);
-      if (vocR.count !== null) setVocabCount(vocR.count);
-
-      // Build leaderboard
-      if (lbR.data) {
-        const map: Record<string, { name: string; bands: number[] }> = {};
-        lbR.data.forEach((r: any) => {
-          const uid = r.user_id;
-          const name = r.profiles?.full_name?.split(" ")[0] || "Student";
-          if (!map[uid]) map[uid] = { name, bands: [] };
-          map[uid].bands.push(r.band);
-        });
-        const lb: LeaderboardEntry[] = Object.entries(map)
-          .map(([uid, v]) => ({
-            user_id: uid,
-            name: v.name,
-            tests: v.bands.length,
-            avg_band: Math.round((v.bands.reduce((a, b) => a + b, 0) / v.bands.length) * 10) / 10,
-          }))
-          .sort((a, b) => b.avg_band - a.avg_band || b.tests - a.tests)
-          .slice(0, 10);
-        setLeaderboard(lb);
+      if (testsR.status === "fulfilled") setResults(testsR.value);
+      if (vocR.status === "fulfilled" && vocR.value.count !== null) setVocabCount(vocR.value.count);
+      if (lbR.status === "fulfilled") setLeaderboard(lbR.value);
+      if (testsR.status === "rejected" || lbR.status === "rejected") {
+        toast.error("Some progress stats couldn't load. Please refresh to try again.");
       }
-    } catch (e) {
-      // silently fail — stats are non-critical
     } finally {
       setStatsLoading(false);
     }
@@ -257,18 +231,22 @@ function Account() {
   const day15 = daysAgo(15);
   const monthStart = daysAgo(30);
 
-  const testsThisWeek = results.filter((r) => isInRange(r.completed_at, weekStart)).length;
-  const tests15Days = results.filter((r) => isInRange(r.completed_at, day15)).length;
-  const testsThisMonth = results.filter((r) => isInRange(r.completed_at, monthStart)).length;
+  const testsThisWeek = results.filter((r) => isInRange(r.completedAt, weekStart)).length;
+  const tests15Days = results.filter((r) => isInRange(r.completedAt, day15)).length;
+  const testsThisMonth = results.filter((r) => isInRange(r.completedAt, monthStart)).length;
 
-  const recentBands = results.slice(0, 5).map((r) => r.band ?? 0);
+  // Only tests that recorded a score contribute to the band average.
+  const recentBands = results
+    .map((r) => r.band)
+    .filter((b): b is number => b !== null)
+    .slice(0, 5);
   const avgBand = recentBands.length
     ? (recentBands.reduce((a, b) => a + b, 0) / recentBands.length).toFixed(1)
     : "—";
 
   // Streak: consecutive local days with at least 1 test. A test-free
   // today doesn't break yesterday's run — the day isn't over yet.
-  const activeDays = new Set(results.map((r) => localDayKey(new Date(r.completed_at))));
+  const activeDays = new Set(results.map((r) => localDayKey(new Date(r.completedAt))));
   let streak = 0;
   const cursor = new Date();
   if (!activeDays.has(localDayKey(cursor))) cursor.setDate(cursor.getDate() - 1);
@@ -277,7 +255,7 @@ function Account() {
     cursor.setDate(cursor.getDate() - 1);
   }
 
-  const myRank = leaderboard.findIndex((e) => e.user_id === user.id) + 1;
+  const myRank = leaderboard.find((e) => e.userId === user.id)?.rank ?? 0;
 
   return (
     <SiteLayout>
@@ -462,17 +440,23 @@ function Account() {
                         className="flex items-center justify-between py-2 border-b border-border last:border-0 text-sm"
                       >
                         <span className="text-muted-foreground truncate max-w-[60%]">
-                          {r.passage_title}
+                          {r.title}
                         </span>
                         <div className="flex items-center gap-3">
-                          <span>
-                            {r.score}/{r.total}
-                          </span>
-                          <span className={`font-bold ${bandColor(r.band ?? 0)}`}>
-                            Band {r.band ?? "—"}
-                          </span>
+                          {r.score !== null && r.total !== null && (
+                            <span>
+                              {r.score}/{r.total}
+                            </span>
+                          )}
+                          {r.band !== null ? (
+                            <span className={`font-bold ${bandColor(r.band)}`}>Band {r.band}</span>
+                          ) : (
+                            <Badge variant="secondary" className="capitalize">
+                              {r.section === "other" ? "Finished" : r.section}
+                            </Badge>
+                          )}
                           <span className="text-xs text-muted-foreground">
-                            {new Date(r.completed_at).toLocaleDateString()}
+                            {new Date(r.completedAt).toLocaleDateString()}
                           </span>
                         </div>
                       </div>
@@ -503,8 +487,8 @@ function Account() {
             <div className="space-y-2">
               {leaderboard.map((entry, i) => (
                 <div
-                  key={entry.user_id}
-                  className={`flex items-center gap-3 py-2 px-3 rounded-lg text-sm ${entry.user_id === user.id ? "bg-accent border border-border font-semibold" : ""}`}
+                  key={entry.userId}
+                  className={`flex items-center gap-3 py-2 px-3 rounded-lg text-sm ${entry.userId === user.id ? "bg-accent border border-border font-semibold" : ""}`}
                 >
                   <span
                     className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${i === 0 ? "bg-yellow-400 text-white" : i === 1 ? "bg-gray-300 text-gray-800" : i === 2 ? "bg-amber-600 text-white" : "bg-muted text-muted-foreground"}`}
@@ -513,14 +497,16 @@ function Account() {
                   </span>
                   <span className="flex-1">
                     {entry.name}
-                    {entry.user_id === user.id ? " (you)" : ""}
+                    {entry.userId === user.id ? " (you)" : ""}
                   </span>
                   <span className="text-muted-foreground">
                     {entry.tests} test{entry.tests !== 1 ? "s" : ""}
                   </span>
-                  <span className={`font-bold ${bandColor(entry.avg_band)}`}>
-                    Band {entry.avg_band}
-                  </span>
+                  {entry.avgBand !== null && (
+                    <span className={`font-bold ${bandColor(entry.avgBand)}`}>
+                      Band {entry.avgBand}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>

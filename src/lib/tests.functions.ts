@@ -2,114 +2,156 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { PASSAGES } from "@/lib/reading-data";
+import { TESTS } from "@/lib/listening-data";
 
-export const recordTestResult = createServerFn({ method: "POST" })
+/**
+ * Student progress is stored in `test_progress` (one row per user + test),
+ * written by `useTestStatus` on the Reading and Listening pages. A test
+ * counts as completed when its status is "finished".
+ */
+
+export type FinishedTest = {
+  id: string;
+  testId: string;
+  title: string;
+  section: "reading" | "listening" | "other";
+  score: number | null;
+  total: number | null;
+  band: number | null;
+  completedAt: string;
+};
+
+export type LeaderboardRow = {
+  userId: string;
+  name: string;
+  tests: number;
+  avgBand: number | null;
+  rank: number;
+};
+
+const LEADERBOARD_SIZE = 10;
+
+type CatalogueEntry = { title: string; section: FinishedTest["section"] };
+let catalogue: Map<string, CatalogueEntry> | null = null;
+
+/** Built on first use (server-side only) so the passage data stays out of client bundles. */
+function getCatalogue(): Map<string, CatalogueEntry> {
+  catalogue ??= new Map<string, CatalogueEntry>([
+    ...PASSAGES.map((p) => [p.id, { title: p.title, section: "reading" as const }] as const),
+    ...TESTS.map((t) => [t.id, { title: t.title, section: "listening" as const }] as const),
+  ]);
+  return catalogue;
+}
+
+/** Fallback title for ids no longer in the catalogue: "p1-baobabs" → "P1 Baobabs". */
+function humanizeTestId(testId: string): string {
+  return testId
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+/**
+ * IELTS band by share of correct answers — the same scale the full 40-question
+ * tests show students (e.g. 30/40 → 7, 39/40 → 9), applied proportionally to
+ * shorter part/passage tests.
+ */
+const BAND_THRESHOLDS: ReadonlyArray<readonly [minShare: number, band: number]> = [
+  [0.975, 9],
+  [0.925, 8.5],
+  [0.875, 8],
+  [0.825, 7.5],
+  [0.75, 7],
+  [0.675, 6.5],
+  [0.575, 6],
+  [0.475, 5.5],
+  [0.4, 5],
+  [0.3, 4.5],
+  [0.23, 4],
+];
+const MIN_BAND = 3.5;
+
+/** Estimated band from a raw score — only available when the test recorded one. */
+export function bandFromScore(score: number | null, total: number | null): number | null {
+  if (score === null || !total) return null;
+  const share = score / total;
+  return BAND_THRESHOLDS.find(([minShare]) => share >= minShare)?.[1] ?? MIN_BAND;
+}
+
+function averageBand(bands: Array<number | null>): number | null {
+  const known = bands.filter((b): b is number => b !== null);
+  if (known.length === 0) return null;
+  return Number((known.reduce((a, b) => a + b, 0) / known.length).toFixed(1));
+}
+
+/** The signed-in student's finished tests, newest first. */
+export const myFinishedTests = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
-  .inputValidator(z.object({
-    passageTitle: z.string().trim().min(1).max(200),
-    score: z.number().int().min(0).max(200),
-    total: z.number().int().min(1).max(200),
-    band: z.number().min(0).max(9).optional().nullable(),
-  }).parse)
-  .handler(async ({ data, context }) => {
-    const { error } = await context.supabase.from("test_results").insert({
-      user_id: context.userId,
-      passage_title: data.passageTitle,
-      score: data.score,
-      total: data.total,
-      band: data.band ?? null,
+  .handler(async ({ context }): Promise<FinishedTest[]> => {
+    const { data, error } = await context.supabase
+      .from("test_progress")
+      .select("id, test_id, score, total, completed_at, updated_at")
+      .eq("user_id", context.userId)
+      .eq("status", "finished")
+      .order("completed_at", { ascending: false, nullsFirst: false });
+    if (error) throw new Error("Could not load your test progress.");
+
+    const titles = getCatalogue();
+    return (data ?? []).map((r) => {
+      const entry = titles.get(r.test_id);
+      return {
+        id: r.id,
+        testId: r.test_id,
+        title: entry?.title ?? humanizeTestId(r.test_id),
+        section: entry?.section ?? "other",
+        score: r.score,
+        total: r.total,
+        band: bandFromScore(r.score, r.total),
+        completedAt: r.completed_at ?? r.updated_at,
+      };
     });
-    if (error) throw new Error(error.message);
-    return { ok: true };
   });
 
-export const userStats = createServerFn({ method: "GET" })
-  .middleware([requireSupabaseAuth])
-  .handler(async ({ context }) => {
-    const now = new Date();
-    const weekAgo = new Date(now.getTime() - 7 * 86400000).toISOString();
-    const fifteenAgo = new Date(now.getTime() - 15 * 86400000).toISOString();
-    const monthAgo = new Date(now.getTime() - 30 * 86400000).toISOString();
-    const yearAgo = new Date(now.getTime() - 365 * 86400000).toISOString();
-
-    const [results, reads, words] = await Promise.all([
-      context.supabase.from("test_results").select("*").eq("user_id", context.userId).gte("completed_at", yearAgo).order("completed_at"),
-      context.supabase.from("articles_read").select("*").eq("user_id", context.userId).gte("read_at", monthAgo),
-      context.supabase.from("vocabulary_words").select("created_at").eq("user_id", context.userId),
-    ]);
-
-    const rs = results.data ?? [];
-    const inRange = (d: string, since: string) => d >= since;
-    const recent = rs.slice(-10).map((r) => ({
-      date: new Date(r.completed_at).toLocaleDateString(),
-      band: r.band ?? (r.total ? Number(((r.score / r.total) * 9).toFixed(1)) : 0),
-    }));
-
-    // Activity heatmap: counts per day for last 90 days
-    const heatmap: Record<string, number> = {};
-    for (const r of rs) {
-      const k = new Date(r.completed_at).toISOString().slice(0, 10);
-      heatmap[k] = (heatmap[k] ?? 0) + 1;
-    }
-    for (const r of reads.data ?? []) {
-      const k = new Date(r.read_at).toISOString().slice(0, 10);
-      heatmap[k] = (heatmap[k] ?? 0) + 1;
-    }
-
-    const wks = words.data ?? [];
-
-    return {
-      testsWeek: rs.filter((r) => inRange(r.completed_at, weekAgo)).length,
-      tests15: rs.filter((r) => inRange(r.completed_at, fifteenAgo)).length,
-      testsMonth: rs.filter((r) => inRange(r.completed_at, monthAgo)).length,
-      readsWeek: (reads.data ?? []).filter((r) => inRange(r.read_at, weekAgo)).length,
-      readsMonth: (reads.data ?? []).length,
-      wordsTotal: wks.length,
-      wordsWeek: wks.filter((w) => inRange(w.created_at, weekAgo)).length,
-      bandTrend: recent,
-      heatmap,
-    };
-  });
-
+/** Top students by tests finished since `since` (the client's local week start). */
 export const weeklyLeaderboard = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
-  .handler(async ({ context }) => {
-    const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString();
-    // Use admin client for aggregation across users; expose only first names.
-    const { data: results } = await supabaseAdmin
-      .from("test_results")
-      .select("user_id, score, total, band")
-      .gte("completed_at", weekAgo);
+  .inputValidator(z.object({ since: z.string().datetime() }).parse)
+  .handler(async ({ data }): Promise<LeaderboardRow[]> => {
+    // Admin client: aggregation spans all users. Only first names leave the server.
+    const { data: rows, error } = await supabaseAdmin
+      .from("test_progress")
+      .select("user_id, score, total")
+      .eq("status", "finished")
+      .gte("completed_at", data.since);
+    if (error) throw new Error("Could not load the leaderboard.");
 
-    const map = new Map<string, { count: number; bandSum: number; bandN: number }>();
-    for (const r of results ?? []) {
-      const cur = map.get(r.user_id) ?? { count: 0, bandSum: 0, bandN: 0 };
-      cur.count++;
-      const band = r.band ?? (r.total ? (Number(r.score) / Number(r.total)) * 9 : 0);
-      cur.bandSum += band;
-      cur.bandN++;
-      map.set(r.user_id, cur);
+    const byUser = new Map<string, Array<number | null>>();
+    for (const r of rows ?? []) {
+      byUser.set(r.user_id, [...(byUser.get(r.user_id) ?? []), bandFromScore(r.score, r.total)]);
     }
-    const userIds = Array.from(map.keys());
-    if (userIds.length === 0) return { rows: [], me: null };
+    const userIds = [...byUser.keys()];
+    if (userIds.length === 0) return [];
 
-    const { data: profiles } = await supabaseAdmin
+    const { data: profiles, error: profErr } = await supabaseAdmin
       .from("profiles")
       .select("id, full_name, email")
       .in("id", userIds);
+    if (profErr) throw new Error("Could not load the leaderboard.");
+    const profileById = new Map((profiles ?? []).map((p) => [p.id, p]));
 
-    const rows = userIds.map((uid) => {
-      const p = (profiles ?? []).find((x) => x.id === uid);
-      const m = map.get(uid)!;
-      const firstName = (p?.full_name?.split(" ")[0] || p?.email?.split("@")[0] || "Student").slice(0, 24);
-      return {
-        userId: uid,
-        name: firstName,
-        tests: m.count,
-        avgBand: Number((m.bandSum / Math.max(1, m.bandN)).toFixed(1)),
-      };
-    }).sort((a, b) => b.avgBand - a.avgBand || b.tests - a.tests).slice(0, 10);
-
-    const meIndex = rows.findIndex((r) => r.userId === context.userId);
-    return { rows: rows.map((r, i) => ({ ...r, rank: i + 1 })), me: meIndex >= 0 ? meIndex + 1 : null };
+    return userIds
+      .map((userId) => {
+        const p = profileById.get(userId);
+        const bands = byUser.get(userId) ?? [];
+        const name = (p?.full_name?.split(" ")[0] || p?.email?.split("@")[0] || "Student").slice(
+          0,
+          24,
+        );
+        return { userId, name, tests: bands.length, avgBand: averageBand(bands) };
+      })
+      .sort((a, b) => b.tests - a.tests || (b.avgBand ?? -1) - (a.avgBand ?? -1))
+      .slice(0, LEADERBOARD_SIZE)
+      .map((r, i) => ({ ...r, rank: i + 1 }));
   });

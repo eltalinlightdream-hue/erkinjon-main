@@ -69,7 +69,10 @@ function Listening() {
     if (statusFor(test.id) === "not_done") {
       void setTestStatus(test.id, "not_completed");
     }
-    window.open(test.htmlFile, "_blank");
+    // testId lets the page's progress bridge save under this catalogue id.
+    const url = new URL(test.htmlFile, window.location.origin);
+    url.searchParams.set("testId", test.id);
+    window.open(url.toString(), "_blank");
   }
 
   return (
