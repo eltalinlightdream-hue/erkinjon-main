@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 import { isAdminEmail } from "@/lib/admin-config";
+import { RESULTS_SECTION_ID } from "@/lib/student-results";
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
@@ -44,6 +45,8 @@ const WRITING_EXTRAS = [
 type FooterLink = {
   to: string;
   search?: Record<string, string>;
+  /** In-page anchor, e.g. a homepage section id. */
+  hash?: string;
   label: string;
   accent?: boolean;
 };
@@ -83,6 +86,7 @@ const FOOTER_SECTIONS: { heading: string; links: FooterLink[] }[] = [
       { to: "/videos", label: "Video Lessons" },
       { to: "/articles", label: "Articles" },
       { to: "/books", label: "Books by the Author" },
+      { to: "/", hash: RESULTS_SECTION_ID, label: "Student Results" },
       { to: "/vocabulary", label: "Vocabulary" },
       { to: "/contact-about", label: "Contact & About" },
     ],
@@ -819,6 +823,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                       <Link
                         to={link.to as any}
                         search={link.search as any}
+                        hash={link.hash}
                         className={cn(
                           "transition-colors",
                           link.accent

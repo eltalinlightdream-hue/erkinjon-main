@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
+import { ResultsShowcase } from "@/components/student-results/results-showcase";
 import {
   BookOpen,
   PenLine,
@@ -117,31 +118,6 @@ const FEATURES = [
     icon: Heart,
     tag: "Everything included",
     highlight: true,
-  },
-];
-
-/*
-  TODO(owner): replace these placeholders with REAL student testimonials.
-  Do not invent names, scores, or quotes — fill in only genuine ones you have
-  permission to publish, or delete entries you can't fill yet. The section is
-  wired up and styled; it just needs true content.
-*/
-const TESTIMONIALS = [
-  {
-    name: "Student name",
-    score: "Band —",
-    quote:
-      "Add a real student quote here — what changed in their study, what finally clicked, and the result they got.",
-  },
-  {
-    name: "Student name",
-    score: "Band —",
-    quote: "Add a second genuine testimonial once you have the student's permission to publish it.",
-  },
-  {
-    name: "Student name",
-    score: "Band —",
-    quote: "A third short, specific quote keeps the section balanced — keep them honest.",
   },
 ];
 
@@ -356,38 +332,8 @@ function Index() {
         </Reveal>
       </section>
 
-      {/* ─── STUDENT TESTIMONIALS (placeholder — see TESTIMONIALS above) ─ */}
-      <section className="container mx-auto px-4 pb-20 max-w-5xl">
-        <Reveal className="text-center max-w-xl mx-auto mb-12">
-          <p className="eyebrow text-secondary mb-4">In their words</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-            What students say
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Real results from real learners — added as students share them.
-          </p>
-        </Reveal>
-        <div className="grid gap-5 md:grid-cols-3">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal
-              as="figure"
-              key={i}
-              delay={i * 80}
-              className="bento-card p-7 flex flex-col h-full"
-            >
-              <blockquote className="font-serif italic text-lg text-foreground/90 leading-snug flex-1">
-                “{t.quote}”
-              </blockquote>
-              <figcaption className="mt-6 flex items-center justify-between">
-                <span className="text-sm font-medium text-foreground">{t.name}</span>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full bg-[var(--olive-wash)] text-[var(--olive-deep)]">
-                  {t.score}
-                </span>
-              </figcaption>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      {/* ─── STUDENT RESULTS (data: src/data/student-results.ts) ───── */}
+      <ResultsShowcase />
 
       {/* ─── CLOSING CTA ───────────────────────────────────────────── */}
       <section className="container mx-auto px-4 pb-24 max-w-5xl">

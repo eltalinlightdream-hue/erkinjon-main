@@ -713,6 +713,31 @@ html {
   transform: none;
 }
 
+/* ─── STUDENT RESULTS ─────────────────────────────────────────── */
+/* Skill bars fill from the left once their card reveals (transform only,
+   so it stays on the compositor). --fill is the score as a 0–1 fraction. */
+.score-bar-fill {
+  transform-origin: left center;
+  transform: scaleX(var(--fill, 0));
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--bar-delay, 0ms);
+}
+
+.reveal:not(.is-visible) .score-bar-fill {
+  transform: scaleX(0);
+}
+
+/* CEFR level "stamp" — a nod to the validation stamp on real certificates.
+   Sits slightly askew and straightens when its card is hovered or focused. */
+.level-stamp {
+  transform: rotate(-9deg);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .level-stamp,
+.group:focus-within .level-stamp {
+  transform: rotate(0deg);
+}
+
 /* ─── TOUCH FEEDBACK ──────────────────────────────────────────── */
 /* Hover affordances never fire on touch screens, so pressable surfaces
    feel dead on phones. Mirror the existing hover look on :active so a
@@ -806,6 +831,10 @@ html {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .reveal .score-bar-fill {
+    transform: scaleX(var(--fill, 0)) !important;
   }
 
   .ink-bleed {
