@@ -59,6 +59,50 @@ export const TESTS: ListeningTest[] = [
     isNew: true,
   },
   {
+    id: "c20-test-1",
+    title: "Cambridge 20 Test 1 — Restaurants & Reclaiming Urban Rivers",
+    section: 0,
+    description:
+      "Full 40-question test: restaurant recommendations, a visit to Edelman Pottery, students discussing loneliness and mental health, and reclaiming urban rivers.",
+    questions: 40,
+    htmlFile: "/passages/C20_Test1.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "c20-test-2",
+    title: "Cambridge 20 Test 2 — Home Carers & Food Trends",
+    section: 0,
+    description:
+      "Full 40-question test: council support for carers of elderly people, volunteering at local festivals, a human geography project, and how food trends develop.",
+    questions: 40,
+    htmlFile: "/passages/C20_Test2.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "c20-test-3",
+    title: "Cambridge 20 Test 3 — Furniture Rental & Inclusive Design",
+    section: 0,
+    description:
+      "Full 40-question test: comparing furniture rental companies, the Bidcaster archaeological dig, the history of theatre programmes, and inclusive design.",
+    questions: 40,
+    htmlFile: "/passages/C20_Test3.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
+    id: "c20-test-4",
+    title: "Cambridge 20 Test 4 — Family Visit & Birds of Prey",
+    section: 0,
+    description:
+      "Full 40-question test: advice on a family visit, a football stadium tour and football history, children's handwriting, and protecting birds of prey near the Chembe Bird Sanctuary.",
+    questions: 40,
+    htmlFile: "/passages/C20_Test4.html",
+    isPremium: false,
+    isNew: true,
+  },
+  {
     id: "full-test-1",
     title: "Full Test 1",
     section: 0,

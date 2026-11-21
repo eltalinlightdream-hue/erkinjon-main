@@ -1054,6 +1054,130 @@ export const PASSAGES: Passage[] = [
     htmlFile: "/passages/C21_T4_P3_The_Globemakers.html",
     isNew: true,
   },
+  // Cambridge IELTS 20 – Test 1
+  {
+    id: "cam20-t1-r1",
+    title: "Cambridge 20 Test 1 – The Kākāpō",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 1 Reading Passage 1: The Kākāpō — the critically endangered flightless parrot of New Zealand. Questions 1–13.",
+    htmlFile: "/passages/C20_T1_P1_The_Kakapo.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t1-r2",
+    title: "Cambridge 20 Test 1 – The Return of the Elm?",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 1 Reading Passage 2: The Return of the Elm? — attempts to reintroduce elms to Britain after Dutch elm disease. Questions 14–26.",
+    htmlFile: "/passages/C20_T1_P2_The_Return_of_the_Elm.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t1-r3",
+    title: "Cambridge 20 Test 1 – How Stress Affects Our Judgement",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 1 Reading Passage 3: How Stress Affects Our Judgement — what firefighters and students reveal about processing information under stress. Questions 27–40.",
+    htmlFile: "/passages/C20_T1_P3_How_Stress_Affects_Our_Judgement.html",
+    isNew: true,
+  },
+  // Cambridge IELTS 20 – Test 2
+  {
+    id: "cam20-t2-r1",
+    title: "Cambridge 20 Test 2 – Manatees",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 2 Reading Passage 1: Manatees — the anatomy, diet, habitats and conservation of the three manatee species. Questions 1–13.",
+    htmlFile: "/passages/C20_T2_P1_Manatees.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t2-r2",
+    title: "Cambridge 20 Test 2 – Procrastination",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 2 Reading Passage 2: Procrastination — a psychologist on why we put off important tasks and how to break the habit. Questions 14–26.",
+    htmlFile: "/passages/C20_T2_P2_Procrastination.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t2-r3",
+    title: "Cambridge 20 Test 2 – Invasion of the Robot Umpires",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 2 Reading Passage 3: Invasion of the Robot Umpires — baseball’s Automated Ball-Strike System and the debate over judgment calls. Questions 27–40.",
+    htmlFile: "/passages/C20_T2_P3_Invasion_of_the_Robot_Umpires.html",
+    isNew: true,
+  },
+  // Cambridge IELTS 20 – Test 3
+  {
+    id: "cam20-t3-r1",
+    title: "Cambridge 20 Test 3 – Frozen Food",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 3 Reading Passage 1: Frozen Food — a US perspective on the development of the frozen food industry. Questions 1–13.",
+    htmlFile: "/passages/C20_T3_P1_Frozen_Food.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t3-r2",
+    title: "Cambridge 20 Test 3 – Can the Planet’s Coral Reefs Be Saved?",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 3 Reading Passage 2: Can the Planet’s Coral Reefs Be Saved? — London Zoo’s coral reef tank and research into hardier corals. Questions 14–26.",
+    htmlFile: "/passages/C20_T3_P2_Can_the_Planets_Coral_Reefs_Be_Saved.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t3-r3",
+    title: "Cambridge 20 Test 3 – Robots and Us",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 3 Reading Passage 3: Robots and Us — three experts on our relationships with robots. Questions 27–40.",
+    htmlFile: "/passages/C20_T3_P3_Robots_and_Us.html",
+    isNew: true,
+  },
+  // Cambridge IELTS 20 – Test 4
+  {
+    id: "cam20-t4-r1",
+    title: "Cambridge 20 Test 4 – The Life and Work of Georgia O’Keeffe",
+    passageNumber: 1,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 4 Reading Passage 1: The Life and Work of Georgia O’Keeffe — seven decades of one of America’s most important artists. Questions 1–13.",
+    htmlFile: "/passages/C20_T4_P1_The_Life_and_Work_of_Georgia_OKeeffe.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t4-r2",
+    title: "Cambridge 20 Test 4 – Adapting to the Effects of Climate Change",
+    passageNumber: 2,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 4 Reading Passage 2: Adapting to the Effects of Climate Change — innovative climate adaptation projects around the world. Questions 14–26.",
+    htmlFile: "/passages/C20_T4_P2_Adapting_to_the_Effects_of_Climate_Change.html",
+    isNew: true,
+  },
+  {
+    id: "cam20-t4-r3",
+    title: "Cambridge 20 Test 4 – A New Role for Livestock Guard Dogs",
+    passageNumber: 3,
+    isPremium: false,
+    description:
+      "Cambridge IELTS 20 Test 4 Reading Passage 3: A New Role for Livestock Guard Dogs — how guard dogs protect both livestock and predators. Questions 27–40.",
+    htmlFile: "/passages/C20_T4_P3_A_New_Role_for_Livestock_Guard_Dogs.html",
+    isNew: true,
+  },
   {
     id: "p3-piraha",
     title: "The PirahГЈ People of Brazil",
