@@ -7,6 +7,8 @@
    pop up the definition.
    ──────────────────────────────────────────────────────────────── */
 
+import { B2_PART1_TOPICS } from "@/lib/speaking-b2-part1-data";
+
 export interface SpeakingAnswer {
   label: string;
   text: string;
@@ -5203,6 +5205,8 @@ export const SPEAKING_TOPICS: SpeakingTopic[] = [
       },
     ],
   },
+  /* ═══════ PART 1 — B2 answers by topic (see speaking-b2-part1-data.ts) ═══════ */
+  ...B2_PART1_TOPICS,
 ];
 
 export function findSpeakingTopic(id: string): SpeakingTopic | undefined {
