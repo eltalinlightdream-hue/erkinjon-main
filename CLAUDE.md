@@ -4,9 +4,9 @@ Guidance for Claude Code (and any AI assistant) working in this repository.
 
 ## Project
 
-A Japanese-language learning web app (JLPT-style prep): reading, writing,
-listening, speaking, vocabulary, grammar, and articles, with premium gating
-and user accounts.
+A language-learning web app, mainly IELTS prep (reading, writing, listening,
+speaking, vocabulary, articles) plus a Japanese section (alphabet, grammar,
+topics), with premium gating and user accounts.
 
 **Stack**
 
@@ -30,6 +30,40 @@ bun run format   # prettier --write
 - Server logic lives in `*.functions.ts` files under `src/lib` (TanStack server functions). Keep data access there, not in components.
 - Supabase keys in `.env` are **public** client keys protected by RLS — safe to commit. The `service_role` key is never committed; it is set in the deploy environment only.
 - Match the style of surrounding files: shadcn-style UI components, `cn()` from `src/lib/utils.ts` for class merging, Zod for validation, TanStack Query for server state.
+
+## Reading passages
+
+Each reading passage is a standalone HTML file in `public/passages/`, listed in
+`src/lib/reading-data.ts` (`htmlFile`). Every new passage **must**:
+
+1. **Load the shared bridge** just before `</body>`:
+   `<script src="/passages/test-progress-bridge.js"></script>`.
+   It records completion and also loads `public/passages/synonym-table.js`, which
+   adds the **Keyword & Synonym Matching** table under the questions
+   (`#questions-container`) automatically. Rows come from the page's question
+   numbers (`.progress-item` / `name="qN"` inputs), so keep those conventions.
+2. **Include model synonym answers.** Add this block right before the bridge
+   script, with one entry per question number (1–3 pairs each):
+
+   ```html
+   <script type="application/json" id="synonym-answers">
+   {
+     "7": [{ "question": "various parts of a tree", "passage": "the leaves, roots and bark of trees" }],
+     "8": [{ "question": "nests are created in", "passage": "eggs are laid in soil" }]
+   }
+   </script>
+   ```
+
+   - `question`: the key words/phrase from the question.
+   - `passage`: the paraphrase/synonym the passage actually uses, quoted from
+     the text (trim with `...`). For Not Given items, point to the nearest
+     related text and note that nothing confirms it.
+   - Valid JSON only (double quotes, no trailing commas). Students see these
+     only after they submit.
+
+   Reference example: `public/passages/C20_T1_P1_The_Kakapo.html`.
+
+Do not add a separate copy of the table to a passage; the shared script owns it.
 
 ## Coding rules (ECC rule packs)
 

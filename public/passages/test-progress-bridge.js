@@ -118,4 +118,16 @@
     },
     true
   );
+
+  // Every passage that loads this bridge also gets the shared
+  // Keyword & Synonym Matching table (see synonym-table.js).
+  (function loadSynonymTable() {
+    const self = document.currentScript;
+    const script = document.createElement("script");
+    script.src = self && self.src
+      ? new URL("synonym-table.js", self.src).href
+      : "/passages/synonym-table.js";
+    script.async = true;
+    document.head.appendChild(script);
+  })();
 })();
