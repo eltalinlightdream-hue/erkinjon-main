@@ -1,0 +1,12 @@
+{
+  "name": "Abduraimov Erkinjon — IELTS Practice",
+  "short_name": "Erkinjon IELTS",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#C8553D",
+  "background_color": "#FAF6F0",
+  "display": "standalone",
+  "start_url": "/"
+}
