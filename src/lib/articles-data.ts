@@ -1,3 +1,5 @@
+import { SCIENCE_ARTICLES_2026 } from "./articles-science-2026";
+
 export type ArticleCategory = "Vocabulary" | "Grammar" | "Reading" | "General";
 export type ArticleTopic =
   | "Environment"
@@ -29,7 +31,17 @@ export interface VocabItem {
   word: string;
   definition: string;
   example: string;
-  wordType?: "noun" | "verb" | "adjective" | "adverb" | "phrase" | "noun phrase" | "verb phrase";
+  wordType?:
+    | "noun"
+    | "verb"
+    | "adjective"
+    | "adverb"
+    | "phrase"
+    | "noun phrase"
+    | "verb phrase"
+    | "adjective phrase";
+  /** Close synonyms / paraphrases, shown in margin notes and the word sheet. */
+  synonyms?: string[];
 }
 
 export interface PronunciationItem {
@@ -53,9 +65,37 @@ export interface Article {
   content: string;
   vocabulary: VocabItem[];
   pronunciation: PronunciationItem[];
+  /** Original writer(s), shown in the byline. */
+  author?: string;
+  /** Original publication, shown in the kicker. */
+  source?: string;
+  /** Collocations highlighted by the Study-mode "Collocations" lens. */
+  collocations?: string[];
+  /** Comprehension checks: inline on mobile, in the study panel on desktop. */
+  questions?: ComprehensionQuestion[];
+  /** IELTS reading tips shown in the margin next to a paragraph. */
+  tips?: ReadingTip[];
+}
+
+export interface ComprehensionQuestion {
+  /** 1-based index of the <p> this question is about. */
+  paragraph: number;
+  question: string;
+  options: string[];
+  /** Index into `options`. */
+  answer: number;
+  /** Model paraphrase pair revealed after answering. */
+  paraphrase?: { question: string; passage: string };
+}
+
+export interface ReadingTip {
+  /** 1-based index of the <p> the tip sits beside. */
+  paragraph: number;
+  text: string;
 }
 
 export const ARTICLES: Article[] = [
+  ...SCIENCE_ARTICLES_2026,
   // ─── FEATURED (pinned to top) ────────────────────────────────────
   {
     id: "a45",
@@ -5855,7 +5895,8 @@ export const ARTICLES: Article[] = [
       {
         word: "transmission",
         wordType: "noun",
-        definition: "the process of passing something, such as a disease, from one person to another",
+        definition:
+          "the process of passing something, such as a disease, from one person to another",
         example: "Airborne droplets are the main route of viral transmission.",
       },
       {

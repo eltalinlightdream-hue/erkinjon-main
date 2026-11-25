@@ -867,3 +867,326 @@ html {
   /* Gentle defocus so the dots/links read as soft, not crisp — tune here. */
   filter: blur(1.4px);
 }
+
+/* ─── ARTICLE READER ──────────────────────────────────────────────
+   Magazine "Read" view, "Study" lenses and the mobile focus reader.
+   Markup comes from src/lib/article-annotate.ts (data-para,
+   data-letter, mark.rt-*) and src/components/article-reader/. */
+
+:root {
+  --lens-col: #3e6a8a;
+  --lens-col-wash: #dce7ef;
+}
+.dark {
+  --lens-col: #7fa7c4;
+  --lens-col-wash: #22313b;
+}
+
+/* Reader themes override tokens for the reader subtree only. */
+.reader-root[data-reader-theme="sepia"] {
+  --background: #f3e9d7;
+  --foreground: #3b2f22;
+  --card: #faf2e3;
+  --card-foreground: #3b2f22;
+  --muted: #eadfcb;
+  --muted-foreground: #7c6a55;
+  --border: #e0d2ba;
+  --nav-bg: rgba(243, 233, 215, 0.86);
+  --nav-border: #e0d2ba;
+}
+.reader-root[data-reader-theme="night"] {
+  --background: #1a1511;
+  --foreground: #e9e1d5;
+  --card: #241d17;
+  --card-foreground: #e9e1d5;
+  --muted: #2e261f;
+  --muted-foreground: #a39684;
+  --border: #3a3129;
+  --nav-bg: rgba(26, 21, 17, 0.86);
+  --nav-border: #3a3129;
+  --olive: #93a172;
+  --olive-deep: #b4c192;
+  --olive-wash: #2e3023;
+  --ochre: #d2a24c;
+  --ochre-wash: #3a3020;
+  --terracotta: #d8694e;
+  --terracotta-wash: #3b2b24;
+  --lens-col: #7fa7c4;
+  --lens-col-wash: #22313b;
+  color-scheme: dark;
+}
+
+/* ── Body typography ── */
+.reader-body {
+  font-size: var(--reader-size, 18px);
+  line-height: 1.75;
+  color: var(--foreground);
+}
+.reader-shell[data-font="serif"] .reader-body {
+  font-family: var(--font-serif);
+}
+.reader-shell[data-font="sans"] .reader-body {
+  font-family: var(--font-sans);
+  line-height: 1.8;
+}
+
+.reader-body p {
+  margin: 0 0 1.15em;
+  text-wrap: pretty;
+}
+.reader-body h2 {
+  font-family: var(--font-serif);
+  font-size: 1.45em;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 1.9em 0 0.6em;
+}
+.reader-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 1.6em 0 0.5em;
+}
+.reader-body blockquote {
+  border-left: 3px solid var(--ochre);
+  padding-left: 1.1em;
+  font-style: italic;
+  color: var(--muted-foreground);
+  margin: 1.4em 0;
+}
+.reader-body ul,
+.reader-body ol {
+  padding-left: 1.4em;
+  margin: 0 0 1.15em;
+}
+.reader-body ul {
+  list-style: disc;
+}
+.reader-body ol {
+  list-style: decimal;
+}
+.reader-body strong {
+  font-weight: 650;
+}
+.reader-body sub {
+  font-size: 0.7em;
+}
+
+/* Drop cap on the opening paragraph (Read view). */
+.reader-shell[data-mode="read"] .reader-body p[data-para="1"]::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 4.4em;
+  line-height: 0.8;
+  padding: 0.07em 0.09em 0 0;
+  color: var(--olive);
+}
+
+/* ── Annotations ── */
+.reader-body mark.rt {
+  background: none;
+  color: inherit;
+  border-radius: 2px;
+}
+.reader-body mark.rt-vocab {
+  cursor: pointer;
+  background: linear-gradient(transparent 60%, var(--ochre-wash) 60%);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.reader-body mark.rt-vocab:hover {
+  background: var(--ochre-wash);
+}
+.reader-body mark.rt-vocab:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 2px;
+}
+@media (min-width: 1024px) {
+  .reader-shell[data-mode="read"] .reader-body mark.rt-vocab::after {
+    content: attr(data-n);
+    font: 600 0.55em var(--font-mono);
+    color: var(--ochre);
+    vertical-align: super;
+    margin-left: 1px;
+  }
+}
+
+/* Study lenses */
+.reader-shell[data-mode="study"] .reader-body mark.rt-vocab {
+  background: none;
+}
+.reader-shell[data-mode="study"][data-lens-vocab] .reader-body mark.rt-vocab {
+  background: var(--ochre-wash);
+  box-shadow: inset 0 -2px var(--ochre);
+}
+.reader-shell[data-mode="study"][data-lens-col] .reader-body mark.rt-col {
+  background: var(--lens-col-wash);
+  box-shadow: inset 0 -2px var(--lens-col);
+}
+.reader-shell[data-mode="study"][data-lens-link] .reader-body mark.rt-link {
+  background: var(--terracotta-wash);
+  box-shadow: inset 0 -2px var(--terracotta);
+}
+.reader-lens {
+  background: var(--card);
+  border-color: var(--border);
+}
+.reader-lens-vocab[aria-pressed="true"] {
+  background: var(--ochre-wash);
+  border-color: var(--ochre);
+}
+.reader-lens-col[aria-pressed="true"] {
+  background: var(--lens-col-wash);
+  border-color: var(--lens-col);
+}
+.reader-lens-link[aria-pressed="true"] {
+  background: var(--terracotta-wash);
+  border-color: var(--terracotta);
+}
+
+/* Study: lettered paragraphs like an IELTS passage */
+.reader-shell[data-mode="study"] .reader-body p[data-para] {
+  position: relative;
+  padding-left: 2.6rem;
+  transition: opacity 0.3s ease;
+}
+.reader-shell[data-mode="study"] .reader-body p[data-para]::before {
+  content: attr(data-letter);
+  position: absolute;
+  left: 0;
+  top: 0.32em;
+  width: 1.75rem;
+  height: 1.55rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  font: 600 0.7rem/1.5rem var(--font-mono);
+  text-align: center;
+  color: var(--muted-foreground);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+.reader-shell[data-mode="study"] .reader-body p.is-active::before {
+  background: var(--olive);
+  border-color: var(--olive);
+  color: #fff;
+}
+
+/* Line focus: dim everything except the paragraph being read */
+.reader-shell[data-focus="on"] .reader-body p[data-para] {
+  transition: opacity 0.3s ease;
+}
+.reader-shell[data-focus="on"] .reader-body p[data-para]:not(.is-active) {
+  opacity: 0.3;
+}
+.reader-shell[data-focus="on"][data-mode="read"] .reader-body p[data-para] {
+  position: relative;
+}
+.reader-shell[data-focus="on"][data-mode="read"] .reader-body p.is-active::before {
+  content: "";
+  position: absolute;
+  left: -0.9rem;
+  top: 0.35em;
+  bottom: 0.35em;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--olive);
+}
+
+/* Inline checkpoints (mobile) */
+.reader-body [data-checkpoint]:empty {
+  display: none;
+}
+.reader-body [data-checkpoint] {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ── Cards, notes, checks ── */
+.reader-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.reader-card:hover {
+  border-color: color-mix(in oklab, var(--olive) 45%, var(--border));
+}
+.reader-chip-btn {
+  height: 1.75rem;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font: 500 10.5px/1 var(--font-mono);
+  letter-spacing: 0.06em;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+.reader-chip-btn:hover {
+  border-color: var(--olive);
+  color: var(--olive);
+  background: var(--olive-wash);
+}
+
+.reader-note {
+  border-left: 2px solid var(--ochre);
+  font-family: var(--font-sans);
+}
+.reader-tip {
+  background: var(--olive-wash);
+  border-left: 2px solid var(--olive);
+  font-family: var(--font-sans);
+}
+.note-flash {
+  animation: reader-flash 1.4s ease;
+}
+.reader-body mark.mark-flash {
+  animation: reader-flash 1.4s ease;
+}
+@keyframes reader-flash {
+  0%,
+  30% {
+    background-color: var(--ochre-wash);
+    box-shadow: 0 0 0 6px var(--ochre-wash);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.reader-check {
+  background: var(--olive-wash);
+  color: var(--foreground);
+}
+.reader-check-option {
+  background: var(--card);
+  border-color: transparent;
+}
+.reader-check-option.is-right {
+  border-color: var(--olive);
+  color: var(--olive-deep);
+}
+.reader-check-option.is-wrong {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reader-body p[data-para],
+  .reader-note,
+  .reader-tip {
+    transition: none !important;
+  }
+  .note-flash,
+  .reader-body mark.mark-flash {
+    animation: none;
+  }
+}

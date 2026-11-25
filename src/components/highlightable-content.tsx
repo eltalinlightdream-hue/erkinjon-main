@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
 import { BookmarkPlus as BPIcon, Eraser, Highlighter, X as XIcon } from "lucide-react";
 import { SaveVocabModal } from "@/components/save-vocab-modal";
 import { cn } from "@/lib/utils";
@@ -45,15 +45,79 @@ function saveHtml(storageKey: string, itemKey: string, html: string) {
 /** Wrap every text node intersecting the range in a highlight span.
  *  Unlike extractContents(), this never throws on selections that
  *  cross paragraph or element boundaries. */
-function highlightRange(root: HTMLElement, range: Range, color: HighlightColor) {
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-  const textNodes: Text[] = [];
-  while (walker.nextNode()) {
-    const node = walker.currentNode as Text;
-    if (range.intersectsNode(node) && node.data.trim().length > 0) {
-      textNodes.push(node);
+/** Text nodes of the body, skipping interactive islands marked
+ *  `data-noselect` (e.g. inline quiz cards rendered via portals). */
+function collectTextNodes(root: HTMLElement): Text[] {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: (node) =>
+      node.parentElement?.closest("[data-noselect]")
+        ? NodeFilter.FILTER_REJECT
+        : NodeFilter.FILTER_ACCEPT,
+  });
+  const nodes: Text[] = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode as Text);
+  return nodes;
+}
+
+interface HighlightOffset {
+  start: number;
+  end: number;
+  color: HighlightColor;
+}
+
+/** Highlights as character offsets into the body's readable text. */
+function readHighlightOffsets(root: HTMLElement): HighlightOffset[] {
+  const out: HighlightOffset[] = [];
+  let pos = 0;
+  for (const node of collectTextNodes(root)) {
+    const hl = node.parentElement?.closest("[data-highlight]") as HTMLElement | null;
+    const color = hl?.dataset.highlight as HighlightColor | undefined;
+    const end = pos + node.length;
+    if (color === "yellow" || color === "green") {
+      const last = out[out.length - 1];
+      if (last && last.end === pos && last.color === color) last.end = end;
+      else out.push({ start: pos, end, color });
     }
+    pos = end;
   }
+  return out;
+}
+
+function locate(nodes: Text[], offset: number): { node: Text; offset: number } | null {
+  let pos = 0;
+  for (const node of nodes) {
+    if (offset <= pos + node.length) return { node, offset: offset - pos };
+    pos += node.length;
+  }
+  return null;
+}
+
+/** Re-apply saved highlights onto freshly rendered markup. */
+function applyHighlightOffsets(root: HTMLElement, highlights: HighlightOffset[]) {
+  for (const hl of highlights) {
+    const nodes = collectTextNodes(root);
+    const start = locate(nodes, hl.start);
+    const end = locate(nodes, hl.end);
+    if (!start || !end) continue;
+    const range = document.createRange();
+    range.setStart(start.node, start.offset);
+    range.setEnd(end.node, end.offset);
+    highlightRange(root, range, hl.color);
+  }
+}
+
+function readableText(root: HTMLElement): string {
+  return collectTextNodes(root)
+    .map((n) => n.data)
+    .join("")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function highlightRange(root: HTMLElement, range: Range, color: HighlightColor) {
+  const textNodes = collectTextNodes(root).filter(
+    (node) => range.intersectsNode(node) && node.data.trim().length > 0,
+  );
   for (const node of textNodes) {
     const start = node === range.startContainer ? range.startOffset : 0;
     const end = node === range.endContainer ? range.endOffset : node.length;
@@ -84,6 +148,8 @@ interface HighlightableContentProps {
   /** Sub-key for this article / sample inside the storage map. */
   itemKey: string;
   className?: string;
+  /** Receives the body element, e.g. for click handling or measuring. */
+  bodyRef?: MutableRefObject<HTMLDivElement | null>;
 }
 
 export function HighlightableContent({
@@ -91,6 +157,7 @@ export function HighlightableContent({
   storageKey,
   itemKey,
   className,
+  bodyRef,
 }: HighlightableContentProps) {
   const [popup, setPopup] = useState<PopupState | null>(null);
   const [saveOpen, setSaveOpen] = useState<null | {
@@ -145,13 +212,21 @@ export function HighlightableContent({
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
+    // Idempotent: effects can run twice (StrictMode) on the same DOM.
+    if (el.querySelector("[data-highlight]")) return;
     const saved = getSavedHtml(storageKey, itemKey);
     if (saved && saved !== el.innerHTML) {
-      // Only restore if it's the same text (author may have edited it)
+      // Re-apply highlights as text offsets rather than swapping the
+      // markup, so newer markup (annotations, placeholders) survives.
+      // Only restore if it's the same text (author may have edited it).
       const tmp = document.createElement("div");
       tmp.innerHTML = saved;
-      if (tmp.textContent?.trim() === el.textContent?.trim()) {
-        el.innerHTML = saved;
+      if (readableText(tmp) === readableText(el)) {
+        try {
+          applyHighlightOffsets(el, readHighlightOffsets(tmp));
+        } catch {
+          /* malformed saved markup — ignore */
+        }
       }
     }
   }, [storageKey, itemKey, html]);
@@ -310,7 +385,10 @@ export function HighlightableContent({
 
       {/* Body */}
       <div
-        ref={contentRef}
+        ref={(node) => {
+          contentRef.current = node;
+          if (bodyRef) bodyRef.current = node;
+        }}
         className={cn("prose prose-neutral dark:prose-invert max-w-none", className)}
         dangerouslySetInnerHTML={htmlObject}
       />
