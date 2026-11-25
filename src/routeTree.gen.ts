@@ -25,6 +25,7 @@ import { Route as SpeakingRouteImport } from './routes/speaking'
 import { Route as VideosRouteImport } from './routes/videos'
 import { Route as VocabularyRouteImport } from './routes/vocabulary'
 import { Route as WritingRouteImport } from './routes/writing'
+import { Route as ApiAudioProxyRouteImport } from './routes/api/audio-proxy'
 import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
 import { Route as JapaneseAlphabetRouteImport } from './routes/japanese_.alphabet'
 import { Route as JapaneseGrammarRouteImport } from './routes/japanese_.grammar'
@@ -118,6 +119,11 @@ const WritingRoute = WritingRouteImport.update({
   path: '/writing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAudioProxyRoute = ApiAudioProxyRouteImport.update({
+  id: '/api/audio-proxy',
+  path: '/api/audio-proxy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
   id: '/articles_/$slug',
   path: '/articles/$slug',
@@ -196,6 +202,7 @@ export interface FileRoutesByFullPath {
   '/videos': typeof VideosRoute
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
+  '/api/audio-proxy': typeof ApiAudioProxyRoute
   '/articles/$slug': typeof ArticlesSlugRoute
   '/japanese/alphabet': typeof JapaneseAlphabetRoute
   '/japanese/grammar': typeof JapaneseGrammarRoute
@@ -226,6 +233,7 @@ export interface FileRoutesByTo {
   '/videos': typeof VideosRoute
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
+  '/api/audio-proxy': typeof ApiAudioProxyRoute
   '/articles/$slug': typeof ArticlesSlugRoute
   '/japanese/alphabet': typeof JapaneseAlphabetRoute
   '/japanese/grammar': typeof JapaneseGrammarRoute
@@ -257,6 +265,7 @@ export interface FileRoutesById {
   '/videos': typeof VideosRoute
   '/vocabulary': typeof VocabularyRoute
   '/writing': typeof WritingRouteWithChildren
+  '/api/audio-proxy': typeof ApiAudioProxyRoute
   '/articles_/$slug': typeof ArticlesSlugRoute
   '/japanese_/alphabet': typeof JapaneseAlphabetRoute
   '/japanese_/grammar': typeof JapaneseGrammarRoute
@@ -289,6 +298,7 @@ export interface FileRouteTypes {
     | '/videos'
     | '/vocabulary'
     | '/writing'
+    | '/api/audio-proxy'
     | '/articles/$slug'
     | '/japanese/alphabet'
     | '/japanese/grammar'
@@ -319,6 +329,7 @@ export interface FileRouteTypes {
     | '/videos'
     | '/vocabulary'
     | '/writing'
+    | '/api/audio-proxy'
     | '/articles/$slug'
     | '/japanese/alphabet'
     | '/japanese/grammar'
@@ -349,6 +360,7 @@ export interface FileRouteTypes {
     | '/videos'
     | '/vocabulary'
     | '/writing'
+    | '/api/audio-proxy'
     | '/articles_/$slug'
     | '/japanese_/alphabet'
     | '/japanese_/grammar'
@@ -380,6 +392,7 @@ export interface RootRouteChildren {
   VideosRoute: typeof VideosRoute
   VocabularyRoute: typeof VocabularyRoute
   WritingRoute: typeof WritingRouteWithChildren
+  ApiAudioProxyRoute: typeof ApiAudioProxyRoute
   ArticlesSlugRoute: typeof ArticlesSlugRoute
   JapaneseAlphabetRoute: typeof JapaneseAlphabetRoute
   JapaneseGrammarRoute: typeof JapaneseGrammarRoute
@@ -504,6 +517,13 @@ declare module '@tanstack/react-router' {
       path: '/writing'
       fullPath: '/writing'
       preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/audio-proxy': {
+      id: '/api/audio-proxy'
+      path: '/api/audio-proxy'
+      fullPath: '/api/audio-proxy'
+      preLoaderRoute: typeof ApiAudioProxyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles_/$slug': {
@@ -633,6 +653,7 @@ const rootRouteChildren: RootRouteChildren = {
   VideosRoute: VideosRoute,
   VocabularyRoute: VocabularyRoute,
   WritingRoute: WritingRouteWithChildren,
+  ApiAudioProxyRoute: ApiAudioProxyRoute,
   ArticlesSlugRoute: ArticlesSlugRoute,
   JapaneseAlphabetRoute: JapaneseAlphabetRoute,
   JapaneseGrammarRoute: JapaneseGrammarRoute,
