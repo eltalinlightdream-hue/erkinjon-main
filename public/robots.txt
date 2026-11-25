@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /account
+Disallow: /admin
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /api/
+
+Sitemap: https://www.abduraimoverkinjon.uz/sitemap.xml
