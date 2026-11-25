@@ -176,17 +176,9 @@ function Index() {
               className="ink-bleed mt-12 flex items-center gap-6 md:gap-10"
               style={{ animationDelay: "0.65s" }}
             >
-              {/*
-                  TODO(owner): the first stat is real. Replace the two
-                  placeholders below with genuine proof numbers when you have
-                  them — e.g. students taught, average band improvement, pass
-                  rate. Do NOT invent figures; leave the placeholder text until
-                  you can fill in a real one, or delete the entry.
-                */}
               {[
                 { value: "8.0", label: "Teacher's IELTS band" },
-                { value: "—", label: "Students taught (add real number)" },
-                { value: "—", label: "Avg. band improvement (add real number)" },
+                { value: "~500", label: "Students taught" },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-6 md:gap-10">
                   {i > 0 && <div className="w-px h-10 bg-border" aria-hidden="true" />}
