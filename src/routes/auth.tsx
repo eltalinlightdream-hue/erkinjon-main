@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -198,11 +197,14 @@ function SocialButtons() {
   const oauth = async (provider: "google" | "apple") => {
     setBusy(provider);
     try {
-      const result = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/account`,
+      // Use Supabase OAuth directly: the old Lovable broker (/~oauth/initiate)
+      // only exists on Lovable hosting, so it 404s on our own domain.
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: { redirectTo: `${window.location.origin}/account` },
       });
-      if (result?.error) {
-        toast.error(friendlyAuthError(result.error));
+      if (error) {
+        toast.error(friendlyAuthError(error));
         setBusy(null);
       }
       // On success the browser redirects to the provider, so nothing else runs here.
