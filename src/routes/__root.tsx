@@ -14,6 +14,7 @@ import { AuthProvider } from "@/hooks/use-auth";
 import { ThemeProvider } from "@/hooks/use-theme";
 import { Toaster } from "@/components/ui/sonner";
 import { CursorGlowBackground } from "@/components/cursor-glow-background";
+import { SITE_URL, canonicalUrl } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -73,61 +74,74 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      // Canonical site title — kept identical across <title>, og:title and
-      // twitter:title. "Practice" is the noun spelling (not British "practise").
-      { title: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
-      {
-        name: "description",
-        content:
-          "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
-      },
-      { name: "author", content: "Abduraimov Erkinjon" },
-      { property: "og:title", content: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
-      {
-        property: "og:description",
-        content:
-          "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      // TODO(owner): replace with your own X/Twitter handle (was the Lovable
-      // builder default "@Lovable"). Leave blank if you don't have one.
-      { name: "twitter:site", content: "@your_handle_here" },
-      { name: "twitter:title", content: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
-      {
-        name: "twitter:description",
-        content:
-          "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
-      },
-      // TODO(owner): add a real 1200×630 share image at public/og-image.png
-      // (currently a placeholder path). This replaces the old Lovable preview
-      // screenshot that used to be served from a lovable.app R2 bucket.
-      {
-        property: "og:image",
-        content: "/og-image.png",
-      },
-      {
-        name: "twitter:image",
-        content: "/og-image.png",
-      },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
-      },
-    ],
-  }),
+  head: ({ matches }) => {
+    // One canonical address per page, so Google doesn't treat the
+    // .vercel.app copy (or trailing-slash variants) as duplicate content.
+    const url = canonicalUrl(matches[matches.length - 1]?.pathname ?? "/");
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        // Canonical site title — kept identical across <title>, og:title and
+        // twitter:title. "Practice" is the noun spelling (not British "practise").
+        { title: "Abduraimov Erkinjon — Master IELTS with Guided Practice" },
+        {
+          name: "description",
+          content:
+            "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
+        },
+        { name: "author", content: "Abduraimov Erkinjon" },
+        {
+          property: "og:title",
+          content: "Abduraimov Erkinjon — Master IELTS with Guided Practice",
+        },
+        {
+          property: "og:description",
+          content:
+            "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
+        { name: "twitter:card", content: "summary_large_image" },
+        // TODO(owner): replace with your own X/Twitter handle (was the Lovable
+        // builder default "@Lovable"). Leave blank if you don't have one.
+        { name: "twitter:site", content: "@your_handle_here" },
+        {
+          name: "twitter:title",
+          content: "Abduraimov Erkinjon — Master IELTS with Guided Practice",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "100% free IELTS materials, online practice and video lessons from an experienced teacher in Uzbekistan.",
+        },
+        // TODO(owner): add a real 1200×630 share image at public/og-image.png
+        // (currently a placeholder path). This replaces the old Lovable preview
+        // screenshot that used to be served from a lovable.app R2 bucket.
+        {
+          property: "og:image",
+          content: `${SITE_URL}/og-image.png`,
+        },
+        {
+          name: "twitter:image",
+          content: `${SITE_URL}/og-image.png`,
+        },
+      ],
+      links: [
+        { rel: "canonical", href: url },
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
