@@ -70,6 +70,7 @@ const FOOTER_SECTIONS: { heading: string; links: FooterLink[] }[] = [
       { to: "/speaking/topics-explained", label: "Topics Explained" },
       { to: "/speaking/written-samples", label: "Written Samples" },
       { to: "/speaking/tips-chunks", label: "Tips & Chunks" },
+      { to: "/speaking/practice", label: "Practice Tests" },
     ],
   },
   {
@@ -323,6 +324,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                               className={dropdownItem(isActive("/speaking/tips-chunks"))}
                             >
                               Tips &amp; Chunks
+                            </Link>
+                            <Link
+                              to="/speaking/practice"
+                              className={dropdownItem(
+                                loc.pathname.startsWith("/speaking/practice"),
+                              )}
+                            >
+                              Practice Tests
                             </Link>
                             <div className="h-px bg-[var(--nav-border)] mx-4 my-1.5" />
                             {([1, 2, 3] as const).map((p) => (
@@ -624,6 +633,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                     className="py-1.5 text-[13px] text-muted-foreground hover:text-foreground"
                   >
                     Tips &amp; Chunks
+                  </Link>
+                  <Link
+                    to="/speaking/practice"
+                    onClick={() => setOpen(false)}
+                    className="py-1.5 text-[13px] text-muted-foreground hover:text-foreground"
+                  >
+                    Practice Tests
                   </Link>
                   <div className="pl-4 flex flex-col border-l border-primary/10 ml-1 mb-0.5">
                     {([1, 2, 3] as const).map((p) => (

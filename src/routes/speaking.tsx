@@ -2,14 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
 import { Card } from "@/components/ui/card";
-import { Mic2, Lightbulb, FileText, Quote, ArrowRight } from "lucide-react";
+import { Mic2, Lightbulb, FileText, Quote, ArrowRight, Timer } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/speaking")({
   head: () => ({
     meta: [
       { title: "IELTS Speaking Practice | Abduraimov Erkinjon" },
-      { name: "description", content: "Speaking practice sections: Pronunciation, Topics Explained, Written Samples, and Tips & Chunks." },
+      {
+        name: "description",
+        content:
+          "Speaking practice sections: Practice Tests, Pronunciation, Topics Explained, Written Samples, and Tips & Chunks.",
+      },
     ],
   }),
   component: Speaking,
@@ -25,6 +29,13 @@ type SpeakingSection = {
 };
 
 const SECTIONS: SpeakingSection[] = [
+  {
+    to: "/speaking/practice",
+    title: "Practice Tests",
+    icon: Timer,
+    desc: "Answer real IELTS questions out loud with exam timers — full mock tests or Part 1, 2 & 3 training",
+    tint: "bg-[var(--tint-coral-bg)] text-[var(--tint-coral-fg)]",
+  },
   {
     to: "/speaking/pronunciation",
     title: "Pronunciation",
@@ -62,16 +73,20 @@ function SectionCard({ section }: { section: SpeakingSection }) {
         "p-6 h-full flex flex-col transition-all duration-200",
         section.disabled
           ? "opacity-60 cursor-not-allowed"
-          : "hover:shadow-warm hover:-translate-y-1 group-active:shadow-warm group-active:-translate-y-1 cursor-pointer"
+          : "hover:shadow-warm hover:-translate-y-1 group-active:shadow-warm group-active:-translate-y-1 cursor-pointer",
       )}
     >
-      <span className={`w-12 h-12 rounded-xl ${section.tint} flex items-center justify-center mb-4`}>
+      <span
+        className={`w-12 h-12 rounded-xl ${section.tint} flex items-center justify-center mb-4`}
+      >
         <section.icon className="w-5 h-5" />
       </span>
       <h2 className="font-serif text-xl font-semibold mb-1">{section.title}</h2>
       <p className="text-sm text-muted-foreground mb-4 flex-1">{section.desc}</p>
       {section.disabled ? (
-        <span className="text-sm font-mono text-muted-foreground/60 tracking-wide">Coming soon</span>
+        <span className="text-sm font-mono text-muted-foreground/60 tracking-wide">
+          Coming soon
+        </span>
       ) : (
         <span className="text-sm font-medium text-secondary inline-flex items-center gap-1">
           Start <ArrowRight className="w-4 h-4" />

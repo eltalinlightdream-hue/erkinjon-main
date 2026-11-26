@@ -65,6 +65,23 @@ Each reading passage is a standalone HTML file in `public/passages/`, listed in
 
 Do not add a separate copy of the table to a passage; the shared script owns it.
 
+## Speaking practice tests (`/speaking/practice`)
+
+Ported from the separate Speaking-Practise project (practice features only, no
+admin/owner roles or student management).
+
+- Question bank: `src/lib/speaking-practice/ielts-content.ts` (40 IELTS sets; sets
+  without a Part 2 cue card feed General Training only, not mock tests).
+- Timers, goal and options: `src/lib/speaking-practice/config.ts`. Plan building
+  and mock rotation (no repeats until every set is done): `plan.ts`.
+- Questions are read with browser speech synthesis. Recordings stay in the
+  browser's IndexedDB (`recordings-db.ts`), never uploaded.
+- Signed-in students' own practice time is saved in `speaking_practice_sessions`
+  (migration `20261126120000_…`), written only through the `start_speaking_session`
+  / `speaking_session_progress` database functions, which cap time at real elapsed
+  time. Students read only their own rows. Practice still works for guests or if
+  saving fails.
+
 ## Coding rules (ECC rule packs)
 
 Curated coding-standard packs from the [ECC](https://github.com/affaan-m/ECC)

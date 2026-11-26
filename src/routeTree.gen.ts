@@ -29,11 +29,15 @@ import { Route as ArticlesSlugRouteImport } from './routes/articles_.$slug'
 import { Route as JapaneseAlphabetRouteImport } from './routes/japanese_.alphabet'
 import { Route as JapaneseGrammarRouteImport } from './routes/japanese_.grammar'
 import { Route as JapaneseTopicsRouteImport } from './routes/japanese_.topics'
+import { Route as SpeakingPracticeRouteImport } from './routes/speaking_.practice'
 import { Route as SpeakingPronunciationRouteImport } from './routes/speaking_.pronunciation'
 import { Route as SpeakingTipsChunksRouteImport } from './routes/speaking_.tips-chunks'
 import { Route as SpeakingTopicsExplainedRouteImport } from './routes/speaking_.topics-explained'
 import { Route as SpeakingWrittenSamplesRouteImport } from './routes/speaking_.written-samples'
 import { Route as WritingTaskIdRouteImport } from './routes/writing.$taskId'
+import { Route as SpeakingPracticeGeneralRouteImport } from './routes/speaking_.practice_.general'
+import { Route as SpeakingPracticeMockRouteImport } from './routes/speaking_.practice_.mock'
+import { Route as SpeakingPracticeRecordingsRouteImport } from './routes/speaking_.practice_.recordings'
 import { Route as WritingTaskIdPracticeRouteImport } from './routes/writing.$taskId.practice'
 import { Route as WritingEssayIdRouteImport } from './routes/writing_.essay.$id'
 import { Route as WritingSampleIdRouteImport } from './routes/writing_.sample.$id'
@@ -138,6 +142,11 @@ const JapaneseTopicsRoute = JapaneseTopicsRouteImport.update({
   path: '/japanese/topics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SpeakingPracticeRoute = SpeakingPracticeRouteImport.update({
+  id: '/speaking_/practice',
+  path: '/speaking/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpeakingPronunciationRoute = SpeakingPronunciationRouteImport.update({
   id: '/speaking_/pronunciation',
   path: '/speaking/pronunciation',
@@ -163,6 +172,22 @@ const WritingTaskIdRoute = WritingTaskIdRouteImport.update({
   path: '/$taskId',
   getParentRoute: () => WritingRoute,
 } as any)
+const SpeakingPracticeGeneralRoute = SpeakingPracticeGeneralRouteImport.update({
+  id: '/speaking_/practice_/general',
+  path: '/speaking/practice/general',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingPracticeMockRoute = SpeakingPracticeMockRouteImport.update({
+  id: '/speaking_/practice_/mock',
+  path: '/speaking/practice/mock',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingPracticeRecordingsRoute =
+  SpeakingPracticeRecordingsRouteImport.update({
+    id: '/speaking_/practice_/recordings',
+    path: '/speaking/practice/recordings',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const WritingTaskIdPracticeRoute = WritingTaskIdPracticeRouteImport.update({
   id: '/practice',
   path: '/practice',
@@ -200,11 +225,15 @@ export interface FileRoutesByFullPath {
   '/japanese/alphabet': typeof JapaneseAlphabetRoute
   '/japanese/grammar': typeof JapaneseGrammarRoute
   '/japanese/topics': typeof JapaneseTopicsRoute
+  '/speaking/practice': typeof SpeakingPracticeRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/tips-chunks': typeof SpeakingTipsChunksRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
+  '/speaking/practice/general': typeof SpeakingPracticeGeneralRoute
+  '/speaking/practice/mock': typeof SpeakingPracticeMockRoute
+  '/speaking/practice/recordings': typeof SpeakingPracticeRecordingsRoute
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
   '/writing/essay/$id': typeof WritingEssayIdRoute
   '/writing/sample/$id': typeof WritingSampleIdRoute
@@ -230,11 +259,15 @@ export interface FileRoutesByTo {
   '/japanese/alphabet': typeof JapaneseAlphabetRoute
   '/japanese/grammar': typeof JapaneseGrammarRoute
   '/japanese/topics': typeof JapaneseTopicsRoute
+  '/speaking/practice': typeof SpeakingPracticeRoute
   '/speaking/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking/tips-chunks': typeof SpeakingTipsChunksRoute
   '/speaking/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
+  '/speaking/practice/general': typeof SpeakingPracticeGeneralRoute
+  '/speaking/practice/mock': typeof SpeakingPracticeMockRoute
+  '/speaking/practice/recordings': typeof SpeakingPracticeRecordingsRoute
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
   '/writing/essay/$id': typeof WritingEssayIdRoute
   '/writing/sample/$id': typeof WritingSampleIdRoute
@@ -261,11 +294,15 @@ export interface FileRoutesById {
   '/japanese_/alphabet': typeof JapaneseAlphabetRoute
   '/japanese_/grammar': typeof JapaneseGrammarRoute
   '/japanese_/topics': typeof JapaneseTopicsRoute
+  '/speaking_/practice': typeof SpeakingPracticeRoute
   '/speaking_/pronunciation': typeof SpeakingPronunciationRoute
   '/speaking_/tips-chunks': typeof SpeakingTipsChunksRoute
   '/speaking_/topics-explained': typeof SpeakingTopicsExplainedRoute
   '/speaking_/written-samples': typeof SpeakingWrittenSamplesRoute
   '/writing/$taskId': typeof WritingTaskIdRouteWithChildren
+  '/speaking_/practice_/general': typeof SpeakingPracticeGeneralRoute
+  '/speaking_/practice_/mock': typeof SpeakingPracticeMockRoute
+  '/speaking_/practice_/recordings': typeof SpeakingPracticeRecordingsRoute
   '/writing/$taskId/practice': typeof WritingTaskIdPracticeRoute
   '/writing_/essay/$id': typeof WritingEssayIdRoute
   '/writing_/sample/$id': typeof WritingSampleIdRoute
@@ -293,11 +330,15 @@ export interface FileRouteTypes {
     | '/japanese/alphabet'
     | '/japanese/grammar'
     | '/japanese/topics'
+    | '/speaking/practice'
     | '/speaking/pronunciation'
     | '/speaking/tips-chunks'
     | '/speaking/topics-explained'
     | '/speaking/written-samples'
     | '/writing/$taskId'
+    | '/speaking/practice/general'
+    | '/speaking/practice/mock'
+    | '/speaking/practice/recordings'
     | '/writing/$taskId/practice'
     | '/writing/essay/$id'
     | '/writing/sample/$id'
@@ -323,11 +364,15 @@ export interface FileRouteTypes {
     | '/japanese/alphabet'
     | '/japanese/grammar'
     | '/japanese/topics'
+    | '/speaking/practice'
     | '/speaking/pronunciation'
     | '/speaking/tips-chunks'
     | '/speaking/topics-explained'
     | '/speaking/written-samples'
     | '/writing/$taskId'
+    | '/speaking/practice/general'
+    | '/speaking/practice/mock'
+    | '/speaking/practice/recordings'
     | '/writing/$taskId/practice'
     | '/writing/essay/$id'
     | '/writing/sample/$id'
@@ -353,11 +398,15 @@ export interface FileRouteTypes {
     | '/japanese_/alphabet'
     | '/japanese_/grammar'
     | '/japanese_/topics'
+    | '/speaking_/practice'
     | '/speaking_/pronunciation'
     | '/speaking_/tips-chunks'
     | '/speaking_/topics-explained'
     | '/speaking_/written-samples'
     | '/writing/$taskId'
+    | '/speaking_/practice_/general'
+    | '/speaking_/practice_/mock'
+    | '/speaking_/practice_/recordings'
     | '/writing/$taskId/practice'
     | '/writing_/essay/$id'
     | '/writing_/sample/$id'
@@ -384,10 +433,14 @@ export interface RootRouteChildren {
   JapaneseAlphabetRoute: typeof JapaneseAlphabetRoute
   JapaneseGrammarRoute: typeof JapaneseGrammarRoute
   JapaneseTopicsRoute: typeof JapaneseTopicsRoute
+  SpeakingPracticeRoute: typeof SpeakingPracticeRoute
   SpeakingPronunciationRoute: typeof SpeakingPronunciationRoute
   SpeakingTipsChunksRoute: typeof SpeakingTipsChunksRoute
   SpeakingTopicsExplainedRoute: typeof SpeakingTopicsExplainedRoute
   SpeakingWrittenSamplesRoute: typeof SpeakingWrittenSamplesRoute
+  SpeakingPracticeGeneralRoute: typeof SpeakingPracticeGeneralRoute
+  SpeakingPracticeMockRoute: typeof SpeakingPracticeMockRoute
+  SpeakingPracticeRecordingsRoute: typeof SpeakingPracticeRecordingsRoute
   WritingEssayIdRoute: typeof WritingEssayIdRoute
   WritingSampleIdRoute: typeof WritingSampleIdRoute
 }
@@ -534,6 +587,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JapaneseTopicsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/speaking_/practice': {
+      id: '/speaking_/practice'
+      path: '/speaking/practice'
+      fullPath: '/speaking/practice'
+      preLoaderRoute: typeof SpeakingPracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/speaking_/pronunciation': {
       id: '/speaking_/pronunciation'
       path: '/speaking/pronunciation'
@@ -568,6 +628,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/writing/$taskId'
       preLoaderRoute: typeof WritingTaskIdRouteImport
       parentRoute: typeof WritingRoute
+    }
+    '/speaking_/practice_/general': {
+      id: '/speaking_/practice_/general'
+      path: '/speaking/practice/general'
+      fullPath: '/speaking/practice/general'
+      preLoaderRoute: typeof SpeakingPracticeGeneralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking_/practice_/mock': {
+      id: '/speaking_/practice_/mock'
+      path: '/speaking/practice/mock'
+      fullPath: '/speaking/practice/mock'
+      preLoaderRoute: typeof SpeakingPracticeMockRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking_/practice_/recordings': {
+      id: '/speaking_/practice_/recordings'
+      path: '/speaking/practice/recordings'
+      fullPath: '/speaking/practice/recordings'
+      preLoaderRoute: typeof SpeakingPracticeRecordingsRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/writing/$taskId/practice': {
       id: '/writing/$taskId/practice'
@@ -637,10 +718,14 @@ const rootRouteChildren: RootRouteChildren = {
   JapaneseAlphabetRoute: JapaneseAlphabetRoute,
   JapaneseGrammarRoute: JapaneseGrammarRoute,
   JapaneseTopicsRoute: JapaneseTopicsRoute,
+  SpeakingPracticeRoute: SpeakingPracticeRoute,
   SpeakingPronunciationRoute: SpeakingPronunciationRoute,
   SpeakingTipsChunksRoute: SpeakingTipsChunksRoute,
   SpeakingTopicsExplainedRoute: SpeakingTopicsExplainedRoute,
   SpeakingWrittenSamplesRoute: SpeakingWrittenSamplesRoute,
+  SpeakingPracticeGeneralRoute: SpeakingPracticeGeneralRoute,
+  SpeakingPracticeMockRoute: SpeakingPracticeMockRoute,
+  SpeakingPracticeRecordingsRoute: SpeakingPracticeRecordingsRoute,
   WritingEssayIdRoute: WritingEssayIdRoute,
   WritingSampleIdRoute: WritingSampleIdRoute,
 }

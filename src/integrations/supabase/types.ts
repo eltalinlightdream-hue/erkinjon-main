@@ -167,6 +167,54 @@ export type Database = {
         }
         Relationships: []
       }
+      speaking_practice_sessions: {
+        Row: {
+          completed: boolean
+          day_tashkent: string
+          duration_seconds: number
+          ended_at: string | null
+          id: string
+          label: string
+          last_seen_at: string
+          mock_set: number | null
+          mode: string
+          parts: number[]
+          recording_type: string
+          started_at: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          day_tashkent?: string
+          duration_seconds?: number
+          ended_at?: string | null
+          id?: string
+          label?: string
+          last_seen_at?: string
+          mock_set?: number | null
+          mode: string
+          parts?: number[]
+          recording_type?: string
+          started_at?: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          day_tashkent?: string
+          duration_seconds?: number
+          ended_at?: string | null
+          id?: string
+          label?: string
+          last_seen_at?: string
+          mock_set?: number | null
+          mode?: string
+          parts?: number[]
+          recording_type?: string
+          started_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       test_results: {
         Row: {
           band: number | null
@@ -292,6 +340,20 @@ export type Database = {
         }[]
       }
       is_admin: { Args: never; Returns: boolean }
+      speaking_session_progress: {
+        Args: { p_active_seconds: number; p_finished?: boolean; p_session_id: string }
+        Returns: number
+      }
+      start_speaking_session: {
+        Args: {
+          p_label: string
+          p_mock_set?: number | null
+          p_mode: string
+          p_parts: number[]
+          p_recording_type: string
+        }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
