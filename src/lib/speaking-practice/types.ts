@@ -43,5 +43,7 @@ export type SessionPlan = {
   allowReplay: boolean;
   /** Move on automatically when the time runs out (mock tests). */
   autoAdvance: boolean;
+  /** Unlimited training: no total shown, the student finishes when they want. */
+  isOpenEnded: boolean;
   recordingType: RecordingType;
 };

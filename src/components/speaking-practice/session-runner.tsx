@@ -218,7 +218,7 @@ export function SessionRunner({ plan, stream, saveProgress, saveOnClose, onFinis
         <div className="mx-auto flex w-full max-w-3xl items-center gap-3 px-4 py-2.5">
           <span className="badge-tint badge-tint-info shrink-0">Part {step.part}</span>
           <span className="whitespace-nowrap text-sm font-medium tabular-nums text-muted-foreground">
-            {index + 1} / {plan.steps.length}
+            {plan.isOpenEnded ? `Question ${index + 1}` : `${index + 1} / ${plan.steps.length}`}
           </span>
           <span className="hidden truncate text-sm text-muted-foreground sm:inline">
             · {plan.label}
@@ -245,12 +245,14 @@ export function SessionRunner({ plan, stream, saveProgress, saveOnClose, onFinis
             <X aria-hidden />
           </Button>
         </div>
-        <div className="h-1 w-full bg-muted" aria-hidden>
-          <div
-            className="h-full bg-primary transition-[width] duration-500"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+        {!plan.isOpenEnded && (
+          <div className="h-1 w-full bg-muted" aria-hidden>
+            <div
+              className="h-full bg-primary transition-[width] duration-500"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        )}
       </header>
 
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-8 px-4 py-8 text-center">
@@ -348,14 +350,31 @@ export function SessionRunner({ plan, stream, saveProgress, saveOnClose, onFinis
               disabled={isFinishing || phase === "listening"}
               className={cn(isFinishing && "opacity-70")}
             >
-              {isFinishing
-                ? "Saving…"
-                : isLast
-                  ? "Finish"
-                  : plan.autoAdvance
-                    ? "I'm done"
-                    : "Next question"}
+              {isFinishing ? (
+                "Saving…"
+              ) : isLast ? (
+                "Finish"
+              ) : plan.autoAdvance ? (
+                "I'm done"
+              ) : (
+                <>
+                  <span className="sm:hidden">Next</span>
+                  <span className="hidden sm:inline">Next question</span>
+                </>
+              )}
               {!isLast && !isFinishing && <ChevronRight aria-hidden />}
+            </Button>
+          )}
+          {plan.isOpenEnded && !isLast && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="lg"
+              onClick={() => void finish()}
+              disabled={isFinishing}
+            >
+              <Flag aria-hidden />
+              Finish
             </Button>
           )}
         </div>

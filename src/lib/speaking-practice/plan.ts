@@ -7,10 +7,12 @@ import {
   MOCK_MAX_PART1_QUESTIONS,
   MOCK_MAX_PART3_QUESTIONS,
   PART1_PER_TOPIC,
+  allowsUnlimited,
   partConfig,
   type GeneralOptionId,
+  type QuestionCount,
 } from "./config";
-import { pickAcrossTopics, shuffle } from "./random";
+import { pickAcrossTopics, pickAllInRounds, shuffle } from "./random";
 import type { CueCardStep, QuestionStep, SpeakingSet, Step } from "./types";
 
 type Rand = () => number;
@@ -24,20 +26,30 @@ export function mockSetByNumber(n: number): SpeakingSet | undefined {
 
 type TopicPool = { topic: string; items: string[]; cueSet: number | null };
 
-/** Merge topics with the same title (Part 1 topics repeat across sets) and drop duplicate questions. */
+/**
+ * Merge topics with the same title (Part 1 topics repeat across sets) and keep each
+ * question once, even when the same wording appears under two topics.
+ */
 function buildPool(part: 1 | 3): TopicPool[] {
   const byTitle = new Map<string, TopicPool>();
+  const seen = new Set<string>();
   for (const set of IELTS_SETS) {
     const src = part === 1 ? set.part1 : set.part3;
     const key = src.title.trim().toLowerCase();
-    const existing = byTitle.get(key);
     const cueSet = part === 3 && set.part2 ? set.number : null;
-    if (!existing) {
-      byTitle.set(key, { topic: src.title, items: [...new Set(src.questions)], cueSet });
-      continue;
-    }
-    const merged = [...new Set([...existing.items, ...src.questions])];
-    byTitle.set(key, { ...existing, items: merged, cueSet: existing.cueSet ?? cueSet });
+    const fresh = src.questions.filter((q) => {
+      const k = q.trim().toLowerCase();
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+    const existing = byTitle.get(key);
+    byTitle.set(
+      key,
+      existing
+        ? { ...existing, items: [...existing.items, ...fresh], cueSet: existing.cueSet ?? cueSet }
+        : { topic: src.title, items: fresh, cueSet },
+    );
   }
   return [...byTitle.values()];
 }
@@ -93,33 +105,36 @@ function part3Steps(count: number, linkedSet: number | null, rand: Rand): Step[]
 
 export function buildGeneralSteps(
   optionId: GeneralOptionId,
-  count: number,
+  count: QuestionCount,
   rand: Rand = Math.random,
-): { steps: Step[]; label: string; parts: number[] } {
+): { steps: Step[]; label: string; parts: number[]; isOpenEnded: boolean } {
   const option = GENERAL_OPTIONS.find((o) => o.id === optionId) ?? GENERAL_OPTIONS[0];
+  const isOpenEnded = count === "unlimited" && allowsUnlimited(option.id);
+  const n = isOpenEnded ? Number.POSITIVE_INFINITY : typeof count === "number" ? count : 5;
   const steps: Step[] = [];
   let linkedSet: number | null = null;
 
   for (const part of option.parts) {
     if (part === 1) {
-      steps.push(
-        ...pickAcrossTopics(PART1_POOL, count, PART1_PER_TOPIC, rand).map(({ topic, item }) =>
-          questionStep(1, topic, item),
-        ),
-      );
+      const picked = isOpenEnded
+        ? pickAllInRounds(PART1_POOL, PART1_PER_TOPIC, rand)
+        : pickAcrossTopics(PART1_POOL, n, PART1_PER_TOPIC, rand);
+      steps.push(...picked.map(({ topic, item }) => questionStep(1, topic, item)));
     } else if (part === 2) {
-      const set = shuffle(MOCK_SETS, rand)[0];
-      const step = set ? cueCardStep(set) : null;
-      if (step && set) {
-        linkedSet = set.number;
-        steps.push(step);
+      // Part 2 only: `count` is the number of cue cards in a row.
+      const sets = shuffle(MOCK_SETS, rand).slice(0, n);
+      linkedSet = sets[0]?.number ?? null;
+      for (const set of sets) {
+        const step = cueCardStep(set);
+        if (step) steps.push(step);
       }
     } else {
-      steps.push(...part3Steps(count, linkedSet, rand));
+      steps.push(...part3Steps(n, linkedSet, rand));
     }
   }
 
-  return { steps, label: option.label, parts: [...option.parts] };
+  const label = isOpenEnded ? `${option.label} · Unlimited` : option.label;
+  return { steps, label, parts: [...option.parts], isOpenEnded };
 }
 
 /** A mock test runs exactly one set: its Part 1 topic, its cue card, then its Part 3 topic. */

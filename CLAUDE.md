@@ -74,6 +74,9 @@ admin/owner roles or student management).
   without a Part 2 cue card feed General Training only, not mock tests).
 - Timers, goal and options: `src/lib/speaking-practice/config.ts`. Plan building
   and mock rotation (no repeats until every set is done): `plan.ts`.
+- General Training offers 3/5/8/10 or **Unlimited** questions (Part 2: cue cards).
+  Unlimited walks the whole pool topic by topic until the student taps Finish;
+  it is not offered for Part 1 + Part 3.
 - Questions are read with browser speech synthesis. Recordings stay in the
   browser's IndexedDB (`recordings-db.ts`), never uploaded.
 - Signed-in students' own practice time is saved in `speaking_practice_sessions`
