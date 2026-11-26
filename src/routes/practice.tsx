@@ -51,7 +51,7 @@ const SECTIONS = [
     to: "/speaking",
     title: "Speaking",
     icon: Mic,
-    desc: "Model answers and topic practice",
+    desc: "Mock tests, model answers and topic practice",
     tile: "icon-tile-blue",
     accent: "var(--tint-blue-fg)",
     badgeTint: "badge-tint-info",
