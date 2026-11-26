@@ -27,7 +27,7 @@ export const GENERAL_OPTIONS = [
     id: "p2",
     parts: [2],
     label: "Part 2 only",
-    help: "One cue card: 1 minute to prepare, up to 2 minutes to speak",
+    help: "Cue cards: 1 minute to prepare, up to 2 minutes to speak",
   },
   { id: "p3", parts: [3], label: "Part 3 only", help: "Discussion questions on one topic" },
   {
@@ -40,8 +40,20 @@ export const GENERAL_OPTIONS = [
 
 export type GeneralOptionId = (typeof GENERAL_OPTIONS)[number]["id"];
 
-export const QUESTION_COUNTS = [3, 5, 8, 10] as const;
-export const DEFAULT_QUESTION_COUNT = 5;
+/** "unlimited": questions keep coming until the student taps Finish. */
+export type QuestionCount = number | "unlimited";
+
+export const QUESTION_COUNTS: readonly QuestionCount[] = [3, 5, 8, 10, "unlimited"];
+export const DEFAULT_QUESTION_COUNT: QuestionCount = 5;
+
+/** Part 2 only: how many cue cards in a row. */
+export const CUE_CARD_COUNTS: readonly QuestionCount[] = [1, 2, 3, "unlimited"];
+export const DEFAULT_CUE_CARD_COUNT: QuestionCount = 1;
+
+/** Options where "unlimited" makes sense (with Part 1 + Part 3, Part 3 would never start). */
+export function allowsUnlimited(optionId: GeneralOptionId): boolean {
+  return optionId !== "p1p3";
+}
 
 /** Part 1 in General Training takes at most this many questions from one topic. */
 export const PART1_PER_TOPIC = 4;

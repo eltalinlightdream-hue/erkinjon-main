@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AlertTriangle, ArrowLeft, Download, Mic, Trash2, Video } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Download, FolderOpen, Mic, Trash2, Video } from "lucide-react";
 import { toast } from "sonner";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
@@ -122,8 +122,16 @@ function Recordings() {
           <ArrowLeft className="size-4" aria-hidden />
           Speaking practice
         </Link>
-        <p className="eyebrow mb-3 text-primary">On this device only</p>
-        <h1 className="mb-3 font-serif text-4xl">My recordings</h1>
+        <div className="ink-bleed mb-10 text-center">
+          <p className="eyebrow mb-4 text-primary">On this device only</p>
+          <h1 className="mb-4 font-serif text-3xl md:text-4xl">My Recordings</h1>
+          <p className="mx-auto max-w-md text-muted-foreground">
+            Listen to your answers again and download the ones you want to keep.
+          </p>
+          <div className="ornament-rule mx-auto mt-8 max-w-xs" aria-hidden="true">
+            <span className="select-none font-serif text-lg leading-none">❦</span>
+          </div>
+        </div>
         <p className="mb-8 flex items-start gap-2 rounded-xl bg-[var(--tint-ochre-bg)] px-4 py-3 text-sm text-[var(--tint-ochre-fg)]">
           <AlertTriangle className="mt-0.5 size-4 shrink-0" aria-hidden />
           Recordings are never uploaded. Only the newest {MAX_RECORDINGS} are kept, and clearing
@@ -139,7 +147,10 @@ function Recordings() {
         {items === null ? (
           <p className="text-muted-foreground">Loading…</p>
         ) : items.length === 0 ? (
-          <div className="bento-card flex flex-col items-start gap-3 p-6">
+          <div className="bento-card flex flex-col items-center gap-3 p-8 text-center">
+            <span className="icon-tile icon-tile-blue mb-2 h-14 w-14">
+              <FolderOpen className="h-6 w-6" strokeWidth={1.5} />
+            </span>
             <p className="font-serif text-xl">No recordings yet.</p>
             <p className="text-sm text-muted-foreground">
               Choose “Audio” or “Video + audio” before you start a session to record yourself.

@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Dumbbell, FolderOpen, Timer } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
-import { ProgressPanel } from "@/components/speaking-practice/progress-panel";
-import { MOCK_SETS } from "@/lib/speaking-practice/plan";
+import { ProgressStrip } from "@/components/speaking-practice/progress-panel";
 
 export const Route = createFileRoute("/speaking_/practice")({
   head: () => ({
@@ -19,94 +19,108 @@ export const Route = createFileRoute("/speaking_/practice")({
   component: SpeakingPractice,
 });
 
+type Section = {
+  to: "/speaking/practice/mock" | "/speaking/practice/general" | "/speaking/practice/recordings";
+  title: string;
+  icon: LucideIcon;
+  desc: string;
+  tile: string;
+  accent: string;
+  badgeTint: string;
+  label: string;
+  cta: string;
+};
+
+const SECTIONS: Section[] = [
+  {
+    to: "/speaking/practice/mock",
+    title: "Mock Test",
+    icon: Timer,
+    desc: "A full speaking exam with real timings and no replay.",
+    tile: "icon-tile-coral",
+    accent: "var(--tint-coral-fg)",
+    badgeTint: "badge-tint-new",
+    label: "Parts 1–3 · 11–14 min",
+    cta: "Start",
+  },
+  {
+    to: "/speaking/practice/general",
+    title: "General Training",
+    icon: Dumbbell,
+    desc: "Practise one part at a time, as many questions as you like. Replay any question.",
+    tile: "icon-tile-green",
+    accent: "var(--tint-green-fg)",
+    badgeTint: "badge-tint-done",
+    label: "Part 1 · 2 · 3 · Unlimited",
+    cta: "Start",
+  },
+  {
+    to: "/speaking/practice/recordings",
+    title: "My Recordings",
+    icon: FolderOpen,
+    desc: "Listen to your answers again and download them.",
+    tile: "icon-tile-blue",
+    accent: "var(--tint-blue-fg)",
+    badgeTint: "badge-tint-info",
+    label: "On this device",
+    cta: "Open",
+  },
+];
+
 function SpeakingPractice() {
   return (
     <SiteLayout>
-      <section className="container mx-auto max-w-5xl px-4 py-12">
+      <section className="container mx-auto max-w-5xl px-4 py-16">
         <Link
           to="/speaking"
-          className="mb-8 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary"
+          className="mb-6 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary"
         >
           <ArrowLeft className="size-4" aria-hidden />
           Speaking
         </Link>
 
-        <div className="ink-bleed mb-10 max-w-2xl">
-          <p className="eyebrow mb-4 text-primary">Speak out loud, every day</p>
-          <h1 className="mb-4 font-serif text-4xl md:text-5xl">Speaking practice room</h1>
-          <p className="text-lg text-muted-foreground">
-            The examiner&apos;s questions are read aloud, the timer runs, and you answer — just like
-            test day. Record yourself and listen back; recordings never leave your device.
+        <div className="ink-bleed mb-12 text-center">
+          <p className="eyebrow mb-4 text-primary">IELTS Speaking</p>
+          <h1 className="mb-4 font-serif text-3xl text-foreground md:text-4xl">Practice Tests</h1>
+          <p className="mx-auto max-w-md text-muted-foreground">
+            Questions are read aloud and timed like the real exam. Answer out loud.
           </p>
+          <div className="ornament-rule mx-auto mt-8 max-w-xs" aria-hidden="true">
+            <span className="select-none font-serif text-lg leading-none">❦</span>
+          </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1fr_minmax(0,22rem)]">
-          <div className="flex flex-col gap-5">
-            <Reveal>
-              <Link to="/speaking/practice/mock" className="group block">
-                <article className="bento-card relative overflow-hidden p-7 sm:p-9">
+        <Reveal className="mb-8">
+          <ProgressStrip />
+        </Reveal>
+
+        <div className="grid gap-6 sm:grid-cols-3">
+          {SECTIONS.map((s, i) => (
+            <Reveal key={s.to} className="h-full" delay={i * 80}>
+              <Link to={s.to} className="block h-full">
+                <div className="bento-card group relative flex h-full cursor-pointer flex-col overflow-hidden p-8">
                   <span
-                    className="pointer-events-none absolute right-6 top-4 select-none font-serif text-[6rem] leading-none text-primary/10 sm:text-[8rem]"
-                    aria-hidden
+                    className={`icon-tile ${s.tile} mb-6 h-14 w-14 transition-transform duration-300 group-hover:-translate-y-1 group-active:-translate-y-1`}
                   >
-                    {MOCK_SETS.length}
+                    <s.icon className="h-6 w-6" strokeWidth={1.5} />
                   </span>
-                  <span className="icon-tile icon-tile-coral mb-6 h-14 w-14">
-                    <Timer className="h-6 w-6" strokeWidth={1.5} />
-                  </span>
-                  <p className="eyebrow mb-2 text-primary">Exam conditions</p>
-                  <h2 className="mb-2 font-serif text-2xl sm:text-3xl">Full mock test</h2>
-                  <p className="mb-6 max-w-md text-muted-foreground">
-                    Parts 1, 2 and 3 in order, with real timings and no replay. {MOCK_SETS.length}{" "}
-                    complete tests, never repeated until you have done them all.
+                  <h2 className="mb-2 font-serif text-xl text-foreground">{s.title}</h2>
+                  <p className="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {s.desc}
                   </p>
-                  <span className="inline-flex items-center gap-2 font-medium text-primary transition-transform duration-300 group-hover:translate-x-1">
-                    Start a mock test <ArrowRight className="size-4" />
+                  <div className="mb-6">
+                    <span className={`badge-tint ${s.badgeTint}`}>{s.label}</span>
+                  </div>
+                  <span
+                    className="inline-flex items-center gap-2 text-sm font-medium transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1"
+                    style={{ color: s.accent }}
+                  >
+                    {s.cta} <ArrowRight className="h-4 w-4" />
                   </span>
-                </article>
+                </div>
               </Link>
             </Reveal>
-
-            <div className="grid gap-5 sm:grid-cols-[1.4fr_1fr]">
-              <Reveal delay={80}>
-                <Link to="/speaking/practice/general" className="group block h-full">
-                  <article className="bento-card h-full p-6">
-                    <span className="icon-tile icon-tile-green mb-5 h-12 w-12">
-                      <Dumbbell className="h-5 w-5" strokeWidth={1.5} />
-                    </span>
-                    <h2 className="mb-1 font-serif text-xl">General training</h2>
-                    <p className="mb-4 text-sm text-muted-foreground">
-                      Pick Part 1, 2, 3 or Part 1 + 3. Random questions from every set, replay
-                      allowed.
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--tint-green-fg)] transition-transform duration-300 group-hover:translate-x-1">
-                      Train <ArrowRight className="size-4" />
-                    </span>
-                  </article>
-                </Link>
-              </Reveal>
-              <Reveal delay={160}>
-                <Link to="/speaking/practice/recordings" className="group block h-full">
-                  <article className="bento-card h-full p-6">
-                    <span className="icon-tile icon-tile-blue mb-5 h-12 w-12">
-                      <FolderOpen className="h-5 w-5" strokeWidth={1.5} />
-                    </span>
-                    <h2 className="mb-1 font-serif text-xl">My recordings</h2>
-                    <p className="mb-4 text-sm text-muted-foreground">
-                      Listen back and download. Kept on this device only.
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--tint-blue-fg)] transition-transform duration-300 group-hover:translate-x-1">
-                      Open <ArrowRight className="size-4" />
-                    </span>
-                  </article>
-                </Link>
-              </Reveal>
-            </div>
-          </div>
-
-          <Reveal delay={120}>
-            <ProgressPanel />
-          </Reveal>
+          ))}
         </div>
       </section>
     </SiteLayout>

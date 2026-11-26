@@ -31,3 +31,24 @@ export function pickAcrossTopics<T>(
   }
   return out;
 }
+
+/**
+ * Take every item, round by round: each round visits the groups in random order and
+ * takes up to `perTopic` new items from each, so topics change like in a real exam.
+ */
+export function pickAllInRounds<T>(
+  groups: readonly { topic: string; items: readonly T[] }[],
+  perTopic: number,
+  rand: () => number = Math.random,
+): { topic: string; item: T }[] {
+  const queues = groups.map((g) => ({ topic: g.topic, items: shuffle(g.items, rand) }));
+  const out: { topic: string; item: T }[] = [];
+  for (let round = 0; queues.some((q) => q.items.length > round * perTopic); round++) {
+    for (const q of shuffle(queues, rand)) {
+      for (const item of q.items.slice(round * perTopic, (round + 1) * perTopic)) {
+        out.push({ topic: q.topic, item });
+      }
+    }
+  }
+  return out;
+}

@@ -1,4 +1,4 @@
-import { AlertTriangle, Info, Mic, MicOff, Play, Video } from "lucide-react";
+import { AlertTriangle, Check, Info, Mic, MicOff, Play, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DeviceCheck } from "@/components/speaking-practice/device-check";
 import { stopStream } from "@/lib/speaking-practice/recorder";
@@ -6,9 +6,21 @@ import type { RecordingType } from "@/lib/speaking-practice/types";
 import { cn } from "@/lib/utils";
 
 const CHOICES = [
-  { type: "audio", label: "Audio", help: "Record your voice", Icon: Mic },
-  { type: "video", label: "Video + audio", help: "Record yourself with the camera", Icon: Video },
-  { type: "none", label: "No recording", help: "Just practise", Icon: MicOff },
+  { type: "audio", label: "Audio", help: "Record your voice", Icon: Mic, tile: "icon-tile-coral" },
+  {
+    type: "video",
+    label: "Video + audio",
+    help: "Record yourself with the camera",
+    Icon: Video,
+    tile: "icon-tile-blue",
+  },
+  {
+    type: "none",
+    label: "No recording",
+    help: "Just practise",
+    Icon: MicOff,
+    tile: "icon-tile-green",
+  },
 ] as const;
 
 type Props = {
@@ -49,15 +61,15 @@ export function RecordingStep({
 
   return (
     <div className="flex flex-col gap-6">
-      <section className="bento-card flex flex-col gap-5 p-5 sm:p-6">
-        <div>
-          <h2 className="font-serif text-xl">Recording</h2>
+      <section className="flex flex-col gap-4">
+        <div className="text-center">
+          <h2 className="font-serif text-xl">Do you want to record yourself?</h2>
           <p className="text-sm text-muted-foreground">
             Recordings stay only on this device. They are never uploaded.
           </p>
         </div>
-        <div role="radiogroup" aria-label="Recording" className="grid gap-3 sm:grid-cols-3">
-          {CHOICES.map(({ type, label, help, Icon }) => {
+        <div role="radiogroup" aria-label="Recording" className="grid gap-4 sm:grid-cols-3">
+          {CHOICES.map(({ type, label, help, Icon, tile }) => {
             const isSelected = type === recordingType;
             return (
               <button
@@ -67,19 +79,19 @@ export function RecordingStep({
                 aria-checked={isSelected}
                 onClick={() => choose(type)}
                 className={cn(
-                  "flex min-h-20 flex-col items-start gap-1 rounded-xl border-2 p-4 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                  isSelected
-                    ? "border-primary bg-[var(--terracotta-wash)]"
-                    : "border-border bg-card hover:border-primary/40",
+                  "bento-card relative flex h-full flex-col items-start p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  isSelected && "border-primary bg-[var(--terracotta-wash)] hover:border-primary",
                 )}
               >
-                <span className="flex items-center gap-2 font-medium">
-                  <Icon
-                    className={cn("size-5", isSelected ? "text-primary" : "text-muted-foreground")}
-                    aria-hidden
-                  />
-                  {label}
+                {isSelected && (
+                  <span className="absolute right-4 top-4 flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <Check className="size-3.5" aria-hidden />
+                  </span>
+                )}
+                <span className={`icon-tile ${tile} mb-5 h-12 w-12`}>
+                  <Icon className="h-5 w-5" strokeWidth={1.5} />
                 </span>
+                <span className="mb-1 font-serif text-lg text-foreground">{label}</span>
                 <span className="text-sm text-muted-foreground">{help}</span>
               </button>
             );
@@ -95,7 +107,7 @@ export function RecordingStep({
         )}
       </section>
 
-      <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+      <div className="mx-auto flex flex-col gap-2 text-sm text-muted-foreground">
         <p className="flex items-start gap-2">
           <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
           Questions are read aloud by your device&apos;s voice. Turn the sound on.
@@ -118,7 +130,7 @@ export function RecordingStep({
         </p>
       )}
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap justify-center gap-3">
         {onBack && (
           <Button type="button" variant="ghost" size="lg" onClick={onBack}>
             Back

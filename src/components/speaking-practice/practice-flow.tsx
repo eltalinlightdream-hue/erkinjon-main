@@ -9,7 +9,13 @@ import { RecordingStep } from "@/components/speaking-practice/recording-step";
 import { SessionRunner, type SessionOutcome } from "@/components/speaking-practice/session-runner";
 import { GeneralOptions, MockIntro } from "@/components/speaking-practice/setup-panels";
 import { saveSpeakingProgress, startSpeakingSession } from "@/lib/speaking-practice.functions";
-import { DEFAULT_QUESTION_COUNT, type GeneralOptionId } from "@/lib/speaking-practice/config";
+import {
+  DEFAULT_CUE_CARD_COUNT,
+  DEFAULT_QUESTION_COUNT,
+  allowsUnlimited,
+  type GeneralOptionId,
+  type QuestionCount,
+} from "@/lib/speaking-practice/config";
 import {
   buildGeneralSteps,
   buildMockSteps,
@@ -40,7 +46,8 @@ export function PracticeFlow({ mode }: { mode: PracticeMode }) {
 
   const [stage, setStage] = useState<Stage>("choose");
   const [optionId, setOptionId] = useState<GeneralOptionId>("p1");
-  const [count, setCount] = useState(DEFAULT_QUESTION_COUNT);
+  const [count, setCount] = useState<QuestionCount>(DEFAULT_QUESTION_COUNT);
+  const [cueCount, setCueCount] = useState<QuestionCount>(DEFAULT_CUE_CARD_COUNT);
   const [recordingType, setRecordingType] = useState<RecordingType>("audio");
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [plan, setPlan] = useState<SessionPlan | null>(null);
@@ -49,6 +56,11 @@ export function PracticeFlow({ mode }: { mode: PracticeMode }) {
   const [result, setResult] = useState<Result | null>(null);
   const [isIOS, setIsIOS] = useState(false);
   const sessionIdRef = useRef<string | null>(null);
+
+  // Part 2 counts cue cards; "Part 1 + Part 3" has no unlimited choice.
+  const partCount =
+    !allowsUnlimited(optionId) && count === "unlimited" ? DEFAULT_QUESTION_COUNT : count;
+  const effectiveCount = optionId === "p2" ? cueCount : partCount;
 
   useEffect(() => setIsIOS(detectIOS()), []);
   // Release the microphone/camera when it is replaced or the page closes.
@@ -98,10 +110,11 @@ export function PracticeFlow({ mode }: { mode: PracticeMode }) {
         steps: buildMockSteps(set),
         allowReplay: false,
         autoAdvance: true,
+        isOpenEnded: false,
         recordingType,
       };
     }
-    const general = buildGeneralSteps(optionId, count);
+    const general = buildGeneralSteps(optionId, effectiveCount);
     return {
       sessionId,
       mode,
@@ -109,6 +122,7 @@ export function PracticeFlow({ mode }: { mode: PracticeMode }) {
       steps: general.steps,
       allowReplay: true,
       autoAdvance: false,
+      isOpenEnded: general.isOpenEnded,
       recordingType,
     };
   }
@@ -204,13 +218,23 @@ export function PracticeFlow({ mode }: { mode: PracticeMode }) {
         Speaking practice
       </Link>
 
-      <header>
-        <p className="eyebrow mb-3 text-primary">
-          {mode === "mock" ? "Full exam · Parts 1–3" : "Choose what to practise"}
+      <header className="ink-bleed text-center">
+        <p className="eyebrow mb-4 text-primary">
+          {mode === "mock" ? "Full exam · Parts 1–3" : "Practise one part at a time"}
         </p>
-        <h1 className="font-serif text-3xl md:text-4xl">
-          {mode === "mock" ? "IELTS Speaking Mock Test" : "General Training"}
+        <h1 className="mb-4 font-serif text-3xl md:text-4xl">
+          {mode === "mock" ? "Mock Test" : "General Training"}
         </h1>
+        <p className="mx-auto max-w-md text-muted-foreground">
+          {stage === "record"
+            ? "Choose how to record, check your microphone, then start."
+            : mode === "mock"
+              ? "A complete IELTS Speaking test with real timings, just like test day."
+              : "Pick a part and how many questions. Every question can be replayed."}
+        </p>
+        <div className="ornament-rule mx-auto mt-8 max-w-xs" aria-hidden>
+          <span className="select-none font-serif text-lg leading-none">❦</span>
+        </div>
       </header>
 
       {!user && (
@@ -231,11 +255,18 @@ export function PracticeFlow({ mode }: { mode: PracticeMode }) {
             <GeneralOptions
               optionId={optionId}
               onOptionChange={setOptionId}
-              count={count}
+              count={partCount}
               onCountChange={setCount}
+              cueCount={cueCount}
+              onCueCountChange={setCueCount}
             />
           )}
-          <Button type="button" size="lg" onClick={() => setStage("record")} className="self-start">
+          <Button
+            type="button"
+            size="lg"
+            onClick={() => setStage("record")}
+            className="self-center"
+          >
             Next
             <ChevronRight aria-hidden />
           </Button>
