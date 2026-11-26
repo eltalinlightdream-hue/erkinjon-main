@@ -8,7 +8,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/use-auth";
+import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
+import { signInWithTelegram } from "@/lib/telegram.functions";
+import type { TelegramAuthPayload } from "@/lib/telegram-auth";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -182,36 +185,118 @@ function GoogleIcon() {
   );
 }
 
-function AppleIcon() {
+function TelegramIcon() {
   return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M16.36 12.78c.02 2.5 2.19 3.33 2.21 3.34-.02.06-.35 1.2-1.15 2.38-.69 1.02-1.41 2.04-2.54 2.06-1.11.02-1.47-.66-2.74-.66-1.27 0-1.66.64-2.71.68-1.09.04-1.92-1.1-2.62-2.12-1.43-2.08-2.52-5.87-1.05-8.43.73-1.27 2.03-2.07 3.45-2.09 1.07-.02 2.08.72 2.74.72.65 0 1.88-.89 3.17-.76.54.02 2.06.22 3.03 1.64-.08.05-1.81 1.06-1.79 3.16M14.3 4.15c.58-.7.97-1.68.86-2.65-.84.03-1.85.56-2.45 1.26-.54.62-1.01 1.61-.88 2.56.93.07 1.89-.47 2.47-1.17" />
+    <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="12" fill="#29A9EB" />
+      <path
+        fill="#fff"
+        d="M5.43 11.87l11.57-4.46c.54-.2 1 .13.83.94l-1.97 9.28c-.15.66-.54.82-1.09.51l-3-2.21-1.45 1.4c-.16.16-.3.29-.6.29l.21-3.05 5.56-5.02c.24-.21-.05-.33-.38-.12l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.15-.97z"
+      />
     </svg>
   );
 }
 
-/** Google / Apple OAuth sign-in buttons. */
-function SocialButtons() {
-  const [busy, setBusy] = useState<null | "google" | "apple">(null);
+const TELEGRAM_WIDGET_SRC = "https://telegram.org/js/telegram-widget.js?22";
+const TELEGRAM_BOT_ID = Number(import.meta.env.VITE_TELEGRAM_BOT_ID ?? 0);
 
-  const oauth = async (provider: "google" | "apple") => {
-    setBusy(provider);
+type TelegramLoginCallback = (user: TelegramAuthPayload | false) => void;
+
+declare global {
+  interface Window {
+    Telegram?: {
+      Login?: {
+        auth: (
+          options: { bot_id: number; request_access?: "write" },
+          callback: TelegramLoginCallback,
+        ) => void;
+      };
+    };
+  }
+}
+
+/**
+ * Preload Telegram's login script so the popup can open straight from the
+ * click; loading it after the click would lose the user gesture and the
+ * browser would block the popup.
+ */
+function useTelegramWidget(enabled: boolean): boolean {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (!enabled) return;
+    if (window.Telegram?.Login) {
+      setReady(true);
+      return;
+    }
+    let script = document.querySelector<HTMLScriptElement>(`script[src="${TELEGRAM_WIDGET_SRC}"]`);
+    if (!script) {
+      script = document.createElement("script");
+      script.src = TELEGRAM_WIDGET_SRC;
+      script.async = true;
+      document.head.appendChild(script);
+    }
+    const onLoad = () => setReady(Boolean(window.Telegram?.Login));
+    script.addEventListener("load", onLoad);
+    return () => script?.removeEventListener("load", onLoad);
+  }, [enabled]);
+
+  return ready;
+}
+
+/** Google / Telegram sign-in buttons. */
+function SocialButtons() {
+  const [busy, setBusy] = useState<null | "google" | "telegram">(null);
+  const telegramEnabled = TELEGRAM_BOT_ID > 0;
+  const telegramReady = useTelegramWidget(telegramEnabled);
+  const telegramSignIn = useServerFn(signInWithTelegram);
+
+  const google = async () => {
+    setBusy("google");
     try {
       // Use Supabase OAuth directly: the old Lovable broker (/~oauth/initiate)
       // only exists on Lovable hosting, so it 404s on our own domain.
       const { error } = await supabase.auth.signInWithOAuth({
-        provider,
+        provider: "google",
         options: { redirectTo: `${window.location.origin}/account` },
       });
       if (error) {
         toast.error(friendlyAuthError(error));
         setBusy(null);
       }
-      // On success the browser redirects to the provider, so nothing else runs here.
+      // On success the browser redirects to Google, so nothing else runs here.
     } catch (e) {
       toast.error(friendlyAuthError(e instanceof Error ? e : { message: String(e) }));
       setBusy(null);
     }
+  };
+
+  const finishTelegram = async (tgUser: TelegramAuthPayload | false) => {
+    if (!tgUser) {
+      setBusy(null);
+      return;
+    }
+    try {
+      const { tokenHash } = await telegramSignIn({ data: tgUser });
+      const { error } = await supabase.auth.verifyOtp({ token_hash: tokenHash, type: "magiclink" });
+      if (error) throw error;
+      // useAuth picks up the new session and AuthPage redirects to /account.
+    } catch (e) {
+      toast.error(friendlyAuthError(e instanceof Error ? e : { message: String(e) }));
+      setBusy(null);
+    }
+  };
+
+  const telegram = () => {
+    const login = window.Telegram?.Login;
+    if (!login) {
+      toast.error("Telegram is still loading. Please try again in a moment.");
+      return;
+    }
+    setBusy("telegram");
+    login.auth({ bot_id: TELEGRAM_BOT_ID, request_access: "write" }, (tgUser) => {
+      void finishTelegram(tgUser);
+    });
   };
 
   return (
@@ -221,7 +306,7 @@ function SocialButtons() {
         variant="outline"
         className="w-full gap-2"
         disabled={busy !== null}
-        onClick={() => oauth("google")}
+        onClick={google}
       >
         {busy === "google" ? (
           <Loader2 className="h-4 w-4 animate-spin" />
@@ -232,22 +317,24 @@ function SocialButtons() {
           </>
         )}
       </Button>
-      <Button
-        type="button"
-        variant="outline"
-        className="w-full gap-2"
-        disabled={busy !== null}
-        onClick={() => oauth("apple")}
-      >
-        {busy === "apple" ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
-        ) : (
-          <>
-            <AppleIcon />
-            Continue with Apple
-          </>
-        )}
-      </Button>
+      {telegramEnabled && (
+        <Button
+          type="button"
+          variant="outline"
+          className="w-full gap-2"
+          disabled={busy !== null || !telegramReady}
+          onClick={telegram}
+        >
+          {busy === "telegram" ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <>
+              <TelegramIcon />
+              Continue with Telegram
+            </>
+          )}
+        </Button>
+      )}
       <div className="relative py-1">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
